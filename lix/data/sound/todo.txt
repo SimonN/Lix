@@ -1,0 +1,28 @@
+These files still have to be remade, currently no sound is being
+played for them. The lix repo should only have free content.
+
+assign.wav    Assign a skill
+award_1.wav   first place
+award_2.wav   second place/tie for 1st
+award_3.wav   any place but the last
+award_4.wav   last place
+brick.wav     builder places last 3 bricks
+clock.wav     last 15 seconds: tick sound each second
+fire.wav      lix burns to death
+goal_bad.wav  lix walks into opponent's goal
+goal.wav      lix walks into correct goal
+jumper.wav
+lets_go.wav
+oblivion.wav
+ohno.wav
+ouch.wav
+overtime.wav
+panel.wav
+pop.wav
+roperhit.wav
+roper.wav
+splat.wav
+steel.wav
+todo.txt
+water.wav
+yippie.wav

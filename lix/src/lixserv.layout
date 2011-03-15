@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Server - Release" />
+	<File name="network\net_t.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="772" topLine="20" />
+	</File>
+	<File name="network\net_t.h" open="0" top="0" tabpos="0">
+		<Cursor position="532" topLine="0" />
+	</File>
+	<File name="network\permu.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1459" topLine="50" />
+	</File>
+	<File name="network\permu.h" open="0" top="0" tabpos="0">
+		<Cursor position="643" topLine="0" />
+	</File>
+	<File name="network\server.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="1847" topLine="64" />
+	</File>
+	<File name="network\server.h" open="0" top="0" tabpos="0">
+		<Cursor position="175" topLine="22" />
+	</File>
+	<File name="network\server_c.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="3706" topLine="110" />
+	</File>
+	<File name="other\globals.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="199" topLine="60" />
+	</File>
+	<File name="other\globals.h" open="0" top="0" tabpos="0">
+		<Cursor position="415" topLine="10" />
+	</File>
+	<File name="other\myalleg.h" open="0" top="0" tabpos="0">
+		<Cursor position="144" topLine="0" />
+	</File>
+	<File name="server\s_main.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="1408" topLine="25" />
+	</File>
+</CodeBlocks_layout_file>

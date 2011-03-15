@@ -1,0 +1,126 @@
+$BUILT 2008-06-01 00:00:00
+$AUTHOR Simon
+$GERMAN Eine Bruecke zum Ausgang
+$ENGLISH A Bridge to the Exit
+
+#SIZE_X 640
+#SIZE_Y 420
+#START_X 0
+#START_Y 0
+#SECONDS 120
+#LEMMINGS 30
+#REQUIRED 30
+#RATE 60
+
+#MINER 2
+#PLATFORMER 3
+#BUILDER 1
+
+:./bitmap/simon/hatch.H.bmp: 70 190
+
+:./bitmap/simon/goal.G.bmp: 546 270
+
+:./bitmap/simon/earth/grass6.bmp: 60 17
+:./bitmap/simon/earth/grass4.bmp: 337 46
+:./bitmap/simon/earth/rock4.bmp: 343 10
+:./bitmap/simon/earth/grass2.bmp: 310 3
+:./bitmap/simon/earth/grass1.bmp: 327 90
+:./bitmap/simon/earth/grass5.bmp: 274 100
+:./bitmap/simon/earth/earth4.bmp: 253 -10
+:./bitmap/simon/earth/grass7.bmp: 256 82
+:./bitmap/simon/earth/grass2.bmp: 168 135
+:./bitmap/simon/earth/grass6.bmp: 0 142
+:./bitmap/simon/earth/earth2.bmp: -41 -78
+:./bitmap/simon/earth/grass5.bmp: 212 231
+:./bitmap/simon/earth/grass2.bmp: 242 219
+:./bitmap/simon/brick/diag3.bmp: 414 220
+:./bitmap/simon/brick/diag2.bmp: 414 210
+:./bitmap/simon/brick/diag3.bmp: 440 260
+:./bitmap/simon/brick/brick1.bmp: 480 380
+:./bitmap/simon/brick/bricks1.bmp: 460 390
+:./bitmap/simon/brick/brick1.bmp: 340 380
+:./bitmap/simon/brick/brick1.bmp: 400 380
+:./bitmap/simon/brick/brick1.bmp: 380 380
+:./bitmap/simon/brick/column2.bmp: 340 360
+:./bitmap/simon/brick/vert2.bmp: 255 360
+:./bitmap/simon/brick/column2.bmp: 250 350
+:./bitmap/simon/brick/brick1.bmp: 260 340
+:./bitmap/simon/brick/diag1.bmp: 230 330
+:./bitmap/simon/brick/brick1.bmp: 250 330
+:./bitmap/simon/brick/broken2.bmp: 240 340
+:./bitmap/simon/brick/diag3.bmp: 390 270
+:./bitmap/simon/brick/diag2.bmp: 370 310
+:./bitmap/simon/brick/diag2.bmp: 430 330
+:./bitmap/simon/brick/broken2.bmp: 375 230
+:./bitmap/simon/earth/grass4.bmp: 125 288
+:./bitmap/simon/earth/grass1.bmp: 168 276
+:./bitmap/simon/earth/grass7.bmp: 19 319
+:./bitmap/simon/earth/grass3.bmp: 57 294
+:./bitmap/simon/earth/grass6.bmp: 25 338
+:./bitmap/simon/earth/grass2.bmp: 570 371
+:./bitmap/simon/brick/diag2.bmp: 470 370
+:./bitmap/simon/brick/brick1.bmp: 546 370
+:./bitmap/simon/brick/broken1.bmp: 596 380
+:./bitmap/simon/brick/broken2.bmp: 586 350
+:./bitmap/simon/brick/broken2.bmp: 420 400
+:./bitmap/simon/brick/broken1.bmp: 470 390
+:./bitmap/simon/brick/broken1.bmp: 440 360
+:./bitmap/simon/brick/column2.bmp: 556 380
+:./bitmap/simon/brick/vert2.bmp: 561 390
+:./bitmap/simon/brick/bricks1.bmp: 546 340
+:./bitmap/simon/brick/bricks2.bmp: 566 340
+:./bitmap/simon/brick/diag1.bmp: 390 410
+:./bitmap/simon/brick/diag1.bmp: 390 370
+:./bitmap/simon/brick/diag3.bmp: 330 390
+:./bitmap/simon/brick/diag4.bmp: 390 390
+:./bitmap/simon/brick/diag4.bmp: 390 350
+:./bitmap/simon/brick/diag3.bmp: 370 350
+:./bitmap/simon/brick/diag3.bmp: 320 360
+:./bitmap/simon/brick/bricks2.bmp: 400 370
+:./bitmap/simon/brick/bricks1.bmp: 410 340
+:./bitmap/simon/brick/bricks1.bmp: 370 320
+:./bitmap/simon/brick/vert1.bmp: 414 220
+:./bitmap/simon/brick/broken1.bmp: 310 290
+:./bitmap/simon/brick/broken1.bmp: 310 330
+:./bitmap/simon/brick/broken1.bmp: 360 280
+:./bitmap/simon/brick/broken1.bmp: 320 240
+:./bitmap/simon/brick/broken2.bmp: 360 380
+:./bitmap/simon/brick/broken2.bmp: 370 250
+:./bitmap/simon/brick/broken2.bmp: 300 260
+:./bitmap/simon/brick/diag1.bmp: 330 230
+:./bitmap/simon/brick/diag2.bmp: 350 230
+:./bitmap/simon/brick/bricks1.bmp: 390 240
+:./bitmap/simon/brick/bricks2.bmp: 310 260
+:./bitmap/simon/brick/bricks1.bmp: 350 240
+:./bitmap/simon/brick/bricks1.bmp: 310 240
+:./bitmap/simon/earth/earth5.bmp: 24 360
+:./bitmap/simon/earth/earth3.bmp: 44 300
+:./bitmap/simon/brick/bricks2.bmp: 300 310
+:./bitmap/simon/brick/bricks1.bmp: 596 390
+:./bitmap/simon/earth/rock1.bmp: 31 279
+:./bitmap/simon/earth/rock3.bmp: 116 375
+:./bitmap/simon/earth/earth_d2.bmp: 79 239
+:./bitmap/simon/brick/bricks2.bmp: 240 270
+:./bitmap/simon/brick/bricks2.bmp: 250 320
+:./bitmap/simon/brick/bricks2.bmp: 260 370
+:./bitmap/simon/brick/bricks2.bmp: 250 240
+:./bitmap/simon/brick/vert2.bmp: 345 370
+:./bitmap/simon/earth/grass5.bmp: 337 328
+:./bitmap/simon/brick/diag2.bmp: 440 250
+:./bitmap/simon/brick/diag2.bmp: 430 240
+:./bitmap/simon/brick/diag2.bmp: 420 230
+:./bitmap/simon/brick/diag2.bmp: 500 390
+:./bitmap/simon/brick/diag3.bmp: 370 300
+:./bitmap/simon/brick/diag3.bmp: 450 360
+:./bitmap/simon/earth/grass4.bmp: 540 356
+:./bitmap/simon/brick/diag4.bmp: 586 390
+:./bitmap/simon/earth/rock2.bmp: 160 271
+:./bitmap/simon/brick/brick1.bmp: 636 340
+:./bitmap/simon/brick/brick1.bmp: 636 380
+:./bitmap/simon/brick/brick1.bmp: 636 360
+:./bitmap/simon/earth/rock2.bmp: 240 57
+:./bitmap/simon/earth/earth1.bmp: 86 -11
+:./bitmap/simon/earth/grass5.bmp: 237 105
+:./bitmap/simon/earth/grass4.bmp: 122 122
+:./bitmap/simon/earth/grass7.bmp: 90 12
+:./bitmap/simon/earth/earth_d2.bmp: -28 -37

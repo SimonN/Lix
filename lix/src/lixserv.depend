@@ -1,0 +1,321 @@
+# depslib dependency file v1.0
+1256268324 source:c:\c\l++\src\other\net_c.cpp
+	<sstream>
+	<fstream>
+	"network.h"
+	"console.h"
+	"language.h"
+	"../level/level.h"
+
+1255851238 c:\c\l++\src\other\network.h
+	<list>
+	<string>
+	<vector>
+	"globals.h"
+	"net_t.h"
+
+1267940959 c:\c\l++\src\other\globals.h
+	<string>
+	"user.h"
+
+1267812347 c:\c\l++\src\other\user.h
+	<map>
+	<vector>
+	"date.h"
+
+1230897988 c:\c\l++\src\other\date.h
+	<string>
+	<ostream>
+
+1255883296 c:\c\l++\src\other\net_t.h
+	<./enet/enet.h>
+	<stdint.h>
+
+1222972194 c:\c\l++\src\other\console.h
+	<list>
+	<string>
+	"help.h"
+
+1253480901 c:\c\l++\src\other\help.h
+	<cstdlib>
+	<string>
+	<vector>
+	"globals.h"
+	"../graphic/glob_gfx.h"
+	"../graphic/torbit.h"
+
+1253151250 c:\c\l++\src\graphic\glob_gfx.h
+	"../other/myalleg.h"
+	<string>
+	<map>
+	<vector>
+	"cutbit.h"
+	"torbit.h"
+
+1254431491 c:\c\l++\src\other\myalleg.h
+	<allegro.h>
+
+1255981406 c:\c\l++\src\graphic\cutbit.h
+	<string>
+	<vector>
+	"torbit.h"
+
+1253049972 c:\c\l++\src\graphic\torbit.h
+	"../other/myalleg.h"
+
+1255621924 c:\c\l++\src\other\language.h
+	<string>
+	<vector>
+
+1256265286 c:\c\l++\src\level\level.h
+	<list>
+	<string>
+	"object.h"
+	"../gameplay/player.h"
+	"../other/date.h"
+	"../other/globals.h"
+
+1255669354 c:\c\l++\src\level\object.h
+	"../graphic/cutbit.h"
+	"../graphic/sound.h"
+
+1247010106 c:\c\l++\src\graphic\sound.h
+	<string>
+	<vector>
+	"../other/myalleg.h"
+
+1250515650 c:\c\l++\src\gameplay\player.h
+	<list>
+	"../lemming/lemming.h"
+	"../other/globals.h"
+
+1255988911 c:\c\l++\src\lemming\lemming.h
+	"../other/myalleg.h"
+	<map>
+	<string>
+	"../editor/graph_ed.h"
+	"../graphic/map.h"
+	"../graphic/graph_bg.h"
+	"../graphic/sound.h"
+
+1256271196 c:\c\l++\src\editor\graph_ed.h
+	"../graphic/graphic.h"
+	"../graphic/map.h"
+	"../level/object.h"
+
+1256271197 c:\c\l++\src\graphic\graphic.h
+	<string>
+	"glob_gfx.h"
+	"torbit.h"
+
+1255659815 c:\c\l++\src\graphic\map.h
+	"torbit.h"
+
+1252141474 c:\c\l++\src\graphic\graph_bg.h
+	"graphic.h"
+
+1255883100 source:c:\c\l++\src\other\net_t.cpp
+	<cstring>
+	"net_t.h"
+
+1255880932 source:c:\c\l++\src\other\network.cpp
+	"network.h"
+	"console.h"
+	"language.h"
+
+1254431031 source:c:\c\l++\src\other\log.cpp
+	"log.h"
+	"globals.h"
+	"language.h"
+	"help.h"
+	<cstdio>
+
+1254430887 c:\c\l++\src\other\log.h
+	<fstream>
+	<string>
+
+1267056397 source:c:\c\l++\src\network\server.cpp
+	<cstring>
+	"server.h"
+	"../other/globals.h"
+
+1267049230 c:\c\l++\src\network\server.h
+	<vector>
+	<string>
+	"net_t.h"
+	"permu.h"
+
+1267113078 c:\c\l++\src\network\net_t.h
+	<./enet/enet.h>
+	<stdint.h>
+
+1267443546 source:c:\c\l++\src\network\server_c.cpp
+	<iostream>
+	<fstream>
+	<list>
+	"server.h"
+
+1267144499 source:c:\c\l++\src\network\net_t.cpp
+	<cstring>
+	"net_t.h"
+
+1266678710 source:c:\c\l++\src\server\s_main.cpp
+	<iostream>
+	"../network/server.h"
+	"../network/net_t.h"
+	"../other/myalleg.h"
+
+1256497173 source:c:\c\l++\src\graphic\sound.cpp
+	"sound.h"
+	"../other/globals.h"
+
+1256456276 source:c:\c\l++\src\other\user.cpp
+	"user.h"
+	"language.h"
+	"io.h"
+	"../network/net_t.h"
+
+1234838169 c:\c\l++\src\other\io.h
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	"date.h"
+	"globals.h"
+
+1267220553 c:\c\l++\src\network\permu.h
+	<string>
+	<vector>
+
+1267244620 source:c:\c\l++\src\network\permu.cpp
+	<cstdlib>
+	<sstream>
+	"permu.h"
+
+1299105944 source:c:\c\lix\src\network\permu.cpp
+	<cstdlib>
+	<sstream>
+	"permu.h"
+
+1299105944 c:\c\lix\src\network\permu.h
+	<string>
+	<vector>
+
+1294223742 source:c:\c\lix\src\network\server.cpp
+	<cstring>
+	"server.h"
+	"../other/globals.h"
+
+1294223716 c:\c\lix\src\network\server.h
+	<vector>
+	<string>
+	"net_t.h"
+	"permu.h"
+
+1282304460 c:\c\lix\src\network\net_t.h
+	<./enet/enet.h>
+	<stdint.h>
+
+1298831428 c:\c\lix\src\other\globals.h
+	<string>
+
+1294235625 c:\c\lix\src\other\user.h
+	<map>
+	<vector>
+	"date.h"
+
+1230897988 c:\c\lix\src\other\date.h
+	<string>
+	<ostream>
+
+1299098902 source:c:\c\lix\src\network\server_c.cpp
+	<iostream>
+	<fstream>
+	<list>
+	"server.h"
+
+1281947714 source:c:\c\lix\src\network\net_t.cpp
+	<cstring>
+	"net_t.h"
+
+1299105376 source:c:\c\lix\src\server\s_main.cpp
+	"../other/myalleg.h"
+	<iostream>
+	"../other/globals.h"
+	"../network/server.h"
+
+1281809181 c:\c\lix\src\other\myalleg.h
+	<allegro.h>
+	<winalleg.h>
+
+1299098951 source:c:\c\lix\src\other\globals.cpp
+	"myalleg.h"
+	<fstream>
+	"io.h"
+
+1294268127 c:\c\lix\src\other\io.h
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	"date.h"
+	"globals.h"
+
+1281025804 c:\c\lix\src\other\language.h
+	<string>
+	<vector>
+
+1289698982 c:\c\lix\src\lix\lix_enum.h
+	<string>
+
+1294268127 source:c:\c\lix\src\other\io.cpp
+	"myalleg.h"
+	<sstream>
+	"io.h"
+
+1280980142 c:\c\lix\src\other\help.h
+	"myalleg.h"
+	<cstdlib>
+	<string>
+	<vector>
+	"globals.h"
+	"../network/net_t.h"
+	"../graphic/glob_gfx.h"
+	"../graphic/torbit.h"
+
+1293468532 c:\c\lix\src\graphic\glob_gfx.h
+	<string>
+	<map>
+	<vector>
+	"cutbit.h"
+	"torbit.h"
+
+1255981406 c:\c\lix\src\graphic\cutbit.h
+	<string>
+	<vector>
+	"torbit.h"
+
+1279631890 c:\c\lix\src\graphic\torbit.h
+	"../other/myalleg.h"
+
+1294237185 source:c:\c\lix\src\other\date.cpp
+	<ctime>
+	<sstream>
+	"date.h"
+
+1294236275 source:c:\c\lix\src\other\help.cpp
+	"../other/myalleg.h"
+	<cmath>
+	<iomanip>
+	<string>
+	<sstream>
+	<vector>
+	"user.h"
+	"help.h"
+	"log.h"
+	"../graphic/glob_gfx.h"
+
+1294223216 c:\c\lix\src\other\log.h
+	<fstream>
+	<string>
+
