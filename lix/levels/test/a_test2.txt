@@ -18,7 +18,7 @@ $ENGLISH                         Another testing level, it's all beta.
 #CLIMBER                                                            30
 #EXPLODER2                                                          30
 #BLOCKER                                                            30
-#BUILDER                                                            30
+#BUILDER                                                            70
 #PLATFORMER                                                         30
 #BASHER                                                             30
 #MINER                                                              30
