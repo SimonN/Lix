@@ -1,0 +1,11 @@
+# Lix .gitignore for everybody
+# If you wish to exclude files that only you have, use .git/info/exclude
+# instead of this file, which will affect all users and is versioned.
+
+# exclude all object files due to compiling code
+*.[oa]
+ 
+# exclude the log and config files in data/
+lix/data/config.txt
+lix/data/log.txt
+
