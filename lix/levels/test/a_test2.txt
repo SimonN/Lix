@@ -21,7 +21,7 @@ $ENGLISH                         Another testing level, it's all beta.
 #BUILDER                                                            70
 #PLATFORMER                                                         30
 #BASHER                                                             30
-#MINER                                                              10
+#MINER                                                              99
 
 :./bitmap/simon/hatch.H:                                 532       286
 :./bitmap/simon/hatch.H:                                 447       119
