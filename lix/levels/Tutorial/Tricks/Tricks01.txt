@@ -1,0 +1,71 @@
+$BUILT                                             2011-03-15 18:50:02
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                               Direction Force
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#START_X                                                             0
+#START_Y                                                             0
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#SECONDS                                                            90
+#INITIAL                                                            99
+#REQUIRED                                                           99
+#RATE                                                               99
+
+#BASHER                                                              2
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:./bitmap/Rebuilds/01 - Dirt/Hatch.H:                    -21       229
+:./bitmap/Rebuilds/01 - Dirt/Hatch.H:                    580       218     r
+
+:./bitmap/Rebuilds/01 - Dirt/Goal.G:                     303       339
+
+:./bitmap/Rebuilds/01 - Dirt/06:                         506       267
+:./bitmap/Rebuilds/01 - Dirt/07:                          81       266
+:./bitmap/Rebuilds/01 - Dirt/01:                         432       288
+:./bitmap/Rebuilds/01 - Dirt/02:                         177       261
+:./bitmap/Rebuilds/01 - Dirt/02:                         302       388
+:./bitmap/Rebuilds/01 - Dirt/02:                         492       320
+:./bitmap/Rebuilds/01 - Dirt/04:                        -128       328     r
+:./bitmap/Rebuilds/01 - Dirt/04:                        -109       223
+:./bitmap/Rebuilds/01 - Dirt/04:                          31       277
+:./bitmap/Rebuilds/01 - Dirt/04:                          29       350
+:./bitmap/Rebuilds/01 - Dirt/04:                          87       274
+:./bitmap/Rebuilds/01 - Dirt/04:                         141       279
+:./bitmap/Rebuilds/01 - Dirt/04:                         203       288
+:./bitmap/Rebuilds/01 - Dirt/04:                         211       314
+:./bitmap/Rebuilds/01 - Dirt/04:                         353       291
+:./bitmap/Rebuilds/01 - Dirt/04:                         355       288
+:./bitmap/Rebuilds/01 - Dirt/04:                         368       304
+:./bitmap/Rebuilds/01 - Dirt/04:                         419       303
+:./bitmap/Rebuilds/01 - Dirt/06:                         387       354
+:./bitmap/Rebuilds/01 - Dirt/04:                         382       329
+:./bitmap/Rebuilds/01 - Dirt/04:                         482       331
+:./bitmap/Rebuilds/01 - Dirt/08:                         609       249     r
+:./bitmap/Rebuilds/01 - Dirt/04:                         570       250
+:./bitmap/Rebuilds/01 - Dirt/04:                         565       332
+:./bitmap/Rebuilds/01 - Dirt/04:                         -67       291
+:./bitmap/Rebuilds/01 - Dirt/07:                         143       257
+:./bitmap/Rebuilds/01 - Dirt/00:                         101       260
+:./bitmap/Rebuilds/01 - Dirt/07:                         258       267
+:./bitmap/Rebuilds/01 - Dirt/00:                         224       272
+:./bitmap/Rebuilds/01 - Dirt/04:                         474       265
+:./bitmap/Rebuilds/01 - Dirt/03:                         589       263
+:./bitmap/Rebuilds/01 - Dirt/03:                        -121       272
+:./bitmap/Rebuilds/01 - Dirt/02:                          -1       368
+:./bitmap/Rebuilds/01 - Dirt/05:                          41       224     f
+:./bitmap/Tutorial Files/Tricks 001a:                      0         0
+:./bitmap/Tutorial Files/Tricks 001c:                    440         0
+:./bitmap/Tutorial Files/Tricks00b:                      222         0

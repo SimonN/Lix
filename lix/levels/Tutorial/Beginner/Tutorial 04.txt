@@ -1,0 +1,99 @@
+$BUILT                                             2011-03-15 15:31:06
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                            Mining and digging
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#START_X                                                             0
+#START_Y                                                             0
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#SECONDS                                                           150
+#INITIAL                                                            20
+#REQUIRED                                                           10
+#RATE                                                               50
+
+#CLIMBER                                                             0
+#FLOATER                                                             0
+#EXPLODER                                                            0
+#BLOCKER                                                             0
+#BUILDER                                                             0
+#BASHER                                                              0
+#MINER                                                               3
+#DIGGER                                                              3
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:./bitmap/Rebuilds/01 - Dirt/Hatch.H:                    512        16
+
+:./bitmap/Rebuilds/01 - Dirt/Goal.G:                      46       336
+
+:./bitmap/Rebuilds/01 - Dirt/12:                         576        64     r
+:./bitmap/Rebuilds/01 - Dirt/01:                         256       368
+:./bitmap/Rebuilds/01 - Dirt/01:                         224       384
+:./bitmap/Rebuilds/01 - Dirt/04:                         256       288
+:./bitmap/Rebuilds/01 - Dirt/06:                         400       146
+:./bitmap/Rebuilds/01 - Dirt/09:                         210       138
+:./bitmap/Rebuilds/01 - Dirt/09:                         610        16     f
+:./bitmap/Rebuilds/01 - Dirt/09:                         564        22     f
+:./bitmap/Rebuilds/01 - Dirt/09:                          84         4     f
+:./bitmap/Rebuilds/01 - Dirt/09:                         136         4     f
+:./bitmap/Rebuilds/01 - Dirt/09:                         320         2     f
+:./bitmap/Rebuilds/01 - Dirt/09:                         374         6     f
+:./bitmap/Rebuilds/01 - Dirt/13:                         624       192
+:./bitmap/Rebuilds/01 - Dirt/10:                          48       144
+:./bitmap/Rebuilds/01 - Dirt/04:                          64       144
+:./bitmap/Rebuilds/01 - Dirt/10:                         160       144
+:./bitmap/Rebuilds/01 - Dirt/10:                         256       144
+:./bitmap/Rebuilds/01 - Dirt/07:                         252       142
+:./bitmap/Rebuilds/01 - Dirt/10:                         384       144
+:./bitmap/Rebuilds/01 - Dirt/10:                         496       144
+:./bitmap/Rebuilds/01 - Dirt/10:                         -48       144
+:./bitmap/Rebuilds/01 - Dirt/12:                         -16       112
+:./bitmap/Rebuilds/01 - Dirt/12:                           0       128
+:./bitmap/Rebuilds/01 - Dirt/12:                          32       128
+:./bitmap/Rebuilds/01 - Dirt/12:                          48       144
+:./bitmap/Rebuilds/01 - Dirt/12:                          16       112
+:./bitmap/Rebuilds/01 - Dirt/12:                         -16        96
+:./bitmap/Rebuilds/01 - Dirt/13:                         -24        58
+:./bitmap/Rebuilds/01 - Dirt/12:                         -16       336     f
+:./bitmap/Rebuilds/01 - Dirt/12:                           0       352     f
+:./bitmap/Rebuilds/01 - Dirt/12:                          26       360     f
+:./bitmap/Rebuilds/01 - Dirt/12:                          16       336     f
+:./bitmap/Rebuilds/01 - Dirt/12:                         -16       320     f
+:./bitmap/Rebuilds/01 - Dirt/13:                         -16       288     f
+:./bitmap/Rebuilds/01 - Dirt/04:                         134       192     r
+:./bitmap/Rebuilds/01 - Dirt/04:                         256       160     r
+:./bitmap/Rebuilds/01 - Dirt/04:                         606        30
+:./bitmap/Rebuilds/01 - Dirt/04:                         464       176     r
+:./bitmap/Rebuilds/01 - Dirt/10:                         304       192
+:./bitmap/Rebuilds/01 - Dirt/16:                         -16       208     r
+:./bitmap/Rebuilds/01 - Dirt/09:                           0        16     f
+:./bitmap/Rebuilds/01 - Dirt/10:                         -48       -80
+:./bitmap/Rebuilds/01 - Dirt/06:                         208       -14     f
+:./bitmap/Rebuilds/01 - Dirt/10:                          96       -96
+:./bitmap/Rebuilds/01 - Dirt/10:                         208       -80
+:./bitmap/Rebuilds/01 - Dirt/06:                         528       -12     f
+:./bitmap/Rebuilds/01 - Dirt/10:                         352       -96
+:./bitmap/Rebuilds/01 - Dirt/10:                         528       -80
+:./bitmap/Rebuilds/01 - Dirt/07:                          56       236
+:./bitmap/Rebuilds/01 - Dirt/06:                         302       212
+:./bitmap/Rebuilds/01 - Dirt/07:                         580       200
+:./bitmap/Rebuilds/01 - Dirt/13:                         -23        20     f
+:./bitmap/Rebuilds/01 - Dirt/20:                          48       384
+:./bitmap/Rebuilds/01 - Dirt/12:                         -30       365     f
+:./bitmap/Rebuilds/01 - Dirt/12:                           2       365     f
+:./bitmap/Rebuilds/01 - Dirt/12:                         -23       379     f
+:./bitmap/Rebuilds/01 - Dirt/12:                           9       379     f
+:./bitmap/Rebuilds/01 - Dirt/20:                         144       384
+:./bitmap/Universal/32x32.S:                             480        64
+:./bitmap/Universal/32x64.S:                             480         0
+:./bitmap/Universal/32x32.S:                             512        64
+:./bitmap/Universal/32x32.S:                             544        64
+:./bitmap/Universal/32x32.S:                             608        64
+:./bitmap/Universal/32x64.S:                             608         0
+:./bitmap/Rebuilds/01 - Dirt/12:                         576        80     r
+:./bitmap/Tutorial Files/Tutorial 04:                    447       305

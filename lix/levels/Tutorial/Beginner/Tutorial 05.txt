@@ -1,0 +1,89 @@
+$BUILT                                             2011-03-15 17:05:07
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                Turning around
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#START_X                                                             0
+#START_Y                                                             0
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#SECONDS                                                            60
+#INITIAL                                                            16
+#REQUIRED                                                           16
+#RATE                                                               30
+
+#WALKER                                                              5
+#BUILDER                                                             1
+#MINER                                                               5
+#DIGGER                                                              5
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:./bitmap/Rebuilds/02 - Gold Mine/GoalTop.D:              66       144
+
+:./bitmap/Rebuilds/02 - Gold Mine/Hatch.H:               162       172
+
+:./bitmap/Rebuilds/02 - Gold Mine/Goal.G:                 68       184
+
+:./bitmap/Universal/48x48.S:                               0       224
+:./bitmap/Universal/48x48.S:                              48       224
+:./bitmap/Universal/48x48.S:                              96       224
+:./bitmap/Universal/48x48.S:                             144       224
+:./bitmap/Universal/48x48.S:                             192       224
+:./bitmap/Universal/48x48.S:                             240       224
+:./bitmap/Universal/48x48.S:                             288       224
+:./bitmap/Universal/48x48.S:                             336       224
+:./bitmap/Universal/48x48.S:                             384       224
+:./bitmap/Universal/48x48.S:                             432       224
+:./bitmap/Universal/48x48.S:                             480       224
+:./bitmap/Universal/48x48.S:                               0       272
+:./bitmap/Universal/48x48.S:                               0       320
+:./bitmap/Universal/48x48.S:                               0       368
+:./bitmap/Universal/48x48.S:                               0        80
+:./bitmap/Universal/48x48.S:                               0       128
+:./bitmap/Universal/48x48.S:                               0        32
+:./bitmap/Universal/48x48.S:                               0       176
+:./bitmap/Universal/32x16.S:                             240       176
+:./bitmap/Universal/32x16.S:                             272       176
+:./bitmap/Universal/32x16.S:                             304       176
+:./bitmap/Universal/32x16.S:                             336       176
+:./bitmap/Universal/32x16.S:                             368       176
+:./bitmap/Universal/32x16.S:                             400       176
+:./bitmap/Universal/32x16.S:                             176       176
+:./bitmap/Universal/32x16.S:                             208       176
+:./bitmap/Universal/32x16.S:                             432       176
+:./bitmap/Universal/32x16.S:                             464       176
+:./bitmap/Universal/32x16.S:                             496       176
+:./bitmap/Universal/32x16.S:                             528       176
+:./bitmap/Universal/48x48.S:                             480       320
+:./bitmap/Universal/48x48.S:                             480       368
+:./bitmap/Universal/48x48.S:                             480       272
+:./bitmap/Universal/32x16.S:                             608       192     r
+:./bitmap/Universal/32x16.S:                             608       224     r
+:./bitmap/Universal/32x16.S:                             608       256     r
+:./bitmap/Universal/32x16.S:                             608       288     r
+:./bitmap/Universal/32x16.S:                             608       320     r
+:./bitmap/Universal/32x16.S:                             608       352     r
+:./bitmap/Universal/32x16.S:                             608       384     r
+:./bitmap/Universal/32x16.S:                             176        16     r
+:./bitmap/Universal/32x16.S:                             176        48     r
+:./bitmap/Universal/32x16.S:                             176        80     r
+:./bitmap/Universal/32x16.S:                             176       112     r
+:./bitmap/Universal/32x16.S:                             176       144     r
+:./bitmap/Universal/32x16.S:                              48        16
+:./bitmap/Universal/32x16.S:                              80        16
+:./bitmap/Universal/32x16.S:                             112        16
+:./bitmap/Universal/32x16.S:                             144        16
+:./bitmap/Universal/32x16.S:                             -16        16
+:./bitmap/Universal/32x16.S:                              16        16
+:./bitmap/Universal/32x16.S:                             560       176
+:./bitmap/Universal/32x16.S:                             592       176
+:./bitmap/Tutorial Files/Tutorial 05:                    303        33
