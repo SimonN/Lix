@@ -5,7 +5,13 @@
 # exclude all object files due to compiling code
 *.[oa]
  
-# exclude the log and config files in data/
+# exclude the user data, log and config files in data/
+lix/data/user/*.txt
 lix/data/config.txt
 lix/data/log.txt
+
+# exclude Lemmings legacy terrain in case the user still uses it
+lix/bitmap/orig/L1/*
+lix/bitmap/orig/L1/*/*
+lix/bitmap/orig/L2/*/*
 
