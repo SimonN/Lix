@@ -22,10 +22,10 @@ Torbit *pre_screen;
 std::vector <int> color(COL_MAX);
 
 // Schriftarten
-FONT* font_sml;
-FONT* font_med;
-FONT* font_nar;
-FONT* font_big;
+ALLEGRO_FONT* font_sml;
+ALLEGRO_FONT* font_med;
+ALLEGRO_FONT* font_nar;
+ALLEGRO_FONT* font_big;
 
 // Diese werden in load_all_bitmaps() aufgerufen
 void make_all_colors();
@@ -106,7 +106,7 @@ void destroy_all_bitmaps()
 // Beim ersten Zeichnen auf jeden Fall mit ggf. farbigem Trauerrand zeichnen
 bool clear_screen_at_next_blit = true;
 
-void blit_to_screen(BITMAP* b)
+void blit_to_screen(ALLEGRO_BITMAP* b)
 {
     const bool screen_aspect_ratio    = useR->screen_scaling >  0;
     const bool screen_integer_scaling = useR->screen_scaling == 2;

@@ -20,7 +20,7 @@
 #include "../network/net_t.h"    // Uint32
 
 #include "../graphic/glob_gfx.h" // Standardfarbe fuer Schattentext
-#include "../graphic/torbit.h"   // Textzeichnen auf Torus statt BITMAP*
+#include "../graphic/torbit.h"   // Textzeichnen auf Torus statt ALLEGRO_BITMAP*
 
 namespace Help {
 
@@ -49,33 +49,33 @@ namespace Help {
     void string_remove_extension(std::string&);
     void string_remove_dir      (std::string&);
     void string_cut_to_dir      (std::string&);
-    void string_shorten         (std::string&, const FONT*, const int);
+    void string_shorten         (std::string&, const ALLEGRO_FONT*, const int);
     std::string
          string_get_extension    (const std::string&);
     char string_get_pre_extension(const std::string&); // 0, wenn keine
     bool string_ends_with        (const std::string&, const std::string&);
 
-    void draw_shaded_text         (Torbit&, FONT*, const char*,
+    void draw_shaded_text         (Torbit&, ALLEGRO_FONT*, const char*,
                                    int, int, int, int, int);
-    void draw_shadow_text         (Torbit&, FONT*, const char*,
+    void draw_shadow_text         (Torbit&, ALLEGRO_FONT*, const char*,
                                 // x    y    Farbe, Schattenfarbe
                                    int, int, int = color[COL_TEXT],
                                    int = color[COL_API_SHADOW]);
 
-    void draw_shaded_centered_text(Torbit&, FONT*, const char*,
+    void draw_shaded_centered_text(Torbit&, ALLEGRO_FONT*, const char*,
                                    int, int, int, int, int);
-    void draw_shadow_centered_text(Torbit&, FONT*, const char*,
+    void draw_shadow_centered_text(Torbit&, ALLEGRO_FONT*, const char*,
                                 // x    y    Farbe, Schattenfarbe
                                    int, int, int = color[COL_TEXT],
                                    int = color[COL_API_SHADOW]);
 
-    void draw_shadow_fixed_number (Torbit&, FONT*,
+    void draw_shadow_fixed_number (Torbit&, ALLEGRO_FONT*,
                                    int, int, int, int=color[COL_TEXT],
                                    bool = false, int=color[COL_API_SHADOW]);
-    void draw_shadow_fixed_text   (Torbit&, FONT*, const std::string&,
+    void draw_shadow_fixed_text   (Torbit&, ALLEGRO_FONT*, const std::string&,
                                    int, int, int=color[COL_TEXT], bool = false,
                                    int=color[COL_API_SHADOW]);
-    void draw_shadow_fixed_updates_used(Torbit&, FONT*,
+    void draw_shadow_fixed_updates_used(Torbit&, ALLEGRO_FONT*,
                                    int, int, int, int=color[COL_TEXT],
                                    bool = false,  int=color[COL_API_SHADOW]);
 

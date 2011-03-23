@@ -336,8 +336,8 @@ void Map::load_masked_screen_rectangle(Torbit& src)
     const bool& ty = get_torus_y();
     const int min_w = screen_xl;
     const int min_h = screen_yl;
-    BITMAP* s = src.get_al_bitmap();
-    BITMAP* b =     get_al_bitmap();
+    ALLEGRO_BITMAP* s = src.get_al_bitmap();
+    ALLEGRO_BITMAP* b =     get_al_bitmap();
                 masked_blit(s, b, x,    y,    x,    y,    min_w, min_h);
     if (tx)     masked_blit(s, b, x-xl, y,    x-xl, y,    min_w, min_h);
     if (ty)     masked_blit(s, b, x,    y-yl, x,    y-yl, min_w, min_h);
@@ -354,7 +354,7 @@ void Map::clear_screen_rectangle(int col)
     const int&  y2 = get_yl();
     const bool& tx = get_torus_x();
     const bool& ty = get_torus_y();
-    BITMAP* b = get_al_bitmap();
+    ALLEGRO_BITMAP* b = get_al_bitmap();
                 rectfill(b, x1, y1, x2, y2, col);
     if (tx)     rectfill(b, 0,  y1, x1, y2, col);
     if (ty)     rectfill(b, x1, 0,  x2, y1, col);

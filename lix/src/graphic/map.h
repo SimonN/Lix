@@ -48,7 +48,7 @@
  *   des Zooms und der Scroll-Koordinaten. Die Zahl ist immer mindestens 0
  *   und hoechstens (Kartenlaenge - 1), auch bei Toruskarten.
  *
- * void draw(BITMAP*, bool manual_zoom = false)
+ * void draw(ALLEGRO_BITMAP*, bool manual_zoom = false)
  *
  *   Dies zeichnet den durch das Scrolling festgelegten Ausschnitt der Karte
  *   auf das angegebene Bitmap. Dieses sollte eines der Video-Bitmaps für das
@@ -68,7 +68,7 @@
  *   hinaus. Wird wieder herausgezoomt, werden diese uebermaessigen Scroll-
  *   Koordinaten korrigiert.
  *
- * void load_masked_screen_rectangle(BITMAP*);
+ * void load_masked_screen_rectangle(ALLEGRO_BITMAP*);
  *
  *   Macht nur etwas, wenn das angegebene Quellbitmap dieselbe Groesse hat
  *   wie die Karte. In diesem Fall kopiert ein Rechteck von der Quelle auf

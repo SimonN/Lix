@@ -91,10 +91,12 @@ public:
 
 private:
 
+    struct ALLEGRO_SAMPLE {}; // afdebug
+
     class Sample {
     private:
         std::string filename;
-        SAMPLE*     sample;
+        ALLEGRO_SAMPLE* sample;
         bool        unique;        // vor Neuabspiel: den Alten ggf. stoppen
         bool        loud;          // vorgemerkt zum Abspiel, normale Lautst.
         bool        quiet;         // vorgemerkt zum Abspiel recht leise
@@ -107,7 +109,7 @@ private:
         Sample& operator = (const Sample&);
 
         inline const std::string& get_filename() const { return filename; }
-        inline const bool         get_unique()   const { return unique;   }
+        inline       bool         get_unique()   const { return unique;   }
         inline       void         set_unique(bool b = true) { unique = b; }
         inline       void         set_loud  (bool b = true) { loud   = b; }
         inline       void         set_quiet (bool b = true) { quiet  = b; }

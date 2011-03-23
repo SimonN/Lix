@@ -37,7 +37,7 @@ Cutbit::Cutbit(const Cutbit& c)
 
 
 
-Cutbit::Cutbit(BITMAP* b, const bool cut)
+Cutbit::Cutbit(ALLEGRO_BITMAP* b, const bool cut)
 :
     bitmap(b),
     xl(0),
@@ -55,7 +55,7 @@ Cutbit::Cutbit(BITMAP* b, const bool cut)
 
 
 
-Cutbit::Cutbit(const std::vector <BITMAP*>& vec)
+Cutbit::Cutbit(const std::vector <ALLEGRO_BITMAP*>& vec)
 :
     bitmap(0),
     xl(0),
@@ -78,7 +78,7 @@ Cutbit::Cutbit(const std::vector <BITMAP*>& vec)
     else {
         xl = vec[0]->w;
         yl = vec[0]->h;
-        for (std::vector <BITMAP*> ::const_iterator
+        for (std::vector <ALLEGRO_BITMAP*> ::const_iterator
          itr = vec.begin(); itr != vec.end(); ++itr)
          if ((*itr)->w != xl || (*itr)->h != yl) return;
 
@@ -249,11 +249,11 @@ void Cutbit::draw(
     const double scal,
     const Mode   mode) const
 {
-    BITMAP* target = target_torbit.get_al_bitmap();
+    ALLEGRO_BITMAP* target = target_torbit.get_al_bitmap();
     if (bitmap && fx >= 0 && fy >= 0 && fx < x_frames && fy < y_frames) {
         // Schneide zunaechst ein Subbitmap aus unter Beachtung der Framewahl
         // Hat das Bild keine Frames, entfaellt +1 fuer den aeusseren Rahmen.
-        BITMAP* sprite;
+        ALLEGRO_BITMAP* sprite;
         if (x_frames == 1 && y_frames == 1)
              sprite = create_sub_bitmap(bitmap, 0, 0, xl, yl);
         else sprite = create_sub_bitmap(bitmap, fx * (xl+1) + 1,

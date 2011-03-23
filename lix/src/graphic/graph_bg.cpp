@@ -29,7 +29,7 @@ GraphicBG& GraphicBG::operator = (const GraphicBG& o)
 {
     Graphic::operator = (o);
     // Umweg ueber temporaeren Zeiger macht Selbstzuweisung absturzfrei
-    BITMAP* temp = create_bitmap(get_xl(), get_yl());
+    ALLEGRO_BITMAP* temp = create_bitmap(get_xl(), get_yl());
     blit(o.bg, temp, 0, 0, 0, 0, get_xl(), get_yl());
     destroy_bitmap(bg);
     bg = temp;

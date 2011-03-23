@@ -179,7 +179,7 @@ void ObjLib::load_vgaspec(const int id)
 
     const Crunch::File* crunchfile = Crunch::get_file(filename_vspec.str());
     if (crunchfile && crunchfile->size() == 1) {
-        BITMAP* spec_bitmap
+        ALLEGRO_BITMAP* spec_bitmap
          = GraphicSetL1::new_read_spec_bitmap((*crunchfile)[0]);
         vgaspec[id] = new Object(Cutbit(spec_bitmap, false));
     }

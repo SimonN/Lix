@@ -62,11 +62,11 @@ private:
 
 	void desuckify_section(SectionType);
 
-	BITMAP* new_read_bitmap(const Crunch::Section&, int, int, int);
-	void sprite_blit_bitmap(BITMAP*, int, int, int);
-	void piece_blit_bitmap (BITMAP*, const Crunch::Section&,
+	ALLEGRO_BITMAP* new_read_bitmap(const Crunch::Section&, int, int, int);
+	void sprite_blit_bitmap(ALLEGRO_BITMAP*, int, int, int);
+	void piece_blit_bitmap (ALLEGRO_BITMAP*, const Crunch::Section&,
 	                                 int, int, int, int, int);
-	void l2ss_blit_bitmap  (BITMAP*, int, int, int);
+	void l2ss_blit_bitmap  (ALLEGRO_BITMAP*, int, int, int);
 
 };
 

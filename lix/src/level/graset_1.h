@@ -22,7 +22,7 @@ public:
                  const std::vector <int>&,  // all steel ids
                  const std::vector <int>&); // all waving flag ids
 
-    static BITMAP* new_read_spec_bitmap(const Crunch::Section&);
+    static ALLEGRO_BITMAP* new_read_spec_bitmap(const Crunch::Section&);
 
 private:
 
@@ -69,6 +69,6 @@ private:
     void make_specials(const Crunch::Section&, const std::vector <int>&);
     void make_terrain (const Crunch::Section&, const std::vector <int>&);
 
-    BITMAP* new_read_bitmap(const Crunch::Section&, int, int, int, int);
+    ALLEGRO_BITMAP* new_read_bitmap(const Crunch::Section&, int, int, int, int);
 
 };

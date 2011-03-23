@@ -15,7 +15,7 @@ Frame::~Frame()
 void Frame::draw_self()
 {
     // Diese hier machen das Zeichnen übersichtlicher.
-    BITMAP* g    = get_ground().get_al_bitmap();
+    ALLEGRO_BITMAP* g    = get_ground().get_al_bitmap();
     const int x1 = get_x_here() - 2;
     const int y1 = get_y_here() - 2;
     const int x2 = get_x_here() + 1 + get_xl();

@@ -44,7 +44,7 @@ public:
     inline const Cutbit* get_cutbit() const          { return cutbit; }
     inline void          set_cutbit(const Cutbit& c) { cutbit = &c;   }
 
-    inline BITMAP* get_al_bitmap()  { return cutbit->get_al_bitmap(); }
+    inline ALLEGRO_BITMAP* get_al_bitmap()  { return cutbit->get_al_bitmap(); }
     inline Torbit& get_ground()                    { return ground;   }
     inline void    set_ground(Torbit& gr)          { ground = gr;     }
 

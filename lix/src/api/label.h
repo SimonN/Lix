@@ -41,7 +41,7 @@ public:
           int          get_color()  const { return color; }
           int          get_number() const; // only useful if the text is an int
 
-    void set_font      (FONT* f) { font = f; }
+    void set_font      (ALLEGRO_FONT* f) { font = f; }
     void set_text      (const std::string& = "");
     void set_number    (const int);
     void set_align     (const Align&);
@@ -49,7 +49,7 @@ public:
 
 private:
 
-    FONT*       font;
+    ALLEGRO_FONT*       font;
     std::string text;
     Align       align;
     int         color;

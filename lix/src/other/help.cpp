@@ -152,7 +152,7 @@ void string_cut_to_dir(std::string& s) {
             s.erase(++i, s.end());
             break;
 }   }   }
-void string_shorten(std::string& s, const FONT* ft, const int length) {
+void string_shorten(std::string& s, const ALLEGRO_FONT* ft, const int length) {
     if (text_length(ft, s.c_str()) > length) {
         while (text_length(ft, s.c_str()) > length - text_length(ft, "..."))
          s.resize(s.size() - 1);
@@ -203,30 +203,30 @@ bool string_ends_with(const std::string& s, const std::string& tail)
 
 
 
-void draw_shaded_text(Torbit& bmp, FONT* f, const char* s,
+void draw_shaded_text(Torbit& bmp, ALLEGRO_FONT* f, const char* s,
  int x, int y, int r, int g, int b) {
     textout_ex(bmp.get_al_bitmap(), f, s, x+2, y+2, makecol(r/4, g/4, b/4),-1);
     textout_ex(bmp.get_al_bitmap(), f, s, x+1, y+1, makecol(r/2, g/2, b/2),-1);
     textout_ex(bmp.get_al_bitmap(), f, s, x  , y  , makecol(r  , g  , b  ),-1);
 }
 void draw_shadow_text(
- Torbit& bmp, FONT* f, const char* s, int x, int y, int c, int sc) {
+ Torbit& bmp, ALLEGRO_FONT* f, const char* s, int x, int y, int c, int sc) {
     textout_ex(bmp.get_al_bitmap(), f, s, x+1, y+1, sc, -1);
     textout_ex(bmp.get_al_bitmap(), f, s, x  , y  , c,  -1);
 }
-void draw_shaded_centered_text(BITMAP *bmp, FONT* f, const char* s,
+void draw_shaded_centered_text(ALLEGRO_BITMAP *bmp, ALLEGRO_FONT* f, const char* s,
  int x, int y, int r, int g, int b) {
     textout_centre_ex(bmp, f, s, x+1, y+2, makecol(r/4, g/4, b/4), -1);
     textout_centre_ex(bmp, f, s, x  , y+1, makecol(r/2, g/2, b/2), -1);
     textout_centre_ex(bmp, f, s, x-1, y  , makecol(r  , g  , b  ), -1);
 }
 void draw_shadow_centered_text(
- Torbit& bmp, FONT* f, const char* s, int x, int y, int c, int sc) {
+ Torbit& bmp, ALLEGRO_FONT* f, const char* s, int x, int y, int c, int sc) {
     textout_centre_ex(bmp.get_al_bitmap(), f, s, x+1, y+1, sc, -1);
     textout_centre_ex(bmp.get_al_bitmap(), f, s, x  , y  , c,  -1);
 }
 void draw_shadow_fixed_number(
- Torbit& bmp, FONT* f, int number, int x, int y,
+ Torbit& bmp, ALLEGRO_FONT* f, int number, int x, int y,
  int c, bool right_to_left, int sc) {
     std::ostringstream s;
     s << number;
@@ -234,7 +234,7 @@ void draw_shadow_fixed_number(
      f, s.str(), x, y, c, right_to_left, sc);
 }
 void draw_shadow_fixed_text(
- Torbit& bmp, FONT* f, const std::string& s, int x, int y,
+ Torbit& bmp, ALLEGRO_FONT* f, const std::string& s, int x, int y,
  int c, bool right_to_left, int sc) {
     char ch[2]; ch[1] = '\0';
     for (std::string::const_iterator i
@@ -251,7 +251,7 @@ void draw_shadow_fixed_text(
     }
 }
 void draw_shadow_fixed_updates_used(
- Torbit& bmp, FONT* f, int number, int x, int y,
+ Torbit& bmp, ALLEGRO_FONT* f, int number, int x, int y,
  int c, bool right_left, int sc) {
     // Minuten
     std::ostringstream s;

@@ -459,7 +459,7 @@ void GameplayStats::draw_self()
 void GameplayStats::draw_button_connection()
 {
     // Code taken from api/button.cpp
-    BITMAP* g    = get_ground().get_al_bitmap();
+    ALLEGRO_BITMAP* g    = get_ground().get_al_bitmap();
     const int x1 = stats_multi.get_x_here() - 2;
     const int y1 = stats_multi.get_y_here();
     const int x2 = stats_multi.get_x_here() + 1;

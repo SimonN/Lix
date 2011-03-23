@@ -54,6 +54,18 @@ Torbit& Torbit::operator = (const Torbit& orig)
 
 
 
+int Torbit::get_xl() const {
+     return bitmap ? al_get_bitmap_width(bitmap) : 0;
+}
+
+
+
+int Torbit::get_yl() const {
+     return bitmap ? al_get_bitmap_height(bitmap) : 0;
+}
+
+
+
 void Torbit::resize(int xl, int yl)
 {
     if (xl < 1) xl = 1;
@@ -147,7 +159,7 @@ void Torbit::draw_rectangle_private(
     int x,  int y,
     int xl, int yl,
     const int col,
-    void (*func)(BITMAP*, int, int, int, int, int)
+    void (*func)(ALLEGRO_BITMAP*, int, int, int, int, int)
 ) {
     if (!bitmap) return;
     if (torus_x) x = Help::mod(x, bitmap->w);
@@ -221,7 +233,7 @@ void Torbit::rcir_at(
 // die aufs Torbit malt und prueft, ob das Ziel torusfoermig ist. Eigentlich
 // sollten beide Dinge von einer Funktion beherrscht werden.
 void Torbit::draw(
-    BITMAP* dest,
+    ALLEGRO_BITMAP* dest,
     int x,  int y,
     int xl, int yl) const
 {
@@ -249,7 +261,7 @@ void Torbit::draw(Torbit& target, int x, int y) const
 
 
 void Torbit::draw_from(
-    BITMAP* bit, int x, int y,
+    ALLEGRO_BITMAP* bit, int x, int y,
     bool mirr, double rot, double scal)
 {
     if (!bit || !bitmap) return;
@@ -291,11 +303,11 @@ void Torbit::draw_from(
 
 
 void Torbit::draw_from_at(
-    BITMAP* bit,
+    ALLEGRO_BITMAP* bit,
     int x,
     int y,
-    void (*arg4)(BITMAP*, BITMAP*, int, int),
-    void (*arg6)(BITMAP*, BITMAP*, int, int, fixed, fixed),
+    void (*arg4)(ALLEGRO_BITMAP*, ALLEGRO_BITMAP*, int, int),
+    void (*arg6)(ALLEGRO_BITMAP*, ALLEGRO_BITMAP*, int, int, fixed, fixed),
     double rot,
     double scal
 ) {
@@ -303,7 +315,7 @@ void Torbit::draw_from_at(
     // immer schon am Anfang gemacht. War bei denen teilweise naemlich noetig.
     const bool& tx = torus_x;
     const bool& ty = torus_y;
-    BITMAP*&    tb = bitmap;
+    ALLEGRO_BITMAP*&    tb = bitmap;
     if (tx)     x  = Help::mod(x, tb->w);
     if (ty)     y  = Help::mod(y, tb->h);
 

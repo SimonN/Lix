@@ -69,17 +69,17 @@ enum Color {
 extern std::vector <int> color;
 
 // Schriftarten
-extern FONT *font_sml;
-extern FONT *font_med;
-extern FONT *font_nar;
-extern FONT *font_big;
+extern ALLEGRO_FONT *font_sml;
+extern ALLEGRO_FONT *font_med;
+extern ALLEGRO_FONT *font_nar;
+extern ALLEGRO_FONT *font_big;
 
 // Und die Funktionen
 void load_all_bitmaps();
 void destroy_all_bitmaps();
 
 extern bool clear_screen_at_next_blit;
-void blit_to_screen(BITMAP*);
+void blit_to_screen(ALLEGRO_BITMAP*);
 
 // Will use global variables if res == (0, 0)
 void set_screen_mode(bool full, int res_x = 0, int res_y = 0);

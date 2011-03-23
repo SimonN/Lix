@@ -178,7 +178,7 @@ void WindowSize::draw_calculation(const int y, const int o, const int p)
     std::string s_eql("=");
 
     Torbit& tb = get_torbit();
-    BITMAP* bp = tb.get_al_bitmap();
+    ALLEGRO_BITMAP* bp = tb.get_al_bitmap();
 
     // Alte Zahl wegputzen
     rectfill(bp, x_offset, y, this_xl-2,y+19,color[COL_API_M]);

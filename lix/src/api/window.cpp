@@ -61,7 +61,7 @@ void Window::set_exit()
 void Window::draw_self()
 {
     // Now draw anything other than the title
-    BITMAP*   g     = get_ground().get_al_bitmap();
+    ALLEGRO_BITMAP*   g     = get_ground().get_al_bitmap();
     const int col_1 = color[COL_API_L];
     const int col_2 = color[COL_API_M];
     const int col_3 = color[COL_API_D];
@@ -93,7 +93,7 @@ void Window::draw_self()
 void Window::draw_title()
 {
     // Variablen fuer die Titelflaeche
-    BITMAP *g       = get_ground().get_al_bitmap();
+    ALLEGRO_BITMAP *g       = get_ground().get_al_bitmap();
     const int col_1 = color[COL_API_ON_L];
     const int col_2 = color[COL_API_ON_M];
     const int col_3 = color[COL_API_ON_D];

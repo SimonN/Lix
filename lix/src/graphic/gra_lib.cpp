@@ -25,7 +25,7 @@ GraLib::GraLib()
 
     // Countdown-Matrix erstellen
     const Cutbit&    cb = internal[gloB->file_bitmap_lix];
-          BITMAP*    b  = cb.get_al_bitmap();
+          ALLEGRO_BITMAP*    b  = cb.get_al_bitmap();
     Lixxie::countdown = Lixxie::Matrix(
      cb.get_x_frames(), std::vector <Lixxie::XY> (cb.get_y_frames()) );
     // fx, fy = welcher X- bzw. Y-Frame
@@ -91,8 +91,8 @@ void GraLib::recolor_into_vector(
     const Cutbit&         cutbit,
     std::vector <Cutbit>& vector)
 {
-    BITMAP* recol = internal[gloB->file_bitmap_lix_recol].get_al_bitmap();
-    BITMAP* lix   = cutbit.get_al_bitmap();
+    ALLEGRO_BITMAP* recol = internal[gloB->file_bitmap_lix_recol].get_al_bitmap();
+    ALLEGRO_BITMAP* lix   = cutbit.get_al_bitmap();
     if (!recol || !lix) return;
 
     int col_break = getpixel(lix, lix->w - 1, 0);

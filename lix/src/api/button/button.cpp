@@ -58,7 +58,7 @@ void Button::calc_self()
 
 void Button::draw_self() {
     // Diese hier machen das Zeichnen übersichtlicher.
-    BITMAP* g    = get_ground().get_al_bitmap();
+    ALLEGRO_BITMAP* g    = get_ground().get_al_bitmap();
     const int x1 = get_x_here();
     const int y1 = get_y_here();
     const int x2 = get_x_here() + get_xl() - 1;

@@ -165,7 +165,7 @@ void GraphicSetL1::read_palette(std::ifstream& defin)
 
 
 // Neues Bitmap erschaffen und zurueckgeben
-BITMAP* GraphicSetL1::new_read_bitmap(
+ALLEGRO_BITMAP* GraphicSetL1::new_read_bitmap(
     const Crunch::Section& section,
     const int xl,
     const int yl,
@@ -179,7 +179,7 @@ BITMAP* GraphicSetL1::new_read_bitmap(
     // Bitmap, was das erste Bit jedes Pixels beschreibt, dann das zweite
     // monochrome Bitmap, was alle zweiten Bits beschreibt usw.,
     // insgesamt gibt es 4 Ebenen.
-    // Wir beginnen mit einem BITMAP, das ueberall 0 ist, und addieren
+    // Wir beginnen mit einem ALLEGRO_BITMAP, das ueberall 0 ist, und addieren
     // 8 pro gesetztem ersten Bit an jedem Pixel, dann 4 pro zweitem usw.
     // Ganz am Ende wird pro Pixel p dann ausgefuehrt: p = palette[p];
 
@@ -187,7 +187,7 @@ BITMAP* GraphicSetL1::new_read_bitmap(
     // Richtung, nutzen aber den Extraplatz nicht. Am Ende wird b->w - 1,
     // b->h - 1 kopiert auf die doppelte Groesse mit stretch_blit, und ohne
     // den Rand und mit b->w, b->h als Angaben stuertzte es immer ab.
-    BITMAP* b = create_bitmap(xl + 1, yl + 1);
+    ALLEGRO_BITMAP* b = create_bitmap(xl + 1, yl + 1);
     clear_to_color(b, 0);
 
     int eight_pixel_byte = 0;
@@ -218,7 +218,7 @@ BITMAP* GraphicSetL1::new_read_bitmap(
         if (!c) _putpixel16(b, x, y, color[COL_PINK]);
     }
     // Und alles aufs Doppelte fuer L++ vergroessern
-    BITMAP* big = create_bitmap(2 * xl, 2 * yl);
+    ALLEGRO_BITMAP* big = create_bitmap(2 * xl, 2 * yl);
     // Siehe Kommentar "gegen Allegro-Bug (?)" weiter oben
     stretch_blit(b, big, 0, 0, xl, yl, 0, 0, 2*xl, 2*yl);
 
@@ -228,7 +228,7 @@ BITMAP* GraphicSetL1::new_read_bitmap(
 
 
 
-BITMAP* GraphicSetL1::new_read_spec_bitmap(
+ALLEGRO_BITMAP* GraphicSetL1::new_read_spec_bitmap(
     const Crunch::Section& section
 ) {
     int data_ptr = 0;
@@ -249,7 +249,7 @@ BITMAP* GraphicSetL1::new_read_spec_bitmap(
     data_ptr += 8 * 2;
 
     // special graphics are a constant size
-    BITMAP* b = create_bitmap(960, 160);
+    ALLEGRO_BITMAP* b = create_bitmap(960, 160);
     clear_to_color(b, color[COL_PINK]);
 
     // terrain is split into 4 40-scanline chunks
@@ -303,7 +303,7 @@ BITMAP* GraphicSetL1::new_read_spec_bitmap(
     }
 
     // Und alles aufs Doppelte fuer L++ vergroessern
-    BITMAP* big = create_bitmap(2 * b->w, 2 * b->h);
+    ALLEGRO_BITMAP* big = create_bitmap(2 * b->w, 2 * b->h);
     // Siehe Kommentar "gegen Allegro-Bug (?)" weiter oben
     stretch_blit(b, big, 0, 0, b->w, b->h, 0, 0, big->w, big->h);
 
@@ -326,7 +326,7 @@ void GraphicSetL1::make_specials(
         // have Object instances for unsused slots.
         if (sp.width == 0 || sp.height == 0) break;
 
-        std::vector <BITMAP*> bitvec(sp.end_animation_frame_index);
+        std::vector <ALLEGRO_BITMAP*> bitvec(sp.end_animation_frame_index);
         for (int fr = 0; fr < sp.end_animation_frame_index; ++fr)
          bitvec[fr] = new_read_bitmap(section, sp.width, sp.height,
          sp.animation_frames_base_loc + fr * sp.animation_frame_data_size,
@@ -350,7 +350,7 @@ void GraphicSetL1::make_specials(
             // Adapt the bitvec to the L++ hatch frame order, which is
             // the same as in L2. Simply move the pointers around without
             // doing anything with the data.
-            BITMAP* fully_opened_hatch = bitvec.front();
+            ALLEGRO_BITMAP* fully_opened_hatch = bitvec.front();
             for (size_t fr = 0; fr < bitvec.size() - 1; ++fr)
              bitvec[fr] = bitvec[fr + 1];
             bitvec.back() = fully_opened_hatch;
@@ -402,13 +402,13 @@ void GraphicSetL1::make_terrain(
     const Crunch::Section&   section,
     const std::vector <int>& steel_ids
 ) {
-    // Create Cutbit. The cutbit gets to own the BITMAP, so it does not have
+    // Create Cutbit. The cutbit gets to own the ALLEGRO_BITMAP, so it does not have
     // to be destroyed here via destroy_bitmap(b).
     // We assume that after a non-defined bitmap there are only other null
     // bitmaps.
     for (int ter_id = 0; ter_id < (int) terinf.size(); ++ter_id)
      if (terinf[ter_id].width > 0 && terinf[ter_id].height > 0) {
-        BITMAP* b = new_read_bitmap(section,
+        ALLEGRO_BITMAP* b = new_read_bitmap(section,
          terinf[ter_id].width,     terinf[ter_id].height,
          terinf[ter_id].image_loc, terinf[ter_id].mask_loc);
         Object ob(Cutbit(b, false), Object::TERRAIN); // false: don't cut

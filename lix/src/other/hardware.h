@@ -101,7 +101,7 @@ private:
     bool last_tick_shift; // get_key() to return modifiers as well
     bool last_tick_alt;
 
-    bool key_buffer[KEY_MAX]; // fuer key_release
+    bool key_buffer[ALLEGRO_KEY_MAX]; // fuer key_release
 
     int  key_from_buffer;
     int  key_from_buffer_ascii;
@@ -113,10 +113,10 @@ public:
 
     inline bool key_once   (int i)   { return key_from_buffer == i;  }
            bool key_release(int);
+           bool key_hold   (int); // afdebug: braucht ALLEGRO_KEYBOARD_STATE
 
            bool key_enter_once();    // Special because Alt+Enter shall not
            bool key_enter_release(); // trigger it, and both Enters shall work
-    inline bool key_hold   (int scancode) { return key[scancode]; }
     inline bool get_ctrl   ()             { return ctrl;          }
     inline bool get_shift  ()             { return shift;         }
     inline bool get_alt    ()             { return alt;           }
