@@ -3,7 +3,7 @@
  *
  */
 
-#include "myalleg.h" // KEY_*
+#include "myalleg.h" // ALLEGRO_KEY_*
 #include "user.h"
 #include "language.h"
 #include "io.h"
@@ -137,63 +137,63 @@ User::User()
     editor_last_dir_deco   (gloB->dir_bitmap),
     editor_last_dir_hazard (gloB->dir_bitmap)
 {
-    key_skill[LixEn::WALKER]     = KEY_W;
-    key_skill[LixEn::BASHER]     = KEY_E;
-    key_skill[LixEn::BUILDER]    = KEY_R;
-    key_skill[LixEn::PLATFORMER] = KEY_T;
-    key_skill[LixEn::DIGGER]     = KEY_G;
-    key_skill[LixEn::MINER]      = KEY_D;
-    key_skill[LixEn::BLOCKER]    = KEY_V;
-    key_skill[LixEn::EXPLODER]   = KEY_X;
-    key_skill[LixEn::EXPLODER2]  = KEY_X;
+    key_skill[LixEn::WALKER]     = ALLEGRO_KEY_W;
+    key_skill[LixEn::BASHER]     = ALLEGRO_KEY_E;
+    key_skill[LixEn::BUILDER]    = ALLEGRO_KEY_R;
+    key_skill[LixEn::PLATFORMER] = ALLEGRO_KEY_T;
+    key_skill[LixEn::DIGGER]     = ALLEGRO_KEY_G;
+    key_skill[LixEn::MINER]      = ALLEGRO_KEY_D;
+    key_skill[LixEn::BLOCKER]    = ALLEGRO_KEY_V;
+    key_skill[LixEn::EXPLODER]   = ALLEGRO_KEY_X;
+    key_skill[LixEn::EXPLODER2]  = ALLEGRO_KEY_X;
 
-    key_skill[LixEn::CLIMBER]    = KEY_B;
-    key_skill[LixEn::FLOATER]    = KEY_Q;
-    key_skill[LixEn::JUMPER]     = KEY_A;
-    key_skill[LixEn::ROPER]      = KEY_C;
+    key_skill[LixEn::CLIMBER]    = ALLEGRO_KEY_B;
+    key_skill[LixEn::FLOATER]    = ALLEGRO_KEY_Q;
+    key_skill[LixEn::JUMPER]     = ALLEGRO_KEY_A;
+    key_skill[LixEn::ROPER]      = ALLEGRO_KEY_C;
 
-    key_force_left             = KEY_S;
-    key_force_right            = KEY_F;
-    key_rate_minus             = KEY_1;
-    key_rate_plus              = KEY_2;
-    key_pause                  = KEY_SPACE;
-    key_speed_slow             = KEY_3;
-    key_speed_fast             = KEY_4;
-    key_speed_turbo            = KEY_5;
-    key_restart                = KEY_F1;
-    key_state_load             = KEY_F2;
-    key_state_save             = KEY_F5;
-    key_zoom                   = KEY_Y;
-    key_nuke                   = KEY_F12;
-    key_chat                   = KEY_ENTER;
+    key_force_left             = ALLEGRO_KEY_S;
+    key_force_right            = ALLEGRO_KEY_F;
+    key_rate_minus             = ALLEGRO_KEY_1;
+    key_rate_plus              = ALLEGRO_KEY_2;
+    key_pause                  = ALLEGRO_KEY_SPACE;
+    key_speed_slow             = ALLEGRO_KEY_3;
+    key_speed_fast             = ALLEGRO_KEY_4;
+    key_speed_turbo            = ALLEGRO_KEY_5;
+    key_restart                = ALLEGRO_KEY_F1;
+    key_state_load             = ALLEGRO_KEY_F2;
+    key_state_save             = ALLEGRO_KEY_F5;
+    key_zoom                   = ALLEGRO_KEY_Y;
+    key_nuke                   = ALLEGRO_KEY_F12;
+    key_chat                   = ALLEGRO_KEY_ENTER;
 
-    key_ed_left                = KEY_S;
-    key_ed_right               = KEY_F;
-    key_ed_up                  = KEY_E;
-    key_ed_down                = KEY_D;
-    key_ed_copy                = KEY_A;
-    key_ed_delete              = KEY_X;
-    key_ed_grid                = KEY_C;
-    key_ed_sel_all             = KEY_ALT;
-    key_ed_sel_frame           = KEY_LSHIFT;
-    key_ed_sel_add             = KEY_V;
-    key_ed_background          = KEY_T;
-    key_ed_foreground          = KEY_G;
-    key_ed_mirror              = KEY_W;
-    key_ed_rotate              = KEY_R;
-    key_ed_dark                = KEY_B;
-    key_ed_noow                = KEY_N;
-    key_ed_zoom                = KEY_Y;
-    key_ed_help                = KEY_H;
-    key_ed_menu_size           = KEY_5;
-    key_ed_menu_vars           = KEY_Q;
-    key_ed_menu_skills         = KEY_Z;
-    key_ed_add_terrain         = KEY_SPACE;
-    key_ed_add_steel           = KEY_TAB;
-    key_ed_add_hatch           = KEY_1;
-    key_ed_add_goal            = KEY_2;
-    key_ed_add_deco            = KEY_3;
-    key_ed_add_hazard          = KEY_4;
+    key_ed_left                = ALLEGRO_KEY_S;
+    key_ed_right               = ALLEGRO_KEY_F;
+    key_ed_up                  = ALLEGRO_KEY_E;
+    key_ed_down                = ALLEGRO_KEY_D;
+    key_ed_copy                = ALLEGRO_KEY_A;
+    key_ed_delete              = ALLEGRO_KEY_X;
+    key_ed_grid                = ALLEGRO_KEY_C;
+    key_ed_sel_all             = ALLEGRO_KEY_ALT;
+    key_ed_sel_frame           = ALLEGRO_KEY_LSHIFT;
+    key_ed_sel_add             = ALLEGRO_KEY_V;
+    key_ed_background          = ALLEGRO_KEY_T;
+    key_ed_foreground          = ALLEGRO_KEY_G;
+    key_ed_mirror              = ALLEGRO_KEY_W;
+    key_ed_rotate              = ALLEGRO_KEY_R;
+    key_ed_dark                = ALLEGRO_KEY_B;
+    key_ed_noow                = ALLEGRO_KEY_N;
+    key_ed_zoom                = ALLEGRO_KEY_Y;
+    key_ed_help                = ALLEGRO_KEY_H;
+    key_ed_menu_size           = ALLEGRO_KEY_5;
+    key_ed_menu_vars           = ALLEGRO_KEY_Q;
+    key_ed_menu_skills         = ALLEGRO_KEY_Z;
+    key_ed_add_terrain         = ALLEGRO_KEY_SPACE;
+    key_ed_add_steel           = ALLEGRO_KEY_TAB;
+    key_ed_add_hatch           = ALLEGRO_KEY_1;
+    key_ed_add_goal            = ALLEGRO_KEY_2;
+    key_ed_add_deco            = ALLEGRO_KEY_3;
+    key_ed_add_hazard          = ALLEGRO_KEY_4;
 }
 
 

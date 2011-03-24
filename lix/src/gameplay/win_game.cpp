@@ -56,9 +56,9 @@ WindowGameplay::WindowGameplay(Replay* rep, const Level* const lev)
     if (game_net) {
         save_replay.set_y(top_item + 30);
         menu       .set_y(top_item + 60);
-        resume .set_hotkey(KEY_ESC);
+        resume .set_hotkey(ALLEGRO_KEY_ESCAPE);
         restart.set_hotkey();
-        menu   .set_hotkey(KEY_F1);
+        menu   .set_hotkey(ALLEGRO_KEY_F1);
     }
 }
 
@@ -243,9 +243,9 @@ void WindowGameplay::common_constructor()
     restart    .set_text(Language::win_game_restart);
     save_replay.set_text(Language::win_game_save_replay);
     menu       .set_text(Language::win_game_menu);
-    restart    .set_hotkey(KEY_F1);
-    save_replay.set_hotkey(KEY_F2);
-    menu       .set_hotkey(KEY_ESC); // also triggered by space
+    restart    .set_hotkey(ALLEGRO_KEY_F1);
+    save_replay.set_hotkey(ALLEGRO_KEY_F2);
+    menu       .set_hotkey(ALLEGRO_KEY_ESCAPE); // also triggered by space
 }
 
 
@@ -282,7 +282,7 @@ void WindowGameplay::calc_self()
             exit_with = RESTART;
             Manager::remove_focus(this);
         }
-        if (menu.get_clicked() || hardware.key_once(KEY_SPACE)) {
+        if (menu.get_clicked() || hardware.key_once(ALLEGRO_KEY_SPACE)) {
             exit_with = MENU;
             Manager::remove_focus(this);
         }
@@ -323,8 +323,8 @@ Api::BoxMessage* WindowGameplay::new_box_overwrite(const std::string& file)
     box_overwrite->add_text(Language::win_game_overwrite_question);
     box_overwrite->add_text(s1);
     box_overwrite->add_text(s2);
-    box_overwrite->add_button(Language::yes, KEY_ENTER);
-    box_overwrite->add_button(Language::no,  KEY_ESC);
+    box_overwrite->add_button(Language::yes, ALLEGRO_KEY_ENTER);
+    box_overwrite->add_button(Language::no,  ALLEGRO_KEY_ESCAPE);
     return box_overwrite;
 }
 

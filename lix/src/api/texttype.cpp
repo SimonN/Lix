@@ -99,7 +99,7 @@ void Texttype::calc_self()
             if (on_enter_void && on_enter && hardware.key_enter_once())
              on_enter(on_enter_void);
         }
-        else if (hardware.key_once(KEY_ESC)) {
+        else if (hardware.key_once(ALLEGRO_KEY_ESCAPE)) {
             set_off();
             text = text_backup;
             if (on_esc_void && on_esc) on_esc(on_esc_void);
@@ -110,16 +110,16 @@ void Texttype::calc_self()
             char kascii = hardware.get_key_ascii();
 
             // Zeichen verarbeiten
-            if (k == KEY_BACKSPACE && text.size() > 0) {
+            if (k == ALLEGRO_KEY_BACKSPACE && text.size() > 0) {
                 text.resize(text.size()-1);
             }
             else if (kascii < 1) return;
-            else if ((k >= KEY_A     && k <= KEY_9    )  || k == KEY_SPACE
-             ||      (k >= KEY_0_PAD && k <= KEY_9_PAD)  || k == KEY_DEL_PAD
-             || k == KEY_STOP      || k == KEY_COMMA     || k == KEY_COLON
-             || k == KEY_MINUS     || k == KEY_PLUS_PAD  || k == KEY_EQUALS
-             || k == KEY_QUOTE     || k == KEY_SLASH     || k == KEY_CLOSEBRACE
-             || k == KEY_OPENBRACE || k == KEY_SEMICOLON || k == KEY_ASTERISK)
+            else if ((k >= ALLEGRO_KEY_A     && k <= ALLEGRO_KEY_9    )  || k == ALLEGRO_KEY_SPACE
+             ||      (k >= ALLEGRO_KEY_0_PAD && k <= ALLEGRO_KEY_9_PAD)  || k == ALLEGRO_KEY_DEL_PAD
+             || k == ALLEGRO_KEY_STOP      || k == ALLEGRO_KEY_COMMA     || k == ALLEGRO_KEY_COLON
+             || k == ALLEGRO_KEY_MINUS     || k == ALLEGRO_KEY_PLUS_PAD  || k == ALLEGRO_KEY_EQUALS
+             || k == ALLEGRO_KEY_QUOTE     || k == ALLEGRO_KEY_SLASH     || k == ALLEGRO_KEY_CLOSEBRACE
+             || k == ALLEGRO_KEY_OPENBRACE || k == ALLEGRO_KEY_SEMICOLON || k == ALLEGRO_KEY_ASTERISK)
             {
                 text += kascii;
                 if (!scroll && get_too_long(text)) text.resize(text.size()-1);

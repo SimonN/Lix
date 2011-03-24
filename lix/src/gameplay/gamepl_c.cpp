@@ -179,7 +179,7 @@ void Gameplay::calc_self()
         }
 
         // Beenden bzw. Menue?
-        if (hardware.key_once(KEY_ESC)
+        if (hardware.key_once(ALLEGRO_KEY_ESCAPE)
          && !chat.get_type_on_last_frame()
          && !window_gameplay) {
             window_gameplay = new Api::WindowGameplay(&replay,

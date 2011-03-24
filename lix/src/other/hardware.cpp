@@ -64,9 +64,9 @@ void Hardware::main_loop() {
     last_tick_ctrl  = ctrl;
     last_tick_shift = shift;
     last_tick_alt   = alt;
-    ctrl  = (key[KEY_LCONTROL] || key[KEY_RCONTROL]);
-    shift = (key[KEY_LSHIFT  ] || key[KEY_RSHIFT  ]);
-    alt   = (key[KEY_ALT     ] || key[KEY_ALTGR   ]);
+    ctrl  = (key[ALLEGRO_KEY_LCONTROL] || key[ALLEGRO_KEY_RCONTROL]);
+    shift = (key[ALLEGRO_KEY_LSHIFT  ] || key[ALLEGRO_KEY_RSHIFT  ]);
+    alt   = (key[ALLEGRO_KEY_ALT     ] || key[ALLEGRO_KEY_ALTGR   ]);
 
     // Check for text typing
     if (keypressed()) {
@@ -81,14 +81,14 @@ void Hardware::main_loop() {
         key_from_buffer_ascii = -1;
 
         if (!last_tick_ctrl && ctrl)   key_from_buffer
-         = key[KEY_LCONTROL]  ? KEY_LCONTROL
-         : key[KEY_RCONTROL]  ? KEY_RCONTROL : -1;
+         = key[ALLEGRO_KEY_LCONTROL]  ? ALLEGRO_KEY_LCONTROL
+         : key[ALLEGRO_KEY_RCONTROL]  ? ALLEGRO_KEY_RCONTROL : -1;
         if (!last_tick_shift && shift) key_from_buffer
-         = key[KEY_LSHIFT]    ? KEY_LSHIFT
-         : key[KEY_RSHIFT]    ? KEY_RSHIFT : -1;
+         = key[ALLEGRO_KEY_LSHIFT]    ? ALLEGRO_KEY_LSHIFT
+         : key[ALLEGRO_KEY_RSHIFT]    ? ALLEGRO_KEY_RSHIFT : -1;
         if (!last_tick_alt && alt)     key_from_buffer
-         = key[KEY_ALT]       ? KEY_ALT
-         : key[KEY_ALTGR]     ? KEY_ALTGR : -1;
+         = key[ALLEGRO_KEY_ALT]       ? ALLEGRO_KEY_ALT
+         : key[ALLEGRO_KEY_ALTGR]     ? ALLEGRO_KEY_ALTGR : -1;
     }
 
 }
@@ -169,14 +169,14 @@ bool Hardware::key_release(int scancode) {
 bool Hardware::key_enter_once()
 {
     // Don't trigger on fullscreen/windowed switch
-    return !get_alt() && (key_once(KEY_ENTER) || key_once(KEY_ENTER_PAD));
+    return !get_alt() && (key_once(ALLEGRO_KEY_ENTER) || key_once(ALLEGRO_KEY_ENTER_PAD));
 }
 
 
 
 bool Hardware::key_enter_release()
 {
-    return key_release(KEY_ENTER) || key_release(KEY_ENTER_PAD);
+    return key_release(ALLEGRO_KEY_ENTER) || key_release(ALLEGRO_KEY_ENTER_PAD);
 }
 
 

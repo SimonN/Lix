@@ -89,8 +89,8 @@ WindowSize::WindowSize(Level& lv, Map& mp)
 
     ok    .set_text(Language::ok);
     cancel.set_text(Language::cancel);
-    ok    .set_hotkey(KEY_ENTER);
-    cancel.set_hotkey(KEY_ESC);
+    ok    .set_hotkey(ALLEGRO_KEY_ENTER);
+    cancel.set_hotkey(ALLEGRO_KEY_ESCAPE);
 }
 
 

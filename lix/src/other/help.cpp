@@ -355,7 +355,26 @@ bool dir_exists(const std::string& s)
 {
     std::string dir = s;
     if (dir[dir.size() - 1] == '/') dir.erase(--dir.end());
-    return file_exists(dir.c_str(), FA_DIREC, 0);
+
+    bool ret = false;
+    ALLEGRO_FS_ENTRY handle = al_create_fs_entry(dir.c_str());
+    if (al_open_directory(handle)) ret = true;
+    al_destroy_fs_entry(handle);
+    return ret;
+}
+
+
+
+bool file_exists(const std::string& s)
+{
+    std::string dir = s;
+    if (dir[dir.size() - 1] == '/') dir.erase(--dir.end());
+
+    bool ret = false;
+    ALLEGRO_FS_ENTRY handle = al_create_fs_entry(dir.c_str());
+    if (al_fs_entry_exists(handle)) ret = true;
+    al_destroy_fs_entry(handle);
+    return ret;
 }
 
 }

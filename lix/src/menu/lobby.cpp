@@ -107,8 +107,8 @@ Lobby::Lobby()
     start_server .set_text(Language::win_lobby_start_server);
     start_client .set_text(Language::win_lobby_start_client);
 
-    button_ready .set_hotkey(KEY_SPACE);
-    button_exit  .set_hotkey(KEY_ESC);
+    button_ready .set_hotkey(ALLEGRO_KEY_SPACE);
+    button_exit  .set_hotkey(ALLEGRO_KEY_ESCAPE);
     chat_type    .set_hotkey(useR->key_chat);
     chat_type    .set_on_enter(this, chat_on_enter_callback);
     start_ip     .set_scroll();
@@ -228,7 +228,7 @@ void Lobby::calc_self()
 
     // GUI stuff
     if (button_exit.get_clicked()
-     || (button_exit.get_hotkey() == KEY_ESC && hardware.get_mr())) {
+     || (button_exit.get_hotkey() == ALLEGRO_KEY_ESCAPE && hardware.get_mr())) {
         if      (mode == NOT_CONNECTED) exit_with = EXIT_WITH_EXIT;
         else if (mode == INSIDE_ROOM) {
             Network::set_room(0);
@@ -312,7 +312,7 @@ void Lobby::work_self()
     // This isn't triggered by GUI element clicks/hotkeys, but rather by
     // actions from the network.
     if (Network::get_people_in_room() > 1) button_exit.set_hotkey();
-    else                                   button_exit.set_hotkey(KEY_ESC);
+    else                                   button_exit.set_hotkey(ALLEGRO_KEY_ESCAPE);
     // Successfully connected
     if (mode == CONNECTING && Network::get_people_in_room()) {
         set_mode(CHOOSE_ROOM);

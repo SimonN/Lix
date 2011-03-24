@@ -100,5 +100,6 @@ namespace Help {
     // Wie find_files, schlieﬂt allerdings auch alle Unterverzeichnisse in der
     // Suche nach passenden Dateien ein.
 
-    bool dir_exists(const std::string&);
+    bool dir_exists (const std::string&);
+    bool file_exists(const std::string&);
 }

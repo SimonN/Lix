@@ -72,7 +72,7 @@ Editor::Editor()
         panel[i].set_x_frame(i);
     }
     panel[FILE_NEW]     .set_hotkey();
-    panel[FILE_EXIT]    .set_hotkey(KEY_ESC);
+    panel[FILE_EXIT]    .set_hotkey(ALLEGRO_KEY_ESCAPE);
     panel[FILE_SAVE]    .set_hotkey();
     panel[FILE_SAVE_AS] .set_hotkey();
     panel[GRID_2]       .set_hotkey(); // will be done later

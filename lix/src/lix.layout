@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release (Linux)" />
-	<File name="api/brow_sav.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="2447" topLine="54" />
+	<File name="api/brow_sav.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="5178" topLine="139" />
 	</File>
 	<File name="api/brow_sav.h" open="0" top="0" tabpos="19">
 		<Cursor position="583" topLine="0" />
@@ -26,7 +26,7 @@
 		<Cursor position="763" topLine="17" />
 	</File>
 	<File name="api/button/b_key.cpp" open="0" top="0" tabpos="14">
-		<Cursor position="70" topLine="0" />
+		<Cursor position="671" topLine="28" />
 	</File>
 	<File name="api/button/b_key.h" open="0" top="0" tabpos="0">
 		<Cursor position="346" topLine="3" />
@@ -44,13 +44,13 @@
 		<Cursor position="265" topLine="0" />
 	</File>
 	<File name="api/button/button.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="85" topLine="0" />
+		<Cursor position="2492" topLine="65" />
 	</File>
 	<File name="api/button/button.h" open="0" top="0" tabpos="0">
 		<Cursor position="2592" topLine="55" />
 	</File>
 	<File name="api/element.cpp" open="0" top="0" tabpos="9">
-		<Cursor position="0" topLine="0" />
+		<Cursor position="3432" topLine="156" />
 	</File>
 	<File name="api/element.h" open="0" top="0" tabpos="9">
 		<Cursor position="894" topLine="1" />
@@ -110,7 +110,7 @@
 		<Cursor position="754" topLine="5" />
 	</File>
 	<File name="api/texttype.cpp" open="0" top="0" tabpos="24">
-		<Cursor position="541" topLine="50" />
+		<Cursor position="1957" topLine="83" />
 	</File>
 	<File name="api/texttype.h" open="0" top="0" tabpos="23">
 		<Cursor position="2125" topLine="31" />
@@ -122,13 +122,13 @@
 		<Cursor position="1440" topLine="32" />
 	</File>
 	<File name="editor/bit_brow.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="314" topLine="0" />
+		<Cursor position="1642" topLine="16" />
 	</File>
 	<File name="editor/bit_brow.h" open="0" top="0" tabpos="7">
 		<Cursor position="1589" topLine="52" />
 	</File>
 	<File name="editor/editor.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="14181" topLine="346" />
+		<Cursor position="2358" topLine="74" />
 	</File>
 	<File name="editor/editor.h" open="0" top="0" tabpos="3">
 		<Cursor position="4578" topLine="135" />
@@ -137,10 +137,10 @@
 		<Cursor position="4073" topLine="96" />
 	</File>
 	<File name="editor/editor_d.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="363" topLine="150" />
+		<Cursor position="982" topLine="38" />
 	</File>
 	<File name="editor/editor_f.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="406" topLine="0" />
+		<Cursor position="8412" topLine="213" />
 	</File>
 	<File name="editor/graph_ed.cpp" open="0" top="0" tabpos="9">
 		<Cursor position="503" topLine="0" />
@@ -149,25 +149,25 @@
 		<Cursor position="323" topLine="0" />
 	</File>
 	<File name="editor/win_scro.cpp" open="0" top="0" tabpos="25">
-		<Cursor position="80" topLine="0" />
+		<Cursor position="1881" topLine="23" />
 	</File>
 	<File name="editor/win_scro.h" open="0" top="0" tabpos="20">
 		<Cursor position="153" topLine="0" />
 	</File>
 	<File name="editor/win_size.cpp" open="0" top="0" tabpos="26">
-		<Cursor position="80" topLine="0" />
+		<Cursor position="2992" topLine="54" />
 	</File>
 	<File name="editor/win_size.h" open="0" top="0" tabpos="21">
 		<Cursor position="1378" topLine="12" />
 	</File>
 	<File name="editor/win_skil.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="8535" topLine="242" />
+		<Cursor position="3391" topLine="93" />
 	</File>
 	<File name="editor/win_skil.h" open="0" top="0" tabpos="3">
 		<Cursor position="2935" topLine="82" />
 	</File>
 	<File name="editor/win_var.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="1444" topLine="0" />
+		<Cursor position="1449" topLine="4" />
 	</File>
 	<File name="editor/win_var.h" open="0" top="0" tabpos="4">
 		<Cursor position="1163" topLine="13" />
@@ -194,7 +194,7 @@
 		<Cursor position="5686" topLine="117" />
 	</File>
 	<File name="gameplay/gamepl_c.cpp" open="0" top="0" tabpos="14">
-		<Cursor position="879" topLine="22" />
+		<Cursor position="5653" topLine="143" />
 	</File>
 	<File name="gameplay/gamepl_d.cpp" open="0" top="0" tabpos="15">
 		<Cursor position="738" topLine="15" />
@@ -257,7 +257,7 @@
 		<Cursor position="760" topLine="35" />
 	</File>
 	<File name="gameplay/win_game.cpp" open="0" top="0" tabpos="13">
-		<Cursor position="12031" topLine="140" />
+		<Cursor position="11459" topLine="288" />
 	</File>
 	<File name="gameplay/win_game.h" open="0" top="0" tabpos="3">
 		<Cursor position="326" topLine="0" />
@@ -268,8 +268,8 @@
 	<File name="graphic/cutbit.cpp" open="0" top="0" tabpos="3">
 		<Cursor position="5299" topLine="200" />
 	</File>
-	<File name="graphic/cutbit.h" open="1" top="1" tabpos="4">
-		<Cursor position="1965" topLine="0" />
+	<File name="graphic/cutbit.h" open="0" top="0" tabpos="4">
+		<Cursor position="1745" topLine="55" />
 	</File>
 	<File name="graphic/glob_gfx.cpp" open="0" top="0" tabpos="5">
 		<Cursor position="544" topLine="0" />
@@ -296,7 +296,7 @@
 		<Cursor position="305" topLine="0" />
 	</File>
 	<File name="graphic/map.cpp" open="0" top="0" tabpos="17">
-		<Cursor position="7929" topLine="0" />
+		<Cursor position="5708" topLine="163" />
 	</File>
 	<File name="graphic/map.h" open="0" top="0" tabpos="5">
 		<Cursor position="4117" topLine="90" />
@@ -304,7 +304,7 @@
 	<File name="graphic/sound.cpp" open="0" top="0" tabpos="4">
 		<Cursor position="2578" topLine="110" />
 	</File>
-	<File name="graphic/sound.h" open="1" top="0" tabpos="1">
+	<File name="graphic/sound.h" open="0" top="0" tabpos="1">
 		<Cursor position="4108" topLine="92" />
 	</File>
 	<File name="graphic/torbit.cpp" open="0" top="0" tabpos="8">
@@ -340,7 +340,7 @@
 	<File name="level/level.cpp" open="0" top="0" tabpos="4">
 		<Cursor position="1556" topLine="56" />
 	</File>
-	<File name="level/level.h" open="1" top="0" tabpos="3">
+	<File name="level/level.h" open="0" top="0" tabpos="3">
 		<Cursor position="5561" topLine="152" />
 	</File>
 	<File name="level/level_bi.cpp" open="0" top="0" tabpos="1">
@@ -449,13 +449,13 @@
 		<Cursor position="1598" topLine="20" />
 	</File>
 	<File name="menu/brow_big.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="1704" topLine="28" />
+		<Cursor position="1720" topLine="28" />
 	</File>
 	<File name="menu/brow_big.h" open="0" top="0" tabpos="10">
 		<Cursor position="2968" topLine="69" />
 	</File>
 	<File name="menu/brow_rep.cpp" open="0" top="0" tabpos="18">
-		<Cursor position="4660" topLine="104" />
+		<Cursor position="5529" topLine="113" />
 	</File>
 	<File name="menu/brow_sin.cpp" open="0" top="0" tabpos="1">
 		<Cursor position="83" topLine="0" />
@@ -470,7 +470,7 @@
 		<Cursor position="294" topLine="8" />
 	</File>
 	<File name="menu/lobby.cpp" open="0" top="0" tabpos="10">
-		<Cursor position="11270" topLine="320" />
+		<Cursor position="10378" topLine="276" />
 	</File>
 	<File name="menu/lobby.h" open="0" top="0" tabpos="12">
 		<Cursor position="795" topLine="60" />
@@ -488,7 +488,7 @@
 		<Cursor position="1450" topLine="27" />
 	</File>
 	<File name="menu/main_men.cpp" open="0" top="0" tabpos="7">
-		<Cursor position="1979" topLine="58" />
+		<Cursor position="2182" topLine="58" />
 	</File>
 	<File name="menu/main_men.h" open="0" top="0" tabpos="1">
 		<Cursor position="1392" topLine="55" />
@@ -500,7 +500,7 @@
 		<Cursor position="896" topLine="8" />
 	</File>
 	<File name="menu/options.cpp" open="0" top="0" tabpos="31">
-		<Cursor position="25595" topLine="471" />
+		<Cursor position="10794" topLine="217" />
 	</File>
 	<File name="menu/options.h" open="0" top="0" tabpos="3">
 		<Cursor position="4929" topLine="143" />
@@ -518,7 +518,7 @@
 		<Cursor position="393" topLine="6" />
 	</File>
 	<File name="network/client_c.cpp" open="0" top="0" tabpos="4">
-		<Cursor position="2731" topLine="71" />
+		<Cursor position="10814" topLine="257" />
 	</File>
 	<File name="network/net_t.cpp" open="0" top="0" tabpos="1">
 		<Cursor position="449" topLine="121" />
@@ -560,22 +560,22 @@
 		<Cursor position="899" topLine="13" />
 	</File>
 	<File name="other/globals.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="225" topLine="0" />
+		<Cursor position="10557" topLine="7" />
 	</File>
 	<File name="other/globals.h" open="0" top="0" tabpos="7">
 		<Cursor position="4778" topLine="169" />
 	</File>
 	<File name="other/hardware.cpp" open="0" top="0" tabpos="9">
-		<Cursor position="894" topLine="26" />
+		<Cursor position="5427" topLine="140" />
 	</File>
 	<File name="other/hardware.h" open="0" top="0" tabpos="8">
-		<Cursor position="4167" topLine="98" />
+		<Cursor position="2247" topLine="48" />
 	</File>
 	<File name="other/help.cpp" open="0" top="0" tabpos="10">
-		<Cursor position="7194" topLine="227" />
+		<Cursor position="10882" topLine="339" />
 	</File>
 	<File name="other/help.h" open="0" top="0" tabpos="11">
-		<Cursor position="1486" topLine="59" />
+		<Cursor position="3549" topLine="67" />
 	</File>
 	<File name="other/io.cpp" open="0" top="0" tabpos="8">
 		<Cursor position="6162" topLine="213" />
@@ -590,7 +590,7 @@
 		<Cursor position="5154" topLine="110" />
 	</File>
 	<File name="other/lmain.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="583" topLine="5" />
+		<Cursor position="3802" topLine="122" />
 	</File>
 	<File name="other/lmain.h" open="0" top="0" tabpos="1">
 		<Cursor position="889" topLine="7" />
@@ -611,7 +611,7 @@
 		<Cursor position="300" topLine="0" />
 	</File>
 	<File name="other/user.cpp" open="0" top="0" tabpos="14">
-		<Cursor position="321" topLine="80" />
+		<Cursor position="6034" topLine="79" />
 	</File>
 	<File name="other/user.h" open="0" top="0" tabpos="12">
 		<Cursor position="3338" topLine="126" />

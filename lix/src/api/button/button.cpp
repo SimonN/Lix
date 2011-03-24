@@ -42,13 +42,13 @@ void Button::calc_self()
             }
         }
         // Aktives Anklicken pruefen
-        // KEY_ENTER als Hotkey laesst auch KEY_ENTER_PAD zu!
+        // ALLEGRO_KEY_ENTER als Hotkey laesst auch ALLEGRO_KEY_ENTER_PAD zu!
         bool b =
-            !warm && !hot && mouse_here && hardware.get_mlr()
-         ||  warm && !hot && mouse_here && hardware.get_ml ()
-         ||           hot && mouse_here && hardware.get_mlh();
+            (!warm && !hot && mouse_here && hardware.get_mlr())
+         || ( warm && !hot && mouse_here && hardware.get_ml ())
+         || (          hot && mouse_here && hardware.get_mlh());
         // See hardware.h/cpp for why Enter is separated
-        if (hotkey == KEY_ENTER) b = b || hardware.key_enter_once();
+        if (hotkey == ALLEGRO_KEY_ENTER) b = b || hardware.key_enter_once();
         else                     b = b || hardware.key_once(hotkey);
         clicked_last_calc = b;
     }
@@ -57,7 +57,7 @@ void Button::calc_self()
 
 
 void Button::draw_self() {
-    // Diese hier machen das Zeichnen ¸bersichtlicher.
+    // Diese hier machen das Zeichnen √ºbersichtlicher.
     ALLEGRO_BITMAP* g    = get_ground().get_al_bitmap();
     const int x1 = get_x_here();
     const int y1 = get_y_here();
@@ -85,18 +85,18 @@ void Button::draw_self() {
     acquire_bitmap(g);
 
     // Jetzt malen!
-    putpixel(g, x1,   y2,               color_2); // Unten links auﬂen
+    putpixel(g, x1,   y2,               color_2); // Unten links au√üen
     putpixel(g, x1+1, y2-1,             color_2); // Unten links innen
-    putpixel(g, x2-1, y1+1,             color_2); // Oben rechts auﬂen
+    putpixel(g, x2-1, y1+1,             color_2); // Oben rechts au√üen
     putpixel(g, x2,   y1,               color_2); // Oben rechts innen
-    rectfill(g, x1+2, y1+2, x2-2, y2-2, color_2); // Mittelfl‰che
-    vline   (g, x1,   y1,         y2-1, color_1); // Links  auﬂen
+    rectfill(g, x1+2, y1+2, x2-2, y2-2, color_2); // Mittelfl√§che
+    vline   (g, x1,   y1,         y2-1, color_1); // Links  au√üen
     vline   (g, x1+1, y1,         y2-2, color_1); // Links  innen
-    hline   (g, x1+2, y1,   x2-1,       color_1); // Oben   auﬂen
+    hline   (g, x1+2, y1,   x2-1,       color_1); // Oben   au√üen
     hline   (g, x1+2, y1+1, x2-2,       color_1); // Oben   innen
-    vline   (g, x2,   y1+1,       y2,   color_3); // Rechts auﬂen
+    vline   (g, x2,   y1+1,       y2,   color_3); // Rechts au√üen
     vline   (g, x2-1, y1+2,       y2,   color_3); // Rechts innen
-    hline   (g, x1+1, y2,   x2-2,       color_3); // Unten  auﬂen
+    hline   (g, x1+1, y2,   x2-2,       color_3); // Unten  au√üen
     hline   (g, x1+2, y2-1, x2-2,       color_3); // Unten  innen
 
     release_bitmap(g);

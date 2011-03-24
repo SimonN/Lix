@@ -152,13 +152,13 @@ void LMain::calc()
 
     // Hotkey combination to terminate the program instantly from
     // everywhere. This doesn't bug the user about unsaved data.
-    if (key[KEY_ESC] && key[KEY_LSHIFT]) {
+    if (key[ALLEGRO_KEY_ESCAPE] && key[ALLEGRO_KEY_LSHIFT]) {
         exit = true;
     }
     // Hotkey combination for fullscreen
     // Do not use key_enter_once() here, this is the time we want it with alt
     if (hardware.get_alt()
-     && (hardware.key_once(KEY_ENTER) || hardware.key_once(KEY_ENTER_PAD))) {
+     && (hardware.key_once(ALLEGRO_KEY_ENTER) || hardware.key_once(ALLEGRO_KEY_ENTER_PAD))) {
         set_screen_mode(!gloB->screen_fullscreen_now);
     }
 

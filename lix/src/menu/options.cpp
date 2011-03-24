@@ -215,8 +215,8 @@ OptionMenu::OptionMenu()
     // Standardwerte fuer alle Checkboxes und Buttons
     button_okay           .set_text(Language::ok);
     button_cancel         .set_text(Language::cancel);
-    button_okay           .set_hotkey(KEY_ENTER);
-    button_cancel         .set_hotkey(KEY_ESC);
+    button_okay           .set_hotkey(ALLEGRO_KEY_ENTER);
+    button_cancel         .set_hotkey(ALLEGRO_KEY_ESCAPE);
 
     for (size_t i = 0; i < GROUP_MAX; ++i) {
         TextButton temp(i*100 + 20, 40, 100);

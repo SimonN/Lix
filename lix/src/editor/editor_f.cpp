@@ -247,9 +247,9 @@ Api::BoxMessage* Editor::new_box_unsaved_data(const Level& l)
         box->add_text(s1);
         box->add_text(s2);
     }
-    box->add_button(Language::yes,    KEY_ENTER);
-    box->add_button(Language::no,     KEY_F1   );
-    box->add_button(Language::cancel, KEY_ESC  );
+    box->add_button(Language::yes,    ALLEGRO_KEY_ENTER);
+    box->add_button(Language::no,     ALLEGRO_KEY_F1   );
+    box->add_button(Language::cancel, ALLEGRO_KEY_ESCAPE  );
 
     return box;
 }

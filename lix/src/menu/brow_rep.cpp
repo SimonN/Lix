@@ -148,8 +148,8 @@ void ReplayBrowser::calc_self()
                 box_delete->add_text(Language::browser_box_delete_question);
                 box_delete->add_text(s1);
                 box_delete->add_text(s2);
-                box_delete->add_button(Language::yes, KEY_ENTER);
-                box_delete->add_button(Language::no,  KEY_ESC);
+                box_delete->add_button(Language::yes, ALLEGRO_KEY_ENTER);
+                box_delete->add_button(Language::no,  ALLEGRO_KEY_ESCAPE);
                 Manager::add_focus(box_delete);
             }
         }

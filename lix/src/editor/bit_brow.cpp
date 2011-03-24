@@ -52,7 +52,7 @@ BitmapBrowser::BitmapBrowser(
     add_child(cancel);
 
     cancel.set_text  (Language::cancel);
-    cancel.set_hotkey(KEY_ESC);
+    cancel.set_hotkey(ALLEGRO_KEY_ESCAPE);
 
     load_dir(cdir, initial_page);
 }
