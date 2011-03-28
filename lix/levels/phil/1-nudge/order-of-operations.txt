@@ -27,7 +27,7 @@ $ENGLISH
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:./bitmap/Rebuilds/01 - Dirt/Hatch.H:                    115        77
+:./bitmap/Matt/01 - Dirt/Hatch.H:                    115        77
 
 :./bitmap/Matt/01 - Dirt/Goal.G:                         533       131
 
