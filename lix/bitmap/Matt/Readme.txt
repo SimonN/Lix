@@ -1,1 +1,0 @@
-All graphics sets that I make for Lix from now on will not be released until the final version of the application arrives.  What will be released, however, is a photo of all of the pieces in the set.  If you wish to see my w.i.p., then talk to me on IRC, and I will send you said photo, if you ask for it.
