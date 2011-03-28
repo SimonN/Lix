@@ -1,0 +1,78 @@
+$BUILT                                             2011-03-26 17:57:19
+$AUTHOR                                                               
+$GERMAN                                                               
+$ENGLISH                                                              
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#START_X                                                             0
+#START_Y                                                             0
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#SECONDS                                                             0
+#INITIAL                                                            10
+#REQUIRED                                                            5
+#RATE                                                               50
+
+#CLIMBER                                                            10
+#FLOATER                                                            10
+#EXPLODER                                                           10
+#BLOCKER                                                            10
+#BUILDER                                                            10
+#BASHER                                                             10
+#MINER                                                              10
+#DIGGER                                                             10
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:./bitmap/Rebuilds/01 - Dirt/Hatch.H:                    115        77
+
+:./bitmap/Matt/01 - Dirt/Goal.G:                         533       131
+
+:./bitmap/Matt/01 - Dirt/03:                              91       162
+:./bitmap/Matt/01 - Dirt/02:                             179       174
+:./bitmap/Matt/01 - Dirt/17:                              44        91
+:./bitmap/Matt/01 - Dirt/04:                             204       133
+:./bitmap/Matt/01 - Dirt/01:                             292       244
+:./bitmap/Matt/01 - Dirt/04:                             405       210
+:./bitmap/Matt/01 - Dirt/16:                             438       192     n
+:./bitmap/Matt/01 - Dirt/10:                             399       300
+:./bitmap/Matt/01 - Dirt/17:                             491       288
+:./bitmap/Matt/01 - Dirt/16:                             356       321
+:./bitmap/Matt/01 - Dirt/02:                             313       245
+:./bitmap/Matt/01 - Dirt/05:                             238       111     n
+:./bitmap/Matt/01 - Dirt/03:                             276       373
+:./bitmap/Matt/01 - Dirt/02:                             244       312
+:./bitmap/Matt/01 - Dirt/10:                              10       162     n
+:./bitmap/Matt/01 - Dirt/02:                              56        53
+:./bitmap/Matt/01 - Dirt/01:                              39        18     n
+:./bitmap/Matt/01 - Dirt/03:                              32        26
+:./bitmap/Matt/01 - Dirt/03:                             490       178
+:./bitmap/Matt/01 - Dirt/02:                              65       246
+:./bitmap/Matt/01 - Dirt/02:                              46       322
+:./bitmap/Matt/01 - Dirt/05:                              26       212
+:./bitmap/Matt/01 - Dirt/28:                             320        -6
+:./bitmap/Matt/01 - Dirt/02:                             357       -42
+:./bitmap/Matt/01 - Dirt/28:                             372        44     n
+:./bitmap/Matt/01 - Dirt/01:                             386       -19
+:./bitmap/Matt/01 - Dirt/09:                             134       158
+:./bitmap/Matt/01 - Dirt/09:                             179       159
+:./bitmap/Matt/01 - Dirt/05:                              19      -111     rrn
+:./bitmap/Matt/01 - Dirt/09:                              79        20
+:./bitmap/Matt/01 - Dirt/09:                             130        26
+:./bitmap/Matt/01 - Dirt/08:                             102       145
+:./bitmap/Matt/01 - Dirt/08:                             227       142     r
+:./bitmap/Matt/01 - Dirt/07:                             258       108
+:./bitmap/Matt/01 - Dirt/09:                             302       238
+:./bitmap/Matt/01 - Dirt/09:                             327       242
+:./bitmap/Matt/01 - Dirt/08:                             414       231     r
+:./bitmap/Matt/01 - Dirt/08:                             440       210     r
+:./bitmap/Matt/01 - Dirt/08:                             466       186     r
+:./bitmap/Matt/01 - Dirt/09:                             490       181
+:./bitmap/Matt/01 - Dirt/09:                             533       177
+:./bitmap/Matt/01 - Dirt/09:                             570       177
+:./bitmap/Matt/01 - Dirt/09:                             589       180
+:./bitmap/Matt/01 - Dirt/09:                             332       368
+:./bitmap/Matt/01 - Dirt/09:                             288       373
