@@ -34,7 +34,7 @@ $ENGLISH                                                   Scaffolding
 :./bitmap/Matt/02 - Gold Mine/mine cart.D:                47       185
 
 :./bitmap/Matt/02 - Gold Mine/Hatch.H:                   324        33
-:./bitmap/Rebuilds/02 - Gold Mine/Hatch.H:              1120         9     r
+:./bitmap/Matt/02 - Gold Mine/Hatch.H:              1120         9     r
 
 :./bitmap/Matt/02 - Gold Mine/Goal.G:                   1192       275
 
