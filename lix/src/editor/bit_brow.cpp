@@ -106,7 +106,7 @@ void BitmapBrowser::calc_self()
         set_exit();
     }
     else if (cancel.get_clicked()
-     || hardware.get_mr() && !this->is_mouse_here()) {
+     || (hardware.get_mr() && !this->is_mouse_here())) {
         set_exit();
     }
 }

@@ -155,6 +155,6 @@ public:
     virtual void draw(Torbit&);
 
     void load_masked_screen_rectangle(Torbit&);
-    void clear_screen_rectangle(int = 0);
+    void clear_screen_rectangle(const ALLEGRO_COLOR&);
 
 };

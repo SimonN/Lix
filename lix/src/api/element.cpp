@@ -13,7 +13,7 @@ Element::Element(int nx, int ny, int nxl, int nyl)
     hidden(false),
     drawn (false),
     draw_required(true),
-    undraw_color(0),
+    undraw_color(color[COL_TRANSPARENT]),
     parent(0)
 {
 }
@@ -184,10 +184,10 @@ void Element::draw() {
 
 
 void Element::undraw_self() {
-    if (drawn && undraw_color) {
-        rectfill(ground->get_al_bitmap(),
-         get_x_here(), get_y_here(),
-         get_x_here() + xl - 1, get_y_here() + yl - 1, undraw_color);
+    if (drawn && undraw_color != color[COL_TRANSPARENT]) {
+        al_set_target_bitmap(ground->get_al_bitmap());
+        al_draw_filled_rectangle(get_x_here(), get_y_here(),
+         get_x_here() + xl, get_y_here() + yl, undraw_color);
     }
 }
 

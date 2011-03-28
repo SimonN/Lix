@@ -61,29 +61,26 @@ void Window::set_exit()
 void Window::draw_self()
 {
     // Now draw anything other than the title
-    ALLEGRO_BITMAP*   g     = get_ground().get_al_bitmap();
-    const int col_1 = color[COL_API_L];
-    const int col_2 = color[COL_API_M];
-    const int col_3 = color[COL_API_D];
-    const int x1    = get_x_here();
-    const int y1    = get_y_here() + title_bar_height;
-    const int x2    = get_x_here() + get_xl() - 1; // -1, denn die L‰nge z‰hlt
-    const int y2    = get_y_here() + get_yl() - 1; // Pixel an Position 0 mit
+    ALLEGRO_BITMAP*   g        = get_ground().get_al_bitmap();
+    const ALLEGRO_COLOR& col_1 = color[COL_API_L];
+    const ALLEGRO_COLOR& col_2 = color[COL_API_M];
+    const ALLEGRO_COLOR& col_3 = color[COL_API_D];
+    const int x1               = get_x_here();
+    const int y1               = get_y_here() + title_bar_height;
+    const int x2               = get_x_here() + get_xl();
+    const int y2               = get_y_here() + get_yl();
 
-    // Fenster malen
-    acquire_bitmap(g);
-
-    putpixel(g, x1,   y2,               col_2); // Unten links auﬂen
-    putpixel(g, x1+1, y2-1,             col_2); // Unten links innen
-    rectfill(g, x1+2, y1,   x2-2, y2-2, col_2); // Mittelfl‰che
-    vline   (g, x1,   y1,         y2-1, col_1); // Links  auﬂen
-    vline   (g, x1+1, y1,         y2-2, col_1); // Links  innen
-    vline   (g, x2,   y1,         y2,   col_3); // Rechts auﬂen
-    vline   (g, x2-1, y1,         y2,   col_3); // Rechts innen
-    hline   (g, x1+1, y2,   x2-2,       col_3); // Unten  auﬂen
-    hline   (g, x1+2, y2-1, x2-2,       col_3); // Unten  innen
-
-    release_bitmap(g);
+    // Jetzt wird's ernst
+    al_set_target_bitmap    (g);
+    al_draw_filled_rectangle(x1+2, y1+2, x2-2, y2-2, col_2); // Mittelfl‰che
+    al_draw_filled_rectangle(x1,   y1,   x1+2, y2-1, col_1); // left
+    al_draw_filled_rectangle(x1,   y1,   x2-1, y1+2, col_1); // top
+    al_draw_filled_rectangle(x2-2, y1+1, x2,   y2-1, col_3); // right
+    al_draw_filled_rectangle(x1+1, y2-2, x2-1, y2,   col_3); // bottom
+    al_put_pixel            (x1,   y2-1,             col_2); // lower left
+    al_put_pixel            (x1+1, y2-2,             col_2); // lower left
+    al_put_pixel            (x2-2, y1+1,             col_2); // upper right
+    al_put_pixel            (x2-1, y1,               col_2); // upper right
 
     draw_title();
 }
@@ -93,34 +90,26 @@ void Window::draw_self()
 void Window::draw_title()
 {
     // Variablen fuer die Titelflaeche
-    ALLEGRO_BITMAP *g       = get_ground().get_al_bitmap();
-    const int col_1 = color[COL_API_ON_L];
-    const int col_2 = color[COL_API_ON_M];
-    const int col_3 = color[COL_API_ON_D];
-    const int x1    = get_x_here();
-    const int y1    = get_y_here();
-    const int x2    = get_x_here() + get_xl() - 1; // -1, denn L‰nge z‰hlt
-    const int y2    = get_y_here() + title_bar_height - 1;
+    ALLEGRO_BITMAP *g          = get_ground().get_al_bitmap();
+    const ALLEGRO_COLOR& col_1 = color[COL_API_ON_L];
+    const ALLEGRO_COLOR& col_2 = color[COL_API_ON_M];
+    const ALLEGRO_COLOR& col_3 = color[COL_API_ON_D];
+    const int x1               = get_x_here();
+    const int y1               = get_y_here();
+    const int x2               = get_x_here() + get_xl();
+    const int y2               = get_y_here() + title_bar_height;
 
     // Jetzt wird's ernst
-    acquire_bitmap(g);
-
-    // Titel malen
-    putpixel(g, x1,   y2,               col_2); // Unten links auﬂen
-    putpixel(g, x1+1, y2-1,             col_2); // Unten links innen
-    putpixel(g, x2-1, y1+1,             col_2); // Oben rechts auﬂen
-    putpixel(g, x2,   y1,               col_2); // Oben rechts innen
-    rectfill(g, x1+2, y1+2, x2-2, y2-2, col_2); // Mittelfl‰che
-    vline   (g, x1,   y1,         y2-1, col_1); // Links  auﬂen
-    vline   (g, x1+1, y1,         y2-2, col_1); // Links  innen
-    hline   (g, x1+2, y1,   x2-1,       col_1); // Oben   auﬂen
-    hline   (g, x1+2, y1+1, x2-2,       col_1); // Oben   innen
-    vline   (g, x2,   y1+1,       y2,   col_3); // Rechts auﬂen
-    vline   (g, x2-1, y1+2,       y2,   col_3); // Rechts innen
-    hline   (g, x1+1, y2,   x2-2,       col_3); // Unten  auﬂen
-    hline   (g, x1+2, y2-1, x2-2,       col_3); // Unten  innen
-
-    release_bitmap(g);
+    al_set_target_bitmap(g);
+    al_draw_filled_rectangle(x1+2, y1+2, x2-2, y2-2, col_2); // Mittelfl‰che
+    al_draw_filled_rectangle(x1,   y1,   x1+2, y2-1, col_1); // left
+    al_draw_filled_rectangle(x1,   y1,   x2-1, y1+2, col_1); // top
+    al_draw_filled_rectangle(x2-2, y1+1, x2,   y2-1, col_3); // right
+    al_draw_filled_rectangle(x1+1, y2-2, x2-1, y2,   col_3); // bottom
+    al_put_pixel            (x1,   y2-1,             col_2); // lower left
+    al_put_pixel            (x1+1, y2-2,             col_2); // lower left
+    al_put_pixel            (x2-2, y1+1,             col_2); // upper right
+    al_put_pixel            (x2-1, y1,               col_2); // upper right
 }
 
 }

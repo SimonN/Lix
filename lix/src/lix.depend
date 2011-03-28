@@ -5511,7 +5511,7 @@
 	"hatch.h"
 	"../graphic/gra_lib.h"
 
-1300924602 source:/home/simon/c/repo/lix/src/api/brow_sav.cpp
+1301094840 source:/home/simon/c/repo/lix/src/api/brow_sav.cpp
 	"brow_sav.h"
 	"manager.h"
 	"../level/level.h"
@@ -5537,34 +5537,35 @@
 	"button.h"
 	"../../other/globals.h"
 
-1300915711 /home/simon/c/repo/lix/src/other/myalleg.h
+1301291819 /home/simon/c/repo/lix/src/other/myalleg.h
 	<allegro5/allegro.h>
 	<allegro5/allegro_font.h>
+	<allegro5/allegro_primitives.h>
 
-1300285974 /home/simon/c/repo/lix/src/api/button/button.h
+1301296692 /home/simon/c/repo/lix/src/api/button/button.h
 	"../element.h"
 
-1300285974 /home/simon/c/repo/lix/src/api/element.h
+1301297732 /home/simon/c/repo/lix/src/api/element.h
 	"../other/myalleg.h"
 	<set>
 	"../other/hardware.h"
 
-1300916037 /home/simon/c/repo/lix/src/other/hardware.h
+1301094840 /home/simon/c/repo/lix/src/other/hardware.h
 	"../graphic/glob_gfx.h"
 
-1300915711 /home/simon/c/repo/lix/src/graphic/glob_gfx.h
+1301313248 /home/simon/c/repo/lix/src/graphic/glob_gfx.h
 	<string>
 	<map>
 	<vector>
 	"cutbit.h"
 	"torbit.h"
 
-1300915711 /home/simon/c/repo/lix/src/graphic/cutbit.h
+1301094840 /home/simon/c/repo/lix/src/graphic/cutbit.h
 	<string>
 	<vector>
 	"torbit.h"
 
-1300915711 /home/simon/c/repo/lix/src/graphic/torbit.h
+1301308341 /home/simon/c/repo/lix/src/graphic/torbit.h
 	"../other/myalleg.h"
 
 1300285974 /home/simon/c/repo/lix/src/other/globals.h
@@ -5595,7 +5596,7 @@
 	"element.h"
 	"label.h"
 
-1300915711 /home/simon/c/repo/lix/src/api/label.h
+1301299711 /home/simon/c/repo/lix/src/api/label.h
 	"element.h"
 
 1300285974 /home/simon/c/repo/lix/src/api/message.h
@@ -5612,7 +5613,7 @@
 	<vector>
 	"../graphic/torbit.h"
 
-1300915711 /home/simon/c/repo/lix/src/level/level.h
+1301094840 /home/simon/c/repo/lix/src/level/level.h
 	<list>
 	<string>
 	"object.h"
@@ -5625,7 +5626,7 @@
 	"../graphic/cutbit.h"
 	"../graphic/sound.h"
 
-1300915711 /home/simon/c/repo/lix/src/graphic/sound.h
+1301094840 /home/simon/c/repo/lix/src/graphic/sound.h
 	"../other/myalleg.h"
 	<string>
 	<vector>
@@ -5645,7 +5646,7 @@
 	"date.h"
 	"globals.h"
 
-1300924602 /home/simon/c/repo/lix/src/other/help.h
+1301296900 /home/simon/c/repo/lix/src/other/help.h
 	"myalleg.h"
 	<cstdlib>
 	<string>
@@ -5674,7 +5675,7 @@
 	"cutbit.h"
 	"../lix/lix_enum.h"
 
-1300285974 source:/home/simon/c/repo/lix/src/api/button/b_combin.cpp
+1301297522 source:/home/simon/c/repo/lix/src/api/button/b_combin.cpp
 	"b_combin.h"
 	"../../other/help.h"
 
@@ -5690,7 +5691,7 @@
 1300285974 /home/simon/c/repo/lix/src/api/button/b_enum.h
 	"b_text.h"
 
-1300924729 source:/home/simon/c/repo/lix/src/api/button/b_key.cpp
+1301094840 source:/home/simon/c/repo/lix/src/api/button/b_key.cpp
 	"b_key.h"
 	"../manager.h"
 	"../../other/help.h"
@@ -5699,7 +5700,7 @@
 1300285974 /home/simon/c/repo/lix/src/api/button/b_key.h
 	"b_text.h"
 
-1300285974 source:/home/simon/c/repo/lix/src/api/button/b_skill.cpp
+1301297828 source:/home/simon/c/repo/lix/src/api/button/b_skill.cpp
 	<sstream>
 	"b_skill.h"
 	"../../graphic/gra_lib.h"
@@ -5711,13 +5712,218 @@
 	"../../graphic/graphic.h"
 	"../../lix/lix_enum.h"
 
-1300915711 /home/simon/c/repo/lix/src/graphic/graphic.h
+1301094840 /home/simon/c/repo/lix/src/graphic/graphic.h
 	<string>
 	"glob_gfx.h"
 	"torbit.h"
 
-1300285974 source:/home/simon/c/repo/lix/src/api/button/b_text.cpp
+1301297557 source:/home/simon/c/repo/lix/src/api/button/b_text.cpp
 	"b_text.h"
 	"../../graphic/gra_lib.h"
 	"../../other/help.h"
+
+1301299240 source:/home/simon/c/repo/lix/src/api/button/button.cpp
+	"button.h"
+	"../../other/hardware.h"
+	"../../other/log.h"
+
+1301298584 source:/home/simon/c/repo/lix/src/api/element.cpp
+	"element.h"
+	"manager.h"
+
+1301299562 source:/home/simon/c/repo/lix/src/api/frame.cpp
+	"frame.h"
+
+1301300140 source:/home/simon/c/repo/lix/src/api/label.cpp
+	"label.h"
+	"../other/help.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/api/labeltwo.cpp
+	<sstream>
+	"labeltwo.h"
+	"../other/language.h"
+
+1300285974 /home/simon/c/repo/lix/src/api/labeltwo.h
+	"label.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/api/list_dir.cpp
+	<algorithm>
+	"list_dir.h"
+	"../other/help.h"
+	"../other/globals.h"
+	"../other/language.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/api/list_fil.cpp
+	<algorithm>
+	"list_fil.h"
+	"../other/help.h"
+	"../other/language.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/api/list_lev.cpp
+	<sstream>
+	"list_lev.h"
+	"button/b_text.h"
+	"../gameplay/replay.h"
+	"../level/level.h"
+	"../other/help.h"
+	"../other/user.h"
+	"../other/language.h"
+
+1300285974 /home/simon/c/repo/lix/src/gameplay/replay.h
+	<fstream>
+	<set>
+	<vector>
+	"../lix/lix_enum.h"
+	"../network/net_t.h"
+	"../network/permu.h"
+	"../other/date.h"
+	"../other/types.h"
+
+1300285974 /home/simon/c/repo/lix/src/network/permu.h
+	<string>
+	<vector>
+
+1300285974 /home/simon/c/repo/lix/src/other/types.h
+
+1300285974 /home/simon/c/repo/lix/src/other/user.h
+	<map>
+	<vector>
+	"date.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/api/manager.cpp
+	"manager.h"
+	"element.h"
+	"../graphic/glob_gfx.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/api/message.cpp
+	"message.h"
+	"manager.h"
+
+1301300279 source:/home/simon/c/repo/lix/src/api/number.cpp
+	<sstream>
+	"number.h"
+	"../graphic/gra_lib.h"
+	"../other/help.h"
+	"../other/globals.h"
+
+1300285974 /home/simon/c/repo/lix/src/api/number.h
+	"element.h"
+	"frame.h"
+	"button/b_bitmap.h"
+
+1301304595 source:/home/simon/c/repo/lix/src/api/texttype.cpp
+	"texttype.h"
+	"manager.h"
+	"../other/help.h"
+
+1301307966 source:/home/simon/c/repo/lix/src/api/window.cpp
+	"window.h"
+	"manager.h"
+
+1301308341 source:/home/simon/c/repo/lix/src/editor/bit_brow.cpp
+	<sstream>
+	"bit_brow.h"
+	"../api/button/b_bitmap.h"
+	"../api/button/b_combin.h"
+	"../graphic/gra_lib.h"
+	"../level/obj_lib.h"
+	"../other/hardware.h"
+	"../other/globals.h"
+	"../other/help.h"
+	"../other/language.h"
+
+1300285974 /home/simon/c/repo/lix/src/editor/bit_brow.h
+	"../api/list_dir.h"
+	"../api/list_fil.h"
+	"../api/window.h"
+	"../level/object.h"
+
+1301308057 /home/simon/c/repo/lix/src/level/obj_lib.h
+	<map>
+	"graset.h"
+
+1301308057 /home/simon/c/repo/lix/src/level/graset.h
+	<vector>
+	"object.h"
+
+1301094840 source:/home/simon/c/repo/lix/src/editor/editor.cpp
+	"../other/myalleg.h"
+	<fstream>
+	"editor.h"
+	"../api/manager.h"
+	"../graphic/glob_gfx.h"
+	"../graphic/gra_lib.h"
+	"../level/obj_lib.h"
+	"../other/hardware.h"
+	"../other/help.h"
+	"../other/log.h"
+	"../other/user.h"
+
+1301308404 /home/simon/c/repo/lix/src/editor/editor.h
+	<list>
+	<map>
+	<string>
+	<vector>
+	"graph_ed.h"
+	"bit_brow.h"
+	"win_size.h"
+	"win_scro.h"
+	"win_var.h"
+	"win_skil.h"
+	"../api/brow_sav.h"
+	"../api/button/b_bitmap.h"
+	"../graphic/graph_bg.h"
+	"../graphic/map.h"
+	"../other/globals.h"
+	"../level/level.h"
+	"../other/help.h"
+
+1300285974 /home/simon/c/repo/lix/src/editor/graph_ed.h
+	"../graphic/graphic.h"
+	"../graphic/map.h"
+	"../level/object.h"
+
+1301314512 /home/simon/c/repo/lix/src/graphic/map.h
+	"torbit.h"
+
+1300285974 /home/simon/c/repo/lix/src/editor/win_size.h
+	"../api/button/b_text.h"
+	"../api/label.h"
+	"../api/number.h"
+	"../api/window.h"
+	"../graphic/map.h"
+	"../level/level.h"
+
+1300285974 /home/simon/c/repo/lix/src/editor/win_scro.h
+	"../api/button/b_text.h"
+	"../api/label.h"
+	"../api/number.h"
+	"../api/window.h"
+	"../graphic/map.h"
+	"../level/level.h"
+
+1300285974 /home/simon/c/repo/lix/src/editor/win_var.h
+	"../api/button/b_text.h"
+	"../api/label.h"
+	"../api/number.h"
+	"../api/texttype.h"
+	"../api/window.h"
+	"../level/level.h"
+
+1300285974 /home/simon/c/repo/lix/src/editor/win_skil.h
+	<vector>
+	"../api/button/b_skill.h"
+	"../api/button/b_text.h"
+	"../api/number.h"
+	"../api/window.h"
+	"../other/globals.h"
+	"../level/level.h"
+
+1301094840 /home/simon/c/repo/lix/src/graphic/graph_bg.h
+	"graphic.h"
+
+1301308341 source:/home/simon/c/repo/lix/src/editor/editor_c.cpp
+	"editor.h"
+	"../api/manager.h"
+	"../other/user.h"
 

@@ -77,7 +77,7 @@ void SkillButton::draw_self()
          (s.str().size() > 2 ? font_nar : font_big),
          s.str().c_str(), get_x_here() + 20 + (s.str().size() > 2 ? -1 : 0),
          get_y_here() + 4,
-         color[COL_TEXT_ON], color[COL_API_SHADOW]);
+         color[COL_TEXT_ON]);
     }
 }
 

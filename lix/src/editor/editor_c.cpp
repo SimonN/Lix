@@ -36,8 +36,8 @@ void Editor::calc_self()
     mouse_cursor.set_x_frame(0);
     mouse_cursor.set_y_frame(0);
     if (map.get_scrollable()
-     && (useR->scroll_right  && hardware.get_mrh()
-      || useR->scroll_middle && hardware.get_mmh()))
+     && ((useR->scroll_right  && hardware.get_mrh())
+      || (useR->scroll_middle && hardware.get_mmh())))
      mouse_cursor.set_x_frame(3);
 
     hover.clear();

@@ -58,26 +58,21 @@ namespace Help {
     void draw_shaded_text         (Torbit&, ALLEGRO_FONT*, const char*,
                                    int, int, int, int, int);
     void draw_shadow_text         (Torbit&, ALLEGRO_FONT*, const char*,
-                                // x    y    Farbe, Schattenfarbe
-                                   int, int, int = color[COL_TEXT],
-                                   int = color[COL_API_SHADOW]);
+                                   int, int, ALLEGRO_COLOR);
 
     void draw_shaded_centered_text(Torbit&, ALLEGRO_FONT*, const char*,
                                    int, int, int, int, int);
     void draw_shadow_centered_text(Torbit&, ALLEGRO_FONT*, const char*,
-                                // x    y    Farbe, Schattenfarbe
-                                   int, int, int = color[COL_TEXT],
-                                   int = color[COL_API_SHADOW]);
+                                   int, int, ALLEGRO_COLOR);
 
     void draw_shadow_fixed_number (Torbit&, ALLEGRO_FONT*,
-                                   int, int, int, int=color[COL_TEXT],
-                                   bool = false, int=color[COL_API_SHADOW]);
+                                   int, int, int, ALLEGRO_COLOR,
+                                   bool = false);
     void draw_shadow_fixed_text   (Torbit&, ALLEGRO_FONT*, const std::string&,
-                                   int, int, int=color[COL_TEXT], bool = false,
-                                   int=color[COL_API_SHADOW]);
+                                   int, int, ALLEGRO_COLOR, bool = false);
     void draw_shadow_fixed_updates_used(Torbit&, ALLEGRO_FONT*,
-                                   int, int, int, int=color[COL_TEXT],
-                                   bool = false,  int=color[COL_API_SHADOW]);
+                                   int, int, int, ALLEGRO_COLOR,
+                                   bool = false);
 
 
 

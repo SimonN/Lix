@@ -44,7 +44,7 @@ Texttype::~Texttype()
 
 bool Texttype::get_too_long(const std::string t)
 {
-    return text_length(font_med, t.c_str()) > get_xl()-10;
+    return al_get_text_width(font_med, t.c_str()) > get_xl()-10;
 }
 
 
@@ -67,7 +67,7 @@ void Texttype::set_on(const bool b)
         // Schreibmodus beginnen
         Manager::add_focus(this);
         text_backup = text; // Fuer ESC-Druck/Rechtsklick
-        clear_keybuf();
+        // clear_keybuf(); // afdebug
     }
 }
 
@@ -115,11 +115,11 @@ void Texttype::calc_self()
             }
             else if (kascii < 1) return;
             else if ((k >= ALLEGRO_KEY_A     && k <= ALLEGRO_KEY_9    )  || k == ALLEGRO_KEY_SPACE
-             ||      (k >= ALLEGRO_KEY_0_PAD && k <= ALLEGRO_KEY_9_PAD)  || k == ALLEGRO_KEY_DEL_PAD
-             || k == ALLEGRO_KEY_STOP      || k == ALLEGRO_KEY_COMMA     || k == ALLEGRO_KEY_COLON
-             || k == ALLEGRO_KEY_MINUS     || k == ALLEGRO_KEY_PLUS_PAD  || k == ALLEGRO_KEY_EQUALS
+             ||      (k >= ALLEGRO_KEY_PAD_0 && k <= ALLEGRO_KEY_PAD_9)  || k == ALLEGRO_KEY_PAD_DELETE
+             || k == ALLEGRO_KEY_FULLSTOP  || k == ALLEGRO_KEY_COMMA     || k == ALLEGRO_KEY_SEMICOLON
+             || k == ALLEGRO_KEY_MINUS     || k == ALLEGRO_KEY_PAD_PLUS  || k == ALLEGRO_KEY_EQUALS
              || k == ALLEGRO_KEY_QUOTE     || k == ALLEGRO_KEY_SLASH     || k == ALLEGRO_KEY_CLOSEBRACE
-             || k == ALLEGRO_KEY_OPENBRACE || k == ALLEGRO_KEY_SEMICOLON || k == ALLEGRO_KEY_ASTERISK)
+             || k == ALLEGRO_KEY_OPENBRACE)
             {
                 text += kascii;
                 if (!scroll && get_too_long(text)) text.resize(text.size()-1);
@@ -143,9 +143,9 @@ void Texttype::draw_self()
     // Zeichnen vorbereiten
     // td ist "text to display";
     std::string td;
-    int         text_color    = color[COL_TEXT];
-    bool        align_right   = false;
-    bool        caret_visible = false;
+    ALLEGRO_COLOR text_color    = color[COL_TEXT];
+    bool          align_right   = false;
+    bool          caret_visible = false;
 
     if (scroll && get_too_long(text)) {
         align_right = true;
@@ -169,9 +169,9 @@ void Texttype::draw_self()
     else           Button::draw_self();
     Help::draw_shadow_text(get_ground(), font_med,
      td.c_str(), align_right ? get_x_here() + get_xl() - 7
-     - text_length(font_med, td.c_str())
-     + text_length(font_med, "^") * caret_visible
-     : get_x_here() + 3, get_y_here(), text_color, color[COL_API_SHADOW]);
+     - al_get_text_width(font_med, td.c_str())
+     + al_get_text_width(font_med, "^") * caret_visible
+     : get_x_here() + 3, get_y_here(), text_color);
 }
 
 

@@ -35,6 +35,7 @@ enum Color {
     COL_NOTHING,
     COL_TRANSPARENT,
     COL_PINK,
+    COL_PINKAF,
 
     COL_BLACK,
     COL_GREY_FUSE_D,
@@ -66,7 +67,10 @@ enum Color {
     COL_MAX
 };
 
-extern std::vector <int> color;
+extern std::vector <ALLEGRO_COLOR> color;
+
+bool operator == (const ALLEGRO_COLOR&, const ALLEGRO_COLOR&);
+bool operator != (const ALLEGRO_COLOR&, const ALLEGRO_COLOR&);
 
 // Schriftarten
 extern ALLEGRO_FONT *font_sml;

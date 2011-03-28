@@ -19,7 +19,25 @@
 Torbit *pre_screen;
 
 // Farben
-std::vector <int> color(COL_MAX);
+std::vector <ALLEGRO_COLOR> color(COL_MAX);
+
+bool operator == (const ALLEGRO_COLOR& c1, const ALLEGRO_COLOR& c2)
+{
+    unsigned char r1, g1, b1, a1;
+    unsigned char r2, g2, b2, a2;
+    al_unmap_rgba(c1, &r1, &g1, &b1, &a1);
+    al_unmap_rgba(c2, &r2, &g2, &b2, &a2);
+    return r1 == r2 && g1 == g2 && b1 == b2 && a1 == a2;
+}
+
+
+
+bool operator != (const ALLEGRO_COLOR& c1, const ALLEGRO_COLOR& c2)
+{
+    return !(c1 == c2);
+}
+
+
 
 // Schriftarten
 ALLEGRO_FONT* font_sml;

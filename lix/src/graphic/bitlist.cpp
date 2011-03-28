@@ -17,6 +17,7 @@ void make_all_colors()
 
     color[COL_TRANSPARENT  ] = -1;                     // Ich seh' nix o_O
     color[COL_PINK         ] = makecol(255,   0, 255); // Immer noch nix O_O
+    color[COL_PINKAF       ] = makecol(255,   0, 255); // afdebug: should probably be full alpha.
 
     color[COL_BLACK        ] = makecol(  0,   0,   0); // Echte Männerfarbe!
     color[COL_GREY_FUSE_D  ] = makecol(111, 111, 111); // Etwas dunkleres Grau

@@ -61,8 +61,8 @@ void Button::draw_self() {
     ALLEGRO_BITMAP* g    = get_ground().get_al_bitmap();
     const int x1 = get_x_here();
     const int y1 = get_y_here();
-    const int x2 = get_x_here() + get_xl() - 1;
-    const int y2 = get_y_here() + get_yl() - 1;
+    const int x2 = get_x_here() + get_xl();
+    const int y2 = get_y_here() + get_yl();
 
     if (down) {
         color_1    = color[COL_API_DOWN_D];
@@ -82,24 +82,16 @@ void Button::draw_self() {
     }
 
     // Jetzt wird's ernst
-    acquire_bitmap(g);
-
-    // Jetzt malen!
-    putpixel(g, x1,   y2,               color_2); // Unten links außen
-    putpixel(g, x1+1, y2-1,             color_2); // Unten links innen
-    putpixel(g, x2-1, y1+1,             color_2); // Oben rechts außen
-    putpixel(g, x2,   y1,               color_2); // Oben rechts innen
-    rectfill(g, x1+2, y1+2, x2-2, y2-2, color_2); // Mittelfläche
-    vline   (g, x1,   y1,         y2-1, color_1); // Links  außen
-    vline   (g, x1+1, y1,         y2-2, color_1); // Links  innen
-    hline   (g, x1+2, y1,   x2-1,       color_1); // Oben   außen
-    hline   (g, x1+2, y1+1, x2-2,       color_1); // Oben   innen
-    vline   (g, x2,   y1+1,       y2,   color_3); // Rechts außen
-    vline   (g, x2-1, y1+2,       y2,   color_3); // Rechts innen
-    hline   (g, x1+1, y2,   x2-2,       color_3); // Unten  außen
-    hline   (g, x1+2, y2-1, x2-2,       color_3); // Unten  innen
-
-    release_bitmap(g);
+    al_set_target_bitmap(g);
+    al_draw_filled_rectangle(x1+2, y1+2, x2-2, y2-2, color_2); // Mittelfläche
+    al_draw_filled_rectangle(x1,   y1,   x1+2, y2-1, color_1); // left
+    al_draw_filled_rectangle(x1,   y1,   x2-1, y1+2, color_1); // top
+    al_draw_filled_rectangle(x2-2, y1+1, x2,   y2-1, color_3); // right
+    al_draw_filled_rectangle(x1+1, y2-2, x2-1, y2,   color_3); // bottom
+    al_put_pixel            (x1,   y2-1,             color_2); // lower left
+    al_put_pixel            (x1+1, y2-2,             color_2); // lower left
+    al_put_pixel            (x2-2, y1+1,             color_2); // upper right
+    al_put_pixel            (x2-1, y1,               color_2); // upper right
 }
 
 } // Api

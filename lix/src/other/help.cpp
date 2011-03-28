@@ -25,7 +25,6 @@ const    int    timer_ticks_per_second = 60;
 void timer_increment_ticks() {
     ++timer_ticks;
 }
-END_OF_FUNCTION(increment_ticks)
 
 void timer_start() {
     LOCK_VARIABLE (timer_ticks);

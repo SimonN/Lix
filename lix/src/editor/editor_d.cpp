@@ -36,11 +36,11 @@ void Editor::draw()
     // Draw the map
     // If drawing takes very long, wait until after dragging.
     if (draw_required && (draw_dragging
-     || !hardware.key_hold(ALLEGRO_KEY_UP)
-     && !hardware.key_hold(ALLEGRO_KEY_RIGHT)
-     && !hardware.key_hold(ALLEGRO_KEY_DOWN)
-     && !hardware.key_hold(ALLEGRO_KEY_LEFT)
-     && !hardware.get_mlh() ) ) {
+     || (!hardware.key_hold(ALLEGRO_KEY_UP)
+      && !hardware.key_hold(ALLEGRO_KEY_RIGHT)
+      && !hardware.key_hold(ALLEGRO_KEY_DOWN)
+      && !hardware.key_hold(ALLEGRO_KEY_LEFT)
+      && !hardware.get_mlh()) ) ) {
         draw_required = false;
         int clock     = Help::timer_ticks;
         // clear_screen_rectangle() is not enough to prevent drag remainders
@@ -70,8 +70,9 @@ void Editor::draw()
     // OSD help texts for buttons
     // A TextButton with left text alignment also starts at x = 3.
     if (Api::Manager::get_focus() == 0) {
-        rectfill(Api::Manager::get_torbit().get_al_bitmap(),
-         0, LEMSCR_Y-80, LEMSCR_X-1, LEMSCR_Y-61, color[COL_PINK]);
+        al_set_target_bitmap(Api::Manager::get_torbit().get_al_bitmap());
+        al_draw_filled_rectangle(0, LEMSCR_Y - 80, LEMSCR_X, LEMSCR_Y - 60,
+         color[COL_PINKAF]);
         if (panel[HELP].get_on())
          for (unsigned i = 0; i < panel.size(); ++i)
          if (panel[i].is_mouse_here()) {
@@ -89,11 +90,11 @@ void Editor::draw()
                 str += hold ? Language::editor_hotkey_hold
                             : Language::editor_hotkey;
                 str += " [";
-                str += scancode_to_name(key);
+                str += al_keycode_to_name(key);
                 str += "]";
             }
             Help::draw_shadow_text(Api::Manager::get_torbit(), font_med,
-             str.c_str(), 3, LEMSCR_Y - 80);
+             str.c_str(), 3, LEMSCR_Y - 80, color[COL_TEXT]);
         }
     }
 
@@ -138,8 +139,8 @@ void Editor::draw_selection_borders()
     if (t%40 >= 20) col = 20 - (t%20);
     const int c1 = 100 - col*2;
     const int c2 = 255 - col*4;
-    const int col_hov = makecol(c1, c1, c1);
-    const int col_sel = makecol(c2, c2, c2);
+    const ALLEGRO_COLOR col_hov = al_map_rgb(c1, c1, c1);
+    const ALLEGRO_COLOR col_sel = al_map_rgb(c2, c2, c2);
 
     if (map_frames.get_xl() != map.get_xl()
      || map_frames.get_yl() != map.get_yl())

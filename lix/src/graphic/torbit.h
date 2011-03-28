@@ -27,8 +27,8 @@ public:
     Torbit& operator = (const Torbit&);
 
     inline ALLEGRO_BITMAP* get_al_bitmap() const { return bitmap; }
-    inline int             get_xl() const;
-    inline int             get_yl() const;
+           int             get_xl() const;
+           int             get_yl() const;
 
     virtual void   resize(int, int);
 
