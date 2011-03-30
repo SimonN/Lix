@@ -1,1 +1,0 @@
-All graphics sets that I make for Lix from now on will not be released until the final version of the set is ready.  
