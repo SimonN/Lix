@@ -77,15 +77,15 @@ public:
     bool    operator == (const Cutbit&) const;
     bool    operator != (const Cutbit&) const;
 
-    inline operator bool()        const { return bitmap;   }
-    inline ALLEGRO_BITMAP* get_al_bitmap()const { return bitmap;   }
-    inline int     get_xl()       const { return xl;       }
-    inline int     get_yl()       const { return yl;       }
-    inline int     get_x_frames() const { return x_frames; }
-    inline int     get_y_frames() const { return y_frames; }
+    inline operator bool()                 const { return bitmap;   }
+    inline ALLEGRO_BITMAP* get_al_bitmap() const { return bitmap;   }
+    inline int             get_xl()        const { return xl;       }
+    inline int             get_yl()        const { return yl;       }
+    inline int             get_x_frames()  const { return x_frames; }
+    inline int             get_y_frames()  const { return y_frames; }
 
-           int     get_pixel(const int, const int)                       const;
-           int     get_pixel(const int, const int, const int, const int) const;
+    ALLEGRO_COLOR  get_pixel(const int, const int)                       const;
+    ALLEGRO_COLOR  get_pixel(const int, const int, const int, const int) const;
 
     // Cutbit zeichnen auf die angegebene Unterlage
     void draw(Torbit&,

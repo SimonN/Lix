@@ -346,9 +346,9 @@ void Gameplay::update_cs_one_data(Tribe& t, Tribe::Master* m, Replay::It i)
                 if (psk.nr != LixEn::infinity) --psk.nr;
                 lix.evaluate_click(psk.ac);
                 // Draw arrow if necessary, read arrow.h/effect.h for info
-                if (useR->arrows_replay  && replaying
-                 || useR->arrows_network && Network::get_started()
-                                                 && m != malo) {
+                if ((useR->arrows_replay  && replaying)
+                 || (useR->arrows_network && Network::get_started()
+                                          && m != malo)) {
                     Arrow arr(map, t.style, lix.get_ex(), lix.get_ey(),
                      psk.ac, upd, i->what);
                     effect.add_arrow(upd, t, i->what, arr);

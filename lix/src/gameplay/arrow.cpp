@@ -90,7 +90,7 @@ Debris::Debris(Map& m, const int nx, const int ny)
 :
     map    (m),
     cutbit (&GraLib::get(gloB->file_bitmap_debris)),
-    color  (rand() % (cutbit->get_y_frames()
+    y_frame(rand() % (cutbit->get_y_frames()
             - explosion_y_frame_min) + explosion_y_frame_min),
     ttl    (rand() % (ttl_max - ttl_min) + ttl_min),
     x      (nx - cutbit->get_xl()/2),
@@ -129,7 +129,7 @@ Debris::Debris(
 ) :
     map    (m),
     cutbit (&GraLib::get(gloB->file_bitmap_debris)),
-    color  (nyf),
+    y_frame(nyf),
     ttl    (ttl_pickaxe),
     x      (nx - cutbit->get_xl()/2),
     y      (ny - cutbit->get_yl()/2),
@@ -170,8 +170,8 @@ void Debris::calc()
     const bool& tx = map.get_torus_x();
     const bool& ty = map.get_torus_y();
     const int   xl = (cutbit ? cutbit->get_xl() : 2);
-    if (!tx && (x + xl < 0 || x > map.get_xl())
-     || !ty &&                y > map.get_yl() )
+    if ((!tx && (x + xl < 0 || x > map.get_xl()))
+     || (!ty &&                y > map.get_yl()) )
      ttl = 0;
 
     if (cutbit) rot += (x_speed / 20);
@@ -184,7 +184,7 @@ void Debris::draw()
     if (cutbit) {
         int x_frame = cutbit->get_x_frames() - 1 - ttl/4;
         if (x_frame < 0) x_frame = 0;
-        cutbit->draw(map, (int) x, (int) y, x_frame, color, false, rot);
+        cutbit->draw(map, (int) x, (int) y, x_frame, y_frame, false, rot);
     }
     else {
         map.set_pixel((int) x,   (int) y,   color);

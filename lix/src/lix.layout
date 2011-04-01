@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Release (Linux)" />
+	<ActiveTarget name="Linux Debug -w" />
 	<File name="api/brow_sav.cpp" open="0" top="0" tabpos="2">
 		<Cursor position="5178" topLine="139" />
 	</File>
@@ -131,22 +131,22 @@
 		<Cursor position="2358" topLine="74" />
 	</File>
 	<File name="editor/editor.h" open="0" top="0" tabpos="3">
-		<Cursor position="4578" topLine="135" />
+		<Cursor position="4085" topLine="106" />
 	</File>
 	<File name="editor/editor_c.cpp" open="0" top="0" tabpos="1">
 		<Cursor position="4073" topLine="96" />
 	</File>
 	<File name="editor/editor_d.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="982" topLine="38" />
+		<Cursor position="8984" topLine="247" />
 	</File>
 	<File name="editor/editor_f.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="8412" topLine="213" />
+		<Cursor position="2036" topLine="48" />
 	</File>
 	<File name="editor/graph_ed.cpp" open="0" top="0" tabpos="9">
-		<Cursor position="503" topLine="0" />
+		<Cursor position="3739" topLine="114" />
 	</File>
 	<File name="editor/graph_ed.h" open="0" top="0" tabpos="3">
-		<Cursor position="323" topLine="0" />
+		<Cursor position="826" topLine="10" />
 	</File>
 	<File name="editor/win_scro.cpp" open="0" top="0" tabpos="25">
 		<Cursor position="1881" topLine="23" />
@@ -155,7 +155,7 @@
 		<Cursor position="153" topLine="0" />
 	</File>
 	<File name="editor/win_size.cpp" open="0" top="0" tabpos="26">
-		<Cursor position="2992" topLine="54" />
+		<Cursor position="6439" topLine="167" />
 	</File>
 	<File name="editor/win_size.h" open="0" top="0" tabpos="21">
 		<Cursor position="1378" topLine="12" />
@@ -173,10 +173,10 @@
 		<Cursor position="1163" topLine="13" />
 	</File>
 	<File name="gameplay/arrow.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="3607" topLine="98" />
+		<Cursor position="4828" topLine="161" />
 	</File>
 	<File name="gameplay/arrow.h" open="0" top="0" tabpos="4">
-		<Cursor position="2852" topLine="61" />
+		<Cursor position="2626" topLine="61" />
 	</File>
 	<File name="gameplay/chat.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="934" topLine="1" />
@@ -188,25 +188,25 @@
 		<Cursor position="3729" topLine="106" />
 	</File>
 	<File name="gameplay/effect.h" open="0" top="0" tabpos="10">
-		<Cursor position="3930" topLine="86" />
+		<Cursor position="1558" topLine="30" />
 	</File>
 	<File name="gameplay/gamepl_a.cpp" open="0" top="0" tabpos="9">
-		<Cursor position="5686" topLine="117" />
+		<Cursor position="1183" topLine="23" />
 	</File>
 	<File name="gameplay/gamepl_c.cpp" open="0" top="0" tabpos="14">
-		<Cursor position="5653" topLine="143" />
+		<Cursor position="2333" topLine="74" />
 	</File>
 	<File name="gameplay/gamepl_d.cpp" open="0" top="0" tabpos="15">
-		<Cursor position="738" topLine="15" />
+		<Cursor position="582" topLine="21" />
 	</File>
 	<File name="gameplay/gamepl_u.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="8337" topLine="178" />
+		<Cursor position="13973" topLine="333" />
 	</File>
 	<File name="gameplay/gameplay.cpp" open="0" top="0" tabpos="16">
 		<Cursor position="954" topLine="40" />
 	</File>
 	<File name="gameplay/gameplay.h" open="0" top="0" tabpos="5">
-		<Cursor position="2280" topLine="60" />
+		<Cursor position="4211" topLine="113" />
 	</File>
 	<File name="gameplay/goal.cpp" open="0" top="0" tabpos="16">
 		<Cursor position="676" topLine="2" />
@@ -221,7 +221,7 @@
 		<Cursor position="360" topLine="0" />
 	</File>
 	<File name="gameplay/panel.cpp" open="0" top="0" tabpos="8">
-		<Cursor position="1148" topLine="6" />
+		<Cursor position="3173" topLine="58" />
 	</File>
 	<File name="gameplay/panel.h" open="0" top="0" tabpos="20">
 		<Cursor position="757" topLine="9" />
@@ -245,7 +245,7 @@
 		<Cursor position="2431" topLine="29" />
 	</File>
 	<File name="gameplay/stats.cpp" open="0" top="0" tabpos="9">
-		<Cursor position="3744" topLine="96" />
+		<Cursor position="15404" topLine="446" />
 	</File>
 	<File name="gameplay/stats.h" open="0" top="0" tabpos="12">
 		<Cursor position="2824" topLine="51" />
@@ -257,28 +257,28 @@
 		<Cursor position="760" topLine="35" />
 	</File>
 	<File name="gameplay/win_game.cpp" open="0" top="0" tabpos="13">
-		<Cursor position="11459" topLine="288" />
+		<Cursor position="12728" topLine="329" />
 	</File>
 	<File name="gameplay/win_game.h" open="0" top="0" tabpos="3">
-		<Cursor position="326" topLine="0" />
+		<Cursor position="2061" topLine="55" />
 	</File>
 	<File name="graphic/bitlist.cpp" open="0" top="0" tabpos="16">
-		<Cursor position="2115" topLine="0" />
+		<Cursor position="2130" topLine="14" />
 	</File>
 	<File name="graphic/cutbit.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="5299" topLine="200" />
+		<Cursor position="7015" topLine="253" />
 	</File>
 	<File name="graphic/cutbit.h" open="0" top="0" tabpos="4">
-		<Cursor position="1745" topLine="55" />
+		<Cursor position="1435" topLine="57" />
 	</File>
 	<File name="graphic/glob_gfx.cpp" open="0" top="0" tabpos="5">
-		<Cursor position="544" topLine="0" />
+		<Cursor position="1497" topLine="31" />
 	</File>
 	<File name="graphic/glob_gfx.h" open="0" top="0" tabpos="2">
 		<Cursor position="1140" topLine="22" />
 	</File>
 	<File name="graphic/gra_lib.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="2228" topLine="70" />
+		<Cursor position="1381" topLine="22" />
 	</File>
 	<File name="graphic/gra_lib.h" open="0" top="0" tabpos="1">
 		<Cursor position="1419" topLine="12" />
@@ -293,13 +293,13 @@
 		<Cursor position="2001" topLine="30" />
 	</File>
 	<File name="graphic/graphic.h" open="0" top="0" tabpos="1">
-		<Cursor position="305" topLine="0" />
+		<Cursor position="2660" topLine="49" />
 	</File>
 	<File name="graphic/map.cpp" open="0" top="0" tabpos="17">
-		<Cursor position="5708" topLine="163" />
+		<Cursor position="10720" topLine="328" />
 	</File>
 	<File name="graphic/map.h" open="0" top="0" tabpos="5">
-		<Cursor position="4117" topLine="90" />
+		<Cursor position="5334" topLine="126" />
 	</File>
 	<File name="graphic/sound.cpp" open="0" top="0" tabpos="4">
 		<Cursor position="2578" topLine="110" />
@@ -416,7 +416,7 @@
 		<Cursor position="393" topLine="0" />
 	</File>
 	<File name="lix/lix.h" open="0" top="0" tabpos="11">
-		<Cursor position="612" topLine="0" />
+		<Cursor position="12353" topLine="308" />
 	</File>
 	<File name="lix/lix_ac.cpp" open="0" top="0" tabpos="6">
 		<Cursor position="141" topLine="0" />
@@ -566,16 +566,16 @@
 		<Cursor position="4778" topLine="169" />
 	</File>
 	<File name="other/hardware.cpp" open="0" top="0" tabpos="9">
-		<Cursor position="5427" topLine="140" />
+		<Cursor position="5427" topLine="133" />
 	</File>
 	<File name="other/hardware.h" open="0" top="0" tabpos="8">
-		<Cursor position="2247" topLine="48" />
+		<Cursor position="2247" topLine="99" />
 	</File>
 	<File name="other/help.cpp" open="0" top="0" tabpos="10">
 		<Cursor position="10882" topLine="339" />
 	</File>
 	<File name="other/help.h" open="0" top="0" tabpos="11">
-		<Cursor position="3549" topLine="67" />
+		<Cursor position="2093" topLine="47" />
 	</File>
 	<File name="other/io.cpp" open="0" top="0" tabpos="8">
 		<Cursor position="6162" topLine="213" />

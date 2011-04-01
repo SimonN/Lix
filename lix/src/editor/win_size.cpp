@@ -181,7 +181,8 @@ void WindowSize::draw_calculation(const int y, const int o, const int p)
     ALLEGRO_BITMAP* bp = tb.get_al_bitmap();
 
     // Alte Zahl wegputzen
-    rectfill(bp, x_offset, y, this_xl-2,y+19,color[COL_API_M]);
+    al_set_target_bitmap(bp);
+    al_draw_filled_rectangle(x_offset, y, this_xl-1, y+20, color[COL_API_M]);
 
     for (int i = 3, temp = o; i >= 0 && temp > 0; --i) {
         s_old[i] = '0' + temp%10;

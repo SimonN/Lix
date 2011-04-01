@@ -78,8 +78,8 @@ GameplayPanel::GameplayPanel()
 
     rate_min.set_align(Api::Label::CENTERED);
     rate    .set_align(Api::Label::CENTERED);
-    rate_min.set_undraw_color(0);
-    rate    .set_undraw_color(0);
+    rate_min.set_undraw_color(color[COL_BLACK]);
+    rate    .set_undraw_color(color[COL_BLACK]);
 }
 
 

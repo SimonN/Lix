@@ -135,7 +135,7 @@ public:
     Gameplay(Replay* = 0);
     ~Gameplay();
 
-    inline const bool         get_exit    () { return exit;             }
+    inline bool               get_exit    () { return exit;             }
     inline const std::string& get_filename() { return filename;         }
     inline Replay&            get_replay  () { return replay;           }
     inline int                get_tribes  () { return cs.tribes.size(); }

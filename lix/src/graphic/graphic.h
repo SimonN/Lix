@@ -75,8 +75,8 @@ public:
     inline  int  get_x_frames()  const { return cutbit->get_x_frames(); }
     inline  int  get_y_frames()  const { return cutbit->get_y_frames(); }
     virtual bool is_last_frame() const;
-    virtual bool get_frame_exists(const int, const int) const;
-    virtual int  get_pixel       (const int, const int) const;
+    virtual bool get_frame_exists  (const int, const int) const;
+    virtual ALLEGRO_COLOR get_pixel(const int, const int) const;
 
    virtual void draw  ();
 

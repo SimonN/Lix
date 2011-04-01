@@ -33,13 +33,13 @@ void Gameplay::calc_active()
         // Bestimmte Richtung anwählen?
         bool only_dir_l = false;
         bool only_dir_r = false;
-        if (  key[useR->key_force_left]
-         && ! key[useR->key_force_right]) {
+        if (  hardware.key_hold(useR->key_force_left)
+         && ! hardware.key_hold(useR->key_force_right)) {
             only_dir_l = true;
             mouse_cursor.set_x_frame(1);
         }
-        else if (! key[useR->key_force_left]
-         &&        key[useR->key_force_right]) {
+        else if ( ! hardware.key_hold(useR->key_force_left)
+         &&         hardware.key_hold(useR->key_force_right)) {
             only_dir_r = true;
             mouse_cursor.set_x_frame(2);
         }
@@ -97,7 +97,7 @@ void Gameplay::calc_active()
                     // und das Schreiben des Strings auf die Info...
                     ++tarcnt;
                     if (priority > tarinf_priority
-                     || hypot < tarinf_hypot && priority == tarinf_priority) {
+                     || (hypot < tarinf_hypot && priority == tarinf_priority)){
                         tarinf = i;
                         tarinf_priority = priority;
                         tarinf_hypot    = hypot;
@@ -105,7 +105,7 @@ void Gameplay::calc_active()
                     // ...sind geringer als die für Anklick-Inbetrachtnahme!
                     if ((priority > 1 && priority < 99999)
                      && (priority > target_priority
-                     || hypot < target_hypot && priority == target_priority)
+                     || (hypot < target_hypot && priority == target_priority))
                      && !(only_dir_l && i->get_dir() ==  1)
                      && !(only_dir_r && i->get_dir() == -1)) {
                         target          = i;

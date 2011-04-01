@@ -63,8 +63,10 @@ void Editor::find_check(Selection& s, GraLi& l, GraIt g)
 void Editor::find_check_at
 (Selection& s, GraLi& l, GraIt g, const int whx, const int why)
 {
-    const int col = g->get_pixel(whx-g->get_x(), why-g->get_y());
-    if (col != color[COL_TRANSPARENT] && col != color[COL_PINK]) {
+    ALLEGRO_COLOR col = g->get_pixel(whx-g->get_x(), why-g->get_y());
+    if (col != color[COL_TRANSPARENT]
+     && col != color[COL_PINK]
+     && col != color[COL_PINKAF]) {
         s.o = g;
         s.l = &l;
     }
@@ -119,10 +121,10 @@ bool Editor::get_overlap_at
 {
     const int x3  = map.get_xl(); const bool tx = level.torus_x;
     const int y3  = map.get_yl(); const bool ty = level.torus_y;
-    return          get_overlap_at_2(g, x1,    y1,    x2,    y2   )
-     || tx       && get_overlap_at_2(g, x1+x3, y1,    x2+x3, y2   )
-     || ty       && get_overlap_at_2(g, x1,    y1+y3, x2,    y2+y3)
-     || tx && ty && get_overlap_at_2(g, x1+x3, y1+y3, x3+x3, y2+y3);
+    return           get_overlap_at_2(g, x1,    y1,    x2,    y2   )
+     || (tx       && get_overlap_at_2(g, x1+x3, y1,    x2+x3, y2   ))
+     || (ty       && get_overlap_at_2(g, x1,    y1+y3, x2,    y2+y3))
+     || (tx && ty && get_overlap_at_2(g, x1+x3, y1+y3, x3+x3, y2+y3));
 }
 
 // Eigentliche Auswahl beim Rahmenziehen:

@@ -93,8 +93,8 @@ WindowGameplay::WindowGameplay(
     browser_save (0)
 {
     // This gets repeated in draw_self() for the big letters
-    int col_a = color[COL_TEXT];
-    int col_b = color[COL_TEXT];
+    ALLEGRO_COLOR col_a = color[COL_TEXT];
+    ALLEGRO_COLOR col_b = color[COL_TEXT];
     if (lix_saved > 0)             col_a = color[COL_TEXT_ON];
     if (lix_saved >= lix_required) col_b = color[COL_TEXT_ON];
 
@@ -171,7 +171,8 @@ WindowGameplay::WindowGameplay(
             break;
         }
         str << ". " << sortvec[place].name;
-        const int col = sortvec[place].pl ? color[COL_WHITE] : color[COL_TEXT];
+        const ALLEGRO_COLOR& col
+         = sortvec[place].pl ? color[COL_WHITE] : color[COL_TEXT];
         labels.push_back(Label(60, 40 + place*20, str.str()));
         labels.back().set_color(col);
         labels.push_back(Label(get_xl() - 60, 40 + place*20,
@@ -333,9 +334,9 @@ Api::BoxMessage* WindowGameplay::new_box_overwrite(const std::string& file)
 void WindowGameplay::draw_self()
 {
     // This is a bit kludgy. Delete the remainders of the browser.
-    rectfill(get_ground().get_al_bitmap(), 0, 0, LEMSCR_X-1, LEMSCR_Y
-     - gloB->panel_gameplay_yl - 1,
-     color[COL_PINK]);
+    al_set_target_bitmap(get_ground().get_al_bitmap());
+    al_draw_filled_rectangle(0, 0, LEMSCR_X, LEMSCR_Y-gloB->panel_gameplay_yl,
+     color[COL_PINKAF]);
 
     Window::draw_self();
 
@@ -345,20 +346,17 @@ void WindowGameplay::draw_self()
         std::ostringstream s3; s3 << lix_required;
 
         // This gets repeated in the corresponding constructor for this stuff
-        int col_a = color[COL_TEXT];
-        int col_b = color[COL_TEXT];
+        ALLEGRO_COLOR col_a = color[COL_TEXT];
+        ALLEGRO_COLOR col_b = color[COL_TEXT];
         if (lix_saved > 0)             col_a = color[COL_TEXT_ON];
         if (lix_saved >= lix_required) col_b = color[COL_TEXT_ON];
 
         Help::draw_shadow_centered_text(get_ground(), font_big,
-         s1.str().c_str(), get_x() + get_xl()/2 - 40, get_y() + y_saved, col_a,
-         color[COL_API_SHADOW]);
+         s1.str().c_str(), get_x() + get_xl()/2 - 40, get_y() + y_saved,col_a);
         Help::draw_shadow_centered_text(get_ground(), font_big,
-         s2.c_str(),       get_x() + get_xl()/2,      get_y() + y_saved, col_b,
-         color[COL_API_SHADOW]);
+         s2.c_str(),       get_x() + get_xl()/2,      get_y() + y_saved,col_b);
         Help::draw_shadow_centered_text(get_ground(), font_big,
-         s3.str().c_str(), get_x() + get_xl()/2 + 40, get_y() + y_saved, col_b,
-         color[COL_API_SHADOW]);
+         s3.str().c_str(), get_x() + get_xl()/2 + 40, get_y() + y_saved,col_b);
     }
 }
 
