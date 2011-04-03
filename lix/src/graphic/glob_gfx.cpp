@@ -1,6 +1,5 @@
 // Alle Bitmaps
 
-#include "../other/myalleg.h"
 #include <fstream>
 
 #include "glob_gfx.h"
@@ -15,6 +14,8 @@
 #include "../other/language.h"
 #include "../other/log.h"
 #include "../other/user.h"
+
+ALLEGRO_DISPLAY* displaY;
 
 Torbit *pre_screen;
 
@@ -52,31 +53,32 @@ void make_all_lemming_colors();
 void make_lemming_color(const LixEn::Style, const int = 0, const int = 0,
                                               const int = 0, const int = 0);
 
+ALLEGRO_FONT* load_one_font(const std::string filename)
+{
+    ALLEGRO_BITMAP* bmp = al_load_bitmap(filename.c_str());
+    ALLEGRO_FONT*   f   = 0;
+    if (bmp) {
+        al_convert_mask_to_alpha(bmp, color[COL_REALPINK]);
+        int ranges[] = {32, 126};
+        f = al_grab_font_from_bitmap(bmp, 1, ranges);
+        al_destroy_bitmap(bmp);
+    }
+    return f;
+}
+
+
+
 void load_all_bitmaps()
 {
+    // afdebug: set the bitmap flags here
+
     Api::Manager::initialize(LEMSCR_X, LEMSCR_Y);
     Torbit* osd = &Api::Manager::get_torbit();
-    osd->clear_to_color(0);
-
-    // Anzeige, dass geladen wird
-    textout_centre_ex(osd->get_al_bitmap(), font,
-     Language::main_loading_1.c_str(),
-     LEMSCR_X/2, 0, makecol(255, 255, 255), -1);
-    textout_centre_ex(osd->get_al_bitmap(), font,
-     Language::main_loading_2.c_str(),
-     LEMSCR_X/2, 8, makecol(255, 255, 255), -1);
-
-    const int txtlen = 8 * Language::main_loading_1.size();
-    const int factor = SCREEN_W/txtlen;
-    stretch_blit(osd->get_al_bitmap(), screen,
-                 LEMSCR_X/2 - txtlen/2, 0, txtlen, 16,
-                 SCREEN_W/2 - factor * (txtlen/2), 2 * factor,
-                 txtlen * factor, 16 * factor);
-    rectfill(osd->get_al_bitmap(), 0, 0, LEMSCR_X-1, 15, 0);
+    osd->clear_to_color(al_map_rgb(0, 0x80, 0));
 
     // Nun vernuenftige Sachen laden
     pre_screen = new Torbit(LEMSCR_X, LEMSCR_Y);
-    pre_screen->clear_to_color(0);
+    pre_screen->clear_to_color(al_map_rgb(0, 0, 0));
 
     // Etliche Sachen aus bitlist.cpp
     make_all_colors();
@@ -87,17 +89,11 @@ void load_all_bitmaps()
     ObjLib::initialize();
 
     // Schriftarten laden
-    font_sml = load_font(gloB->file_bitmap_font_sml.c_str(), 0, 0);
-    font_med = load_font(gloB->file_bitmap_font_med.c_str(), 0, 0);
-    font_nar = load_font(gloB->file_bitmap_font_nar.c_str(), 0, 0);
-    font_big = load_font(gloB->file_bitmap_font_big.c_str(), 0, 0);
-
-    // Falls Datei nicht gefunden, Standardfont nutzen, damit das Programm
-    // nicht abstuerzt
-    font_sml = font_sml ? font_sml : font;
-    font_med = font_med ? font_med : font;
-    font_nar = font_nar ? font_nar : font;
-    font_big = font_big ? font_big : font;
+    al_init_font_addon();
+    font_sml = load_one_font(gloB->file_bitmap_font_sml.c_str());
+    font_med = load_one_font(gloB->file_bitmap_font_med.c_str());
+    font_nar = load_one_font(gloB->file_bitmap_font_nar.c_str());
+    font_big = load_one_font(gloB->file_bitmap_font_big.c_str());
 }
 
 
@@ -107,10 +103,11 @@ void destroy_all_bitmaps()
     color.clear();
 
     // Schriftarten
-    if (font_sml != font) destroy_font(font_sml);
-    if (font_med != font) destroy_font(font_med);
-    if (font_nar != font) destroy_font(font_nar);
-    if (font_big != font) destroy_font(font_big);
+    if (font_sml) al_destroy_font(font_sml);
+    if (font_med) al_destroy_font(font_med);
+    if (font_nar) al_destroy_font(font_nar);
+    if (font_big) al_destroy_font(font_big);
+    al_shutdown_font_addon();
 
     ObjLib::deinitialize();
     GraLib::deinitialize();
@@ -126,38 +123,46 @@ bool clear_screen_at_next_blit = true;
 
 void blit_to_screen(ALLEGRO_BITMAP* b)
 {
+    const int  screen_xl = al_get_display_width (displaY);
+    const int  screen_yl = al_get_display_height(displaY);
+
     const bool screen_aspect_ratio    = useR->screen_scaling >  0;
     const bool screen_integer_scaling = useR->screen_scaling == 2;
 
-    if (gloB->screen_vsync) vsync();
-    if (SCREEN_W == LEMSCR_X && SCREEN_H == LEMSCR_Y) {
-        blit(b, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+    al_set_target_backbuffer(displaY);
+
+    // afdebug: not necessary in A5?
+    // if (gloB->screen_vsync) vsync();
+    if (screen_xl == LEMSCR_X && screen_yl == LEMSCR_Y) {
+        al_draw_bitmap(b, 0, 0, 0);
     }
     else if (screen_aspect_ratio) {
         if (clear_screen_at_next_blit) {
             clear_screen_at_next_blit = false;
-            clear_to_color(screen, useR->screen_border_colored
-                                 ? color[COL_SCREEN_BORDER]
-                                 : 0);
+            al_clear_to_color(useR->screen_border_colored
+                              ? color[COL_SCREEN_BORDER]
+                              : color[COL_BLACK]);
         }
         // Etwas aus ../api/button_c.cpp kopierter Code:
         // Eine Seite soll genau passen, wie viel Platz bei der anderen
         // verschwendet wird, ist egal.
-        double factor = (double) SCREEN_W/LEMSCR_X;
-        if (factor > (double) SCREEN_H/LEMSCR_Y) {
-            factor = (double) SCREEN_H/LEMSCR_Y;
+        double factor = (double) screen_xl/LEMSCR_X;
+        if (factor > (double) screen_yl/LEMSCR_Y) {
+            factor = (double) screen_yl/LEMSCR_Y;
         }
         // Wenn unterschiedlich grosse Pixel vermieden werden sollen, abrunden
         if (screen_integer_scaling) factor = (int) factor;
 
-        stretch_blit(b, screen, 0, 0, LEMSCR_X, LEMSCR_Y,
-                     (int) (SCREEN_W/2 - LEMSCR_X*factor/2),
-                     (int) (SCREEN_H/2 - LEMSCR_Y*factor/2),
-                     (int) (LEMSCR_X*factor), (int) (LEMSCR_Y*factor));
+        al_draw_scaled_bitmap(b, 0, 0, LEMSCR_X, LEMSCR_Y,
+                              (int) (screen_xl/2 - LEMSCR_X*factor/2),
+                              (int) (screen_yl/2 - LEMSCR_Y*factor/2),
+                              (int) (LEMSCR_X*factor), (int) (LEMSCR_Y*factor),
+                              0);
     }
     else {
-        stretch_blit(b, screen, 0, 0, LEMSCR_X, LEMSCR_Y,  // Woher kommt's.
-                                0, 0, SCREEN_W, SCREEN_H); // Wohin kommt's.
+        al_draw_scaled_bitmap(b, 0, 0, LEMSCR_X, LEMSCR_Y,   // Woher kommt's.
+                                 0, 0, screen_xl, screen_yl, // Wohin kommt's.
+                                 0);                         // flags: !rotate
     }
 }
 

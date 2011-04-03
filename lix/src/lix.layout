@@ -262,23 +262,23 @@
 	<File name="gameplay/win_game.h" open="0" top="0" tabpos="3">
 		<Cursor position="2061" topLine="55" />
 	</File>
-	<File name="graphic/bitlist.cpp" open="0" top="0" tabpos="16">
-		<Cursor position="2130" topLine="14" />
+	<File name="graphic/bitlist.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="602" topLine="6" />
 	</File>
-	<File name="graphic/cutbit.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="7015" topLine="253" />
+	<File name="graphic/cutbit.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="2718" topLine="101" />
 	</File>
 	<File name="graphic/cutbit.h" open="0" top="0" tabpos="4">
 		<Cursor position="1435" topLine="57" />
 	</File>
-	<File name="graphic/glob_gfx.cpp" open="0" top="0" tabpos="5">
-		<Cursor position="1497" topLine="31" />
+	<File name="graphic/glob_gfx.cpp" open="1" top="1" tabpos="0">
+		<Cursor position="5150" topLine="42" />
 	</File>
 	<File name="graphic/glob_gfx.h" open="0" top="0" tabpos="2">
-		<Cursor position="1140" topLine="22" />
+		<Cursor position="784" topLine="3" />
 	</File>
 	<File name="graphic/gra_lib.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="1381" topLine="22" />
+		<Cursor position="673" topLine="6" />
 	</File>
 	<File name="graphic/gra_lib.h" open="0" top="0" tabpos="1">
 		<Cursor position="1419" topLine="12" />
@@ -311,7 +311,7 @@
 		<Cursor position="5477" topLine="181" />
 	</File>
 	<File name="graphic/torbit.h" open="0" top="0" tabpos="1">
-		<Cursor position="118" topLine="36" />
+		<Cursor position="1396" topLine="32" />
 	</File>
 	<File name="level/crunch.cpp" open="0" top="0" tabpos="1">
 		<Cursor position="131" topLine="5" />
@@ -605,7 +605,7 @@
 		<Cursor position="1295" topLine="28" />
 	</File>
 	<File name="other/myalleg.h" open="0" top="0" tabpos="17">
-		<Cursor position="562" topLine="0" />
+		<Cursor position="24" topLine="0" />
 	</File>
 	<File name="other/types.h" open="0" top="0" tabpos="8">
 		<Cursor position="300" topLine="0" />

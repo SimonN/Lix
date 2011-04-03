@@ -25,6 +25,8 @@
 #include "cutbit.h"
 #include "torbit.h"
 
+extern ALLEGRO_DISPLAY* displaY;
+
 extern Torbit *pre_screen;
 
 static const int LEMSCR_X = 640;
@@ -35,6 +37,7 @@ enum Color {
     COL_NOTHING,
     COL_TRANSPARENT,
     COL_PINK,
+    COL_REALPINK,
     COL_PINKAF,
 
     COL_BLACK,

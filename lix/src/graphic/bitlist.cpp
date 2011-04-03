@@ -17,6 +17,7 @@ void make_all_colors()
 
     color[COL_TRANSPARENT  ] = al_map_rgba(255,   0, 255,   0);
     color[COL_PINK         ] = al_map_rgba(255,   0, 255,   0);
+    color[COL_REALPINK     ] = al_map_rgb (255,   0, 255     );
     color[COL_PINKAF       ] = al_map_rgba(255,   0, 255,   0);
 
     color[COL_BLACK        ] = al_map_rgb(  0,   0,   0); // Echte Männerfarbe!

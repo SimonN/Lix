@@ -115,6 +115,7 @@ Cutbit::Cutbit(const std::string& filename, const bool cut)
     // Wenn dies kein Bild ist, Fehlermeldung schreiben und abbrechen.
     bitmap = al_load_bitmap(filename.c_str());
     if (!bitmap) {
+        al_convert_mask_to_alpha(bitmap, color[COL_REALPINK]);
         std::string str = Language::log_bitmap_bad;
         str += " ";
         str += filename;
@@ -268,16 +269,16 @@ void Cutbit::draw(
         // Hat das Bild keine Frames, entfaellt +1 fuer den aeusseren Rahmen.
         ALLEGRO_BITMAP* sprite;
         if (x_frames == 1 && y_frames == 1)
-             sprite = create_sub_bitmap(bitmap, 0, 0, xl, yl);
-        else sprite = create_sub_bitmap(bitmap, fx * (xl+1) + 1,
-                                                fy * (yl+1) + 1, xl, yl);
+             sprite = al_create_sub_bitmap(bitmap, 0, 0, xl, yl);
+        else sprite = al_create_sub_bitmap(bitmap, fx * (xl+1) + 1,
+                                                   fy * (yl+1) + 1, xl, yl);
         if (mode == NORMAL) {
             target_torbit.draw_from(sprite, x, y, mirr, rot, scal);
         }
         else {
-            const int PINK  = color[COL_PINK];
-            const int BLACK = color[COL_BLACK];
-            const int GREY  = color[COL_EDITOR_DARK];
+            const ALLEGRO_COLOR PINK  = color[COL_PINK];
+            const ALLEGRO_COLOR BLACK = color[COL_BLACK];
+            const ALLEGRO_COLOR GREY  = color[COL_EDITOR_DARK];
             const int size  = xl > yl ? xl : yl;
             Torbit excerpt(size, size);
             excerpt.clear_to_color(PINK);
@@ -289,8 +290,8 @@ void Cutbit::draw(
             else if (mode == NOOW_EDITOR) {
                 for  (int ix = 0; ix < size; ++ix)
                  for (int iy = 0; iy < size; ++iy) {
-                    const int c = target_torbit.get_pixel(x + ix, y + iy);
-                    const int e = excerpt      .get_pixel(    ix,     iy);
+                    ALLEGRO_COLOR c = target_torbit.get_pixel(x + ix, y + iy);
+                    ALLEGRO_COLOR e = excerpt      .get_pixel(    ix,     iy);
                     if ((c == BLACK || c == PINK || c == GREY)
                      &&  e != BLACK && e != PINK)
                      target_torbit.set_pixel(x + ix, y + iy, e);
@@ -318,17 +319,22 @@ void Cutbit::draw(
             }
         }
         // Fertig
-        destroy_bitmap(sprite);
+        al_destroy_bitmap(sprite);
     }
 
     // Keine gueltige Frame-Angabe
     else {
-        int          col_text = makecol(255, 255, 255);
-        int          col_back = makecol( 64,  64,  64);
-        if (!bitmap) col_back = makecol(255,  64,  64);
-        std::string str = "( ";
-        str += fx; str += " | "; str += fy; str += " )";
-        textout_ex(target, font, "Frame?!?!", x, y,   col_text, col_back);
-        textout_ex(target, font, str.c_str(), x, y+8, col_text, col_back);
+        al_set_target_bitmap(target);
+        if (bitmap) {
+            ALLEGRO_COLOR col_text = al_map_rgb(255, 255, 255);
+            std::string str = "( ";
+            str += fx; str += " | "; str += fy; str += " )";
+            al_draw_text(font_sml, col_text, x, y,    0, "Frame?");
+            al_draw_text(font_sml, col_text, x, y+10, 0, str.c_str());
+        }
+        else {
+             ALLEGRO_COLOR col_text = al_map_rgb(255,  64,  64);
+             al_draw_text(font_sml, col_text, x, y,    0, "Not loaded!");
+        }
     }
 }

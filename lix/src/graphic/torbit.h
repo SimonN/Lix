@@ -45,9 +45,9 @@ public:
     double hypot     (int, int, int, int) const;
 
     // Malprimitiva
-    void clear_to_color(ALLEGRO_COLOR);
-    void set_pixel     (int, int, ALLEGRO_COLOR);
-    int  get_pixel     (int, int) const;
+    void          clear_to_color(const ALLEGRO_COLOR&);
+    void          set_pixel     (int, int, const ALLEGRO_COLOR&);
+    ALLEGRO_COLOR get_pixel     (int, int) const;
 
     // Rechtecke haben, anders als Allegros rect() und rectfill(),
     // folgende Parameter: x, y, xl, yl, Farbe
