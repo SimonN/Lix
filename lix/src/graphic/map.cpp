@@ -75,32 +75,32 @@ bool Map::get_scrollable()
 bool Map::get_scrollable_up()
 {
     if (screen_y > min_screen_y
-     || get_torus_y() && (useR->scroll_torus_y == 2
-     || useR->scroll_torus_y == 1 && get_yl() > screen_yl))
+     || (get_torus_y() && (useR->scroll_torus_y == 2
+        || (useR->scroll_torus_y == 1 && get_yl() > screen_yl))))
      return true;
     else return false;
 }
 bool Map::get_scrollable_right()
 {
     if (screen_x < max_screen_x
-     || get_torus_x() && (useR->scroll_torus_x == 2
-     || useR->scroll_torus_x == 1 && get_xl() > screen_xl))
+     || (get_torus_x() && (useR->scroll_torus_x == 2
+        || (useR->scroll_torus_x == 1 && get_xl() > screen_xl))))
      return true;
     else return false;
 }
 bool Map::get_scrollable_down()
 {
     if (screen_y < max_screen_y
-     || get_torus_y() && (useR->scroll_torus_y == 2
-     || useR->scroll_torus_y == 1 && get_yl() > screen_yl))
+     || (get_torus_y() && (useR->scroll_torus_y == 2
+        || (useR->scroll_torus_y == 1 && get_yl() > screen_yl))))
      return true;
     else return false;
 }
 bool Map::get_scrollable_left()
 {
     if (screen_x > min_screen_x
-     || get_torus_x() && (useR->scroll_torus_x == 2
-     || useR->scroll_torus_x == 1 && get_xl() > screen_xl))
+     || (get_torus_x() && (useR->scroll_torus_x == 2
+        || (useR->scroll_torus_x == 1 && get_xl() > screen_xl))))
      return true;
     else return false;
 }
@@ -182,53 +182,53 @@ void Map::calc_scrolling()
 {
     // Scrollen am Rand oder (immer aktiv) mit dem Numblock
     int scrd = scroll_speed_edge;
-    if (hardware.get_mrh()    || key[ALLEGRO_KEY_5_PAD])  scrd *= 2;
-    if (zoom)                                    (scrd += 1) /= 2;
-    if (useR->scroll_edge && hardware.get_my() == 0
-     || key[ALLEGRO_KEY_8_PAD]
-     || key[ALLEGRO_KEY_7_PAD]
-     || key[ALLEGRO_KEY_9_PAD]) set_screen_y(screen_y - scrd);
-    if (useR->scroll_edge && hardware.get_mx() == LEMSCR_X-1
-     || key[ALLEGRO_KEY_6_PAD]
-     || key[ALLEGRO_KEY_3_PAD]
-     || key[ALLEGRO_KEY_9_PAD]) set_screen_x(screen_x + scrd);
-    if (useR->scroll_edge && hardware.get_my() == LEMSCR_Y-1
-     || key[ALLEGRO_KEY_2_PAD]
-     || key[ALLEGRO_KEY_1_PAD]
-     || key[ALLEGRO_KEY_3_PAD]) set_screen_y(screen_y + scrd);
-    if (useR->scroll_edge && hardware.get_mx() == 0
-     || key[ALLEGRO_KEY_4_PAD]
-     || key[ALLEGRO_KEY_1_PAD]
-     || key[ALLEGRO_KEY_7_PAD]) set_screen_x(screen_x - scrd);
+    if (hardware.get_mrh() || hardware.key_hold(ALLEGRO_KEY_PAD_5)) scrd *= 2;
+    if (zoom) (scrd += 1) /= 2;
+    if ((useR->scroll_edge && hardware.get_my() == 0)
+     || hardware.key_hold(ALLEGRO_KEY_PAD_8)
+     || hardware.key_hold(ALLEGRO_KEY_PAD_7)
+     || hardware.key_hold(ALLEGRO_KEY_PAD_9)) set_screen_y(screen_y - scrd);
+    if ((useR->scroll_edge && hardware.get_mx() == LEMSCR_X-1)
+     || hardware.key_hold(ALLEGRO_KEY_PAD_6)
+     || hardware.key_hold(ALLEGRO_KEY_PAD_3)
+     || hardware.key_hold(ALLEGRO_KEY_PAD_9)) set_screen_x(screen_x + scrd);
+    if ((useR->scroll_edge && hardware.get_my() == LEMSCR_Y-1)
+     || hardware.key_hold(ALLEGRO_KEY_PAD_2)
+     || hardware.key_hold(ALLEGRO_KEY_PAD_1)
+     || hardware.key_hold(ALLEGRO_KEY_PAD_3)) set_screen_y(screen_y + scrd);
+    if ((useR->scroll_edge && hardware.get_mx() == 0)
+     || hardware.key_hold(ALLEGRO_KEY_PAD_4)
+     || hardware.key_hold(ALLEGRO_KEY_PAD_1)
+     || hardware.key_hold(ALLEGRO_KEY_PAD_7)) set_screen_x(screen_x - scrd);
 
     // Rechtsklick-Scrolling
     if (useR->scroll_right
      || useR->scroll_middle) {
-        if (hardware.get_mr() && useR->scroll_right
-         || hardware.get_mm() && useR->scroll_middle) {
+        if ((hardware.get_mr() && useR->scroll_right)
+         || (hardware.get_mm() && useR->scroll_middle)) {
             // Merken, auf welcher Hoehe die Maus war
             scroll_click_x = hardware.get_mx();
             scroll_click_y = hardware.get_my();
         }
-        if (hardware.get_mrh() && useR->scroll_right
-         || hardware.get_mmh() && useR->scroll_middle) {
+        if ((hardware.get_mrh() && useR->scroll_right)
+         || (hardware.get_mmh() && useR->scroll_middle)) {
             const bool xp = get_scrollable_right();
             const bool xm = get_scrollable_left();
             const bool yp = get_scrollable_down();
             const bool ym = get_scrollable_up();
             // Bildschirm tatsaechlich scrollen und ggf. Maus festhalten
-            if (xm && hardware.get_mx      () <= scroll_click_x
-                   && hardware.get_mickey_x() <  0
-             || xp && hardware.get_mx      () >= scroll_click_x
-                   && hardware.get_mickey_x() >  0) {
+            if ((xm && hardware.get_mx      () <= scroll_click_x
+                    && hardware.get_mickey_x() <  0)
+             || (xp && hardware.get_mx      () >= scroll_click_x
+                    && hardware.get_mickey_x() >  0)) {
                 set_screen_x(screen_x
                  + hardware.get_mickey_x() * scroll_speed_click / 4);
                 hardware.freeze_mouse_x();
             }
-            if (ym && hardware.get_my      () <= scroll_click_y
-                   && hardware.get_mickey_y() <  0
-             || yp && hardware.get_my      () >= scroll_click_y
-                   && hardware.get_mickey_y() >  0) {
+            if ((ym && hardware.get_my      () <= scroll_click_y
+                    && hardware.get_mickey_y() <  0)
+             || (yp && hardware.get_my      () >= scroll_click_y
+                    && hardware.get_mickey_y() >  0)) {
                 set_screen_y(screen_y
                  + hardware.get_mickey_y() * scroll_speed_click / 4);
                 hardware.freeze_mouse_y();
@@ -261,17 +261,17 @@ void Map::draw(Torbit& target)
     }
 
     // Draw the screen border
-    const int c = useR->screen_border_colored
-                ? color[COL_SCREEN_BORDER] : 0;
+    const ALLEGRO_COLOR c = useR->screen_border_colored
+                          ? color[COL_SCREEN_BORDER] : color[COL_BLACK];
     if (less_x) {
-        rectfill(target.get_al_bitmap(), 0, 0, less_x/2 - 1,
-         screen_yl - 1, c);
-        rectfill(target.get_al_bitmap(), screen_xl - less_x/2, 0,
-         screen_xl - 1, screen_yl - 1, c);
+        al_set_target_bitmap(target.get_al_bitmap());
+        al_draw_filled_rectangle(0, 0, less_x/2,  screen_yl, c);
+        al_draw_filled_rectangle(screen_xl-less_x/2, 0, screen_xl,screen_yl,c);
     }
-    if (less_y)
-     rectfill(target.get_al_bitmap(), less_x/2, 0,
-     screen_xl - less_x/2 - 1, less_y - 1, c);
+    if (less_y) {
+        al_set_target_bitmap(target.get_al_bitmap());
+        al_draw_filled_rectangle(less_x/2, 0, screen_xl - less_x/2, less_y, c);
+    }
 }
 
 

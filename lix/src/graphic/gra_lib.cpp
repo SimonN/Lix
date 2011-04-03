@@ -37,7 +37,7 @@ GraLib::GraLib()
             // Is it the pixel of the eye?
             const int real_x = 1 + fx * (cb.get_xl() + 1) + x;
             const int real_y = 1 + fy * (cb.get_yl() + 1) + y;
-            if (_getpixel16(b, real_x, real_y) == color[COL_LIXFILE_EYE]) {
+            if (al_get_pixel(b, real_x, real_y) == color[COL_LIXFILE_EYE]) {
                 Lixxie::countdown[fx][fy].x = x;
                 Lixxie::countdown[fx][fy].y = y - 1;
                 goto GOTO_NEXTFRAME;
@@ -95,25 +95,25 @@ void GraLib::recolor_into_vector(
     ALLEGRO_BITMAP* lix   = cutbit.get_al_bitmap();
     if (!recol || !lix) return;
 
-    int col_break = getpixel(lix, lix->w - 1, 0);
+    ALLEGRO_COLOR col_break = al_get_pixel(lix, cutbit.get_xl() - 1, 0);
     vector = std::vector <Cutbit> (LixEn::STYLE_MAX, cutbit);
     // The first row (y == 0) contains the source pixels. The first style
     // (garden) is at y == 1. Thus the recol->h - 1 is correct as we count
     // styles starting at 0.
-    for  (int y = 0; y < lix->h; y++)
-     for (int x = 0; x < lix->w; x++)
-     for (int conv = 0; conv < recol->w; conv++) {
-        const int col = getpixel(lix, x, y);
+    for  (int y = 0; y < cutbit.get_yl(); y++)
+     for (int x = 0; x < cutbit.get_xl(); x++)
+     for (int conv = 0; conv < al_get_bitmap_width(recol); conv++) {
+        const ALLEGRO_COLOR col = al_get_pixel(lix, x, y);
         if (col == col_break) {
             break;
             // immediately begin next pixel, but not next row, because
             // we have separating col_break-colored frames in the file.
         }
-        if (col == getpixel(recol, conv, 0)) {
+        if (col == al_get_pixel(recol, conv, 0)) {
             for (int style_loop = 0; style_loop != LixEn::STYLE_MAX
-             && style_loop < recol->h - 1; ++style_loop) {
-                ::putpixel(vector[style_loop].get_al_bitmap(), x, y,
-                 ::getpixel(recol, conv, style_loop + 1));
+             && style_loop < al_get_bitmap_height(recol) - 1; ++style_loop) {
+                al_set_target_bitmap(vector[style_loop].get_al_bitmap());
+                al_put_pixel(x, y, al_get_pixel(recol, conv, style_loop + 1));
             }
             break; // break out of conv loop, don't replace this pixel again
         }

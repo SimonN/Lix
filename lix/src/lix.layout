@@ -131,7 +131,7 @@
 		<Cursor position="2358" topLine="74" />
 	</File>
 	<File name="editor/editor.h" open="0" top="0" tabpos="3">
-		<Cursor position="4085" topLine="106" />
+		<Cursor position="826" topLine="25" />
 	</File>
 	<File name="editor/editor_c.cpp" open="0" top="0" tabpos="1">
 		<Cursor position="4073" topLine="96" />
@@ -206,7 +206,7 @@
 		<Cursor position="954" topLine="40" />
 	</File>
 	<File name="gameplay/gameplay.h" open="0" top="0" tabpos="5">
-		<Cursor position="4211" topLine="113" />
+		<Cursor position="2089" topLine="61" />
 	</File>
 	<File name="gameplay/goal.cpp" open="0" top="0" tabpos="16">
 		<Cursor position="676" topLine="2" />
@@ -271,32 +271,32 @@
 	<File name="graphic/cutbit.h" open="0" top="0" tabpos="4">
 		<Cursor position="1435" topLine="57" />
 	</File>
-	<File name="graphic/glob_gfx.cpp" open="1" top="1" tabpos="0">
-		<Cursor position="5150" topLine="42" />
+	<File name="graphic/glob_gfx.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="6413" topLine="176" />
 	</File>
 	<File name="graphic/glob_gfx.h" open="0" top="0" tabpos="2">
 		<Cursor position="784" topLine="3" />
 	</File>
 	<File name="graphic/gra_lib.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="673" topLine="6" />
+		<Cursor position="4817" topLine="97" />
 	</File>
 	<File name="graphic/gra_lib.h" open="0" top="0" tabpos="1">
-		<Cursor position="1419" topLine="12" />
+		<Cursor position="1419" topLine="9" />
 	</File>
 	<File name="graphic/graph_bg.cpp" open="0" top="0" tabpos="7">
-		<Cursor position="17" topLine="0" />
+		<Cursor position="1187" topLine="43" />
 	</File>
 	<File name="graphic/graph_bg.h" open="0" top="0" tabpos="9">
 		<Cursor position="371" topLine="0" />
 	</File>
 	<File name="graphic/graphic.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="2001" topLine="30" />
+		<Cursor position="1923" topLine="93" />
 	</File>
 	<File name="graphic/graphic.h" open="0" top="0" tabpos="1">
 		<Cursor position="2660" topLine="49" />
 	</File>
 	<File name="graphic/map.cpp" open="0" top="0" tabpos="17">
-		<Cursor position="10720" topLine="328" />
+		<Cursor position="9469" topLine="281" />
 	</File>
 	<File name="graphic/map.h" open="0" top="0" tabpos="5">
 		<Cursor position="5334" topLine="126" />
@@ -314,7 +314,7 @@
 		<Cursor position="1396" topLine="32" />
 	</File>
 	<File name="level/crunch.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="131" topLine="5" />
+		<Cursor position="2727" topLine="75" />
 	</File>
 	<File name="level/crunch.h" open="0" top="0" tabpos="6">
 		<Cursor position="532" topLine="0" />
@@ -497,10 +497,10 @@
 		<Cursor position="4686" topLine="154" />
 	</File>
 	<File name="menu/menu.h" open="0" top="0" tabpos="9">
-		<Cursor position="896" topLine="8" />
+		<Cursor position="1779" topLine="51" />
 	</File>
 	<File name="menu/options.cpp" open="0" top="0" tabpos="31">
-		<Cursor position="10794" topLine="217" />
+		<Cursor position="27396" topLine="566" />
 	</File>
 	<File name="menu/options.h" open="0" top="0" tabpos="3">
 		<Cursor position="4929" topLine="143" />
@@ -560,13 +560,13 @@
 		<Cursor position="899" topLine="13" />
 	</File>
 	<File name="other/globals.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="10557" topLine="7" />
+		<Cursor position="674" topLine="19" />
 	</File>
 	<File name="other/globals.h" open="0" top="0" tabpos="7">
-		<Cursor position="4778" topLine="169" />
+		<Cursor position="1518" topLine="34" />
 	</File>
 	<File name="other/hardware.cpp" open="0" top="0" tabpos="9">
-		<Cursor position="5427" topLine="133" />
+		<Cursor position="895" topLine="26" />
 	</File>
 	<File name="other/hardware.h" open="0" top="0" tabpos="8">
 		<Cursor position="2247" topLine="99" />
@@ -590,7 +590,7 @@
 		<Cursor position="5154" topLine="110" />
 	</File>
 	<File name="other/lmain.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="3802" topLine="122" />
+		<Cursor position="4270" topLine="144" />
 	</File>
 	<File name="other/lmain.h" open="0" top="0" tabpos="1">
 		<Cursor position="889" topLine="7" />

@@ -15,9 +15,9 @@
 #include "../other/log.h"
 #include "../other/user.h"
 
-ALLEGRO_DISPLAY* displaY;
+ALLEGRO_DISPLAY* displaY = 0;
 
-Torbit *pre_screen;
+Torbit *pre_screen = 0;
 
 // Farben
 std::vector <ALLEGRO_COLOR> color(COL_MAX);
@@ -172,34 +172,39 @@ void blit_to_screen(ALLEGRO_BITMAP* b)
 // Other globals are not changed.
 void set_screen_mode(const bool full, int res_x, int res_y)
 {
-    int mode = full ? GFX_AUTODETECT_FULLSCREEN : GFX_AUTODETECT_WINDOWED;
+    if (displaY) {
+        al_destroy_display(displaY);
+        displaY = 0;
+    }
+
+    if (full) al_set_new_display_flags(ALLEGRO_FULLSCREEN);
+    else      al_set_new_display_flags(ALLEGRO_WINDOWED);
+
     if (res_x == 0 || res_y == 0) {
         if (full) {
             res_x = gloB->screen_resolution_x;
             res_y = gloB->screen_resolution_y;
-            if (res_x == 0 || res_y == 0)
-             get_desktop_resolution(&res_x, &res_y);
+            if (res_x == 0 || res_y == 0) {
+                al_set_new_display_flags(ALLEGRO_FULLSCREEN_WINDOW);
+            }
         }
         else {
             res_x = gloB->screen_windowed_x;
             res_y = gloB->screen_windowed_y;
         }
     }
-    bool      fail = (set_gfx_mode(mode, res_x,    res_y,    0, 0) != 0);
-    if (fail) fail = (set_gfx_mode(mode, LEMSCR_X, LEMSCR_Y, 0, 0) != 0);
-    if (fail) {
-        mode = GFX_AUTODETECT_WINDOWED;
-        set_gfx_mode(mode, LEMSCR_X, LEMSCR_Y, 0, 0);
-    }
-    if (set_display_switch_mode(SWITCH_BACKGROUND) == -1)
-        set_display_switch_mode(SWITCH_BACKAMNESIA);
+
+    if (!displaY) displaY = al_create_display(res_x, res_y);
+    if (!displaY) displaY = al_create_display(LEMSCR_X, LEMSCR_Y);
+    al_set_new_display_flags(ALLEGRO_WINDOWED);
+    if (!displaY) displaY = al_create_display(res_x, res_y);
+    if (!displaY) displaY = al_create_display(LEMSCR_X, LEMSCR_Y);
 
     clear_screen_at_next_blit = true;
-    gloB->screen_fullscreen_now = (mode == GFX_AUTODETECT_FULLSCREEN);
 
     // Do this so the mouse doesn't scroll stupidly after a switch.
     // In hardware.cpp, the mouse is always set to the center anyway, to trap
     // it in the program (scrolling at the sides) and for infinite movement
     // (for scrolling with right mouse button).
-    position_mouse(LEMSCR_X/2, LEMSCR_Y/2);
+    al_set_mouse_xy(displaY, LEMSCR_X/2, LEMSCR_Y/2);
 }

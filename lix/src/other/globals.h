@@ -55,7 +55,6 @@ public:
     int         screen_windowed_x;
     int         screen_windowed_y;
     bool        screen_vsync;
-    bool        screen_fullscreen_now;
 
     bool        sound_load_driver;
 

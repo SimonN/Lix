@@ -559,17 +559,18 @@ void OptionMenu::calc_self()
         const int res_wy = atoi(screen_windowed_y.get_text().c_str());
         const bool full  = gloB->screen_fullscreen_now;
 
-        // Only call set_screen_mode() if it's necessary. The main menu
-        // flickers for a very short time. A different screen_scaling option
-        // should also call the function, because the function sets
-        // glob_gfx.h's clear_screen_at_next_blit to true, to clear option
-        // menu remainders on the screen borders.
-        bool call_ssm = false;
-        if (       useR->screen_scaling != screen_scaling.get_number()
-         ||   full && gloB->screen_resolution_x != res_fx
-         ||   full && gloB->screen_resolution_y != res_fy
-         || ! full && gloB->screen_windowed_x   != res_wx
-         || ! full && gloB->screen_windowed_y   != res_wy) call_ssm = true;
+//      made unnecessary by switch to A5? only change on game restart. afdebug
+//        // Only call set_screen_mode() if it's necessary. The main menu
+//        // flickers for a very short time. A different screen_scaling option
+//        // should also call the function, because the function sets
+//        // glob_gfx.h's clear_screen_at_next_blit to true, to clear option
+//        // menu remainders on the screen borders.
+//        bool call_ssm = false;
+//        if (       useR->screen_scaling != screen_scaling.get_number()
+//         ||   full && gloB->screen_resolution_x != res_fx
+//         ||   full && gloB->screen_resolution_y != res_fy
+//         || ! full && gloB->screen_windowed_x   != res_wx
+//         || ! full && gloB->screen_windowed_y   != res_wy) call_ssm = true;
 
         // Die Werte aller Checkboxen und Buttons in die Optionen schreiben
         // Die Konfigurationsdatei wird gegen eventuelle Abstuerze oder

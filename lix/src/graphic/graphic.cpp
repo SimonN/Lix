@@ -39,6 +39,8 @@ Graphic::~Graphic()
 
 Graphic& Graphic::operator = (const Graphic& g)
 {
+    // don't assign to self, don't assign to this another graphic which
+    // should be brawn on a different ground. This is because ground is const.
     if (this == &g || &ground != &g.ground) return *this;
     cutbit   = g.cutbit,
     x        = g.x;
@@ -92,7 +94,7 @@ bool Graphic::is_last_frame() const
 {
     return x_frame == get_x_frames() - 1
      || cutbit->get_pixel(x_frame + 1, y_frame, 0, 0)
-     == _getpixel16(cutbit->get_al_bitmap(), 0, 0);
+     == al_get_pixel(cutbit->get_al_bitmap(), 0, 0);
 }
 
 
@@ -101,12 +103,12 @@ bool Graphic::get_frame_exists(const int xf, const int yf) const
 {
     return xf < get_x_frames() && yf < get_y_frames()
      && cutbit->get_pixel(xf, yf, 0, 0)
-     != _getpixel16(cutbit->get_al_bitmap(), 0, 0);
+     != al_get_pixel(cutbit->get_al_bitmap(), 0, 0);
 }
 
 
 
-int Graphic::get_pixel(int x, int y) const
+ALLEGRO_COLOR Graphic::get_pixel(int x, int y) const
 {
     const int xl = cutbit->get_xl();
     const int yl = cutbit->get_yl();
