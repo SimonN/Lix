@@ -291,35 +291,41 @@ void Map::draw_at(
     const bool short_x = scrx + lx > mapx;
     const bool short_y = scry + ly > mapy;
 
+    al_set_target_bitmap(target.get_al_bitmap());
+
     // no zoom supportet at the moment
-    masked_blit(get_al_bitmap(), target.get_al_bitmap(),
+    al_draw_bitmap_region(get_al_bitmap(),
      scrx, scry, // source x/y start
-     offx, offy, // target x/y start
      short_x ? mapx - scrx : lx, // x-length and y-length of area to copy
-     short_y ? mapy - scry : ly);
+     short_y ? mapy - scry : ly,
+     offx, offy, // target x/y start
+     0);         // no mirroring
     if (short_x && get_torus_x()) {
-        masked_blit(get_al_bitmap(), target.get_al_bitmap(),
+        al_draw_bitmap_region(get_al_bitmap(),
          0, scry,
+         scrx + lx - mapx,
+         short_y ? mapy - scry : ly,
          offx + mapx - scrx,
          offy,
-         scrx + lx - mapx,
-         short_y ? mapy - scry : ly);
+         0);
     }
     if (short_y && get_torus_y()) {
-        masked_blit(get_al_bitmap(), target.get_al_bitmap(),
+        al_draw_bitmap_region(get_al_bitmap(),
          scrx, 0,
+         short_x ? mapx - scrx : lx,
+         scry + ly - mapy,
          offx,
          offy + mapy - scry,
-         short_x ? mapx - scrx : lx,
-         scry + ly - mapy);
+         0);
     }
     if (short_x && short_y && get_torus_x() && get_torus_y()) {
-        masked_blit(get_al_bitmap(), target.get_al_bitmap(),
+        al_draw_bitmap_region(get_al_bitmap(),
          0, 0,
+         scrx + lx - mapx,
+         scry + ly - mapy,
          offx + mapx - scrx,
          offy + mapy - scry,
-         scrx + lx - mapx,
-         scry + ly - mapy);
+         0);
     }
 }
 
@@ -334,19 +340,19 @@ void Map::load_masked_screen_rectangle(Torbit& src)
     const int&  yl = get_yl();
     const bool& tx = get_torus_x();
     const bool& ty = get_torus_y();
-    const int min_w = screen_xl;
-    const int min_h = screen_yl;
+    const int&  mw = screen_xl;
+    const int&  mh = screen_yl;
     ALLEGRO_BITMAP* s = src.get_al_bitmap();
-    ALLEGRO_BITMAP* b =     get_al_bitmap();
-                masked_blit(s, b, x,    y,    x,    y,    min_w, min_h);
-    if (tx)     masked_blit(s, b, x-xl, y,    x-xl, y,    min_w, min_h);
-    if (ty)     masked_blit(s, b, x,    y-yl, x,    y-yl, min_w, min_h);
-    if (tx&&ty) masked_blit(s, b, x-xl, y-yl, x-xl, y-yl, min_w, min_h);
+    al_set_target_bitmap(get_al_bitmap());
+                al_draw_bitmap_region(s, x,    y,    mw, mh, x,    y,    0);
+    if (tx)     al_draw_bitmap_region(s, x-xl, y,    mw, mh, x-xl, y,    0);
+    if (ty)     al_draw_bitmap_region(s, x,    y-yl, mw, mh, x,    y-yl, 0);
+    if (tx&&ty) al_draw_bitmap_region(s, x-xl, y-yl, mw, mh, x-xl, y-yl, 0);
 }
 
 
 
-void Map::clear_screen_rectangle(int col)
+void Map::clear_screen_rectangle(const ALLEGRO_COLOR& col)
 {
     const int&  x1 = screen_x;
     const int&  y1 = screen_y;
@@ -354,9 +360,9 @@ void Map::clear_screen_rectangle(int col)
     const int&  y2 = get_yl();
     const bool& tx = get_torus_x();
     const bool& ty = get_torus_y();
-    ALLEGRO_BITMAP* b = get_al_bitmap();
-                rectfill(b, x1, y1, x2, y2, col);
-    if (tx)     rectfill(b, 0,  y1, x1, y2, col);
-    if (ty)     rectfill(b, x1, 0,  x2, y1, col);
-    if (tx&&ty) rectfill(b, 0,  0,  x1, y1, col);
+    al_set_target_bitmap(get_al_bitmap());
+                al_draw_filled_rectangle(x1, y1, x2, y2, col);
+    if (tx)     al_draw_filled_rectangle(0,  y1, x1, y2, col);
+    if (ty)     al_draw_filled_rectangle(x1, 0,  x2, y1, col);
+    if (tx&&ty) al_draw_filled_rectangle(0,  0,  x1, y1, col);
 }

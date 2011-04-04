@@ -51,28 +51,28 @@ public:
 
     // Rechtecke haben, anders als Allegros rect() und rectfill(),
     // folgende Parameter: x, y, xl, yl, Farbe
-    void draw_rectangle       (int, int, int, int, ALLEGRO_COLOR);
-    void draw_filled_rectangle(int, int, int, int, ALLEGRO_COLOR);
+    void draw_filled_rectangle(int, int, int, int, const ALLEGRO_COLOR&);
 
     // (ggf. x, y, xl, yl), alte Farbe, neue Farbe
-    void replace_color        (ALLEGRO_COLOR, ALLEGRO_COLOR);
-    void replace_color_in_rect(ALLEGRO_COLOR, ALLEGRO_COLOR,
-                               int, int, int, int);
+    void replace_color        (const ALLEGRO_COLOR&, const ALLEGRO_COLOR&);
+    void replace_color_in_rect(int, int, int, int,
+                               const ALLEGRO_COLOR&, const ALLEGRO_COLOR&);
 
     // Den Torus auf den angegebenen Torus kopieren, und zwar an jene Stelle
     // auf dem uebergebenen Torus, die durch die Koordinaten beschrieben ist.
     // 2.: Sind die hinteren Koordinaten != 0, dann xl, yl, sonst alles malen.
     // 3.: Ein Bitmap auf ein Torbit zeichnen, x, y, mirr,rot,scal:0=1
-    virtual void draw     (Torbit&, int=0, int=0)               const;
+    virtual void draw     (Torbit&,         int=0, int=0)               const;
             void draw     (ALLEGRO_BITMAP*, int=0, int=0, int=0, int=0) const;
             void draw_from(ALLEGRO_BITMAP*, int=0, int=0, bool = false,
-                                    double = 0, double = 0);
+                                            double = 0, double = 0);
 
 private:
 
-    void rcir_at               (int, int, int, int, int, int);
-    void draw_rectangle_private(int, int, int, int, int,
-                                void (*)(ALLEGRO_BITMAP*, int, int, int, int, int));
+    void rcir_at               (int, int, int, int,
+                                const ALLEGRO_COLOR&, const ALLEGRO_COLOR&);
+    void draw_rectangle_private(int, int, int, int,   const ALLEGRO_COLOR&,
+                       void (*)(float, float, float, float, ALLEGRO_COLOR));
 
 //    void draw_from_at(ALLEGRO_BITMAP*, int, int, // Quelle, x und y
 //                      void (*)(ALLEGRO_BITMAP*, ALLEGRO_BITMAP*, int, int) = 0,

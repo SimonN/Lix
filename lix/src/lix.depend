@@ -5565,7 +5565,7 @@
 	<vector>
 	"torbit.h"
 
-1301856460 /home/simon/c/repo/lix/src/graphic/torbit.h
+1301936672 /home/simon/c/repo/lix/src/graphic/torbit.h
 	"../other/myalleg.h"
 
 1301858407 /home/simon/c/repo/lix/src/other/globals.h
@@ -6221,4 +6221,17 @@
 	<string>
 	<vector>
 	"../other/types.h"
+
+1301929824 source:/home/simon/c/repo/lix/src/graphic/map.cpp
+	"map.h"
+	"../level/level.h"
+	"../other/hardware.h"
+	"../other/globals.h"
+	"../other/help.h"
+	"../other/user.h"
+
+1301929954 source:/home/simon/c/repo/lix/src/graphic/sound.cpp
+	"sound.h"
+	"../other/globals.h"
+	"../other/user.h"
 

@@ -296,22 +296,22 @@
 		<Cursor position="2660" topLine="49" />
 	</File>
 	<File name="graphic/map.cpp" open="0" top="0" tabpos="17">
-		<Cursor position="9469" topLine="281" />
+		<Cursor position="11374" topLine="334" />
 	</File>
 	<File name="graphic/map.h" open="0" top="0" tabpos="5">
 		<Cursor position="5334" topLine="126" />
 	</File>
-	<File name="graphic/sound.cpp" open="0" top="0" tabpos="4">
-		<Cursor position="2578" topLine="110" />
+	<File name="graphic/sound.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="1353" topLine="76" />
 	</File>
 	<File name="graphic/sound.h" open="0" top="0" tabpos="1">
 		<Cursor position="4108" topLine="92" />
 	</File>
-	<File name="graphic/torbit.cpp" open="0" top="0" tabpos="8">
-		<Cursor position="5477" topLine="181" />
+	<File name="graphic/torbit.cpp" open="1" top="1" tabpos="2">
+		<Cursor position="7423" topLine="331" />
 	</File>
-	<File name="graphic/torbit.h" open="0" top="0" tabpos="1">
-		<Cursor position="1396" topLine="32" />
+	<File name="graphic/torbit.h" open="1" top="0" tabpos="3">
+		<Cursor position="1883" topLine="48" />
 	</File>
 	<File name="level/crunch.cpp" open="0" top="0" tabpos="1">
 		<Cursor position="2727" topLine="75" />

@@ -15,7 +15,7 @@ Torbit::Torbit(int xl, int yl, bool tx, bool ty)
 {
     if (xl < 1) xl = 1;
     if (yl < 1) yl = 1;
-    bitmap = create_bitmap(xl, yl);
+    bitmap = al_create_bitmap(xl, yl);
 }
 
 
@@ -25,8 +25,9 @@ Torbit::Torbit(const Torbit& orig)
     torus_x(orig.torus_x),
     torus_y(orig.torus_y)
 {
-    bitmap = create_bitmap(orig.get_xl(), orig.get_yl());
-    blit(orig.bitmap, bitmap, 0, 0, 0, 0, bitmap->w, bitmap->h);
+    bitmap = al_create_bitmap(orig.get_xl(), orig.get_yl());
+    al_set_target_bitmap(bitmap);
+    al_draw_bitmap(orig.bitmap, 0, 0, 0);
 }
 
 
@@ -34,7 +35,7 @@ Torbit::Torbit(const Torbit& orig)
 Torbit::~Torbit()
 {
     if (bitmap) {
-        destroy_bitmap(bitmap);
+        al_destroy_bitmap(bitmap);
         bitmap = 0;
     }
 }
@@ -48,7 +49,8 @@ Torbit& Torbit::operator = (const Torbit& orig)
     torus_x = orig.torus_x;
     torus_y = orig.torus_y;
     resize(orig.get_xl(), orig.get_yl());
-    blit(orig.bitmap, bitmap, 0, 0, 0, 0, bitmap->w, bitmap->h);
+    al_set_target_bitmap(bitmap);
+    al_draw_bitmap(orig.bitmap, 0, 0, 0);
     return *this;
 }
 
@@ -70,11 +72,12 @@ void Torbit::resize(int xl, int yl)
 {
     if (xl < 1) xl = 1;
     if (yl < 1) yl = 1;
-    if (bitmap && (bitmap->w != xl || bitmap->h != yl)) {
-        destroy_bitmap(bitmap);
+    if (bitmap && (al_get_bitmap_width (bitmap) != xl
+                || al_get_bitmap_height(bitmap) != yl)) {
+        al_destroy_bitmap(bitmap);
         bitmap = 0;
     }
-    if (!bitmap) bitmap = create_bitmap(xl, yl);
+    if (!bitmap) bitmap = al_create_bitmap(xl, yl);
 }
 
 
@@ -85,9 +88,9 @@ int Torbit::distance_x(const int x1, const int x2) const
     if (!torus_x) return x2 - x1;
     else {
         int result = x2 - x1;
-        int d = x2 - x1 - bitmap->w;
+        int d = x2 - x1 - al_get_bitmap_width(bitmap);
         if (std::abs(d) < std::abs(result)) result = d;
-        d     = x2 - x1 + bitmap->w;
+        d     = x2 - x1 + al_get_bitmap_width(bitmap);
         if (std::abs(d) < std::abs(result)) result = d;
         return result;
     }
@@ -101,9 +104,9 @@ int Torbit::distance_y(const int y1, const int y2) const
     if (!torus_y) return y2 - y1;
     else {
         int result = y2 - y1;
-        int d = y2 - y1 - bitmap->h;
+        int d = y2 - y1 - al_get_bitmap_height(bitmap);
         if (std::abs(d) < std::abs(result)) result = d;
-        d     = y2 - y1 + bitmap->h;
+        d     = y2 - y1 + al_get_bitmap_height(bitmap);
         if (std::abs(d) < std::abs(result)) result = d;
         return result;
     }
@@ -118,39 +121,47 @@ double Torbit::hypot(int x1, int y1, int x2, int y2) const
 
 
 
-void Torbit::clear_to_color(int col)
+void Torbit::clear_to_color(const ALLEGRO_COLOR& col)
 {
-    ::clear_to_color(bitmap, col);
+    al_set_target_bitmap(bitmap);
+    al_clear_to_color(col);
 }
 
 
 
 
-int Torbit::get_pixel(int x, int y) const
+ALLEGRO_COLOR Torbit::get_pixel(int x, int y) const
 {
     // Am Rand die Karte mit der letzten Pixelreihe gedanklich wiederholt
     // fortsetzen, es sei denn, es ist ohnehin ein Torus.
-    if (!bitmap) return 0;
-    return _getpixel16(bitmap,
-     torus_x        ? Help::mod(x, bitmap->w) :
-     x < 0          ? 0                       :
-     x >= bitmap->w ? bitmap->w - 1           : x,
-     torus_y        ? Help::mod(y, bitmap->h) :
-     y < 0          ? 0                       :
-     y >= bitmap->h ? bitmap->h - 1           : y);
+    if (!bitmap) return color[COL_BLACK];
+    const int xl = al_get_bitmap_width (bitmap);
+    const int yl = al_get_bitmap_height(bitmap);
+    return al_get_pixel(bitmap,
+     torus_x ? Help::mod(x, xl) :
+     x < 0   ? 0                :
+     x >= xl ? xl - 1           : x,
+     torus_y ? Help::mod(y, yl) :
+     y < 0   ? 0                :
+     y >= yl ? yl - 1           : y);
 }
 
 
 
-void Torbit::set_pixel(const int x, const int y, const int col)
+void Torbit::set_pixel(const int x, const int y, const ALLEGRO_COLOR& col)
 {
     // Hier allerdings ausserhalb des Randes nicht zeichnen, anders als bei
     // Map::get_pixel(), siehe oben.
-    if (bitmap
-     && (torus_x || x >= 0 && x < bitmap->w)
-     && (torus_y || y >= 0 && y < bitmap->h))
-     _putpixel16(bitmap, torus_x ? Help::mod(x, bitmap->w) : x,
-                         torus_y ? Help::mod(y, bitmap->h) : y, col);
+    if (bitmap) {
+        const int xl = al_get_bitmap_width (bitmap);
+        const int yl = al_get_bitmap_height(bitmap);
+        if ((torus_x || (x >= 0 && x < xl))
+         && (torus_y || (y >= 0 && y < yl))) {
+            al_set_target_bitmap(bitmap);
+            al_draw_pixel(torus_x ? Help::mod(x, xl) : x,
+                          torus_y ? Help::mod(y, yl) : y, col);
+        }
+    }
 }
 
 
@@ -158,50 +169,54 @@ void Torbit::set_pixel(const int x, const int y, const int col)
 void Torbit::draw_rectangle_private(
     int x,  int y,
     int xl, int yl,
-    const int col,
-    void (*func)(ALLEGRO_BITMAP*, int, int, int, int, int)
+    const ALLEGRO_COLOR& col,
+    void (*func)(float, float, float, float, ALLEGRO_COLOR)
 ) {
     if (!bitmap) return;
-    if (torus_x) x = Help::mod(x, bitmap->w);
-    if (torus_y) y = Help::mod(y, bitmap->h);
-    const int   x2 = x - bitmap->w;
-    const int   y2 = y - bitmap->h;
-                            func(bitmap, x,  y,  x  + xl-1, y  + yl-1, col);
-    if (torus_x)            func(bitmap, x2, y,  x2 + xl-1, y  + yl-1, col);
-    if (torus_x)            func(bitmap, x , y2, x  + xl-1, y2 + yl-1, col);
-    if (torus_x && torus_y) func(bitmap, x2, y2, x2 + xl-1, y2 + yl-1, col);
+    const int bxl = al_get_bitmap_width (bitmap);
+    const int byl = al_get_bitmap_height(bitmap);
+    if (torus_x) x = Help::mod(x, bxl);
+    if (torus_y) y = Help::mod(y, byl);
+    const int   x2 = x - bxl;
+    const int   y2 = y - byl;
+    al_set_target_bitmap(bitmap);
+                            func(x,  y,  x  + xl, y  + yl, col);
+    if (torus_x)            func(x2, y,  x2 + xl, y  + yl, col);
+    if (torus_x)            func(x , y2, x  + xl, y2 + yl, col);
+    if (torus_x && torus_y) func(x2, y2, x2 + xl, y2 + yl, col);
 }
 
 
 
-void Torbit::draw_rectangle(int x, int y, int xl, int yl, int col)
-{
-    draw_rectangle_private(x, y, xl, yl, col, ::rect);
+void Torbit::draw_filled_rectangle(
+    int x, int y, int xl, int yl,
+    const ALLEGRO_COLOR& col
+) {
+    draw_rectangle_private(x, y, xl, yl, col, al_draw_filled_rectangle);
 }
 
 
 
-void Torbit::draw_filled_rectangle(int x, int y, int xl, int yl, int col)
-{
-    draw_rectangle_private(x, y, xl, yl, col, ::rectfill);
-}
-
-
-
-void Torbit::replace_color(int c_old, int c_new)
-{
+void Torbit::replace_color(
+    const ALLEGRO_COLOR& c_old,
+    const ALLEGRO_COLOR& c_new
+) {
     if (!bitmap) return;
-    rcir_at(0, 0, bitmap->w, bitmap->h, c_old, c_new);
+    rcir_at(0, 0,
+     al_get_bitmap_width(bitmap),
+     al_get_bitmap_height(bitmap), c_old, c_new);
 }
 
 
 
 void Torbit::replace_color_in_rect(
-    int x, int y, int xl, int yl, int c_old, int c_new
+    int x, int y, int xl, int yl,
+    const ALLEGRO_COLOR& c_old,
+    const ALLEGRO_COLOR& c_new
 ) {
     if (!bitmap) return;
-    const int x2 = x - bitmap->w;
-    const int y2 = y - bitmap->h;
+    const int x2 = x - al_get_bitmap_width (bitmap);
+    const int y2 = y - al_get_bitmap_height(bitmap);
                             rcir_at(x,  y,  xl, yl, c_old, c_new);
     if (torus_x)            rcir_at(x2, y,  xl, yl, c_old, c_new);
     if (torus_x)            rcir_at(x,  y2, xl, yl, c_old, c_new);
@@ -211,17 +226,22 @@ void Torbit::replace_color_in_rect(
 
 
 void Torbit::rcir_at(
-    int start_x, int start_y, int xl, int yl, int c_old, int c_new
+    int start_x, int start_y, int xl, int yl,
+    const ALLEGRO_COLOR& c_old,
+    const ALLEGRO_COLOR& c_new
 ) {
+    const int max_xl = al_get_bitmap_width (bitmap);
+    const int max_yl = al_get_bitmap_height(bitmap);
     if (start_x < 0) start_x = 0;
     if (start_y < 0) start_y = 0;
-    if (start_x + xl > bitmap->w) xl = bitmap->w - start_x;
-    if (start_y + yl > bitmap->h) yl = bitmap->h - start_y;
+    if (start_x + xl > max_xl) xl = max_xl - start_x;
+    if (start_y + yl > max_yl) yl = max_yl - start_y;
 
+    al_set_target_bitmap(bitmap);
     for  (int x = start_x; x < start_x + xl; ++x)
      for (int y = start_y; y < start_y + yl; ++y) {
-        if (_getpixel16(bitmap, x, y) == c_old) {
-            _putpixel16(bitmap, x, y,    c_new);
+        if (al_get_pixel(bitmap, x, y) == c_old) {
+            al_put_pixel(        x, y,    c_new);
         }
     }
 }
@@ -238,16 +258,23 @@ void Torbit::draw(
     int xl, int yl) const
 {
     if (!bitmap || !dest) return;
-    if (!xl)  xl  = bitmap->w < dest->w ? bitmap->w : dest->w;
-    if (!yl)  yl  = bitmap->h < dest->h ? bitmap->h : dest->h;
-    const int xla = x + xl > bitmap->w ? bitmap->w - x : xl;
-    const int yla = y + yl > bitmap->h ? bitmap->h - y : yl;
+    const int bxl = al_get_bitmap_width (bitmap);
+    const int byl = al_get_bitmap_height(bitmap);
+    const int dxl = al_get_bitmap_width (dest);
+    const int dyl = al_get_bitmap_height(dest);
+    if (!xl)  xl  = bxl < dxl ? bxl : dxl;
+    if (!yl)  yl  = byl < dyl ? byl : dyl;
+    const int xla = x + xl > bxl ? bxl - x : xl;
+    const int yla = y + yl > byl ? byl - y : yl;
     const int tx  = torus_x && xla < xl;
     const int ty  = torus_y && yla < yl;
-                  masked_blit(bitmap, dest, x, y, 0,   0,   xla,    yla);
-    if (tx      ) masked_blit(bitmap, dest, 0, y, xla, 0,   xl-xla, yla);
-    if (      ty) masked_blit(bitmap, dest, x, 0, 0,   yla, xla,    yl-yla);
-    if (tx && ty) masked_blit(bitmap, dest, 0, 0, xla, yla, xl-xla, yl-yla);
+
+    ALLEGRO_BITMAP* b = bitmap;
+    al_set_target_bitmap(dest);
+                  al_draw_bitmap_region(b, x, y, xla,    yla,    0,   0,   0);
+    if (tx      ) al_draw_bitmap_region(b, 0, y, xl-xla, yla,    xla, 0,   0);
+    if (      ty) al_draw_bitmap_region(b, x, 0, xla,    yl-yla, 0,   yla, 0);
+    if (tx && ty) al_draw_bitmap_region(b, 0, 0, xl-xla, yl-yla, xla, yla, 0);
 }
 
 
