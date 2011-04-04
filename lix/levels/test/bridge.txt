@@ -1,4 +1,4 @@
-$BUILT                                             2011-04-03 19:15:50
+$BUILT                                             2011-04-04 03:16:35
 $AUTHOR                                                               
 $GERMAN                                                               
 $ENGLISH                                                    the Bridge
@@ -14,7 +14,7 @@ $ENGLISH                                                    the Bridge
 #REQUIRED                                                           20
 #RATE                                                               50
 
-#NOTHING                                                             0
+#FLOATER                                                            20
 #NOTHING                                                             0
 #NOTHING                                                             0
 #NOTHING                                                             0
@@ -27,36 +27,22 @@ $ENGLISH                                                    the Bridge
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:./bitmap/Rebuilds/01 - Earth/Hatch.H:                    32       197
+:./bitmap/Rebuilds/01 - Earth/Hatch.H:                    32       317
 
-:./bitmap/Rebuilds/01 - Earth/Goal.G:                    535       210
+:./bitmap/Rebuilds/01 - Earth/Goal.G:                    535       315
 
-:Dirt-s5:                                                194       368
-:Dirt-s5:                                                194       352
-:Dirt-s5:                                                194       336
-:Dirt-s5:                                                194       320
-:Dirt-s5:                                                322       368
-:Dirt-s5:                                                322       352
-:Dirt-s5:                                                322       336
-:Dirt-s5:                                                322       320
-:Dirt-s5:                                                194       304
-:Dirt-s5:                                                322       304
+:Dirt-s5:                                                178       368
+:Dirt-s5:                                                306       368
 
-:./bitmap/Rebuilds/01 - Earth/10:                        467       279     frr
-:./bitmap/Rebuilds/01 - Earth/10:                        402       240
-:./bitmap/Rebuilds/Asian XP/bridge_angle:                144       164
-:./bitmap/Rebuilds/Asian XP/bridge_straight:             251       164
-:./bitmap/Rebuilds/Asian XP/bridge_angle:                356       164     frr
-:./bitmap/Rebuilds/01 - Earth/10:                        100       222     r
-:./bitmap/Rebuilds/01 - Earth/10:                        108       253     frrr
-:./bitmap/Rebuilds/01 - Earth/10:                        411       224     frrr
-:./bitmap/Rebuilds/01 - Earth/10:                        418       230     r
-:./bitmap/Rebuilds/01 - Earth/17:                        527       248     rrr
-:./bitmap/Rebuilds/01 - Earth/17:                        -14       244     rrr
-:./bitmap/Rebuilds/01 - Earth/10:                        -57       245
-:./bitmap/Rebuilds/01 - Earth/10:                         -9       239     frr
-:./bitmap/Rebuilds/01 - Earth/00:                         66       303
-:./bitmap/Rebuilds/01 - Earth/00:                          6       298
-:./bitmap/Rebuilds/01 - Earth/00:                        -30       278
-:./bitmap/Rebuilds/01 - Earth/10:                        -69       312     frr
-:./bitmap/Rebuilds/01 - Earth/10:                        462       319     frr
+:./bitmap/Rebuilds/06 - Oriental/5:                        0       368     r
+:./bitmap/Rebuilds/06 - Oriental/5:                       64       368     r
+:./bitmap/Rebuilds/06 - Oriental/5:                      128       368     r
+:./bitmap/Rebuilds/06 - Oriental/ladder:                 144       195
+:./bitmap/Rebuilds/06 - Oriental/ladder:                 158        32
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            195        47     r
+:./bitmap/Rebuilds/06 - Oriental/5:                      480       368     r
+:./bitmap/Rebuilds/06 - Oriental/5:                      416       368     r
+:./bitmap/Rebuilds/06 - Oriental/5:                      544       368     r
+:./bitmap/Rebuilds/06 - Oriental/5:                      480       368     r
+:./bitmap/Rebuilds/06 - Oriental/5:                      608       368     r
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            288        48     r
