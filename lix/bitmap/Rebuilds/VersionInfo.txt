@@ -1,4 +1,4 @@
-On last git push(3/30/2011):
+MAJOR PUSH 1 (3/30/2011):
 ----------------------------
 1) Renamed "01 - Dirt" to "01 - Earth"
 
@@ -9,3 +9,4 @@ On last git push(3/30/2011):
 The "goal.G.bmp" and "hatch.H.bmp" files will stay in the main directory, since they go with both subsets.
 
 3) Added a *NEW* GFX set, "05 - Snow".  Has 18 pieces and a hatch, currently(hatch is a re-colored version of the Gold Mine hatch for now - let me know if you have any other ideas for it.)
+------------------------------------

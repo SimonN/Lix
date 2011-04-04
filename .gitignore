@@ -15,8 +15,8 @@ lix/bitmap/orig/L1/*
 lix/bitmap/orig/L1/*/*
 lix/bitmap/orig/L2/*/*
 
-# exclude any replay files, the test levels, and Rubix's # Tutorials.
+# exclude any replay files, and Rubix's 
+# Tutorials.
 lix/replay/*
 lix/bitmap/Tutorial Files/*
 lix/levels/Tutorial/*
-lix/levels/test/*

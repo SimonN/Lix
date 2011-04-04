@@ -1,0 +1,57 @@
+$BUILT                                             2011-04-03 11:13:15
+$AUTHOR                                                           Matt
+$GERMAN                                                               
+$ENGLISH                                    Down thru the gates...(2P)
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            440
+#START_X                                                             0
+#START_Y                                                            20
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#SECONDS                                                             0
+#INITIAL                                                            30
+#REQUIRED                                                           20
+#RATE                                                               50
+
+#DIGGER                                                             20
+#BASHER                                                             20
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:./bitmap/Rebuilds/01 - Earth/Hatch.H:                   137        17
+:./bitmap/Rebuilds/01 - Earth/Hatch.H:                   426        17     r
+
+:./bitmap/Rebuilds/01 - Earth/Goal.G:                    566       350
+:./bitmap/Rebuilds/01 - Earth/Goal.G:                     22       348
+
+:./bitmap/Rebuilds/Asian XP/asian gate:                  329       132
+:./bitmap/Rebuilds/Asian XP/asian gate:                  169       132
+:./bitmap/Rebuilds/Asian XP/bonsai tree:                 212        82
+:./bitmap/Rebuilds/01 - Earth/05:                        424       390     frrr
+:./bitmap/Rebuilds/01 - Earth/05:                        439       399     fr
+:./bitmap/Rebuilds/01 - Earth/05:                        248       389     fr
+:./bitmap/Rebuilds/01 - Earth/05:                        103       387     r
+:./bitmap/Rebuilds/01 - Earth/05:                        201       389     frrr
+:./bitmap/Rebuilds/01 - Earth/05:                        -60       389     rrr
+:./bitmap/Rebuilds/Asian XP/asian gate:                  249       196
+:./bitmap/Rebuilds/Asian XP/asian gate:                  313       260
+:./bitmap/Rebuilds/Asian XP/asian gate:                  105       324
+:./bitmap/Rebuilds/Asian XP/bonsai tree:                 171       211     frr
+:./bitmap/Rebuilds/Asian XP/asian gate:                  105        68
+:./bitmap/Rebuilds/Asian XP/asian gate:                  249        68
+:./bitmap/Rebuilds/Asian XP/asian gate:                  393        68
+:./bitmap/Rebuilds/Asian XP/asian gate:                  185       260
+:./bitmap/Rebuilds/Asian XP/asian gate:                  393       324
+:./bitmap/Rebuilds/Asian XP/asian gate:                  249       324
+:./bitmap/Rebuilds/Asian XP/asian gate:                   89       196
+:./bitmap/Rebuilds/Asian XP/asian gate:                  409       196
+:./bitmap/Rebuilds/01 - Earth/17:                        182       405     r

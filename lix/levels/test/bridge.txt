@@ -1,0 +1,62 @@
+$BUILT                                             2011-04-03 19:15:50
+$AUTHOR                                                               
+$GERMAN                                                               
+$ENGLISH                                                    the Bridge
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#START_X                                                             0
+#START_Y                                                             0
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#SECONDS                                                             0
+#INITIAL                                                            30
+#REQUIRED                                                           20
+#RATE                                                               50
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:./bitmap/Rebuilds/01 - Earth/Hatch.H:                    32       197
+
+:./bitmap/Rebuilds/01 - Earth/Goal.G:                    535       210
+
+:Dirt-s5:                                                194       368
+:Dirt-s5:                                                194       352
+:Dirt-s5:                                                194       336
+:Dirt-s5:                                                194       320
+:Dirt-s5:                                                322       368
+:Dirt-s5:                                                322       352
+:Dirt-s5:                                                322       336
+:Dirt-s5:                                                322       320
+:Dirt-s5:                                                194       304
+:Dirt-s5:                                                322       304
+
+:./bitmap/Rebuilds/01 - Earth/10:                        467       279     frr
+:./bitmap/Rebuilds/01 - Earth/10:                        402       240
+:./bitmap/Rebuilds/Asian XP/bridge_angle:                144       164
+:./bitmap/Rebuilds/Asian XP/bridge_straight:             251       164
+:./bitmap/Rebuilds/Asian XP/bridge_angle:                356       164     frr
+:./bitmap/Rebuilds/01 - Earth/10:                        100       222     r
+:./bitmap/Rebuilds/01 - Earth/10:                        108       253     frrr
+:./bitmap/Rebuilds/01 - Earth/10:                        411       224     frrr
+:./bitmap/Rebuilds/01 - Earth/10:                        418       230     r
+:./bitmap/Rebuilds/01 - Earth/17:                        527       248     rrr
+:./bitmap/Rebuilds/01 - Earth/17:                        -14       244     rrr
+:./bitmap/Rebuilds/01 - Earth/10:                        -57       245
+:./bitmap/Rebuilds/01 - Earth/10:                         -9       239     frr
+:./bitmap/Rebuilds/01 - Earth/00:                         66       303
+:./bitmap/Rebuilds/01 - Earth/00:                          6       298
+:./bitmap/Rebuilds/01 - Earth/00:                        -30       278
+:./bitmap/Rebuilds/01 - Earth/10:                        -69       312     frr
+:./bitmap/Rebuilds/01 - Earth/10:                        462       319     frr
