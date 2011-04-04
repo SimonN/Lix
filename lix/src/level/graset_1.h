@@ -53,9 +53,9 @@ private:
 
     // These vectors are only used while reading in the terrain. Afterwards,
     // everything is stored in std::vector <Object> terrain and special.
-    std::vector <ObjectInfo>  speinf;
-    std::vector <TerrainInfo> terinf;
-    std::vector <int>         palette;
+    std::vector <ObjectInfo>    speinf;
+    std::vector <TerrainInfo>   terinf;
+    std::vector <ALLEGRO_COLOR> palette;
 
     int  read_byte(std::ifstream& file);
     int  read_word(std::ifstream& file);

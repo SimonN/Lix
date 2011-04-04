@@ -293,37 +293,36 @@ void Torbit::draw_from(
 {
     if (!bit || !bitmap) return;
     double r = ::fmod(rot, 4);
-    if      (r == 0 && !scal && !mirr) draw_from_at(bit, x, y);
-    else if (r == 2 && !scal &&  mirr) draw_from_at(bit, x, y,
-                                                    ::draw_sprite_h_flip);
+
+    int mirrflags = 0;
+    if (mirr) mirrflags = ALLEGRO_FLIP_HORIZONTAL;
+    if (r == 2 && mirr) {
+        r = 0;
+        mirrflags = ALLEGRO_FLIP_HORIZONTAL;
+    }
+
+    if (r == 0 && !scal) draw_from_at(bit, x, y, 0, 0, 0, mirrflags);
     else {
-        bool b = (r == 0 || r == 2);
-        const int xl = bit->w;
-        const int yl = bit->h;
-        // rotate_sprite dreht leider um das Zentrum und hat obendrein
-        // wuselige Angewohnheiten, wann bei ungeraden Laengen nach vorn
-        // oder hinten gerundet wird. Mein Algorithmus faengt das auf.
+        const int    xl = al_get_bitmap_width (bit);
+        const int    yl = al_get_bitmap_height(bit);
+        const double cx = xl/2.0;
+        const double cy = yl/2.0;
 
-        // Wir koennen Truemmer trotzdem mit dieser Methode zeichnen!
-        // Fuer xl == yl liefert dies gerade wieder das Urspruengliche!
-
-        //  Malposition     Zentrum versch.   Rundungskorrektur
-        int xdr = b ? x  :  x - xl/2 + yl/2 - ((xl + yl)%2 && xl < yl);
-        int ydr = b ? y  :  y - yl/2 + xl/2 - ((xl + yl)%2 && yl < xl);
-        // Weitere, ganz bescheuerter Rundungsfehler
-        if (!b && xl%2 == 1 && yl%2 == 0 && yl < xl) {
-            --xdr;
-            ++ydr;
+        if (!scal) {
+            draw_from_at(bit, x + cx, y + cy,
+             0, &::al_draw_rotated_bitmap, 0,
+             mirrflags,
+             cx, cy,
+             r * ALLEGRO_PI / 2.0);
         }
-        else if (!b && xl%2 == 0 && yl%2 == 1 && xl < yl) {
-            ++xdr;
-            --ydr;
+        else {
+            draw_from_at(bit, x + cx, y + cy,
+             0, 0, &::al_draw_scaled_rotated_bitmap,
+             mirrflags,
+             cx, cy,
+             r * ALLEGRO_PI / 2.0,
+             scal);
         }
-        // fixed sind die Allegro-Typen, die die Sprite-Funktionen wollen
-        if (!mirr) draw_from_at(bit, xdr, ydr, 0,::rotate_scaled_sprite,
-                    rot, scal);
-        else       draw_from_at(bit, xdr, ydr, 0,::rotate_scaled_sprite_v_flip,
-                    rot, scal);
     }
 }
 
@@ -331,35 +330,45 @@ void Torbit::draw_from(
 
 void Torbit::draw_from_at(
     ALLEGRO_BITMAP* bit,
-    int x,
-    int y,
-    void (*arg4)(ALLEGRO_BITMAP*, ALLEGRO_BITMAP*, int, int),
-    void (*arg6)(ALLEGRO_BITMAP*, ALLEGRO_BITMAP*, int, int, fixed, fixed),
-    double rot,
-    double scal
+    double x,
+    double y,
+    void (*fa)(ALLEGRO_BITMAP*, float,float, int),
+    void (*fb)(ALLEGRO_BITMAP*, float,float,float,float,float, int),
+    void (*fc)(ALLEGRO_BITMAP*, float,float,float,float,float,float,float,int),
+    int    mrrf,
+    double cx,
+    double cy,
+    double rad,
+    double s
 ) {
     // Keine Pruefung auf Zeiger == 0, das haben die aufrufenden Funktionen
     // immer schon am Anfang gemacht. War bei denen teilweise naemlich noetig.
     const bool& tx = torus_x;
     const bool& ty = torus_y;
-    ALLEGRO_BITMAP*&    tb = bitmap;
-    if (tx)     x  = Help::mod(x, tb->w);
-    if (ty)     y  = Help::mod(y, tb->h);
+    ALLEGRO_BITMAP*& tb = bitmap;
+    const int   tbxl = al_get_bitmap_width (tb);
+    const int   tbyl = al_get_bitmap_height(tb);
+    if (tx)     x  = Help::mod(x, tbxl);
+    if (ty)     y  = Help::mod(y, tbyl);
+    if (!fa && !fb && !fc) fa = ::al_draw_bitmap;
 
-    if (!arg4 && !arg6) arg4 = ::draw_sprite;
-    if (arg4) {
-                      arg4(tb, bit, x,         y        );
-        if (tx      ) arg4(tb, bit, x - tb->w, y        );
-        if (      ty) arg4(tb, bit, x,         y - tb->h);
-        if (tx && ty) arg4(tb, bit, x - tb->w, y - tb->h);
+    al_set_target_bitmap(tb);
+    if (fa) {
+                    fa(bit, x,        y,        mrrf);
+        if (tx    ) fa(bit, x - tbxl, y,        mrrf);
+        if (    ty) fa(bit, x,        y - tbyl, mrrf);
+        if (tx&&ty) fa(bit, x - tbxl, y - tbyl, mrrf);
     }
-    else if (arg6) {
-        if (!scal) scal = 1;
-        fixed      rr   = ftofix(rot * 64);
-        fixed      ff   = ftofix(scal ? scal : 1);
-                      arg6(tb, bit, x,         y,         rr, ff);
-        if (tx      ) arg6(tb, bit, x - tb->w, y,         rr, ff);
-        if (      ty) arg6(tb, bit, x,         y - tb->h, rr, ff);
-        if (tx && ty) arg6(tb, bit, x - tb->w, y - tb->h, rr, ff);
+    else if (fb) {
+                    fb(bit, cx,      cy,      x,      y,      rad, mrrf);
+        if (tx    ) fb(bit, cx-tbxl, cy,      x-tbxl, y,      rad, mrrf);
+        if (    ty) fb(bit, cx,      cy-tbyl, x,      y-tbyl, rad, mrrf);
+        if (tx&&ty) fb(bit, cx-tbxl, cy-tbyl, x-tbxl, y-tbyl, rad, mrrf);
+    }
+    else if (fc) {
+                    fc(bit, cx,      cy,      x,      y,      s, s, rad, mrrf);
+        if (tx    ) fc(bit, cx-tbxl, cy,      x-tbxl, y,      s, s, rad, mrrf);
+        if (    ty) fc(bit, cx,      cy-tbyl, x,      y-tbyl, s, s, rad, mrrf);
+        if (tx&&ty) fc(bit, cx-tbxl, cy-tbyl, x-tbxl, y-tbyl, s, s, rad, mrrf);
     }
 }

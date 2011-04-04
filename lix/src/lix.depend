@@ -5565,7 +5565,7 @@
 	<vector>
 	"torbit.h"
 
-1301936672 /home/simon/c/repo/lix/src/graphic/torbit.h
+1301941547 /home/simon/c/repo/lix/src/graphic/torbit.h
 	"../other/myalleg.h"
 
 1301858407 /home/simon/c/repo/lix/src/other/globals.h
@@ -5613,7 +5613,7 @@
 	<vector>
 	"../graphic/torbit.h"
 
-1301856460 /home/simon/c/repo/lix/src/level/level.h
+1301944648 /home/simon/c/repo/lix/src/level/level.h
 	<list>
 	<string>
 	"object.h"
@@ -6234,4 +6234,120 @@
 	"sound.h"
 	"../other/globals.h"
 	"../other/user.h"
+
+1301942303 source:/home/simon/c/repo/lix/src/graphic/torbit.cpp
+	<cmath>
+	"torbit.h"
+	"../other/help.h"
+
+1301942378 source:/home/simon/c/repo/lix/src/level/graset.cpp
+	"graset.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/level/level_bi.cpp
+	<fstream>
+	"level.h"
+	"obj_lib.h"
+	"../other/help.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/level/level_io.cpp
+	"level.h"
+	"obj_lib.h"
+	"../other/help.h"
+	"../other/language.h"
+	"../other/log.h"
+
+1301942728 source:/home/simon/c/repo/lix/src/level/obj_lib.cpp
+	<sstream>
+	"obj_lib.h"
+	"graset_1.h"
+	"graset_2.h"
+	"../graphic/gra_lib.h"
+	"../other/globals.h"
+	"../other/help.h"
+
+1301942464 /home/simon/c/repo/lix/src/level/graset_1.h
+	<string>
+	"crunch.h"
+	"graset.h"
+
+1301943789 /home/simon/c/repo/lix/src/level/graset_2.h
+	<vector>
+	<string>
+	"crunch.h"
+	"graset.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/level/object.cpp
+	"object.h"
+	"../graphic/glob_gfx.h"
+
+1301944039 source:/home/simon/c/repo/lix/src/level/graset_1.cpp
+	<fstream>
+	"../other/myalleg.h"
+	"graset_1.h"
+	"../graphic/glob_gfx.h"
+
+1301944588 source:/home/simon/c/repo/lix/src/level/graset_2.cpp
+	"../other/myalleg.h"
+	<fstream>
+	<algorithm>
+	"graset_2.h"
+	"../graphic/glob_gfx.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/level/level.cpp
+	"level.h"
+	"../graphic/gra_lib.h"
+	"../other/help.h"
+	"../other/language.h"
+
+1301944838 source:/home/simon/c/repo/lix/src/level/level_dr.cpp
+	"level.h"
+	"obj_lib.h"
+	"../other/help.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/ac_func.cpp
+	"lix.h"
+	"../gameplay/tribe.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/basher.cpp
+	"ac.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/blocker.cpp
+	"ac.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/builder.cpp
+	"ac.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/climber.cpp
+	"ac.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/deaths.cpp
+	"ac.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/digger.cpp
+	"ac.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/exiter.cpp
+	"ac.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/exploder.cpp
+	"ac.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/faller.cpp
+	"ac.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/floater.cpp
+	"ac.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/init.cpp
+	"lix.h"
+	"ac_func.h"
+	"../graphic/gra_lib.h"
+
+1300285974 /home/simon/c/repo/lix/src/lix/ac_func.h
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/jumper.cpp
+	"ac.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/lander.cpp
+	"ac.h"
 

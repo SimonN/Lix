@@ -50,11 +50,11 @@ private:
 	Byte* read_file(const std::string& filename);
 	void setup_file(const Byte* buffer);
 
-    int  make_0x3F_color(int, int, int);
+    ALLEGRO_COLOR make_0x3F_color(int, int, int);
     int  read_word_le   (const Crunch::Section&, int offset = 0);
     long read_long_be   (const Byte*);
 
-    std::vector <int> palette;
+    std::vector <ALLEGRO_COLOR> palette;
 
 	void make_palette ();
     void make_specials();

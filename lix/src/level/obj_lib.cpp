@@ -237,7 +237,7 @@ const std::string& ObjLib::orig_set_to_string(const int o) {
 
 
 
-const ObjLib::OrigSet ObjLib::string_to_orig_set(const std::string& s) {
+ObjLib::OrigSet ObjLib::string_to_orig_set(const std::string& s) {
     for (std::map <OrigSet, std::string>::iterator
      i  =  lib->orig_set_string.begin();
       i != lib->orig_set_string.end(); ++i) {

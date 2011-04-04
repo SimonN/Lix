@@ -173,7 +173,7 @@ struct Level {
     const std::string&  get_name()   const;
 
     void    draw_to       (Torbit&, Torbit* = 0   ) const;
-    Torbit  create_preview(unsigned, unsigned, int) const;
+    Torbit  create_preview(unsigned, unsigned, const ALLEGRO_COLOR&) const;
 
     void load_from_stream(      std::istream&);
     void load_from_file  (const std::string&);

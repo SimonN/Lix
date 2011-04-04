@@ -74,9 +74,10 @@ private:
     void draw_rectangle_private(int, int, int, int,   const ALLEGRO_COLOR&,
                        void (*)(float, float, float, float, ALLEGRO_COLOR));
 
-//    void draw_from_at(ALLEGRO_BITMAP*, int, int, // Quelle, x und y
-//                      void (*)(ALLEGRO_BITMAP*, ALLEGRO_BITMAP*, int, int) = 0,
-//                      void (*)(ALLEGRO_BITMAP*, ALLEGRO_BITMAP*, int, int, fixed, fixed) = 0,
-//                      double = 0, double = 0); // rot,(scal==0 -> 1),kein mirr!
+    void draw_from_at(ALLEGRO_BITMAP*, double, double, // Quelle, Ziel-x und -y
+     void (*)(ALLEGRO_BITMAP*, float,float, int) = 0,
+     void (*)(ALLEGRO_BITMAP*, float,float,float,float,float, int) = 0,
+     void (*)(ALLEGRO_BITMAP*, float,float,float,float,float,float,float, int)
+     = 0, int = 0, double = 0, double = 0, double = 0, double = 0);
 
 };
