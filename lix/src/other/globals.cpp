@@ -34,7 +34,6 @@ Globals::Globals()
     screen_windowed_x    ( 640),
     screen_windowed_y    ( 480),
     screen_vsync         (false),
-    screen_fullscreen_now(false),
 
     sound_load_driver    (true),
 

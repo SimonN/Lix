@@ -557,7 +557,6 @@ void OptionMenu::calc_self()
         const int res_fy = atoi(screen_resolution_y.get_text().c_str());
         const int res_wx = atoi(screen_windowed_x.get_text().c_str());
         const int res_wy = atoi(screen_windowed_y.get_text().c_str());
-        const bool full  = gloB->screen_fullscreen_now;
 
 //      made unnecessary by switch to A5? only change on game restart. afdebug
 //        // Only call set_screen_mode() if it's necessary. The main menu
@@ -656,8 +655,9 @@ void OptionMenu::calc_self()
         gloB->sound_load_driver = sound_load_driver.get_checked();
         useR->sound_volume = sound_volume     .get_number();
 
+        // afdebug: we wish that the user restarts the game
         // Use new resolution that's already written to globals
-        if (call_ssm) set_screen_mode(gloB->screen_fullscreen_now);
+        // if (call_ssm) set_screen_mode(gloB->screen_fullscreen_now);
 
         gloB->save();
         useR->save();

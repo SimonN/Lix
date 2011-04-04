@@ -321,7 +321,7 @@ public:
 
     static bool get_steel_absolute(const int,     const int    );
            bool get_steel         (const int = 0, const int = 0);
-           int  get_pixel         (const int = 0, const int = 0);
+  ALLEGRO_COLOR get_pixel         (const int = 0, const int = 0);
            void set_pixel         (const int,     const int,
                                    const ALLEGRO_COLOR&);
            bool is_solid          (const int = 0, const int = 2);
@@ -333,8 +333,8 @@ public:
     static void remove_pixel_absolute(const int, const int);
            bool remove_rectangle     (int, int, int, int);
 
-           void draw_pixel    (int, int, int);
-           void draw_rectangle(int, int, int, int, int);
+           void draw_pixel    (int, int, const ALLEGRO_COLOR&);
+           void draw_rectangle(int, int, int, int, const ALLEGRO_COLOR&);
            void draw_brick    (int, int, int, int);
 
            void play_sound        (const UpdateArgs&, Sound::Id);

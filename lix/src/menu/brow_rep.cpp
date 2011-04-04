@@ -95,7 +95,7 @@ void ReplayBrowser::calc_self()
         std::string filename = get_current_dir() + get_current_file();
         switch (box_delete->get_button_clicked()) {
         case 1:
-            delete_file(filename.c_str());
+            al_remove_filename(filename.c_str());
             reload_dir();
             clear_preview();
 
@@ -137,7 +137,7 @@ void ReplayBrowser::calc_self()
         }
         else if (!button_delete.get_hidden() && button_delete.get_clicked()) {
             std::string filename = get_current_dir() + get_current_file();
-            if (exists(filename.c_str())) {
+            if (al_filename_exists(filename.c_str())) {
                 Replay r(filename);
                 std::string s1 = Language::editor_file_name
                                + ' ' + get_current_dir() + get_current_file();

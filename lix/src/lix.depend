@@ -6028,7 +6028,7 @@
 	"../lix/lix.h"
 	"../other/globals.h"
 
-1301856460 /home/simon/c/repo/lix/src/lix/lix.h
+1301947732 /home/simon/c/repo/lix/src/lix/lix.h
 	<map>
 	<string>
 	"lix_enum.h"
@@ -6350,4 +6350,274 @@
 
 1300285974 source:/home/simon/c/repo/lix/src/lix/lander.cpp
 	"ac.h"
+
+1301947891 source:/home/simon/c/repo/lix/src/lix/lix.cpp
+	<algorithm>
+	<cmath>
+	"ac.h"
+	"lix.h"
+	"../gameplay/effect.h"
+	"../graphic/gra_lib.h"
+	"../other/globals.h"
+	"../other/help.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/lix_ac.cpp
+	"lix.h"
+	"../gameplay/gameplay.h"
+	"../gameplay/goal.h"
+	"../other/user.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/lix_enum.cpp
+	"../other/myalleg.h"
+	<map>
+	<vector>
+	"lix_enum.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/lix_upd.cpp
+	<cmath>
+	"../gameplay/gameplay.h"
+	"../graphic/sound.h"
+	"../other/globals.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/miner.cpp
+	"ac.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/platform.cpp
+	"ac.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/roper.cpp
+	<cmath>
+	"ac.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/stunner.cpp
+	"ac.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/tumbler.cpp
+	"ac.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/lix/walker.cpp
+	"ac.h"
+
+1301856460 source:/home/simon/c/repo/lix/src/menu/brow_big.cpp
+	"brow_big.h"
+	"../api/manager.h"
+	"../level/level.h"
+	"../other/language.h"
+
+1300285974 /home/simon/c/repo/lix/src/menu/brow_big.h
+	"preview.h"
+	"../api/labeltwo.h"
+	"../api/list_dir.h"
+	"../api/list_lev.h"
+	"../api/window.h"
+
+1300285974 /home/simon/c/repo/lix/src/menu/preview.h
+	"../api/frame.h"
+	"../graphic/graphic.h"
+	"../level/level.h"
+
+1301948061 source:/home/simon/c/repo/lix/src/menu/brow_rep.cpp
+	"browsers.h"
+	"../api/manager.h"
+	"../gameplay/replay.h"
+	"../other/user.h"
+
+1300285974 /home/simon/c/repo/lix/src/menu/browsers.h
+	"brow_big.h"
+	"../api/brow_sav.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/menu/brow_sin.cpp
+	"browsers.h"
+	"../level/crunch.h"
+	"../other/user.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/menu/little.cpp
+	"little.h"
+	"../other/user.h"
+
+1300285974 /home/simon/c/repo/lix/src/menu/little.h
+	"../api/button/b_text.h"
+	"../api/texttype.h"
+	"../api/window.h"
+	"../other/language.h"
+
+1301856460 source:/home/simon/c/repo/lix/src/menu/lobby.cpp
+	<sstream>
+	"lobby.h"
+	"../api/manager.h"
+	"../graphic/gra_lib.h"
+	"../network/network.h"
+	"../other/console.h"
+	"../other/user.h"
+
+1300285974 /home/simon/c/repo/lix/src/menu/lobby.h
+	"lobby_li.h"
+	"lobby_ro.h"
+	"browsers.h"
+	"../api/button/b_bitmap.h"
+	"../api/window.h"
+
+1300285974 /home/simon/c/repo/lix/src/menu/lobby_li.h
+	<string>
+	"../api/frame.h"
+	"../api/button/button.h"
+	"../graphic/graphic.h"
+	"../lix/lix_enum.h"
+	"../network/network.h"
+
+1301078037 /home/simon/c/repo/lix/src/menu/lobby_ro.h
+	"../network/network.h"
+	"../api/label.h"
+	"../api/button/b_text.h"
+	"../api/frame.h"
+	"../other/console.h"
+
+1301948090 source:/home/simon/c/repo/lix/src/menu/lobby_li.cpp
+	"lobby_li.h"
+	"../graphic/gra_lib.h"
+	"../network/network.h"
+	"../other/help.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/menu/lobby_ro.cpp
+	<sstream>
+	"lobby_ro.h"
+	"../other/language.h"
+
+1301856460 source:/home/simon/c/repo/lix/src/menu/main_men.cpp
+	"main_men.h"
+	"../api/manager.h"
+	"../other/help.h"
+	"../other/language.h"
+
+1300285974 /home/simon/c/repo/lix/src/menu/main_men.h
+	"../api/button/b_text.h"
+	"../api/label.h"
+	"../api/window.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/menu/menu.cpp
+	"menu.h"
+	"../api/manager.h"
+	"../graphic/gra_lib.h"
+	"../other/user.h"
+
+1300285974 /home/simon/c/repo/lix/src/menu/menu.h
+	"../other/myalleg.h"
+	<string>
+	<vector>
+	"browsers.h"
+	"lobby.h"
+	"main_men.h"
+	"options.h"
+	"little.h"
+	"../graphic/glob_gfx.h"
+	"../graphic/graph_bg.h"
+	"../level/level.h"
+
+1300285974 /home/simon/c/repo/lix/src/menu/options.h
+	"../api/button/b_enum.h"
+	"../api/button/b_key.h"
+	"../api/button/b_text.h"
+	"../api/label.h"
+	"../api/number.h"
+	"../api/texttype.h"
+	"../api/window.h"
+	"../lix/lix_enum.h"
+
+1301948139 source:/home/simon/c/repo/lix/src/menu/options.cpp
+	<sstream>
+	"options.h"
+	"../api/manager.h"
+	"../other/help.h"
+	"../other/language.h"
+	"../other/user.h"
+
+1301948258 source:/home/simon/c/repo/lix/src/menu/preview.cpp
+	"preview.h"
+	"../graphic/gra_lib.h"
+	"../level/level.h"
+
+1301948610 source:/home/simon/c/repo/lix/src/network/client.cpp
+	"client.h"
+	"../other/console.h"
+	"../other/language.h"
+
+1301948568 source:/home/simon/c/repo/lix/src/network/client_c.cpp
+	<sstream>
+	<fstream>
+	"client.h"
+	"../other/log.h"
+	"../other/console.h"
+	"../other/language.h"
+	"../other/user.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/network/net_t.cpp
+	<cstring>
+	"net_t.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/network/network.cpp
+	"network.h"
+	"server.h"
+	"../other/console.h"
+	"../other/language.h"
+
+1300285974 /home/simon/c/repo/lix/src/network/server.h
+	<vector>
+	<string>
+	"net_t.h"
+	"permu.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/network/permu.cpp
+	<cstdlib>
+	<sstream>
+	"permu.h"
+
+1301948610 source:/home/simon/c/repo/lix/src/network/server.cpp
+	<cstring>
+	"server.h"
+	"../other/globals.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/network/server_c.cpp
+	<iostream>
+	<fstream>
+	<list>
+	"server.h"
+
+1301948630 source:/home/simon/c/repo/lix/src/other/console.cpp
+	"console.h"
+	"log.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/other/date.cpp
+	<ctime>
+	<sstream>
+	"date.h"
+
+1301948637 source:/home/simon/c/repo/lix/src/other/globals.cpp
+	"myalleg.h"
+	<fstream>
+	"io.h"
+
+1301948683 source:/home/simon/c/repo/lix/src/other/io.cpp
+	"myalleg.h"
+	<sstream>
+	"io.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/other/language.cpp
+	"language.h"
+	"user.h"
+	"../editor/editor.h"
+
+1300285974 source:/home/simon/c/repo/lix/src/other/log.cpp
+	"help.h"
+	"log.h"
+	"globals.h"
+	"language.h"
+	<cstdio>
+
+1301856460 source:/home/simon/c/repo/lix/src/other/user.cpp
+	"myalleg.h"
+	"user.h"
+	"language.h"
+	"io.h"
+	"../lix/lix_enum.h"
+	"../network/net_t.h"
 

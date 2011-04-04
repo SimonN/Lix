@@ -51,7 +51,7 @@ NetServer::NetServer(
     // #  check your enet version. Lix assumes you have enet 1.3.  #
     // #############################################################
     host = enet_host_create(&address, NETWORK_PLAYERS_MAX,
-                                      LEMNET_CHANNEL_MAX, 0, 0);
+                                      LEMNET_CHANNEL_MAX, 0);
 }
 
 

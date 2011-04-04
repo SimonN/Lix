@@ -77,12 +77,11 @@ void Preview::clear()
 void Preview::draw_self()
 {
     Frame::draw_self();
-    if (torbit) blit(torbit->get_al_bitmap(), get_ground().get_al_bitmap(),
-                 0, 0, get_x(), get_y(), get_xl(), get_yl());
-    else rectfill(get_ground().get_al_bitmap(), get_x(), get_y(),
-          get_x() + get_xl() - 1, get_y() + get_yl() - 1,
-          get_undraw_color());
-
+    al_set_target_bitmap(get_ground().get_al_bitmap());
+    if (torbit) al_draw_bitmap(torbit->get_al_bitmap(), get_x(), get_y(), 0);
+    else al_draw_filled_rectangle(get_x(), get_y(),
+                                  get_x() + get_xl(), get_y() + get_yl(),
+                                  get_undraw_color());
     icon_torus.set_xy(get_x(), get_y());
     icon_torus.draw();
 
