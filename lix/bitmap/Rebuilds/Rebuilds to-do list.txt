@@ -12,7 +12,8 @@ Goal Progress: 01 - Earth, 02 - Gold Mine, 03 - Carnival, 04 - Sandy Beach, 05 -
 
 - Create a hatch and a goal for 06 - Oriental
 
--
+- Idea for replacing the "Hell" set from L1: could make a set similar to my original remake, but instead make actual ground terrain, instead of just bricks. Create 2 of each piece, one with lava on it, and one without. 
+New name: TBD.
 
 ----------------------------------------------------------------------------
 /bitmap/Universal/:
