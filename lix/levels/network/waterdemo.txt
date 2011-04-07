@@ -1,4 +1,4 @@
-$BUILT                                             2011-04-06 00:10:32
+$BUILT                                             2011-04-07 15:23:47
 $AUTHOR                                                           Matt
 $GERMAN                                                               
 $ENGLISH                                                New Water Demo
@@ -10,14 +10,14 @@ $ENGLISH                                                New Water Demo
 #TORUS_X                                                             0
 #TORUS_Y                                                             0
 #SECONDS                                                             0
-#INITIAL                                                            30
-#REQUIRED                                                           30
-#RATE                                                               20
+#INITIAL                                                           130
+#REQUIRED                                                          130
+#RATE                                                                1
 
-#FLOATER                                                            20
-#NOTHING                                                             0
-#NOTHING                                                             0
-#NOTHING                                                             0
+#BUILDER                                                            20
+#JUMPER                                                             20
+#MINER                                                              10
+#DIGGER                                                             10
 #NOTHING                                                             0
 #NOTHING                                                             0
 #NOTHING                                                             0
@@ -66,7 +66,6 @@ $ENGLISH                                                New Water Demo
 :./bitmap/Rebuilds/06 - Oriental/08:                      -6       325
 :./bitmap/Rebuilds/06 - Oriental/bridge_angle:           185       247
 :./bitmap/Rebuilds/06 - Oriental/08:                      65       326
-:./bitmap/Rebuilds/06 - Oriental/bridge_straight:        291       247
 :./bitmap/Rebuilds/06 - Oriental/bridge_angle:           396       247     f
 :./bitmap/Rebuilds/06 - Oriental/09:                     122       307     frr
 :./bitmap/Rebuilds/06 - Oriental/08:                     136       327
@@ -82,3 +81,4 @@ $ENGLISH                                                New Water Demo
 :Hell-t44:                                                24        -4
 :Hell-t35:                                                83         1
 :Hell-t53:                                               122         1
+:./bitmap/Rebuilds/06 - Oriental/bridge_straight:        291       247
