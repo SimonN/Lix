@@ -32,7 +32,7 @@ void Button::calc_self()
         // Eingedrueckt erscheinen? Nur im kalten Modus oder bei ausgeschalt.
         // Buttons auch im warmen Modus kontrollieren, nie im heissen Modus.
         if (!hot) {
-            if (mouse_here && hardware.get_mlh() && (!warm || !on)) {
+            if (mouse_here && Hardware::get_mlh() && (!warm || !on)) {
                 if (!down) set_draw_required();
                 down = true;
             }
@@ -44,12 +44,12 @@ void Button::calc_self()
         // Aktives Anklicken pruefen
         // ALLEGRO_KEY_ENTER als Hotkey laesst auch ALLEGRO_KEY_ENTER_PAD zu!
         bool b =
-            (!warm && !hot && mouse_here && hardware.get_mlr())
-         || ( warm && !hot && mouse_here && hardware.get_ml ())
-         || (          hot && mouse_here && hardware.get_mlh());
-        // See hardware.h/cpp for why Enter is separated
-        if (hotkey == ALLEGRO_KEY_ENTER) b = b || hardware.key_enter_once();
-        else                     b = b || hardware.key_once(hotkey);
+            (!warm && !hot && mouse_here && Hardware::get_mlr())
+         || ( warm && !hot && mouse_here && Hardware::get_ml ())
+         || (          hot && mouse_here && Hardware::get_mlh());
+        // See Hardware::h/cpp for why Enter is separated
+        if (hotkey == ALLEGRO_KEY_ENTER) b = b || Hardware::get_key_enter_once();
+        else                     b = b || Hardware::get_key_once(hotkey);
         clicked_last_calc = b;
     }
 }

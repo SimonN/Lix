@@ -203,8 +203,8 @@ void Menu::calc()
 void Menu::draw()
 {
     if (!new_player) {
-        mouse_cursor.set_x(hardware.get_mx()-mouse_cursor_offset);
-        mouse_cursor.set_y(hardware.get_my()-mouse_cursor_offset);
+        mouse_cursor.set_x(Hardware::get_mx()-mouse_cursor_offset);
+        mouse_cursor.set_y(Hardware::get_my()-mouse_cursor_offset);
         mouse_cursor.draw();
     }
     blit_to_screen(Api::Manager::get_torbit().get_al_bitmap());

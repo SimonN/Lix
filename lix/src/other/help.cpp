@@ -19,30 +19,34 @@
 namespace Help {
 
 // Timer-Funktionen
-volatile Uint32 timer_ticks            =  0;
-const    int    timer_ticks_per_second = 60;
+ALLEGRO_TIMER* timer(0);
+const int      timer_ticks_per_second(60);
 
-void timer_increment_ticks() {
-    ++timer_ticks;
+
+
+void timer_initialize()
+{
+    if (timer) return;
+    timer = al_create_timer(ALLEGRO_BPS_TO_SECS(timer_ticks_per_second));
+    al_start_timer(timer);
 }
 
-void timer_start() {
-    LOCK_VARIABLE (timer_ticks);
-    LOCK_FUNCTION (timer_increment_ticks);
-    install_int_ex(timer_increment_ticks,
-     BPS_TO_TIMER (timer_ticks_per_second));
+
+
+void timer_deinitialize()
+{
+    if (!timer) return;
+    al_stop_timer(timer);
+    al_destroy_timer(timer);
+    timer = 0;
 }
 
-unsigned int get_timer_ticks_per_draw() {
-    if (get_refresh_rate() != 0) {
-        const unsigned i = timer_ticks_per_second / get_refresh_rate();
-        if (i > 0) return i;
-        else       return 1;
-    }
-    // Dies nimmt notfalls an, dass der Monitor 60 Hz hat bei 120 Ticks/Sek.
-    else return gloB->screen_vsync + 1;
+
+
+int get_timer_ticks()
+{
+    return al_get_timer_count(timer);
 }
-// Ende der Timer-Funktionen
 
 
 
@@ -152,9 +156,11 @@ void string_cut_to_dir(std::string& s) {
             break;
 }   }   }
 void string_shorten(std::string& s, const ALLEGRO_FONT* ft, const int length) {
-    if (text_length(ft, s.c_str()) > length) {
-        while (text_length(ft, s.c_str()) > length - text_length(ft, "..."))
-         s.resize(s.size() - 1);
+    if (al_get_text_width(ft, s.c_str()) > length) {
+        while (al_get_text_width(ft, s.c_str())
+         > length - al_get_text_width(ft, "...")) {
+            s.resize(s.size() - 1);
+        }
         s += "...";
     }
 }

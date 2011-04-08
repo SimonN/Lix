@@ -23,7 +23,7 @@ NetServer::NetServer(
     bool               b,
     unsigned           port,
     int                ntpsec,
-    volatile Uint32*   nticks
+    int              (*timerfunc)()
 ) :
     server_number(127),
 
@@ -38,7 +38,7 @@ NetServer::NetServer(
     updates_per_second(gloB->updates_per_second),
     updates_for_notify(gloB->updates_per_second / 5),
     ticks_per_second  (ntpsec),
-    ticks             (nticks)
+    get_timer_ticks   (timerfunc)
 {
     srand(time(0));
     ENetAddress address;
@@ -118,12 +118,12 @@ void NetServer::calc_update_notifying()
      if (rooms[room].ticks_game_start > 0) {
         // Determine if we have to send updates. This is if we are at least
         // (updates_for_notify) updates ahead of the last notifying.
-        if (*ticks - rooms[room].ticks_last_notify >= (unsigned)
+        if (get_timer_ticks() - rooms[room].ticks_last_notify >= (unsigned)
          (updates_for_notify * ticks_per_second / updates_per_second)) {
             // Determine the time in updates after the start of the game and
             // send that to everybody in the game.
-            rooms[room].ticks_last_notify = *ticks;
-            Uint32 updates = (*ticks - rooms[room].ticks_game_start)
+            rooms[room].ticks_last_notify = get_timer_ticks();
+            Uint32 updates = (get_timer_ticks() - rooms[room].ticks_game_start)
                               * updates_per_second / ticks_per_second;
             ENetPacket* p = create_packet_from_uint32(updates);
             p->data[0] = LEMNET_UPDATES;

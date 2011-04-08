@@ -270,8 +270,8 @@ void WindowGameplay::calc_self()
     }
     else {
         if (!game_end) {
-            const int k = hardware.get_key();
-            if (resume.get_clicked() || hardware.get_mr()
+            const int k = Hardware::get_typed_key();
+            if (resume.get_clicked() || Hardware::get_mr()
              || (k != -1 && k != menu       .get_hotkey()
                          && k != restart    .get_hotkey()
                          && k != save_replay.get_hotkey())) {
@@ -283,7 +283,7 @@ void WindowGameplay::calc_self()
             exit_with = RESTART;
             Manager::remove_focus(this);
         }
-        if (menu.get_clicked() || hardware.key_once(ALLEGRO_KEY_SPACE)) {
+        if (menu.get_clicked() || Hardware::get_key_once(ALLEGRO_KEY_SPACE)) {
             exit_with = MENU;
             Manager::remove_focus(this);
         }

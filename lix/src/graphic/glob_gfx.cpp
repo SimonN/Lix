@@ -203,7 +203,7 @@ void set_screen_mode(const bool full, int res_x, int res_y)
     clear_screen_at_next_blit = true;
 
     // Do this so the mouse doesn't scroll stupidly after a switch.
-    // In hardware.cpp, the mouse is always set to the center anyway, to trap
+    // In Hardware::cpp, the mouse is always set to the center anyway, to trap
     // it in the program (scrolling at the sides) and for infinite movement
     // (for scrolling with right mouse button).
     al_set_mouse_xy(displaY, LEMSCR_X/2, LEMSCR_Y/2);

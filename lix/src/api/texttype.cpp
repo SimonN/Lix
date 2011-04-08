@@ -44,7 +44,7 @@ Texttype::~Texttype()
 
 bool Texttype::get_too_long(const std::string t)
 {
-    return al_get_text_width(font_med, t.c_str()) > get_xl()-10;
+    return !t.empty() && al_get_text_width(font_med, t.c_str()) > get_xl()-10;
 }
 
 
@@ -93,40 +93,25 @@ void Texttype::calc_self()
     else {
         // Schreibmodus beenden? Einmal ohne, einmal mit Backup-Wiederherst.
         // callbacks are called from here as well if set.
-        if (hardware.get_ml() || hardware.get_mr()
-                              || hardware.key_enter_once()) {
+        if (Hardware::get_ml() || Hardware::get_mr()
+                              || Hardware::get_key_enter_once()) {
             set_off();
-            if (on_enter_void && on_enter && hardware.key_enter_once())
+            if (on_enter_void && on_enter && Hardware::get_key_enter_once())
              on_enter(on_enter_void);
         }
-        else if (hardware.key_once(ALLEGRO_KEY_ESCAPE)) {
+        else if (Hardware::get_key_once(ALLEGRO_KEY_ESCAPE)) {
             set_off();
             text = text_backup;
             if (on_esc_void && on_esc) on_esc(on_esc_void);
         }
         // Oder doch noch im Schreibmodus bleiben? Dann Tastatur lesen.
         else {
-            int  k      = hardware.get_key();
-            char kascii = hardware.get_key_ascii();
+            if (Hardware::get_key_once(ALLEGRO_KEY_BACKSPACE) && text.size())
+             text.resize(text.size() - 1);
 
-            // Zeichen verarbeiten
-            if (k == ALLEGRO_KEY_BACKSPACE && text.size() > 0) {
-                text.resize(text.size()-1);
-            }
-            else if (kascii < 1) return;
-            else if ((k >= ALLEGRO_KEY_A     && k <= ALLEGRO_KEY_9    )  || k == ALLEGRO_KEY_SPACE
-             ||      (k >= ALLEGRO_KEY_PAD_0 && k <= ALLEGRO_KEY_PAD_9)  || k == ALLEGRO_KEY_PAD_DELETE
-             || k == ALLEGRO_KEY_FULLSTOP  || k == ALLEGRO_KEY_COMMA     || k == ALLEGRO_KEY_SEMICOLON
-             || k == ALLEGRO_KEY_MINUS     || k == ALLEGRO_KEY_PAD_PLUS  || k == ALLEGRO_KEY_EQUALS
-             || k == ALLEGRO_KEY_QUOTE     || k == ALLEGRO_KEY_SLASH     || k == ALLEGRO_KEY_CLOSEBRACE
-             || k == ALLEGRO_KEY_OPENBRACE)
-            {
-                text += kascii;
-                if (!scroll && get_too_long(text)) text.resize(text.size()-1);
-            }
-            // Ende Tastenverarbeitung
+            text += Hardware::get_typed_characters();
+            while (!scroll && get_too_long(text)) text.resize(text.size()-1);
         }
-        // Ende Schreibmodus
     }
     // Ende Abfrage, ob man im Schreibmodus ist
 }
@@ -158,7 +143,7 @@ void Texttype::draw_self()
     if (get_on() && (!get_down() || invisible)) {
         set_draw_required();
         text_color = color[COL_TEXT_ON];
-        if (Help::timer_ticks % 60 < 30) {
+        if (Help::get_timer_ticks() % 60 < 30) {
             td += '^';
             caret_visible = true;
         }

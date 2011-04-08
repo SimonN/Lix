@@ -43,7 +43,7 @@
  * int get_mouse_x()
  * int get_mouse_y()
  *
- *   Lesen die Allegro-Variablen hardware.get_mx() oder hardware.get_my() aus. Es wird zurueck
+ *   Lesen die Allegro-Variablen Hardware::get_mx() oder Hardware::get_my() aus. Es wird zurueck
  *   gegeben, wo sich die Maus auf dem Land befindet, unter Beruecksichtigung
  *   des Zooms und der Scroll-Koordinaten. Die Zahl ist immer mindestens 0
  *   und hoechstens (Kartenlaenge - 1), auch bei Toruskarten.

@@ -78,7 +78,7 @@ void WindowVariables::calc_self()
 {
     // Ausstieg ohne Speichern und mit Speichern
     if      (cancel.get_clicked()) set_exit();
-    else if (ok    .get_clicked() || hardware.get_mr()) {
+    else if (ok    .get_clicked() || Hardware::get_mr()) {
         // Gegen bloede Werte
         if (required.get_number() > initial.get_number()) {
             required.set_number(initial.get_number());

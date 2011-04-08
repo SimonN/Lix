@@ -123,7 +123,7 @@ void WindowSize::calc_self()
     if (map.get_yl() + u.get_number() + d.get_number() > Level::max_yl)
      d.set_number(Level::max_yl - map.get_yl() - u.get_number());
 
-    if (ok.get_clicked() || hardware.get_mr()) {
+    if (ok.get_clicked() || Hardware::get_mr()) {
         if (l.get_number() == 0 && r.get_number() == 0
          && u.get_number() == 0 && d.get_number() == 0
          && level.torus_x == torus_x

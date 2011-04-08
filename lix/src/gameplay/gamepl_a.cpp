@@ -26,20 +26,20 @@ void Gameplay::calc_active()
     int mx = map.get_mouse_x();
     int my = map.get_mouse_y();
 
-    const bool mouse_on_panel = hardware.get_my() > map.get_screen_yl();
+    const bool mouse_on_panel = Hardware::get_my() > map.get_screen_yl();
 
     // Maus im Spielfeld, Lemminge anvisierbar
     if (!mouse_on_panel && malo->aiming != 2 && trlo) {
         // Bestimmte Richtung anwählen?
         bool only_dir_l = false;
         bool only_dir_r = false;
-        if (  hardware.key_hold(useR->key_force_left)
-         && ! hardware.key_hold(useR->key_force_right)) {
+        if (  Hardware::get_key_hold(useR->key_force_left)
+         && ! Hardware::get_key_hold(useR->key_force_right)) {
             only_dir_l = true;
             mouse_cursor.set_x_frame(1);
         }
-        else if ( ! hardware.key_hold(useR->key_force_left)
-         &&         hardware.key_hold(useR->key_force_right)) {
+        else if ( ! Hardware::get_key_hold(useR->key_force_left)
+         &&         Hardware::get_key_hold(useR->key_force_right)) {
             only_dir_r = true;
             mouse_cursor.set_x_frame(2);
         }
@@ -88,7 +88,7 @@ void Gameplay::calc_active()
                 // true = Beachte persoenliche Einschraenkungen wie !MultBuild
                 int priority = i->get_priority(trlo->skill[skill_visible].ac,
                  cs.tribes.size(), goal, true);
-                if (hardware.get_mrh()) priority = 100000 - priority;
+                if (Hardware::get_mrh()) priority = 100000 - priority;
                 double hypot = map.hypot(mx, my, i->get_ex(),
                                           i->get_ey() + ((mmld_d - mmld_u)/2)
                                           );
@@ -126,7 +126,7 @@ void Gameplay::calc_active()
         // Auswertung von target
         // Wir kontrollieren auch die angezeigte Zahl, siehe Kommentar zur
         // sichtbaren Zahl wegen Schokolade fuer's Auge
-        if (target != trlo->lixvec.end() && hardware.get_ml()
+        if (target != trlo->lixvec.end() && Hardware::get_ml()
          && pan.skill[skill_visible].get_number() != 0) {
             const int lem_id = target - trlo->lixvec.begin();
             pan.pause.set_off();
@@ -166,7 +166,7 @@ void Gameplay::calc_active()
         // Hingucken der Lemmings wird im Update der Lemminge erledigt. Hier
         // geht es nur darum, einen Klick und dessen Koordinaten zu
         // registrieren. Es wird entsprechend auch ein Netzwerkpaket versandt.
-        if (hardware.get_ml() && !pan.pause.is_mouse_here())
+        if (Hardware::get_ml() && !pan.pause.is_mouse_here())
          for (LixIt lem = trlo->lixvec.begin();
          lem != trlo->lixvec.end(); ++lem) if (lem->get_aiming()) {
             pan.pause.set_off();
@@ -212,42 +212,42 @@ void Gameplay::calc_active()
         // Dies aendert nur die angezeigte Zahl. Die Ratenaenderung wird erst,
         // wenn ein Update ansteht, zum Replay geschickt. Das spart Ballast,
         // da alle bis auf die letzte Aenderung pro Update egal sind.
-        // Modulo 2 rechnen wir bei den Help::timer_ticks, weil Frank die
+        // Modulo 2 rechnen wir bei den Help::get_timer_ticks(), weil Frank die
         // Aenderung der Rate auch bei 60 /sec zu rasant war.
         bool minus_clicked = pan.rate_minus.get_clicked();
         bool plus_clicked  = pan.rate_plus .get_clicked();
-        if (hardware.key_hold(useR->key_rate_minus)) {
+        if (Hardware::get_key_hold(useR->key_rate_minus)) {
             pan.rate_minus.set_down();
         }
         if (pan.rate_minus.get_down() || minus_clicked) {
             // Doppelklick?
-            if (minus_clicked && Help::timer_ticks - timer_tick_last_F1
-             <= hardware.doubleclick_speed) {
+            if (minus_clicked && Help::get_timer_ticks() - timer_tick_last_F1
+             <= Hardware::doubleclick_speed) {
                 pan.rate.set_number(trlo->rate_min);
             }
-            else if (minus_clicked) timer_tick_last_F1 = Help::timer_ticks;
+            else if (minus_clicked) timer_tick_last_F1 = Help::get_timer_ticks();
             else {
                 // Normales Halten
                 if (pan.rate.get_number() > trlo->rate_min) {
-                    if (Help::timer_ticks % 2)
+                    if (Help::get_timer_ticks() % 2)
                      pan.rate.set_number(pan.rate.get_number() - 1);
                 }
                 else pan.rate_minus.set_down(false);
             }
         }
         // Plus
-        if (hardware.key_hold(useR->key_rate_plus)) {
+        if (Hardware::get_key_hold(useR->key_rate_plus)) {
             pan.rate_plus.set_down();
         }
         if (pan.rate_plus.get_down() || plus_clicked) {
-            if (plus_clicked && Help::timer_ticks - timer_tick_last_F2
-             <= hardware.doubleclick_speed) {
+            if (plus_clicked && Help::get_timer_ticks() - timer_tick_last_F2
+             <= Hardware::doubleclick_speed) {
                 pan.rate.set_number(99);
             }
-            else if (plus_clicked) timer_tick_last_F2 = Help::timer_ticks;
+            else if (plus_clicked) timer_tick_last_F2 = Help::get_timer_ticks();
             else {
                 if (pan.rate.get_number() < 99) {
-                    if (Help::timer_ticks % 2)
+                    if (Help::get_timer_ticks() % 2)
                      pan.rate.set_number(pan.rate.get_number() + 1);
                 }
                 else pan.rate_plus.set_down(false);
@@ -307,8 +307,8 @@ void Gameplay::calc_active()
      && !pan.nuke_multi .get_on()) {
         if (pan.nuke_single.get_clicked()
          || pan.nuke_multi .get_clicked()) {
-            if (Help::timer_ticks - timer_tick_last_F12
-             <= hardware.doubleclick_speed) {
+            if (Help::get_timer_ticks() - timer_tick_last_F12
+             <= Hardware::doubleclick_speed) {
                 // set_on() kommt zwar auch im Update, aber wenn wir das
                 // hier immer machen, sieht es besser aus. Gleiches gilt fuer
                 // den Sound, ist wie beim normalen Lemming-Anklicken.
@@ -322,12 +322,12 @@ void Gameplay::calc_active()
                 effect.add_sound(cs.update + 1, *trlo, 0, Sound::OHNO);
                 Sound::play_loud(Sound::OHNO);
             }
-            else timer_tick_last_F12 = Help::timer_ticks;
+            else timer_tick_last_F12 = Help::get_timer_ticks();
         }
         // Andrueck-Effekt nachholen bei Hotkey-Ausloesung
         if (!pan.nuke_single.get_on()
          && !pan.nuke_multi .get_on()
-         && hardware.key_hold(pan.nuke_single.get_hotkey())) {
+         && Hardware::get_key_hold(pan.nuke_single.get_hotkey())) {
             pan.nuke_single.set_down();
             pan.nuke_multi .set_down();
         }

@@ -228,7 +228,7 @@ void Lobby::calc_self()
 
     // GUI stuff
     if (button_exit.get_clicked()
-     || (button_exit.get_hotkey() == ALLEGRO_KEY_ESCAPE && hardware.get_mr())) {
+     || (button_exit.get_hotkey() == ALLEGRO_KEY_ESCAPE && Hardware::get_mr())) {
         if      (mode == NOT_CONNECTED) exit_with = EXIT_WITH_EXIT;
         else if (mode == INSIDE_ROOM) {
             Network::set_room(0);
@@ -254,7 +254,7 @@ void Lobby::calc_self()
     else if (button_exit.get_clicked()) {
         exit_with = EXIT_WITH_EXIT;
     }
-    else if (start_ip.get_on() && hardware.key_enter_once()) {
+    else if (start_ip.get_on() && Hardware::get_key_enter_once()) {
         start_ip.set_off();
         // Do the same as the button "start as client"
         set_mode(CONNECTING);

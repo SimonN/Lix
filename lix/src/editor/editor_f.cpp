@@ -28,7 +28,7 @@ Editor::Selection Editor::find_under_mouse_cursor()
         // Mit Rechtsklick andersherum durchlaufen
         int   perm      = Object::perm(type);
         GraIt itr       = object[perm].begin();
-        bool  backwards = hardware.get_mrh();
+        bool  backwards = Hardware::get_mrh();
         if (backwards) {
             perm = Object::perm(Object::MAX - type - 1);
             itr  = --object[perm].end();

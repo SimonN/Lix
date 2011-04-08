@@ -154,7 +154,7 @@ void ReplayBrowser::calc_self()
             }
         }
         // Den normalen Dialog-Siedler-2-Rechtsklick realisieren:
-        else if (hardware.get_mr()) {
+        else if (Hardware::get_mr()) {
             if (get_current_dir() != get_base_dir())
              set_current_dir_to_parent_dir();
             else set_exit_with(EXIT_WITH_EXIT);

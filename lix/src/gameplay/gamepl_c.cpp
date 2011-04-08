@@ -88,8 +88,8 @@ void Gameplay::calc_self()
         mouse_cursor.set_y_frame(2);
     }
     else if (map.get_scrollable()
-     && ((useR->scroll_right  && hardware.get_mrh())
-      || (useR->scroll_middle && hardware.get_mmh()))) {
+     && ((useR->scroll_right  && Hardware::get_mrh())
+      || (useR->scroll_middle && Hardware::get_mmh()))) {
         mouse_cursor.set_x_frame(3);
     }
 
@@ -174,12 +174,12 @@ void Gameplay::calc_self()
         // Konsoleneingabe aktivieren
         if (!pan.get_mode_single()
          && !chat.get_type_on_last_frame()
-         && hardware.key_once(useR->key_chat)) {
+         && Hardware::get_key_once(useR->key_chat)) {
             chat.set_type_on();
         }
 
         // Beenden bzw. Menue?
-        if (hardware.key_once(ALLEGRO_KEY_ESCAPE)
+        if (Hardware::get_key_once(ALLEGRO_KEY_ESCAPE)
          && !chat.get_type_on_last_frame()
          && !window_gameplay) {
             window_gameplay = new Api::WindowGameplay(&replay,
@@ -197,11 +197,11 @@ void Gameplay::calc_self()
     // Replay oder normales Spiel: Hauptsaechlichkeiten abarbeiten
     // Wenn ein Geschwindigkeitsbutton angeklickt oder per Hotkey aktiviert
     // wurde, dann ueberspringen wir den Replay-Abbruch doch noch.
-    if (replaying && (hardware.get_ml()
+    if (replaying && (Hardware::get_ml()
      || cs.update >= replay.get_max_updates()
      || replay.get_max_updates() == 0)) {
         bool b = true; // Replay abbrechen?
-        if (hardware.get_ml() &&
+        if (Hardware::get_ml() &&
            (pan.state_save .is_mouse_here()
          || pan.state_load .is_mouse_here()
          || pan.pause      .is_mouse_here()
@@ -237,25 +237,25 @@ void Gameplay::calc_self()
     if (pan.get_mode_single()) {
         if (!pan.pause.get_on()) {
             if (pan.speed_turbo.get_on()) {
-                if (Help::timer_ticks >= timer_tick_last_update
+                if (Help::get_timer_ticks() >= timer_tick_last_update
                                        + timer_ticks_for_update_fast)
-                 for (unsigned i = 0; i < turbo_times_faster_than_fast; ++i) {
+                 for (int i = 0; i < turbo_times_faster_than_fast; ++i) {
                     update();
                 }
             }
             else if (pan.speed_fast.get_on()) {
-                if (Help::timer_ticks >= timer_tick_last_update
+                if (Help::get_timer_ticks() >= timer_tick_last_update
                                        + timer_ticks_for_update_fast) {
                     update();
                 }
             }
             else if (pan.speed_slow.get_on()) {
-                if (Help::timer_ticks >= timer_tick_last_update
+                if (Help::get_timer_ticks() >= timer_tick_last_update
                                        + timer_ticks_for_update_slow) {
                     update();
                 }
             }
-            else if (Help::timer_ticks >= timer_tick_last_update
+            else if (Help::get_timer_ticks() >= timer_tick_last_update
                                         + timer_ticks_for_update_normal) {
                 update();
             }
@@ -276,7 +276,7 @@ void Gameplay::calc_self()
             timer_ticks_for_update_client = t;
         }
         // In jedem Fall das Update normal rechnen, wie oben ohne Netz
-        if (Help::timer_ticks >= timer_tick_last_update
+        if (Help::get_timer_ticks() >= timer_tick_last_update
                                + timer_ticks_for_update_client) update();
     }
 

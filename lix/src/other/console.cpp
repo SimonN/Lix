@@ -36,7 +36,7 @@ const std::list <Console::Line>& Console::get_lines_recent()
 {
     while (!con.line.empty()
      && ((int) con.line.size() > con.lines_max_number
-     ||  con.line.begin()->time + con.lines_max_ticks < Help::timer_ticks))
+     ||  con.line.begin()->time + con.lines_max_ticks < Help::get_timer_ticks()))
      con.line.pop_front();
     return con.line;
 }

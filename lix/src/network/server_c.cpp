@@ -142,7 +142,7 @@ void NetServer::start_game_random_permutation(char room)
     }
     broadcast_to_room(p, room);
 
-    rooms[room].ticks_game_start = *ticks;
+    rooms[room].ticks_game_start = get_timer_ticks();
 }
 
 

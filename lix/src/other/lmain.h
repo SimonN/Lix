@@ -24,7 +24,7 @@ class LMain {
 private:
 
     bool     exit;
-    unsigned tck; // Ticks, are compared with Help::timer_ticks
+    unsigned tck; // Ticks, are compared with Help::get_timer_ticks()
 
     bool     gameplay_started_with_replay;
 

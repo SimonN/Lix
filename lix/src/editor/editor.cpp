@@ -20,7 +20,7 @@
 Editor::Editor()
 :
     exit(false),
-    timer_ticks_offset(Help::timer_ticks - 1), // - 1 prevents mouse flicker
+    timer_ticks_offset(Help::get_timer_ticks() - 1), // - 1 prevents mouse flicker
     ticks(0),
     mouse_cursor_offset(15),
     mouse_cursor(GraLib::get(gloB->file_bitmap_mouse), Api::Manager::get_torbit()),

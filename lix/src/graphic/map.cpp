@@ -16,8 +16,7 @@
 Map::Map(int w, int h, int scr_xl, int scr_yl)
 :
     Torbit(w, h),
-    scroll_speed_edge (2 * useR->scroll_speed_edge
-                       / Help::get_timer_ticks_per_draw()),
+    scroll_speed_edge (useR->scroll_speed_edge),
     scroll_speed_click(useR->scroll_speed_click),
     screen_xl   (scr_xl),
     screen_yl   (scr_yl),
@@ -158,7 +157,7 @@ int Map::get_mouse_x()
 {
     int ret = screen_x;
     ret += (zoom ? screen_xl/4    : 0      );
-    ret += (zoom ? hardware.get_mx()/2 : hardware.get_mx());
+    ret += (zoom ? Hardware::get_mx()/2 : Hardware::get_mx());
     if (!get_torus_x() && screen_xl > get_xl() * (zoom+1))
      ret -= (screen_xl - get_xl() * (zoom+1)) / 2; // image is centered
     if (get_torus_x()) ret = Help::mod(ret, get_xl());
@@ -169,7 +168,7 @@ int Map::get_mouse_y()
 {
     int ret = screen_y;
     ret += (zoom ? screen_yl/4    : 0      );
-    ret += (zoom ? hardware.get_my()/2 : hardware.get_my());
+    ret += (zoom ? Hardware::get_my()/2 : Hardware::get_my());
     if (!get_torus_y() && screen_yl > get_yl() * (zoom+1))
      ret -= (screen_yl - get_yl() * (zoom+1)); // image is at lower edge
     if (get_torus_y()) ret = Help::mod(ret, get_yl());
@@ -182,56 +181,56 @@ void Map::calc_scrolling()
 {
     // Scrollen am Rand oder (immer aktiv) mit dem Numblock
     int scrd = scroll_speed_edge;
-    if (hardware.get_mrh() || hardware.key_hold(ALLEGRO_KEY_PAD_5)) scrd *= 2;
+    if (Hardware::get_mrh() || Hardware::get_key_hold(ALLEGRO_KEY_PAD_5)) scrd *= 2;
     if (zoom) (scrd += 1) /= 2;
-    if ((useR->scroll_edge && hardware.get_my() == 0)
-     || hardware.key_hold(ALLEGRO_KEY_PAD_8)
-     || hardware.key_hold(ALLEGRO_KEY_PAD_7)
-     || hardware.key_hold(ALLEGRO_KEY_PAD_9)) set_screen_y(screen_y - scrd);
-    if ((useR->scroll_edge && hardware.get_mx() == LEMSCR_X-1)
-     || hardware.key_hold(ALLEGRO_KEY_PAD_6)
-     || hardware.key_hold(ALLEGRO_KEY_PAD_3)
-     || hardware.key_hold(ALLEGRO_KEY_PAD_9)) set_screen_x(screen_x + scrd);
-    if ((useR->scroll_edge && hardware.get_my() == LEMSCR_Y-1)
-     || hardware.key_hold(ALLEGRO_KEY_PAD_2)
-     || hardware.key_hold(ALLEGRO_KEY_PAD_1)
-     || hardware.key_hold(ALLEGRO_KEY_PAD_3)) set_screen_y(screen_y + scrd);
-    if ((useR->scroll_edge && hardware.get_mx() == 0)
-     || hardware.key_hold(ALLEGRO_KEY_PAD_4)
-     || hardware.key_hold(ALLEGRO_KEY_PAD_1)
-     || hardware.key_hold(ALLEGRO_KEY_PAD_7)) set_screen_x(screen_x - scrd);
+    if ((useR->scroll_edge && Hardware::get_my() == 0)
+     || Hardware::get_key_hold(ALLEGRO_KEY_PAD_8)
+     || Hardware::get_key_hold(ALLEGRO_KEY_PAD_7)
+     || Hardware::get_key_hold(ALLEGRO_KEY_PAD_9)) set_screen_y(screen_y - scrd);
+    if ((useR->scroll_edge && Hardware::get_mx() == LEMSCR_X-1)
+     || Hardware::get_key_hold(ALLEGRO_KEY_PAD_6)
+     || Hardware::get_key_hold(ALLEGRO_KEY_PAD_3)
+     || Hardware::get_key_hold(ALLEGRO_KEY_PAD_9)) set_screen_x(screen_x + scrd);
+    if ((useR->scroll_edge && Hardware::get_my() == LEMSCR_Y-1)
+     || Hardware::get_key_hold(ALLEGRO_KEY_PAD_2)
+     || Hardware::get_key_hold(ALLEGRO_KEY_PAD_1)
+     || Hardware::get_key_hold(ALLEGRO_KEY_PAD_3)) set_screen_y(screen_y + scrd);
+    if ((useR->scroll_edge && Hardware::get_mx() == 0)
+     || Hardware::get_key_hold(ALLEGRO_KEY_PAD_4)
+     || Hardware::get_key_hold(ALLEGRO_KEY_PAD_1)
+     || Hardware::get_key_hold(ALLEGRO_KEY_PAD_7)) set_screen_x(screen_x - scrd);
 
     // Rechtsklick-Scrolling
     if (useR->scroll_right
      || useR->scroll_middle) {
-        if ((hardware.get_mr() && useR->scroll_right)
-         || (hardware.get_mm() && useR->scroll_middle)) {
+        if ((Hardware::get_mr() && useR->scroll_right)
+         || (Hardware::get_mm() && useR->scroll_middle)) {
             // Merken, auf welcher Hoehe die Maus war
-            scroll_click_x = hardware.get_mx();
-            scroll_click_y = hardware.get_my();
+            scroll_click_x = Hardware::get_mx();
+            scroll_click_y = Hardware::get_my();
         }
-        if ((hardware.get_mrh() && useR->scroll_right)
-         || (hardware.get_mmh() && useR->scroll_middle)) {
+        if ((Hardware::get_mrh() && useR->scroll_right)
+         || (Hardware::get_mmh() && useR->scroll_middle)) {
             const bool xp = get_scrollable_right();
             const bool xm = get_scrollable_left();
             const bool yp = get_scrollable_down();
             const bool ym = get_scrollable_up();
             // Bildschirm tatsaechlich scrollen und ggf. Maus festhalten
-            if ((xm && hardware.get_mx      () <= scroll_click_x
-                    && hardware.get_mickey_x() <  0)
-             || (xp && hardware.get_mx      () >= scroll_click_x
-                    && hardware.get_mickey_x() >  0)) {
+            if ((xm && Hardware::get_mx      () <= scroll_click_x
+                    && Hardware::get_mickey_x() <  0)
+             || (xp && Hardware::get_mx      () >= scroll_click_x
+                    && Hardware::get_mickey_x() >  0)) {
                 set_screen_x(screen_x
-                 + hardware.get_mickey_x() * scroll_speed_click / 4);
-                hardware.freeze_mouse_x();
+                 + Hardware::get_mickey_x() * scroll_speed_click / 4);
+                Hardware::freeze_mouse_x();
             }
-            if ((ym && hardware.get_my      () <= scroll_click_y
-                    && hardware.get_mickey_y() <  0)
-             || (yp && hardware.get_my      () >= scroll_click_y
-                    && hardware.get_mickey_y() >  0)) {
+            if ((ym && Hardware::get_my      () <= scroll_click_y
+                    && Hardware::get_mickey_y() <  0)
+             || (yp && Hardware::get_my      () >= scroll_click_y
+                    && Hardware::get_mickey_y() >  0)) {
                 set_screen_y(screen_y
-                 + hardware.get_mickey_y() * scroll_speed_click / 4);
-                hardware.freeze_mouse_y();
+                 + Hardware::get_mickey_y() * scroll_speed_click / 4);
+                Hardware::freeze_mouse_y();
             }
         }
         // Ende mrh

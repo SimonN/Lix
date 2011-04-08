@@ -92,10 +92,10 @@ void Element::set_draw_required(const bool b)
 
 bool Element::is_mouse_here() const
 {
-    if (hardware.get_mx() >= get_x_here()
-     && hardware.get_mx() <  get_x_here() + xl
-     && hardware.get_my() >= get_y_here()
-     && hardware.get_my() <  get_y_here() + yl) return true;
+    if (Hardware::get_mx() >= get_x_here()
+     && Hardware::get_mx() <  get_x_here() + xl
+     && Hardware::get_my() >= get_y_here()
+     && Hardware::get_my() <  get_y_here() + yl) return true;
     else return false;
 }
 

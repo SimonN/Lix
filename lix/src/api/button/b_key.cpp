@@ -66,11 +66,11 @@ void KeyButton::calc_self()
     // Schreibmodus
     else {
         // cancel
-        if (hardware.key_once(ALLEGRO_KEY_ESCAPE)
-         || hardware.get_mr() || hardware.get_ml()) set_off();
+        if (Hardware::get_key_once(ALLEGRO_KEY_ESCAPE)
+         || Hardware::get_mr() || Hardware::get_ml()) set_off();
         // Oder doch noch im Schreibmodus bleiben? Dann Tastatur lesen.
         else {
-            int k = hardware.get_key();
+            int k = Hardware::get_typed_key();
             if (k >= 0 && k < ALLEGRO_KEY_MAX) {
                 set_scancode(k);
                 set_off();
@@ -84,7 +84,7 @@ void KeyButton::calc_self()
 
 void KeyButton::draw_self()
 {
-    if (get_on() && Help::timer_ticks % 30 < 15) set_text("?");
+    if (get_on() && Help::get_timer_ticks() % 30 < 15) set_text("?");
     else set_scancode(scancode); // regular text, i.e. the key name
 
     TextButton::draw_self();

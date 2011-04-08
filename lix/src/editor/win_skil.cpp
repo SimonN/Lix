@@ -199,7 +199,7 @@ void WindowSkill::calc_self()
     }
     // Ende vom Faehigkeitenzuweisen
 
-    if (ok.get_clicked() || hardware.get_mr()) {
+    if (ok.get_clicked() || Hardware::get_mr()) {
         // Daten in das Levelobjekt des Editors schreiben
         for (int i = 0; i < gloB->skill_max; ++i) {
             level->skill[i].ac = sbwb[i]->skill.get_skill();

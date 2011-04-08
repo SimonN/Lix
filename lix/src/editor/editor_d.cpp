@@ -36,19 +36,19 @@ void Editor::draw()
     // Draw the map
     // If drawing takes very long, wait until after dragging.
     if (draw_required && (draw_dragging
-     || (!hardware.key_hold(ALLEGRO_KEY_UP)
-      && !hardware.key_hold(ALLEGRO_KEY_RIGHT)
-      && !hardware.key_hold(ALLEGRO_KEY_DOWN)
-      && !hardware.key_hold(ALLEGRO_KEY_LEFT)
-      && !hardware.get_mlh()) ) ) {
+     || (!Hardware::get_key_hold(ALLEGRO_KEY_UP)
+      && !Hardware::get_key_hold(ALLEGRO_KEY_RIGHT)
+      && !Hardware::get_key_hold(ALLEGRO_KEY_DOWN)
+      && !Hardware::get_key_hold(ALLEGRO_KEY_LEFT)
+      && !Hardware::get_mlh()) ) ) {
         draw_required = false;
-        int clock     = Help::timer_ticks;
+        int clock     = Help::get_timer_ticks();
         // clear_screen_rectangle() is not enough to prevent drag remainders
         map.clear_to_color(color[COL_PINK]);
         for (int type = Object::TERRAIN; type != Object::MAX; ++type)
          for (GraIt i =  object[Object::perm(type)].begin();
                     i != object[Object::perm(type)].end(); ++i) i->draw();
-        clock = Help::timer_ticks - clock;
+        clock = Help::get_timer_ticks() - clock;
         if (clock < Help::timer_ticks_per_second / 5) draw_dragging = true;
         else                                          draw_dragging = false;
     }
@@ -103,8 +103,8 @@ void Editor::draw()
     // Mouse cursor on top
     // The mouse positioning code is here as well, as Editor::calc_self()
     // is skipped whenever a sub-window is open.
-    mouse_cursor.set_x(hardware.get_mx()-mouse_cursor_offset);
-    mouse_cursor.set_y(hardware.get_my()-mouse_cursor_offset);
+    mouse_cursor.set_x(Hardware::get_mx()-mouse_cursor_offset);
+    mouse_cursor.set_y(Hardware::get_my()-mouse_cursor_offset);
     mouse_cursor.draw();
 
     pre_screen->clear_to_color(color[COL_BLACK]);
@@ -134,7 +134,7 @@ void Editor::draw()
 void Editor::draw_selection_borders()
 {
     // Farbverlauf errechnen
-    unsigned t = ticks / Help::get_timer_ticks_per_draw();
+    unsigned t = ticks;
     int col = t%20;
     if (t%40 >= 20) col = 20 - (t%20);
     const int c1 = 100 - col*2;
@@ -160,7 +160,7 @@ void Editor::draw_selection_borders()
      draw_selection_border(*i, col_sel);
 
     // Drag-around frame
-    if (panel[SELECT_FRAME].get_on() && hardware.get_mlh()
+    if (panel[SELECT_FRAME].get_on() && Hardware::get_mlh()
      && mouse_hold_started_outside_panel) {
         draw_selection_frame(col_hov);
     }

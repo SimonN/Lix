@@ -25,11 +25,12 @@
 namespace Help {
 
     // Timer-Funktionen
-    extern volatile Uint32 timer_ticks;
-    extern const    int    timer_ticks_per_second;
+    extern ALLEGRO_TIMER* timer; // treat this as private if possible
+    extern const int      timer_ticks_per_second;
 
-    void     timer_start();
-    unsigned get_timer_ticks_per_draw();
+    void timer_initialize();
+    void timer_deinitialize();
+    int  get_timer_ticks();
 
     double hypot        (const int,    const int,    const int, const int);
     double random_double(const double, const double); // zw. 1. und 2. Argument

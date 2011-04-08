@@ -119,7 +119,7 @@ void SaveBrowser::calc_self()
         }
 
         if (!typing) {
-            if (hardware.key_once(ALLEGRO_KEY_ESCAPE)) {
+            if (Hardware::get_key_once(ALLEGRO_KEY_ESCAPE)) {
                 set_exit();
             }
             else if (dir_list.get_clicked()) {
@@ -136,7 +136,7 @@ void SaveBrowser::calc_self()
         }
 
         // Etwas aus editor/bit_brow.cpp kopierter Code
-        if (hardware.get_mr()
+        if (Hardware::get_mr()
          &&  (dir_list.is_mouse_here()
          || level_list.is_mouse_here())) {
             if (dir_list.get_current_dir() == dir_list.get_base_dir()) {

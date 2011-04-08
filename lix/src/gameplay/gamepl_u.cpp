@@ -102,7 +102,7 @@ void Gameplay::update_cs_once()
     // Neues Update einleiten
     ++cs.update;
     const Ulng& upd = cs.update;
-    timer_tick_last_update = Help::timer_ticks;
+    timer_tick_last_update = Help::get_timer_ticks();
 
     Replay::Vec data = replay.get_data_for_update(upd);
 
