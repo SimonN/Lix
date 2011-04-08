@@ -68,8 +68,9 @@ ALLEGRO_FONT* load_one_font(const std::string filename)
 
 
 
-void load_all_bitmaps()
+void load_all_bitmaps_and_fonts()
 {
+    al_init_image_addon();
     // afdebug: set the bitmap flags here
 
     Api::Manager::initialize(LEMSCR_X, LEMSCR_Y);
@@ -98,7 +99,7 @@ void load_all_bitmaps()
 
 
 
-void destroy_all_bitmaps()
+void destroy_all_bitmaps_fonts_and_display()
 {
     color.clear();
 
@@ -114,6 +115,12 @@ void destroy_all_bitmaps()
     Api::Manager::deinitialize();
 
     delete pre_screen;
+    al_shutdown_image_addon();
+
+    if (displaY) {
+        al_destroy_display(displaY);
+        displaY = 0;
+    }
 }
 
 
@@ -201,6 +208,8 @@ void set_screen_mode(const bool full, int res_x, int res_y)
     if (!displaY) displaY = al_create_display(LEMSCR_X, LEMSCR_Y);
 
     clear_screen_at_next_blit = true;
+
+    al_set_window_title(displaY, Language::main_name_of_the_game.c_str());
 
     // Do this so the mouse doesn't scroll stupidly after a switch.
     // In Hardware::cpp, the mouse is always set to the center anyway, to trap

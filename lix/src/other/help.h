@@ -56,23 +56,18 @@ namespace Help {
     char string_get_pre_extension(const std::string&); // 0, wenn keine
     bool string_ends_with        (const std::string&, const std::string&);
 
-    void draw_shaded_text         (Torbit&, ALLEGRO_FONT*, const char*,
-                                   int, int, int, int, int);
     void draw_shadow_text         (Torbit&, ALLEGRO_FONT*, const char*,
-                                   int, int, ALLEGRO_COLOR);
-
-    void draw_shaded_centered_text(Torbit&, ALLEGRO_FONT*, const char*,
-                                   int, int, int, int, int);
+                                   int, int, const ALLEGRO_COLOR&);
     void draw_shadow_centered_text(Torbit&, ALLEGRO_FONT*, const char*,
-                                   int, int, ALLEGRO_COLOR);
-
+                                   int, int, const ALLEGRO_COLOR&);
     void draw_shadow_fixed_number (Torbit&, ALLEGRO_FONT*,
-                                   int, int, int, ALLEGRO_COLOR,
+                                   int, int, int, const ALLEGRO_COLOR&,
                                    bool = false);
     void draw_shadow_fixed_text   (Torbit&, ALLEGRO_FONT*, const std::string&,
-                                   int, int, ALLEGRO_COLOR, bool = false);
+                                   int, int, const ALLEGRO_COLOR&,
+                                   bool = false);
     void draw_shadow_fixed_updates_used(Torbit&, ALLEGRO_FONT*,
-                                   int, int, int, ALLEGRO_COLOR,
+                                   int, int, int, const ALLEGRO_COLOR&,
                                    bool = false);
 
 
@@ -87,12 +82,12 @@ namespace Help {
     // DoStr ist ein Funktionszeiger. Die entsprechende Funktion wird für jeden
     // String aufgerufen, der gefunden wird.
 
-    void find_dirs(std::string, DoStr, void*);
+    void find_dirs(const std::string&, DoStr, void*);
     // Wie find_files, allerdings wird hier im angegebenen Ordner nach Unter-
     // verzeichnissen gesucht mit Ausnahme von "." und "..". Diese Funktion
     // benötigt keine Suchmaske und somit kein drittes Argument.
 
-    void find_tree(std::string, const std::string&, DoStr, void*);
+    void find_tree(const std::string&, const std::string&, DoStr, void*);
     // Wie find_files, schließt allerdings auch alle Unterverzeichnisse in der
     // Suche nach passenden Dateien ein.
 

@@ -12,11 +12,6 @@
 LMain::LMain()
 :
     exit    (false),
-
-    // We add +1 here to remedy the short pink flicker when loading the game
-    // in windowed mode. And +5 is five times as good as +1 <_<;
-    tck     (Help::get_timer_ticks() + 5),
-
     gameplay_started_with_replay(false),
 
     menu    (new Menu()),
@@ -44,20 +39,28 @@ void LMain::undraw()
 
 void LMain::main_loop()
 {
-    while (true) {
-        undraw();
-        // afdebug: no vsync supported right now
-        while (tck == Help::get_timer_ticks()) {
-            rest(1);
-        }
-        while (tck  < Help::get_timer_ticks()) {
-            ++tck;
-            calc();
-        }
+    ALLEGRO_EVENT_QUEUE* lmain_queue = al_create_event_queue();
 
-        if (exit) break;
-        draw();
+    al_register_event_source(lmain_queue,
+                             al_get_timer_event_source(Help::timer));
+    al_register_event_source(lmain_queue,
+                             al_get_display_event_source(displaY));
+
+    while ( ! exit) {
+        ALLEGRO_EVENT event;
+        al_wait_for_event(lmain_queue, &event);
+
+        if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
+            undraw();
+            exit = true;
+        }
+        else if (event.type == ALLEGRO_EVENT_TIMER) {
+            calc();
+            if (al_is_event_queue_empty(lmain_queue)) draw();
+        }
     }
+
+    al_destroy_event_queue(lmain_queue);
 }
 
 
@@ -128,14 +131,14 @@ void LMain::calc()
 
     // Hotkey combination to terminate the program instantly from
     // everywhere. This doesn't bug the user about unsaved data.
-    if (key[ALLEGRO_KEY_ESCAPE] && key[ALLEGRO_KEY_LSHIFT]) {
+    if (Hardware::get_shift() && Hardware::get_key_hold(ALLEGRO_KEY_ESCAPE)) {
         exit = true;
     }
     // Hotkey combination for fullscreen
     // Do not use key_enter_once() here, this is the time we want it with alt
-    if (Hardware::get_alt()
-     && (Hardware::get_key_once(ALLEGRO_KEY_ENTER) || Hardware::get_key_once(ALLEGRO_KEY_ENTER_PAD))) {
-        set_screen_mode(!gloB->screen_fullscreen_now);
+    if (Hardware::get_alt() && Hardware::get_key_enter_once()) {
+        // afdebug: machen wir derzeit nicht
+        // set_screen_mode(!gloB->screen_fullscreen_now);
     }
 
 }

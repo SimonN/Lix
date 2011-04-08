@@ -29,7 +29,7 @@ public:
 
     Preview& operator = (const Preview&);
 
-    inline const Level::Status get_status() { return status; }
+    inline Level::Status get_status() { return status; }
 
     void set_level(const Level&);
     void clear();

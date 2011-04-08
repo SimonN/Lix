@@ -82,8 +82,8 @@ extern ALLEGRO_FONT *font_nar;
 extern ALLEGRO_FONT *font_big;
 
 // Und die Funktionen
-void load_all_bitmaps();
-void destroy_all_bitmaps();
+void load_all_bitmaps_and_fonts();
+void destroy_all_bitmaps_fonts_and_display();
 
 extern bool clear_screen_at_next_blit;
 void blit_to_screen(ALLEGRO_BITMAP*);
