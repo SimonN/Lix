@@ -88,7 +88,7 @@ void ListFile::load_current_dir()
     button_clear();
     button_last_clicked = 0;
 
-    Help::find_files(current_dir, gloB->mask_anything,
+    Help::find_files(current_dir, gloB->empty_string,
      static_put_to_file, (void*) this);
     std::sort(file.begin(), file.end());
     // Hook/event function: derived classes may alter file via overriding

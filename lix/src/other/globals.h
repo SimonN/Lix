@@ -73,14 +73,9 @@ public:
         ext_level_orig,
         ext_replay,
         ext_user,
-        mask_anything,
-        mask_ext_level,
-        mask_ext_level_orig,
-        mask_ext_replay,
-        mask_ext_user,
-        mask_ext_bmp,
-        mask_ext_tga,
-        mask_ext_pcx,
+        ext_bmp,
+        ext_tga,
+        ext_pcx,
 
         // Unterteilung der Bilddateien nach Prae-Endung
         pre_ext_null,

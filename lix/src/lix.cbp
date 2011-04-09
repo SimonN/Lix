@@ -113,6 +113,7 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add option="`pkg-config --libs --static allgero-static-5.0 allegro_acodec-static-5.0 allegro_audio-static-5.0 allegro_font-static-5.0 allegro_image-static-5.0 allegro_primitives-static-5.0`" />
 					<Add option="-lenet" />
 				</Linker>
 			</Target>
@@ -131,7 +132,12 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
-					<Add option="`pkg-config --libs --static allgero-static allegro-acodec-static allegro-audio-static allegro-font-static allegro-image-static allegro-primitives-static`" />
+					<Add option="`pkg-config --libs --static allgero-static-5.0`" />
+					<Add option="`pkg-config --libs --static allegro_acodec-static-5.0`" />
+					<Add option="`pkg-config --libs --static allegro_audio-static-5.0`" />
+					<Add option="`pkg-config --libs --static allegro_font-static-5.0`" />
+					<Add option="`pkg-config --libs --static allegro_image-static-5.0`" />
+					<Add option="`pkg-config --libs --static allegro_primitives-static-5.0`" />
 					<Add option="-lenet" />
 				</Linker>
 			</Target>

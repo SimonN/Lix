@@ -31,9 +31,9 @@ ObjLib::ObjLib()
     const std::string db            = gloB->dir_bitmap;
     void (*cb)(std::string&, void*) = load_file_callback;
 
-    Help::find_tree(db, gloB->mask_ext_bmp, cb, (void*) this);
-    Help::find_tree(db, gloB->mask_ext_tga, cb, (void*) this);
-    Help::find_tree(db, gloB->mask_ext_pcx, cb, (void*) this);
+    Help::find_tree(db, gloB->ext_bmp, cb, (void*) this);
+    Help::find_tree(db, gloB->ext_tga, cb, (void*) this);
+    Help::find_tree(db, gloB->ext_pcx, cb, (void*) this);
 
     orig_set_string[DIRT]     = "Dirt";
     orig_set_string[HELL]     = "Hell";

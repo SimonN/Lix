@@ -71,6 +71,9 @@ ALLEGRO_FONT* load_one_font(const std::string filename)
 void load_all_bitmaps_and_fonts()
 {
     al_init_image_addon();
+    al_init_primitives_addon();
+
+
     // afdebug: set the bitmap flags here
 
     Api::Manager::initialize(LEMSCR_X, LEMSCR_Y);
@@ -115,6 +118,7 @@ void destroy_all_bitmaps_fonts_and_display()
     Api::Manager::deinitialize();
 
     delete pre_screen;
+    al_shutdown_primitives_addon();
     al_shutdown_image_addon();
 
     if (displaY) {
@@ -171,6 +175,7 @@ void blit_to_screen(ALLEGRO_BITMAP* b)
                                  0, 0, screen_xl, screen_yl, // Wohin kommt's.
                                  0);                         // flags: !rotate
     }
+    al_flip_display();
 }
 
 

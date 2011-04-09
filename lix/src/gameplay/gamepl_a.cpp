@@ -225,7 +225,7 @@ void Gameplay::calc_active()
              <= Hardware::doubleclick_speed) {
                 pan.rate.set_number(trlo->rate_min);
             }
-            else if (minus_clicked) timer_tick_last_F1 = Help::get_timer_ticks();
+            else if (minus_clicked) timer_tick_last_F1=Help::get_timer_ticks();
             else {
                 // Normales Halten
                 if (pan.rate.get_number() > trlo->rate_min) {
@@ -244,7 +244,7 @@ void Gameplay::calc_active()
              <= Hardware::doubleclick_speed) {
                 pan.rate.set_number(99);
             }
-            else if (plus_clicked) timer_tick_last_F2 = Help::get_timer_ticks();
+            else if (plus_clicked) timer_tick_last_F2=Help::get_timer_ticks();
             else {
                 if (pan.rate.get_number() < 99) {
                     if (Help::get_timer_ticks() % 2)

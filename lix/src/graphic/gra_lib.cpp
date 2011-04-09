@@ -19,9 +19,9 @@ GraLib::GraLib()
     const std::string dd              = gloB->dir_data_bitmap;
     void (*ssii)(std::string&, void*) = sort_string_into_internal;
 
-    Help::find_tree(dd, gloB->mask_ext_bmp, ssii, (void*) this);
-    Help::find_tree(dd, gloB->mask_ext_tga, ssii, (void*) this);
-    Help::find_tree(dd, gloB->mask_ext_pcx, ssii, (void*) this);
+    Help::find_tree(dd, gloB->ext_bmp, ssii, (void*) this);
+    Help::find_tree(dd, gloB->ext_tga, ssii, (void*) this);
+    Help::find_tree(dd, gloB->ext_pcx, ssii, (void*) this);
 
     // Countdown-Matrix erstellen
     const Cutbit&    cb = internal[gloB->file_bitmap_lix];

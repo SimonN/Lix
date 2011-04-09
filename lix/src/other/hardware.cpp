@@ -133,11 +133,7 @@ void Hardware::main_loop() {
         break;
     }
     // end of hardware event dispatching
-
-
 }
-
-
 
 
 
