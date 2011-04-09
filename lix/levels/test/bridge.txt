@@ -1,4 +1,4 @@
-$BUILT                                             2011-04-05 18:47:08
+$BUILT                                             2011-04-08 04:45:58
 $AUTHOR                                                               
 $GERMAN                                                               
 $ENGLISH                                                    the Bridge
@@ -26,3 +26,17 @@ $ENGLISH                                                    the Bridge
 #NOTHING                                                             0
 #NOTHING                                                             0
 #NOTHING                                                             0
+
+:./bitmap/Rebuilds/05 - Winter/Hatch.H:                   32       240
+
+:./bitmap/Rebuilds/03 - Carnival/Goal.G:                 177       233
+
+:./bitmap/Rebuilds/05 - Winter/06:                        -5       293     r
+:./bitmap/Rebuilds/05 - Winter/06:                        59       293     r
+:./bitmap/Rebuilds/05 - Winter/06:                       123       293     r
+:./bitmap/Rebuilds/05 - Winter/06:                       187       293     r
+:./bitmap/Rebuilds/05 - Winter/06:                       251       293     r
+:./bitmap/Rebuilds/05 - Winter/00:                       -33       240
+:./bitmap/Rebuilds/05 - Winter/10:                       -20       153
+:./bitmap/Rebuilds/05 - Winter/17:                       -36       288     f
+:./bitmap/Rebuilds/05 - Winter/17:                       -46       323     f
