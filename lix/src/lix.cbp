@@ -124,6 +124,7 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option use_console_runner="0" />
+				<Option parameters="-w" />
 				<Option projectLinkerOptionsRelation="1" />
 				<Compiler>
 					<Add option="-O1" />
@@ -261,6 +262,10 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="graphic/torbit.h" />
 		<Unit filename="icon.rc">
 			<Option compilerVar="WINDRES" />
+			<Option target="Win Debug" />
+			<Option target="Win Debug -w" />
+			<Option target="Win Release" />
+			<Option target="Win Release -w" />
 		</Unit>
 		<Unit filename="level/crunch.cpp" />
 		<Unit filename="level/crunch.h" />

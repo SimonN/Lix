@@ -15,10 +15,10 @@ void make_all_colors()
     // Argument für Text auf transparentem Hintergrund anzugeben, während
     // das knallige Girlie-Pink für Bitmap-Blitterei erforderlich ist.
 
-    color[COL_TRANSPARENT  ] = al_map_rgba(255,   0, 255,   0);
-    color[COL_PINK         ] = al_map_rgba(255,   0, 255,   0);
+    color[COL_TRANSPARENT  ] = al_map_rgba(  0,   0,   0,   0);
+    color[COL_PINK         ] = al_map_rgba(  0,   0,   0,   0);
     color[COL_REALPINK     ] = al_map_rgb (255,   0, 255     );
-    color[COL_PINKAF       ] = al_map_rgba(255,   0, 255,   0);
+    color[COL_PINKAF       ] = al_map_rgba(  0,   0,   0,   0);
 
     color[COL_BLACK        ] = al_map_rgb(  0,   0,   0); // Echte Männerfarbe!
     color[COL_GREY_FUSE_D  ] = al_map_rgb(111, 111, 111); // Etwas dunkl. Grau

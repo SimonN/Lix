@@ -25,9 +25,7 @@ Torbit::Torbit(const Torbit& orig)
     torus_x(orig.torus_x),
     torus_y(orig.torus_y)
 {
-    bitmap = al_create_bitmap(orig.get_xl(), orig.get_yl());
-    al_set_target_bitmap(bitmap);
-    al_draw_bitmap(orig.bitmap, 0, 0, 0);
+    bitmap = al_clone_bitmap(orig.bitmap);
 }
 
 

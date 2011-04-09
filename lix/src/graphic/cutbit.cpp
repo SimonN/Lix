@@ -29,12 +29,7 @@ Cutbit::Cutbit(const Cutbit& c)
     x_frames(c.x_frames),
     y_frames(c.y_frames)
 {
-    if (c.bitmap) {
-        bitmap = al_create_bitmap(al_get_bitmap_width(c.bitmap),
-                                  al_get_bitmap_height(c.bitmap));
-        al_set_target_bitmap(bitmap);
-        al_draw_bitmap(c.bitmap, 0, 0, 0);
-    }
+    if (c.bitmap) bitmap = al_clone_bitmap(c.bitmap);
 }
 
 
@@ -115,13 +110,14 @@ Cutbit::Cutbit(const std::string& filename, const bool cut)
     // Wenn dies kein Bild ist, Fehlermeldung schreiben und abbrechen.
     bitmap = al_load_bitmap(filename.c_str());
     if (!bitmap) {
-        al_convert_mask_to_alpha(bitmap, color[COL_REALPINK]);
         std::string str = Language::log_bitmap_bad;
         str += " ";
         str += filename;
         Log::log(Log::ERROR, str);
         return;
     }
+    al_set_target_bitmap(bitmap);
+    al_convert_mask_to_alpha(bitmap, color[COL_REALPINK]);
     if (cut) cut_bitmap();
     else {
         xl = al_get_bitmap_width (bitmap);
@@ -143,10 +139,7 @@ Cutbit& Cutbit::operator = (const Cutbit& c)
     // Bitmap neu erstellen: Altes loeschen, sofern vorhanden
     if (bitmap) al_destroy_bitmap(bitmap);
     if (c.bitmap) {
-        bitmap = al_create_bitmap(al_get_bitmap_width (c.bitmap),
-                                  al_get_bitmap_height(c.bitmap));
-        al_set_target_bitmap(bitmap);
-        al_draw_bitmap(c.bitmap, 0, 0, 0);
+        bitmap = al_clone_bitmap(c.bitmap);
     }
     else bitmap = 0;
     // Restliche Werte richtig setzen

@@ -73,8 +73,8 @@ void load_all_bitmaps_and_fonts()
     al_init_image_addon();
     al_init_primitives_addon();
 
-
     // afdebug: set the bitmap flags here
+    al_set_new_bitmap_flags (ALLEGRO_MEMORY_BITMAP);
 
     Api::Manager::initialize(LEMSCR_X, LEMSCR_Y);
     Torbit* osd = &Api::Manager::get_torbit();
