@@ -110,10 +110,12 @@ void DirList::load_current_dir() {
 
 
 
-void DirList::static_put_to_dir_list(std::string& s, void* which_object) {
+void DirList::static_put_to_dir_list(const std::string& s, void* which_object)
+{
     DirList* this_object = (DirList*) which_object;
-    Help::string_remove_dir(s);
-    this_object->dir_list.push_back(s);
+    std::string str = s;
+    Help::string_remove_dir(str);
+    this_object->dir_list.push_back(str);
 }
 
 void DirList::set_current_dir_to_parent_dir() {

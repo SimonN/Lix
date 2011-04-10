@@ -112,6 +112,13 @@ MainArgs parse_main_arguments(int argc, char *argv[])
 
 
 
+void string_format_slashes(std::string& s)
+{
+    for (size_t i = 0; i < s.length(); ++i) if (s[i] == '\\') s[i] = '/';
+}
+
+
+
 std::string version_to_string(const unsigned long nr) {
     std::ostringstream sstr;
     sstr << nr;
@@ -335,6 +342,7 @@ void find_files(
             // Don't care for directories
             if ( ! (al_get_fs_entry_mode(file) & ALLEGRO_FILEMODE_ISDIR)) {
                 std::string s = al_get_fs_entry_name(file);
+                string_format_slashes(s);
                 bool file_is_wanted = true;
 
                 // Check whether ``what'' is equal the end of the found name
@@ -344,7 +352,9 @@ void find_files(
                     std::string s_tail(s, s.size() - what.size(), what.size());
                     file_is_wanted = (s_tail == what);
                 }
-                if (file_is_wanted) dostr(s, from);
+                if (file_is_wanted) {
+                    dostr(s, from);
+                }
             }
             al_destroy_fs_entry(file);
         } al_close_directory(dir);
@@ -365,6 +375,7 @@ void find_dirs(
         while (0 != (file = al_read_directory(dir))) {
             if (al_get_fs_entry_mode(file) & ALLEGRO_FILEMODE_ISDIR) {
                 std::string s = al_get_fs_entry_name(file);
+                string_format_slashes(s);
                 dostr(s, from);
             }
             al_destroy_fs_entry(file);

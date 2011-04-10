@@ -16,8 +16,8 @@ GraLib::GraLib()
 {
     // Die Verzeichnisse nach Bilddateien durchsuchen
     // Abk.-Deklarationen, um die Funktionsaufrufe in einer Zeile zu haben
-    const std::string dd              = gloB->dir_data_bitmap;
-    void (*ssii)(std::string&, void*) = sort_string_into_internal;
+    const std::string dd                    = gloB->dir_data_bitmap;
+    void (*ssii)(const std::string&, void*) = sort_string_into_internal;
 
     Help::find_tree(dd, gloB->ext_bmp, ssii, (void*) this);
     Help::find_tree(dd, gloB->ext_tga, ssii, (void*) this);
@@ -78,11 +78,12 @@ GraLib::GraLib()
 // beim einfachen Austauschen des benutzten Grafikformates: Man kann einfach
 // seine Grafiken konvertieren und die Endung aendern, wenn man den Datei-
 // namen ansonsten konstant haelt.
-void GraLib::sort_string_into_internal(std::string& s, void* v) {
+void GraLib::sort_string_into_internal(const std::string& s, void* v) {
     // zweites Argument: Nur Schneideversuch unternehmen, wenn mit Prae-End.
     const Cutbit c(s, Help::string_get_pre_extension(s));
-    Help::string_remove_extension(s);
-    ((GraLib*) v)->internal.insert(std::make_pair(s, c));
+    std::string str = s;
+    Help::string_remove_extension(str);
+    ((GraLib*) v)->internal.insert(std::make_pair(str, c));
 }
 
 

@@ -38,14 +38,15 @@ ListFile::~ListFile()
 
 
 
-void ListFile::static_put_to_file(std::string& s, void* which_object)
+void ListFile::static_put_to_file(const std::string& s, void* which_object)
 {
     ListFile* this_object = (ListFile*) which_object;
     if (this_object) {
         if (!this_object->search_criterion
          || this_object->search_criterion(s)) {
-            Help::string_remove_dir(s);
-            this_object->file.push_back(s);
+            std::string str = s;
+            Help::string_remove_dir(str);
+            this_object->file.push_back(str);
         }
     }
 }

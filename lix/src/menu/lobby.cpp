@@ -281,7 +281,6 @@ void Lobby::calc_self()
         else Network::set_room(room_list.get_room_clicked());
         room_list.clear();
         set_mode(INSIDE_ROOM);
-        Log::log("debugging rohan: room button clicked");
     }
 
     // Inside a game room
@@ -333,9 +332,7 @@ void Lobby::work_self()
     }
     // Room data arrived
     if (Network::get_room_data_change()) {
-        Log::log("debugging rohan: room data change in lobby seen");
         room_list.set_room_data(Network::get_room_data());
-        Log::log("debugging rohan: room data change in lobby seen + done");
     }
     // Chat is set and thus redrawn every tick right now
     chat.set_chat_data(Console::get_lines_all());
