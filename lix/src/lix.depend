@@ -5511,7 +5511,7 @@
 	"hatch.h"
 	"../graphic/gra_lib.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/api/brow_sav.cpp
+1302444779 source:/home/simon/c/repo/lix/src/api/brow_sav.cpp
 	"brow_sav.h"
 	"manager.h"
 	"../level/level.h"
@@ -5537,40 +5537,40 @@
 	"button.h"
 	"../../other/globals.h"
 
-1302265695 /home/simon/c/repo/lix/src/other/myalleg.h
+1302444779 /home/simon/c/repo/lix/src/other/myalleg.h
 	<allegro5/allegro.h>
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_image.h>
 	<allegro5/allegro_primitives.h>
 	<allegro5/allegro_acodec.h>
 
-1302224069 /home/simon/c/repo/lix/src/api/button/button.h
+1302444779 /home/simon/c/repo/lix/src/api/button/button.h
 	"../element.h"
 
-1302224069 /home/simon/c/repo/lix/src/api/element.h
+1302444779 /home/simon/c/repo/lix/src/api/element.h
 	"../other/myalleg.h"
 	<set>
 	"../other/hardware.h"
 
-1302224069 /home/simon/c/repo/lix/src/other/hardware.h
+1302444779 /home/simon/c/repo/lix/src/other/hardware.h
 	"../graphic/glob_gfx.h"
 
-1302265511 /home/simon/c/repo/lix/src/graphic/glob_gfx.h
+1302444779 /home/simon/c/repo/lix/src/graphic/glob_gfx.h
 	<string>
 	<map>
 	<vector>
 	"cutbit.h"
 	"torbit.h"
 
-1302224069 /home/simon/c/repo/lix/src/graphic/cutbit.h
+1302444779 /home/simon/c/repo/lix/src/graphic/cutbit.h
 	<string>
 	<vector>
 	"torbit.h"
 
-1302224069 /home/simon/c/repo/lix/src/graphic/torbit.h
+1302444779 /home/simon/c/repo/lix/src/graphic/torbit.h
 	"../other/myalleg.h"
 
-1302370473 /home/simon/c/repo/lix/src/other/globals.h
+1302444779 /home/simon/c/repo/lix/src/other/globals.h
 	<string>
 
 1300285974 /home/simon/c/repo/lix/src/api/frame.h
@@ -5598,7 +5598,7 @@
 	"element.h"
 	"label.h"
 
-1302224069 /home/simon/c/repo/lix/src/api/label.h
+1302444779 /home/simon/c/repo/lix/src/api/label.h
 	"element.h"
 
 1300285974 /home/simon/c/repo/lix/src/api/message.h
@@ -5615,7 +5615,7 @@
 	<vector>
 	"../graphic/torbit.h"
 
-1302224069 /home/simon/c/repo/lix/src/level/level.h
+1302444779 /home/simon/c/repo/lix/src/level/level.h
 	<list>
 	<string>
 	"object.h"
@@ -5628,7 +5628,7 @@
 	"../graphic/cutbit.h"
 	"../graphic/sound.h"
 
-1302224069 /home/simon/c/repo/lix/src/graphic/sound.h
+1302444779 /home/simon/c/repo/lix/src/graphic/sound.h
 	"../other/myalleg.h"
 	<string>
 	<vector>
@@ -5648,7 +5648,7 @@
 	"date.h"
 	"globals.h"
 
-1302268996 /home/simon/c/repo/lix/src/other/help.h
+1302444779 /home/simon/c/repo/lix/src/other/help.h
 	"myalleg.h"
 	<cstdlib>
 	<string>
@@ -5677,7 +5677,7 @@
 	"cutbit.h"
 	"../lix/lix_enum.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/api/button/b_combin.cpp
+1302444779 source:/home/simon/c/repo/lix/src/api/button/b_combin.cpp
 	"b_combin.h"
 	"../../other/help.h"
 
@@ -5693,7 +5693,7 @@
 1300285974 /home/simon/c/repo/lix/src/api/button/b_enum.h
 	"b_text.h"
 
-1302368029 source:/home/simon/c/repo/lix/src/api/button/b_key.cpp
+1302444779 source:/home/simon/c/repo/lix/src/api/button/b_key.cpp
 	"b_key.h"
 	"../manager.h"
 	"../../other/help.h"
@@ -5702,7 +5702,7 @@
 1300285974 /home/simon/c/repo/lix/src/api/button/b_key.h
 	"b_text.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/api/button/b_skill.cpp
+1302444779 source:/home/simon/c/repo/lix/src/api/button/b_skill.cpp
 	<sstream>
 	"b_skill.h"
 	"../../graphic/gra_lib.h"
@@ -5714,29 +5714,29 @@
 	"../../graphic/graphic.h"
 	"../../lix/lix_enum.h"
 
-1302224069 /home/simon/c/repo/lix/src/graphic/graphic.h
+1302444779 /home/simon/c/repo/lix/src/graphic/graphic.h
 	<string>
 	"glob_gfx.h"
 	"torbit.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/api/button/b_text.cpp
+1302444779 source:/home/simon/c/repo/lix/src/api/button/b_text.cpp
 	"b_text.h"
 	"../../graphic/gra_lib.h"
 	"../../other/help.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/api/button/button.cpp
+1302444779 source:/home/simon/c/repo/lix/src/api/button/button.cpp
 	"button.h"
 	"../../other/hardware.h"
 	"../../other/log.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/api/element.cpp
+1302444779 source:/home/simon/c/repo/lix/src/api/element.cpp
 	"element.h"
 	"manager.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/api/frame.cpp
+1302444779 source:/home/simon/c/repo/lix/src/api/frame.cpp
 	"frame.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/api/label.cpp
+1302444779 source:/home/simon/c/repo/lix/src/api/label.cpp
 	"label.h"
 	"../other/help.h"
 
@@ -5755,7 +5755,7 @@
 	"../other/globals.h"
 	"../other/language.h"
 
-1302370498 source:/home/simon/c/repo/lix/src/api/list_fil.cpp
+1302444779 source:/home/simon/c/repo/lix/src/api/list_fil.cpp
 	<algorithm>
 	"list_fil.h"
 	"../other/help.h"
@@ -5801,7 +5801,7 @@
 	"message.h"
 	"manager.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/api/number.cpp
+1302444779 source:/home/simon/c/repo/lix/src/api/number.cpp
 	<sstream>
 	"number.h"
 	"../graphic/gra_lib.h"
@@ -5813,16 +5813,16 @@
 	"frame.h"
 	"button/b_bitmap.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/api/texttype.cpp
+1302444779 source:/home/simon/c/repo/lix/src/api/texttype.cpp
 	"texttype.h"
 	"manager.h"
 	"../other/help.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/api/window.cpp
+1302444779 source:/home/simon/c/repo/lix/src/api/window.cpp
 	"window.h"
 	"manager.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/editor/bit_brow.cpp
+1302444779 source:/home/simon/c/repo/lix/src/editor/bit_brow.cpp
 	<sstream>
 	"bit_brow.h"
 	"../api/button/b_bitmap.h"
@@ -5840,15 +5840,15 @@
 	"../api/window.h"
 	"../level/object.h"
 
-1302224069 /home/simon/c/repo/lix/src/level/obj_lib.h
+1302444779 /home/simon/c/repo/lix/src/level/obj_lib.h
 	<map>
 	"graset.h"
 
-1302224069 /home/simon/c/repo/lix/src/level/graset.h
+1302444779 /home/simon/c/repo/lix/src/level/graset.h
 	<vector>
 	"object.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/editor/editor.cpp
+1302444779 source:/home/simon/c/repo/lix/src/editor/editor.cpp
 	"../other/myalleg.h"
 	<fstream>
 	"editor.h"
@@ -5861,7 +5861,7 @@
 	"../other/log.h"
 	"../other/user.h"
 
-1302224069 /home/simon/c/repo/lix/src/editor/editor.h
+1302444779 /home/simon/c/repo/lix/src/editor/editor.h
 	<list>
 	<map>
 	<string>
@@ -5880,12 +5880,12 @@
 	"../level/level.h"
 	"../other/help.h"
 
-1302224069 /home/simon/c/repo/lix/src/editor/graph_ed.h
+1302444779 /home/simon/c/repo/lix/src/editor/graph_ed.h
 	"../graphic/graphic.h"
 	"../graphic/map.h"
 	"../level/object.h"
 
-1302224069 /home/simon/c/repo/lix/src/graphic/map.h
+1302444779 /home/simon/c/repo/lix/src/graphic/map.h
 	"torbit.h"
 
 1300285974 /home/simon/c/repo/lix/src/editor/win_size.h
@@ -5921,58 +5921,58 @@
 	"../other/globals.h"
 	"../level/level.h"
 
-1302224069 /home/simon/c/repo/lix/src/graphic/graph_bg.h
+1302444779 /home/simon/c/repo/lix/src/graphic/graph_bg.h
 	"graphic.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/editor/editor_c.cpp
+1302444779 source:/home/simon/c/repo/lix/src/editor/editor_c.cpp
 	"editor.h"
 	"../api/manager.h"
 	"../other/user.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/editor/editor_d.cpp
+1302444779 source:/home/simon/c/repo/lix/src/editor/editor_d.cpp
 	<sstream>
 	"editor.h"
 	"../api/manager.h"
 	"../other/user.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/editor/editor_f.cpp
+1302444779 source:/home/simon/c/repo/lix/src/editor/editor_f.cpp
 	"editor.h"
 	"../level/obj_lib.h"
 	"../other/user.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/editor/graph_ed.cpp
+1302444779 source:/home/simon/c/repo/lix/src/editor/graph_ed.cpp
 	"graph_ed.h"
 	"../graphic/gra_lib.h"
 	"../other/globals.h"
 	"../other/help.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/editor/win_scro.cpp
+1302444779 source:/home/simon/c/repo/lix/src/editor/win_scro.cpp
 	"win_scro.h"
 	"../other/help.h"
 	"../other/language.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/editor/win_size.cpp
+1302444779 source:/home/simon/c/repo/lix/src/editor/win_size.cpp
 	"win_size.h"
 	"../other/help.h"
 	"../other/language.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/editor/win_skil.cpp
+1302444779 source:/home/simon/c/repo/lix/src/editor/win_skil.cpp
 	"win_skil.h"
 	"../graphic/gra_lib.h"
 	"../other/language.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/editor/win_var.cpp
+1302444779 source:/home/simon/c/repo/lix/src/editor/win_var.cpp
 	"win_var.h"
 	"../other/language.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/gameplay/arrow.cpp
+1302444779 source:/home/simon/c/repo/lix/src/gameplay/arrow.cpp
 	"arrow.h"
 	"../graphic/gra_lib.h"
 	"../level/level.h"
 	"../other/help.h"
 	"../other/globals.h"
 
-1302224069 /home/simon/c/repo/lix/src/gameplay/arrow.h
+1302444779 /home/simon/c/repo/lix/src/gameplay/arrow.h
 	<list>
 	"../graphic/graphic.h"
 	"../graphic/map.h"
@@ -5989,7 +5989,7 @@
 	"../api/texttype.h"
 	"../other/console.h"
 
-1302224069 /home/simon/c/repo/lix/src/other/console.h
+1302444779 /home/simon/c/repo/lix/src/other/console.h
 	"help.h"
 	<list>
 	<string>
@@ -6005,7 +6005,7 @@
 	"net_t.h"
 	"permu.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/gameplay/effect.cpp
+1302444779 source:/home/simon/c/repo/lix/src/gameplay/effect.cpp
 	<sstream>
 	"effect.h"
 	"../graphic/gra_lib.h"
@@ -6014,7 +6014,7 @@
 	"../other/user.h"
 	"../other/language.h"
 
-1302224069 /home/simon/c/repo/lix/src/gameplay/effect.h
+1302444779 /home/simon/c/repo/lix/src/gameplay/effect.h
 	<set>
 	"arrow.h"
 	"tribe.h"
@@ -6030,7 +6030,7 @@
 	"../lix/lix.h"
 	"../other/globals.h"
 
-1302224069 /home/simon/c/repo/lix/src/lix/lix.h
+1302444779 /home/simon/c/repo/lix/src/lix/lix.h
 	<map>
 	<string>
 	"lix_enum.h"
@@ -6039,11 +6039,11 @@
 	"../graphic/graph_bg.h"
 	"../graphic/sound.h"
 
-1302368657 source:/home/simon/c/repo/lix/src/gameplay/gamepl_a.cpp
+1302444779 source:/home/simon/c/repo/lix/src/gameplay/gamepl_a.cpp
 	"gameplay.h"
 	"../other/user.h"
 
-1302224069 /home/simon/c/repo/lix/src/gameplay/gameplay.h
+1302444779 /home/simon/c/repo/lix/src/gameplay/gameplay.h
 	"chat.h"
 	"effect.h"
 	"goal.h"
@@ -6084,7 +6084,7 @@
 	"../api/button/button.h"
 	"../lix/lix_enum.h"
 
-1302224069 /home/simon/c/repo/lix/src/gameplay/state_ma.h
+1302444779 /home/simon/c/repo/lix/src/gameplay/state_ma.h
 	"state.h"
 
 1300285974 /home/simon/c/repo/lix/src/gameplay/state.h
@@ -6092,7 +6092,7 @@
 	"../editor/graph_ed.h"
 	"../other/types.h"
 
-1302224069 /home/simon/c/repo/lix/src/gameplay/win_game.h
+1302444779 /home/simon/c/repo/lix/src/gameplay/win_game.h
 	"tribe.h"
 	"replay.h"
 	"../api/brow_sav.h"
@@ -6102,17 +6102,17 @@
 1300285974 /home/simon/c/repo/lix/src/lix/ac.h
 	"../gameplay/effect.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/gameplay/gamepl_c.cpp
+1302444779 source:/home/simon/c/repo/lix/src/gameplay/gamepl_c.cpp
 	"gameplay.h"
 	"../api/manager.h"
 	"../other/user.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/gameplay/gamepl_d.cpp
+1302444779 source:/home/simon/c/repo/lix/src/gameplay/gamepl_d.cpp
 	<cmath>
 	"gameplay.h"
 	"../api/manager.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/gameplay/gameplay.cpp
+1302444779 source:/home/simon/c/repo/lix/src/gameplay/gameplay.cpp
 	"gameplay.h"
 	"../api/manager.h"
 	"../graphic/gra_lib.h"
@@ -6130,12 +6130,12 @@
 	"hatch.h"
 	"../graphic/gra_lib.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/gameplay/gamepl_u.cpp
+1302444779 source:/home/simon/c/repo/lix/src/gameplay/gamepl_u.cpp
 	"gameplay.h"
 	"../graphic/sound.h"
 	"../other/user.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/gameplay/panel.cpp
+1302444779 source:/home/simon/c/repo/lix/src/gameplay/panel.cpp
 	"panel.h"
 	"../level/level.h"
 	"../graphic/gra_lib.h"
@@ -6156,7 +6156,7 @@
 1300285974 source:/home/simon/c/repo/lix/src/gameplay/state_ma.cpp
 	"state_ma.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/gameplay/stats.cpp
+1302444779 source:/home/simon/c/repo/lix/src/gameplay/stats.cpp
 	<sstream>
 	"stats.h"
 	"../graphic/gra_lib.h"
@@ -6166,7 +6166,7 @@
 1300285974 source:/home/simon/c/repo/lix/src/gameplay/tribe.cpp
 	"tribe.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/gameplay/win_game.cpp
+1302444779 source:/home/simon/c/repo/lix/src/gameplay/win_game.cpp
 	<algorithm>
 	<sstream>
 	"win_game.h"
@@ -6176,17 +6176,17 @@
 	"../other/user.h"
 	"../level/level.h"
 
-1302378550 source:/home/simon/c/repo/lix/src/graphic/bitlist.cpp
+1302444779 source:/home/simon/c/repo/lix/src/graphic/bitlist.cpp
 	"glob_gfx.h"
 	"../lix/lix_enum.h"
 
-1302381320 source:/home/simon/c/repo/lix/src/graphic/cutbit.cpp
+1302444779 source:/home/simon/c/repo/lix/src/graphic/cutbit.cpp
 	"cutbit.h"
 	"../other/help.h"
 	"../other/language.h"
 	"../other/log.h"
 
-1302375140 source:/home/simon/c/repo/lix/src/graphic/glob_gfx.cpp
+1302444779 source:/home/simon/c/repo/lix/src/graphic/glob_gfx.cpp
 	<fstream>
 	"glob_gfx.h"
 	"gra_lib.h"
@@ -6200,21 +6200,21 @@
 	"../other/log.h"
 	"../other/user.h"
 
-1302370429 source:/home/simon/c/repo/lix/src/graphic/gra_lib.cpp
+1302444779 source:/home/simon/c/repo/lix/src/graphic/gra_lib.cpp
 	"gra_lib.h"
 	"../lix/lix.h"
 	"../other/help.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/graphic/graph_bg.cpp
+1302444779 source:/home/simon/c/repo/lix/src/graphic/graph_bg.cpp
 	"graph_bg.h"
 	"../other/help.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/graphic/graphic.cpp
+1302444779 source:/home/simon/c/repo/lix/src/graphic/graphic.cpp
 	<cmath>
 	"graphic.h"
 	"../other/help.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/level/crunch.cpp
+1302444779 source:/home/simon/c/repo/lix/src/level/crunch.cpp
 	"crunch.h"
 
 1300285974 /home/simon/c/repo/lix/src/level/crunch.h
@@ -6224,7 +6224,7 @@
 	<vector>
 	"../other/types.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/graphic/map.cpp
+1302444779 source:/home/simon/c/repo/lix/src/graphic/map.cpp
 	"map.h"
 	"../level/level.h"
 	"../other/hardware.h"
@@ -6232,17 +6232,17 @@
 	"../other/help.h"
 	"../other/user.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/graphic/sound.cpp
+1302444779 source:/home/simon/c/repo/lix/src/graphic/sound.cpp
 	"sound.h"
 	"../other/globals.h"
 	"../other/user.h"
 
-1302378147 source:/home/simon/c/repo/lix/src/graphic/torbit.cpp
+1302444779 source:/home/simon/c/repo/lix/src/graphic/torbit.cpp
 	<cmath>
 	"torbit.h"
 	"../other/help.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/level/graset.cpp
+1302444779 source:/home/simon/c/repo/lix/src/level/graset.cpp
 	"graset.h"
 
 1300285974 source:/home/simon/c/repo/lix/src/level/level_bi.cpp
@@ -6258,7 +6258,7 @@
 	"../other/language.h"
 	"../other/log.h"
 
-1302370429 source:/home/simon/c/repo/lix/src/level/obj_lib.cpp
+1302444779 source:/home/simon/c/repo/lix/src/level/obj_lib.cpp
 	<sstream>
 	"obj_lib.h"
 	"graset_1.h"
@@ -6267,12 +6267,12 @@
 	"../other/globals.h"
 	"../other/help.h"
 
-1302224069 /home/simon/c/repo/lix/src/level/graset_1.h
+1302444779 /home/simon/c/repo/lix/src/level/graset_1.h
 	<string>
 	"crunch.h"
 	"graset.h"
 
-1302224069 /home/simon/c/repo/lix/src/level/graset_2.h
+1302444779 /home/simon/c/repo/lix/src/level/graset_2.h
 	<vector>
 	<string>
 	"crunch.h"
@@ -6282,13 +6282,13 @@
 	"object.h"
 	"../graphic/glob_gfx.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/level/graset_1.cpp
+1302444779 source:/home/simon/c/repo/lix/src/level/graset_1.cpp
 	<fstream>
 	"../other/myalleg.h"
 	"graset_1.h"
 	"../graphic/glob_gfx.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/level/graset_2.cpp
+1302444779 source:/home/simon/c/repo/lix/src/level/graset_2.cpp
 	"../other/myalleg.h"
 	<fstream>
 	<algorithm>
@@ -6301,7 +6301,7 @@
 	"../other/help.h"
 	"../other/language.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/level/level_dr.cpp
+1302444779 source:/home/simon/c/repo/lix/src/level/level_dr.cpp
 	"level.h"
 	"obj_lib.h"
 	"../other/help.h"
@@ -6316,10 +6316,10 @@
 1300285974 source:/home/simon/c/repo/lix/src/lix/blocker.cpp
 	"ac.h"
 
-1300285974 source:/home/simon/c/repo/lix/src/lix/builder.cpp
+1302445074 source:/home/simon/c/repo/lix/src/lix/builder.cpp
 	"ac.h"
 
-1300285974 source:/home/simon/c/repo/lix/src/lix/climber.cpp
+1302445387 source:/home/simon/c/repo/lix/src/lix/climber.cpp
 	"ac.h"
 
 1300285974 source:/home/simon/c/repo/lix/src/lix/deaths.cpp
@@ -6334,7 +6334,7 @@
 1300285974 source:/home/simon/c/repo/lix/src/lix/exploder.cpp
 	"ac.h"
 
-1300285974 source:/home/simon/c/repo/lix/src/lix/faller.cpp
+1302445404 source:/home/simon/c/repo/lix/src/lix/faller.cpp
 	"ac.h"
 
 1300285974 source:/home/simon/c/repo/lix/src/lix/floater.cpp
@@ -6353,7 +6353,7 @@
 1300285974 source:/home/simon/c/repo/lix/src/lix/lander.cpp
 	"ac.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/lix/lix.cpp
+1302444779 source:/home/simon/c/repo/lix/src/lix/lix.cpp
 	<algorithm>
 	<cmath>
 	"ac.h"
@@ -6363,7 +6363,7 @@
 	"../other/globals.h"
 	"../other/help.h"
 
-1300285974 source:/home/simon/c/repo/lix/src/lix/lix_ac.cpp
+1302445688 source:/home/simon/c/repo/lix/src/lix/lix_ac.cpp
 	"lix.h"
 	"../gameplay/gameplay.h"
 	"../gameplay/goal.h"
@@ -6375,7 +6375,7 @@
 	<vector>
 	"lix_enum.h"
 
-1300285974 source:/home/simon/c/repo/lix/src/lix/lix_upd.cpp
+1302445688 source:/home/simon/c/repo/lix/src/lix/lix_upd.cpp
 	<cmath>
 	"../gameplay/gameplay.h"
 	"../graphic/sound.h"
@@ -6394,13 +6394,13 @@
 1300285974 source:/home/simon/c/repo/lix/src/lix/stunner.cpp
 	"ac.h"
 
-1300285974 source:/home/simon/c/repo/lix/src/lix/tumbler.cpp
+1302445905 source:/home/simon/c/repo/lix/src/lix/tumbler.cpp
 	"ac.h"
 
 1300285974 source:/home/simon/c/repo/lix/src/lix/walker.cpp
 	"ac.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/menu/brow_big.cpp
+1302444779 source:/home/simon/c/repo/lix/src/menu/brow_big.cpp
 	"brow_big.h"
 	"../api/manager.h"
 	"../level/level.h"
@@ -6413,12 +6413,12 @@
 	"../api/list_lev.h"
 	"../api/window.h"
 
-1302285255 /home/simon/c/repo/lix/src/menu/preview.h
+1302444779 /home/simon/c/repo/lix/src/menu/preview.h
 	"../api/frame.h"
 	"../graphic/graphic.h"
 	"../level/level.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/menu/brow_rep.cpp
+1302444779 source:/home/simon/c/repo/lix/src/menu/brow_rep.cpp
 	"browsers.h"
 	"../api/manager.h"
 	"../gameplay/replay.h"
@@ -6428,7 +6428,7 @@
 	"brow_big.h"
 	"../api/brow_sav.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/menu/brow_sin.cpp
+1302444779 source:/home/simon/c/repo/lix/src/menu/brow_sin.cpp
 	"browsers.h"
 	"../level/crunch.h"
 	"../other/user.h"
@@ -6437,13 +6437,13 @@
 	"little.h"
 	"../other/user.h"
 
-1302285256 /home/simon/c/repo/lix/src/menu/little.h
+1302444779 /home/simon/c/repo/lix/src/menu/little.h
 	"../api/button/b_text.h"
 	"../api/texttype.h"
 	"../api/window.h"
 	"../other/language.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/menu/lobby.cpp
+1302444779 source:/home/simon/c/repo/lix/src/menu/lobby.cpp
 	<sstream>
 	"lobby.h"
 	"../api/manager.h"
@@ -6474,7 +6474,7 @@
 	"../api/frame.h"
 	"../other/console.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/menu/lobby_li.cpp
+1302444779 source:/home/simon/c/repo/lix/src/menu/lobby_li.cpp
 	"lobby_li.h"
 	"../graphic/gra_lib.h"
 	"../network/network.h"
@@ -6485,7 +6485,7 @@
 	"lobby_ro.h"
 	"../other/language.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/menu/main_men.cpp
+1302444779 source:/home/simon/c/repo/lix/src/menu/main_men.cpp
 	"main_men.h"
 	"../api/manager.h"
 	"../other/help.h"
@@ -6496,7 +6496,7 @@
 	"../api/label.h"
 	"../api/window.h"
 
-1302381334 source:/home/simon/c/repo/lix/src/menu/menu.cpp
+1302444779 source:/home/simon/c/repo/lix/src/menu/menu.cpp
 	"menu.h"
 	"../api/manager.h"
 	"../graphic/gra_lib.h"
@@ -6525,7 +6525,7 @@
 	"../api/window.h"
 	"../lix/lix_enum.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/menu/options.cpp
+1302444779 source:/home/simon/c/repo/lix/src/menu/options.cpp
 	<sstream>
 	"options.h"
 	"../api/manager.h"
@@ -6533,17 +6533,17 @@
 	"../other/language.h"
 	"../other/user.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/menu/preview.cpp
+1302444779 source:/home/simon/c/repo/lix/src/menu/preview.cpp
 	"preview.h"
 	"../graphic/gra_lib.h"
 	"../level/level.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/network/client.cpp
+1302444779 source:/home/simon/c/repo/lix/src/network/client.cpp
 	"client.h"
 	"../other/console.h"
 	"../other/language.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/network/client_c.cpp
+1302444779 source:/home/simon/c/repo/lix/src/network/client_c.cpp
 	<sstream>
 	<fstream>
 	"client.h"
@@ -6556,13 +6556,13 @@
 	<cstring>
 	"net_t.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/network/network.cpp
+1302444779 source:/home/simon/c/repo/lix/src/network/network.cpp
 	"network.h"
 	"server.h"
 	"../other/console.h"
 	"../other/language.h"
 
-1302224069 /home/simon/c/repo/lix/src/network/server.h
+1302444779 /home/simon/c/repo/lix/src/network/server.h
 	<vector>
 	<string>
 	"net_t.h"
@@ -6573,18 +6573,18 @@
 	<sstream>
 	"permu.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/network/server.cpp
+1302444779 source:/home/simon/c/repo/lix/src/network/server.cpp
 	<cstring>
 	"server.h"
 	"../other/globals.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/network/server_c.cpp
+1302444779 source:/home/simon/c/repo/lix/src/network/server_c.cpp
 	<iostream>
 	<fstream>
 	<list>
 	"server.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/other/console.cpp
+1302444779 source:/home/simon/c/repo/lix/src/other/console.cpp
 	"console.h"
 	"log.h"
 
@@ -6593,12 +6593,12 @@
 	<sstream>
 	"date.h"
 
-1302370711 source:/home/simon/c/repo/lix/src/other/globals.cpp
+1302444779 source:/home/simon/c/repo/lix/src/other/globals.cpp
 	"myalleg.h"
 	<fstream>
 	"io.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/other/io.cpp
+1302444779 source:/home/simon/c/repo/lix/src/other/io.cpp
 	"myalleg.h"
 	<sstream>
 	"io.h"
@@ -6608,14 +6608,14 @@
 	"user.h"
 	"../editor/editor.h"
 
-1302224069 source:/home/simon/c/repo/lix/src/other/log.cpp
+1302444779 source:/home/simon/c/repo/lix/src/other/log.cpp
 	"help.h"
 	"log.h"
 	"globals.h"
 	"language.h"
 	<cstdio>
 
-1302224069 source:/home/simon/c/repo/lix/src/other/user.cpp
+1302444779 source:/home/simon/c/repo/lix/src/other/user.cpp
 	"myalleg.h"
 	"user.h"
 	"language.h"
@@ -6623,13 +6623,13 @@
 	"../lix/lix_enum.h"
 	"../network/net_t.h"
 
-1302370406 source:/home/simon/c/repo/lix/src/other/hardware.cpp
+1302444779 source:/home/simon/c/repo/lix/src/other/hardware.cpp
 	"hardware.h"
 	"help.h"
 	"log.h"
 	"user.h"
 
-1302285213 source:/home/simon/c/repo/lix/src/other/help.cpp
+1302444779 source:/home/simon/c/repo/lix/src/other/help.cpp
 	"../other/myalleg.h"
 	<cmath>
 	<iomanip>
@@ -6641,20 +6641,20 @@
 	"log.h"
 	"../graphic/glob_gfx.h"
 
-1302287017 source:/home/simon/c/repo/lix/src/other/lmain.cpp
+1302444779 source:/home/simon/c/repo/lix/src/other/lmain.cpp
 	"lmain.h"
 	"user.h"
 	"../api/manager.h"
 	"../graphic/sound.h"
 
-1302286963 /home/simon/c/repo/lix/src/other/lmain.h
+1302444779 /home/simon/c/repo/lix/src/other/lmain.h
 	<string>
 	<vector>
 	"../editor/editor.h"
 	"../gameplay/gameplay.h"
 	"../menu/menu.h"
 
-1302297881 source:/home/simon/c/repo/lix/src/other/main.cpp
+1302444779 source:/home/simon/c/repo/lix/src/other/main.cpp
 	"lmain.h"
 	"user.h"
 	"../lix/lix_enum.h"

@@ -47,9 +47,9 @@ void update_builder(Lixxie& l, const UpdateArgs& ua)
         // Die zweite Abfrage in der Und-Klammer dient dazu, Treppen
         // auch auf anderen Treppen bauen zu können.
         // Last line is Horus bug prevention.
-        if ((l.is_solid(6, -2) && l.is_solid(6, -4) || l.is_solid(6, -18))
-         || (l.is_solid(4, -2) && l.is_solid(4, -4) || l.is_solid(4, -18))
-         || (l.is_solid(2, -2) && l.is_solid(2, -4))) {
+        if (((l.is_solid(6, -2) && l.is_solid(6, -4)) || l.is_solid(6, -18))
+         || ((l.is_solid(4, -2) && l.is_solid(4, -4)) || l.is_solid(4, -18))
+         ||  (l.is_solid(2, -2) && l.is_solid(2, -4))) {
             // Ueberfluessige Faehigkeitsbenutzngen an den Spieler
             // zurueckgeben, passiert nur bei Option "multiple Builders".
             // Wird von l.assign() erledigt.
