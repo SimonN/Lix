@@ -9,7 +9,6 @@
 #include <fstream> // write levels
 
 #include "client.h"
-#include "../other/log.h" // DEBUGGING rohan
 
 #include "../other/console.h"
 #include "../other/language.h"
@@ -149,7 +148,6 @@ void NetClient::calc()
         }
 
         else if (type == LEMNET_ROOM_DATA) {
-            Log::log("debugging rohan: room data");
             rooms.clear();
             for (int room = 0; room < NETWORK_ROOMS_MAX; ++room)
              if (event.packet->data[2 + room] > 0) {
@@ -159,11 +157,9 @@ void NetClient::calc()
                 rooms.insert(rd);
             }
             room_data_change = true;
-            Log::log("debugging rohan: room data done");
         }
 
         else if (type == LEMNET_ROOM_CHANGE) {
-            Log::log("debugging rohan: room change");
             // Throw out all people other than us, because we'll soon receive
             // LEMNET_PLAYER_BEFORE packets for everyone in the new room.
             PlayerData temp_ourself = *ourself;
@@ -183,12 +179,10 @@ void NetClient::calc()
                 Console::push_back(message.str());
             }
             ourself->room = target_room;
-            Log::log("debugging rohan: room change done");
         }
 
         else if (type == LEMNET_PLAYER_DATA
          ||      type == LEMNET_PLAYER_BEFORE) {
-            Log::log("debugging rohan: player before");
             PlayerData pd;
             pd.read_from(event.packet);
             PlDatIt known = get_player(pd.number);
@@ -226,7 +220,6 @@ void NetClient::calc()
                 if (!dont_call_snr) set_nobody_ready();
             }
             player_data_change = true;
-            Log::log("debugging rohan: player before done");
         }
 
         else if (type == LEMNET_PLAYER_CLEAR
@@ -258,7 +251,6 @@ void NetClient::calc()
         }
 
         else if (type == LEMNET_LEVEL_FILE) {
-            Log::log("debugging rohan: level file");
             set_nobody_ready();
             std::istringstream str((char*) event.packet->data + 2);
             level.load_from_stream(str);
@@ -271,7 +263,6 @@ void NetClient::calc()
                     << ' ' << level.get_name();
                 Console::push_back(msg.str());
             }
-            Log::log("debugging rohan: level file done");
         }
 
         else if (type == LEMNET_CHAT_MESSAGE) {

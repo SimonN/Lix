@@ -46,6 +46,7 @@ namespace Help {
 
     std::string version_to_string   (const unsigned long);
 
+    void string_format_slashes  (std::string&); // change all `\' into `/'
     void string_to_nice_case    (std::string&); // Alle ausser 1. Bch.
     void string_remove_extension(std::string&);
     void string_remove_dir      (std::string&);
@@ -73,7 +74,7 @@ namespace Help {
 
 
     // Funktionszeigertypendefinition für die kommenden Suchfunktionen
-    typedef void (*DoStr)(std::string&, void*);
+    typedef void (*DoStr)(const std::string&, void*);
 
     void find_files(const std::string&, const std::string&, DoStr,void*);
     // Die Funktion durchsucht das mit dem ersten Argument angegebene Verzeich-
