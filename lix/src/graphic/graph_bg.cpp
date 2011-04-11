@@ -30,8 +30,8 @@ GraphicBG& GraphicBG::operator = (const GraphicBG& o)
 {
     if (this == &o || &bg == &o.bg) return *this;
     Graphic::operator = (o);
-    al_set_target_bitmap(bg);
-    al_draw_bitmap(o.bg, 0, 0, 0);
+    al_destroy_bitmap(bg);
+    bg = al_clone_bitmap(o.bg);
     drawn   = o.drawn;
     x_drawn = o.x_drawn;
     y_drawn = o.y_drawn;

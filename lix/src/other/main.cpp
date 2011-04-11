@@ -55,7 +55,6 @@ int main(int argc, char* argv[])
     Globals::initialize();
     User::initialize();
     Log::initialize();
-    Hardware::initialize();
     LixEn::initialize();
 
     gloB->load();
@@ -66,8 +65,11 @@ int main(int argc, char* argv[])
 
     // Allegro graphics
     set_screen_mode(margs.scr_f, margs.scr_x, margs.scr_y); // in glob_gfx.h
-
     load_all_bitmaps_and_fonts();
+
+    // Must be done after display creation
+    Hardware::initialize();
+
     Network::initialize();
 
     // Main loop. See other/lmain.cpp for this.
@@ -80,10 +82,10 @@ int main(int argc, char* argv[])
     gloB->save();
 
     Network::deinitialize();
+    Hardware::deinitialize();
     destroy_all_bitmaps_fonts_and_display();
 
     Sound::deinitialize();
-    Hardware::deinitialize();
     Log::deinitialize();
     Globals::deinitialize();
     Help::timer_deinitialize();

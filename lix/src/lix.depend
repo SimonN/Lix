@@ -5552,7 +5552,7 @@
 	<set>
 	"../other/hardware.h"
 
-1302444779 /home/simon/c/repo/lix/src/other/hardware.h
+1302546645 /home/simon/c/repo/lix/src/other/hardware.h
 	"../graphic/glob_gfx.h"
 
 1302444779 /home/simon/c/repo/lix/src/graphic/glob_gfx.h
@@ -6186,7 +6186,7 @@
 	"../other/language.h"
 	"../other/log.h"
 
-1302444779 source:/home/simon/c/repo/lix/src/graphic/glob_gfx.cpp
+1302547167 source:/home/simon/c/repo/lix/src/graphic/glob_gfx.cpp
 	<fstream>
 	"glob_gfx.h"
 	"gra_lib.h"
@@ -6205,7 +6205,7 @@
 	"../lix/lix.h"
 	"../other/help.h"
 
-1302531316 source:/home/simon/c/repo/lix/src/graphic/graph_bg.cpp
+1302545477 source:/home/simon/c/repo/lix/src/graphic/graph_bg.cpp
 	"graph_bg.h"
 	"../other/help.h"
 
@@ -6622,7 +6622,7 @@
 	"../lix/lix_enum.h"
 	"../network/net_t.h"
 
-1302444779 source:/home/simon/c/repo/lix/src/other/hardware.cpp
+1302546989 source:/home/simon/c/repo/lix/src/other/hardware.cpp
 	"hardware.h"
 	"help.h"
 	"log.h"
@@ -6640,7 +6640,7 @@
 	"log.h"
 	"../graphic/glob_gfx.h"
 
-1302531176 source:/home/simon/c/repo/lix/src/other/lmain.cpp
+1302547711 source:/home/simon/c/repo/lix/src/other/lmain.cpp
 	"lmain.h"
 	"user.h"
 	"../api/manager.h"
@@ -6653,7 +6653,7 @@
 	"../gameplay/gameplay.h"
 	"../menu/menu.h"
 
-1302444779 source:/home/simon/c/repo/lix/src/other/main.cpp
+1302547122 source:/home/simon/c/repo/lix/src/other/main.cpp
 	"lmain.h"
 	"user.h"
 	"../lix/lix_enum.h"
