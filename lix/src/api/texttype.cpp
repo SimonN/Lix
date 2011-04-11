@@ -67,7 +67,6 @@ void Texttype::set_on(const bool b)
         // Schreibmodus beginnen
         Manager::add_focus(this);
         text_backup = text; // Fuer ESC-Druck/Rechtsklick
-        // clear_keybuf(); // afdebug
     }
 }
 

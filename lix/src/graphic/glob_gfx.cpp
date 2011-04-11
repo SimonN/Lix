@@ -74,7 +74,6 @@ void load_all_bitmaps_and_fonts()
     al_init_primitives_addon();
 
     // afdebug: set the bitmap flags here
-    al_set_new_bitmap_flags (ALLEGRO_MEMORY_BITMAP);
 
     Api::Manager::initialize(LEMSCR_X, LEMSCR_Y);
     Torbit* osd = &Api::Manager::get_torbit();
@@ -142,8 +141,6 @@ void blit_to_screen(ALLEGRO_BITMAP* b)
 
     al_set_target_backbuffer(displaY);
 
-    // afdebug: not necessary in A5?
-    // if (gloB->screen_vsync) vsync();
     if (screen_xl == LEMSCR_X && screen_yl == LEMSCR_Y) {
         al_draw_bitmap(b, 0, 0, 0);
     }
@@ -215,10 +212,4 @@ void set_screen_mode(const bool full, int res_x, int res_y)
     clear_screen_at_next_blit = true;
 
     al_set_window_title(displaY, Language::main_name_of_the_game.c_str());
-
-    // Do this so the mouse doesn't scroll stupidly after a switch.
-    // In Hardware::cpp, the mouse is always set to the center anyway, to trap
-    // it in the program (scrolling at the sides) and for infinite movement
-    // (for scrolling with right mouse button).
-    al_set_mouse_xy(displaY, LEMSCR_X/2, LEMSCR_Y/2);
 }

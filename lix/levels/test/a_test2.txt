@@ -1,4 +1,4 @@
-$BUILT                                             2010-03-26 11:51:37
+$BUILT                                             2011-04-11 19:52:51
 $AUTHOR                                                          Simon
 $GERMAN                               Der zweite Testlevel von beiden!
 $ENGLISH                         Another testing level, it's all beta.
@@ -10,7 +10,7 @@ $ENGLISH                         Another testing level, it's all beta.
 #TORUS_X                                                             1
 #TORUS_Y                                                             1
 #SECONDS                                                             0
-#LEMMINGS                                                           80
+#INITIAL                                                            80
 #REQUIRED                                                           20
 #RATE                                                               88
 
@@ -22,13 +22,14 @@ $ENGLISH                         Another testing level, it's all beta.
 #PLATFORMER                                                         30
 #BASHER                                                             30
 #MINER                                                              99
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
 
-:./bitmap/simon/hatch.H:                                 532       286
-:./bitmap/simon/hatch.H:                                 447       119
-:./bitmap/simon/hatch.H:                                 120       270
-:./bitmap/simon/hatch.H:                                 240        80
+:./bitmap/Rebuilds/02 - Gold Mine/Hatch.H:               255       139
 
-:./bitmap/simon/goal.G:                                   15        40
+:./bitmap/Rebuilds/04 - Sandy Beach/goal3.G:             417       124
 
 :./bitmap/simon/steel/clean_h2.S:                        329       416
 :./bitmap/simon/wood/wood_h1:                            256       230

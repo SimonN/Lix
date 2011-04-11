@@ -54,6 +54,19 @@ private:
 
     ALLEGRO_EVENT_QUEUE* event_queue;
 
+////////////////////
+// Display events //
+////////////////////
+
+private:
+
+    bool display_is_active;  // if so, centralize mouse
+    bool display_was_closed;
+
+public:
+
+    static inline bool get_display_was_closed()
+                       { return hw->display_was_closed; }
 //////////
 // Maus //
 //////////

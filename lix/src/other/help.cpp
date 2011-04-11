@@ -50,6 +50,31 @@ int get_timer_ticks()
 
 
 
+void set_al_transparency_off()
+{
+    al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_ZERO);
+}
+
+
+
+void set_al_transparency_on()
+{
+    al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_INVERSE_ALPHA);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 double hypot(const int x1, const int y1,
              const int x2, const int y2)
 {

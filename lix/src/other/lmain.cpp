@@ -43,20 +43,17 @@ void LMain::main_loop()
 
     al_register_event_source(lmain_queue,
                              al_get_timer_event_source(Help::timer));
-    al_register_event_source(lmain_queue,
-                             al_get_display_event_source(displaY));
 
     while ( ! exit) {
         ALLEGRO_EVENT event;
         al_wait_for_event(lmain_queue, &event);
 
-        if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
-            undraw();
-            exit = true;
-        }
-        else if (event.type == ALLEGRO_EVENT_TIMER) {
+        if (event.type == ALLEGRO_EVENT_TIMER) {
             calc();
-            if (al_is_event_queue_empty(lmain_queue)) draw();
+        }
+        if (al_is_event_queue_empty(lmain_queue)) {
+            draw();
+            undraw();
         }
     }
 
@@ -131,7 +128,8 @@ void LMain::calc()
 
     // Hotkey combination to terminate the program instantly from
     // everywhere. This doesn't bug the user about unsaved data.
-    if (Hardware::get_shift() && Hardware::get_key_hold(ALLEGRO_KEY_ESCAPE)) {
+    if ((Hardware::get_shift() && Hardware::get_key_hold(ALLEGRO_KEY_ESCAPE))
+     || Hardware::get_display_was_closed()) {
         exit = true;
     }
     // Hotkey combination for fullscreen

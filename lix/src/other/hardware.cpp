@@ -15,8 +15,10 @@ const int Hardware::doubleclick_for60(20);
 
 Hardware::Hardware()
 :
-    mouse_own_x   (LEMSCR_X/2),
-    mouse_own_y   (LEMSCR_Y/2),
+    display_is_active  (true),
+    display_was_closed (false),
+    mouse_own_x        (LEMSCR_X/2),
+    mouse_own_y        (LEMSCR_Y/2),
     mickey_x(0),
     mickey_y(0),
     key_hold   (ALLEGRO_KEY_MAX, false),
@@ -35,6 +37,13 @@ Hardware::Hardware()
     event_queue = al_create_event_queue();
     al_register_event_source(event_queue, al_get_keyboard_event_source());
     al_register_event_source(event_queue, al_get_mouse_event_source());
+
+    // Also the global display events.
+    if (displaY) {
+        al_hide_mouse_cursor(displaY);
+        al_register_event_source(event_queue,
+         al_get_display_event_source(displaY));
+    }
 }
 
 Hardware::~Hardware()
@@ -129,10 +138,26 @@ void Hardware::main_loop() {
         hw->mouse_hold   [event.mouse.button - 1] = 0;
         break;
 
+    case ALLEGRO_EVENT_DISPLAY_SWITCH_OUT:
+        hw->display_is_active = false;
+        break;
+
+    case ALLEGRO_EVENT_DISPLAY_SWITCH_IN:
+        hw->display_is_active = true;
+        break;
+
+    case ALLEGRO_EVENT_DISPLAY_CLOSE:
+        hw->display_was_closed = true;
+        break;
+
     default:
         break;
     }
     // end of hardware event dispatching
+
+    if (hw->display_is_active) {
+        al_set_mouse_xy(displaY, LEMSCR_X/2, LEMSCR_Y/2);
+    }
 }
 
 
