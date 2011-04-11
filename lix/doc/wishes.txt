@@ -1,0 +1,114 @@
+
+/¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\
+|   Lix                                                    Feature wishlist   |
+\_____________________________________________________________________________/
+
+
+
+Generell
+
+    Automatisches Speichern von Replays
+        Hier kann man mal drüber nachdenken.
+
+
+
+Menue
+
+    Weitere-Button
+        Die letzte Seite nur teilweise zeigen, damit bei n Elementen, die
+        auf dem Bildschirm Platz haben, immer Element Nr. pn am Anfang steht
+        mit einer ganzen Zahl p.
+
+    Scrollbalken statt Weitere-Button
+        Selbsterklaerend.
+
+    Navigation with cursor keys and return
+        This might be useful for the big level browsers.
+
+    Replays in the single player menu
+        Levels with available replays should be marked differently in the
+        single player menu, and maybe replays should be started directly
+        from there.
+
+
+
+Editor
+
+    Automatisches Fortsetzen
+        Das Terrain fuer eine Mehrspielerkarte nur einmal hinpflanzen und
+        vom Spiel je nach Spielerzahl, die gerade dabei ist, vervielfaeltigen
+        lassen.
+
+    Rotate/mirror group
+        If multiple elements are selected, rotating/mirroring should act on
+        the objects' relative positions as well. The idea is to rotate/mirror
+        a large part of the terrain to create symmectic levels more easily.
+
+
+
+Gameplay
+
+    Show lixes in/out of hatch
+        At the moment, you can only see the total of in-hatch and out lixes.
+        One should be able to see the number of lixes in the hatch as well.
+
+    Display hotkeys
+        Display the skill hotkeys on top of the OSD buttons.
+
+    Roper
+        Verschiesst ein Seil zum Drueberlaufen.
+
+    Resolution
+        Higher resolution than the internal 640 x 480 inside the game, even
+        if it won't be used in the menu.
+
+    Nuke disabling
+        Each level could have the nuke for multiplayer disabled. Players
+        can still activate a nuke-like function then, but it merely takes
+        away control over their tribe and starts the overtime.
+        
+    End of time
+        When the remaining time has reached zero, currently lems are still
+        able to enter the exit as long as the nuke's exploder assignment
+        was late on them. This allows level solve times over the maximum.
+        Maybe lems should explode immedeately instead of exiting when walking
+        into an exit with the clock being zero?
+
+
+
+Netzwerk
+
+    Observer mode
+        People shall be able to watch a game, i.e. to pick an option besides
+        the colors. Even better would be if a newcomer could view the ongoing
+        game.
+
+    Statistics
+        After a game, you can view better statistics than now. The better
+        screen could show how many lems every player got from whom.
+
+    Level lokal speichern
+        Netzwerklevel lokal zu speichern ermoeglichen, also ./data/netlevel.txt
+        im Levels-Ordner unter beliebigem Namen speichern auf Kommando.
+
+    Netzwerkpause
+        Netzwerkpause einbauen, anstatt: Derzeit kann man auf [ESC] druecken,
+        und das eigene Spiel pausiert. Es wird dann die Geschwindigkeit
+        langsam wieder angeglichen, damit alle wieder gleichauf sind.
+
+    Levelinfo
+        Bei Mouseover in der Lobby über das Map-Image soll ein Tooltip-Fenster
+        kommen und da drin steht dann, wie die Map heißt, wer der Autor ist,
+        wie viel Zeit, Lemminge usw. usf.
+
+
+
+Einzelspieler
+
+    Highscore-Gewicht
+        Benutzeroption einbauen, der bestimmt, ob das schnelle Schaffen von
+        Levels wertvoller ist als das Sparen von Faehigkeiten.
+
+    Highscore-Erweiterung
+        Mehr als nur die Bestleistung eines Spielers im Einzelspielermodus
+        speichern. Vergleichbarkeit mehrerer Benutzer untereinander einbauen.
