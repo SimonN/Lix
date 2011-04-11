@@ -58,7 +58,9 @@ void GraphicBG::undraw()
         drawn = false;
         // restore the bg
         al_set_target_bitmap(get_ground().get_al_bitmap());
+        Help::set_al_transparency_off();
         al_draw_bitmap(bg, x_drawn, y_drawn, 0);
+        Help::set_al_transparency_on();
     }
 }
 
@@ -71,7 +73,9 @@ void GraphicBG::draw()
     y_drawn = get_y();
     // save the bg
     al_set_target_bitmap(bg);
+    Help::set_al_transparency_off();
     al_draw_bitmap_region(get_ground().get_al_bitmap(),
      get_x(), get_y(), get_xl(), get_yl(), 0, 0, 0);
+    Help::set_al_transparency_on();
     Graphic::draw();
 }

@@ -32,6 +32,9 @@ namespace Help {
     void timer_deinitialize();
     int  get_timer_ticks();
 
+    void set_al_transparency_off();
+    void set_al_transparency_on();
+
     double hypot        (const int,    const int,    const int, const int);
     double random_double(const double, const double); // zw. 1. und 2. Argument
     int    mod          (const int,    const int); // besser als % im Negativen

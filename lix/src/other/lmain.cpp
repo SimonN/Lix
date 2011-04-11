@@ -51,12 +51,14 @@ void LMain::main_loop()
         al_wait_for_event(lmain_queue, &event);
 
         if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
-            undraw();
             exit = true;
         }
         else if (event.type == ALLEGRO_EVENT_TIMER) {
             calc();
-            if (al_is_event_queue_empty(lmain_queue)) draw();
+            if (al_is_event_queue_empty(lmain_queue)) {
+                draw();
+                undraw();
+            }
         }
     }
 

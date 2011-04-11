@@ -36,10 +36,10 @@ void Editor::draw()
     // Draw the map
     // If drawing takes very long, wait until after dragging.
     if (draw_required && (draw_dragging
-     || (!Hardware::get_key_hold(ALLEGRO_KEY_UP)
-      && !Hardware::get_key_hold(ALLEGRO_KEY_RIGHT)
-      && !Hardware::get_key_hold(ALLEGRO_KEY_DOWN)
-      && !Hardware::get_key_hold(ALLEGRO_KEY_LEFT)
+     || (!Hardware::get_key_hold(useR->key_ed_up)
+      && !Hardware::get_key_hold(useR->key_ed_right)
+      && !Hardware::get_key_hold(useR->key_ed_down)
+      && !Hardware::get_key_hold(useR->key_ed_left)
       && !Hardware::get_mlh()) ) ) {
         draw_required = false;
         int clock     = Help::get_timer_ticks();

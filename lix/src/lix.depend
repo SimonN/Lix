@@ -5648,7 +5648,7 @@
 	"date.h"
 	"globals.h"
 
-1302450560 /home/simon/c/repo/lix/src/other/help.h
+1302530340 /home/simon/c/repo/lix/src/other/help.h
 	"myalleg.h"
 	<cstdlib>
 	<string>
@@ -5929,7 +5929,7 @@
 	"../api/manager.h"
 	"../other/user.h"
 
-1302444779 source:/home/simon/c/repo/lix/src/editor/editor_d.cpp
+1302530340 source:/home/simon/c/repo/lix/src/editor/editor_d.cpp
 	<sstream>
 	"editor.h"
 	"../api/manager.h"
@@ -6205,7 +6205,7 @@
 	"../lix/lix.h"
 	"../other/help.h"
 
-1302444779 source:/home/simon/c/repo/lix/src/graphic/graph_bg.cpp
+1302531316 source:/home/simon/c/repo/lix/src/graphic/graph_bg.cpp
 	"graph_bg.h"
 	"../other/help.h"
 
@@ -6628,7 +6628,7 @@
 	"log.h"
 	"user.h"
 
-1302450549 source:/home/simon/c/repo/lix/src/other/help.cpp
+1302530340 source:/home/simon/c/repo/lix/src/other/help.cpp
 	"../other/myalleg.h"
 	<cmath>
 	<iomanip>
@@ -6640,7 +6640,7 @@
 	"log.h"
 	"../graphic/glob_gfx.h"
 
-1302444779 source:/home/simon/c/repo/lix/src/other/lmain.cpp
+1302531176 source:/home/simon/c/repo/lix/src/other/lmain.cpp
 	"lmain.h"
 	"user.h"
 	"../api/manager.h"
