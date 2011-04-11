@@ -55,6 +55,10 @@ Gameplay
     Display hotkeys
         Display the skill hotkeys on top of the OSD buttons.
 
+    Out of Skill
+        Make a special sound when you're trying to switch to a skill you're
+        out of (via hotkey or clicking on it)
+
     Roper
         Verschiesst ein Seil zum Drueberlaufen.
 
