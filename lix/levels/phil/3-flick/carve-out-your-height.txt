@@ -1,0 +1,121 @@
+$BUILT                                             2011-03-25 23:20:59
+$AUTHOR                                                           phil
+$GERMAN                                                               
+$ENGLISH                                          Time-efficient miner
+
+#SIZE_X                                                           1920
+#SIZE_Y                                                            400
+#START_X                                                           640
+#START_Y                                                           380
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#SECONDS                                                            60
+#INITIAL                                                            30
+#REQUIRED                                                           30
+#RATE                                                                1
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#EXPLODER2                                                           1
+#BUILDER                                                             3
+#BASHER                                                              3
+#DIGGER                                                              5
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:./bitmap/Rebuilds/02 - Gold Mine/Hatch.H:                   804        18
+
+:./bitmap/Rebuilds/02 - Gold Mine/Goal.G:                   1157       241
+
+:./bitmap/Rebuilds/02 - Gold Mine/08:                        169       263
+:./bitmap/Rebuilds/02 - Gold Mine/plank support:            1313       259
+:./bitmap/Rebuilds/02 - Gold Mine/tracks:                   1269       379
+:./bitmap/Rebuilds/02 - Gold Mine/plank support:             953       296
+:./bitmap/Rebuilds/02 - Gold Mine/plank support:             792        72
+:./bitmap/Rebuilds/02 - Gold Mine/09:                        855       237
+:./bitmap/Rebuilds/02 - Gold Mine/03:                        879       220
+:./bitmap/Rebuilds/02 - Gold Mine/00:                        948       177
+:./bitmap/Universal/16x32.S:                             981       206
+:./bitmap/Universal/16x32.S:                             981       238
+:./bitmap/Rebuilds/02 - Gold Mine/plank:                     946       283
+:./bitmap/Rebuilds/02 - Gold Mine/04:                        874       229
+:./bitmap/Rebuilds/02 - Gold Mine/plank:                     939       270     n
+:./bitmap/Universal/32x16.S:                             949       254
+:./bitmap/Universal/16x32.S:                             953       270
+:./bitmap/Rebuilds/02 - Gold Mine/02:                       1177       292     rr
+:./bitmap/Rebuilds/02 - Gold Mine/02:                       1125       278
+:./bitmap/Rebuilds/02 - Gold Mine/06:                       1159       276
+:./bitmap/Rebuilds/02 - Gold Mine/07:                       1098       348
+:./bitmap/Rebuilds/02 - Gold Mine/crate64:                   804       281
+:./bitmap/Rebuilds/02 - Gold Mine/crate64:                   740       281
+:./bitmap/Rebuilds/02 - Gold Mine/07:                        651       324
+:./bitmap/Rebuilds/02 - Gold Mine/08:                        782       305
+:./bitmap/Rebuilds/02 - Gold Mine/04:                        837       329
+:./bitmap/Rebuilds/02 - Gold Mine/plank:                     732       200
+:./bitmap/Rebuilds/02 - Gold Mine/plank support:             605       200     n
+:./bitmap/Rebuilds/02 - Gold Mine/02:                       1064       148
+:./bitmap/Rebuilds/02 - Gold Mine/08:                       1061        73     rr
+:./bitmap/Rebuilds/02 - Gold Mine/09:                       1026        -3     rr
+:./bitmap/Rebuilds/02 - Gold Mine/08:                       1080       -17     rrn
+:./bitmap/Rebuilds/02 - Gold Mine/04:                       1122       -21     rr
+:./bitmap/Rebuilds/02 - Gold Mine/07:                       1078       -72
+:./bitmap/Rebuilds/02 - Gold Mine/tracks:                   1389       379
+:./bitmap/Rebuilds/02 - Gold Mine/tracks:                   1509       379
+:./bitmap/Rebuilds/02 - Gold Mine/plank support:            1569       259
+:./bitmap/Rebuilds/02 - Gold Mine/06:                       1267       382     n
+:./bitmap/Rebuilds/02 - Gold Mine/06:                       1302       383     n
+:./bitmap/Rebuilds/02 - Gold Mine/06:                       1366       383     n
+:./bitmap/Rebuilds/02 - Gold Mine/06:                       1432       383     n
+:./bitmap/Rebuilds/02 - Gold Mine/06:                       1491       383     n
+:./bitmap/Rebuilds/02 - Gold Mine/06:                       1523       383     n
+:./bitmap/Rebuilds/02 - Gold Mine/06:                       1584       383     n
+:./bitmap/Rebuilds/02 - Gold Mine/08:                       1643       296
+:./bitmap/Rebuilds/02 - Gold Mine/04:                       1692       189
+:./bitmap/Rebuilds/02 - Gold Mine/09:                       1754       310
+:./bitmap/Rebuilds/02 - Gold Mine/05:                       1713       298
+:./bitmap/Rebuilds/02 - Gold Mine/00:                       1703       356
+:./bitmap/Rebuilds/02 - Gold Mine/plank:                    1441       259
+:./bitmap/Rebuilds/02 - Gold Mine/crate16:                  1376       243
+:./bitmap/Rebuilds/02 - Gold Mine/crate16:                  1397       243     r
+:./bitmap/Rebuilds/02 - Gold Mine/crate32:                  1597       227
+:./bitmap/Rebuilds/02 - Gold Mine/crate16:                  1399       227     rrr
+:./bitmap/Rebuilds/02 - Gold Mine/crate16:                  1609       211     r
+:./bitmap/Rebuilds/02 - Gold Mine/crate16:                  1634       243
+:./bitmap/Rebuilds/02 - Gold Mine/07:                        105       343
+:./bitmap/Rebuilds/02 - Gold Mine/04:                         63       274
+:./bitmap/Rebuilds/02 - Gold Mine/plank support:              53       168     n
+:./bitmap/Rebuilds/02 - Gold Mine/plank support:             181       168     n
+:./bitmap/Rebuilds/02 - Gold Mine/crate32:                   245       136
+:./bitmap/Rebuilds/02 - Gold Mine/crate16:                   226       152
+:./bitmap/Rebuilds/02 - Gold Mine/crate32:                    68       136     r
+:./bitmap/Rebuilds/02 - Gold Mine/plank support:             -75       168
+:./bitmap/Rebuilds/02 - Gold Mine/01:                        -51       302
+:./bitmap/Rebuilds/02 - Gold Mine/02:                        -42       330
+:./bitmap/Rebuilds/02 - Gold Mine/tracks:                   1638       379     n
+:./bitmap/Rebuilds/02 - Gold Mine/01:                    952       154
+:./bitmap/Rebuilds/02 - Gold Mine/09:                    940       323     n
+:./bitmap/Rebuilds/02 - Gold Mine/02:                    760       320     n
+:./bitmap/Rebuilds/02 - Gold Mine/02:                    961       166     rrn
+:./bitmap/Rebuilds/02 - Gold Mine/plank support:             379       200     n
+:./bitmap/Rebuilds/02 - Gold Mine/01:                    433       353
+:./bitmap/Rebuilds/02 - Gold Mine/05:                    603       360
+:./bitmap/Rebuilds/02 - Gold Mine/04:                    363       324
+:./bitmap/Rebuilds/02 - Gold Mine/03:                    555       370
+:./bitmap/Rebuilds/02 - Gold Mine/plank:                     536       200
+:./bitmap/Rebuilds/02 - Gold Mine/plank:                     463       200
+:./bitmap/Rebuilds/02 - Gold Mine/03:                    397       378
+:./bitmap/Rebuilds/02 - Gold Mine/01:                    487       353     n
+:./bitmap/Rebuilds/02 - Gold Mine/crate16:               634       348     n
+:./bitmap/Rebuilds/02 - Gold Mine/crate16:               650       349     n
+:./bitmap/Rebuilds/02 - Gold Mine/crate16:               644       338     n
+:./bitmap/Rebuilds/02 - Gold Mine/crate16:               660       339     n
+:./bitmap/Rebuilds/02 - Gold Mine/crate16:               676       339     n
+:./bitmap/Rebuilds/02 - Gold Mine/crate16:               654       328     n
+:./bitmap/Rebuilds/02 - Gold Mine/crate16:               670       328     n
+:./bitmap/Rebuilds/02 - Gold Mine/plank:                 692       318     n
+:./bitmap/Rebuilds/02 - Gold Mine/plank:                     947       258     n
+:./bitmap/Rebuilds/02 - Gold Mine/plank:                     954       246     n

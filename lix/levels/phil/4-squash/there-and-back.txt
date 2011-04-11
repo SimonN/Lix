@@ -1,0 +1,147 @@
+$BUILT                                             2011-04-06 15:11:34
+$AUTHOR                                                           phil
+$GERMAN                                                               
+$ENGLISH                                                There and back
+
+#SIZE_X                                                           1060
+#SIZE_Y                                                            400
+#START_X                                                           420
+#START_Y                                                           380
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#SECONDS                                                           200
+#INITIAL                                                            50
+#REQUIRED                                                           50
+#RATE                                                               25
+
+#CLIMBER                                                             1
+#JUMPER                                                              1
+#BUILDER                                                             1
+#PLATFORMER                                                          3
+#BASHER                                                              1
+#MINER                                                               2
+#DIGGER                                                              2
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:./bitmap/Rebuilds/01 - Earth/Hatch.H:                   127       160
+
+:./bitmap/Rebuilds/01 - Earth/Goal.G:                    862       142
+
+:./bitmap/Rebuilds/01 - Earth/01:                        187       277
+:./bitmap/Rebuilds/01 - Earth/00:                        131       257
+:./bitmap/Rebuilds/01 - Earth/09:                        178       275
+:./bitmap/Rebuilds/01 - Earth/06:                        131       252
+:./bitmap/Rebuilds/01 - Earth/04:                        -68       274     n
+:./bitmap/Rebuilds/01 - Earth/07:                        210       268
+:./bitmap/Rebuilds/01 - Earth/16:                        419       302
+:./bitmap/Rebuilds/01 - Earth/09:                        484       300
+:./bitmap/Rebuilds/01 - Earth/09:                        522       314
+:./bitmap/Rebuilds/01 - Earth/09:                        588       306
+:./bitmap/Rebuilds/01 - Earth/09:                        641       299
+:./bitmap/Rebuilds/01 - Earth/03:                        594       298     n
+:./bitmap/Rebuilds/01 - Earth/04:                        608       158     n
+:./bitmap/Rebuilds/01 - Earth/01:                        483       307     n
+:./bitmap/Rebuilds/01 - Earth/02:                        511       318     n
+:./bitmap/Rebuilds/01 - Earth/02:                        -20       202
+:./bitmap/Rebuilds/01 - Earth/07:                        165       249
+:./bitmap/Rebuilds/01 - Earth/00:                        242       212     n
+:./bitmap/Rebuilds/01 - Earth/05:                        316       210
+:./bitmap/Rebuilds/01 - Earth/06:                        433       344
+:./bitmap/Rebuilds/01 - Earth/06:                        444       309
+:./bitmap/Rebuilds/01 - Earth/04:                        199        80
+:./bitmap/Rebuilds/01 - Earth/01:                        220       192
+:./bitmap/Rebuilds/01 - Earth/04:                        193        -2     r
+:./bitmap/Rebuilds/01 - Earth/01:                        278        59
+:./bitmap/Rebuilds/01 - Earth/06:                        208       103
+:./bitmap/Rebuilds/01 - Earth/06:                        195        66
+:./bitmap/Rebuilds/01 - Earth/06:                        212        -5
+:./bitmap/Rebuilds/01 - Earth/07:                        273       161
+:./bitmap/Rebuilds/01 - Earth/07:                        310        28
+:./bitmap/Rebuilds/01 - Earth/07:                        289         1
+:./bitmap/Rebuilds/01 - Earth/09:                        237         1
+:./bitmap/Rebuilds/01 - Earth/01:                        247        38
+:./bitmap/Rebuilds/01 - Earth/01:                        230        79
+:./bitmap/Rebuilds/01 - Earth/01:                        211       130
+:./bitmap/Rebuilds/01 - Earth/15:                        743       328
+:./bitmap/Rebuilds/01 - Earth/14:                        775       279
+:./bitmap/Rebuilds/01 - Earth/04:                        768       274     n
+:./bitmap/Rebuilds/01 - Earth/11:                        802       243
+:./bitmap/Rebuilds/01 - Earth/11:                        827       193
+:./bitmap/Rebuilds/01 - Earth/15:                        855       190
+:./bitmap/Rebuilds/01 - Earth/02:                        841       222     n
+:./bitmap/Rebuilds/01 - Earth/16:                        859       193     rrn
+:./bitmap/Rebuilds/01 - Earth/05:                        931       190
+:./bitmap/Rebuilds/01 - Earth/13:                        947       142
+:./bitmap/Rebuilds/01 - Earth/02:                        746       344     n
+:./bitmap/Rebuilds/01 - Earth/02:                        589       127     d
+:./bitmap/Rebuilds/01 - Earth/01:                        613       274     rr
+:./bitmap/Rebuilds/01 - Earth/03:                        624       237
+:./bitmap/Rebuilds/01 - Earth/15:                        904       191
+:./bitmap/Rebuilds/01 - Earth/05:                        328       248
+:./bitmap/Rebuilds/01 - Earth/06:                        633       170
+:./bitmap/Rebuilds/01 - Earth/06:                        654       151
+:./bitmap/Rebuilds/01 - Earth/07:                        672       148
+:./bitmap/Rebuilds/01 - Earth/01:                        658       162     n
+:./bitmap/Rebuilds/01 - Earth/09:                        712       233
+:./bitmap/Rebuilds/01 - Earth/08:                        759       233
+:./bitmap/Rebuilds/01 - Earth/08:                        682       234     r
+:./bitmap/Rebuilds/01 - Earth/02:                        335       319
+:./bitmap/Rebuilds/01 - Earth/02:                        710       256     d
+:./bitmap/Rebuilds/01 - Earth/18:                        583       254     d
+:./bitmap/Rebuilds/01 - Earth/18:                        586       245     d
+:./bitmap/Rebuilds/01 - Earth/18:                        586       240     d
+:./bitmap/Rebuilds/01 - Earth/01:                        277       362
+:./bitmap/Rebuilds/01 - Earth/17:                        221       333     d
+:./bitmap/Rebuilds/01 - Earth/12:                        273       334     n
+:./bitmap/Rebuilds/01 - Earth/16:                        216       329     d
+:./bitmap/Rebuilds/01 - Earth/02:                        467       174
+:./bitmap/Rebuilds/01 - Earth/02:                        510        45
+:./bitmap/Rebuilds/01 - Earth/04:                        434        52
+:./bitmap/Rebuilds/01 - Earth/05:                        437      -124
+:./bitmap/Rebuilds/01 - Earth/03:                        318        71
+:./bitmap/Rebuilds/01 - Earth/09:                        352        71
+:./bitmap/Rebuilds/01 - Earth/09:                        373        66
+:./bitmap/Rebuilds/01 - Earth/09:                        390        69
+:./bitmap/Rebuilds/01 - Earth/09:                        499        42
+:./bitmap/Rebuilds/01 - Earth/09:                        440        95
+:./bitmap/Rebuilds/01 - Earth/09:                        527        50
+:./bitmap/Rebuilds/01 - Earth/06:                        433       132
+:./bitmap/Rebuilds/01 - Earth/07:                        509       145
+:./bitmap/Rebuilds/01 - Earth/26:                        377       107
+:./bitmap/Rebuilds/01 - Earth/25:                        518       203     n
+:./bitmap/Rebuilds/01 - Earth/28:                        438       181     n
+:./bitmap/Rebuilds/01 - Earth/27:                        291       102     n
+:./bitmap/Rebuilds/01 - Earth/11:                        344         9
+:./bitmap/Rebuilds/01 - Earth/18:                        402        42
+:./bitmap/Rebuilds/01 - Earth/04:                        -53        82
+:./bitmap/Rebuilds/01 - Earth/09:                         -7       211
+:./bitmap/Rebuilds/01 - Earth/08:                         43       182
+:./bitmap/Rebuilds/01 - Earth/08:                         22       135
+:./bitmap/Rebuilds/01 - Earth/07:                         -3        67
+:./bitmap/Rebuilds/01 - Earth/06:                        -24        73
+:./bitmap/Rebuilds/01 - Earth/26:                         33       241     n
+:./bitmap/Rebuilds/01 - Earth/07:                        846       350
+:./bitmap/Rebuilds/01 - Earth/28:                        913       263     n
+:./bitmap/Rebuilds/01 - Earth/26:                        884       307     n
+:./bitmap/Rebuilds/01 - Earth/09:                        820       299
+:./bitmap/Rebuilds/01 - Earth/06:                        887       226
+:./bitmap/Rebuilds/01 - Earth/07:                        956       342
+:./bitmap/Rebuilds/01 - Earth/09:                        802       349
+:./bitmap/Rebuilds/01 - Earth/09:                        749       348
+:./bitmap/Rebuilds/01 - Earth/02:                        755        -8
+:./bitmap/Rebuilds/01 - Earth/10:                        787       -69
+:./bitmap/Rebuilds/01 - Earth/07:                        762       -10
+:./bitmap/Rebuilds/01 - Earth/09:                        800        11
+:./bitmap/Rebuilds/01 - Earth/09:                        851        -2
+:./bitmap/Rebuilds/01 - Earth/09:                        900        -3
+:./bitmap/Rebuilds/01 - Earth/27:                        812        34     n
+:./bitmap/Rebuilds/01 - Earth/28:                        769        77     n
+:./bitmap/Rebuilds/01 - Earth/09:                        597       301
+:./bitmap/Rebuilds/01 - Earth/02:                        319       282     n
+:./bitmap/Rebuilds/01 - Earth/02:                        319       270     n
+:./bitmap/Rebuilds/01 - Earth/02:                        319       259     n
+:./bitmap/Rebuilds/01 - Earth/02:                        319       249     n
