@@ -1,0 +1,118 @@
+$BUILT                                             2011-03-25 23:39:19
+$AUTHOR                                                           phil
+$GERMAN                                                               
+$ENGLISH                                                   Unification
+
+#SIZE_X                                                            680
+#SIZE_Y                                                            420
+#START_X                                                             0
+#START_Y                                                             0
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#SECONDS                                                             0
+#INITIAL                                                            50
+#REQUIRED                                                           47
+#RATE                                                               10
+
+#CLIMBER                                                             2
+#JUMPER                                                              1
+#EXPLODER                                                            3
+#NOTHING                                                             0
+#BUILDER                                                            15
+#NOTHING                                                             0
+#MINER                                                               3
+#DIGGER                                                              3
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:Pillar-s1:                                               68        48
+:./bitmap/Rebuilds/03 - Carnival/Hatch.H:                   118       306
+
+:./bitmap/Rebuilds/03 - Carnival/Goal.G:                    543       318
+
+:Pillar-t35:                                             242       366
+:Pillar-t28:                                             262       302
+:Pillar-t1:                                               26       292
+:Pillar-t38:                                             178       262
+:Pillar-t48:                                             330       154
+:Pillar-t43:                                             124       298
+:Pillar-t44:                                             162       298     n
+:Pillar-t1:                                              262       174
+:Pillar-t27:                                             310       344
+:Pillar-t50:                                             330       316
+:Pillar-t27:                                             310       202
+:Pillar-t1:                                               26       194
+:Pillar-t45:                                              94       262
+:Pillar-t49:                                             214       194
+:Pillar-t49:                                             166       194
+:Pillar-t49:                                             118       194
+:Pillar-t49:                                              70       194
+:Pillar-t38:                                             162       154
+:Pillar-t38:                                              78       154
+:Pillar-t39:                                             222       222
+:Pillar-t39:                                              94       222
+:Pillar-t43:                                             178       302
+:Pillar-t44:                                             208       302     n
+:Pillar-t49:                                             262       126
+:Pillar-t38:                                             246       154
+:Pillar-t38:                                              -6       154
+:Pillar-t49:                                             214       126
+:Pillar-t49:                                             166       126
+:Pillar-t48:                                              42       106
+:Pillar-t49:                                              -6       126
+:Pillar-t49:                                             310       126
+:Pillar-t48:                                             310        78
+:Pillar-t38:                                             226        86
+:Pillar-t56:                                             -44       324
+:Pillar-t24:                                             -38       240
+:Pillar-t39:                                             -14       220
+:Pillar-t18:                                             210        86
+:Pillar-t45:                                             270        70
+:Pillar-t19:                                             210        70
+:Pillar-t43:                                             226        70
+:Pillar-t47:                                             236        70
+:Pillar-t38:                                              70       114
+:Pillar-t39:                                             154       114
+:Pillar-t7:                                              342        64
+:Pillar-t55:                                             226        -2
+:Pillar-t56:                                             146        -2
+:Pillar-t1:                                              368       -64
+:Pillar-t2:                                              414        -6
+:Pillar-t6:                                              512        64
+:Pillar-t49:                                              23       194
+:./bitmap/Universal/32x64.S:                             436       154
+:./bitmap/Universal/64x32.S:                             468       154
+:./bitmap/Universal/32x32.S:                             532       154
+:./bitmap/Universal/32x64.S:                             610       102
+:./bitmap/Universal/32x64.S:                             436       218
+:./bitmap/Universal/64x32.S:                             436       282
+:./bitmap/Rebuilds/03 - Carnival/04:                        436       154     n
+:./bitmap/Rebuilds/03 - Carnival/05:                        436       217     n
+:./bitmap/Rebuilds/03 - Carnival/06:                        468       154     rn
+:./bitmap/Rebuilds/03 - Carnival/03:                        531       154     n
+:./bitmap/Rebuilds/03 - Carnival/07:                        436       282     rn
+:./bitmap/Rebuilds/03 - Carnival/05:                        609       102     n
+:./bitmap/Universal/64x64.S:                             578       166
+:./bitmap/Rebuilds/03 - Carnival/26:                        578       166     n
+:./bitmap/Universal/64x32.S:                             514       198
+:./bitmap/Universal/32x32.S:                             475       198
+:./bitmap/Universal/64x32.S:                             475       230
+:./bitmap/Universal/32x32.S:                             539       230
+:./bitmap/Rebuilds/03 - Carnival/06:                        514       198     rn
+:./bitmap/Rebuilds/03 - Carnival/07:                        475       230     rn
+:./bitmap/Rebuilds/03 - Carnival/00:                        475       199     n
+:./bitmap/Rebuilds/03 - Carnival/01:                        538       230     n
+:./bitmap/Rebuilds/03 - Carnival/28:                        528       365     rr
+:./bitmap/Rebuilds/03 - Carnival/08:                        543       373
+:./bitmap/Rebuilds/03 - Carnival/10:                        543       405
+:./bitmap/Rebuilds/03 - Carnival/30:                        435       381     rr
+:./bitmap/Rebuilds/03 - Carnival/01:                        497       282     n
+:./bitmap/Universal/32x32.S:                             499       282
+:./bitmap/Rebuilds/03 - Carnival/10:                        451       389
+:./bitmap/Rebuilds/03 - Carnival/58:                        101       388
+:./bitmap/Universal/64x32.S:                             101       388
+:./bitmap/Universal/64x32.S:                             165       388
+:./bitmap/Universal/64x32.S:                             229       389
+:./bitmap/Universal/64x32.S:                             293       388
