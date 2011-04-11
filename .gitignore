@@ -4,6 +4,8 @@
 
 # exclude all object files due to compiling code
 *.[oa]
+*.layout
+*.depend
  
 # exclude the user data, log and config files in data/
 lix/data/user/*.txt
