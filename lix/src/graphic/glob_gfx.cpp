@@ -74,7 +74,6 @@ void load_all_bitmaps_and_fonts()
     al_init_primitives_addon();
 
     // afdebug: set the bitmap flags here
-    al_set_new_bitmap_flags (ALLEGRO_MEMORY_BITMAP);
 
     Api::Manager::initialize(LEMSCR_X, LEMSCR_Y);
     Torbit* osd = &Api::Manager::get_torbit();
@@ -142,8 +141,6 @@ void blit_to_screen(ALLEGRO_BITMAP* b)
 
     al_set_target_backbuffer(displaY);
 
-    // afdebug: not necessary in A5?
-    // if (gloB->screen_vsync) vsync();
     if (screen_xl == LEMSCR_X && screen_yl == LEMSCR_Y) {
         al_draw_bitmap(b, 0, 0, 0);
     }

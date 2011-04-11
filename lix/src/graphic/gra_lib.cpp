@@ -24,8 +24,10 @@ GraLib::GraLib()
     Help::find_tree(dd, gloB->ext_pcx, ssii, (void*) this);
 
     // Countdown-Matrix erstellen
-    const Cutbit&    cb = internal[gloB->file_bitmap_lix];
-          ALLEGRO_BITMAP*    b  = cb.get_al_bitmap();
+    const Cutbit&         cb = internal[gloB->file_bitmap_lix];
+          ALLEGRO_BITMAP* b  = cb.get_al_bitmap();
+    al_lock_bitmap(b, al_get_bitmap_format(b), ALLEGRO_LOCK_READONLY);
+
     Lixxie::countdown = Lixxie::Matrix(
      cb.get_x_frames(), std::vector <Lixxie::XY> (cb.get_y_frames()) );
     // fx, fy = welcher X- bzw. Y-Frame
@@ -60,6 +62,7 @@ GraLib::GraLib()
         }
     }
     // Alle Pixel sind abgegrast.
+    al_unlock_bitmap(b);
 
     recolor_into_vector(internal[gloB->file_bitmap_lix],       style);
     recolor_into_vector(internal[gloB->file_bitmap_game_icon], icons);
@@ -92,15 +95,26 @@ void GraLib::recolor_into_vector(
     const Cutbit&         cutbit,
     std::vector <Cutbit>& vector)
 {
-    ALLEGRO_BITMAP* recol = internal[gloB->file_bitmap_lix_recol].get_al_bitmap();
+    ALLEGRO_BITMAP* recol = internal[gloB->file_bitmap_lix_recol]
+                            .get_al_bitmap();
     ALLEGRO_BITMAP* lix   = cutbit.get_al_bitmap();
     if (!recol || !lix) return;
 
-    ALLEGRO_COLOR col_break = al_get_pixel(lix, cutbit.get_xl() - 1, 0);
     vector = std::vector <Cutbit> (LixEn::STYLE_MAX, cutbit);
+
+    // Lock everything
+    al_lock_bitmap(recol, al_get_bitmap_format(recol), ALLEGRO_LOCK_READONLY);
+    al_lock_bitmap(lix,   al_get_bitmap_format(lix),   ALLEGRO_LOCK_READONLY);
+    for (int style_loop = 0; style_loop != LixEn::STYLE_MAX
+     && style_loop < al_get_bitmap_height(recol) - 1; ++style_loop) {
+        ALLEGRO_BITMAP* b = vector[style_loop].get_al_bitmap();
+        al_lock_bitmap(b, al_get_bitmap_format(b), ALLEGRO_LOCK_READWRITE);
+    }
+
     // The first row (y == 0) contains the source pixels. The first style
     // (garden) is at y == 1. Thus the recol->h - 1 is correct as we count
     // styles starting at 0.
+    ALLEGRO_COLOR col_break = al_get_pixel(lix, cutbit.get_xl() - 1, 0);
     for  (int y = 0; y < cutbit.get_yl(); y++)
      for (int x = 0; x < cutbit.get_xl(); x++)
      for (int conv = 0; conv < al_get_bitmap_width(recol); conv++) {
@@ -121,6 +135,15 @@ void GraLib::recolor_into_vector(
         // end if color matches
     }
     // end of all color replacement
+
+    // Unlock everything
+    al_unlock_bitmap(recol);
+    al_unlock_bitmap(lix);
+    for (int style_loop = 0; style_loop != LixEn::STYLE_MAX
+     && style_loop < al_get_bitmap_height(recol) - 1; ++style_loop) {
+        ALLEGRO_BITMAP* b = vector[style_loop].get_al_bitmap();
+        al_unlock_bitmap(b);
+    }
 
     //    // This saving is just while LEMDEBUG is happening
     //    for (size_t i = 0; i < singl->style.size(); ++i) {

@@ -5813,7 +5813,7 @@
 	"frame.h"
 	"button/b_bitmap.h"
 
-1302444779 source:/home/simon/c/repo/lix/src/api/texttype.cpp
+1302550498 source:/home/simon/c/repo/lix/src/api/texttype.cpp
 	"texttype.h"
 	"manager.h"
 	"../other/help.h"
@@ -6180,13 +6180,13 @@
 	"glob_gfx.h"
 	"../lix/lix_enum.h"
 
-1302444779 source:/home/simon/c/repo/lix/src/graphic/cutbit.cpp
+1302550069 source:/home/simon/c/repo/lix/src/graphic/cutbit.cpp
 	"cutbit.h"
 	"../other/help.h"
 	"../other/language.h"
 	"../other/log.h"
 
-1302547167 source:/home/simon/c/repo/lix/src/graphic/glob_gfx.cpp
+1302550498 source:/home/simon/c/repo/lix/src/graphic/glob_gfx.cpp
 	<fstream>
 	"glob_gfx.h"
 	"gra_lib.h"
@@ -6200,7 +6200,7 @@
 	"../other/log.h"
 	"../other/user.h"
 
-1302450833 source:/home/simon/c/repo/lix/src/graphic/gra_lib.cpp
+1302550725 source:/home/simon/c/repo/lix/src/graphic/gra_lib.cpp
 	"gra_lib.h"
 	"../lix/lix.h"
 	"../other/help.h"

@@ -154,6 +154,7 @@ Cutbit& Cutbit::operator = (const Cutbit& c)
 
 void Cutbit::cut_bitmap()
 {
+    al_lock_bitmap(bitmap, al_get_bitmap_format(bitmap),ALLEGRO_LOCK_READONLY);
     // Wird nur fuer Bilder mit Prae-Erweiterung normal geschnitten.
     // Ist das Grundmuster eines Rahmens, eines Rasters erkennbar?
     ALLEGRO_COLOR c = al_get_pixel(bitmap, 0, 0);
@@ -202,6 +203,7 @@ void Cutbit::cut_bitmap()
         y_frames = 1;
     }
     // Jetzt ist das Bild fertig zerschnitten.
+    al_unlock_bitmap(bitmap);
 }
 
 
