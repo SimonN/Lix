@@ -21,7 +21,7 @@ $ENGLISH The best testing level of them all!
 #BUILDER 40
 #PLATFORMER 40
 #MINER 40
-#DIGGER 75
+#DIGGER 25
 
 :./bitmap/simon/hatch.H: 440 370 
 :./bitmap/simon/hatch.H: 190 310 
