@@ -1,7 +1,7 @@
 /*
  * graphic/torbit.h
  *
- * Wrapper fuer Allegros BITMAP inklusive Torusfunktionen (optional).
+ * Wrapper fuer Allegros ALLEGRO_BITMAP inklusive Torusfunktionen (optional).
  *
  */
 
@@ -13,7 +13,7 @@ class Torbit {
 
 private:
 
-    BITMAP* bitmap;
+    ALLEGRO_BITMAP* bitmap;
 
     bool    torus_x;
     bool    torus_y;
@@ -26,9 +26,9 @@ public:
 
     Torbit& operator = (const Torbit&);
 
-    inline BITMAP* get_al_bitmap() const { return bitmap; }
-    inline int     get_xl()        const { return bitmap ? bitmap->w : 0; }
-    inline int     get_yl()        const { return bitmap ? bitmap->h : 0; }
+    inline ALLEGRO_BITMAP* get_al_bitmap() const { return bitmap; }
+           int             get_xl() const;
+           int             get_yl() const;
 
     virtual void   resize(int, int);
 
@@ -45,37 +45,39 @@ public:
     double hypot     (int, int, int, int) const;
 
     // Malprimitiva
-    void clear_to_color(int);
-    void set_pixel     (int, int, int);
-    int  get_pixel     (int, int) const;
+    void          clear_to_color(const ALLEGRO_COLOR&);
+    void          set_pixel     (int, int, const ALLEGRO_COLOR&);
+    ALLEGRO_COLOR get_pixel     (int, int) const;
 
     // Rechtecke haben, anders als Allegros rect() und rectfill(),
     // folgende Parameter: x, y, xl, yl, Farbe
-    void draw_rectangle       (int, int, int, int, int);
-    void draw_filled_rectangle(int, int, int, int, int);
+    void draw_filled_rectangle(int, int, int, int, const ALLEGRO_COLOR&);
 
     // (ggf. x, y, xl, yl), alte Farbe, neue Farbe
-    void replace_color        (int, int);
-    void replace_color_in_rect(int, int, int, int, int, int);
+    void replace_color        (const ALLEGRO_COLOR&, const ALLEGRO_COLOR&);
+    void replace_color_in_rect(int, int, int, int,
+                               const ALLEGRO_COLOR&, const ALLEGRO_COLOR&);
 
     // Den Torus auf den angegebenen Torus kopieren, und zwar an jene Stelle
     // auf dem uebergebenen Torus, die durch die Koordinaten beschrieben ist.
     // 2.: Sind die hinteren Koordinaten != 0, dann xl, yl, sonst alles malen.
     // 3.: Ein Bitmap auf ein Torbit zeichnen, x, y, mirr,rot,scal:0=1
-    virtual void draw     (Torbit&, int=0, int=0)               const;
-            void draw     (BITMAP*, int=0, int=0, int=0, int=0) const;
-            void draw_from(BITMAP*, int=0, int=0, bool = false,
-                                    double = 0, double = 0);
+    virtual void draw     (Torbit&,         int=0, int=0)               const;
+            void draw     (ALLEGRO_BITMAP*, int=0, int=0, int=0, int=0) const;
+            void draw_from(ALLEGRO_BITMAP*, int=0, int=0, bool = false,
+                                            double = 0, double = 0);
 
 private:
 
-    void rcir_at               (int, int, int, int, int, int);
-    void draw_rectangle_private(int, int, int, int, int,
-                                void (*)(BITMAP*, int, int, int, int, int));
+    void rcir_at               (int, int, int, int,
+                                const ALLEGRO_COLOR&, const ALLEGRO_COLOR&);
+    void draw_rectangle_private(int, int, int, int,   const ALLEGRO_COLOR&,
+                       void (*)(float, float, float, float, ALLEGRO_COLOR));
 
-    void draw_from_at(BITMAP*, int, int, // Quelle, x und y
-                      void (*)(BITMAP*, BITMAP*, int, int) = 0,
-                      void (*)(BITMAP*, BITMAP*, int, int, fixed, fixed) = 0,
-                      double = 0, double = 0); // rot,(scal==0 -> 1),kein mirr!
+    void draw_from_at(ALLEGRO_BITMAP*, double, double, // Quelle, Ziel-x und -y
+     void (*)(ALLEGRO_BITMAP*, float,float, int) = 0,
+     void (*)(ALLEGRO_BITMAP*, float,float,float,float,float, int) = 0,
+     void (*)(ALLEGRO_BITMAP*, float,float,float,float,float,float,float, int)
+     = 0, int = 0, double = 0, double = 0, double = 0, double = 0);
 
 };

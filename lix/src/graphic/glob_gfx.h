@@ -25,6 +25,8 @@
 #include "cutbit.h"
 #include "torbit.h"
 
+extern ALLEGRO_DISPLAY* displaY;
+
 extern Torbit *pre_screen;
 
 static const int LEMSCR_X = 640;
@@ -35,6 +37,8 @@ enum Color {
     COL_NOTHING,
     COL_TRANSPARENT,
     COL_PINK,
+    COL_REALPINK,
+    COL_PINKAF,
 
     COL_BLACK,
     COL_GREY_FUSE_D,
@@ -66,20 +70,23 @@ enum Color {
     COL_MAX
 };
 
-extern std::vector <int> color;
+extern std::vector <ALLEGRO_COLOR> color;
+
+bool operator == (const ALLEGRO_COLOR&, const ALLEGRO_COLOR&);
+bool operator != (const ALLEGRO_COLOR&, const ALLEGRO_COLOR&);
 
 // Schriftarten
-extern FONT *font_sml;
-extern FONT *font_med;
-extern FONT *font_nar;
-extern FONT *font_big;
+extern ALLEGRO_FONT *font_sml;
+extern ALLEGRO_FONT *font_med;
+extern ALLEGRO_FONT *font_nar;
+extern ALLEGRO_FONT *font_big;
 
 // Und die Funktionen
-void load_all_bitmaps();
-void destroy_all_bitmaps();
+void load_all_bitmaps_and_fonts();
+void destroy_all_bitmaps_fonts_and_display();
 
 extern bool clear_screen_at_next_blit;
-void blit_to_screen(BITMAP*);
+void blit_to_screen(ALLEGRO_BITMAP*);
 
 // Will use global variables if res == (0, 0)
 void set_screen_mode(bool full, int res_x = 0, int res_y = 0);

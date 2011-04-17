@@ -22,7 +22,7 @@ public:
                  const std::vector <int>&,  // all steel ids
                  const std::vector <int>&); // all waving flag ids
 
-    static BITMAP* new_read_spec_bitmap(const Crunch::Section&);
+    static ALLEGRO_BITMAP* new_read_spec_bitmap(const Crunch::Section&);
 
 private:
 
@@ -53,9 +53,9 @@ private:
 
     // These vectors are only used while reading in the terrain. Afterwards,
     // everything is stored in std::vector <Object> terrain and special.
-    std::vector <ObjectInfo>  speinf;
-    std::vector <TerrainInfo> terinf;
-    std::vector <int>         palette;
+    std::vector <ObjectInfo>    speinf;
+    std::vector <TerrainInfo>   terinf;
+    std::vector <ALLEGRO_COLOR> palette;
 
     int  read_byte(std::ifstream& file);
     int  read_word(std::ifstream& file);
@@ -69,6 +69,6 @@ private:
     void make_specials(const Crunch::Section&, const std::vector <int>&);
     void make_terrain (const Crunch::Section&, const std::vector <int>&);
 
-    BITMAP* new_read_bitmap(const Crunch::Section&, int, int, int, int);
+    ALLEGRO_BITMAP* new_read_bitmap(const Crunch::Section&, int, int, int, int);
 
 };

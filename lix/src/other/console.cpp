@@ -36,7 +36,7 @@ const std::list <Console::Line>& Console::get_lines_recent()
 {
     while (!con.line.empty()
      && ((int) con.line.size() > con.lines_max_number
-     ||  con.line.begin()->time + con.lines_max_ticks < Help::timer_ticks))
+     ||  con.line.begin()->time + con.lines_max_ticks < Help::get_timer_ticks()))
      con.line.pop_front();
     return con.line;
 }
@@ -46,12 +46,12 @@ const std::list <Console::Line>& Console::get_lines_recent()
 // Zeilenumbruch-Regeln sind hier hartkodiert, siehe Headerkommentar
 void Console::push_back(const std::string& t, const bool w)
 {
-    if (text_length(font_med, t.c_str()) > con.lines_maxl) {
+    if (al_get_text_width(font_med, t.c_str()) > con.lines_maxl) {
         std::string line;
         std::string::const_iterator i = t.begin();
         while (i != t.end()) {
             line += *i;
-            if (text_length(font_med, line.c_str()) > con.lines_maxl) {
+            if (al_get_text_width(font_med, line.c_str()) > con.lines_maxl) {
                 line.erase(--line.end());
                 con.line.push_back(Line(line, w));
                 line = "  ";

@@ -56,9 +56,9 @@ WindowGameplay::WindowGameplay(Replay* rep, const Level* const lev)
     if (game_net) {
         save_replay.set_y(top_item + 30);
         menu       .set_y(top_item + 60);
-        resume .set_hotkey(KEY_ESC);
+        resume .set_hotkey(ALLEGRO_KEY_ESCAPE);
         restart.set_hotkey();
-        menu   .set_hotkey(KEY_F1);
+        menu   .set_hotkey(ALLEGRO_KEY_F1);
     }
 }
 
@@ -93,8 +93,8 @@ WindowGameplay::WindowGameplay(
     browser_save (0)
 {
     // This gets repeated in draw_self() for the big letters
-    int col_a = color[COL_TEXT];
-    int col_b = color[COL_TEXT];
+    ALLEGRO_COLOR col_a = color[COL_TEXT];
+    ALLEGRO_COLOR col_b = color[COL_TEXT];
     if (lix_saved > 0)             col_a = color[COL_TEXT_ON];
     if (lix_saved >= lix_required) col_b = color[COL_TEXT_ON];
 
@@ -171,7 +171,8 @@ WindowGameplay::WindowGameplay(
             break;
         }
         str << ". " << sortvec[place].name;
-        const int col = sortvec[place].pl ? color[COL_WHITE] : color[COL_TEXT];
+        const ALLEGRO_COLOR& col
+         = sortvec[place].pl ? color[COL_WHITE] : color[COL_TEXT];
         labels.push_back(Label(60, 40 + place*20, str.str()));
         labels.back().set_color(col);
         labels.push_back(Label(get_xl() - 60, 40 + place*20,
@@ -243,9 +244,9 @@ void WindowGameplay::common_constructor()
     restart    .set_text(Language::win_game_restart);
     save_replay.set_text(Language::win_game_save_replay);
     menu       .set_text(Language::win_game_menu);
-    restart    .set_hotkey(KEY_F1);
-    save_replay.set_hotkey(KEY_F2);
-    menu       .set_hotkey(KEY_ESC); // also triggered by space
+    restart    .set_hotkey(ALLEGRO_KEY_F1);
+    save_replay.set_hotkey(ALLEGRO_KEY_F2);
+    menu       .set_hotkey(ALLEGRO_KEY_ESCAPE); // also triggered by space
 }
 
 
@@ -269,8 +270,8 @@ void WindowGameplay::calc_self()
     }
     else {
         if (!game_end) {
-            const int k = hardware.get_key();
-            if (resume.get_clicked() || hardware.get_mr()
+            const int k = Hardware::get_typed_key();
+            if (resume.get_clicked() || Hardware::get_mr()
              || (k != -1 && k != menu       .get_hotkey()
                          && k != restart    .get_hotkey()
                          && k != save_replay.get_hotkey())) {
@@ -282,7 +283,7 @@ void WindowGameplay::calc_self()
             exit_with = RESTART;
             Manager::remove_focus(this);
         }
-        if (menu.get_clicked() || hardware.key_once(KEY_SPACE)) {
+        if (menu.get_clicked() || Hardware::get_key_once(ALLEGRO_KEY_SPACE)) {
             exit_with = MENU;
             Manager::remove_focus(this);
         }
@@ -323,8 +324,8 @@ Api::BoxMessage* WindowGameplay::new_box_overwrite(const std::string& file)
     box_overwrite->add_text(Language::win_game_overwrite_question);
     box_overwrite->add_text(s1);
     box_overwrite->add_text(s2);
-    box_overwrite->add_button(Language::yes, KEY_ENTER);
-    box_overwrite->add_button(Language::no,  KEY_ESC);
+    box_overwrite->add_button(Language::yes, ALLEGRO_KEY_ENTER);
+    box_overwrite->add_button(Language::no,  ALLEGRO_KEY_ESCAPE);
     return box_overwrite;
 }
 
@@ -333,9 +334,9 @@ Api::BoxMessage* WindowGameplay::new_box_overwrite(const std::string& file)
 void WindowGameplay::draw_self()
 {
     // This is a bit kludgy. Delete the remainders of the browser.
-    rectfill(get_ground().get_al_bitmap(), 0, 0, LEMSCR_X-1, LEMSCR_Y
-     - gloB->panel_gameplay_yl - 1,
-     color[COL_PINK]);
+    al_set_target_bitmap(get_ground().get_al_bitmap());
+    al_draw_filled_rectangle(0, 0, LEMSCR_X, LEMSCR_Y-gloB->panel_gameplay_yl,
+     color[COL_PINKAF]);
 
     Window::draw_self();
 
@@ -345,20 +346,17 @@ void WindowGameplay::draw_self()
         std::ostringstream s3; s3 << lix_required;
 
         // This gets repeated in the corresponding constructor for this stuff
-        int col_a = color[COL_TEXT];
-        int col_b = color[COL_TEXT];
+        ALLEGRO_COLOR col_a = color[COL_TEXT];
+        ALLEGRO_COLOR col_b = color[COL_TEXT];
         if (lix_saved > 0)             col_a = color[COL_TEXT_ON];
         if (lix_saved >= lix_required) col_b = color[COL_TEXT_ON];
 
         Help::draw_shadow_centered_text(get_ground(), font_big,
-         s1.str().c_str(), get_x() + get_xl()/2 - 40, get_y() + y_saved, col_a,
-         color[COL_API_SHADOW]);
+         s1.str().c_str(), get_x() + get_xl()/2 - 40, get_y() + y_saved,col_a);
         Help::draw_shadow_centered_text(get_ground(), font_big,
-         s2.c_str(),       get_x() + get_xl()/2,      get_y() + y_saved, col_b,
-         color[COL_API_SHADOW]);
+         s2.c_str(),       get_x() + get_xl()/2,      get_y() + y_saved,col_b);
         Help::draw_shadow_centered_text(get_ground(), font_big,
-         s3.str().c_str(), get_x() + get_xl()/2 + 40, get_y() + y_saved, col_b,
-         color[COL_API_SHADOW]);
+         s3.str().c_str(), get_x() + get_xl()/2 + 40, get_y() + y_saved,col_b);
     }
 }
 

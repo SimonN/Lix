@@ -41,10 +41,10 @@ public:
 
 private:
 
-    const unsigned turbo_times_faster_than_fast;
-    const unsigned timer_ticks_for_update_fast;
-    const unsigned timer_ticks_for_update_normal;
-    const unsigned timer_ticks_for_update_slow;
+    const int turbo_times_faster_than_fast;
+    const int timer_ticks_for_update_fast;
+    const int timer_ticks_for_update_normal;
+    const int timer_ticks_for_update_slow;
 
     const int mouse_cursor_offset;
     const int mouse_max_lix_distance_x;
@@ -60,13 +60,13 @@ private:
     Tribe::Master* malo; // The master of cs.tribes[tribe_local] that
                           // has player_local as its player number
 
-    unsigned long local_ticks;
-    unsigned long update_last_exiter; // fuer Einspieler-Rekord
-    unsigned long timer_tick_last_update;
-    unsigned long timer_tick_last_F1;
-    unsigned long timer_tick_last_F2;
-    unsigned long timer_tick_last_F12;
-    int           timer_ticks_for_update_client;
+    int local_ticks;
+    int update_last_exiter; // fuer Einspieler-Rekord
+    int timer_tick_last_update;
+    int timer_tick_last_F1;
+    int timer_tick_last_F2;
+    int timer_tick_last_F12;
+    int timer_ticks_for_update_client;
 
     Map    map;
     Torbit steel_mask;
@@ -135,7 +135,7 @@ public:
     Gameplay(Replay* = 0);
     ~Gameplay();
 
-    inline const bool         get_exit    () { return exit;             }
+    inline bool               get_exit    () { return exit;             }
     inline const std::string& get_filename() { return filename;         }
     inline Replay&            get_replay  () { return replay;           }
     inline int                get_tribes  () { return cs.tribes.size(); }

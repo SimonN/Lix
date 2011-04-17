@@ -38,14 +38,15 @@ ListFile::~ListFile()
 
 
 
-void ListFile::static_put_to_file(std::string& s, void* which_object)
+void ListFile::static_put_to_file(const std::string& s, void* which_object)
 {
     ListFile* this_object = (ListFile*) which_object;
     if (this_object) {
         if (!this_object->search_criterion
          || this_object->search_criterion(s)) {
-            Help::string_remove_dir(s);
-            this_object->file.push_back(s);
+            std::string str = s;
+            Help::string_remove_dir(str);
+            this_object->file.push_back(str);
         }
     }
 }
@@ -88,7 +89,7 @@ void ListFile::load_current_dir()
     button_clear();
     button_last_clicked = 0;
 
-    Help::find_files(current_dir, gloB->mask_anything,
+    Help::find_files(current_dir, gloB->empty_string,
      static_put_to_file, (void*) this);
     std::sort(file.begin(), file.end());
     // Hook/event function: derived classes may alter file via overriding

@@ -107,8 +107,8 @@ Lobby::Lobby()
     start_server .set_text(Language::win_lobby_start_server);
     start_client .set_text(Language::win_lobby_start_client);
 
-    button_ready .set_hotkey(KEY_SPACE);
-    button_exit  .set_hotkey(KEY_ESC);
+    button_ready .set_hotkey(ALLEGRO_KEY_SPACE);
+    button_exit  .set_hotkey(ALLEGRO_KEY_ESCAPE);
     chat_type    .set_hotkey(useR->key_chat);
     chat_type    .set_on_enter(this, chat_on_enter_callback);
     start_ip     .set_scroll();
@@ -228,7 +228,7 @@ void Lobby::calc_self()
 
     // GUI stuff
     if (button_exit.get_clicked()
-     || (button_exit.get_hotkey() == KEY_ESC && hardware.get_mr())) {
+     || (button_exit.get_hotkey() == ALLEGRO_KEY_ESCAPE && Hardware::get_mr())) {
         if      (mode == NOT_CONNECTED) exit_with = EXIT_WITH_EXIT;
         else if (mode == INSIDE_ROOM) {
             Network::set_room(0);
@@ -254,7 +254,7 @@ void Lobby::calc_self()
     else if (button_exit.get_clicked()) {
         exit_with = EXIT_WITH_EXIT;
     }
-    else if (start_ip.get_on() && hardware.key_enter_once()) {
+    else if (start_ip.get_on() && Hardware::get_key_enter_once()) {
         start_ip.set_off();
         // Do the same as the button "start as client"
         set_mode(CONNECTING);
@@ -281,7 +281,6 @@ void Lobby::calc_self()
         else Network::set_room(room_list.get_room_clicked());
         room_list.clear();
         set_mode(INSIDE_ROOM);
-        Log::log("debugging rohan: room button clicked");
     }
 
     // Inside a game room
@@ -312,7 +311,7 @@ void Lobby::work_self()
     // This isn't triggered by GUI element clicks/hotkeys, but rather by
     // actions from the network.
     if (Network::get_people_in_room() > 1) button_exit.set_hotkey();
-    else                                   button_exit.set_hotkey(KEY_ESC);
+    else                                   button_exit.set_hotkey(ALLEGRO_KEY_ESCAPE);
     // Successfully connected
     if (mode == CONNECTING && Network::get_people_in_room()) {
         set_mode(CHOOSE_ROOM);
@@ -333,9 +332,7 @@ void Lobby::work_self()
     }
     // Room data arrived
     if (Network::get_room_data_change()) {
-        Log::log("debugging rohan: room data change in lobby seen");
         room_list.set_room_data(Network::get_room_data());
-        Log::log("debugging rohan: room data change in lobby seen + done");
     }
     // Chat is set and thus redrawn every tick right now
     chat.set_chat_data(Console::get_lines_all());

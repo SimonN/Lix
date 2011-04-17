@@ -96,9 +96,9 @@ long GraphicSetL2::read_long_be(const Byte* buffer) {
 
 
 // Nimmt Farben mit 0x3F als Hoechstwert, braucht Allegro
-int GraphicSetL2::make_0x3F_color(int r, int g, int b)
+ALLEGRO_COLOR GraphicSetL2::make_0x3F_color(int r, int g, int b)
 {
-    return makecol(r * 255 / 63,   g * 255 / 63,   b * 255 / 63);
+    return al_map_rgb(r * 255 / 63,   g * 255 / 63,   b * 255 / 63);
 }
 
 
@@ -119,7 +119,7 @@ void GraphicSetL2::make_palette()
 
 
 // Neues Bitmap erschaffen und zurueckgeben
-BITMAP* GraphicSetL2::new_read_bitmap(
+ALLEGRO_BITMAP* GraphicSetL2::new_read_bitmap(
     const Crunch::Section& section,
 	const int offset,
     const int width,
@@ -130,23 +130,25 @@ BITMAP* GraphicSetL2::new_read_bitmap(
     // b->h - 1 kopiert auf die doppelte Groesse mit stretch_blit, und ohne
     // den Rand und mit b->w, b->h als Angaben stuertzte es immer ab.
 
-	BITMAP* b = create_bitmap(16 * width + 1, 8 * height + 1);
+	ALLEGRO_BITMAP* b = al_create_bitmap(16 * width + 1, 8 * height + 1);
     //clear_to_color(b, 0);
 	piece_blit_bitmap(b, section, offset, width, height, 0, 0);
 
     // Und alles aufs Doppelte fuer L++ vergroessern
-    BITMAP* big = create_bitmap(32 * width, 16 * height);
+    ALLEGRO_BITMAP* big = al_create_bitmap(32 * width, 16 * height);
+    al_set_target_bitmap(big);
+    al_clear_to_color(color[COL_PINKAF]);
 
     // Siehe Kommentar "gegen Allegro-Bug (?)" weiter oben
-    stretch_blit(b, big, 0, 0, 16 * width, 8 * height, 0, 0, 32 * width, 16 * height);
+    al_draw_scaled_bitmap(b, 0, 0, 16 * width, 8 * height, 0, 0, 32 * width, 16 * height, 0);
 
-    destroy_bitmap(b);
+    al_destroy_bitmap(b);
     return big;
 }
 
 
 void GraphicSetL2::piece_blit_bitmap(
-	BITMAP* b,
+	ALLEGRO_BITMAP* b,
     const Crunch::Section& section,
 	const int offset,
     const int width,	// sprite coords
@@ -166,7 +168,7 @@ void GraphicSetL2::piece_blit_bitmap(
 // onto the bitmap at the specified position.
 // no boundary checking
 void GraphicSetL2::sprite_blit_bitmap(
-	BITMAP* b,
+	ALLEGRO_BITMAP* b,
 	const int spriteID,
 	const int x,
 	const int y
@@ -174,11 +176,12 @@ void GraphicSetL2::sprite_blit_bitmap(
     // 7 Bit per pixel, padded to 8 bit, for a size of 16x8
 	int offset = 0x80 * spriteID + 2;
 
+	al_set_target_bitmap(b);
 	for (int i = 0; i < 0x80; ++i) {
 		if (sty[L2BL][offset + i] != 0)
-			putpixel(b, (4 * i) % 16 + i / 32 + x, (i / 4) % 8 + y, palette[sty[L2BL][offset + i]]);
+			al_put_pixel((4 * i) % 16 + i / 32 + x, (i / 4) % 8 + y, palette[sty[L2BL][offset + i]]);
 		else
-			putpixel(b, (4 * i) % 16 + i / 32 + x, (i / 4) % 8 + y, color[COL_PINK]);
+			al_put_pixel((4 * i) % 16 + i / 32 + x, (i / 4) % 8 + y, color[COL_PINK]);
 	}
 }
 
@@ -188,12 +191,13 @@ void GraphicSetL2::sprite_blit_bitmap(
 // onto the bitmap at the specified position.
 // no boundary checking
 void GraphicSetL2::l2ss_blit_bitmap(
-	BITMAP* b,
+	ALLEGRO_BITMAP* b,
 	const int offBase,
 	const int xBase,
 	const int yBase
 ) {
 	Crunch::Section s = sty[L2SS];
+    al_set_target_bitmap(b);
 
     // unused variables
 	// int w = read_word_le(s, offBase);
@@ -219,8 +223,8 @@ void GraphicSetL2::l2ss_blit_bitmap(
         while (byte != 0xFF) {
             byte = s[off_curr++];
             if (n || m || l) {
-				if (byte != 0) putpixel(b, xPos, yPos, palette[byte]);
-				else putpixel(b, xPos, yPos, color[COL_PINK]);
+				if (byte != 0) al_put_pixel(xPos, yPos, palette[byte]);
+				else al_put_pixel(xPos, yPos, color[COL_PINK]);
                 xPos += 4;
                 if (n) {
                     n--;
@@ -523,10 +527,11 @@ void GraphicSetL2::make_specials()
 			}
 
 			// now make the actual bitvector
-			std::vector<BITMAP*> bitvec(anim_frames);
+			std::vector<ALLEGRO_BITMAP*> bitvec(anim_frames);
 			for (int i = 0; i < anim_frames; ++i) {
-			    BITMAP* b = create_bitmap(xmax - xmin + 1, ymax - ymin + 1);
-			    clear_to_color(b, color[COL_PINK]);
+			    ALLEGRO_BITMAP* b = al_create_bitmap(xmax - xmin + 1, ymax - ymin + 1);
+			    al_set_target_bitmap(b);
+			    al_clear_to_color(color[COL_PINK]);
 				bitvec[i] = b;
 			}
 
@@ -570,11 +575,16 @@ void GraphicSetL2::make_specials()
 			}
 
 			for (int i = 0; i < anim_frames; ++i) {
-				BITMAP* big = create_bitmap(2*bitvec[i]->w, 2*bitvec[i]->h);
+			    const int bixl = al_get_bitmap_width (bitvec[i]);
+			    const int biyl = al_get_bitmap_height(bitvec[i]);
+				ALLEGRO_BITMAP* big = al_create_bitmap(2*bixl, 2*biyl);
+				al_set_target_bitmap(big);
+				al_clear_to_color(color[COL_PINKAF]);
 				// Siehe Kommentar "gegen Allegro-Bug (?)" weiter oben
-				stretch_blit(bitvec[i], big, 0, 0,
-				 bitvec[i]->w, bitvec[i]->h, 0, 0, big->w, big->h);
+				al_draw_scaled_bitmap(bitvec[i], 0, 0,
+				 bixl, biyl, 0, 0, 2*bixl, 2*biyl, 0);
 				bitvec[i] = big;
+				// DEBUGGING: is b destroyed anywhere?
 			}
 
 			Object ob(Cutbit(bitvec), obj_type, obj_subtype);
@@ -615,7 +625,7 @@ void GraphicSetL2::make_specials()
 
 			// apparently this data can be removed...
 		    for (int fr = 0; fr < (int) bitvec.size(); ++fr)
-		        destroy_bitmap(bitvec[fr]);
+		        al_destroy_bitmap(bitvec[fr]);
 
 		} else {
 			// insert dummy object
@@ -631,7 +641,7 @@ void GraphicSetL2::make_specials()
 
 void GraphicSetL2::make_terrain()
 {
-    // Create Cutbit. The cutbit gets to own the BITMAP, so it does not have
+    // Create Cutbit. The cutbit gets to own the ALLEGRO_BITMAP, so it does not have
     // to be destroyed here via destroy_bitmap(b).
     // We assume that after a non-defined bitmap there are only other null
     // bitmaps.
@@ -642,7 +652,7 @@ void GraphicSetL2::make_terrain()
 		//size of the tile arrangement data
 		offset += read_word_le(s, offset + 4);
 		// section, offset to the tile arrangement data, x, y
-        BITMAP* b = new_read_bitmap(s, offset + 6, s[offset+2], s[offset+3]);
+        ALLEGRO_BITMAP* b = new_read_bitmap(s, offset + 6, s[offset+2], s[offset+3]);
         Object ob(Cutbit(b, false)); // false: nicht zuschneiden
         ob.type    = Object::TERRAIN;
         ob.subtype = 0;

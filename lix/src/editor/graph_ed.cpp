@@ -101,7 +101,7 @@ int EdGraphic::get_selbox_yl() const
 
 
 
-int EdGraphic::get_pixel(int x, int y) const
+ALLEGRO_COLOR EdGraphic::get_pixel(int x, int y) const
 {
     // see top comment
     if (object->type == Object::HATCH) {
@@ -129,7 +129,7 @@ void EdGraphic::draw()
             static const Cutbit& cb
              = GraLib::get(gloB->file_bitmap_edit_hatch);
             cb.draw(get_ground(), get_x() + get_xl()/2 - cb.get_xl()/2,
-                                  get_y() + ::text_height(font_med),
+                                  get_y() + al_get_font_line_height(font_med),
                                   get_rotation() ? 1 : 0, 0);
         }
     }

@@ -43,12 +43,12 @@
  * int get_mouse_x()
  * int get_mouse_y()
  *
- *   Lesen die Allegro-Variablen hardware.get_mx() oder hardware.get_my() aus. Es wird zurueck
+ *   Lesen die Allegro-Variablen Hardware::get_mx() oder Hardware::get_my() aus. Es wird zurueck
  *   gegeben, wo sich die Maus auf dem Land befindet, unter Beruecksichtigung
  *   des Zooms und der Scroll-Koordinaten. Die Zahl ist immer mindestens 0
  *   und hoechstens (Kartenlaenge - 1), auch bei Toruskarten.
  *
- * void draw(BITMAP*, bool manual_zoom = false)
+ * void draw(ALLEGRO_BITMAP*, bool manual_zoom = false)
  *
  *   Dies zeichnet den durch das Scrolling festgelegten Ausschnitt der Karte
  *   auf das angegebene Bitmap. Dieses sollte eines der Video-Bitmaps für das
@@ -68,7 +68,7 @@
  *   hinaus. Wird wieder herausgezoomt, werden diese uebermaessigen Scroll-
  *   Koordinaten korrigiert.
  *
- * void load_masked_screen_rectangle(BITMAP*);
+ * void load_masked_screen_rectangle(ALLEGRO_BITMAP*);
  *
  *   Macht nur etwas, wenn das angegebene Quellbitmap dieselbe Groesse hat
  *   wie die Karte. In diesem Fall kopiert ein Rechteck von der Quelle auf
@@ -155,6 +155,6 @@ public:
     virtual void draw(Torbit&);
 
     void load_masked_screen_rectangle(Torbit&);
-    void clear_screen_rectangle(int = 0);
+    void clear_screen_rectangle(const ALLEGRO_COLOR&);
 
 };

@@ -28,13 +28,15 @@ NetClient::NetClient(const std::string& ip)
     // # NOTE: If you get a compiler error for the following line, #
     // #  check your enet version. Lix assumes you have enet 1.3.  #
     // #############################################################
-    me = enet_host_create(0, 1, LEMNET_CHANNEL_MAX, 0, 0);
+    // me = enet_host_create(0, 1, LEMNET_CHANNEL_MAX, 0, 0); // enet 1.3
+    me = enet_host_create(0, 1, LEMNET_CHANNEL_MAX, 0); // enet 1.2
 
     ENetAddress address;
     enet_address_set_host(&address, ip.c_str());
     address.port = gloB->server_port;
 
-    server = enet_host_connect(me, &address, LEMNET_CHANNEL_MAX, 0);
+    // server = enet_host_connect(me, &address, LEMNET_CHANNEL_MAX, 0); // 1.3
+    server = enet_host_connect(me, &address, LEMNET_CHANNEL_MAX); // enet 1.2
 }
 
 

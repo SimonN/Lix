@@ -43,10 +43,10 @@ private:
     std::vector <Room> rooms; // room 0 is the lobby
 
     // Timer
-    const int        updates_per_second;
-    const int        updates_for_notify;
-    const int        ticks_per_second;
-    volatile Uint32* ticks;
+    const int updates_per_second;
+    const int updates_for_notify;
+    const int ticks_per_second;
+    int       (*get_timer_ticks)();
 
     // Singleton-Klasse
     NetServer       (const NetServer&);
@@ -63,8 +63,8 @@ private:
 
 public:
 
-    // log+dedicated, port,   ticks/sec,    ticks
-    NetServer(bool, unsigned, int, volatile Uint32*);
+    // log+dedicated, port,   ticks/sec, timer eval function
+    NetServer(bool, unsigned, int,       int (*)());
     ~NetServer();
 
     inline void set_version_min(Uint32 v) { version_min = v; }

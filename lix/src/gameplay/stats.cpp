@@ -163,13 +163,13 @@ void GameplayStats::PanelTribe::draw_local(
             else if (tarinf->get_floater()) ab += 'F';
             ab += ')';
         }
-        while (text_length(font_med, (str + ab).c_str()) > xl_tarinf
+        while (al_get_text_width(font_med, (str + ab).c_str()) > xl_tarinf
          && str.size() > 1) {
             str.resize(str.size() - 2);
             str += '.';
         }
         Help::draw_shadow_text(*ground, font_med,
-         (str + ab).c_str(), x_tarinf, y);
+         (str + ab).c_str(), x_tarinf, y, color[COL_TEXT]);
     }
 
 }
@@ -188,13 +188,13 @@ void GameplayStats::PanelTribe::draw_med
         GraLib::get_icon(tr->style).draw(*ground, x, y, frame_outopp,
          out == 0 ? frame_gray : frame_color);
         Help::draw_shadow_text(*ground, font_med,
-         name_short.c_str(), x + 15, y);
+         name_short.c_str(), x + 15, y, color[COL_TEXT]);
         draw_nr_ctr(out, x + 20, y + 20);
         draw_nr_ctr(in,  x + 20, y + 40, green);
     }
     else {
         Help::draw_shadow_centered_text(*ground, font_med,
-         name_medium.c_str(), x + 20, y);
+         name_medium.c_str(), x + 20, y, color[COL_TEXT]);
         GraLib::get_icon(tr->style).draw(*ground, x, y + 20, frame_outopp,
          out == 0 ? frame_gray : frame_color);
         // the following +16 looks nice above the centered ``in'' count below.
@@ -209,9 +209,9 @@ void GameplayStats::PanelTribe::draw_nr_sml(const int first,
  const int x, const int y, const bool green) const
 {
     std::ostringstream s;
-    const int col_zero =         color[COL_TEXT];
-    const int col_full = green ? color[COL_TEXT_GREEN]
-                       : white ? color[COL_TEXT] : col_zero;
+    const ALLEGRO_COLOR& col_zero =         color[COL_TEXT];
+    const ALLEGRO_COLOR& col_full = green ? color[COL_TEXT_GREEN]
+                                  : white ? color[COL_TEXT] : col_zero;
     s << first;
     Help::draw_shadow_text(*ground, font_med,
      s.str().c_str(), x, y, first > 0 ? col_full : col_zero);
@@ -223,9 +223,9 @@ void GameplayStats::PanelTribe::draw_nr_ctr(const int first,
  const int x, const int y, const bool green) const
 {
     std::ostringstream s;
-    const int col_zero =         color[COL_TEXT];
-    const int col_full = green ? color[COL_TEXT_GREEN]
-                       : white ? color[COL_TEXT] : col_zero;
+    const ALLEGRO_COLOR& col_zero =         color[COL_TEXT];
+    const ALLEGRO_COLOR& col_full = green ? color[COL_TEXT_GREEN]
+                                  : white ? color[COL_TEXT] : col_zero;
     s << first;
     Help::draw_shadow_centered_text(*ground, font_med,
      s.str().c_str(), x, y, first > 0 ? col_full : col_zero);
@@ -287,12 +287,12 @@ void GameplayStats::add_tribe(const Tribe& t)
      for (int i = 0; i < (int) tribes.size(); ++i) {
         std::string& str = tribes[i].name_short;
         std::string& med = tribes[i].name_medium;
-        while (text_length(font_med, str.c_str())
+        while (al_get_text_width(font_med, str.c_str())
          > PanelTribe::name_short_width
          && str.size() > 1) {
             str.resize(str.size() - 1);
         }
-        while (text_length(font_med, med.c_str())
+        while (al_get_text_width(font_med, med.c_str())
          > PanelTribe::name_medium_width
          && med.size() > 2) {
             med.resize(med.size() - 2);
@@ -459,25 +459,22 @@ void GameplayStats::draw_self()
 void GameplayStats::draw_button_connection()
 {
     // Code taken from api/button.cpp
-    BITMAP* g    = get_ground().get_al_bitmap();
+    ALLEGRO_BITMAP* g    = get_ground().get_al_bitmap();
     const int x1 = stats_multi.get_x_here() - 2;
     const int y1 = stats_multi.get_y_here();
     const int x2 = stats_multi.get_x_here() + 1;
     const int y2 = stats_multi.get_y_here() + 19;
 
-    const int color_1 = color[COL_API_L   ];
-    const int color_2 = color[COL_API_M   ];
-    const int color_3 = color[COL_API_D   ];
+    const ALLEGRO_COLOR& color_1 = color[COL_API_L   ];
+    const ALLEGRO_COLOR& color_2 = color[COL_API_M   ];
+    const ALLEGRO_COLOR& color_3 = color[COL_API_D   ];
 
-    acquire_bitmap(g);
-
-    rectfill(g, x1,   y1,   x2,   y1+1, color_1); // top
-    rectfill(g, x1,   y1+2, x2,   y2-2, color_2); // center
-    hline   (g, x1,   y2-1, x2-1,       color_3); // close bottom left
-    hline   (g, x1,   y2,   x2-2,       color_3); // close bottom left
-    putpixel(g, x2,   y2-1,             color_2); // bottom right corner
-    putpixel(g, x2-1, y2,               color_2); // bottom right corner
-    putpixel(g, x2,   y1,               color_1); // bottom right corner
-
-    release_bitmap(g);
+    al_set_target_bitmap(g);
+    al_draw_filled_rectangle(x1,   y1,   x2,   y1+1, color_1); // top
+    al_draw_filled_rectangle(x1,   y1+2, x2,   y2-2, color_2); // center
+    al_draw_filled_rectangle(x1,   y2-2, x2,   y2-1, color_3); // bot left
+    al_draw_filled_rectangle(x1,   y2-1, x2-1, y2,   color_3); // bot left
+    al_put_pixel            (x2-1, y2-2,             color_2); // bot right
+    al_put_pixel            (x2-2, y2-1,             color_2); // bot right
+    al_put_pixel            (x2-1, y1,               color_1); // bot right
 }

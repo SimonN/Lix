@@ -26,7 +26,7 @@ void Gameplay::undraw()
 
 
 void Gameplay::draw() {
-    map.clear_screen_rectangle();
+    map.clear_screen_rectangle(color[COL_BLACK]);
 
     // Zuerst die interaktiven Objekte. Wir zeichnen Listen mit allen Indizies,
     // auch wenn die Listen von TERRAIN oder GOAL natuerlich immer leer sind.
@@ -90,8 +90,8 @@ void Gameplay::draw() {
     chat.draw();
 
     // Mauszeiger ganz obenauf
-    mouse_cursor.set_x(hardware.get_mx()-mouse_cursor_offset);
-    mouse_cursor.set_y(hardware.get_my()-mouse_cursor_offset);
+    mouse_cursor.set_x(Hardware::get_mx()-mouse_cursor_offset);
+    mouse_cursor.set_y(Hardware::get_my()-mouse_cursor_offset);
     mouse_cursor.draw();
 
     map. draw(*pre_screen);

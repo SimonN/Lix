@@ -21,7 +21,7 @@ EffectManager::EffectManager(Map& m)
     map     (m),
     trlo    (0),
     timer_ticks_for_explosion(Help::timer_ticks_per_second / 60),
-    timer_tick_last_explosion(Help::timer_ticks),
+    timer_tick_last_explosion(Help::get_timer_ticks()),
     overtime(0)
 {
 }
@@ -254,9 +254,9 @@ void EffectManager::calc(const unsigned current_update)
     }
 
     // Explosionen
-    if (Help::timer_ticks - timer_ticks_for_explosion
+    if (Help::get_timer_ticks() - timer_ticks_for_explosion
      >= timer_tick_last_explosion) {
-        timer_tick_last_explosion = Help::timer_ticks;
+        timer_tick_last_explosion = Help::get_timer_ticks();
         const int anim_speed = useR->debris_type == 0 ? 1 : 2;
         for (std::list <Graphic> ::iterator
          itr = obj_explosion.begin(); itr != obj_explosion.end(); ++itr) {

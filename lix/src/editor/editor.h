@@ -117,12 +117,12 @@ private:
     void delete_everything(); // Neu-Button
 
     void draw_selection_borders();
-    void draw_selection_border   (const Selection&, const int);
-    void draw_selection_border_at(const Selection&, const int,
+    void draw_selection_border   (const Selection&, const ALLEGRO_COLOR&);
+    void draw_selection_border_at(const Selection&, const ALLEGRO_COLOR&,
                                   const int,        const int);
-    void draw_selection_frame    (const int);
-    void draw_selection_frame_at (const int,        const int,
-                                  const int,        const int, const int);
+    void draw_selection_frame    (const ALLEGRO_COLOR&);
+    void draw_selection_frame_at (const int, const int, const int, const int,
+                                  const ALLEGRO_COLOR&);
     void draw_object_with_numbers   (const GraIt&,  const int, const int);
     void draw_object_with_numbers_at(const GraIt&,  const int, const int,
                                                     const int, const int);

@@ -12,7 +12,7 @@
  */
 
 #include <algorithm> // swap
-#include <cmath> // sin - Wichtig für die Zündschnur
+#include <cmath> // sin - Wichtig fÃ¼r die ZÃ¼ndschnur
 
 #include "ac.h" // update args
 #include "lix.h"
@@ -124,7 +124,7 @@ bool Lixxie::get_in_trigger_area(const EdGraphic& gr, const bool twice) const
 
 
 
-const bool Lixxie::get_steel(const int px, const int py) {
+bool Lixxie::get_steel(const int px, const int py) {
     return steel_mask->get_pixel(ex + px*dir, ey+py) == color[COL_STEEL_MASK];
 }
 
@@ -132,11 +132,11 @@ bool Lixxie::get_steel_absolute(const int x, const int y) {
     return steel_mask->get_pixel(x, y) == color[COL_STEEL_MASK];
 }
 
-const int Lixxie::get_pixel(const int px, const int py) {
+ALLEGRO_COLOR Lixxie::get_pixel(const int px, const int py) {
     return land->get_pixel(ex + px * dir, ey + py);
 }
 
-void Lixxie::set_pixel(const int px, const int py, const int col) {
+void Lixxie::set_pixel(const int px, const int py, const ALLEGRO_COLOR& col) {
     land->set_pixel(ex + px * dir, ey + py, col);
 }
 
@@ -162,11 +162,11 @@ int Lixxie::count_solid(int x1, int y1, int x2, int y2)
 {
     if (x2 < x1) std::swap(x1, x2);
     if (y2 < y1) std::swap(y1, y2);
-    // Totaler Rückgabewert
+    // Totaler RÃ¼ckgabewert
     int ret = 0;
     for (int ix = x1; ix <= x2; ++ix) {
         for (int iy = y1; iy <= y2; ++iy) {
-            // Variable für jeden gefundenen Nicht-Luftpixel erhöhen
+            // Variable fÃ¼r jeden gefundenen Nicht-Luftpixel erhÃ¶hen
             if (is_solid(ix, iy)) ++ret;
         }
     }
@@ -179,11 +179,11 @@ int Lixxie::count_steel(int x1, int y1, int x2, int y2)
 {
     if (x2 < x1) std::swap(x1, x2);
     if (y2 < y1) std::swap(y1, y2);
-    // Totaler Rückgabewert
+    // Totaler RÃ¼ckgabewert
     int ret = 0;
     for (int ix = x1; ix <= x2; ++ix) {
         for (int iy = y1; iy <= y2; ++iy) {
-            // Variable für jeden gefundenen Nicht-Luftpixel erhöhen
+            // Variable fÃ¼r jeden gefundenen Nicht-Luftpixel erhÃ¶hen
             if (get_steel(ix, iy)) ++ret;
         }
     }
@@ -227,11 +227,11 @@ bool Lixxie::remove_rectangle(int x1, int y1, int x2, int y2)
 {
     if (x2 < x1) std::swap(x1, x2);
     if (y2 < y1) std::swap(y1, y2);
-    // Totaler Rückgabewert
+    // Totaler RÃ¼ckgabewert
     bool ret = false;
     for (int ix = x1; ix <= x2; ++ix) {
         for (int iy = y1; iy <= y2; ++iy) {
-            // Ab einem Stahl ist der totale Rückgabewert true
+            // Ab einem Stahl ist der totale RÃ¼ckgabewert true
             if (remove_pixel(ix, iy)) ret = true;
         }
     }
@@ -240,8 +240,8 @@ bool Lixxie::remove_rectangle(int x1, int y1, int x2, int y2)
 
 
 
-// Ähnlich wie remove_pixel...
-void Lixxie::draw_pixel(int px, int py, int col)
+// Ã„hnlich wie remove_pixel...
+void Lixxie::draw_pixel(int px, int py, const ALLEGRO_COLOR& col)
 {
     // Dies nur bei draw_pixel() und remove_pixel()
     if (dir < 0) --px;
@@ -251,8 +251,10 @@ void Lixxie::draw_pixel(int px, int py, int col)
 
 
 
-void Lixxie::draw_rectangle(int x1, int y1, int x2, int y2, int col)
-{
+void Lixxie::draw_rectangle(
+    int x1, int y1, int x2, int y2,
+    const ALLEGRO_COLOR& col
+) {
     if (x2 < x1) std::swap(x1, x2);
     if (y2 < y1) std::swap(y1, y2);
 
@@ -268,9 +270,10 @@ void Lixxie::draw_rectangle(int x1, int y1, int x2, int y2, int col)
 
 void Lixxie::draw_brick(int x1, int y1, int x2, int y2)
 {
-    const int col_l = get_cutbit()->get_pixel(19, LixEn::BUILDER - 1, 0, 0);
-    const int col_m = get_cutbit()->get_pixel(20, LixEn::BUILDER - 1, 0, 0);
-    const int col_d = get_cutbit()->get_pixel(21, LixEn::BUILDER - 1, 0, 0);
+    const Cutbit* c = get_cutbit();
+    const ALLEGRO_COLOR col_l = c->get_pixel(19, LixEn::BUILDER - 1, 0, 0);
+    const ALLEGRO_COLOR col_m = c->get_pixel(20, LixEn::BUILDER - 1, 0, 0);
+    const ALLEGRO_COLOR col_d = c->get_pixel(21, LixEn::BUILDER - 1, 0, 0);
 
     draw_rectangle(x1 + (dir<0), y1, x2 - (dir>0), y1, col_l);
     draw_rectangle(x1 + (dir>0), y2, x2 - (dir<0), y2, col_d);
@@ -303,10 +306,11 @@ void Lixxie::play_sound_if_trlo(const UpdateArgs& ua, Sound::Id sound_id)
 bool Lixxie::is_last_frame()
 {
     const Cutbit& c = *get_cutbit();
-    BITMAP* b = c.get_al_bitmap();
-    int pixel_col
-     = getpixel(b, (frame + 3)*(c.get_xl()+1)+1,  (ac - 1)*(c.get_yl()+1)+2);
-    if (frame == c.get_x_frames() - 3 || pixel_col == getpixel(b, b->w - 1, 0))
+    ALLEGRO_BITMAP* b = c.get_al_bitmap();
+    ALLEGRO_COLOR pixel_col
+     = al_get_pixel(b, (frame + 3)*(c.get_xl()+1)+1, (ac-1)*(c.get_yl()+1)+2);
+    if (frame == c.get_x_frames() - 3
+     || pixel_col == al_get_pixel(b, c.get_xl() - 1, 0))
      return true;
     return false;
 }
@@ -332,7 +336,7 @@ void Lixxie::draw()
     set_x_frame(frame + 2);
     set_y_frame(ac - 1);
 
-    // Wenn ein Zählwerk erforderlich ist...
+    // Wenn ein ZÃ¤hlwerk erforderlich ist...
     if (updates_since_bomb > 0) {
         int fuse_x = countdown[get_x_frame()][get_y_frame()].x;
         int fuse_y = countdown[get_x_frame()][get_y_frame()].y;

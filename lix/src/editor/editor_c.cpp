@@ -25,7 +25,7 @@ void Editor::calc_self()
     mx = map.get_mouse_x();
     my = map.get_mouse_y();
 
-    const bool mouse_on_panel = hardware.get_my() > map.get_screen_yl();
+    const bool mouse_on_panel = Hardware::get_my() > map.get_screen_yl();
 
     const int grid    = get_grid();
     const int mx_grid = (mx + grid/2) - Help::mod(mx, grid);
@@ -36,8 +36,8 @@ void Editor::calc_self()
     mouse_cursor.set_x_frame(0);
     mouse_cursor.set_y_frame(0);
     if (map.get_scrollable()
-     && (useR->scroll_right  && hardware.get_mrh()
-      || useR->scroll_middle && hardware.get_mmh()))
+     && ((useR->scroll_right  && Hardware::get_mrh())
+      || (useR->scroll_middle && Hardware::get_mmh())))
      mouse_cursor.set_x_frame(3);
 
     hover.clear();
@@ -54,7 +54,7 @@ void Editor::calc_self()
 
 
     // Hotkey ohne Button: Cycle around all the buttons, and every button off
-    if (hardware.key_once(useR->key_ed_grid)) {
+    if (Hardware::get_key_once(useR->key_ed_grid)) {
         if (!panel[GRID_2 ].get_on()
          && !panel[GRID_10].get_on()
          && !panel[GRID_16].get_on()) panel[GRID_2].set_on();
@@ -76,26 +76,26 @@ void Editor::calc_self()
     // first press the key (one could write a new function in Hardware for
     // this, of course) is also bad if the drawing is quick, because
     // you'd have to repeatedly tap the key to move it a distance.
-    if (hardware.key_once(useR->key_ed_up)
-     && hardware.key_hold(useR->key_ed_up)) {
+    if (Hardware::get_key_once(useR->key_ed_up)
+     && Hardware::get_key_hold(useR->key_ed_up)) {
         for (SelIt i = selection.begin(); i != selection.end(); ++i)
          i->o->set_y(i->o->get_y() - grid);
         if (!selection.empty()) draw_required = true;
     }
-    else if (hardware.key_once(useR->key_ed_right)
-     &&      hardware.key_hold(useR->key_ed_right)) {
+    else if (Hardware::get_key_once(useR->key_ed_right)
+     &&      Hardware::get_key_hold(useR->key_ed_right)) {
         for (SelIt i = selection.begin(); i != selection.end(); ++i)
          i->o->set_x(i->o->get_x() + grid);
         if (!selection.empty()) draw_required = true;
     }
-    else if (hardware.key_once(useR->key_ed_down)
-     &&      hardware.key_hold(useR->key_ed_down)) {
+    else if (Hardware::get_key_once(useR->key_ed_down)
+     &&      Hardware::get_key_hold(useR->key_ed_down)) {
         for (SelIt i = selection.begin(); i != selection.end(); ++i)
          i->o->set_y(i->o->get_y() + grid);
         if (!selection.empty()) draw_required = true;
     }
-    else if (hardware.key_once(useR->key_ed_left)
-     &&      hardware.key_hold(useR->key_ed_left)) {
+    else if (Hardware::get_key_once(useR->key_ed_left)
+     &&      Hardware::get_key_hold(useR->key_ed_left)) {
         for (SelIt i = selection.begin(); i != selection.end(); ++i)
          i->o->set_x(i->o->get_x() - grid);
         if (!selection.empty()) draw_required = true;
@@ -106,20 +106,20 @@ void Editor::calc_self()
     // Es gibt bloede Ueberschneidungen mit dem Druecken und Loslassen von
     // Shift waehrend einer Mauszieh-Aktion, daher beheben wir das hier
     // von vornherein und nicht unten im Maus-Code.
-    if (!hardware.get_mlh()) {
-        if (hardware.key_hold(useR->key_ed_sel_frame))
+    if (!Hardware::get_mlh()) {
+        if (Hardware::get_key_hold(useR->key_ed_sel_frame))
          panel[SELECT_FRAME].set_on();
-        if (hardware.key_release(useR->key_ed_sel_frame))
+        if (Hardware::get_key_release(useR->key_ed_sel_frame))
          panel[SELECT_FRAME].set_off();
     }
-    if (hardware.key_hold(useR->key_ed_sel_add))
+    if (Hardware::get_key_hold(useR->key_ed_sel_add))
      panel[SELECT_ADD].set_on();
-    if (hardware.key_release(useR->key_ed_sel_add))
+    if (Hardware::get_key_release(useR->key_ed_sel_add))
      panel[SELECT_ADD].set_off();
 
     // Das Eindruecken von Buttons sperren, solange etwas umhergezogen wird:
     // Ansonsten wird die For-Schleife durchlaufen.
-    if ((!hardware.get_mlh() && !hardware.get_mlr())
+    if ((!Hardware::get_mlh() && !Hardware::get_mlr())
      || !mouse_hold_started_outside_panel || !mouse_on_panel)
      // Steuerleisten-Buttons abfragen
      for (unsigned int i = 0; i < panel.size(); ++i) {
@@ -361,12 +361,12 @@ void Editor::calc_self()
 
     // Dies verhindert Umherziehen und dergleichen, wenn das Maushalten
     // nicht im Spielfeld mit Objektwahl o. Ae. begann
-    if (hardware.get_ml() && mouse_on_panel) {
+    if (Hardware::get_ml() && mouse_on_panel) {
         mouse_hold_started_outside_panel = false;
     }
 
     // Hoverobjekt nicht beim Umherziehen waehlen
-    if (!mouse_on_panel && hardware.get_mlh() < 2) {
+    if (!mouse_on_panel && Hardware::get_mlh() < 2) {
         Selection s = find_under_mouse_cursor();
         if (s.is_valid() && !panel[SELECT_FRAME].get_on()) hover.push_back(s);
     }
@@ -374,7 +374,7 @@ void Editor::calc_self()
     // Vielleicht doch klicken und Rahmen ziehen? Wenn man ins Nirvana
     // klickt, dann noch schnell den Button aktivieren
     if (!mouse_on_panel && !panel[SELECT_FRAME].get_on()
-     && hardware.get_ml() && hover.empty()) {
+     && Hardware::get_ml() && hover.empty()) {
         panel[SELECT_FRAME].set_on();
     }
 
@@ -382,7 +382,7 @@ void Editor::calc_self()
     // Moeglichkeit: Rahmen ziehen
     if (panel[SELECT_FRAME].get_on()) {
         // Rahmenziehen beginnt
-        if (hardware.get_ml() && !mouse_on_panel) {
+        if (Hardware::get_ml() && !mouse_on_panel) {
             mouse_hold_started_outside_panel = true;
             frame_start_x  = mx;
             frame_start_y  = my;
@@ -390,14 +390,14 @@ void Editor::calc_self()
         // Beim Rahmenziehen Objekte markieren, auch beim Loslassen diesen
         // Code nutzen, denn beim Loslassen wird einfach alles aus der
         // Hover-Liste in die Auswahl uebernommen!
-        if ((hardware.get_mlh() || hardware.get_mlr())
+        if ((Hardware::get_mlh() || Hardware::get_mlr())
          && mouse_hold_started_outside_panel) {
             int x1 = (frame_start_x < mx) ? frame_start_x : mx;
             int y1 = (frame_start_y < my) ? frame_start_y : my;
             int x2 = (frame_start_x > mx) ? frame_start_x : mx;
             int y2 = (frame_start_y > my) ? frame_start_y : my;
 //            // Rahmen ueber dem Panel lassen, gaebe beim Torus sonst Kaese
-//            if (hardware.is_mouse_over_panel()) {
+//            if (Hardware::is_mouse_over_panel()) {
 //                y1 = frame_start_y;
 //                y2 = map.get_screen_y()
 //                   + (map.get_zoom() ? Level::min_y*3/4 : Level::min_y) - 2;
@@ -421,8 +421,8 @@ void Editor::calc_self()
             frame_draw_x2 = x2;
             frame_draw_y2 = y2;
             // Beim Loslassen alles aus der Hover-Liste in die Auswahl setzen
-            if (hardware.get_mlr()) {
-                if (!hardware.get_shift()) panel[SELECT_FRAME].set_off();
+            if (Hardware::get_mlr()) {
+                if (!Hardware::get_shift()) panel[SELECT_FRAME].set_off();
                 // Kein CTRL gedrueckt - genau alles im Hover wird zur Auswahl
                 if (!panel[SELECT_ADD].get_on()) selection.clear();
                 for (SelIt i = hover.begin(); i != hover.end(); ++i) {
@@ -447,7 +447,7 @@ void Editor::calc_self()
     // Keinen Rahmen ziehen
     else {
         // Neuauswahl der Grafikobjekte
-        if (hardware.get_ml() && !mouse_on_panel) {
+        if (Hardware::get_ml() && !mouse_on_panel) {
             mouse_hold_started_outside_panel = true;
             // Wir haben hier garantiert etwas angeklickt, denn sonst
             // haette eine Abfrage oben bereits den SELECT_FRAME-Button
@@ -499,7 +499,7 @@ void Editor::calc_self()
 
 
         // Umherziehen von Objekten mit der Maus
-        else if (hardware.get_mlh() && mouse_hold_started_outside_panel) {
+        else if (Hardware::get_mlh() && mouse_hold_started_outside_panel) {
             if (mx_grid != mx_grid_last || my_grid != my_grid_last) {
                 for (SelIt i = selection.begin(); i != selection.end(); ++i) {
                     const int iox = i->o->get_x() + grid/2;
@@ -523,7 +523,7 @@ void Editor::calc_self()
 
         // Loslassen von umhergezogenen Objekten - nur wichtig fuer's
         // Wegschmeissen in das ewige Nirwana am unteren Bildschirmrand :-D
-        else if (hardware.get_mlr() && mouse_hold_started_outside_panel) {
+        else if (Hardware::get_mlr() && mouse_hold_started_outside_panel) {
             if (mouse_on_panel) {
                 // Komplette Auswahl loeschen
                 for (SelIt i = selection.begin(); i != selection.end(); ++i) {

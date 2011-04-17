@@ -118,7 +118,7 @@ private:
     SearchCrit search_criterion;
 
     void load_current_dir();
-    static void static_put_to_file(std::string&, void*);
+    static void static_put_to_file(const std::string&, void*);
 
     // Kopierverbot
     ListFile        (const ListFile&);

@@ -52,7 +52,7 @@ BitmapBrowser::BitmapBrowser(
     add_child(cancel);
 
     cancel.set_text  (Language::cancel);
-    cancel.set_hotkey(KEY_ESC);
+    cancel.set_hotkey(ALLEGRO_KEY_ESCAPE);
 
     load_dir(cdir, initial_page);
 }
@@ -81,7 +81,7 @@ void BitmapBrowser::calc_self()
         list_bitmap.load_dir(dir_list.get_current_dir());
         set_subtitle(dir_list.get_current_dir());
     }
-    else if (hardware.get_mr() && (dir_list.is_mouse_here()
+    else if (Hardware::get_mr() && (dir_list.is_mouse_here()
                              || list_bitmap.is_mouse_here())) {
         // if (dir_list.get_current_dir() == dir_list.get_base_dir()) {
         set_exit();
@@ -106,7 +106,7 @@ void BitmapBrowser::calc_self()
         set_exit();
     }
     else if (cancel.get_clicked()
-     || hardware.get_mr() && !this->is_mouse_here()) {
+     || (Hardware::get_mr() && !this->is_mouse_here())) {
         set_exit();
     }
 }

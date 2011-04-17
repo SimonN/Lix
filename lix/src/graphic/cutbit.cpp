@@ -29,15 +29,12 @@ Cutbit::Cutbit(const Cutbit& c)
     x_frames(c.x_frames),
     y_frames(c.y_frames)
 {
-    if (c.bitmap) {
-        bitmap = create_bitmap(c.bitmap->w, c.bitmap->h);
-        ::blit(c.bitmap, bitmap, 0, 0, 0, 0, bitmap->w, bitmap->h);
-    }
+    if (c.bitmap) bitmap = al_clone_bitmap(c.bitmap);
 }
 
 
 
-Cutbit::Cutbit(BITMAP* b, const bool cut)
+Cutbit::Cutbit(ALLEGRO_BITMAP* b, const bool cut)
 :
     bitmap(b),
     xl(0),
@@ -48,14 +45,14 @@ Cutbit::Cutbit(BITMAP* b, const bool cut)
     if (!bitmap) return;
     if (cut) cut_bitmap();
     else {
-        xl = bitmap->w;
-        yl = bitmap->h;
+        xl = al_get_bitmap_width (bitmap);
+        yl = al_get_bitmap_height(bitmap);
     }
 }
 
 
 
-Cutbit::Cutbit(const std::vector <BITMAP*>& vec)
+Cutbit::Cutbit(const std::vector <ALLEGRO_BITMAP*>& vec)
 :
     bitmap(0),
     xl(0),
@@ -65,30 +62,34 @@ Cutbit::Cutbit(const std::vector <BITMAP*>& vec)
 {
     if      (vec.empty()) return;
     else if (vec.size() == 1) {
-        bitmap = create_bitmap(vec[0]->w, vec[0]->h);
+        bitmap = al_create_bitmap(al_get_bitmap_width (vec[0]),
+                                  al_get_bitmap_height(vec[0]));
         if (bitmap) {
-            xl       = bitmap->w;
-            yl       = bitmap->h;
+            xl       = al_get_bitmap_width (bitmap);
+            yl       = al_get_bitmap_height(bitmap);
             x_frames = 1;
             y_frames = 1;
-            ::blit(vec[0], bitmap, 0, 0, 0, 0, bitmap->w, bitmap->h);
+            al_set_target_bitmap(bitmap);
+            al_draw_bitmap(vec[0], 0, 0, 0);
         }
         // do not cut
     }
     else {
-        xl = vec[0]->w;
-        yl = vec[0]->h;
-        for (std::vector <BITMAP*> ::const_iterator
+        xl = al_get_bitmap_width (vec[0]);
+        yl = al_get_bitmap_height(vec[0]);
+        for (std::vector <ALLEGRO_BITMAP*> ::const_iterator
          itr = vec.begin(); itr != vec.end(); ++itr)
-         if ((*itr)->w != xl || (*itr)->h != yl) return;
+         if (al_get_bitmap_width (*itr) != xl
+          || al_get_bitmap_height(*itr) != yl) return;
 
         x_frames = vec.size();
         y_frames = 1;
-        bitmap = create_bitmap((xl+1) * vec.size() + 1,   yl + 2);
+        bitmap = al_create_bitmap((xl+1) * vec.size() + 1,   yl + 2);
         if (bitmap) {
-            clear_to_color(bitmap, makecol(127, 0, 127));
+            al_set_target_bitmap(bitmap);
+            al_clear_to_color(al_map_rgb(127, 0, 127));
             for (int fr = 0; fr < (int) vec.size(); ++fr) {
-                ::blit(vec[fr], bitmap, 0, 0, (xl+1)*fr+1, 1, xl, yl);
+                al_draw_bitmap(vec[fr], (xl+1)*fr+1, 1, 0);
                 // Do not cut, all important things from cut_bitmap are done
             }
         }
@@ -107,7 +108,7 @@ Cutbit::Cutbit(const std::string& filename, const bool cut)
 {
     // Angegebene Datei als Bild laden.
     // Wenn dies kein Bild ist, Fehlermeldung schreiben und abbrechen.
-    bitmap = load_bitmap(filename.c_str(), 0);
+    bitmap = al_load_bitmap(filename.c_str());
     if (!bitmap) {
         std::string str = Language::log_bitmap_bad;
         str += " ";
@@ -115,17 +116,20 @@ Cutbit::Cutbit(const std::string& filename, const bool cut)
         Log::log(Log::ERROR, str);
         return;
     }
+    al_set_target_bitmap(bitmap);
+    al_convert_mask_to_alpha(bitmap, color[COL_REALPINK]);
     if (cut) cut_bitmap();
     else {
-        xl = bitmap->w;
-        yl = bitmap->h;
+        xl = al_get_bitmap_width (bitmap);
+        yl = al_get_bitmap_height(bitmap);
     }
 }
 
 
 
-Cutbit::~Cutbit() {
-    if (bitmap) destroy_bitmap(bitmap);
+Cutbit::~Cutbit()
+{
+    if (bitmap) al_destroy_bitmap(bitmap);
 }
 
 
@@ -133,10 +137,9 @@ Cutbit::~Cutbit() {
 Cutbit& Cutbit::operator = (const Cutbit& c)
 {
     // Bitmap neu erstellen: Altes loeschen, sofern vorhanden
-    if (bitmap) destroy_bitmap(bitmap);
+    if (bitmap) al_destroy_bitmap(bitmap);
     if (c.bitmap) {
-        bitmap = create_bitmap(c.bitmap->w, c.bitmap->h);
-        ::blit(c.bitmap, bitmap, 0, 0, 0, 0, bitmap->w, bitmap->h);
+        bitmap = al_clone_bitmap(c.bitmap);
     }
     else bitmap = 0;
     // Restliche Werte richtig setzen
@@ -151,51 +154,56 @@ Cutbit& Cutbit::operator = (const Cutbit& c)
 
 void Cutbit::cut_bitmap()
 {
+    al_lock_bitmap(bitmap, al_get_bitmap_format(bitmap),ALLEGRO_LOCK_READONLY);
     // Wird nur fuer Bilder mit Prae-Erweiterung normal geschnitten.
     // Ist das Grundmuster eines Rahmens, eines Rasters erkennbar?
-    int c = getpixel(bitmap, 0, 0);
-    if (getpixel(bitmap, 0, 1) == c
-     && getpixel(bitmap, 1, 0) == c
-     && getpixel(bitmap, 1, 1) != c) {
+    ALLEGRO_COLOR c = al_get_pixel(bitmap, 0, 0);
+    if (al_get_pixel(bitmap, 0, 1) == c
+     && al_get_pixel(bitmap, 1, 0) == c
+     && al_get_pixel(bitmap, 1, 1) != c) {
 
         // Test auf horizontale Frame-Laenge
-        for (xl = 2; xl < bitmap->w; ++xl) {
-            if (getpixel(bitmap, xl, 1) == c) {
+        for (xl = 2; xl < al_get_bitmap_width(bitmap); ++xl) {
+            if (al_get_pixel(bitmap, xl, 1) == c) {
                 --xl;
                 break;
             }
         }
 
         // Test auf vertikale Frame-Laenge
-        for (yl = 2; yl < bitmap->h; ++yl) {
-            if (getpixel(bitmap, 1, yl) == c) {
+        for (yl = 2; yl < al_get_bitmap_height(bitmap); ++yl) {
+            if (al_get_pixel(bitmap, 1, yl) == c) {
                 --yl;
                 break;
             }
         }
 
         // Wenn maximal ein Frame in jeder Richtung in das Bitmap passt...
-        if (xl * 2 > bitmap->w && yl * 2 > bitmap->h) {
-            xl = bitmap->w;
-            yl = bitmap->h;
+        if (xl * 2 > al_get_bitmap_width (bitmap)
+         && yl * 2 > al_get_bitmap_height(bitmap)) {
+            xl = al_get_bitmap_width (bitmap);
+            yl = al_get_bitmap_height(bitmap);
             x_frames = 1;
             y_frames = 1;
         }
         // ...sonst die Menge der Frames bestimmen.
         else {
-            for (x_frames = 0; (x_frames+1)*(xl+1) < bitmap->w; ++x_frames);
-            for (y_frames = 0; (y_frames+1)*(yl+1) < bitmap->h; ++y_frames);
+            for (x_frames = 0;
+             (x_frames+1)*(xl+1) < al_get_bitmap_width (bitmap); ++x_frames);
+            for (y_frames = 0;
+             (y_frames+1)*(yl+1) < al_get_bitmap_height(bitmap); ++y_frames);
         }
     }
 
     // Wenn kein Rahmen erkennbar ist
     else {
-        xl = bitmap->w;
-        yl = bitmap->h;
+        xl = al_get_bitmap_width (bitmap);
+        yl = al_get_bitmap_height(bitmap);
         x_frames = 1;
         y_frames = 1;
     }
     // Jetzt ist das Bild fertig zerschnitten.
+    al_unlock_bitmap(bitmap);
 }
 
 
@@ -212,22 +220,23 @@ bool Cutbit::operator != (const Cutbit& c) const
 
 
 
-int Cutbit::get_pixel(const int px, const int py) const
+ALLEGRO_COLOR Cutbit::get_pixel(const int px, const int py) const
 {
     return get_pixel(0, 0, px, py);
 }
 
-int Cutbit::get_pixel(const int fx, const int fy,
-                      const int px, const int py) const
+ALLEGRO_COLOR Cutbit::get_pixel(const int fx, const int fy,
+                                const int px, const int py) const
 {
     // Frame oder Pixel pro Frame nicht existent
     if  (fx < 0 || fy < 0 || fx >= x_frames || fy >= y_frames
-     ||  px < 0 || py < 0 || px >= xl       || py >= yl) return -1;
+     ||  px < 0 || py < 0 || px >= xl       || py >= yl)
+     return color[COL_PINKAF];
     // Ansonsten liefere Farbe
     else if (x_frames == 1 && y_frames == 1)
-         return _getpixel16(bitmap, px, py);
-    else return _getpixel16(bitmap, fx * (xl+1) + 1 + px,
-                                    fy * (yl+1) + 1 + py);
+         return al_get_pixel(bitmap, px, py);
+    else return al_get_pixel(bitmap, fx * (xl+1) + 1 + px,
+                                     fy * (yl+1) + 1 + py);
 }
 
 
@@ -249,22 +258,22 @@ void Cutbit::draw(
     const double scal,
     const Mode   mode) const
 {
-    BITMAP* target = target_torbit.get_al_bitmap();
+    ALLEGRO_BITMAP* target = target_torbit.get_al_bitmap();
     if (bitmap && fx >= 0 && fy >= 0 && fx < x_frames && fy < y_frames) {
         // Schneide zunaechst ein Subbitmap aus unter Beachtung der Framewahl
         // Hat das Bild keine Frames, entfaellt +1 fuer den aeusseren Rahmen.
-        BITMAP* sprite;
+        ALLEGRO_BITMAP* sprite;
         if (x_frames == 1 && y_frames == 1)
-             sprite = create_sub_bitmap(bitmap, 0, 0, xl, yl);
-        else sprite = create_sub_bitmap(bitmap, fx * (xl+1) + 1,
-                                                fy * (yl+1) + 1, xl, yl);
+             sprite = al_create_sub_bitmap(bitmap, 0, 0, xl, yl);
+        else sprite = al_create_sub_bitmap(bitmap, fx * (xl+1) + 1,
+                                                   fy * (yl+1) + 1, xl, yl);
         if (mode == NORMAL) {
             target_torbit.draw_from(sprite, x, y, mirr, rot, scal);
         }
         else {
-            const int PINK  = color[COL_PINK];
-            const int BLACK = color[COL_BLACK];
-            const int GREY  = color[COL_EDITOR_DARK];
+            const ALLEGRO_COLOR PINK  = color[COL_PINK];
+            const ALLEGRO_COLOR BLACK = color[COL_BLACK];
+            const ALLEGRO_COLOR GREY  = color[COL_EDITOR_DARK];
             const int size  = xl > yl ? xl : yl;
             Torbit excerpt(size, size);
             excerpt.clear_to_color(PINK);
@@ -276,8 +285,8 @@ void Cutbit::draw(
             else if (mode == NOOW_EDITOR) {
                 for  (int ix = 0; ix < size; ++ix)
                  for (int iy = 0; iy < size; ++iy) {
-                    const int c = target_torbit.get_pixel(x + ix, y + iy);
-                    const int e = excerpt      .get_pixel(    ix,     iy);
+                    ALLEGRO_COLOR c = target_torbit.get_pixel(x + ix, y + iy);
+                    ALLEGRO_COLOR e = excerpt      .get_pixel(    ix,     iy);
                     if ((c == BLACK || c == PINK || c == GREY)
                      &&  e != BLACK && e != PINK)
                      target_torbit.set_pixel(x + ix, y + iy, e);
@@ -305,17 +314,22 @@ void Cutbit::draw(
             }
         }
         // Fertig
-        destroy_bitmap(sprite);
+        al_destroy_bitmap(sprite);
     }
 
     // Keine gueltige Frame-Angabe
     else {
-        int          col_text = makecol(255, 255, 255);
-        int          col_back = makecol( 64,  64,  64);
-        if (!bitmap) col_back = makecol(255,  64,  64);
-        std::string str = "( ";
-        str += fx; str += " | "; str += fy; str += " )";
-        textout_ex(target, font, "Frame?!?!", x, y,   col_text, col_back);
-        textout_ex(target, font, str.c_str(), x, y+8, col_text, col_back);
+        al_set_target_bitmap(target);
+        if (bitmap) {
+            ALLEGRO_COLOR col_text = al_map_rgb(255, 255, 255);
+            std::string str = "( ";
+            str += fx; str += " | "; str += fy; str += " )";
+            al_draw_text(font_sml, col_text, x, y,    0, "Frame?");
+            al_draw_text(font_sml, col_text, x, y+10, 0, str.c_str());
+        }
+        else {
+             ALLEGRO_COLOR col_text = al_map_rgb(255,  64,  64);
+             al_draw_text(font_sml, col_text, x, y,    0, "Not loaded!");
+        }
     }
 }

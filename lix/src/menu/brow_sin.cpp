@@ -131,7 +131,7 @@ void SingleBrowser::on_file_highlight(const std::string& filename)
 
 void SingleBrowser::on_file_select(const std::string& filename)
 {
-    if (hardware.get_mrh() || button_edit.get_clicked()) {
+    if (Hardware::get_mrh() || button_edit.get_clicked()) {
         set_exit_with(EXIT_WITH_EDIT);
         useR->single_last_dir  = get_current_dir();
         useR->single_last_file = get_current_file();
@@ -195,7 +195,7 @@ void NetworkBrowser::calc_self()
     // Den normalen Dialog-Siedler-2-Rechtsklick realisieren:
     // on_file_select wird nochmal differenzieren, ob es per Rechtsklick
     // oder sonstwie aufgerufen wurde, falls der Level doof ist.
-    if (hardware.get_mr()) {
+    if (Hardware::get_mr()) {
         on_file_select(get_current_dir() + get_current_file());
     }
 }
@@ -247,7 +247,7 @@ void NetworkBrowser::on_file_select(const std::string& filename)
         useR->network_last_dir  = get_current_dir();
         useR->network_last_file = get_current_file();
     }
-    else if (hardware.get_mr()) {
+    else if (Hardware::get_mr()) {
         set_exit_with(EXIT_WITH_EXIT);
     }
 }

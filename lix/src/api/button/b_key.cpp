@@ -28,7 +28,6 @@ void KeyButton::set_on(const bool b)
     if (!b) set_off();
     else {
         Manager::add_focus(this);
-        clear_keybuf();
     }
 }
 
@@ -44,9 +43,9 @@ void KeyButton::set_off()
 
 void KeyButton::set_scancode(const int sc)
 {
-    if (sc > 0 && sc < KEY_MAX) {
+    if (sc > 0 && sc < ALLEGRO_KEY_MAX) {
         scancode = sc;
-        set_text(scancode_to_name(scancode));
+        set_text(al_keycode_to_name(scancode));
     }
     else {
         scancode = 0;
@@ -67,12 +66,12 @@ void KeyButton::calc_self()
     // Schreibmodus
     else {
         // cancel
-        if (hardware.key_once(KEY_ESC)
-         || hardware.get_mr() || hardware.get_ml()) set_off();
+        if (Hardware::get_key_once(ALLEGRO_KEY_ESCAPE)
+         || Hardware::get_mr() || Hardware::get_ml()) set_off();
         // Oder doch noch im Schreibmodus bleiben? Dann Tastatur lesen.
         else {
-            int k = hardware.get_key();
-            if (k >= 0 && k < KEY_MAX) {
+            int k = Hardware::get_typed_key();
+            if (k >= 0 && k < ALLEGRO_KEY_MAX) {
                 set_scancode(k);
                 set_off();
             }
@@ -85,7 +84,7 @@ void KeyButton::calc_self()
 
 void KeyButton::draw_self()
 {
-    if (get_on() && Help::timer_ticks % 30 < 15) set_text("?");
+    if (get_on() && Help::get_timer_ticks() % 30 < 15) set_text("?");
     else set_scancode(scancode); // regular text, i.e. the key name
 
     TextButton::draw_self();

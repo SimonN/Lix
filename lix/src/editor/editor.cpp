@@ -20,7 +20,7 @@
 Editor::Editor()
 :
     exit(false),
-    timer_ticks_offset(Help::timer_ticks - 1), // - 1 prevents mouse flicker
+    timer_ticks_offset(Help::get_timer_ticks() - 1), // - 1 prevents mouse flicker
     ticks(0),
     mouse_cursor_offset(15),
     mouse_cursor(GraLib::get(gloB->file_bitmap_mouse), Api::Manager::get_torbit()),
@@ -72,7 +72,7 @@ Editor::Editor()
         panel[i].set_x_frame(i);
     }
     panel[FILE_NEW]     .set_hotkey();
-    panel[FILE_EXIT]    .set_hotkey(KEY_ESC);
+    panel[FILE_EXIT]    .set_hotkey(ALLEGRO_KEY_ESCAPE);
     panel[FILE_SAVE]    .set_hotkey();
     panel[FILE_SAVE_AS] .set_hotkey();
     panel[GRID_2]       .set_hotkey(); // will be done later

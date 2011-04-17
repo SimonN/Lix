@@ -7,7 +7,7 @@
  * In diesen Faellen wird bei verspaetet eintreffenden Paketen ab einem
  * geeingeten Spielstand neu gerechnet.
  *
- * void calc_save_auto(unsigned long, std::vector <Player>&, BITMAP*)
+ * void calc_save_auto(unsigned long, std::vector <Player>&, ALLEGRO_BITMAP*)
  *
  *   Schaut sich die uebergebene Update-Zahl an und entscheidet, wie mit den
  *   weiteren uebergebenen Daten zu verfahren ist: Speichern oder nichts tun.

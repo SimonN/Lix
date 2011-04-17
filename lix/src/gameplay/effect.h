@@ -44,10 +44,9 @@ struct Effect {
     inline ~Effect() {}
 
     inline bool operator < (const Effect& e) const {
-        return update <  e.update
-         ||    update == e.update && tribe <  e.tribe
-         ||    update == e.update && tribe == e.tribe
-            && lemming < e.lemming;
+        return (update <  e.update)
+         ||    (update == e.update && tribe <  e.tribe)
+         ||    (update == e.update && tribe == e.tribe && lemming < e.lemming);
     }
 };
 
