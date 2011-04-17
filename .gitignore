@@ -17,6 +17,11 @@ lix/bitmap/orig/L1/*
 lix/bitmap/orig/L1/*/*
 lix/bitmap/orig/L2/*/*
 
+# exclude non-free sounds. Make an exception for finished replacements,
+# which is just the hatch sound right now.
+lix/data/sound/*
+!lix/data/sound/hatch.wav
+
 # exclude any replay files, test levels, and Rubix's 
 # Tutorials.
 lix/replay/*
