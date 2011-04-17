@@ -1,4 +1,4 @@
-$BUILT                                             2011-04-17 01:38:30
+$BUILT                                             2011-04-05 19:37:53
 $AUTHOR                                                           Matt
 $GERMAN                                                               
 $ENGLISH                                    Down thru the gates...(2P)
@@ -16,7 +16,7 @@ $ENGLISH                                    Down thru the gates...(2P)
 
 #DIGGER                                                             20
 #BASHER                                                             20
-#BLOCKER                                                            10
+#NOTHING                                                             0
 #NOTHING                                                             0
 #NOTHING                                                             0
 #NOTHING                                                             0
