@@ -215,8 +215,8 @@ OptionMenu::OptionMenu()
     // Standardwerte fuer alle Checkboxes und Buttons
     button_okay           .set_text(Language::ok);
     button_cancel         .set_text(Language::cancel);
-    button_okay           .set_hotkey(ALLEGRO_KEY_ENTER);
-    button_cancel         .set_hotkey(ALLEGRO_KEY_ESCAPE);
+    button_okay           .set_hotkey(KEY_ENTER);
+    button_cancel         .set_hotkey(KEY_ESC);
 
     for (size_t i = 0; i < GROUP_MAX; ++i) {
         TextButton temp(i*100 + 20, 40, 100);
@@ -552,24 +552,24 @@ void OptionMenu::calc_self()
     // Angeklickte Buttons //
     /////////////////////////
 
-    if (button_okay.get_clicked() || Hardware::get_mr()) {
-//        const int res_fx = atoi(screen_resolution_x.get_text().c_str());
-//        const int res_fy = atoi(screen_resolution_y.get_text().c_str());
-//        const int res_wx = atoi(screen_windowed_x.get_text().c_str());
-//        const int res_wy = atoi(screen_windowed_y.get_text().c_str());
+    if (button_okay.get_clicked() || hardware.get_mr()) {
+        const int res_fx = atoi(screen_resolution_x.get_text().c_str());
+        const int res_fy = atoi(screen_resolution_y.get_text().c_str());
+        const int res_wx = atoi(screen_windowed_x.get_text().c_str());
+        const int res_wy = atoi(screen_windowed_y.get_text().c_str());
+        const bool full  = gloB->screen_fullscreen_now;
 
-//      made unnecessary by switch to A5? only change on game restart. afdebug
-//        // Only call set_screen_mode() if it's necessary. The main menu
-//        // flickers for a very short time. A different screen_scaling option
-//        // should also call the function, because the function sets
-//        // glob_gfx.h's clear_screen_at_next_blit to true, to clear option
-//        // menu remainders on the screen borders.
-//        bool call_ssm = false;
-//        if (       useR->screen_scaling != screen_scaling.get_number()
-//         ||   full && gloB->screen_resolution_x != res_fx
-//         ||   full && gloB->screen_resolution_y != res_fy
-//         || ! full && gloB->screen_windowed_x   != res_wx
-//         || ! full && gloB->screen_windowed_y   != res_wy) call_ssm = true;
+        // Only call set_screen_mode() if it's necessary. The main menu
+        // flickers for a very short time. A different screen_scaling option
+        // should also call the function, because the function sets
+        // glob_gfx.h's clear_screen_at_next_blit to true, to clear option
+        // menu remainders on the screen borders.
+        bool call_ssm = false;
+        if (       useR->screen_scaling != screen_scaling.get_number()
+         ||   full && gloB->screen_resolution_x != res_fx
+         ||   full && gloB->screen_resolution_y != res_fy
+         || ! full && gloB->screen_windowed_x   != res_wx
+         || ! full && gloB->screen_windowed_y   != res_wy) call_ssm = true;
 
         // Die Werte aller Checkboxen und Buttons in die Optionen schreiben
         // Die Konfigurationsdatei wird gegen eventuelle Abstuerze oder
@@ -655,9 +655,8 @@ void OptionMenu::calc_self()
         gloB->sound_load_driver = sound_load_driver.get_checked();
         useR->sound_volume = sound_volume     .get_number();
 
-        // afdebug: we wish that the user restarts the game
         // Use new resolution that's already written to globals
-        // if (call_ssm) set_screen_mode(gloB->screen_fullscreen_now);
+        if (call_ssm) set_screen_mode(gloB->screen_fullscreen_now);
 
         gloB->save();
         useR->save();

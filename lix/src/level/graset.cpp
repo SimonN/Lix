@@ -21,7 +21,7 @@ const Object* GraphicSet::get_special(int spe_id) const
 
 
 
-int GraphicSet::get_terrain_id(const Object* ob) const
+const int GraphicSet::get_terrain_id(const Object* ob) const
 {
     if (!ob) return -1;
     for (int id = 0; id < (int) terrain.size(); ++id)
@@ -31,7 +31,7 @@ int GraphicSet::get_terrain_id(const Object* ob) const
 
 
 
-int GraphicSet::get_special_id(const Object* ob) const
+const int GraphicSet::get_special_id(const Object* ob) const
 {
     if (!ob) return -1;
     for (int id = 0; id < (int) special.size(); ++id)

@@ -32,11 +32,11 @@ public:
     static const int lines_max_ticks;
 
     struct Line {
-        int           time;
+        unsigned long time;
         std::string   text;
         bool          white;
         inline        Line(const std::string& t, const bool w = false)
-                      : time(Help::get_timer_ticks()), text(t), white(w) {}
+                      : time(Help::timer_ticks), text(t), white(w) {}
     };
     typedef std::list <Line> ::const_iterator LiIt;
 

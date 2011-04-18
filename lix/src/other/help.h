@@ -20,20 +20,16 @@
 #include "../network/net_t.h"    // Uint32
 
 #include "../graphic/glob_gfx.h" // Standardfarbe fuer Schattentext
-#include "../graphic/torbit.h"   // Textzeichnen auf Torus statt ALLEGRO_BITMAP*
+#include "../graphic/torbit.h"   // Textzeichnen auf Torus statt BITMAP*
 
 namespace Help {
 
     // Timer-Funktionen
-    extern ALLEGRO_TIMER* timer; // treat this as private if possible
-    extern const int      timer_ticks_per_second;
+    extern volatile Uint32 timer_ticks;
+    extern const    int    timer_ticks_per_second;
 
-    void timer_initialize();
-    void timer_deinitialize();
-    int  get_timer_ticks();
-
-    void set_al_transparency_off();
-    void set_al_transparency_on();
+    void     timer_start();
+    unsigned get_timer_ticks_per_draw();
 
     double hypot        (const int,    const int,    const int, const int);
     double random_double(const double, const double); // zw. 1. und 2. Argument
@@ -49,35 +45,44 @@ namespace Help {
 
     std::string version_to_string   (const unsigned long);
 
-    void string_format_slashes  (std::string&); // change all `\' into `/'
     void string_to_nice_case    (std::string&); // Alle ausser 1. Bch.
     void string_remove_extension(std::string&);
     void string_remove_dir      (std::string&);
     void string_cut_to_dir      (std::string&);
-    void string_shorten         (std::string&, const ALLEGRO_FONT*, const int);
+    void string_shorten         (std::string&, const FONT*, const int);
     std::string
          string_get_extension    (const std::string&);
     char string_get_pre_extension(const std::string&); // 0, wenn keine
     bool string_ends_with        (const std::string&, const std::string&);
 
-    void draw_shadow_text         (Torbit&, ALLEGRO_FONT*, const char*,
-                                   int, int, const ALLEGRO_COLOR&);
-    void draw_shadow_centered_text(Torbit&, ALLEGRO_FONT*, const char*,
-                                   int, int, const ALLEGRO_COLOR&);
-    void draw_shadow_fixed_number (Torbit&, ALLEGRO_FONT*,
-                                   int, int, int, const ALLEGRO_COLOR&,
-                                   bool = false);
-    void draw_shadow_fixed_text   (Torbit&, ALLEGRO_FONT*, const std::string&,
-                                   int, int, const ALLEGRO_COLOR&,
-                                   bool = false);
-    void draw_shadow_fixed_updates_used(Torbit&, ALLEGRO_FONT*,
-                                   int, int, int, const ALLEGRO_COLOR&,
-                                   bool = false);
+    void draw_shaded_text         (Torbit&, FONT*, const char*,
+                                   int, int, int, int, int);
+    void draw_shadow_text         (Torbit&, FONT*, const char*,
+                                // x    y    Farbe, Schattenfarbe
+                                   int, int, int = color[COL_TEXT],
+                                   int = color[COL_API_SHADOW]);
+
+    void draw_shaded_centered_text(Torbit&, FONT*, const char*,
+                                   int, int, int, int, int);
+    void draw_shadow_centered_text(Torbit&, FONT*, const char*,
+                                // x    y    Farbe, Schattenfarbe
+                                   int, int, int = color[COL_TEXT],
+                                   int = color[COL_API_SHADOW]);
+
+    void draw_shadow_fixed_number (Torbit&, FONT*,
+                                   int, int, int, int=color[COL_TEXT],
+                                   bool = false, int=color[COL_API_SHADOW]);
+    void draw_shadow_fixed_text   (Torbit&, FONT*, const std::string&,
+                                   int, int, int=color[COL_TEXT], bool = false,
+                                   int=color[COL_API_SHADOW]);
+    void draw_shadow_fixed_updates_used(Torbit&, FONT*,
+                                   int, int, int, int=color[COL_TEXT],
+                                   bool = false,  int=color[COL_API_SHADOW]);
 
 
 
     // Funktionszeigertypendefinition für die kommenden Suchfunktionen
-    typedef void (*DoStr)(const std::string&, void*);
+    typedef void (*DoStr)(std::string&, void*);
 
     void find_files(const std::string&, const std::string&, DoStr,void*);
     // Die Funktion durchsucht das mit dem ersten Argument angegebene Verzeich-
@@ -86,15 +91,14 @@ namespace Help {
     // DoStr ist ein Funktionszeiger. Die entsprechende Funktion wird für jeden
     // String aufgerufen, der gefunden wird.
 
-    void find_dirs(const std::string&, DoStr, void*);
+    void find_dirs(std::string, DoStr, void*);
     // Wie find_files, allerdings wird hier im angegebenen Ordner nach Unter-
     // verzeichnissen gesucht mit Ausnahme von "." und "..". Diese Funktion
     // benötigt keine Suchmaske und somit kein drittes Argument.
 
-    void find_tree(const std::string&, const std::string&, DoStr, void*);
+    void find_tree(std::string, const std::string&, DoStr, void*);
     // Wie find_files, schließt allerdings auch alle Unterverzeichnisse in der
     // Suche nach passenden Dateien ein.
 
-    bool dir_exists (const std::string&);
-    bool file_exists(const std::string&);
+    bool dir_exists(const std::string&);
 }

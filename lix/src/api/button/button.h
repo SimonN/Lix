@@ -63,10 +63,10 @@ private:
     bool down;
     bool on;
 
-    ALLEGRO_COLOR color_1;    // Buttonfarbe oben links
-    ALLEGRO_COLOR color_2;    // Buttonfarbe in der Mitte
-    ALLEGRO_COLOR color_3;    // Buttonfarbe unten rechts
-    ALLEGRO_COLOR color_text; // Button-Text-Farbe fuer abgeleitete Klassen
+    int  color_1;    // Buttonfarbe oben links
+    int  color_2;    // Buttonfarbe in der Mitte
+    int  color_3;    // Buttonfarbe unten rechts
+    int  color_text; // Button-Text-Farbe fuer abgeleitete Klassen
 
 public:
 
@@ -89,10 +89,10 @@ public:
             inline int  get_hotkey() const            { return hotkey;     }
             inline void set_hotkey(const int i = 0)   { hotkey = i;        }
 
-            inline ALLEGRO_COLOR get_color_1()    const { return color_1;    }
-            inline ALLEGRO_COLOR get_color_2()    const { return color_2;    }
-            inline ALLEGRO_COLOR get_color_3()    const { return color_3;    }
-            inline ALLEGRO_COLOR get_color_text() const { return color_text; }
+            inline int  get_color_1()    const        { return color_1;    }
+            inline int  get_color_2()    const        { return color_2;    }
+            inline int  get_color_3()    const        { return color_3;    }
+            inline int  get_color_text() const        { return color_text; }
 
     virtual inline bool get_clicked()    const { return clicked_last_calc; }
 

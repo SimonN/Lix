@@ -85,8 +85,7 @@ struct Debris {
     Map&          map;
     const Cutbit* cutbit; // Wenn 0, so ist es Pixel.
 
-    ALLEGRO_COLOR color; // only important if cutbit is 0.
-    int    y_frame;      // only important if cutbit is not 0.
+    int    color; // bei Cutbits ist es y_frame.
     int    ttl;
 
     double x;

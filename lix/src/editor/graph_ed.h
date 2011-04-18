@@ -29,9 +29,9 @@ public:
     inline bool get_draw_info()              { return draw_info; }
     inline void set_draw_info(bool b = true) { draw_info = b;    }
 
-    virtual int get_xl()                      const;
-    virtual int get_yl()                      const;
-    virtual ALLEGRO_COLOR get_pixel(int, int) const;
+    virtual int get_xl()            const;
+    virtual int get_yl()            const;
+    virtual int get_pixel(int, int) const;
 
     virtual int get_selbox_x()  const;
     virtual int get_selbox_y()  const;

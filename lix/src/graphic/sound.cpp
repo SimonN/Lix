@@ -30,8 +30,7 @@ Sound::Sample::Sample(const std::string& f)
     quiet        (false),
     last_was_loud(false)
 {
-    // afdebug-sound
-    // sample = load_sample(filename.c_str());
+    sample = load_sample(filename.c_str());
 }
 
 
@@ -45,16 +44,14 @@ Sound::Sample::Sample(const Sample& s)
     quiet        (s.quiet),
     last_was_loud(s.last_was_loud)
 {
-    // afdebug-sound
-    // sample = load_sample(filename.c_str());
+    sample = load_sample(filename.c_str());
 }
 
 
 
 Sound::Sample::~Sample()
 {
-    // afdebug-sound
-    // if (sample) destroy_sample(sample);
+    if (sample) destroy_sample(sample);
 }
 
 
@@ -68,9 +65,8 @@ Sound::Sample& Sound::Sample::operator = (const Sample& s)
     quiet         = s.quiet;
     last_was_loud = s.last_was_loud;
 
-    // afdebug-sound
-    // if (sample) destroy_sample(sample);
-    // sample = load_sample(filename.c_str());
+    if (sample) destroy_sample(sample);
+    sample = load_sample(filename.c_str());
     return *this;
 }
 
@@ -78,7 +74,6 @@ Sound::Sample& Sound::Sample::operator = (const Sample& s)
 
 void Sound::Sample::draw()
 {
-    /* afdebug-sound
     // Erste Rechnung: 255 ist volle Lautstaerke, 0 - 20 ist unsere Skala.
     // Mittlere 127: In der Mitte des Bildschirms
     // Mittlere 1000: Normale Schnelligkeit
@@ -99,7 +94,6 @@ void Sound::Sample::draw()
         loud  = false;
         quiet = false;
     }
-    */
 }
 
 
@@ -116,7 +110,6 @@ Sound::Sound()
 :
     sample(MAX)
 {
-    /* afdebug-sound
     #ifdef ALLEGRO_WINDOWS
         // Letzter Parameter 0 macht nix, ist nur notwendige Syntax
         install_sound(DIGI_AUTODETECT, MIDI_NONE, 0);
@@ -158,17 +151,14 @@ Sound::Sound()
     sample[AWARD_2]     = Sample(gloB->dir_data_sound + "award_2.wav");
     sample[AWARD_3]     = Sample(gloB->dir_data_sound + "award_3.wav");
     sample[AWARD_4]     = Sample(gloB->dir_data_sound + "award_4.wav");
-    */
 }
 
 
 
 Sound::~Sound()
 {
-    /* afdebug-sound
     sample.clear();
     remove_sound();
-    */
 }
 
 

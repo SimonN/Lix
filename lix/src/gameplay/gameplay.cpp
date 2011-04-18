@@ -43,7 +43,7 @@ Gameplay::Gameplay(Replay* rep)
     malo                   (0), // same
     local_ticks            (0),
     update_last_exiter     (0),
-    timer_tick_last_update (Help::get_timer_ticks()),
+    timer_tick_last_update (Help::timer_ticks),
     timer_tick_last_F1     (0),
     timer_tick_last_F2     (0),
     timer_tick_last_F12    (0),

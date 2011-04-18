@@ -297,7 +297,6 @@ std::ostream& operator << (std::ostream& o, const Level::PosLi& li)
 bool Level::get_binary(const std::string& filename)
 {
     std::ifstream file(filename.c_str(), std::ios::binary);
-    if (!file.good()) return false;
     unsigned char buf[8];
     file.read((char*) &buf, 8);
     file.close();

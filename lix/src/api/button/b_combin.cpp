@@ -90,7 +90,7 @@ void CombinedButton::draw_self()
         Help::string_shorten(text_to_write, font_sml, get_xl() - 4);
         Help::draw_shadow_centered_text(get_ground(), font_sml,
          text_to_write.c_str(), xh+get_xl()/2, yh+get_yl()-15,
-         get_color_text());
+         get_color_text(), color[COL_API_SHADOW]);
     }
 }
 // Ende von draw()

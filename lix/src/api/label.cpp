@@ -52,7 +52,7 @@ void Label::set_text(const std::string& s)
 {
     text = s;
     if (align == BLOCKY) set_xl(10 * text.size());
-    else                 set_xl(al_get_text_width(font, text.c_str()));
+    else                 set_xl(::text_length(font, text.c_str()));
     set_draw_required();
 }
 
@@ -101,13 +101,13 @@ void Label::set_align(const Align& a)
 {
     align = a;
     if (align == BLOCKY) set_xl(10 * text.size());
-    else                 set_xl(al_get_text_width(font, text.c_str()));
+    else                 set_xl(::text_length(font, text.c_str()));
     set_draw_required();
 }
 
 
 
-void Label::set_color(const ALLEGRO_COLOR& c)
+void Label::set_color(const int c)
 {
     color = c;
     set_draw_required();
@@ -122,11 +122,11 @@ void Label::draw_self()
     // As said in the .h file: x is left for LEFT as usual, the center for
     // CENTERED, and the right end of the text for BLOCKY.
     if (align == LEFT || align == CENTERED) {
-        drawn_xl     = al_get_text_width(font, text.c_str());
+        drawn_xl     = text_length(font, text.c_str());
         drawn_x_here = get_x_here();
         if (align == CENTERED) drawn_x_here -= drawn_xl / 2;
         Help::draw_shadow_text(get_ground(), font, text.c_str(),
-         drawn_x_here, get_y_here(), color);
+         drawn_x_here, get_y_here(), color, ::color[COL_API_SHADOW]);
     }
     else {
         drawn_xl     = text.length() * 10;
@@ -135,7 +135,8 @@ void Label::draw_self()
         for (int i = 0; i < (int) text.size(); ++i) {
             one_digit[0] = text[text.size() - 1 - i];
             Help::draw_shadow_text(get_ground(), font, one_digit,
-             get_x_here() - 10*(i+1), get_y_here(), color);
+             get_x_here() - 10*(i+1), get_y_here(),
+             color, ::color[COL_API_SHADOW]);
         }
     }
 }
@@ -144,11 +145,10 @@ void Label::draw_self()
 
 void Label::undraw_self()
 {
-    if (drawn_xl > 0 && get_undraw_color() != ::color[COL_TRANSPARENT]) {
-        al_set_target_bitmap(get_ground().get_al_bitmap());
-        al_draw_filled_rectangle(drawn_x_here, get_y_here() + 2,
-         drawn_x_here + drawn_xl, get_y_here() + get_yl() - 2,
-         get_undraw_color());
+    if (drawn_xl > 0 && get_undraw_color()) {
+        ::rectfill(get_ground().get_al_bitmap(),
+         drawn_x_here, get_y_here() + 2, drawn_x_here + drawn_xl - 1,
+         get_y_here() + get_yl() - 3, get_undraw_color());
     }
 }
 

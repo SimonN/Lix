@@ -50,11 +50,11 @@ private:
 	Byte* read_file(const std::string& filename);
 	void setup_file(const Byte* buffer);
 
-    ALLEGRO_COLOR make_0x3F_color(int, int, int);
+    int  make_0x3F_color(int, int, int);
     int  read_word_le   (const Crunch::Section&, int offset = 0);
     long read_long_be   (const Byte*);
 
-    std::vector <ALLEGRO_COLOR> palette;
+    std::vector <int> palette;
 
 	void make_palette ();
     void make_specials();
@@ -62,11 +62,11 @@ private:
 
 	void desuckify_section(SectionType);
 
-	ALLEGRO_BITMAP* new_read_bitmap(const Crunch::Section&, int, int, int);
-	void sprite_blit_bitmap(ALLEGRO_BITMAP*, int, int, int);
-	void piece_blit_bitmap (ALLEGRO_BITMAP*, const Crunch::Section&,
+	BITMAP* new_read_bitmap(const Crunch::Section&, int, int, int);
+	void sprite_blit_bitmap(BITMAP*, int, int, int);
+	void piece_blit_bitmap (BITMAP*, const Crunch::Section&,
 	                                 int, int, int, int, int);
-	void l2ss_blit_bitmap  (ALLEGRO_BITMAP*, int, int, int);
+	void l2ss_blit_bitmap  (BITMAP*, int, int, int);
 
 };
 

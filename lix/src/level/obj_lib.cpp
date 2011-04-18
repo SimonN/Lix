@@ -28,12 +28,12 @@ ObjLib::ObjLib()
 {
     // Die Verzeichnisse nach Bilddateien durchsuchen
     // Abk.-Deklarationen, um die Funktionsaufrufe in einer Zeile zu haben
-    const std::string db                  = gloB->dir_bitmap;
-    void (*cb)(const std::string&, void*) = load_file_callback;
+    const std::string db            = gloB->dir_bitmap;
+    void (*cb)(std::string&, void*) = load_file_callback;
 
-    Help::find_tree(db, gloB->ext_bmp, cb, (void*) this);
-    Help::find_tree(db, gloB->ext_tga, cb, (void*) this);
-    Help::find_tree(db, gloB->ext_pcx, cb, (void*) this);
+    Help::find_tree(db, gloB->mask_ext_bmp, cb, (void*) this);
+    Help::find_tree(db, gloB->mask_ext_tga, cb, (void*) this);
+    Help::find_tree(db, gloB->mask_ext_pcx, cb, (void*) this);
 
     orig_set_string[DIRT]     = "Dirt";
     orig_set_string[HELL]     = "Hell";
@@ -92,7 +92,7 @@ void ObjLib::load_file(const std::string& no_ext, const std::string& s)
 
 
 
-void ObjLib::load_file_callback(const std::string& s, void* v) {
+void ObjLib::load_file_callback(std::string& s, void* v) {
     std::string no_ext = s;
     Help::string_remove_extension(no_ext);
     ((ObjLib*) v)->queue.insert(std::make_pair(no_ext, s));
@@ -179,7 +179,7 @@ void ObjLib::load_vgaspec(const int id)
 
     const Crunch::File* crunchfile = Crunch::get_file(filename_vspec.str());
     if (crunchfile && crunchfile->size() == 1) {
-        ALLEGRO_BITMAP* spec_bitmap
+        BITMAP* spec_bitmap
          = GraphicSetL1::new_read_spec_bitmap((*crunchfile)[0]);
         vgaspec[id] = new Object(Cutbit(spec_bitmap, false));
     }
@@ -188,18 +188,17 @@ void ObjLib::load_vgaspec(const int id)
 
 
 // ORIGHACK
-void ObjLib::decrunch_level(const std::string& s, void* v)
+void ObjLib::decrunch_level(std::string& s, void* v)
 {
     v = v; // counters the warning about unused variables
     const Crunch::File* crunchfile = Crunch::get_file(s);
-    std::string no_ext = s;
-    Help::string_remove_extension(no_ext);
-    no_ext += '-';
+    Help::string_remove_extension(s);
+    s += '-';
     if (crunchfile)
      for (Crunch::File::const_iterator
      itr = crunchfile->begin(); itr != crunchfile->end(); ++itr) {
         std::ostringstream sstr;
-        sstr << no_ext << itr - crunchfile->begin() << gloB->ext_level_orig;
+        sstr << s << itr - crunchfile->begin() << gloB->ext_level_orig;
         Crunch::save_section(*itr, sstr.str());
     }
 }
@@ -238,7 +237,7 @@ const std::string& ObjLib::orig_set_to_string(const int o) {
 
 
 
-ObjLib::OrigSet ObjLib::string_to_orig_set(const std::string& s) {
+const ObjLib::OrigSet ObjLib::string_to_orig_set(const std::string& s) {
     for (std::map <OrigSet, std::string>::iterator
      i  =  lib->orig_set_string.begin();
       i != lib->orig_set_string.end(); ++i) {

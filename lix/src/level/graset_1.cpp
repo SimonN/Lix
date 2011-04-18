@@ -117,9 +117,9 @@ void GraphicSetL1::read_terrain(std::ifstream& defin)
 
 
 // Nimmt Farben mit 0x3F als Hoechstwert, braucht Allegro
-ALLEGRO_COLOR make_0x3F_color(int r, int g, int b)
+int make_0x3F_color(int r, int g, int b)
 {
-    return al_map_rgb(r * 255 / 63,   g * 255 / 63,   b * 255 / 63);
+    return makecol(r * 255 / 63,   g * 255 / 63,   b * 255 / 63);
 }
 
 void GraphicSetL1::read_palette(std::ifstream& defin)
@@ -153,8 +153,8 @@ void GraphicSetL1::read_palette(std::ifstream& defin)
         int r = read_byte(defin);
         int g = read_byte(defin);
         int b = read_byte(defin);
-        ALLEGRO_COLOR c = make_0x3F_color(r, g, b);
-        if (c == color[COL_BLACK]) c = al_map_rgb(0x00, 0x09, 0x20);
+        int c = make_0x3F_color(r, g, b);
+        if (c == color[COL_BLACK]) c = makecol(0x00, 0x0A, 0x16);
         palette.push_back(c);
         // palette[7]: So you don't get an additional color to specify,
         // since it is just a duplicate of one of your pickable colors.
@@ -165,7 +165,7 @@ void GraphicSetL1::read_palette(std::ifstream& defin)
 
 
 // Neues Bitmap erschaffen und zurueckgeben
-ALLEGRO_BITMAP* GraphicSetL1::new_read_bitmap(
+BITMAP* GraphicSetL1::new_read_bitmap(
     const Crunch::Section& section,
     const int xl,
     const int yl,
@@ -179,17 +179,16 @@ ALLEGRO_BITMAP* GraphicSetL1::new_read_bitmap(
     // Bitmap, was das erste Bit jedes Pixels beschreibt, dann das zweite
     // monochrome Bitmap, was alle zweiten Bits beschreibt usw.,
     // insgesamt gibt es 4 Ebenen.
-    // Das Zusammenrechnen der Ebenen pro Punkt findet in addthemup statt.
+    // Wir beginnen mit einem BITMAP, das ueberall 0 ist, und addieren
+    // 8 pro gesetztem ersten Bit an jedem Pixel, dann 4 pro zweitem usw.
+    // Ganz am Ende wird pro Pixel p dann ausgefuehrt: p = palette[p];
 
     // Gegen Allegro-Bug (?): Wir erzeugen das Bitmap um 1 zu gross in jeder
     // Richtung, nutzen aber den Extraplatz nicht. Am Ende wird b->w - 1,
     // b->h - 1 kopiert auf die doppelte Groesse mit stretch_blit, und ohne
     // den Rand und mit b->w, b->h als Angaben stuertzte es immer ab.
-    ALLEGRO_BITMAP* b = al_create_bitmap(xl + 1, yl + 1);
-    al_set_target_bitmap(b);
-    al_clear_to_color(color[COL_BLACK]);
-
-    std::vector <std::vector <int> > addthemup(xl, std::vector <int> (yl, 0));
+    BITMAP* b = create_bitmap(xl + 1, yl + 1);
+    clear_to_color(b, 0);
 
     int eight_pixel_byte = 0;
     for  (int plane = 0; plane < 5;       ++plane)
@@ -200,10 +199,10 @@ ALLEGRO_BITMAP* GraphicSetL1::new_read_bitmap(
             if (pixel % 8 == 0 && data_ptr < (int) section.size())
              eight_pixel_byte = section[data_ptr++];
             const bool c = eight_pixel_byte & (1 << (7 - pixel%8));
-            addthemup[x][y] += c << plane;
+            _putpixel16(b, x, y, _getpixel16(b, x, y) + (c << plane));
         }
         else {
-            al_put_pixel(x, y, palette[addthemup[x][y]]);
+            _putpixel16(b, x, y, palette[_getpixel16(b, x, y)]);
         }
     }
     // Monochrome Maske: 1 Bit pro Pixel
@@ -216,26 +215,25 @@ ALLEGRO_BITMAP* GraphicSetL1::new_read_bitmap(
         const int  x = pixel % xl;
         const int  y = pixel / xl;
         const bool c = eight_pixel_byte & (1 << (7 - pixel%8));
-        if (!c) al_put_pixel(x, y, color[COL_PINKAF]);
+        if (!c) _putpixel16(b, x, y, color[COL_PINK]);
     }
     // Und alles aufs Doppelte fuer L++ vergroessern
-    ALLEGRO_BITMAP* big = al_create_bitmap(2 * xl, 2 * yl);
-    al_set_target_bitmap(big);
-    al_clear_to_color(color[COL_PINKAF]);
+    BITMAP* big = create_bitmap(2 * xl, 2 * yl);
     // Siehe Kommentar "gegen Allegro-Bug (?)" weiter oben
-    al_draw_scaled_bitmap(b, 0, 0, xl, yl, 0, 0, 2*xl, 2*yl, 0);
-    al_destroy_bitmap(b);
+    stretch_blit(b, big, 0, 0, xl, yl, 0, 0, 2*xl, 2*yl);
+
+    destroy_bitmap(b);
     return big;
 }
 
 
 
-ALLEGRO_BITMAP* GraphicSetL1::new_read_spec_bitmap(
+BITMAP* GraphicSetL1::new_read_spec_bitmap(
     const Crunch::Section& section
 ) {
     int data_ptr = 0;
 
-    std::vector <ALLEGRO_COLOR> palette;
+    std::vector <int> palette;
 
     // read VGA palette (should actually override end of graphics set palette)
     for (int i = 0; i < 8; ++i)
@@ -243,7 +241,7 @@ ALLEGRO_BITMAP* GraphicSetL1::new_read_spec_bitmap(
         int r = section[data_ptr++];
         int g = section[data_ptr++];
         int b = section[data_ptr++];
-        ALLEGRO_COLOR c = make_0x3F_color(r, g, b);
+        int c = make_0x3F_color(r, g, b);
         palette.push_back(c);
     }
 
@@ -251,9 +249,8 @@ ALLEGRO_BITMAP* GraphicSetL1::new_read_spec_bitmap(
     data_ptr += 8 * 2;
 
     // special graphics are a constant size
-    ALLEGRO_BITMAP* b = al_create_bitmap(960, 160);
-    al_set_target_bitmap(b);
-    al_clear_to_color(color[COL_PINK]);
+    BITMAP* b = create_bitmap(960, 160);
+    clear_to_color(b, color[COL_PINK]);
 
     // terrain is split into 4 40-scanline chunks
     for (int chunk = 0; chunk < 4; ++chunk) {
@@ -300,18 +297,17 @@ ALLEGRO_BITMAP* GraphicSetL1::new_read_spec_bitmap(
 
                 for (int p = 0; p < 8; ++p)
                     if (pixel[p] != 0)
-                        al_put_pixel(x + p, y, palette[pixel[p]]);
+                        putpixel(b, x + p, y, palette[pixel[p]]);
             }
         }
     }
 
     // Und alles aufs Doppelte fuer L++ vergroessern
-    ALLEGRO_BITMAP* big = al_create_bitmap(2 * 960, 2 * 160);
+    BITMAP* big = create_bitmap(2 * b->w, 2 * b->h);
     // Siehe Kommentar "gegen Allegro-Bug (?)" weiter oben
-    al_set_target_bitmap(big);
-    al_clear_to_color(color[COL_PINKAF]);
-    al_draw_scaled_bitmap(b, 0, 0, 960, 160, 0, 0, 2*960, 2*160, 0);
-    al_destroy_bitmap(b);
+    stretch_blit(b, big, 0, 0, b->w, b->h, 0, 0, big->w, big->h);
+
+    destroy_bitmap(b);
 
     return big;
 }
@@ -330,7 +326,7 @@ void GraphicSetL1::make_specials(
         // have Object instances for unsused slots.
         if (sp.width == 0 || sp.height == 0) break;
 
-        std::vector <ALLEGRO_BITMAP*> bitvec(sp.end_animation_frame_index);
+        std::vector <BITMAP*> bitvec(sp.end_animation_frame_index);
         for (int fr = 0; fr < sp.end_animation_frame_index; ++fr)
          bitvec[fr] = new_read_bitmap(section, sp.width, sp.height,
          sp.animation_frames_base_loc + fr * sp.animation_frame_data_size,
@@ -354,7 +350,7 @@ void GraphicSetL1::make_specials(
             // Adapt the bitvec to the L++ hatch frame order, which is
             // the same as in L2. Simply move the pointers around without
             // doing anything with the data.
-            ALLEGRO_BITMAP* fully_opened_hatch = bitvec.front();
+            BITMAP* fully_opened_hatch = bitvec.front();
             for (size_t fr = 0; fr < bitvec.size() - 1; ++fr)
              bitvec[fr] = bitvec[fr + 1];
             bitvec.back() = fully_opened_hatch;
@@ -396,7 +392,7 @@ void GraphicSetL1::make_specials(
         // Das Cutbit nimmt den Vektor nicht in Beschlag, anders als bei
         // der Funktion zur Generierung des Terrains, also hier loeschen.
         for (int fr = 0; fr < (int) bitvec.size(); ++fr)
-         al_destroy_bitmap(bitvec[fr]);
+         destroy_bitmap(bitvec[fr]);
     }
 }
 
@@ -406,13 +402,13 @@ void GraphicSetL1::make_terrain(
     const Crunch::Section&   section,
     const std::vector <int>& steel_ids
 ) {
-    // Create Cutbit. The cutbit gets to own the ALLEGRO_BITMAP, so it does not have
+    // Create Cutbit. The cutbit gets to own the BITMAP, so it does not have
     // to be destroyed here via destroy_bitmap(b).
     // We assume that after a non-defined bitmap there are only other null
     // bitmaps.
     for (int ter_id = 0; ter_id < (int) terinf.size(); ++ter_id)
      if (terinf[ter_id].width > 0 && terinf[ter_id].height > 0) {
-        ALLEGRO_BITMAP* b = new_read_bitmap(section,
+        BITMAP* b = new_read_bitmap(section,
          terinf[ter_id].width,     terinf[ter_id].height,
          terinf[ter_id].image_loc, terinf[ter_id].mask_loc);
         Object ob(Cutbit(b, false), Object::TERRAIN); // false: don't cut

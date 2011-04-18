@@ -23,9 +23,10 @@ class LMain {
 
 private:
 
-    bool exit;
+    bool     exit;
+    unsigned tck; // Ticks, are compared with Help::timer_ticks
 
-    bool gameplay_started_with_replay;
+    bool     gameplay_started_with_replay;
 
     // Modules
     Menu*     menu;

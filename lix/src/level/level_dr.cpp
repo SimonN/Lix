@@ -61,10 +61,8 @@ void Level::drit(PosIt itr, Torbit& ground, Torbit* steel_mask) const
 
 
 
-Torbit Level::create_preview(
-    unsigned w, unsigned h,
-    const ALLEGRO_COLOR& c
-) const {
+Torbit Level::create_preview(unsigned w, unsigned h, int c) const
+{
     Torbit b(w, h);
     b.clear_to_color(c);
     if (status == BAD_FILE_NOT_FOUND
@@ -92,17 +90,15 @@ Torbit Level::create_preview(
     double                          factor = (double) w/size_x;
     if (factor > (double) h/size_y) factor = (double) h/size_y;
 
-    al_set_target_bitmap(b.get_al_bitmap());
-    al_draw_scaled_bitmap(temp_obj.get_al_bitmap(),
-                 0, 0,
+    stretch_blit(temp_obj.get_al_bitmap(),
+                 b   .get_al_bitmap(), 0, 0,
                  temp_obj.get_xl(), temp_obj.get_yl(),
-                 (w/2.0 - size_x*factor/2.0),
-                 (h/2.0 - size_y*factor/2.0),
+                 (int) (w/2 - size_x*factor/2),
+                 (int) (h/2 - size_y*factor/2),
                  // Jetzt wieder Rundung, aber dass es dann in seltenen Faellen
                  // immer noch nicht passt bzw. um einen Pixel nicht, habe
                  // ich immer noch nicht verstanden.
-                 (size_x*factor),
-                 (size_y*factor),
-                 0);
+                 (int) (size_x*factor + 0.5),
+                 (int) (size_y*factor + 0.5));
     return b;
 }

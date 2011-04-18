@@ -30,13 +30,13 @@ private:
 
     static GraLib* singleton;
 
-    std::map    <std::string, std::string>  replacement;
-    std::map    <std::string, const Cutbit> internal;
-    std::vector <Cutbit>                    style;
-    std::vector <Cutbit>                    icons;
+    std::map    <std::string, std::string>           replacement;
+    std::map    <std::string, const Cutbit>          internal;
+    std::vector <Cutbit>                             style;
+    std::vector <Cutbit>                             icons;
 
-    static void sort_string_into_cutbitfile(const std::string&, void*);
-    static void sort_string_into_internal  (const std::string&, void*);
+    static void sort_string_into_cutbitfile(std::string&, void*);
+    static void sort_string_into_internal  (std::string&, void*);
 
            void recolor_into_vector(const Cutbit&, std::vector <Cutbit>&);
 

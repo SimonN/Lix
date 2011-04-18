@@ -11,12 +11,12 @@
  *   sofern es den Eindruck macht, es bestehe aus Frames. Wenn (cut == false)
  *   ist, so wird grundsaetzlich nie geschnitten.
  *
- * Cutbit(ALLEGRO_BITMAP*, bool cut)
+ * Cutbit(BITMAP*, bool cut)
  *
  *   Creates a Cutbit with this bitmap, if bool cut, then it gets cut.
  *   Otherwise, it's always a single frame.
  *
- *   The ALLEGRO_BITMAP gets owned by the Cutbit! Do not destroy the ALLEGRO_BITMAP after
+ *   The BITMAP gets owned by the Cutbit! Do not destroy the BITMAP after
  *   this Cutbit has been created, it gets destroyed automatically when the
  *   Cutbit is destroyed.
  *
@@ -43,7 +43,7 @@ class Cutbit {
 
 private:
 
-    ALLEGRO_BITMAP* bitmap;
+    BITMAP* bitmap;
 
     int xl;
     int yl;
@@ -68,8 +68,8 @@ public:
     Cutbit();
     Cutbit(const Cutbit&);
     Cutbit(const std::string&, const bool);
-    Cutbit(ALLEGRO_BITMAP*,            const bool); // takes over the bitmap!
-    Cutbit(const std::vector <ALLEGRO_BITMAP*>&);
+    Cutbit(BITMAP*,            const bool); // takes over the bitmap!
+    Cutbit(const std::vector <BITMAP*>&);
     ~Cutbit();
 
     Cutbit& operator =  (const Cutbit&);
@@ -77,15 +77,15 @@ public:
     bool    operator == (const Cutbit&) const;
     bool    operator != (const Cutbit&) const;
 
-    inline operator bool()                 const { return bitmap;   }
-    inline ALLEGRO_BITMAP* get_al_bitmap() const { return bitmap;   }
-    inline int             get_xl()        const { return xl;       }
-    inline int             get_yl()        const { return yl;       }
-    inline int             get_x_frames()  const { return x_frames; }
-    inline int             get_y_frames()  const { return y_frames; }
+    inline operator bool()        const { return bitmap;   }
+    inline BITMAP* get_al_bitmap()const { return bitmap;   }
+    inline int     get_xl()       const { return xl;       }
+    inline int     get_yl()       const { return yl;       }
+    inline int     get_x_frames() const { return x_frames; }
+    inline int     get_y_frames() const { return y_frames; }
 
-    ALLEGRO_COLOR  get_pixel(const int, const int)                       const;
-    ALLEGRO_COLOR  get_pixel(const int, const int, const int, const int) const;
+           int     get_pixel(const int, const int)                       const;
+           int     get_pixel(const int, const int, const int, const int) const;
 
     // Cutbit zeichnen auf die angegebene Unterlage
     void draw(Torbit&,

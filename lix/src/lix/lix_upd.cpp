@@ -44,7 +44,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
             // Alles, was in der Luft ist, soll sofort explodieren
             if (l.get_ac() == LixEn::FALLER
              || l.get_ac() == LixEn::TUMBLER
-             ||(l.get_ac() == LixEn::STUNNER && l.get_frame() < 13)
+             || l.get_ac() == LixEn::STUNNER && l.get_frame() < 13
              || l.get_ac() == LixEn::FLOATER
              || l.get_ac() == LixEn::JUMPER) {
                 l.assign(LixEn::EXPLODER);
@@ -74,10 +74,9 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
 
     // Blocker: Abarbeiten anderer Lixxiee geschieht hier, weil dies ja
     // nicht nur den einen Lixxie betrifft
-    if ( l.get_ac() == LixEn::BLOCKER
-     || (l.get_ac() == LixEn::EXPLODER && l.get_special_x() == 1)) {
-        update_lix_blocker(l);
-    }
+    if (l.get_ac() == LixEn::BLOCKER
+     || l.get_ac() == LixEn::EXPLODER && l.get_special_x() == 1)
+     update_lix_blocker(l);
 
 
 
@@ -159,9 +158,9 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
 
     // Lixxie aus dem Bild?
     if (l.get_ey() >= map.get_yl() + 23
-     ||(l.get_ey() >= map.get_yl() + 15 && l.get_ac() != LixEn::FLOATER)
+     || l.get_ey() >= map.get_yl() + 15 && l.get_ac() != LixEn::FLOATER
      || l.get_ex() >= map.get_xl() +  4
-     ||(l.get_ey() < -1 && !l.get_pass_top()) // -1 because ey is 2 over floor
+     || l.get_ey() < -1 && !l.get_pass_top() // -1 because ey is 2 over floor
      || l.get_ex() < -4) {
         l.play_sound(ua, Sound::OBLIVION);
         l.set_ac(LixEn::NOTHING);
@@ -186,8 +185,8 @@ void Gameplay::update_lix_blocker(Lixxie& l)
             const int dy = map.distance_x(i->get_ey(), l.get_ey());
             if (dx > - distance_side && dx < distance_side
              && dy > - block_d       && dy < block_u) {
-                if ((i->get_dir() > 0 && dx > 0)
-                 || (i->get_dir() < 0 && dx < 0)) {
+                if (i->get_dir() > 0 && dx > 0
+                 || i->get_dir() < 0 && dx < 0) {
                     i->turn();
                     // Platformer drehten sonst um, hoeren auf, drehen erneut
                     if (i->get_ac() == LixEn::PLATFORMER) {

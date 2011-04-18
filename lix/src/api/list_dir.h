@@ -43,7 +43,7 @@ private:
 
     void add_button(const int, std::string&);
     void load_current_dir();
-    static void static_put_to_dir_list(const std::string&, void*);
+    static void static_put_to_dir_list(std::string&, void*);
 
 public:
 

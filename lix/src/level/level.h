@@ -52,7 +52,7 @@
  *   Dies erschafft bzw. ersetzt die Leveldaten mit dem Inhalt der angegebenen
  *   Datei, die somit eingelesen und verarbeitet wird.
  *
- * void draw_to(ALLEGRO_BITMAP*, ALLEGRO_BITMAP* = 0)
+ * void draw_to(BITMAP*, BITMAP* = 0)
  *
  *   Zeichnet die Landschaft des Levels (alle Elemente der Terrain-Liste) auf
  *   das erste der übergebenen Bitmaps. Falls auch ein zweites Bitmap über-
@@ -168,12 +168,12 @@ struct Level {
     bool operator == (const Level&) const;
     bool operator != (const Level&) const;
 
-    inline Status       get_status() const { return status;         }
-    inline bool         get_good()   const { return status == GOOD; }
+    inline const Status get_status() const { return status;         }
+    inline const bool   get_good()   const { return status == GOOD; }
     const std::string&  get_name()   const;
 
     void    draw_to       (Torbit&, Torbit* = 0   ) const;
-    Torbit  create_preview(unsigned, unsigned, const ALLEGRO_COLOR&) const;
+    Torbit  create_preview(unsigned, unsigned, int) const;
 
     void load_from_stream(      std::istream&);
     void load_from_file  (const std::string&);

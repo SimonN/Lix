@@ -14,39 +14,42 @@ Frame::~Frame()
 
 void Frame::draw_self()
 {
+    // Diese hier machen das Zeichnen ¸bersichtlicher.
+    BITMAP* g    = get_ground().get_al_bitmap();
     const int x1 = get_x_here() - 2;
     const int y1 = get_y_here() - 2;
-    const int x2 = get_x_here() + 2 + get_xl();
-    const int y2 = get_y_here() + 2 + get_yl();
+    const int x2 = get_x_here() + 1 + get_xl();
+    const int y2 = get_y_here() + 1 + get_yl();
 
-    const ALLEGRO_COLOR& color_1 = color[COL_API_D];
-    const ALLEGRO_COLOR& color_2 = color[COL_API_M];
-    const ALLEGRO_COLOR& color_3 = color[COL_API_L];
+    // Farben w‰hlen
+    int col_1 = color[COL_API_D];
+    int col_3 = color[COL_API_L];
 
-    al_set_target_bitmap    (get_ground().get_al_bitmap());
-    al_draw_filled_rectangle(x1,   y1,   x1+2, y2-1, color_1); // left
-    al_draw_filled_rectangle(x1,   y1,   x2-1, y1+2, color_1); // top
-    al_draw_filled_rectangle(x2-2, y1+1, x2,   y2-1, color_3); // right
-    al_draw_filled_rectangle(x1+1, y2-2, x2-1, y2,   color_3); // bottom
-    al_put_pixel            (x1,   y2-1,             color_2); // lower left
-    al_put_pixel            (x1+1, y2-2,             color_2); // lower left
-    al_put_pixel            (x2-2, y1+1,             color_2); // upper right
-    al_put_pixel            (x2-1, y1,               color_2); // upper right
+    // Acquiren, malen, freilassen
+    acquire_bitmap(g);
+    vline   (g, x1,   y1,         y2-1, col_1); // Links  auﬂen
+    vline   (g, x1+1, y1,         y2-2, col_1); // Links  innen
+    hline   (g, x1+2, y1,   x2-1,       col_1); // Oben   auﬂen
+    hline   (g, x1+2, y1+1, x2-2,       col_1); // Oben   innen
+    vline   (g, x2,   y1+1,       y2,   col_3); // Rechts auﬂen
+    vline   (g, x2-1, y1+2,       y2,   col_3); // Rechts innen
+    hline   (g, x1+1, y2,   x2-2,       col_3); // Unten  auﬂen
+    hline   (g, x1+2, y2-1, x2-2,       col_3); // Unten  innen
+    release_bitmap(g);
 }
 
 
 
 void Frame::undraw_self()
 {
-    if (get_undraw_color() == color[COL_TRANSPARENT]) return;
+    if (!get_undraw_color()) return;
 
     const int x1 = get_x_here() - 2;
     const int y1 = get_y_here() - 2;
-    const int x2 = get_x_here() + 2 + get_xl();
-    const int y2 = get_y_here() + 2 + get_yl();
+    const int x2 = get_x_here() + 1 + get_xl();
+    const int y2 = get_y_here() + 1 + get_yl();
 
-    al_set_target_bitmap(get_ground().get_al_bitmap());
-    al_draw_filled_rectangle(x1, y1, x2, y2, get_undraw_color());
+    rectfill(get_ground().get_al_bitmap(), x1, y1, x2, y2, get_undraw_color());
 }
 
 } // Api

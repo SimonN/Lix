@@ -70,8 +70,7 @@ private:
         SortablePlayer(const bool b, const std::string& n, const unsigned s)
          : pl(b), name(n), score(s) {}
         inline bool operator < (const SortablePlayer& s) const {
-            return this->score >  s.score
-             ||   (this->score == s.score && this->pl && !s.pl);
+         return this->score>s.score || this->score==s.score && this->pl&&!s.pl;
         }
     };
 

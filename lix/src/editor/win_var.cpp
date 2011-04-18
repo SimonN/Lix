@@ -39,8 +39,8 @@ WindowVariables::WindowVariables(Level& l)
 {
     level = &l;
 
-    ok     .set_hotkey(ALLEGRO_KEY_ENTER);
-    cancel .set_hotkey(ALLEGRO_KEY_ESCAPE);
+    ok     .set_hotkey(KEY_ENTER);
+    cancel .set_hotkey(KEY_ESC);
     ok     .set_text  (Language::ok);
     cancel .set_text  (Language::cancel);
 
@@ -78,7 +78,7 @@ void WindowVariables::calc_self()
 {
     // Ausstieg ohne Speichern und mit Speichern
     if      (cancel.get_clicked()) set_exit();
-    else if (ok    .get_clicked() || Hardware::get_mr()) {
+    else if (ok    .get_clicked() || hardware.get_mr()) {
         // Gegen bloede Werte
         if (required.get_number() > initial.get_number()) {
             required.set_number(initial.get_number());

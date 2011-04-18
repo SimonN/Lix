@@ -41,7 +41,7 @@ void LobbyList::LobbyDataButton::read_from_pldatcit(
     style  = static_cast <const LixEn::Style> (itr->style);
     cutbit = &GraLib::get_lix(style);
     name   = itr->name;
-    while ((unsigned) al_get_text_width(font_med, name.c_str()) > text_xl)
+    while ((unsigned) text_length(font_med, name.c_str()) > text_xl)
      name.erase(--name.end());
     set_draw_required();
 }
