@@ -28,7 +28,7 @@ Editor::Selection Editor::find_under_mouse_cursor()
         // Mit Rechtsklick andersherum durchlaufen
         int   perm      = Object::perm(type);
         GraIt itr       = object[perm].begin();
-        bool  backwards = Hardware::get_mrh();
+        bool  backwards = hardware.get_mrh();
         if (backwards) {
             perm = Object::perm(Object::MAX - type - 1);
             itr  = --object[perm].end();
@@ -63,10 +63,8 @@ void Editor::find_check(Selection& s, GraLi& l, GraIt g)
 void Editor::find_check_at
 (Selection& s, GraLi& l, GraIt g, const int whx, const int why)
 {
-    ALLEGRO_COLOR col = g->get_pixel(whx-g->get_x(), why-g->get_y());
-    if (col != color[COL_TRANSPARENT]
-     && col != color[COL_PINK]
-     && col != color[COL_PINKAF]) {
+    const int col = g->get_pixel(whx-g->get_x(), why-g->get_y());
+    if (col != color[COL_TRANSPARENT] && col != color[COL_PINK]) {
         s.o = g;
         s.l = &l;
     }
@@ -121,10 +119,10 @@ bool Editor::get_overlap_at
 {
     const int x3  = map.get_xl(); const bool tx = level.torus_x;
     const int y3  = map.get_yl(); const bool ty = level.torus_y;
-    return           get_overlap_at_2(g, x1,    y1,    x2,    y2   )
-     || (tx       && get_overlap_at_2(g, x1+x3, y1,    x2+x3, y2   ))
-     || (ty       && get_overlap_at_2(g, x1,    y1+y3, x2,    y2+y3))
-     || (tx && ty && get_overlap_at_2(g, x1+x3, y1+y3, x3+x3, y2+y3));
+    return          get_overlap_at_2(g, x1,    y1,    x2,    y2   )
+     || tx       && get_overlap_at_2(g, x1+x3, y1,    x2+x3, y2   )
+     || ty       && get_overlap_at_2(g, x1,    y1+y3, x2,    y2+y3)
+     || tx && ty && get_overlap_at_2(g, x1+x3, y1+y3, x3+x3, y2+y3);
 }
 
 // Eigentliche Auswahl beim Rahmenziehen:
@@ -249,9 +247,9 @@ Api::BoxMessage* Editor::new_box_unsaved_data(const Level& l)
         box->add_text(s1);
         box->add_text(s2);
     }
-    box->add_button(Language::yes,    ALLEGRO_KEY_ENTER);
-    box->add_button(Language::no,     ALLEGRO_KEY_F1   );
-    box->add_button(Language::cancel, ALLEGRO_KEY_ESCAPE  );
+    box->add_button(Language::yes,    KEY_ENTER);
+    box->add_button(Language::no,     KEY_F1   );
+    box->add_button(Language::cancel, KEY_ESC  );
 
     return box;
 }

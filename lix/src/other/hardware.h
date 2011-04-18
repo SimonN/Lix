@@ -1,8 +1,8 @@
 /*
- * Hardware::h
+ * hardware.h
  *
  * Es wird ganz unten per "extern Hardware hardware" auf ein neues Objekt
- * verwiesen. Dieses wird in der Datei "Hardware::cpp" erschaffen.
+ * verwiesen. Dieses wird in der Datei "hardware.cpp" erschaffen.
  *
  *   ml = button no. 0 = left button
  *   mr = button no. 1 = right button
@@ -45,66 +45,48 @@
 
 class Hardware {
 
-private:
-
-    Hardware();
-    ~Hardware();
-
-    static Hardware* hw;
-
-    ALLEGRO_EVENT_QUEUE* event_queue;
-
-////////////////////
-// Display events //
-////////////////////
-
-private:
-
-    bool display_is_active;  // if so, centralize mouse
-    bool display_was_closed;
-
-public:
-
-    static inline bool get_display_was_closed()
-                       { return hw->display_was_closed; }
 //////////
 // Maus //
 //////////
 
 private:
 
-    int  mouse_own_x;  // Hier wird gespeichert, was bei get_mouse_x
-    int  mouse_own_y;  // bzw. -_y zurueckgegeben wird
-    int  mickey_x;     // Wie weit veraendert seit dem letzten
-    int  mickey_y;     // main_loop? Bei ruhender Maus z.B. null.
+    int      mouse_own_x;  // Hier wird gespeichert, was bei get_mouse_x
+    int      mouse_own_y;  // bzw. -_y zurueckgegeben wird
+    int      mickey_x;     // Wie weit veraendert seit dem letzten
+    int      mickey_y;     // main_loop? Bei ruhender Maus z.B. null.
 
-    bool mouse_click  [3]; // gerade angeklickt
-    bool mouse_double [3]; // gerade doppelt geklickt
-    int  mouse_hold   [3]; // wird gehalten seit... (ungehalten: 0)
-    int  mouse_release[3]; // gerade losgelassen - wie lange war gedrueckt?
-    int  mouse_since  [3]; // Wie lange seit letztem Klick (intern)
+    bool     mouse_click  [3]; // gerade angeklickt
+    bool     mouse_double [3]; // gerade doppelt geklickt
+    unsigned mouse_hold   [3]; // wird gehalten seit... (ungehalten: 0)
+    unsigned mouse_release[3]; // gerade losgelassen - wie lange war gedrueckt?
+
+    bool     mouse_buffer [3]; // Klicks zwischen den Ticks? (intern)
+    unsigned mouse_since  [3]; // Wie lange seit letztem Klick (intern)
 
 public:
 
     // Fuer Polling-Komponenten
-    static const  int  doubleclick_speed;
-    static const  int  doubleclick_for60;
-    static inline int  get_mickey_x()        { return hw->mickey_x;         }
-    static inline int  get_mickey_y()        { return hw->mickey_y;         }
-    static inline int  get_mx()              { return hw->mouse_own_x;      }
-    static inline int  get_my()              { return hw->mouse_own_y;      }
-    static inline bool get_ml()              { return hw->mouse_click  [0]; }
-    static inline bool get_mr()              { return hw->mouse_click  [1]; }
-    static inline bool get_mm()              { return hw->mouse_click  [2]; }
-    static inline bool get_mld()             { return hw->mouse_double [0]; }
-    static inline bool get_mrd()             { return hw->mouse_double [1]; }
-    static inline bool get_mmd()             { return hw->mouse_double [2]; }
-    static inline unsigned get_mlh()         { return hw->mouse_hold   [0]; }
-    static inline unsigned get_mrh()         { return hw->mouse_hold   [1]; }
-    static inline unsigned get_mmh()         { return hw->mouse_hold   [2]; }
-    static inline unsigned get_mlr()         { return hw->mouse_release[0]; }
-    static inline unsigned get_mrr()         { return hw->mouse_release[1]; }
-    static inline unsigned get_mmr()         { return hw->mouse_release[2]; }
+    static const unsigned doubleclick_speed;
+    static const unsigned doubleclick_for60;
+    inline int  get_mickey_x()        { return mickey_x;         }
+    inline int  get_mickey_y()        { return mickey_y;         }
+    inline int  get_mx()              { return mouse_own_x;      }
+    inline int  get_my()              { return mouse_own_y;      }
+    inline bool get_ml()              { return mouse_click  [0]; }
+    inline bool get_mr()              { return mouse_click  [1]; }
+    inline bool get_mm()              { return mouse_click  [2]; }
+    inline bool get_mld()             { return mouse_double [0]; }
+    inline bool get_mrd()             { return mouse_double [1]; }
+    inline bool get_mmd()             { return mouse_double [2]; }
+    inline unsigned get_mlh()         { return mouse_hold   [0]; }
+    inline unsigned get_mrh()         { return mouse_hold   [1]; }
+    inline unsigned get_mmh()         { return mouse_hold   [2]; }
+    inline unsigned get_mlr()         { return mouse_release[0]; }
+    inline unsigned get_mrr()         { return mouse_release[1]; }
+    inline unsigned get_mmr()         { return mouse_release[2]; }
+
+
 
 //////////////
 // Tastatur //
@@ -112,26 +94,32 @@ public:
 
 private:
 
-    std::vector <bool> key_hold;
-    std::vector <bool> key_once;
-    std::vector <bool> key_just_up;
+    bool ctrl;  // Eine der beiden CTRL-Tasten  gehalten?
+    bool shift; // Eine der beiden Shift-Tasten gehalten?
+    bool alt;   // Eine der beiden Alt-Tasten gehalten?
+    bool last_tick_ctrl;  // Hardware-internal variable, necessary to enable
+    bool last_tick_shift; // get_key() to return modifiers as well
+    bool last_tick_alt;
 
-    std::string        typed_characters;
+    bool key_buffer[KEY_MAX]; // fuer key_release
+
+    int  key_from_buffer;
+    int  key_from_buffer_ascii;
 
 public:
 
-    static int                get_typed_key(); // returns -1 if none
-    static const std::string& get_typed_characters();
+    inline int  get_key()       { return key_from_buffer;       }
+    inline int  get_key_ascii() { return key_from_buffer_ascii; }
 
-    static bool get_key_once   (int i);
-    static bool get_key_release(int);
-    static bool get_key_hold   (int);
+    inline bool key_once   (int i)   { return key_from_buffer == i;  }
+           bool key_release(int);
 
-    static bool get_key_enter_once();    // Special because Alt+Enter shall not
-    static bool get_key_enter_release(); // trigger it, both Enters shall work
-    static bool get_ctrl   ();
-    static bool get_shift  ();
-    static bool get_alt    ();
+           bool key_enter_once();    // Special because Alt+Enter shall not
+           bool key_enter_release(); // trigger it, and both Enters shall work
+    inline bool key_hold   (int scancode) { return key[scancode]; }
+    inline bool get_ctrl   ()             { return ctrl;          }
+    inline bool get_shift  ()             { return shift;         }
+    inline bool get_alt    ()             { return alt;           }
 
 /////////////////////////////
 // Und alles kontrollieren //
@@ -139,13 +127,16 @@ public:
 
 public:
 
-    static void initialize();
-    static void deinitialize();
+    Hardware();
+    ~Hardware();
 
-    static void main_loop();
-    static void poll_mouse(const bool = false);
+    void main_loop();
+    void poll_mouse(const bool = false);
 
-    static void freeze_mouse_x();
-    static void freeze_mouse_y();
+    void freeze_mouse_x();
+    void freeze_mouse_y();
 
 };
+
+// Objekt referenzieren, welches erst in main() erschaffen wird
+extern Hardware hardware;

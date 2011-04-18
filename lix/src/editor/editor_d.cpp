@@ -36,19 +36,19 @@ void Editor::draw()
     // Draw the map
     // If drawing takes very long, wait until after dragging.
     if (draw_required && (draw_dragging
-     || (!Hardware::get_key_hold(useR->key_ed_up)
-      && !Hardware::get_key_hold(useR->key_ed_right)
-      && !Hardware::get_key_hold(useR->key_ed_down)
-      && !Hardware::get_key_hold(useR->key_ed_left)
-      && !Hardware::get_mlh()) ) ) {
+     || !hardware.key_hold(KEY_UP)
+     && !hardware.key_hold(KEY_RIGHT)
+     && !hardware.key_hold(KEY_DOWN)
+     && !hardware.key_hold(KEY_LEFT)
+     && !hardware.get_mlh() ) ) {
         draw_required = false;
-        int clock     = Help::get_timer_ticks();
+        int clock     = Help::timer_ticks;
         // clear_screen_rectangle() is not enough to prevent drag remainders
         map.clear_to_color(color[COL_PINK]);
         for (int type = Object::TERRAIN; type != Object::MAX; ++type)
          for (GraIt i =  object[Object::perm(type)].begin();
                     i != object[Object::perm(type)].end(); ++i) i->draw();
-        clock = Help::get_timer_ticks() - clock;
+        clock = Help::timer_ticks - clock;
         if (clock < Help::timer_ticks_per_second / 5) draw_dragging = true;
         else                                          draw_dragging = false;
     }
@@ -70,9 +70,8 @@ void Editor::draw()
     // OSD help texts for buttons
     // A TextButton with left text alignment also starts at x = 3.
     if (Api::Manager::get_focus() == 0) {
-        al_set_target_bitmap(Api::Manager::get_torbit().get_al_bitmap());
-        al_draw_filled_rectangle(0, LEMSCR_Y - 80, LEMSCR_X, LEMSCR_Y - 60,
-         color[COL_PINKAF]);
+        rectfill(Api::Manager::get_torbit().get_al_bitmap(),
+         0, LEMSCR_Y-80, LEMSCR_X-1, LEMSCR_Y-61, color[COL_PINK]);
         if (panel[HELP].get_on())
          for (unsigned i = 0; i < panel.size(); ++i)
          if (panel[i].is_mouse_here()) {
@@ -90,11 +89,11 @@ void Editor::draw()
                 str += hold ? Language::editor_hotkey_hold
                             : Language::editor_hotkey;
                 str += " [";
-                str += al_keycode_to_name(key);
+                str += scancode_to_name(key);
                 str += "]";
             }
             Help::draw_shadow_text(Api::Manager::get_torbit(), font_med,
-             str.c_str(), 3, LEMSCR_Y - 80, color[COL_TEXT]);
+             str.c_str(), 3, LEMSCR_Y - 80);
         }
     }
 
@@ -103,8 +102,8 @@ void Editor::draw()
     // Mouse cursor on top
     // The mouse positioning code is here as well, as Editor::calc_self()
     // is skipped whenever a sub-window is open.
-    mouse_cursor.set_x(Hardware::get_mx()-mouse_cursor_offset);
-    mouse_cursor.set_y(Hardware::get_my()-mouse_cursor_offset);
+    mouse_cursor.set_x(hardware.get_mx()-mouse_cursor_offset);
+    mouse_cursor.set_y(hardware.get_my()-mouse_cursor_offset);
     mouse_cursor.draw();
 
     pre_screen->clear_to_color(color[COL_BLACK]);
@@ -134,13 +133,13 @@ void Editor::draw()
 void Editor::draw_selection_borders()
 {
     // Farbverlauf errechnen
-    unsigned t = ticks;
+    unsigned t = ticks / Help::get_timer_ticks_per_draw();
     int col = t%20;
     if (t%40 >= 20) col = 20 - (t%20);
     const int c1 = 100 - col*2;
     const int c2 = 255 - col*4;
-    const ALLEGRO_COLOR col_hov = al_map_rgb(c1, c1, c1);
-    const ALLEGRO_COLOR col_sel = al_map_rgb(c2, c2, c2);
+    const int col_hov = makecol(c1, c1, c1);
+    const int col_sel = makecol(c2, c2, c2);
 
     if (map_frames.get_xl() != map.get_xl()
      || map_frames.get_yl() != map.get_yl())
@@ -160,7 +159,7 @@ void Editor::draw_selection_borders()
      draw_selection_border(*i, col_sel);
 
     // Drag-around frame
-    if (panel[SELECT_FRAME].get_on() && Hardware::get_mlh()
+    if (panel[SELECT_FRAME].get_on() && hardware.get_mlh()
      && mouse_hold_started_outside_panel) {
         draw_selection_frame(col_hov);
     }
@@ -182,37 +181,32 @@ void Editor::draw_selection_borders()
 
 
 
-void Editor::draw_selection_border(const Selection& i,
-                                   const ALLEGRO_COLOR& col)
+void Editor::draw_selection_border(const Selection& i, const int col)
 {
     const bool& tx = level.torus_x;
     const bool& ty = level.torus_y;
-    al_set_target_bitmap(map_frames.get_al_bitmap());
                   draw_selection_border_at(i, col, 0,            0           );
     if (tx)       draw_selection_border_at(i, col, map.get_xl(), 0           );
     if (ty)       draw_selection_border_at(i, col, 0,            map.get_yl());
     if (tx && ty) draw_selection_border_at(i, col, map.get_xl(), map.get_yl());
 }
 
-void Editor::draw_selection_border_at(
-    const Selection& i,
-    const ALLEGRO_COLOR& col,
-    const int px,
-    const int py
-) {
-    // this assumes a correctly set target bitmap!
+void Editor::draw_selection_border_at
+(const Selection& i, const int col, const int px, const int py)
+{
     const int x1 = i.o->get_x() + i.o->get_selbox_x()  - px;
     const int y1 = i.o->get_y() + i.o->get_selbox_y()  - py;
-    const int x2 = x1           + i.o->get_selbox_xl();
-    const int y2 = y1           + i.o->get_selbox_yl();
-    al_draw_rectangle(x1 + 0.5, y1 + 0.5, x2 - 0.5, y2 - 0.5, col, 1);
+    const int x2 = x1           + i.o->get_selbox_xl() - 1;
+    const int y2 = y1           + i.o->get_selbox_yl() - 1;
+    rect(map_frames.get_al_bitmap(), x1,   y1,   x2,   y2,   col);
+    //rect(map_frames.get_al_bitmap(), x1+1, y1+1, x2-1, y2-1, col);
 }
 
 
 
 // Auswahlrahmen zeichnen
 // Dieser Code liegt ggf. etwas redundant nochmal in Editor::find_check_frame.
-void Editor::draw_selection_frame(const ALLEGRO_COLOR& col)
+void Editor::draw_selection_frame(const int col)
 {
     const int& x1 = frame_draw_x1;
     const int& y1 = frame_draw_y1;
@@ -220,7 +214,6 @@ void Editor::draw_selection_frame(const ALLEGRO_COLOR& col)
     const int& y2 = frame_draw_y2;
     const int  x3 = map.get_xl() + 1;
     const int  y3 = map.get_yl() + 1;
-    al_set_target_bitmap(map_frames.get_al_bitmap());
     if      (!frame_torus_x && !frame_torus_y) {
         draw_selection_frame_at(x1, y1, x2, y2, col);
     }
@@ -240,15 +233,11 @@ void Editor::draw_selection_frame(const ALLEGRO_COLOR& col)
     }
 }
 
-void Editor::draw_selection_frame_at(
-    const int fdx1,
-    const int fdy1,
-    const int fdx2,
-    const int fdy2,
-    const ALLEGRO_COLOR& col
-) {
-    // assumes correctly set target_bitmap!
-    al_draw_rectangle(fdx1 + 0.5, fdy1 + 0.5, fdx2 - 0.5, fdy2 - 0.5, col, 1);
+void Editor::draw_selection_frame_at
+(const int fdx1, const int fdy1, const int fdx2, const int fdy2, const int col)
+{
+    rect(map_frames.get_al_bitmap(), fdx1,   fdy1,   fdx2,   fdy2,   col);
+    //rect(map_frames.get_al_bitmap(), fdx1+1, fdy1+1, fdx2-1, fdy2-1, col);
 }
 
 
@@ -274,7 +263,7 @@ void Editor::draw_object_with_numbers_at
     s << nr << "/" << max;
     Help::draw_shadow_centered_text(map_frames, font_med, s.str().c_str(),
      i->get_x() - px + i->get_xl()/2,
-     i->get_y() - py, color[COL_TEXT]);
+     i->get_y() - py, color[COL_TEXT], color[COL_API_SHADOW]);
 }
 
 

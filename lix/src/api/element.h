@@ -46,7 +46,7 @@ private:
     bool drawn;
     bool draw_required;
 
-    ALLEGRO_COLOR undraw_color;
+    int  undraw_color;
 
     Element*            parent; // for positioning of the mouse
     std::set <Element*> children;
@@ -84,9 +84,8 @@ public:
            void  set_draw_required(bool = true);
 
     // Hintergrundfarbe beim Entzeichnen gewuenscht? (siehe Headerkommentar)
-    inline const ALLEGRO_COLOR& get_undraw_color() const {return undraw_color;}
-    inline void                 set_undraw_color(const ALLEGRO_COLOR& i)
-                                                         { undraw_color = i; }
+    inline int   get_undraw_color() const { return undraw_color; }
+    inline void  set_undraw_color(int i)  { undraw_color = i;    }
 
     bool         is_mouse_here() const;
 

@@ -14,7 +14,7 @@ class GraphicBG : public Graphic {
 
 private:
 
-    ALLEGRO_BITMAP *bg;
+    BITMAP *bg;
 
     bool   drawn;
     int    x_drawn;

@@ -58,8 +58,8 @@ WindowScroll::WindowScroll(Level& l, Map& m)
     current.set_text(Language::win_scroll_current);
     ok     .set_text(Language::ok                );
     cancel .set_text(Language::cancel            );
-    ok     .set_hotkey(ALLEGRO_KEY_ENTER);
-    cancel .set_hotkey(ALLEGRO_KEY_ESCAPE);
+    ok     .set_hotkey(KEY_ENTER);
+    cancel .set_hotkey(KEY_ESC);
 }
 
 WindowScroll::~WindowScroll()
@@ -82,7 +82,7 @@ void WindowScroll::calc_self()
         map.set_screen_x(x.get_number());
         map.set_screen_y(y.get_number());
     }
-    else if (ok.get_clicked() || Hardware::get_mr()) {
+    else if (ok.get_clicked() || hardware.get_mr()) {
         level.start_x = Help::mod(x.get_number(), level.size_x);
         level.start_y = Help::mod(y.get_number(), level.size_y);
         set_exit();

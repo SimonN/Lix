@@ -19,59 +19,31 @@
 namespace Help {
 
 // Timer-Funktionen
-ALLEGRO_TIMER* timer(0);
-const int      timer_ticks_per_second(60);
+volatile Uint32 timer_ticks            =  0;
+const    int    timer_ticks_per_second = 60;
 
+void timer_increment_ticks() {
+    ++timer_ticks;
+}
+END_OF_FUNCTION(increment_ticks)
 
-
-void timer_initialize()
-{
-    if (timer) return;
-    timer = al_create_timer(ALLEGRO_BPS_TO_SECS(timer_ticks_per_second));
-    al_start_timer(timer);
+void timer_start() {
+    LOCK_VARIABLE (timer_ticks);
+    LOCK_FUNCTION (timer_increment_ticks);
+    install_int_ex(timer_increment_ticks,
+     BPS_TO_TIMER (timer_ticks_per_second));
 }
 
-
-
-void timer_deinitialize()
-{
-    if (!timer) return;
-    al_stop_timer(timer);
-    al_destroy_timer(timer);
-    timer = 0;
+unsigned int get_timer_ticks_per_draw() {
+    if (get_refresh_rate() != 0) {
+        const unsigned i = timer_ticks_per_second / get_refresh_rate();
+        if (i > 0) return i;
+        else       return 1;
+    }
+    // Dies nimmt notfalls an, dass der Monitor 60 Hz hat bei 120 Ticks/Sek.
+    else return gloB->screen_vsync + 1;
 }
-
-
-
-int get_timer_ticks()
-{
-    return al_get_timer_count(timer);
-}
-
-
-
-void set_al_transparency_off()
-{
-    al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_ZERO);
-}
-
-
-
-void set_al_transparency_on()
-{
-    al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_INVERSE_ALPHA);
-}
-
-
-
-
-
-
-
-
-
-
-
+// Ende der Timer-Funktionen
 
 
 
@@ -137,13 +109,6 @@ MainArgs parse_main_arguments(int argc, char *argv[])
 
 
 
-void string_format_slashes(std::string& s)
-{
-    for (size_t i = 0; i < s.length(); ++i) if (s[i] == '\\') s[i] = '/';
-}
-
-
-
 std::string version_to_string(const unsigned long nr) {
     std::ostringstream sstr;
     sstr << nr;
@@ -187,12 +152,10 @@ void string_cut_to_dir(std::string& s) {
             s.erase(++i, s.end());
             break;
 }   }   }
-void string_shorten(std::string& s, const ALLEGRO_FONT* ft, const int length) {
-    if (al_get_text_width(ft, s.c_str()) > length) {
-        while (al_get_text_width(ft, s.c_str())
-         > length - al_get_text_width(ft, "...")) {
-            s.resize(s.size() - 1);
-        }
+void string_shorten(std::string& s, const FONT* ft, const int length) {
+    if (text_length(ft, s.c_str()) > length) {
+        while (text_length(ft, s.c_str()) > length - text_length(ft, "..."))
+         s.resize(s.size() - 1);
         s += "...";
     }
 }
@@ -238,69 +201,41 @@ bool string_ends_with(const std::string& s, const std::string& tail)
 
 
 
-// ############################################################################
-// ############################################################################
-// ############################################################################
 
 
-
+void draw_shaded_text(Torbit& bmp, FONT* f, const char* s,
+ int x, int y, int r, int g, int b) {
+    textout_ex(bmp.get_al_bitmap(), f, s, x+2, y+2, makecol(r/4, g/4, b/4),-1);
+    textout_ex(bmp.get_al_bitmap(), f, s, x+1, y+1, makecol(r/2, g/2, b/2),-1);
+    textout_ex(bmp.get_al_bitmap(), f, s, x  , y  , makecol(r  , g  , b  ),-1);
+}
 void draw_shadow_text(
-    Torbit& bmp,
-    ALLEGRO_FONT* f,
-    const char* s,
-    const int x,
-    const int y,
-    const ALLEGRO_COLOR& col
-) {
-    const ALLEGRO_COLOR& sha = color[COL_API_SHADOW];
-    al_set_target_bitmap(bmp.get_al_bitmap());
-    al_draw_text(f, sha, x+1, y+1, ALLEGRO_ALIGN_LEFT, s);
-    al_draw_text(f, col, x,   y,   ALLEGRO_ALIGN_LEFT, s);
+ Torbit& bmp, FONT* f, const char* s, int x, int y, int c, int sc) {
+    textout_ex(bmp.get_al_bitmap(), f, s, x+1, y+1, sc, -1);
+    textout_ex(bmp.get_al_bitmap(), f, s, x  , y  , c,  -1);
 }
-
-
-
+void draw_shaded_centered_text(BITMAP *bmp, FONT* f, const char* s,
+ int x, int y, int r, int g, int b) {
+    textout_centre_ex(bmp, f, s, x+1, y+2, makecol(r/4, g/4, b/4), -1);
+    textout_centre_ex(bmp, f, s, x  , y+1, makecol(r/2, g/2, b/2), -1);
+    textout_centre_ex(bmp, f, s, x-1, y  , makecol(r  , g  , b  ), -1);
+}
 void draw_shadow_centered_text(
-    Torbit& bmp,
-    ALLEGRO_FONT* f,
-    const char* s,
-    const int x,
-    const int y,
-    const ALLEGRO_COLOR& col
-) {
-    const ALLEGRO_COLOR& sha = color[COL_API_SHADOW];
-    al_set_target_bitmap(bmp.get_al_bitmap());
-    al_draw_text(f, sha, x+1, y+1, ALLEGRO_ALIGN_CENTRE, s);
-    al_draw_text(f, col, x,   y,   ALLEGRO_ALIGN_CENTRE, s);
+ Torbit& bmp, FONT* f, const char* s, int x, int y, int c, int sc) {
+    textout_centre_ex(bmp.get_al_bitmap(), f, s, x+1, y+1, sc, -1);
+    textout_centre_ex(bmp.get_al_bitmap(), f, s, x  , y  , c,  -1);
 }
-
-
-
 void draw_shadow_fixed_number(
-    Torbit& bmp,
-    ALLEGRO_FONT* f,
-    const int number,
-    const int x,
-    const int y,
-    const ALLEGRO_COLOR& col,
-    const bool right_to_left
-) {
+ Torbit& bmp, FONT* f, int number, int x, int y,
+ int c, bool right_to_left, int sc) {
     std::ostringstream s;
     s << number;
-    draw_shadow_fixed_text(bmp, f, s.str(), x, y, col, right_to_left);
+    draw_shadow_fixed_text(bmp,
+     f, s.str(), x, y, c, right_to_left, sc);
 }
-
-
-
 void draw_shadow_fixed_text(
-    Torbit& bmp,
-    ALLEGRO_FONT* f,
-    const std::string& s,
-          int x,
-    const int y,
-    const ALLEGRO_COLOR& col,
-    const bool right_to_left
-) {
+ Torbit& bmp, FONT* f, const std::string& s, int x, int y,
+ int c, bool right_to_left, int sc) {
     char ch[2]; ch[1] = '\0';
     for (std::string::const_iterator i
      =  (right_to_left ? --s.end() : s.begin());
@@ -310,23 +245,14 @@ void draw_shadow_fixed_text(
         if (right_to_left) x -= 10;
         ch[0] = *i;
         if (ch[0] >= '0' && ch[0] <= '9')
-             Help::draw_shadow_text         (bmp, f, ch, x,     y, col);
-        else Help::draw_shadow_centered_text(bmp, f, ch, x + 5, y, col);
+             Help::draw_shadow_text         (bmp, f, ch, x,     y, c, sc);
+        else Help::draw_shadow_centered_text(bmp, f, ch, x + 5, y, c, sc);
         if (!right_to_left) x += 10;
     }
 }
-
-
-
 void draw_shadow_fixed_updates_used(
-    Torbit& bmp,
-    ALLEGRO_FONT* f,
-    const int number,
-    const int x,
-    const int y,
-    const ALLEGRO_COLOR& col,
-    const bool right_left
-) {
+ Torbit& bmp, FONT* f, int number, int x, int y,
+ int c, bool right_left, int sc) {
     // Minuten
     std::ostringstream s;
     s << number / (gloB->updates_per_second * 60);
@@ -341,103 +267,87 @@ void draw_shadow_fixed_updates_used(
     //            * 100  / Gameplay::updates_per_second;
     // if (frac < 10) s += '0';
     // s += frac;
-    draw_shadow_fixed_text(bmp, f, s.str(), x, y, col, right_left);
+    draw_shadow_fixed_text(bmp, f, s.str(), x, y, c, right_left, sc);
 }
 // Ende der Schattentexte
 
 
 
-// ############################################################################
-// ############################################################################
-// ############################################################################
 
 
 
-// Find files with a given extension
+
+
+
+// Dateisuchfunktionen in verschiedenen Variationen
 void find_files(
     const std::string& where,
     const std::string& what,
     DoStr              dostr,
     void*              from
 ) {
-    ALLEGRO_FS_ENTRY* dir = al_create_fs_entry(where.c_str());
-    if (al_open_directory(dir)) {
-        ALLEGRO_FS_ENTRY* file;
-        while (0 != (file = al_read_directory(dir))) {
-            // Don't care for directories
-            if ( ! (al_get_fs_entry_mode(file) & ALLEGRO_FILEMODE_ISDIR)) {
-                std::string s = al_get_fs_entry_name(file);
-                string_format_slashes(s);
-                bool file_is_wanted = true;
-
-                // Check whether ``what'' is equal the end of the found name
-                if (what.empty()) file_is_wanted = true;
-                else if (s.size() < what.size()) file_is_wanted = false;
-                else {
-                    std::string s_tail(s, s.size() - what.size(), what.size());
-                    file_is_wanted = (s_tail == what);
-                }
-                if (file_is_wanted) {
-                    dostr(s, from);
-                }
-            }
-            al_destroy_fs_entry(file);
-        } al_close_directory(dir);
-    } al_destroy_fs_entry(dir);
+    al_ffblk info;
+    std::string search_for = where + what;
+    if (al_findfirst(search_for.c_str(), &info,
+     FA_RDONLY | FA_HIDDEN | FA_LABEL | FA_ARCH) == 0) {
+        do {
+            // Gefundene Datei zum Vektor hinzufügen
+            std::string s = where + info.name;
+            dostr(s, from);
+        } while (al_findnext(&info) == 0);
+        al_findclose(&info);
+    }
 }
+// Ende der Dateisuche
 
 
 
-void find_dirs(
-    const std::string& where,
-    DoStr dostr,
-    void* from
-) {
-    // nearly all of it is copied from ``find_files'' above.
-    ALLEGRO_FS_ENTRY* dir = al_create_fs_entry(where.c_str());
-    if (al_open_directory(dir)) {
-        ALLEGRO_FS_ENTRY* file;
-        while (0 != (file = al_read_directory(dir))) {
-            if (al_get_fs_entry_mode(file) & ALLEGRO_FILEMODE_ISDIR) {
-                std::string s = al_get_fs_entry_name(file);
-                string_format_slashes(s);
+void find_dirs(std::string where, DoStr dostr, void* from)
+{
+    al_ffblk info;
+    if (where[where.size()-1] != '/') where += '/';
+    if (where[where.size()-1] != '*') where += '*';
+    if (al_findfirst(where.c_str(), &info,
+     FA_RDONLY | FA_HIDDEN | FA_LABEL | FA_DIREC | FA_ARCH) == 0) {
+        do {
+            // Gefundenes Verzeichnis hinzufügen
+            if ((info.attrib & FA_DIREC) == FA_DIREC && info.name[0] != '.') {
+                std::string s = where;
+                s.resize(s.size() -1 ); // * von der Maske abschnibbeln
+                s += info.name;
+                s += '/';
                 dostr(s, from);
             }
-            al_destroy_fs_entry(file);
-        } al_close_directory(dir);
-    } al_destroy_fs_entry(dir);
+        } while (al_findnext(&info) == 0);
+        al_findclose(&info);
+    }
 }
-// end of find_dirs
+// Ende der Pfadsuche
 
 
 
-void find_tree(
-    const std::string& where,
-    const std::string& what,
-    DoStr dostr,
-    void* from
-) {
-    // Search the root dir ``where'' first. This is necessary since
-    // the directory ``.'' isn't found by al_read_directory.
-    find_files(where, what, dostr, from);
-
-    // Recursively call ``find_tree'' for each subdirectory.
-    ALLEGRO_FS_ENTRY* dir = al_create_fs_entry(where.c_str());
-    if (al_open_directory(dir)) {
-        ALLEGRO_FS_ENTRY* file;
-        while (0 != (file = al_read_directory(dir))) {
-            if (al_get_fs_entry_mode(file) & ALLEGRO_FILEMODE_ISDIR) {
-                std::string subdir = al_get_fs_entry_name(file);
-                find_tree(subdir, what, dostr, from);
-                // There is no infinite recursion here. ``.'' isn't found
-                // by al_read_directory.
+void find_tree
+(std::string where, const std::string& what, DoStr dostr, void* from)
+{
+    // Nach Verzeichnissen suchen
+    al_ffblk info;
+    if (where[where.size()-1] != '/') where += '/';
+    std::string search_for = where + '*';
+    if (al_findfirst(search_for.c_str(), &info,
+     FA_RDONLY | FA_HIDDEN | FA_LABEL | FA_DIREC | FA_ARCH) == 0) {
+        do {
+            // Dies nur für jedes Verzeichnis außer . und .. ausführen:
+            // Neue Suche mit gleichem Vektor im gefundenen Verzeichnis
+            if ((info.attrib & FA_DIREC) == FA_DIREC && info.name[0] != '.') {
+                find_tree(where + info.name + '/', what, dostr, from);
             }
-            al_destroy_fs_entry(file);
-        } al_close_directory(dir);
-    } al_destroy_fs_entry(dir);
+        } while (al_findnext(&info) == 0);
+        al_findclose(&info);
+    }
+    // Nach Dateien suchen, die dem Suchkriterium entsprechen
+    find_files(where, what, dostr, from);
 }
-// end of find_tree.
-
+// Ende der Unterverzeichnis-einschließenden Dateisuche
 
 
 
@@ -445,26 +355,7 @@ bool dir_exists(const std::string& s)
 {
     std::string dir = s;
     if (dir[dir.size() - 1] == '/') dir.erase(--dir.end());
-
-    bool ret = false;
-    ALLEGRO_FS_ENTRY* handle = al_create_fs_entry(dir.c_str());
-    if (al_open_directory(handle)) ret = true;
-    al_destroy_fs_entry(handle);
-    return ret;
-}
-
-
-
-bool file_exists(const std::string& s)
-{
-    std::string dir = s;
-    if (dir[dir.size() - 1] == '/') dir.erase(--dir.end());
-
-    bool ret = false;
-    ALLEGRO_FS_ENTRY* handle = al_create_fs_entry(dir.c_str());
-    if (al_fs_entry_exists(handle)) ret = true;
-    al_destroy_fs_entry(handle);
-    return ret;
+    return file_exists(dir.c_str(), FA_DIREC, 0);
 }
 
 }

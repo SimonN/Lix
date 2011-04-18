@@ -134,12 +134,12 @@ void Number::calc_self() {
         }
     }
 
-    if ( (down_big.get_draw_required() && six_buttons)
+    if (down_big.get_draw_required() && six_buttons
      || down_med.get_draw_required()
      || down_sml.get_draw_required()
      || up_sml  .get_draw_required()
      || up_med  .get_draw_required()
-     || (up_big  .get_draw_required() && six_buttons)) set_draw_required();
+     || up_big  .get_draw_required() && six_buttons) set_draw_required();
 }
 
 
@@ -167,10 +167,9 @@ void Number::draw_self()
     }
 
     // Alte Zahl wegputzen
-    al_set_target_bitmap(get_ground().get_al_bitmap());
-    al_draw_filled_rectangle(
-     get_x_here()            + 40 + 20 * six_buttons, get_y_here(),
-     get_x_here() + get_xl() - 40 - 20 * six_buttons, get_y_here() + 20,
+    rectfill(get_ground().get_al_bitmap(),
+     get_x_here()            + 40 + 20 * six_buttons,   get_y_here(),
+     get_x_here() + get_xl() - 40 - 20 * six_buttons-1, get_y_here() + 20-1,
      color[COL_API_M]);
 
     // Negativ?
@@ -180,8 +179,8 @@ void Number::draw_self()
 
     // String mit (digits)-vielen Ziffern befuellen
     // und fuer jede Ziffer eine Farbe festlegen
-    std::string                 digit(digits, '0');
-    std::vector <ALLEGRO_COLOR> digit_color(digits, color[COL_TEXT]);
+    std::string       digit(digits, '0');
+    std::vector <int> digit_color(digits, color[COL_TEXT]);
 
     if (white_zero) digit_color[digits - 1] = color[COL_TEXT_ON];
 

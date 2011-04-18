@@ -30,10 +30,10 @@ unsigned Lixxie::get_priority(LixEn::Ac                   new_ac,
      || ac == LixEn::BURNER) return 0;
 
     // Bleibende Faehigkeiten
-    if ((new_ac == LixEn::EXPLODER  && updates_since_bomb > 0)
-     || (new_ac == LixEn::EXPLODER2 && updates_since_bomb > 0)
-     || (new_ac == LixEn::CLIMBER   && climber)
-     || (new_ac == LixEn::FLOATER   && floater)) return 1;
+    if (new_ac == LixEn::EXPLODER  && updates_since_bomb > 0
+     || new_ac == LixEn::EXPLODER2 && updates_since_bomb > 0
+     || new_ac == LixEn::CLIMBER   && climber
+     || new_ac == LixEn::FLOATER   && floater) return 1;
 
     // Blocker duerfen im Mehrspielermodus nicht in die Naehe von Ausgaengen
     // gepflanzt werden
@@ -49,9 +49,9 @@ unsigned Lixxie::get_priority(LixEn::Ac                   new_ac,
         // Nur Exploder ist erlaubt, und zwar mit wesentlich hoeherer Prior.!
         // Falls der Walker zuweisbar ist, dann ist er es ebenfalls Blockern.
         case LixEn::BLOCKER:
-            if ((new_ac == LixEn::WALKER && frame < 20)
-             ||  new_ac == LixEn::EXPLODER
-             ||  new_ac == LixEn::EXPLODER2) p = 5000;
+            if (new_ac == LixEn::WALKER && frame < 20
+             || new_ac == LixEn::EXPLODER
+             || new_ac == LixEn::EXPLODER2) p = 5000;
             else return 1;
             break;
 

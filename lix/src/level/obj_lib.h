@@ -56,7 +56,7 @@ public:
     static const std::string  get_filename(const Object*);
 
     static const std::string& orig_set_to_string(const int);
-    static       OrigSet      string_to_orig_set(const std::string&);
+    static const OrigSet      string_to_orig_set(const std::string&);
 
 private:
 
@@ -74,8 +74,8 @@ private:
            void load_l2_set       (const int);          // if used first time
            void load_vgaspec      (const int);          // if used first time
            void load_file         (const std::string&, const std::string&);
-    static void load_file_callback(const std::string&, void*);
-    static void decrunch_level    (const std::string&, void*);
+    static void load_file_callback(std::string&, void*);
+    static void decrunch_level    (std::string&, void*);
 
     ObjLib();
     ~ObjLib();

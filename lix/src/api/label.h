@@ -36,23 +36,23 @@ public:
     Label(int, int, int);
     virtual ~Label() {}
 
-    const std::string&   get_text ()  const { return text;  }
-    const Align&         get_align()  const { return align; }
-    const ALLEGRO_COLOR& get_color()  const { return color; }
-          int            get_number() const; // only useful if text is an int
+    const std::string& get_text ()  const { return text;  }
+    const Align&       get_align()  const { return align; }
+          int          get_color()  const { return color; }
+          int          get_number() const; // only useful if the text is an int
 
-    void set_font      (ALLEGRO_FONT* f) { font = f; }
+    void set_font      (FONT* f) { font = f; }
     void set_text      (const std::string& = "");
     void set_number    (const int);
     void set_align     (const Align&);
-    void set_color     (const ALLEGRO_COLOR&);
+    void set_color     (const int);
 
 private:
 
-    ALLEGRO_FONT* font;
-    std::string   text;
-    Align         align;
-    ALLEGRO_COLOR color;
+    FONT*       font;
+    std::string text;
+    Align       align;
+    int         color;
 
     int         drawn_x_here; // Like Element::xl, but last drawn, not current
     int         drawn_xl;

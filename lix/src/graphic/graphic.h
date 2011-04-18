@@ -44,7 +44,7 @@ public:
     inline const Cutbit* get_cutbit() const          { return cutbit; }
     inline void          set_cutbit(const Cutbit& c) { cutbit = &c;   }
 
-    inline ALLEGRO_BITMAP* get_al_bitmap()  { return cutbit->get_al_bitmap(); }
+    inline BITMAP* get_al_bitmap()  { return cutbit->get_al_bitmap(); }
     inline Torbit& get_ground()                    { return ground;   }
     inline void    set_ground(Torbit& gr)          { ground = gr;     }
 
@@ -75,8 +75,8 @@ public:
     inline  int  get_x_frames()  const { return cutbit->get_x_frames(); }
     inline  int  get_y_frames()  const { return cutbit->get_y_frames(); }
     virtual bool is_last_frame() const;
-    virtual bool get_frame_exists  (const int, const int) const;
-    virtual ALLEGRO_COLOR get_pixel(const int, const int) const;
+    virtual bool get_frame_exists(const int, const int) const;
+    virtual int  get_pixel       (const int, const int) const;
 
    virtual void draw  ();
 

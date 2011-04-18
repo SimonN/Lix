@@ -35,7 +35,7 @@ void Network::start_as_server()
     server = new NetServer(false,
                            gloB->server_port,
                            Help::timer_ticks_per_second,
-                           &Help::get_timer_ticks);
+                           &Help::timer_ticks);
     if (server) {
         server->set_version_min(gloB->version_min);
         Console::push_back(Language::net_chat_start_server);

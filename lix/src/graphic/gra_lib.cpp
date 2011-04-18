@@ -16,18 +16,16 @@ GraLib::GraLib()
 {
     // Die Verzeichnisse nach Bilddateien durchsuchen
     // Abk.-Deklarationen, um die Funktionsaufrufe in einer Zeile zu haben
-    const std::string dd                    = gloB->dir_data_bitmap;
-    void (*ssii)(const std::string&, void*) = sort_string_into_internal;
+    const std::string dd              = gloB->dir_data_bitmap;
+    void (*ssii)(std::string&, void*) = sort_string_into_internal;
 
-    Help::find_tree(dd, gloB->ext_bmp, ssii, (void*) this);
-    Help::find_tree(dd, gloB->ext_tga, ssii, (void*) this);
-    Help::find_tree(dd, gloB->ext_pcx, ssii, (void*) this);
+    Help::find_tree(dd, gloB->mask_ext_bmp, ssii, (void*) this);
+    Help::find_tree(dd, gloB->mask_ext_tga, ssii, (void*) this);
+    Help::find_tree(dd, gloB->mask_ext_pcx, ssii, (void*) this);
 
     // Countdown-Matrix erstellen
-    const Cutbit&         cb = internal[gloB->file_bitmap_lix];
-          ALLEGRO_BITMAP* b  = cb.get_al_bitmap();
-    al_lock_bitmap(b, al_get_bitmap_format(b), ALLEGRO_LOCK_READONLY);
-
+    const Cutbit&    cb = internal[gloB->file_bitmap_lix];
+          BITMAP*    b  = cb.get_al_bitmap();
     Lixxie::countdown = Lixxie::Matrix(
      cb.get_x_frames(), std::vector <Lixxie::XY> (cb.get_y_frames()) );
     // fx, fy = welcher X- bzw. Y-Frame
@@ -39,7 +37,7 @@ GraLib::GraLib()
             // Is it the pixel of the eye?
             const int real_x = 1 + fx * (cb.get_xl() + 1) + x;
             const int real_y = 1 + fy * (cb.get_yl() + 1) + y;
-            if (al_get_pixel(b, real_x, real_y) == color[COL_LIXFILE_EYE]) {
+            if (_getpixel16(b, real_x, real_y) == color[COL_LIXFILE_EYE]) {
                 Lixxie::countdown[fx][fy].x = x;
                 Lixxie::countdown[fx][fy].y = y - 1;
                 goto GOTO_NEXTFRAME;
@@ -62,7 +60,6 @@ GraLib::GraLib()
         }
     }
     // Alle Pixel sind abgegrast.
-    al_unlock_bitmap(b);
 
     recolor_into_vector(internal[gloB->file_bitmap_lix],       style);
     recolor_into_vector(internal[gloB->file_bitmap_game_icon], icons);
@@ -81,12 +78,11 @@ GraLib::GraLib()
 // beim einfachen Austauschen des benutzten Grafikformates: Man kann einfach
 // seine Grafiken konvertieren und die Endung aendern, wenn man den Datei-
 // namen ansonsten konstant haelt.
-void GraLib::sort_string_into_internal(const std::string& s, void* v) {
+void GraLib::sort_string_into_internal(std::string& s, void* v) {
     // zweites Argument: Nur Schneideversuch unternehmen, wenn mit Prae-End.
     const Cutbit c(s, Help::string_get_pre_extension(s));
-    std::string str = s;
-    Help::string_remove_extension(str);
-    ((GraLib*) v)->internal.insert(std::make_pair(str, c));
+    Help::string_remove_extension(s);
+    ((GraLib*) v)->internal.insert(std::make_pair(s, c));
 }
 
 
@@ -95,55 +91,35 @@ void GraLib::recolor_into_vector(
     const Cutbit&         cutbit,
     std::vector <Cutbit>& vector)
 {
-    ALLEGRO_BITMAP* recol = internal[gloB->file_bitmap_lix_recol]
-                            .get_al_bitmap();
-    ALLEGRO_BITMAP* lix   = cutbit.get_al_bitmap();
+    BITMAP* recol = internal[gloB->file_bitmap_lix_recol].get_al_bitmap();
+    BITMAP* lix   = cutbit.get_al_bitmap();
     if (!recol || !lix) return;
 
+    int col_break = getpixel(lix, lix->w - 1, 0);
     vector = std::vector <Cutbit> (LixEn::STYLE_MAX, cutbit);
-
-    // Lock everything
-    al_lock_bitmap(recol, al_get_bitmap_format(recol), ALLEGRO_LOCK_READONLY);
-    al_lock_bitmap(lix,   al_get_bitmap_format(lix),   ALLEGRO_LOCK_READONLY);
-    for (int style_loop = 0; style_loop != LixEn::STYLE_MAX
-     && style_loop < al_get_bitmap_height(recol) - 1; ++style_loop) {
-        ALLEGRO_BITMAP* b = vector[style_loop].get_al_bitmap();
-        al_lock_bitmap(b, al_get_bitmap_format(b), ALLEGRO_LOCK_READWRITE);
-    }
-
     // The first row (y == 0) contains the source pixels. The first style
     // (garden) is at y == 1. Thus the recol->h - 1 is correct as we count
     // styles starting at 0.
-    ALLEGRO_COLOR col_break = al_get_pixel(lix, cutbit.get_xl() - 1, 0);
-    for  (int y = 0; y < cutbit.get_yl(); y++)
-     for (int x = 0; x < cutbit.get_xl(); x++)
-     for (int conv = 0; conv < al_get_bitmap_width(recol); conv++) {
-        const ALLEGRO_COLOR col = al_get_pixel(lix, x, y);
+    for  (int y = 0; y < lix->h; y++)
+     for (int x = 0; x < lix->w; x++)
+     for (int conv = 0; conv < recol->w; conv++) {
+        const int col = getpixel(lix, x, y);
         if (col == col_break) {
             break;
             // immediately begin next pixel, but not next row, because
             // we have separating col_break-colored frames in the file.
         }
-        if (col == al_get_pixel(recol, conv, 0)) {
+        if (col == getpixel(recol, conv, 0)) {
             for (int style_loop = 0; style_loop != LixEn::STYLE_MAX
-             && style_loop < al_get_bitmap_height(recol) - 1; ++style_loop) {
-                al_set_target_bitmap(vector[style_loop].get_al_bitmap());
-                al_put_pixel(x, y, al_get_pixel(recol, conv, style_loop + 1));
+             && style_loop < recol->h - 1; ++style_loop) {
+                ::putpixel(vector[style_loop].get_al_bitmap(), x, y,
+                 ::getpixel(recol, conv, style_loop + 1));
             }
             break; // break out of conv loop, don't replace this pixel again
         }
         // end if color matches
     }
     // end of all color replacement
-
-    // Unlock everything
-    al_unlock_bitmap(recol);
-    al_unlock_bitmap(lix);
-    for (int style_loop = 0; style_loop != LixEn::STYLE_MAX
-     && style_loop < al_get_bitmap_height(recol) - 1; ++style_loop) {
-        ALLEGRO_BITMAP* b = vector[style_loop].get_al_bitmap();
-        al_unlock_bitmap(b);
-    }
 
     //    // This saving is just while LEMDEBUG is happening
     //    for (size_t i = 0; i < singl->style.size(); ++i) {

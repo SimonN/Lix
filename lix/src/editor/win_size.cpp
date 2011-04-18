@@ -89,8 +89,8 @@ WindowSize::WindowSize(Level& lv, Map& mp)
 
     ok    .set_text(Language::ok);
     cancel.set_text(Language::cancel);
-    ok    .set_hotkey(ALLEGRO_KEY_ENTER);
-    cancel.set_hotkey(ALLEGRO_KEY_ESCAPE);
+    ok    .set_hotkey(KEY_ENTER);
+    cancel.set_hotkey(KEY_ESC);
 }
 
 
@@ -123,7 +123,7 @@ void WindowSize::calc_self()
     if (map.get_yl() + u.get_number() + d.get_number() > Level::max_yl)
      d.set_number(Level::max_yl - map.get_yl() - u.get_number());
 
-    if (ok.get_clicked() || Hardware::get_mr()) {
+    if (ok.get_clicked() || hardware.get_mr()) {
         if (l.get_number() == 0 && r.get_number() == 0
          && u.get_number() == 0 && d.get_number() == 0
          && level.torus_x == torus_x
@@ -178,11 +178,10 @@ void WindowSize::draw_calculation(const int y, const int o, const int p)
     std::string s_eql("=");
 
     Torbit& tb = get_torbit();
-    ALLEGRO_BITMAP* bp = tb.get_al_bitmap();
+    BITMAP* bp = tb.get_al_bitmap();
 
     // Alte Zahl wegputzen
-    al_set_target_bitmap(bp);
-    al_draw_filled_rectangle(x_offset, y, this_xl-1, y+20, color[COL_API_M]);
+    rectfill(bp, x_offset, y, this_xl-2,y+19,color[COL_API_M]);
 
     for (int i = 3, temp = o; i >= 0 && temp > 0; --i) {
         s_old[i] = '0' + temp%10;

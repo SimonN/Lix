@@ -90,7 +90,7 @@ const Crunch::File* Crunch::get_file(const std::string& filename)
                 // Sonderfall im ersten Bit
                 if (pos == start_of_next_header - 1
                  && bit >= num_bits_in_first_byte) break;
-                bitstream.push_back((int) byte % (1 << (bit+1)) / (1 << bit));
+                bitstream.push_back((int) byte % (1 << bit+1) / (1 << bit));
             }
         }
         // Sektion korrumpiert?

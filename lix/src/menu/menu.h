@@ -56,7 +56,7 @@ private:
 
     ExitWith  exit_with;
 
-    MainMenu* main_menu;
+    MainMenu* main;
 
     Api::SingleBrowser* single;
     Api::Lobby*         lobby;

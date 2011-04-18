@@ -50,7 +50,7 @@ BrowserBig::BrowserBig(const std::string& wintitle,
     // werden, weil diese zu diesem Konstruktoraufruf-Zeitpunkt noch
     // nicht konstruiert ist.
     button_exit.set_text(Language::back);
-    button_exit.set_hotkey(ALLEGRO_KEY_ESCAPE);
+    button_exit.set_hotkey(KEY_ESC);
 }
 
 

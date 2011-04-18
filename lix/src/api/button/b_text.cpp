@@ -57,11 +57,13 @@ void TextButton::draw_self()
                              - (check_frame != 0) * check_cutbit->get_xl());
         if (left) {
             Help::draw_shadow_text(get_ground(), font_med,
-             s.c_str(), xh + 3, yh + get_yl()/2 - 10,  get_color_text());
+             s.c_str(), xh + 3, yh + get_yl()/2 - 10,
+             get_color_text(), color[COL_API_SHADOW]);
         } else {
             Help::draw_shadow_centered_text(get_ground(),
              font_med, s.c_str(), xh + get_xl()/2,
-                                  yh + get_yl()/2 - 10, get_color_text());
+                                  yh + get_yl()/2 - 10,
+             get_color_text(), color[COL_API_SHADOW]);
         }
 
         // Haken malen

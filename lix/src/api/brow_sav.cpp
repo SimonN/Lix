@@ -71,10 +71,10 @@ SaveBrowser::SaveBrowser(const std::string& bdir,
     level_list.load_dir(dir);
     set_subtitle(dir);
 
-    ok    .set_hotkey(ALLEGRO_KEY_ENTER);
+    ok    .set_hotkey(KEY_ENTER);
     ok    .set_text  (Language::ok);
     cancel.set_text  (Language::cancel);
-    // cancel.set_hotkey(ALLEGRO_KEY_ESCAPE); // Wird nicht gemacht, weil es manuell
+    // cancel.set_hotkey(KEY_ESC); // Wird nicht gemacht, weil es manuell
     // kontrolliert wird. Beim Texteintippen soll ESC nur das Eintippen abbr.
 
     Help::string_remove_dir(file);
@@ -119,7 +119,7 @@ void SaveBrowser::calc_self()
         }
 
         if (!typing) {
-            if (Hardware::get_key_once(ALLEGRO_KEY_ESCAPE)) {
+            if (hardware.key_once(KEY_ESC)) {
                 set_exit();
             }
             else if (dir_list.get_clicked()) {
@@ -136,7 +136,7 @@ void SaveBrowser::calc_self()
         }
 
         // Etwas aus editor/bit_brow.cpp kopierter Code
-        if (Hardware::get_mr()
+        if (hardware.get_mr()
          &&  (dir_list.is_mouse_here()
          || level_list.is_mouse_here())) {
             if (dir_list.get_current_dir() == dir_list.get_base_dir()) {
@@ -154,7 +154,7 @@ void SaveBrowser::calc_self()
              + file_name.get_text() + extension;
 
             // Testen, ob die Datei bereits exisitiert; ggf. box_overwrite new
-            if (Help::file_exists(complete_file_name.c_str())) {
+            if (exists(complete_file_name.c_str())) {
                 box_overwrite = new_box_overwrite(complete_file_name);
                 Manager::add_focus(box_overwrite);
             }
@@ -228,8 +228,8 @@ BoxMessage* SaveBrowser::new_box_overwrite_level(const std::string&file)
     box_overwrite->add_text(Language::save_box_overwrite_question);
     box_overwrite->add_text(s1);
     box_overwrite->add_text(s2);
-    box_overwrite->add_button(Language::yes, ALLEGRO_KEY_ENTER);
-    box_overwrite->add_button(Language::no,  ALLEGRO_KEY_ESCAPE);
+    box_overwrite->add_button(Language::yes, KEY_ENTER);
+    box_overwrite->add_button(Language::no,  KEY_ESC);
 
     return box_overwrite;
 }

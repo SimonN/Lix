@@ -17,8 +17,8 @@ public:
 
     const Object* get_terrain   (int)           const;
     const Object* get_special   (int)           const;
-          int     get_terrain_id(const Object*) const;
-          int     get_special_id(const Object*) const;
+    const int     get_terrain_id(const Object*) const;
+    const int     get_special_id(const Object*) const;
 
     // These are useful while creating a graphics set. ObjLib should
     // provide no or just const access to a graphics set after it's completed.

@@ -72,7 +72,7 @@ MainMenuWindow::MainMenuWindow()
     add_child(version);
     add_child(website);
 
-    exit.set_hotkey(ALLEGRO_KEY_ESCAPE);
+    exit.set_hotkey(KEY_ESC);
     const std::string  v = Language::main_version + " "
                          + Help::version_to_string(gloB->version);
     version.set_text(v);

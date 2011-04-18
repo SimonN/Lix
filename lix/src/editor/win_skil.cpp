@@ -91,8 +91,8 @@ WindowSkill::WindowSkill(Level& l)
     ok       .set_text(Language::ok);
     cancel   .set_text(Language::cancel);
 
-    ok       .set_hotkey(ALLEGRO_KEY_ENTER);
-    cancel   .set_hotkey(ALLEGRO_KEY_ESCAPE);
+    ok       .set_hotkey(KEY_ENTER);
+    cancel   .set_hotkey(KEY_ESC);
 }
 
 WindowSkill::~WindowSkill()
@@ -199,7 +199,7 @@ void WindowSkill::calc_self()
     }
     // Ende vom Faehigkeitenzuweisen
 
-    if (ok.get_clicked() || Hardware::get_mr()) {
+    if (ok.get_clicked() || hardware.get_mr()) {
         // Daten in das Levelobjekt des Editors schreiben
         for (int i = 0; i < gloB->skill_max; ++i) {
             level->skill[i].ac = sbwb[i]->skill.get_skill();

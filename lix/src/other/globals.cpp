@@ -17,7 +17,7 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2011, 04, 09, 00)),
+    version              (CONCAT(2011, 03, 05, 00)),
     version_min          (CONCAT(2011, 03, 05, 00)),
 
     updates_per_second   (15),
@@ -34,6 +34,7 @@ Globals::Globals()
     screen_windowed_x    ( 640),
     screen_windowed_y    ( 480),
     screen_vsync         (false),
+    screen_fullscreen_now(false),
 
     sound_load_driver    (true),
 
@@ -51,9 +52,14 @@ Globals::Globals()
     ext_level_orig               (".lvl"),
     ext_replay                   (".txt"),
     ext_user                     (".txt"),
-    ext_bmp                      (".bmp"),
-    ext_tga                      (".tga"),
-    ext_pcx                      (".pcx"),
+    mask_anything                ("*.*"),
+    mask_ext_level               ("*.txt"),
+    mask_ext_level_orig          ("*.lvl"),
+    mask_ext_replay              ("*.txt"),
+    mask_ext_user                ("*.txt"),
+    mask_ext_bmp                 ("*.bmp"),
+    mask_ext_tga                 ("*.tga"),
+    mask_ext_pcx                 ("*.pcx"),
 
     // Unterteilung der Bilddateien nach Prae-Endung
     pre_ext_null                 (":"),

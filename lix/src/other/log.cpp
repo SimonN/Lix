@@ -54,7 +54,7 @@ void Log::log(Priority p, const std::string& s) {
      || (singl->priority == INFO && p == INFO)) {
 
         char time[10]; // Time string, will be written later
-        sprintf(time, "%9.2f", (float) Help::get_timer_ticks()
+        sprintf(time, "%9.2f", (float) Help::timer_ticks
                                      / Help::timer_ticks_per_second);
         // Free line between to L++ programm sessions
         if (!singl->something_was_logged_already_this_session) {
@@ -75,7 +75,7 @@ void Log::log(Priority p, int i) {
      || (singl->priority == INFO  && p == INFO)) {
 
         char time[10];
-        sprintf(time, "%9.2f", (float) Help::get_timer_ticks()
+        sprintf(time, "%9.2f", (float) Help::timer_ticks
                                      / Help::timer_ticks_per_second);
         if (!singl->something_was_logged_already_this_session) {
              singl->something_was_logged_already_this_session = true;
@@ -94,7 +94,7 @@ void Log::log(Priority p, const std::string& s, int i) {
      || (singl->priority == INFO  && p == INFO)) {
 
         char time[10];
-        sprintf(time, "%9.2f", (float) Help::get_timer_ticks()
+        sprintf(time, "%9.2f", (float) Help::timer_ticks
                                      / Help::timer_ticks_per_second);
         if (!singl->something_was_logged_already_this_session) {
              singl->something_was_logged_already_this_session = true;

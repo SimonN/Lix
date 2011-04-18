@@ -12,7 +12,7 @@
 Menu::Menu(SubMenu sm)
 :
     exit_with          (NOTHING),
-    main_menu          (0),
+    main               (0),
     single             (sm == SUBMENU_SINGLE  ? new Api::SingleBrowser() : 0),
     lobby              (sm == SUBMENU_NETWORK ? new Api::Lobby()         : 0),
     replay             (sm == SUBMENU_REPLAY  ? new Api::ReplayBrowser() : 0),
@@ -29,11 +29,8 @@ Menu::Menu(SubMenu sm)
     if (replay) Api::Manager::add_elder(replay);
 }
 
-
-
-Menu::~Menu()
-{
-    if (main_menu)  delete main_menu;
+Menu::~Menu() {
+    if (main)       delete main;
     if (single)     delete single;
     if (lobby)      delete lobby;
     if (replay)     delete replay;
@@ -59,43 +56,43 @@ void Menu::undraw()
 
 void Menu::calc()
 {
-    if (main_menu) {
-        switch (main_menu->get_exit_with()) {
+    if (main) {
+        switch (main->get_exit_with()) {
 
         case SUBMENU_NOTHING:
             break;
 
         case SUBMENU_SINGLE:
-            delete main_menu;
-            main_menu = 0;
+            delete main;
+            main = 0;
             single = new Api::SingleBrowser();
             Api::Manager::add_elder(single);
             break;
 
         case SUBMENU_NETWORK:
-            delete main_menu;
-            main_menu = 0;
+            delete main;
+            main = 0;
             lobby = new Api::Lobby();
             Api::Manager::add_elder(lobby);
             break;
 
         case SUBMENU_REPLAY:
-            delete main_menu;
-            main_menu = 0;
+            delete main;
+            main = 0;
             replay = new Api::ReplayBrowser();
             Api::Manager::add_elder(replay);
             break;
 
         case SUBMENU_OPTIONS:
-            delete main_menu;
-            main_menu = 0;
+            delete main;
+            main = 0;
             options = new Api::OptionMenu();
             Api::Manager::add_elder(options);
             break;
 
         case SUBMENU_EXIT:
-            delete main_menu;
-            main_menu = 0;
+            delete main;
+            main = 0;
             exit_with = EXIT_PROGRAM;
             break;
         }
@@ -118,7 +115,7 @@ void Menu::calc()
             case Api::SingleBrowser::EXIT_WITH_EXIT:
                 delete single;
                 single = 0;
-                main_menu = new MainMenu();
+                main = new MainMenu();
                 break;
             }
         }
@@ -134,7 +131,7 @@ void Menu::calc()
         else if (lobby->get_exit_with() == Api::Lobby::EXIT_WITH_EXIT) {
             delete lobby;
             lobby = 0;
-            main_menu = new MainMenu();
+            main = new MainMenu();
         }
     }
 
@@ -148,7 +145,7 @@ void Menu::calc()
         else if (replay->get_exit_with()==Api::ReplayBrowser::EXIT_WITH_EXIT) {
             delete replay;
             replay = 0;
-            main_menu = new MainMenu();
+            main = new MainMenu();
         }
     }
 
@@ -156,7 +153,7 @@ void Menu::calc()
         if (options->get_exit()) {
             delete options;
             options = 0;
-            main_menu = new MainMenu();
+            main = new MainMenu();
         }
     }
 
@@ -164,7 +161,7 @@ void Menu::calc()
         if (new_player->get_exit()) {
             delete new_player;
             new_player = 0;
-            main_menu = new MainMenu();
+            main = new MainMenu();
         }
     }
 
@@ -179,13 +176,13 @@ void Menu::calc()
                  new_player = new Api::NewPlayerMenu();
                  Api::Manager::add_elder(new_player);
             }
-            else main_menu = new MainMenu();
+            else main = new MainMenu();
         }
     }
 
 
 
-    // No window is open at the moment? Then open one, usually the main menu.
+    // Kein Fenster offen?
     else {
         if (useR->language == Language::NONE
          || useR->language >= Language::MAX) {
@@ -197,7 +194,7 @@ void Menu::calc()
             new_player = new Api::NewPlayerMenu();
             Api::Manager::add_elder(new_player);
         }
-        else main_menu = new MainMenu();
+        else main      = new MainMenu();
     }
 }
 
@@ -206,8 +203,8 @@ void Menu::calc()
 void Menu::draw()
 {
     if (!new_player) {
-        mouse_cursor.set_x(Hardware::get_mx()-mouse_cursor_offset);
-        mouse_cursor.set_y(Hardware::get_my()-mouse_cursor_offset);
+        mouse_cursor.set_x(hardware.get_mx()-mouse_cursor_offset);
+        mouse_cursor.set_y(hardware.get_my()-mouse_cursor_offset);
         mouse_cursor.draw();
     }
     blit_to_screen(Api::Manager::get_torbit().get_al_bitmap());

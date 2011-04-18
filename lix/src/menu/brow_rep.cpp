@@ -95,7 +95,7 @@ void ReplayBrowser::calc_self()
         std::string filename = get_current_dir() + get_current_file();
         switch (box_delete->get_button_clicked()) {
         case 1:
-            al_remove_filename(filename.c_str());
+            delete_file(filename.c_str());
             reload_dir();
             clear_preview();
 
@@ -137,7 +137,7 @@ void ReplayBrowser::calc_self()
         }
         else if (!button_delete.get_hidden() && button_delete.get_clicked()) {
             std::string filename = get_current_dir() + get_current_file();
-            if (al_filename_exists(filename.c_str())) {
+            if (exists(filename.c_str())) {
                 Replay r(filename);
                 std::string s1 = Language::editor_file_name
                                + ' ' + get_current_dir() + get_current_file();
@@ -148,13 +148,13 @@ void ReplayBrowser::calc_self()
                 box_delete->add_text(Language::browser_box_delete_question);
                 box_delete->add_text(s1);
                 box_delete->add_text(s2);
-                box_delete->add_button(Language::yes, ALLEGRO_KEY_ENTER);
-                box_delete->add_button(Language::no,  ALLEGRO_KEY_ESCAPE);
+                box_delete->add_button(Language::yes, KEY_ENTER);
+                box_delete->add_button(Language::no,  KEY_ESC);
                 Manager::add_focus(box_delete);
             }
         }
         // Den normalen Dialog-Siedler-2-Rechtsklick realisieren:
-        else if (Hardware::get_mr()) {
+        else if (hardware.get_mr()) {
             if (get_current_dir() != get_base_dir())
              set_current_dir_to_parent_dir();
             else set_exit_with(EXIT_WITH_EXIT);
