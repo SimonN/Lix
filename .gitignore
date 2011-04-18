@@ -25,6 +25,7 @@ lix/bitmap/orig/L2/*/*
 >>>>>>> f251bc42fb8363532c8cca42f8f0722a34f59371
 lix/data/sound/*
 !lix/data/sound/hatch.wav
+!lix/data/sound/assign.wav
 
 # exclude any replay files, test levels, and Rubix's 
 # Tutorials.
