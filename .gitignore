@@ -26,7 +26,12 @@ lix/bitmap/orig/L2/*/*
 lix/data/sound/*
 !lix/data/sound/hatch.wav
 !lix/data/sound/assign.wav
-
+!lix/data/sound/clock.wav
+!lix/data/sound/fire.wav
+!lix/data/sound/goal.wav
+!lix/data/sound/goal_bad.wav
+!lix/data/sound/lets_go.wav
+!lix/data/sound/water.wav
 # exclude any replay files, test levels, and Rubix's 
 # Tutorials.
 lix/replay/*
