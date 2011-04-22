@@ -32,6 +32,8 @@ lix/data/sound/*
 !lix/data/sound/goal_bad.wav
 !lix/data/sound/lets_go.wav
 !lix/data/sound/water.wav
+!lix/data/sound/brick.wav
+
 # exclude any replay files, test levels, and Rubix's 
 # Tutorials.
 lix/replay/*
