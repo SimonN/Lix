@@ -4,13 +4,9 @@ that could use improving, for the graphics in the /bitmap/Rebuilds, and /bitmap/
 /bitmap/Rebuilds/:
 ----------------------------------------------------------------------------
 - The original Lemmings game contained 9 graphic sets (10 if you count the "Holiday" set).  So my personal goal, is to replace all 10 with new, original graphics, each one with it's own "theme" of some kind.
-Goal Progress: 01 - Earth, 02 - Gold Mine, 03 - Carnival, 04 - Sandy Beach, 05 - Winter, 06 - Oriental
+Goal Progress: 01 - Earth, 02 - Gold Mine, 03 - Carnival, 04 - Sandy Beach, 05 - Winter, 06 - Oriental, 07 - Underworld
 
 - Create a "Holiday" set that will be big enough to be considered an entire set, and will include graphics that span many holidays: New Year's, Valentine's Day, St. Patrick's Day, Easter, Independence Day, Halloween, and the original, Christmas. 
-
-- Create a goal and an original hatch for 05 - Winter (since current hatch is only a re-colored version of the hatch from 02 - Gold Mine.
-
-- Create a hatch and a goal for 06 - Oriental
 
 -
 
