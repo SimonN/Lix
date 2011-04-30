@@ -6,7 +6,8 @@
 *.[oa]
 *.layout
 *.depend
- 
+lix/lix_debug
+
 # exclude the user data, log and config files in data/
 lix/data/user/*.txt
 lix/data/config.txt
@@ -17,12 +18,7 @@ lix/bitmap/orig/L1/*
 lix/bitmap/orig/L1/*/*
 lix/bitmap/orig/L2/*/*
 
-<<<<<<< HEAD
 # exclude non-free sounds. Make an exception for finished replacements,
-# which is just the hatch sound right now.
-=======
-# only track free sounds
->>>>>>> f251bc42fb8363532c8cca42f8f0722a34f59371
 lix/data/sound/*
 !lix/data/sound/hatch.wav
 !lix/data/sound/assign.wav
