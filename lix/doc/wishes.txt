@@ -5,10 +5,22 @@
 
 
 
-Menu
+Generell
 
-    Scroll bar for lists
-        Maybe?
+    Automatisches Speichern von Replays
+        Hier kann man mal drüber nachdenken.
+
+
+
+Menue
+
+    Weitere-Button
+        Die letzte Seite nur teilweise zeigen, damit bei n Elementen, die
+        auf dem Bildschirm Platz haben, immer Element Nr. pn am Anfang steht
+        mit einer ganzen Zahl p.
+
+    Scrollbalken statt Weitere-Button
+        Selbsterklaerend.
 
     Navigation with cursor keys and return
         This might be useful for the big level browsers.
@@ -22,9 +34,10 @@ Menu
 
 Editor
 
-    Automatic terrain generation
-        Make just one copy of the terrain and have the game copy it next to
-        itself multiple times according to the number of players
+    Automatisches Fortsetzen
+        Das Terrain fuer eine Mehrspielerkarte nur einmal hinpflanzen und
+        vom Spiel je nach Spielerzahl, die gerade dabei ist, vervielfaeltigen
+        lassen.
 
     Rotate/mirror group
         If multiple elements are selected, rotating/mirroring should act on
@@ -47,7 +60,7 @@ Gameplay
         out of (via hotkey or clicking on it)
 
     Roper
-        Implement the roper skill from L2.
+        Verschiesst ein Seil zum Drueberlaufen.
 
     Resolution
         Higher resolution than the internal 640 x 480 inside the game, even
@@ -58,19 +71,16 @@ Gameplay
         can still activate a nuke-like function then, but it merely takes
         away control over their tribe and starts the overtime.
         
-    End of the time limit
-        When the remaining time has reached zero, currently lixes are still
+    End of time
+        When the remaining time has reached zero, currently lems are still
         able to enter the exit as long as the nuke's exploder assignment
         was late on them. This allows level solve times over the maximum.
         Maybe lems should explode immedeately instead of exiting when walking
         into an exit with the clock being zero?
 
-    Auto-save replays
-        Maybe?
 
 
-
-Network
+Netzwerk
 
     Observer mode
         People shall be able to watch a game, i.e. to pick an option besides
@@ -81,19 +91,28 @@ Network
         After a game, you can view better statistics than now. The better
         screen could show how many lems every player got from whom.
 
-    Save levels locally
-        Either automatically save any played networking levels locally,
-        or give an option to do it per level.
+    Level lokal speichern
+        Netzwerklevel lokal zu speichern ermoeglichen, also ./data/netlevel.txt
+        im Levels-Ordner unter beliebigem Namen speichern auf Kommando.
 
-    Level info in the lobby
-        Show the level details (author, title, initial skills, ...) somewhere
-        in the lobby, maybe as a tooltip.
+    Netzwerkpause
+        Netzwerkpause einbauen, anstatt: Derzeit kann man auf [ESC] druecken,
+        und das eigene Spiel pausiert. Es wird dann die Geschwindigkeit
+        langsam wieder angeglichen, damit alle wieder gleichauf sind.
+
+    Levelinfo
+        Bei Mouseover in der Lobby über das Map-Image soll ein Tooltip-Fenster
+        kommen und da drin steht dann, wie die Map heißt, wer der Autor ist,
+        wie viel Zeit, Lemminge usw. usf.
 
 
 
-Single Player
+Einzelspieler
 
-    Highscores
-        Allow to save more than one high score per level.
-   
+    Highscore-Gewicht
+        Benutzeroption einbauen, der bestimmt, ob das schnelle Schaffen von
+        Levels wertvoller ist als das Sparen von Faehigkeiten.
 
+    Highscore-Erweiterung
+        Mehr als nur die Bestleistung eines Spielers im Einzelspielermodus
+        speichern. Vergleichbarkeit mehrerer Benutzer untereinander einbauen.

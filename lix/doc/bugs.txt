@@ -8,14 +8,14 @@
 Legende
 
     (!)
-        Heavy bug, I should remove this immediately.
+        Recht schwerer Fehler, wird nach Moeglichkeit schnell behoben.
 
     (?)
-        People claimed this, but I haven't been able to reproduce it yet.
+        Ein Bug, den ich bisher nicht reproduzieren konnte.
 
     (/)
-        I did something to remedy this bug, but I don't know whether the
-        bug is fully resolved.
+        Ein Bug, gegen den ich bereits etwas unternommen habe. Ich bin mir
+        allerdings noch nicht sicher, ob er komplett behoben ist.
 
 
 
@@ -70,14 +70,18 @@ Gameplay
         the on/off graphic effect of a button during the draw step instead of
         instantly.
 
-    One-way arrows
-        Don't work yet. I don't know whether I will ever implement them.
+    Spiesse an der Wand
+        Fallen an der Wand killen keine herabfallenden Lemmings, oder
+        Chamaeleons fressen keine fallenden Viecher. Im Original war das
+        allerdings so.
+
+    Einwegpfeile
+        In Originallevels werden Einbahnstrassen nur (komisch) eingezeichnet,
+        haben auf die Spielmechanik aber noch keine Wirkung.
 
 
 
 Network game
 
-    ESC menu
-        The cursor opens when it's above lixes, even when the menu is in front.
-        I don't know whether the lixes are also assignable.
-
+    Netzwerkspiel im ESC-Menue
+        Es laeuft korrekt weiter, aber Lemminge sind weiterhin anklickbar.
