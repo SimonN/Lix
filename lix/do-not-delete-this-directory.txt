@@ -1,0 +1,6 @@
+Hi folks,
+
+this directory must have some content so Git won't ignore it.
+
+I should see that I create this directory automatically in Allegro 5.
+
