@@ -1,0 +1,194 @@
+$BUILT                                             2011-05-03 12:09:03
+$AUTHOR                                                      geoo/Matt
+$GERMAN                                                               
+$ENGLISH                                   New Downward Reduction (5P)
+
+#SIZE_X                                                           1050
+#SIZE_Y                                                            420
+#START_X                                                             0
+#START_Y                                                             0
+#TORUS_X                                                             1
+#TORUS_Y                                                             0
+#SECONDS                                                            30
+#INITIAL                                                            80
+#REQUIRED                                                           65
+#RATE                                                               80
+
+#WALKER                                                             20
+#JUMPER                                                             10
+#EXPLODER2                                                          10
+#PLATFORMER                                                         30
+#BUILDER                                                            10
+#BASHER                                                             40
+#MINER                                                              40
+#STUNNER                                                            10
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:./bitmap/Rebuilds/07 - Underworld/hatch.H:              347         0
+:./bitmap/Rebuilds/07 - Underworld/hatch.H:              558         0
+:./bitmap/Rebuilds/07 - Underworld/hatch.H:              767         0
+:./bitmap/Rebuilds/07 - Underworld/hatch.H:              977         0
+:./bitmap/Rebuilds/07 - Underworld/hatch.H:              144         0
+
+:./bitmap/Rebuilds/07 - Underworld/Goal.G:               974       321
+:./bitmap/Rebuilds/07 - Underworld/Goal.G:               134       321
+:./bitmap/Rebuilds/07 - Underworld/Goal.G:               344       321
+:./bitmap/Rebuilds/07 - Underworld/Goal.G:               554       321
+:./bitmap/Rebuilds/07 - Underworld/Goal.G:               764       321
+
+:./bitmap/Rebuilds/07 - Underworld/05:                   109        63
+:./bitmap/Rebuilds/07 - Underworld/05:                    11        58
+:./bitmap/Rebuilds/07 - Underworld/05:                   912        62     f
+:./bitmap/Rebuilds/07 - Underworld/07:                   146       183     r
+:./bitmap/Rebuilds/07 - Underworld/08:                   865       154
+:./bitmap/Rebuilds/07 - Underworld/08:                   650        60
+:./bitmap/Rebuilds/07 - Underworld/08:                   717       153
+:./bitmap/Rebuilds/07 - Underworld/07:                   671       182
+:./bitmap/Rebuilds/07 - Underworld/07:                   610       182     r
+:./bitmap/Rebuilds/07 - Underworld/06:                   596        72
+:./bitmap/Rebuilds/07 - Underworld/04:                   601        62
+:./bitmap/Rebuilds/07 - Underworld/07:                   272        64
+:./bitmap/Rebuilds/07 - Underworld/08:                   272       160
+:./bitmap/Rebuilds/07 - Underworld/01:                   640       272
+:./bitmap/Rebuilds/07 - Underworld/00:                   586        64
+:./bitmap/Rebuilds/07 - Underworld/00:                   580        48
+:./bitmap/Rebuilds/07 - Underworld/00:                   586       288
+:./bitmap/Rebuilds/07 - Underworld/06:                   549       171
+:./bitmap/Rebuilds/07 - Underworld/00:                   580       272
+:./bitmap/Universal/32x64.S:                             490       362
+:./bitmap/Universal/48x48.S:                             512       386
+:./bitmap/Universal/48x48.S:                             560       386
+:./bitmap/Universal/48x48.S:                             608       386
+:./bitmap/Universal/32x64.S:                             646       362
+:./bitmap/Universal/32x64.S:                             701       362
+:./bitmap/Universal/48x48.S:                             723       386
+:./bitmap/Universal/48x48.S:                             771       386
+:./bitmap/Universal/48x48.S:                             819       386
+:./bitmap/Universal/32x64.S:                             857       362
+:./bitmap/Universal/32x64.S:                             910       362
+:./bitmap/Universal/48x48.S:                             932       386
+:./bitmap/Universal/48x48.S:                             980       386
+:./bitmap/Universal/48x48.S:                            1028       386
+:./bitmap/Universal/32x64.S:                              16       362
+:./bitmap/Universal/32x64.S:                              70       362
+:./bitmap/Universal/48x48.S:                              92       386
+:./bitmap/Universal/48x48.S:                             140       386
+:./bitmap/Universal/48x48.S:                             188       386
+:./bitmap/Universal/32x64.S:                             226       362
+:./bitmap/Universal/32x64.S:                             280       362
+:./bitmap/Universal/48x48.S:                             302       386
+:./bitmap/Universal/48x48.S:                             350       386
+:./bitmap/Universal/48x48.S:                             398       386
+:./bitmap/Universal/32x64.S:                             436       362
+:./bitmap/Rebuilds/07 - Underworld/04:                   822        71
+:./bitmap/Rebuilds/07 - Underworld/08:                   725        62
+:./bitmap/Rebuilds/07 - Underworld/01:                   708        48
+:./bitmap/Rebuilds/07 - Underworld/01:                   772        48
+:./bitmap/Rebuilds/07 - Underworld/01:                   964        48
+:./bitmap/Rebuilds/07 - Underworld/01:                  1028        48
+:./bitmap/Rebuilds/07 - Underworld/01:                    42        48
+:./bitmap/Rebuilds/07 - Underworld/01:                   106        48
+:./bitmap/Rebuilds/07 - Underworld/01:                   298        48
+:./bitmap/Rebuilds/07 - Underworld/07:                   327        70
+:./bitmap/Rebuilds/07 - Underworld/01:                   704       272
+:./bitmap/Rebuilds/07 - Underworld/05:                   783       225
+:./bitmap/Rebuilds/07 - Underworld/01:                   768       272
+:./bitmap/Rebuilds/07 - Underworld/01:                   832       272
+:./bitmap/Rebuilds/07 - Underworld/07:                   505       176     rr
+:./bitmap/Rebuilds/07 - Underworld/01:                   534       272
+:./bitmap/Rebuilds/07 - Underworld/07:                   441       176
+:./bitmap/Rebuilds/07 - Underworld/01:                   486       272
+:./bitmap/Rebuilds/07 - Underworld/07:                   352       176
+:./bitmap/Rebuilds/07 - Underworld/04:                   336       144
+:./bitmap/Rebuilds/07 - Underworld/01:                   358       272
+:./bitmap/Rebuilds/07 - Underworld/04:                   422       223
+:./bitmap/Rebuilds/07 - Underworld/01:                   422       272
+:./bitmap/Rebuilds/07 - Underworld/04:                   423       151
+:./bitmap/Rebuilds/07 - Underworld/05:                   385       146
+:./bitmap/Rebuilds/07 - Underworld/04:                   418       114
+:./bitmap/Rebuilds/07 - Underworld/07:                   379        64
+:./bitmap/Rebuilds/07 - Underworld/01:                   362        48
+:./bitmap/Rebuilds/07 - Underworld/07:                   425        70
+:./bitmap/Rebuilds/07 - Underworld/01:                   426        48
+:./bitmap/Rebuilds/07 - Underworld/07:                   476        68
+:./bitmap/Rebuilds/07 - Underworld/06:                   512        67
+:./bitmap/Rebuilds/07 - Underworld/01:                   554        48
+:./bitmap/Rebuilds/07 - Underworld/01:                   490        48
+:./bitmap/Rebuilds/07 - Underworld/05:                   524       141
+:./bitmap/Rebuilds/07 - Underworld/07:                   649       109
+:./bitmap/Rebuilds/07 - Underworld/01:                   644        48
+:./bitmap/Rebuilds/07 - Underworld/08:                   791       100     f
+:./bitmap/Rebuilds/07 - Underworld/06:                   807       151
+:./bitmap/Rebuilds/07 - Underworld/04:                   889       117
+:./bitmap/Rebuilds/07 - Underworld/07:                   839        64
+:./bitmap/Rebuilds/07 - Underworld/01:                   900        48
+:./bitmap/Rebuilds/07 - Underworld/01:                   836        48
+:./bitmap/Rebuilds/07 - Underworld/07:                   208        69
+:./bitmap/Rebuilds/07 - Underworld/01:                   234        48
+:./bitmap/Rebuilds/07 - Underworld/01:                   170        48
+:./bitmap/Rebuilds/07 - Underworld/04:                   252       153
+:./bitmap/Rebuilds/07 - Underworld/06:                   201       180
+:./bitmap/Rebuilds/07 - Underworld/01:                   166       272
+:./bitmap/Rebuilds/07 - Underworld/01:                   294       272
+:./bitmap/Rebuilds/07 - Underworld/01:                   230       272
+:./bitmap/Rebuilds/07 - Underworld/07:                   164       105
+:./bitmap/Rebuilds/07 - Underworld/07:                    90       129
+:./bitmap/Rebuilds/07 - Underworld/07:                    64       178
+:./bitmap/Rebuilds/07 - Underworld/07:                  1044       118
+:./bitmap/Rebuilds/07 - Underworld/07:                   944       137
+:./bitmap/Rebuilds/07 - Underworld/07:                  1018       167
+:./bitmap/Rebuilds/07 - Underworld/07:                   949       188
+:./bitmap/Rebuilds/07 - Underworld/07:                  1015       173     rr
+:./bitmap/Rebuilds/07 - Underworld/07:                    10       178     rr
+:./bitmap/Rebuilds/07 - Underworld/01:                    38       272
+:./bitmap/Rebuilds/07 - Underworld/01:                  1024       272
+:./bitmap/Rebuilds/07 - Underworld/01:                   960       272
+:./bitmap/Rebuilds/07 - Underworld/01:                   896       272
+:./bitmap/Rebuilds/07 - Underworld/01:                   102       272
+:./bitmap/Rebuilds/07 - Underworld/07:                   902        87
+:./bitmap/Rebuilds/07 - Underworld/06:                    97        91
+:./bitmap/Rebuilds/07 - Underworld/06:                    14        86
+:./bitmap/Rebuilds/07 - Underworld/06:                   986        87
+:./bitmap/Rebuilds/07 - Underworld/09a:                  798       268
+:./bitmap/Rebuilds/07 - Underworld/09a:                  852       265
+:./bitmap/Rebuilds/07 - Underworld/09a:                  910       263
+:./bitmap/Rebuilds/07 - Underworld/09a:                  752       269
+:./bitmap/Rebuilds/07 - Underworld/09a:                  702       268     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  639       266     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  975       266
+:./bitmap/Rebuilds/07 - Underworld/09a:                 1038       268
+:./bitmap/Rebuilds/07 - Underworld/09a:                   38       269     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                   84       268     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  138       265     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  196       263     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  244       263     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  308       263     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  356       263     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  420       263     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  468       263     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  500       263     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  564       263     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  612       263     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  580        71     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  532        71     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  474        73     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  420        76     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  374        77     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  324        76
+:./bitmap/Rebuilds/07 - Underworld/09a:                  261        74
+:./bitmap/Rebuilds/07 - Underworld/09a:                  196        71
+:./bitmap/Rebuilds/07 - Underworld/09a:                  138        73
+:./bitmap/Rebuilds/07 - Underworld/09a:                   84        76
+:./bitmap/Rebuilds/07 - Underworld/09a:                   38        77
+:./bitmap/Rebuilds/07 - Underworld/09a:                 1038        76     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  975        74     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  948        71     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  900        71     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  836        71     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  804        71     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  756        71     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  692        71     frr
+:./bitmap/Rebuilds/07 - Underworld/09a:                  644        71     frr
