@@ -1,0 +1,285 @@
+$BUILT                                             2011-05-03 01:14:45
+$AUTHOR                                                           Matt
+$GERMAN                                                               
+$ENGLISH                                    New Downward Reduction(3P)
+
+#SIZE_X                                                            832
+#SIZE_Y                                                            420
+#START_X                                                           192
+#START_Y                                                             0
+#TORUS_X                                                             1
+#TORUS_Y                                                             0
+#SECONDS                                                            30
+#INITIAL                                                            80
+#REQUIRED                                                           65
+#RATE                                                               80
+
+#WALKER                                                             20
+#JUMPER                                                             10
+#EXPLODER2                                                          10
+#PLATFORMER                                                         30
+#BUILDER                                                            10
+#BASHER                                                             40
+#MINER                                                              40
+#STUNNER                                                            10
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:./bitmap/Rebuilds/03 - Carnival/Hatch.H:                256         0
+:./bitmap/Rebuilds/03 - Carnival/Hatch.H:                528         0
+:./bitmap/Rebuilds/03 - Carnival/Hatch.H:                816         0
+
+:./bitmap/Rebuilds/03 - Carnival/Goal.G:                 814       325
+:./bitmap/Rebuilds/03 - Carnival/Goal.G:                 252       324
+:./bitmap/Rebuilds/03 - Carnival/Goal.G:                 526       324
+
+:./bitmap/Universal/water.W:                             352       400
+:./bitmap/Universal/water.W:                             384       400
+:./bitmap/Universal/water.W:                             416       400
+:./bitmap/Universal/water.W:                             448       400
+:./bitmap/Universal/water.W:                             480       400
+:./bitmap/Universal/water.W:                             512       400
+:./bitmap/Universal/water.W:                             544       400
+:./bitmap/Universal/water.W:                             576       400
+:./bitmap/Universal/water.W:                             608       400
+:./bitmap/Universal/water.W:                             640       400
+:./bitmap/Universal/water.W:                             672       400
+:./bitmap/Universal/water.W:                             704       400
+:./bitmap/Universal/water.W:                             736       400
+:./bitmap/Universal/water.W:                             768       400
+:./bitmap/Universal/water.W:                             800       400
+:./bitmap/Universal/water.W:                               0       400
+:./bitmap/Universal/water.W:                              32       400
+:./bitmap/Universal/water.W:                              64       416
+:./bitmap/Universal/water.W:                              64       400
+:./bitmap/Universal/water.W:                              96       400
+:./bitmap/Universal/water.W:                             128       400
+:./bitmap/Universal/water.W:                             160       400
+:./bitmap/Universal/water.W:                             192       400
+:./bitmap/Universal/water.W:                             224       400
+:./bitmap/Universal/water.W:                             256       400
+:./bitmap/Universal/water.W:                             288       400
+:./bitmap/Universal/water.W:                             320       400
+
+:./bitmap/Rebuilds/03 - Carnival/02:                     512        64
+:./bitmap/Rebuilds/03 - Carnival/02:                     512        96
+:./bitmap/Rebuilds/03 - Carnival/02:                     512       128
+:./bitmap/Rebuilds/03 - Carnival/02:                     512       160
+:./bitmap/Rebuilds/03 - Carnival/02:                     512       192
+:./bitmap/Rebuilds/03 - Carnival/02:                     512       224
+:./bitmap/Rebuilds/03 - Carnival/02:                     512       256
+:./bitmap/Rebuilds/03 - Carnival/02:                     512       288
+:./bitmap/Rebuilds/03 - Carnival/02:                     544       288
+:./bitmap/Rebuilds/03 - Carnival/02:                     576       288
+:./bitmap/Rebuilds/03 - Carnival/02:                     640       128
+:./bitmap/Rebuilds/03 - Carnival/02:                     640       160
+:./bitmap/Rebuilds/03 - Carnival/02:                     640       192
+:./bitmap/Rebuilds/03 - Carnival/02:                     640       224
+:./bitmap/Rebuilds/03 - Carnival/02:                     544        64
+:./bitmap/Rebuilds/03 - Carnival/02:                     576        64
+:./bitmap/Rebuilds/03 - Carnival/02:                     800       288
+:./bitmap/Rebuilds/03 - Carnival/02:                      32       128
+:./bitmap/Rebuilds/03 - Carnival/02:                      32       160
+:./bitmap/Rebuilds/03 - Carnival/02:                      32       192
+:./bitmap/Rebuilds/03 - Carnival/02:                      32       224
+:./bitmap/Rebuilds/03 - Carnival/02:                     800        64
+:./bitmap/Rebuilds/03 - Carnival/02:                     768       288
+:./bitmap/Rebuilds/03 - Carnival/02:                     704       128
+:./bitmap/Rebuilds/03 - Carnival/02:                     704       160
+:./bitmap/Rebuilds/03 - Carnival/02:                     704       192
+:./bitmap/Rebuilds/03 - Carnival/02:                     704       224
+:./bitmap/Rebuilds/03 - Carnival/02:                     768        64
+:./bitmap/Rebuilds/03 - Carnival/02:                      96        64
+:./bitmap/Rebuilds/03 - Carnival/02:                      96        96
+:./bitmap/Rebuilds/03 - Carnival/02:                      96       128
+:./bitmap/Rebuilds/03 - Carnival/02:                      96       160
+:./bitmap/Rebuilds/03 - Carnival/02:                      96       192
+:./bitmap/Rebuilds/03 - Carnival/02:                      96       224
+:./bitmap/Rebuilds/03 - Carnival/02:                      96       256
+:./bitmap/Rebuilds/03 - Carnival/02:                      96       288
+:./bitmap/Rebuilds/03 - Carnival/02:                     256        64
+:./bitmap/Rebuilds/03 - Carnival/02:                     256        96
+:./bitmap/Rebuilds/03 - Carnival/02:                     256       128
+:./bitmap/Rebuilds/03 - Carnival/02:                     256       160
+:./bitmap/Rebuilds/03 - Carnival/02:                     256       192
+:./bitmap/Rebuilds/03 - Carnival/02:                     256       224
+:./bitmap/Rebuilds/03 - Carnival/02:                     256       256
+:./bitmap/Rebuilds/03 - Carnival/02:                     256       288
+:./bitmap/Rebuilds/03 - Carnival/02:                     320        64
+:./bitmap/Rebuilds/03 - Carnival/02:                     320        96
+:./bitmap/Rebuilds/03 - Carnival/02:                     320       128
+:./bitmap/Rebuilds/03 - Carnival/02:                     320       160
+:./bitmap/Rebuilds/03 - Carnival/02:                     320       192
+:./bitmap/Rebuilds/03 - Carnival/02:                     320       224
+:./bitmap/Rebuilds/03 - Carnival/02:                     320       256
+:./bitmap/Rebuilds/03 - Carnival/02:                     320       288
+:./bitmap/Rebuilds/03 - Carnival/02:                     448        64
+:./bitmap/Rebuilds/03 - Carnival/02:                     448        96
+:./bitmap/Rebuilds/03 - Carnival/02:                     448       128
+:./bitmap/Rebuilds/03 - Carnival/02:                     448       160
+:./bitmap/Rebuilds/03 - Carnival/02:                     448       192
+:./bitmap/Rebuilds/03 - Carnival/02:                     448       224
+:./bitmap/Rebuilds/03 - Carnival/02:                     448       256
+:./bitmap/Rebuilds/03 - Carnival/02:                     448       288
+:./bitmap/Rebuilds/03 - Carnival/03:                      32        64
+:./bitmap/Rebuilds/03 - Carnival/03:                     800        96
+:./bitmap/Rebuilds/03 - Carnival/03:                     768        96
+:./bitmap/Rebuilds/03 - Carnival/03:                     736       128
+:./bitmap/Rebuilds/03 - Carnival/03:                       0       128
+:./bitmap/Rebuilds/03 - Carnival/03:                     800       128
+:./bitmap/Rebuilds/03 - Carnival/03:                     768       128
+:./bitmap/Rebuilds/03 - Carnival/03:                     800       160
+:./bitmap/Rebuilds/03 - Carnival/03:                     768       160
+:./bitmap/Rebuilds/03 - Carnival/03:                     800       192
+:./bitmap/Rebuilds/03 - Carnival/03:                     768       192
+:./bitmap/Rebuilds/03 - Carnival/03:                     800       224
+:./bitmap/Rebuilds/03 - Carnival/03:                     768       224
+:./bitmap/Rebuilds/03 - Carnival/03:                     800       256
+:./bitmap/Rebuilds/03 - Carnival/03:                     768       256
+:./bitmap/Rebuilds/03 - Carnival/03:                     736       160
+:./bitmap/Rebuilds/03 - Carnival/03:                     736       192
+:./bitmap/Rebuilds/03 - Carnival/03:                     736       224
+:./bitmap/Rebuilds/03 - Carnival/03:                       0       160
+:./bitmap/Rebuilds/03 - Carnival/03:                       0       192
+:./bitmap/Rebuilds/03 - Carnival/03:                       0       224
+:./bitmap/Rebuilds/03 - Carnival/03:                     672        64
+:./bitmap/Rebuilds/03 - Carnival/03:                     640        64
+:./bitmap/Rebuilds/03 - Carnival/03:                     704        64
+:./bitmap/Rebuilds/03 - Carnival/03:                     672        96
+:./bitmap/Rebuilds/03 - Carnival/03:                     672       128
+:./bitmap/Rebuilds/03 - Carnival/03:                     672       160
+:./bitmap/Rebuilds/03 - Carnival/03:                     672       192
+:./bitmap/Rebuilds/03 - Carnival/03:                     672       224
+:./bitmap/Rebuilds/03 - Carnival/03:                     672       256
+:./bitmap/Rebuilds/03 - Carnival/03:                     640       288
+:./bitmap/Rebuilds/03 - Carnival/03:                     672       288
+:./bitmap/Rebuilds/03 - Carnival/03:                     704       288
+:./bitmap/Rebuilds/03 - Carnival/03:                      32       288
+:./bitmap/Rebuilds/03 - Carnival/03:                      64       288
+:./bitmap/Rebuilds/03 - Carnival/03:                      64       256
+:./bitmap/Rebuilds/03 - Carnival/03:                      64       224
+:./bitmap/Rebuilds/03 - Carnival/03:                      64       192
+:./bitmap/Rebuilds/03 - Carnival/03:                      64       160
+:./bitmap/Rebuilds/03 - Carnival/03:                      64       128
+:./bitmap/Rebuilds/03 - Carnival/03:                      64        96
+:./bitmap/Rebuilds/03 - Carnival/03:                      64        64
+:./bitmap/Rebuilds/03 - Carnival/03:                     128        64
+:./bitmap/Rebuilds/03 - Carnival/03:                     128        96
+:./bitmap/Rebuilds/03 - Carnival/03:                     128       128
+:./bitmap/Rebuilds/03 - Carnival/03:                     128       160
+:./bitmap/Rebuilds/03 - Carnival/03:                     128       192
+:./bitmap/Rebuilds/03 - Carnival/03:                     128       224
+:./bitmap/Rebuilds/03 - Carnival/03:                     160       288
+:./bitmap/Rebuilds/03 - Carnival/03:                     192       288
+:./bitmap/Rebuilds/03 - Carnival/03:                     224       224
+:./bitmap/Rebuilds/03 - Carnival/03:                     224       192
+:./bitmap/Rebuilds/03 - Carnival/03:                     224       160
+:./bitmap/Rebuilds/03 - Carnival/03:                     224       128
+:./bitmap/Rebuilds/03 - Carnival/03:                     224        96
+:./bitmap/Rebuilds/03 - Carnival/03:                     224        64
+:./bitmap/Rebuilds/03 - Carnival/03:                     192       192
+:./bitmap/Rebuilds/03 - Carnival/03:                     192       160
+:./bitmap/Rebuilds/03 - Carnival/03:                     192       128
+:./bitmap/Rebuilds/03 - Carnival/03:                     192        96
+:./bitmap/Rebuilds/03 - Carnival/03:                     192        64
+:./bitmap/Rebuilds/03 - Carnival/03:                     160       192
+:./bitmap/Rebuilds/03 - Carnival/03:                     160       160
+:./bitmap/Rebuilds/03 - Carnival/03:                     160       128
+:./bitmap/Rebuilds/03 - Carnival/03:                     160        96
+:./bitmap/Rebuilds/03 - Carnival/03:                     160        64
+:./bitmap/Rebuilds/03 - Carnival/03:                     288       224
+:./bitmap/Rebuilds/03 - Carnival/03:                     288       192
+:./bitmap/Rebuilds/03 - Carnival/03:                     288       160
+:./bitmap/Rebuilds/03 - Carnival/03:                     288       128
+:./bitmap/Rebuilds/03 - Carnival/03:                     288        96
+:./bitmap/Rebuilds/03 - Carnival/03:                     288        64
+:./bitmap/Rebuilds/03 - Carnival/03:                     288       288
+:./bitmap/Rebuilds/03 - Carnival/03:                     288       256
+:./bitmap/Rebuilds/03 - Carnival/03:                     352       224
+:./bitmap/Rebuilds/03 - Carnival/03:                     352       192
+:./bitmap/Rebuilds/03 - Carnival/03:                     352       160
+:./bitmap/Rebuilds/03 - Carnival/03:                     352       128
+:./bitmap/Rebuilds/03 - Carnival/03:                     352       288
+:./bitmap/Rebuilds/03 - Carnival/03:                     352       256
+:./bitmap/Rebuilds/03 - Carnival/03:                     384       224
+:./bitmap/Rebuilds/03 - Carnival/03:                     384       192
+:./bitmap/Rebuilds/03 - Carnival/03:                     384       160
+:./bitmap/Rebuilds/03 - Carnival/03:                     384       288
+:./bitmap/Rebuilds/03 - Carnival/03:                     384       256
+:./bitmap/Rebuilds/03 - Carnival/03:                     416       224
+:./bitmap/Rebuilds/03 - Carnival/03:                     416       192
+:./bitmap/Rebuilds/03 - Carnival/03:                     416       288
+:./bitmap/Rebuilds/03 - Carnival/03:                     416       256
+:./bitmap/Rebuilds/03 - Carnival/03:                     416        96
+:./bitmap/Rebuilds/03 - Carnival/03:                     416        64
+:./bitmap/Rebuilds/03 - Carnival/03:                     384        64
+:./bitmap/Rebuilds/03 - Carnival/03:                     480       224
+:./bitmap/Rebuilds/03 - Carnival/03:                     480       192
+:./bitmap/Rebuilds/03 - Carnival/03:                     480       160
+:./bitmap/Rebuilds/03 - Carnival/03:                     480       128
+:./bitmap/Rebuilds/03 - Carnival/03:                     480        96
+:./bitmap/Rebuilds/03 - Carnival/03:                     480        64
+:./bitmap/Rebuilds/03 - Carnival/03:                     480       288
+:./bitmap/Rebuilds/03 - Carnival/03:                     480       256
+:./bitmap/Rebuilds/03 - Carnival/03:                     544        96
+:./bitmap/Rebuilds/03 - Carnival/03:                     544       128
+:./bitmap/Rebuilds/03 - Carnival/03:                     544       160
+:./bitmap/Rebuilds/03 - Carnival/03:                     544       192
+:./bitmap/Rebuilds/03 - Carnival/03:                     544       224
+:./bitmap/Rebuilds/03 - Carnival/03:                     544       256
+:./bitmap/Rebuilds/03 - Carnival/03:                     576        96
+:./bitmap/Rebuilds/03 - Carnival/03:                     576       128
+:./bitmap/Rebuilds/03 - Carnival/03:                     576       160
+:./bitmap/Rebuilds/03 - Carnival/03:                     576       192
+:./bitmap/Rebuilds/03 - Carnival/03:                     576       224
+:./bitmap/Rebuilds/03 - Carnival/03:                     576       256
+:./bitmap/Rebuilds/03 - Carnival/03:                     608       128
+:./bitmap/Rebuilds/03 - Carnival/03:                     608       160
+:./bitmap/Rebuilds/03 - Carnival/03:                     608       192
+:./bitmap/Rebuilds/03 - Carnival/03:                     608       224
+:./bitmap/Universal/48x48.S:                             505       384
+:./bitmap/Universal/48x48.S:                             553       384
+:./bitmap/Rebuilds/03 - Carnival/02:                     352        64
+:./bitmap/Rebuilds/03 - Carnival/02:                     352        96
+:./bitmap/Rebuilds/03 - Carnival/02:                     384        96
+:./bitmap/Rebuilds/03 - Carnival/02:                     384       128
+:./bitmap/Rebuilds/03 - Carnival/02:                     416       128
+:./bitmap/Rebuilds/03 - Carnival/02:                     416       160
+:./bitmap/Rebuilds/03 - Carnival/02:                       0        64
+:./bitmap/Rebuilds/03 - Carnival/02:                       0        96
+:./bitmap/Rebuilds/03 - Carnival/02:                      32        96
+:./bitmap/Rebuilds/03 - Carnival/02:                      32       256
+:./bitmap/Rebuilds/03 - Carnival/02:                       0       256
+:./bitmap/Rebuilds/03 - Carnival/02:                       0       288
+:./bitmap/Rebuilds/03 - Carnival/02:                     736       288
+:./bitmap/Rebuilds/03 - Carnival/02:                     736       256
+:./bitmap/Rebuilds/03 - Carnival/02:                     704       256
+:./bitmap/Rebuilds/03 - Carnival/02:                     704        96
+:./bitmap/Rebuilds/03 - Carnival/02:                     736        96
+:./bitmap/Rebuilds/03 - Carnival/02:                     736        64
+:./bitmap/Rebuilds/03 - Carnival/02:                     128       256
+:./bitmap/Rebuilds/03 - Carnival/02:                     160       224
+:./bitmap/Rebuilds/03 - Carnival/02:                     192       224
+:./bitmap/Rebuilds/03 - Carnival/02:                     224       256
+:./bitmap/Rebuilds/03 - Carnival/03:                     128       288
+:./bitmap/Rebuilds/03 - Carnival/03:                     224       288
+:./bitmap/Rebuilds/03 - Carnival/03:                     192       256
+:./bitmap/Rebuilds/03 - Carnival/03:                     160       256
+:./bitmap/Rebuilds/03 - Carnival/02:                     608       288
+:./bitmap/Rebuilds/03 - Carnival/02:                     640       256
+:./bitmap/Rebuilds/03 - Carnival/02:                     608       256
+:./bitmap/Rebuilds/03 - Carnival/02:                     608        96
+:./bitmap/Rebuilds/03 - Carnival/02:                     640        96
+:./bitmap/Rebuilds/03 - Carnival/02:                     608        64
+:./bitmap/Universal/48x48.S:                             601       352
+:./bitmap/Universal/48x48.S:                             457       352
+:./bitmap/Universal/48x48.S:                             793       384
+:./bitmap/Universal/48x48.S:                               9       384
+:./bitmap/Universal/48x48.S:                              57       352
+:./bitmap/Universal/48x48.S:                             745       352
+:./bitmap/Universal/48x48.S:                             233       384
+:./bitmap/Universal/48x48.S:                             281       384
+:./bitmap/Universal/48x48.S:                             329       352
+:./bitmap/Universal/48x48.S:                             185       352
