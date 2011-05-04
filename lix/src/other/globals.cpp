@@ -39,7 +39,7 @@ Globals::Globals()
     sound_load_driver    (true),
 
     ip_last_used         ("127.0.0.1"),
-    ip_central_server    ("flux.camanis.net"),
+    ip_central_server    ("asdfasdf.ethz.ch"),
     server_port          (22934),
 
     // Constant strings
