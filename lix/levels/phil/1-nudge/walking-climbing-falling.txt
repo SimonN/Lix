@@ -1,0 +1,106 @@
+$BUILT                                             2011-05-04 16:01:53
+$AUTHOR                                                           phil
+$GERMAN                                                               
+$ENGLISH                                          Be prompt, be prized
+
+#SIZE_X                                                           1280
+#SIZE_Y                                                            400
+#START_X                                                           320
+#START_Y                                                           380
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#SECONDS                                                           120
+#INITIAL                                                            10
+#REQUIRED                                                            8
+#RATE                                                               30
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#FLOATER                                                             6
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#CLIMBER                                                            10
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:./bitmap/Rebuilds/04 - Sandy Beach/hatch.H:             566       148
+:./bitmap/Rebuilds/04 - Sandy Beach/hatch.H:             566       148     r
+
+:./bitmap/Rebuilds/04 - Sandy Beach/goal.G:              950        15
+:./bitmap/Rebuilds/04 - Sandy Beach/goal.G:               60        21
+
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/06:     520       183
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/04:     487       225
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/06:     436       322
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/01:     410       368
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/00:     565       347
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/03:     533       181
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/01:     523       185     n
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/01:     645       182
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/00:     656       193
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/06:     658       370
+:./bitmap/Universal/32x64.S:                             820       313
+:./bitmap/Universal/32x64.S:                             820       249
+:./bitmap/Universal/32x64.S:                             820       185
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/03:     752       373     n
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/04:     809       143     n
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/05:     820       174     n
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/02:     821       285     n
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/02:     860       265
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/05:     874       234     n
+:./bitmap/Rebuilds/03 - Carnival/05:                     788       189     d
+:./bitmap/Rebuilds/03 - Carnival/05:                     788       253     d
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/13:     847        98     n
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/06:     854        94
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/grass10:  602       315
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/grass07:  919        82     n
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/grass05:  875       106     n
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/03:     973       105
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/04:    1034       115     n
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/06:     962       210
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/00:     977       154
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/13:     921       124
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/04:     905       208
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/06:     928       321
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/04:    1017       274     rn
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/06:    1035       344
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/02:    1109       205     n
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/grass11:  940       174
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/grass02: 1049        90     n
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/grass09: 1074       312
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/grass06:  881       224
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/grass03: 1080       190
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/shovel:  1191       297     n
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/umbrella_red: 1074   38     n
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/06:     270       344
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/05:     250       267
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/05:     225       196
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/04:     169       155
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/06:      73       331
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/04:     134       234     n
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/02:      80       290
+:./bitmap/Universal/32x64.S:                             268       243
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/06:      49       109
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/00:      35       111
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/13:      -9       125
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/04:      81       160
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/04:      50        -2     rd
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/06:     -50       228
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/04:     -16       275
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/04:     155       261     r
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/13:     430       332     rrrd
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/01:     455       314
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/03:     431       323
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/grass10:  333       313     n
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/umbrella_blue: 165  195
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/umbrella_green: 20  291
+:./bitmap/Rebuilds/04 - Sandy Beach/Daytime Sand/02:     276       327
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/grass11:   19       196
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/beach ball: 229     242
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/grass10:  555       193
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/grass06:   83       144
+:./bitmap/Rebuilds/04 - Sandy Beach/Sand Decor/grass09:  148       325

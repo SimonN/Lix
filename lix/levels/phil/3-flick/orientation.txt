@@ -1,0 +1,141 @@
+$BUILT                                             2011-05-04 18:58:12
+$AUTHOR                                                           phil
+$GERMAN                                                      Guten tag
+$ENGLISH                                              The orientation.
+
+#SIZE_X                                                           1020
+#SIZE_Y                                                            400
+#START_X                                                           260
+#START_Y                                                           380
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#SECONDS                                                           210
+#INITIAL                                                            40
+#REQUIRED                                                           35
+#RATE                                                                1
+
+#WALKER                                                              1
+#NOTHING                                                             0
+#CLIMBER                                                             1
+#NOTHING                                                             0
+#BUILDER                                                             7
+#NOTHING                                                             0
+#MINER                                                               8
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#DIGGER                                                              1
+#NOTHING                                                             0
+
+:./bitmap/Rebuilds/06 - Oriental/hatch.H:                294       179
+:./bitmap/Rebuilds/06 - Oriental/hatch.H:                795       129     r
+
+:./bitmap/Rebuilds/06 - Oriental/Goal.G:                 627       112
+
+:./bitmap/Rebuilds/06 - Oriental/08:                     416       240
+:./bitmap/Rebuilds/06 - Oriental/08:                     352       240
+:./bitmap/Rebuilds/06 - Oriental/07:                     487       263
+:./bitmap/Rebuilds/06 - Oriental/05:                     560       240
+:./bitmap/Rebuilds/06 - Oriental/05:                     560       304
+:./bitmap/Rebuilds/06 - Oriental/05:                     560       370
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            584        89     n
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            573        84     n
+:./bitmap/Rebuilds/06 - Oriental/08:                     288       231     n
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            502        82     r
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            502        70     r
+:./bitmap/Rebuilds/06 - Oriental/07:                     430        54
+:./bitmap/Rebuilds/06 - Oriental/bonsai tree:             32       112
+:./bitmap/Rebuilds/06 - Oriental/07:                     219       289
+:./bitmap/Rebuilds/06 - Oriental/07:                     152       306
+:./bitmap/Rebuilds/06 - Oriental/07:                      78       312
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf2:           586        86
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf1:           554       158
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf3:           550        86
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf1:           518        54
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf2:           542        48     rrr
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf3:           618        44     r
+:./bitmap/Rebuilds/06 - Oriental/05:                     442       -16
+:./bitmap/Rebuilds/06 - Oriental/leaves4:                 64       298     n
+:./bitmap/Rebuilds/06 - Oriental/04:                      38       306
+:./bitmap/Universal/64x32.S:                             493       269
+:./bitmap/Rebuilds/06 - Oriental/01:                     266       266     rr
+:./bitmap/Universal/32x64.S:                             566       244
+:./bitmap/Rebuilds/06 - Oriental/06:                     364       312
+:./bitmap/Rebuilds/06 - Oriental/03:                     403       395
+:./bitmap/Rebuilds/06 - Oriental/03:                     364       375
+:./bitmap/Rebuilds/06 - Oriental/03:                     520       393
+:./bitmap/Rebuilds/06 - Oriental/06:                     182        37
+:./bitmap/Rebuilds/06 - Oriental/06:                     178       -17
+:./bitmap/Rebuilds/06 - Oriental/03:                     140        37
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            -17        54     r
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            -17        42     r
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf1:            13        25
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf2:            73        20     rrr
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf3:            51        54     rrr
+:./bitmap/Rebuilds/06 - Oriental/08:                     597       387
+:./bitmap/Rebuilds/06 - Oriental/05:                     663       356
+:./bitmap/Rebuilds/06 - Oriental/05:                     700       312
+:./bitmap/Rebuilds/06 - Oriental/08:                     701       378
+:./bitmap/Rebuilds/06 - Oriental/08:                     737       311
+:./bitmap/Rebuilds/06 - Oriental/leaves2:                221       227
+:./bitmap/Rebuilds/06 - Oriental/leaves5:                180       298
+:./bitmap/Rebuilds/06 - Oriental/leaves2:                430       230
+:./bitmap/Rebuilds/06 - Oriental/trunk1:                 445        93     n
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            239        71     r
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            185        59     r
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf1:           269        42
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf2:           364        73
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf3:           307        71     rrr
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            391        70     rn
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            322        59     r
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf2:           376        36     rrr
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf1:           270        73     rr
+:./bitmap/Rebuilds/06 - Oriental/leaves4:                373       117
+:./bitmap/Rebuilds/06 - Oriental/leaves2:                447       143
+:./bitmap/Rebuilds/06 - Oriental/leaves1:                474       108
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            120       330     n
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            108       326     n
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            182       324     n
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            206       339     n
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:             54       339     n
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf2:           123       358
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf3:            29       365
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf1:           208       370     rr
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf3:           186       367
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf3:           158       355
+:./bitmap/Rebuilds/06 - Oriental/07:                     620       181
+:./bitmap/Rebuilds/06 - Oriental/07:                     777       181
+:./bitmap/Rebuilds/06 - Oriental/05:                     740       181
+:./bitmap/Rebuilds/06 - Oriental/08:                     807       242
+:./bitmap/Rebuilds/06 - Oriental/02:                     739       158
+:./bitmap/Rebuilds/06 - Oriental/07:                     659        55
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            733        83     r
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            733        71     r
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf1:           763        54
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf2:           823        49     rrr
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf3:           801        83     rrr
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            583       363     rn
+:./bitmap/Rebuilds/06 - Oriental/04:                     628       220
+:./bitmap/Rebuilds/06 - Oriental/03:                     684        29
+:./bitmap/Rebuilds/06 - Oriental/05:                     685       -42
+:./bitmap/Rebuilds/06 - Oriental/08:                     888        20
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            899      -134     n
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            947      -131     n
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf3:           879        -6     r
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf1:           929         2     r
+:./bitmap/Rebuilds/06 - Oriental/09:                     813       315     rn
+:./bitmap/Rebuilds/06 - Oriental/08:                     864       226
+:./bitmap/Rebuilds/06 - Oriental/01:                     243       268     r
+:./bitmap/Rebuilds/06 - Oriental/01:                     219       272
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            962        77     rn
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            962        65     rn
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            809       382     r
+:./bitmap/Rebuilds/06 - Oriental/bamboo pole:            966       382     r
+:./bitmap/Rebuilds/06 - Oriental/trunk2:                 912        94     n
+:./bitmap/Rebuilds/06 - Oriental/leaves3:                883       148
+:./bitmap/Rebuilds/06 - Oriental/leaves4:                834       108
+:./bitmap/Rebuilds/06 - Oriental/leaves5:                950       130
+:./bitmap/Rebuilds/06 - Oriental/03:                     863       297
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf2:           675       220
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf1:           610       222
+:./bitmap/Rebuilds/06 - Oriental/bamboo_leaf3:           636       260
