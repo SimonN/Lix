@@ -48,6 +48,15 @@ Editor
 
 Gameplay
 
+    Pause and FF/FFF mutually exclusive
+        Pause should cancel FF/FFF, and vice versa. Same should probably apply
+        to ZZZ, i.e. any two of the four should be mutually exclusive.
+
+    Assignment shouldn't cancel pause
+        Or should it? Has both advantages (flexibility) and disadvantages
+        (extra keypress if you want to continue anyway).
+        Possibly as an option.
+
     Show lixes in/out of hatch
         At the moment, you can only see the total of in-hatch and out lixes.
         One should be able to see the number of lixes in the hatch as well.
