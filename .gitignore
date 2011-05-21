@@ -13,10 +13,13 @@ lix/data/user/*.txt
 lix/data/config.txt
 lix/data/log.txt
 
-# exclude Lemmings legacy terrain in case the user still uses it
+# exclude Lemmings legacy material: terrain and levels
 lix/bitmap/orig/L1/*
 lix/bitmap/orig/L1/*/*
 lix/bitmap/orig/L2/*/*
+lix/levels/orig/*
+lix/levels/network/2player/1. Lemmings/*
+lix/levels/network/2player/2. ONML/*
 
 # exclude non-free sounds. Make an exception for finished replacements,
 lix/data/sound/*
