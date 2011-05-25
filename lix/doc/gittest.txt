@@ -1,0 +1,5 @@
+This is a test of the Git Broadcasting System.
+
+If you see this file then the test will have been sucessful.
+
+This is only a test.
