@@ -324,6 +324,7 @@ option_ed_add_hatch,
 option_ed_add_goal,
 option_ed_add_deco,
 option_ed_add_hazard,
+option_ed_grid_custom,
 
 // Neuen Spieler begruessen (Mini-Dialog)
 option_new_player_title,

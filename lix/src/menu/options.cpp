@@ -127,59 +127,61 @@ OptionMenu::OptionMenu()
     desc_key_info_3       (key_b3, 370, Language::option_key_info_3),
 
     ed_left               (key_b1, 100, key_xl),
-    ed_right              (key_b1, 130, key_xl),
-    ed_up                 (key_b1, 160, key_xl),
-    ed_down               (key_b1, 190, key_xl),
-    ed_copy               (key_b1, 250, key_xl),
-    ed_delete             (key_b1, 280, key_xl),
-    ed_grid               (key_b1, 310, key_xl),
+    ed_right              (key_b1, 120, key_xl),
+    ed_up                 (key_b1, 140, key_xl),
+    ed_down               (key_b1, 160, key_xl),
+    ed_copy               (key_b1, 200, key_xl),
+    ed_delete             (key_b1, 220, key_xl),
+    ed_grid               (key_b1, 240, key_xl),
     ed_sel_all            (key_b2, 100, key_xl),
-    ed_sel_frame          (key_b2, 130, key_xl),
-    ed_sel_add            (key_b2, 160, key_xl),
-    ed_background         (key_b2, 220, key_xl),
-    ed_foreground         (key_b2, 250, key_xl),
-    ed_mirror             (key_b2, 280, key_xl),
-    ed_rotate             (key_b2, 310, key_xl),
-    ed_dark               (key_b2, 340, key_xl),
-    ed_noow               (key_b2, 370, key_xl),
-    ed_zoom               (key_b1, 340, key_xl),
-    ed_help               (key_b1, 370, key_xl),
+    ed_sel_frame          (key_b2, 120, key_xl),
+    ed_sel_add            (key_b2, 140, key_xl),
+    ed_background         (key_b2, 180, key_xl),
+    ed_foreground         (key_b2, 200, key_xl),
+    ed_mirror             (key_b2, 220, key_xl),
+    ed_rotate             (key_b2, 240, key_xl),
+    ed_dark               (key_b2, 260, key_xl),
+    ed_noow               (key_b2, 280, key_xl),
+    ed_zoom               (key_b1, 260, key_xl),
+    ed_help               (key_b1, 280, key_xl),
     ed_menu_size          (key_b3, 100, key_xl),
-    ed_menu_vars          (key_b3, 130, key_xl),
-    ed_menu_skills        (key_b3, 160, key_xl),
-    ed_add_terrain        (key_b3, 220, key_xl),
-    ed_add_steel          (key_b3, 250, key_xl),
-    ed_add_hatch          (key_b3, 280, key_xl),
-    ed_add_goal           (key_b3, 310, key_xl),
-    ed_add_deco           (key_b3, 340, key_xl),
-    ed_add_hazard         (key_b3, 370, key_xl),
+    ed_menu_vars          (key_b3, 120, key_xl),
+    ed_menu_skills        (key_b3, 140, key_xl),
+    ed_add_terrain        (key_b3, 180, key_xl),
+    ed_add_steel          (key_b3, 200, key_xl),
+    ed_add_hatch          (key_b3, 220, key_xl),
+    ed_add_goal           (key_b3, 240, key_xl),
+    ed_add_deco           (key_b3, 260, key_xl),
+    ed_add_hazard         (key_b3, 280, key_xl),
+    ed_grid_custom        (key_b1, 320, button_xl, 2, 1, 40),
     desc_ed_left          (key_t1, 100, Language::option_ed_left),
-    desc_ed_right         (key_t1, 130, Language::option_ed_right),
-    desc_ed_up            (key_t1, 160, Language::option_ed_up),
-    desc_ed_down          (key_t1, 190, Language::option_ed_down),
-    desc_ed_copy          (key_t1, 250, Language::option_ed_copy),
-    desc_ed_delete        (key_t1, 280, Language::option_ed_delete),
-    desc_ed_grid          (key_t1, 310, Language::option_ed_grid),
+    desc_ed_right         (key_t1, 120, Language::option_ed_right),
+    desc_ed_up            (key_t1, 140, Language::option_ed_up),
+    desc_ed_down          (key_t1, 160, Language::option_ed_down),
+    desc_ed_copy          (key_t1, 200, Language::option_ed_copy),
+    desc_ed_delete        (key_t1, 220, Language::option_ed_delete),
+    desc_ed_grid          (key_t1, 240, Language::option_ed_grid),
     desc_ed_sel_all       (key_t2, 100, Language::option_ed_sel_all),
-    desc_ed_sel_frame     (key_t2, 130, Language::option_ed_sel_frame),
-    desc_ed_sel_add       (key_t2, 160, Language::option_ed_sel_add),
-    desc_ed_background    (key_t2, 220, Language::option_ed_background),
-    desc_ed_foreground    (key_t2, 250, Language::option_ed_foreground),
-    desc_ed_mirror        (key_t2, 280, Language::option_ed_mirror),
-    desc_ed_rotate        (key_t2, 310, Language::option_ed_rotate),
-    desc_ed_dark          (key_t2, 340, Language::option_ed_dark),
-    desc_ed_noow          (key_t2, 370, Language::option_ed_noow),
-    desc_ed_zoom          (key_t1, 340, Language::option_ed_zoom),
-    desc_ed_help          (key_t1, 370, Language::option_ed_help),
+    desc_ed_sel_frame     (key_t2, 120, Language::option_ed_sel_frame),
+    desc_ed_sel_add       (key_t2, 140, Language::option_ed_sel_add),
+    desc_ed_background    (key_t2, 180, Language::option_ed_background),
+    desc_ed_foreground    (key_t2, 200, Language::option_ed_foreground),
+    desc_ed_mirror        (key_t2, 220, Language::option_ed_mirror),
+    desc_ed_rotate        (key_t2, 240, Language::option_ed_rotate),
+    desc_ed_dark          (key_t2, 260, Language::option_ed_dark),
+    desc_ed_noow          (key_t2, 280, Language::option_ed_noow),
+    desc_ed_zoom          (key_t1, 260, Language::option_ed_zoom),
+    desc_ed_help          (key_t1, 280, Language::option_ed_help),
     desc_ed_menu_size     (key_t3, 100, Language::option_ed_menu_size),
-    desc_ed_menu_vars     (key_t3, 130, Language::option_ed_menu_vars),
-    desc_ed_menu_skills   (key_t3, 160, Language::option_ed_menu_skills),
-    desc_ed_add_terrain   (key_t3, 220, Language::option_ed_add_terrain),
-    desc_ed_add_steel     (key_t3, 250, Language::option_ed_add_steel),
-    desc_ed_add_hatch     (key_t3, 280, Language::option_ed_add_hatch),
-    desc_ed_add_goal      (key_t3, 310, Language::option_ed_add_goal),
-    desc_ed_add_deco      (key_t3, 340, Language::option_ed_add_deco),
-    desc_ed_add_hazard    (key_t3, 370, Language::option_ed_add_hazard),
+    desc_ed_menu_vars     (key_t3, 120, Language::option_ed_menu_vars),
+    desc_ed_menu_skills   (key_t3, 140, Language::option_ed_menu_skills),
+    desc_ed_add_terrain   (key_t3, 180, Language::option_ed_add_terrain),
+    desc_ed_add_steel     (key_t3, 200, Language::option_ed_add_steel),
+    desc_ed_add_hatch     (key_t3, 220, Language::option_ed_add_hatch),
+    desc_ed_add_goal      (key_t3, 240, Language::option_ed_add_goal),
+    desc_ed_add_deco      (key_t3, 260, Language::option_ed_add_deco),
+    desc_ed_add_hazard    (key_t3, 280, Language::option_ed_add_hazard),
+    desc_ed_grid_custom   (key_b1 + button_xl + 20, 320, Language::option_ed_grid_custom),
 
     screen_resolution_x   (other_x, 100, button_xl/2),
     screen_resolution_y   (370,     100, button_xl/2),
@@ -327,6 +329,7 @@ OptionMenu::OptionMenu()
     pointers[GROUP_EDITOR  ].push_back(&ed_add_goal);
     pointers[GROUP_EDITOR  ].push_back(&ed_add_deco);
     pointers[GROUP_EDITOR  ].push_back(&ed_add_hazard);
+    pointers[GROUP_EDITOR  ].push_back(&ed_grid_custom);
     pointers[GROUP_EDITOR  ].push_back(&desc_ed_left);
     pointers[GROUP_EDITOR  ].push_back(&desc_ed_right);
     pointers[GROUP_EDITOR  ].push_back(&desc_ed_up);
@@ -354,6 +357,7 @@ OptionMenu::OptionMenu()
     pointers[GROUP_EDITOR  ].push_back(&desc_ed_add_goal);
     pointers[GROUP_EDITOR  ].push_back(&desc_ed_add_deco);
     pointers[GROUP_EDITOR  ].push_back(&desc_ed_add_hazard);
+    pointers[GROUP_EDITOR  ].push_back(&desc_ed_grid_custom);
 
     screen_scaling          .add_text (Language::option_screen_scaling_stretch);
     screen_scaling          .add_text (Language::option_screen_scaling_aspect);
@@ -486,6 +490,7 @@ void OptionMenu::reset_elements()
     ed_add_goal          .set_scancode(useR->key_ed_add_goal);
     ed_add_deco          .set_scancode(useR->key_ed_add_deco);
     ed_add_hazard        .set_scancode(useR->key_ed_add_hazard);
+    ed_grid_custom       .set_number  (useR->editor_grid_custom);
 
     std::ostringstream s1; s1 << gloB->screen_resolution_x;
     std::ostringstream s2; s2 << gloB->screen_resolution_y;
@@ -636,7 +641,8 @@ void OptionMenu::calc_self()
         useR->key_ed_add_hatch   = ed_add_hatch  .get_scancode();
         useR->key_ed_add_goal    = ed_add_goal   .get_scancode();
         useR->key_ed_add_deco    = ed_add_deco   .get_scancode();
-        useR->key_ed_add_hazard  = ed_add_hazard .get_scancode();;
+        useR->key_ed_add_hazard  = ed_add_hazard .get_scancode();
+        useR->editor_grid_custom = ed_grid_custom.get_number();
 
         useR->screen_windowed       = screen_windowed      .get_checked();
         useR->screen_scaling        = screen_scaling       .get_number();

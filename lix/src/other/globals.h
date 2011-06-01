@@ -216,7 +216,9 @@ public:
 
         user_sound_volume,
 
-        user_hexadecimal_level_size,
+        user_editor_hex_level_size,
+        user_editor_grid_selected,
+        user_editor_grid_custom,
 
         user_single_last_dir,
         user_single_last_file,

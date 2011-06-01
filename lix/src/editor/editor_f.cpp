@@ -13,7 +13,7 @@
 int Editor::get_grid()
 {
     return panel[GRID_2 ].get_on() ?  2
-         : panel[GRID_10].get_on() ? 10
+         : panel[GRID_CUSTOM].get_on() ? useR->editor_grid_custom
          : panel[GRID_16].get_on() ? 16 : 1;
 }
 

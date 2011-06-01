@@ -89,7 +89,7 @@ WindowSize::WindowSize(Level& lv, Map& mp)
     u.set_show_sign();
     d.set_show_sign();
 
-    hex    .set_checked(useR->hexadecimal_level_size);
+    hex    .set_checked(useR->editor_hex_level_size);
     torus_x.set_checked(level.torus_x);
     torus_y.set_checked(level.torus_y);
 
@@ -103,7 +103,7 @@ WindowSize::WindowSize(Level& lv, Map& mp)
 
 WindowSize::~WindowSize()
 {
-    useR->hexadecimal_level_size = hex.get_checked();
+    useR->editor_hex_level_size = hex.get_checked();
 }
 
 

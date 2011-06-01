@@ -3,6 +3,8 @@
  *
  */
 
+#include <sstream>
+
 #include "network.h"
 #include "server.h"
 
@@ -51,13 +53,10 @@ void Network::start_as_client(const std::string& ip)
     client = new NetClient(ip);
 
     if (!server) {
-        std::string s = Language::net_chat_start_client;
-        s += " ";
-        s += ip;
-        s += ":";
-        s += gloB->server_port;
-        s += "...";
-        Console::push_back(s);
+        std::ostringstream s;
+        s << Language::net_chat_start_client
+          << " " << ip <<  ":" << gloB->server_port << "...";
+        Console::push_back(s.str());
     }
 }
 

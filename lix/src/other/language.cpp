@@ -310,6 +310,7 @@ option_ed_add_hatch,
 option_ed_add_goal,
 option_ed_add_deco,
 option_ed_add_hazard,
+option_ed_grid_custom,
 
 // Neuen Spieler begruessen (Mini-Dialog)
 option_new_player_title,
@@ -684,6 +685,7 @@ void Language::set(const Language lang)
         option_ed_add_goal            = "Add goal";
         option_ed_add_deco            = "Add deco";
         option_ed_add_hazard          = "Add hazard";
+        option_ed_grid_custom         = "Custom grid size";
 
         // Neuen Spieler begruessen (Mini-Dialog)
         option_new_player_title       = "Lix";
@@ -700,8 +702,8 @@ eb[Editor::FILE_SAVE_AS]
  = "Save As: Saves the current level under a new file name.";
 eb[Editor::GRID_2]
  = "Grid 2: Rounds object coordinates to multiples of 2.";
-eb[Editor::GRID_10]
- = "Grid 10: Rounds object coordinates to multiples of 10.";
+eb[Editor::GRID_CUSTOM]
+ = "Custom grid: This grid size is settable in the options.";
 eb[Editor::GRID_16]
  = "Grid 16: Rounds object coordinates to multiples of 16.";
 eb[Editor::SELECT_ALL]
@@ -1091,6 +1093,7 @@ eb[Editor::ADD_HAZARD]
         option_ed_add_goal            = "Ziel hinzuf.";
         option_ed_add_deco            = "Deko hinzuf.";
         option_ed_add_hazard          = "Gefahr hinzuf.";
+        option_ed_grid_custom         = "Benutzerdef. Rastergroesse";
 
         // Neuen Spieler begruessen (Mini-Dialog)
         option_new_player_title       = "Lix";
@@ -1103,7 +1106,7 @@ eb[Editor::FILE_EXIT]    = "Beenden: Editor verlassen, auf Wunsch Aenderungen sp
 eb[Editor::FILE_SAVE]    = "Speichern: Level unter dem bisherigen Dateinamen abspeichern.";
 eb[Editor::FILE_SAVE_AS] = "Speichern unter: Level unter einem neuen Dateinamen abspeichern.";
 eb[Editor::GRID_2]       = "Raster 2: Objekt-Koordinaten beim Umherziehen auf 2er runden.";
-eb[Editor::GRID_10]      = "Raster 10: Objekt-Koordinaten beim Umherziehen auf 10er runden.";
+eb[Editor::GRID_CUSTOM]  = "Benutzerdef. Raster: In den Hauptmenue-Optionen verstellbar.";
 eb[Editor::GRID_16]      = "Raster 16: Objekt-Koordinaten beim Umherziehen auf 16er runden.";
 eb[Editor::SELECT_ALL]   = "Alles: Alle Objekte auf dem Bildschirm in die Auswahl setzen.";
 eb[Editor::SELECT_FRAME] = "Rahmen: Mehrfachauswahl von Objekten durch Rahmenziehen.";

@@ -56,14 +56,14 @@ void Editor::calc_self()
     // Hotkey ohne Button: Cycle around all the buttons, and every button off
     if (hardware.key_once(useR->key_ed_grid)) {
         if (!panel[GRID_2 ].get_on()
-         && !panel[GRID_10].get_on()
+         && !panel[GRID_CUSTOM].get_on()
          && !panel[GRID_16].get_on()) panel[GRID_2].set_on();
         else if (panel[GRID_2].get_on()) {
             panel[GRID_2 ].set_off();
-            panel[GRID_10].set_on();
+            panel[GRID_CUSTOM].set_on();
         }
-        else if (panel[GRID_10].get_on()) {
-            panel[GRID_10].set_off();
+        else if (panel[GRID_CUSTOM].get_on()) {
+            panel[GRID_CUSTOM].set_off();
             panel[GRID_16].set_on();
         }
         else panel[GRID_16].set_off();
@@ -171,12 +171,12 @@ void Editor::calc_self()
             break;
 
         case GRID_2:
-        case GRID_10:
+        case GRID_CUSTOM:
         case GRID_16:
             {
                 bool was_on = b.get_on();
                 panel[GRID_2 ].set_off();
-                panel[GRID_10].set_off();
+                panel[GRID_CUSTOM].set_off();
                 panel[GRID_16].set_off();
                 panel[i].set_on(!was_on);
             }
@@ -196,7 +196,8 @@ void Editor::calc_self()
 
         case SELECT_COPY:
             for (SelIt i = selection.begin(); i != selection.end(); ++i) {
-                const int offset = grid == 1 ? 5 : grid == 2 ? 4 : grid;
+                int offset = grid;
+                while (offset < 10) offset *= 2;
                 i->l->push_back(*i->o); // An einem Listenende anhaengen
                 i->o = --i->l->end();   // Neue Position fuer den Auswahliter.
                 i->o->set_x(i->o->get_x() + offset);

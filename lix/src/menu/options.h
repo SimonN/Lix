@@ -172,6 +172,7 @@ private:
     KeyButton  ed_add_goal;
     KeyButton  ed_add_deco;
     KeyButton  ed_add_hazard;
+    Number     ed_grid_custom;
     Label      desc_ed_left,
                desc_ed_right,
                desc_ed_up,
@@ -198,7 +199,8 @@ private:
                desc_ed_add_hatch,
                desc_ed_add_goal,
                desc_ed_add_deco,
-               desc_ed_add_hazard;
+               desc_ed_add_hazard,
+               desc_ed_grid_custom;
 
     Texttype   screen_resolution_x;
     Texttype   screen_resolution_y;

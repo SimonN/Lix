@@ -281,7 +281,6 @@ void Lobby::calc_self()
         else Network::set_room(room_list.get_room_clicked());
         room_list.clear();
         set_mode(INSIDE_ROOM);
-        Log::log("debugging rohan: room button clicked");
     }
 
     // Inside a game room

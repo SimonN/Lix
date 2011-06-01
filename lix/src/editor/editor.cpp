@@ -76,7 +76,7 @@ Editor::Editor()
     panel[FILE_SAVE]    .set_hotkey();
     panel[FILE_SAVE_AS] .set_hotkey();
     panel[GRID_2]       .set_hotkey(); // will be done later
-    panel[GRID_10]      .set_hotkey();
+    panel[GRID_CUSTOM]  .set_hotkey();
     panel[GRID_16]      .set_hotkey();
     panel[SELECT_ALL]   .set_hotkey(useR->key_ed_sel_all);
     panel[SELECT_FRAME] .set_hotkey(); // done later
@@ -105,9 +105,18 @@ Editor::Editor()
 
     for (unsigned int i = 0; i < MAX; ++i) Api::Manager::add_elder(&panel[i]);
 
-    // If an original level is loaded, use appropriate grid
-    if (Help::string_get_extension(useR->single_last_file)
-     == gloB->ext_level_orig) panel[GRID_2].set_on();
+    // Use the specified grid.
+    if      (useR->editor_grid_selected ==  2) panel[GRID_2].set_on();
+    else if (useR->editor_grid_selected == 16) panel[GRID_16].set_on();
+    else if (useR->editor_grid_selected ==  0) panel[GRID_CUSTOM].set_on();
+    else {
+        // Use grid of 1, and set user variable to avoid ambiguity.
+        // If an original level is loaded, use appropriate grid instead of 1
+        useR->editor_grid_selected = 1;
+        if (Help::string_get_extension(useR->single_last_file)
+         == gloB->ext_level_orig) panel[GRID_2].set_on();
+    }
+    if (useR->editor_grid_custom < 1) useR->editor_grid_custom = 8;
 
     browser_save     = 0;
     browser_bitmap   = 0;
@@ -120,6 +129,10 @@ Editor::Editor()
 
 Editor::~Editor()
 {
+    useR->editor_grid_selected = get_grid();
+    if (useR->editor_grid_selected == useR->editor_grid_custom)
+        useR->editor_grid_selected = 0;
+
     selection.clear();
 
     if (browser_save)     delete browser_save;
@@ -303,13 +316,13 @@ void Editor::calc_bitmap_browser(std::string& save_last_dir)
             if (br->get_current_dir().find(gloB->dir_bitmap_orig_l2)
              != std::string::npos) {
                 panel[GRID_2 ].set_off();
-                panel[GRID_10].set_off();
+                panel[GRID_CUSTOM].set_off();
                 panel[GRID_16].set_on();
             }
             else if (br->get_current_dir().find(gloB->dir_bitmap_orig)
              != std::string::npos) {
                 if (!panel[GRID_2 ].get_on()
-                 && !panel[GRID_10].get_on()
+                 && !panel[GRID_CUSTOM].get_on()
                  && !panel[GRID_16].get_on()) panel[GRID_2 ].set_on();
             }
             // We've already positioned the object under the mouse.

@@ -95,5 +95,5 @@ void GameplayChat::calc_self()
 
 void GameplayChat::draw_self()
 {
-    // undraw_self();
+    undraw_self();
 }

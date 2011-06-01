@@ -121,7 +121,9 @@ User::User()
 
     sound_volume           (10),
 
-    hexadecimal_level_size (false),
+    editor_hex_level_size (false),
+    editor_grid_selected  (1),
+    editor_grid_custom    (8),
 
     key_skill              (LixEn::AC_MAX, 0),
 
@@ -279,7 +281,9 @@ void User::load()
 
         else if (i->text1 == gloB->user_sound_volume           ) sound_volume           = i->nr1;
 
-        else if (i->text1 == gloB->user_hexadecimal_level_size ) hexadecimal_level_size = i->nr1;
+        else if (i->text1 == gloB->user_editor_hex_level_size  ) editor_hex_level_size  = i->nr1;
+        else if (i->text1 == gloB->user_editor_grid_selected   ) editor_grid_selected   = i->nr1;
+        else if (i->text1 == gloB->user_editor_grid_custom     ) editor_grid_custom     = i->nr1;
 
         else if (i->text1 == gloB->user_key_force_left         ) key_force_left         = i->nr1;
         else if (i->text1 == gloB->user_key_force_right        ) key_force_right        = i->nr1;
@@ -383,7 +387,9 @@ void User::save() const
      << IO::LineHash  (gloB->user_sound_volume,            sound_volume)
      << std::endl
 
-     << IO::LineHash  (gloB->user_hexadecimal_level_size,  hexadecimal_level_size)
+     << IO::LineHash  (gloB->user_editor_hex_level_size,   editor_hex_level_size)
+     << IO::LineHash  (gloB->user_editor_grid_selected,    editor_grid_selected)
+     << IO::LineHash  (gloB->user_editor_grid_custom,      editor_grid_custom)
      << std::endl
 
      << IO::LineDollar(gloB->user_single_last_dir,         single_last_dir)

@@ -140,7 +140,7 @@ public:
         FILE_SAVE,
         FILE_SAVE_AS,
         GRID_2,
-        GRID_10,
+        GRID_CUSTOM,
         GRID_16,
         SELECT_ALL,
         SELECT_FRAME,

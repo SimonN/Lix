@@ -88,7 +88,9 @@ public:
 
     int  sound_volume;
 
-    bool hexadecimal_level_size;
+    bool editor_hex_level_size;
+    int  editor_grid_selected;
+    int  editor_grid_custom;
 
     std::vector <int> key_skill;
 
