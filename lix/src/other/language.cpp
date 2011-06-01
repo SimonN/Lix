@@ -156,6 +156,7 @@ win_size_u,
 win_size_d,
 win_size_x,
 win_size_y,
+win_size_hex,
 win_size_torus_x,
 win_size_torus_y,
 
@@ -509,6 +510,7 @@ void Language::set(const Language lang)
         win_size_d                    = "Bottom:";
         win_size_x                    = "Width:";
         win_size_y                    = "Height:";
+        win_size_hex                  = "Show size in hexadecimal";
         win_size_torus_x              = "Wrap around horizontally";
         win_size_torus_y              = "Wrap around vertically";
 
@@ -908,6 +910,7 @@ eb[Editor::ADD_HAZARD]
         win_size_d                    = "Unten:";
         win_size_x                    = "Breite:";
         win_size_y                    = "Hoehe:";
+        win_size_hex                  = "Hexadezimal anzeigen";
         win_size_torus_x              = "Horizontal rundumgehend";
         win_size_torus_y              = "Vertikal rundumgehend";
 

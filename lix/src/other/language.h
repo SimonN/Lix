@@ -170,6 +170,7 @@ win_size_u,
 win_size_d,
 win_size_x,
 win_size_y,
+win_size_hex,
 win_size_torus_x,
 win_size_torus_y,
 

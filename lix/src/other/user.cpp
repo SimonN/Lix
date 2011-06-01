@@ -121,6 +121,8 @@ User::User()
 
     sound_volume           (10),
 
+    hexadecimal_level_size (false),
+
     key_skill              (LixEn::AC_MAX, 0),
 
     single_last_dir        (gloB->dir_levels_single),
@@ -277,6 +279,8 @@ void User::load()
 
         else if (i->text1 == gloB->user_sound_volume           ) sound_volume           = i->nr1;
 
+        else if (i->text1 == gloB->user_hexadecimal_level_size ) hexadecimal_level_size = i->nr1;
+
         else if (i->text1 == gloB->user_key_force_left         ) key_force_left         = i->nr1;
         else if (i->text1 == gloB->user_key_force_right        ) key_force_right        = i->nr1;
         else if (i->text1 == gloB->user_key_rate_minus         ) key_rate_minus         = i->nr1;
@@ -377,6 +381,9 @@ void User::save() const
      << std::endl
 
      << IO::LineHash  (gloB->user_sound_volume,            sound_volume)
+     << std::endl
+
+     << IO::LineHash  (gloB->user_hexadecimal_level_size,  hexadecimal_level_size)
      << std::endl
 
      << IO::LineDollar(gloB->user_single_last_dir,         single_last_dir)

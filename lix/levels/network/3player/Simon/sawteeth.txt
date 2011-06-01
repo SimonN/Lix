@@ -10,9 +10,9 @@ $ENGLISH                                                      Sawteeth
 #TORUS_X                                                             1
 #TORUS_Y                                                             1
 #SECONDS                                                            60
-#LIX                                                               150
+#INITIAL                                                           120
 #REQUIRED                                                           20
-#RATE                                                               70
+#RATE                                                               80
 
 #WALKER                                                             50
 #JUMPER                                                             50

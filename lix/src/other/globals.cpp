@@ -17,7 +17,7 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2011, 06, 01, 00)),
+    version              (CONCAT(2011, 06, 01, 01)),
     version_min          (CONCAT(2011, 06, 01, 00)),
 
     updates_per_second   (15),
@@ -193,6 +193,8 @@ Globals::Globals()
     user_debris_type             ("DEBRIS_TYPE"),
 
     user_sound_volume            ("SOUND_VOLUME"),
+
+    user_hexadecimal_level_size  ("HEXADECIMAL_LEVEL_SIZE"),
 
     user_single_last_dir         ("SINGLE_LAST_DIR"),
     user_single_last_file        ("SINGLE_LAST_FILE"),

@@ -7,11 +7,12 @@
 
 #include "../other/help.h"
 #include "../other/language.h"
+#include "../other/user.h"
 
 namespace Api {
 
 const unsigned WindowSize::this_xl (300);
-const unsigned WindowSize::this_yl (320);
+const unsigned WindowSize::this_yl (340);
 const unsigned WindowSize::nrxl    (200); // Number X-Length
 const unsigned WindowSize::x_offset(this_xl - 20 - nrxl);
 
@@ -21,7 +22,7 @@ const unsigned WindowSize::y_u      (WindowSize::y_r       + 40);
 const unsigned WindowSize::y_d      (WindowSize::y_u       + 20);
 const unsigned WindowSize::y_x      (WindowSize::y_d       + 40);
 const unsigned WindowSize::y_y      (WindowSize::y_x       + 20);
-const unsigned WindowSize::y_torus_x(WindowSize::y_y       + 40);
+const unsigned WindowSize::y_torus_x(WindowSize::y_y       + 60);
 const unsigned WindowSize::y_torus_y(WindowSize::y_torus_x + 20);
 
 WindowSize::WindowSize(Level& lv, Map& mp)
@@ -42,6 +43,7 @@ WindowSize::WindowSize(Level& lv, Map& mp)
     u(x_offset, y_u, nrxl, 5, -Level::max_yl, Level::max_yl, 0, true),
     d(x_offset, y_d, nrxl, 5, -Level::max_yl, Level::max_yl, 0, true),
 
+    hex    (20, y_y + 20),
     torus_x(20, y_torus_x),
     torus_y(20, y_torus_y),
 
@@ -54,6 +56,7 @@ WindowSize::WindowSize(Level& lv, Map& mp)
     desc_d(20, d.get_y(), Language::win_size_d),
     desc_x(20, y_x,       Language::win_size_x),
     desc_y(20, y_y,       Language::win_size_y),
+    desc_hex    (60, y_y + 20,  Language::win_size_hex),
     desc_torus_x(60, y_torus_x, Language::win_size_torus_x),
     desc_torus_y(60, y_torus_y, Language::win_size_torus_y)
 {
@@ -61,6 +64,7 @@ WindowSize::WindowSize(Level& lv, Map& mp)
     add_child(r);
     add_child(u);
     add_child(d);
+    add_child(hex);
     add_child(torus_x);
     add_child(torus_y);
     add_child(ok);
@@ -71,19 +75,21 @@ WindowSize::WindowSize(Level& lv, Map& mp)
     add_child(desc_d);
     add_child(desc_x);
     add_child(desc_y);
+    add_child(desc_hex);
     add_child(desc_torus_x);
     add_child(desc_torus_y);
 
-    l.set_step_sml(2); l.set_step_med(20); l.set_step_big(Level::min_xl);
-    r.set_step_sml(2); r.set_step_med(20); r.set_step_big(Level::min_xl);
-    u.set_step_sml(2); u.set_step_med(20); u.set_step_big(Level::min_yl);
-    d.set_step_sml(2); d.set_step_med(20); d.set_step_big(Level::min_yl);
+    l.set_step_sml(2); l.set_step_med(16); l.set_step_big(Level::min_xl);
+    r.set_step_sml(2); r.set_step_med(16); r.set_step_big(Level::min_xl);
+    u.set_step_sml(2); u.set_step_med(16); u.set_step_big(Level::min_yl);
+    d.set_step_sml(2); d.set_step_med(16); d.set_step_big(Level::min_yl);
 
     l.set_show_sign();
     r.set_show_sign();
     u.set_show_sign();
     d.set_show_sign();
 
+    hex    .set_checked(useR->hexadecimal_level_size);
     torus_x.set_checked(level.torus_x);
     torus_y.set_checked(level.torus_y);
 
@@ -97,6 +103,7 @@ WindowSize::WindowSize(Level& lv, Map& mp)
 
 WindowSize::~WindowSize()
 {
+    useR->hexadecimal_level_size = hex.get_checked();
 }
 
 
@@ -122,6 +129,11 @@ void WindowSize::calc_self()
 
     if (map.get_yl() + u.get_number() + d.get_number() > Level::max_yl)
      d.set_number(Level::max_yl - map.get_yl() - u.get_number());
+
+    if (u.get_clicked() || d.get_clicked()
+     || r.get_clicked() || l.get_clicked() || hex.get_clicked()) {
+        set_draw_required();
+    }
 
     if (ok.get_clicked() || hardware.get_mr()) {
         if (l.get_number() == 0 && r.get_number() == 0
@@ -149,6 +161,7 @@ void WindowSize::calc_self()
                             level.start_x = level.size_x - map.get_screen_xl();
             if (!torus_y && level.start_y > level.size_y - map.get_screen_yl())
                             level.start_y = level.size_y - map.get_screen_yl();
+
             set_exit();
         }
     }
@@ -168,9 +181,20 @@ void WindowSize::draw_self()
 
 
 
+char WindowSize::digit_to_character(const int i)
+{
+    if      (i >= 0  && i < 10) return '0' + i;
+    else if (i >= 10 && i < 16) return 'A' + i - 10;
+    else                        return '?';
+}
+
+
+
 // old, plus
 void WindowSize::draw_calculation(const int y, const int o, const int p)
 {
+    const int base = (hex.get_checked() ? 16 : 10);
+
     std::string s_old(4, ' ');
     std::string s_add(4, ' ');
     std::string s_new(4, ' ');
@@ -184,17 +208,20 @@ void WindowSize::draw_calculation(const int y, const int o, const int p)
     rectfill(bp, x_offset, y, this_xl-2,y+19,color[COL_API_M]);
 
     for (int i = 3, temp = o; i >= 0 && temp > 0; --i) {
-        s_old[i] = '0' + temp%10;
-        temp /= 10;
+        s_old[i] = digit_to_character(temp % base);
+        temp /= base;
+        if (temp == 0 && base == 16 && i > 0) s_old[i-1] = 'x';
     }
     for (int i = 3, temp = o+p; i >= 0 && temp > 0; --i) {
-        s_new[i] = '0' + temp%10;
-        temp /= 10;
+        s_new[i] = digit_to_character(temp % base);
+        temp /= base;
+        if (temp == 0 && base == 16 && i > 0) s_new[i-1] = 'x';
     }
     s_add[3] = '0';
     for (int i = 3, temp = (p < 0) ? -p : p; i >= 0 && temp > 0; --i) {
-        s_add[i] = '0' + temp%10;
-        temp /= 10;
+        s_add[i] = digit_to_character(temp % base);
+        temp /= base;
+        if (temp == 0 && base == 16 && i > 0) s_add[i-1] = 'x';
     }
     const int x_here = get_x_here() + x_offset;
     Help::draw_shadow_fixed_text(tb, font_med, s_old, x_here+  0, y, color[COL_TEXT]);

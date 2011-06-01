@@ -168,8 +168,8 @@ struct Level {
     bool operator == (const Level&) const;
     bool operator != (const Level&) const;
 
-    inline const Status get_status() const { return status;         }
-    inline const bool   get_good()   const { return status == GOOD; }
+    inline       Status get_status() const { return status;         }
+    inline       bool   get_good()   const { return status == GOOD; }
     const std::string&  get_name()   const;
 
     void    draw_to       (Torbit&, Torbit* = 0   ) const;

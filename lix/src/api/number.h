@@ -46,6 +46,8 @@ public:
                                const bool = false); // bool: Sechs Buttons
     virtual ~Number();
 
+           bool get_clicked () const;
+
            void set_minimum (const int);
            void set_maximum (const int);
     inline int  get_minimum ()                 { return minimum;  }

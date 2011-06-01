@@ -88,6 +88,8 @@ public:
 
     int  sound_volume;
 
+    bool hexadecimal_level_size;
+
     std::vector <int> key_skill;
 
     int  key_force_left;

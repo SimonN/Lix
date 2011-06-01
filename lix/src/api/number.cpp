@@ -68,6 +68,18 @@ Number::~Number()
 
 
 
+bool Number::get_clicked() const
+{
+    return (down_big.get_clicked() && six_buttons)
+     ||  down_med.get_clicked()
+     ||  down_sml.get_clicked()
+     ||  up_sml  .get_clicked()
+     ||  up_med  .get_clicked()
+     || (up_big  .get_clicked() && six_buttons);
+}
+
+
+
 void Number::set_minimum(const int i)
 {
     minimum = i;

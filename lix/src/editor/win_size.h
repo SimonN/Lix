@@ -48,6 +48,7 @@ private:
     Number u;
     Number d;
 
+    Checkbox hex;
     Checkbox torus_x;
     Checkbox torus_y;
 
@@ -55,13 +56,14 @@ private:
     TextButton cancel;
 
     Label desc_l, desc_r, desc_u, desc_d, desc_x, desc_y;
-    Label desc_torus_x,   desc_torus_y;
+    Label desc_hex,       desc_torus_x,   desc_torus_y;
 
     // Kopieren verboten
     WindowSize(const WindowSize&);
     void operator = (const WindowSize&);
 
     // Auslagerungsfunktion
+    char digit_to_character(const int);
     void draw_calculation(const int, const int, const int);
 
 public:

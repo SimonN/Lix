@@ -10,9 +10,9 @@ $ENGLISH                                              King of Scotland
 #TORUS_X                                                             0
 #TORUS_Y                                                             0
 #SECONDS                                                            90
-#LIX                                                                80
+#INITIAL                                                            70
 #REQUIRED                                                           20
-#RATE                                                               50
+#RATE                                                               60
 
 #WALKER                                                             40
 #JUMPER                                                             40

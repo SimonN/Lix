@@ -216,6 +216,8 @@ public:
 
         user_sound_volume,
 
+        user_hexadecimal_level_size,
+
         user_single_last_dir,
         user_single_last_file,
         user_network_last_dir,
