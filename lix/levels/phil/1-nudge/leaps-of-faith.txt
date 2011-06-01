@@ -1,4 +1,4 @@
-$BUILT                                             2011-04-04 22:33:27
+$BUILT                                             2011-06-01 16:35:35
 $AUTHOR                                                           phil
 $GERMAN                                                               
 $ENGLISH                                                Leaps of Faith
@@ -29,6 +29,7 @@ $ENGLISH                                                Leaps of Faith
 
 :./bitmap/Rebuilds/02 - Gold Mine/pickaxe.D:             220       335
 :./bitmap/Rebuilds/02 - Gold Mine/shovel.D:              803       237
+:./bitmap/Rebuilds/02 - Gold Mine/GoalTop.D:             736       167
 
 :./bitmap/Rebuilds/02 - Gold Mine/Hatch.H:               275       240
 
