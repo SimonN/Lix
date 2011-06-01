@@ -5,17 +5,23 @@
  *
  *   Amount of bricks left.
  *
+ * special_y
+ *
+ *   Normally 0. It's 1 when the lix is fully inside terrain, it should
+ *   not move up then. Because the sprite assumes that it does move up,
+ *   it's moved down again after stopping due to hitting terrain.
+ *
  */
 
 #include "ac.h"
 
 void assign_builder(Lixxie& l)
 {
-    l.set_special_y(0);
     if (l.get_ac() == LixEn::BUILDER) {
         l.set_special_x(l.get_special_x() + 12);
     }
     else {
+        l.set_special_y(0);
         l.set_special_x(12);
         l.set_frame(6);
         l.set_ac(LixEn::BUILDER);
@@ -30,9 +36,16 @@ void update_builder(Lixxie& l, const UpdateArgs& ua)
 
     // Bau-Frame
     case 7:
+        // don't glitch up through steel, but still get killed by top of
+        // screen: first see whether trapped, then make brick. For the magic
+        // number 13, see walker.cpp, it's because they can ascend 12 pixels.
+        l.set_special_y(l.solid_wall_height(2) >= 13);
+
         l.set_special_x(l.get_special_x() - 1);
         l.draw_brick   (-2, 0, 9, 1);
         if (l.get_special_x() < 3) l.play_sound_if_trlo(ua, Sound::BRICK);
+
+        l.move_up();
         break;
 
     // Zwei Fortbewegungs-Frames
@@ -47,23 +60,23 @@ void update_builder(Lixxie& l, const UpdateArgs& ua)
         // Die zweite Abfrage in der Und-Klammer dient dazu, Treppen
         // auch auf anderen Treppen bauen zu können.
         // Last line is Horus bug prevention.
-        if ((l.is_solid(6, -2) && l.is_solid(6, -4) || l.is_solid(6, -18))
-         || (l.is_solid(4, -2) && l.is_solid(4, -4) || l.is_solid(4, -18))
-         || (l.is_solid(2, -2) && l.is_solid(2, -4))) {
+
+        // Note that the lix has already moved up and the image has its
+        // feet below the regular position, inside the newly placed brick.
+        if (((l.is_solid(6, 0) && l.is_solid(6, -2)) || l.is_solid(6, -16))
+         || ((l.is_solid(4, 0) && l.is_solid(4, -2)) || l.is_solid(4, -16))
+         ||  (l.is_solid(2, 0) && l.is_solid(2, -2))) {
             // Ueberfluessige Faehigkeitsbenutzngen an den Spieler
             // zurueckgeben, passiert nur bei Option "multiple Builders".
             // Wird von l.assign() erledigt.
+            // See top comment for the check of special_y.
             l.turn();
+            if (l.get_special_y() == 1) l.move_down();
             l.assign(LixEn::WALKER);
-            l.set_frame(1); // sofort weiterlaufen
         }
         break;
 
     case 12:
-        l.move_ahead();
-        l.move_up();
-        break;
-
     case 13:
         l.move_ahead();
         break;

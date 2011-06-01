@@ -17,8 +17,8 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2011, 03, 05, 00)),
-    version_min          (CONCAT(2011, 03, 05, 00)),
+    version              (CONCAT(2011, 06, 01, 00)),
+    version_min          (CONCAT(2011, 06, 01, 00)),
 
     updates_per_second   (15),
     skill_max            (12),

@@ -320,8 +320,8 @@ public:
     inline void set_floater()       { floater = true; }
 
     static bool get_steel_absolute(const int,     const int    );
-    const  bool get_steel         (const int = 0, const int = 0);
-    const  int  get_pixel         (const int = 0, const int = 0);
+           bool get_steel         (const int = 0, const int = 0);
+           int  get_pixel         (const int = 0, const int = 0);
            void set_pixel         (const int = 0, const int = 0,
                                    const int = color[COL_PINK]);
            bool is_solid          (const int = 0, const int = 2);

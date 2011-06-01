@@ -124,7 +124,7 @@ bool Lixxie::get_in_trigger_area(const EdGraphic& gr, const bool twice) const
 
 
 
-const bool Lixxie::get_steel(const int px, const int py) {
+bool Lixxie::get_steel(const int px, const int py) {
     return steel_mask->get_pixel(ex + px*dir, ey+py) == color[COL_STEEL_MASK];
 }
 
@@ -132,7 +132,7 @@ bool Lixxie::get_steel_absolute(const int x, const int y) {
     return steel_mask->get_pixel(x, y) == color[COL_STEEL_MASK];
 }
 
-const int Lixxie::get_pixel(const int px, const int py) {
+int Lixxie::get_pixel(const int px, const int py) {
     return land->get_pixel(ex + px * dir, ey + py);
 }
 

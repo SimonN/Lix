@@ -3,7 +3,7 @@
 # instead of this file, which will affect all users and is versioned.
 
 # exclude all object files due to compiling code
-*.[oa]
+*.[oad]
 *.layout
 *.depend
 lix/lix_debug
