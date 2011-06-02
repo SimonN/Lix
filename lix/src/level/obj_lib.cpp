@@ -87,7 +87,24 @@ void ObjLib::load_file(const std::string& no_ext, const std::string& s)
     else if (pe == gloB->pre_ext_oneway_left[0])    type = Object::ONEWAY;
     else if (pe == gloB->pre_ext_oneway_right[0]) { type = Object::ONEWAY;  st = 1; }
 
-    object.insert(std::make_pair(no_ext, Object(c, type, st)));
+    // This amends an issue with Allegro 4.2 on Linux.
+    // If the xl/yl of the image isn't divisible by 2, it doesn't get rotated
+    // properly, creating a different landscape ==> desyncs.
+    // We amend Terrain and Steel here, both are type == Object::TERRAIN.
+    if (type == Object::TERRAIN
+     && c.get_xl() % 2 == 1 || c.get_yl() % 2 == 1) {
+        int nxl = c.get_xl() + (c.get_xl() % 2);
+        int nyl = c.get_yl() + (c.get_yl() % 2);
+        BITMAP* amended = create_bitmap(nxl, nyl);
+        clear_to_color(amended, color[COL_PINK]);
+        blit(c.get_al_bitmap(), amended, 0, 0, 0, 0, c.get_xl(), c.get_yl());
+        Cutbit amended_cb(amended, false);
+        // this gets to own the BITMAP. false = don't cut.
+        object.insert(std::make_pair(no_ext, Object(amended_cb, type, st)));
+    }
+    else {
+        object.insert(std::make_pair(no_ext, Object(c, type, st)));
+    }
 }
 
 
