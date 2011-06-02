@@ -32,9 +32,9 @@ void update_digger(Lixxie& l, const UpdateArgs& ua)
     case 0:
         // This is the only steel check in the whole cycle of 16 frames.
         // Stop digging if there is steel to the left as well as to the right
-        // of the digger's center, or immediately in the center.
-        if (l.count_steel(-8, 2, 1, 5)
-         && l.count_steel( 0, 2, 9, 5)) {
+        // of the digger's center, or in the 3 double pixels of the center.
+        if (l.count_steel(-8, 2, 3, 5)
+         && l.count_steel(-2, 2, 9, 5)) {
             l.set_special_y(1);
         }
         steel_pixels_hit += l.remove_rectangle(6, 2, 9, 3);

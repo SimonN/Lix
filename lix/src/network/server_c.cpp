@@ -132,6 +132,9 @@ void NetServer::start_game_random_permutation(char room)
     }
     std::cout << "Starting game in room " << (int) room << std::endl
               << "  -> using permutation: " << rooms[room].permu << std::endl;
+    std::cout << "  -> For debugging purposes, here's 5 random permus:";
+    for (int i = 0; i < 5; ++i)
+        std::cout << "     -> " << Permu(count) << std::endl;
 
     ENetPacket* p = create_packet(count + 3);
     p->data[0] = LEMNET_GAME_START;

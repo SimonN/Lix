@@ -50,8 +50,27 @@ int main()
     // the number of ticks per second: Our timer is slower than L++'s.
     NetServer* server = new NetServer(true, gloB->server_port,
      gloB->updates_per_second, &timer_ticks);
-    std::cout << "This is the dedicated Lix server. Press [ESC] to exit."
-              << std::endl;
+    std::cout << "This is the dedicated Lix server. "
+              << "Press [ESC] or [CTRL]-[C] to exit."
+              << std::endl
+              << "     .::::::    " << std::endl
+              << "   ::::::::::.  " << std::endl
+              << " .::::::    :'  " << std::endl
+              << " :::::   @   |  " << std::endl
+              << "::::::      _|  " << std::endl
+              << ":::::|_____|    " << std::endl
+              << "''::::   \\      " << std::endl
+              << "  :::     \\     " << std::endl
+              << "  ': |_    \\\\   " << std::endl
+              << "  _|  _|    \\\\  " << std::endl
+              << " |  _|      | | " << std::endl
+              << " |_| |______|_| " << std::endl
+              << "   |___|    |   " << std::endl
+              << "    |       |   " << std::endl
+              << "    |    |  |   " << std::endl
+              << "    |____|__|_  " << std::endl
+              << "   /______\\___\\ " << std::endl
+              << "                " << std::endl;
 
     // Main loop
     while (!key[KEY_ESC]) {

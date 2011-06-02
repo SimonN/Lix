@@ -8,9 +8,9 @@
 		<Build>
 			<Target title="Server - Debug">
 				<Option platforms="Windows;" />
-				<Option output="..\lixserv.exe" prefix_auto="0" extension_auto="0" />
-				<Option working_dir="..\" />
-				<Option object_output="..\obj\Debug" />
+				<Option output="../lixserv.exe" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="../" />
+				<Option object_output="../obj/Debug" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option use_console_runner="0" />
@@ -20,9 +20,9 @@
 			</Target>
 			<Target title="Server - Release">
 				<Option platforms="Windows;" />
-				<Option output="..\lixserv.exe" prefix_auto="0" extension_auto="0" />
-				<Option working_dir="..\" />
-				<Option object_output="..\obj\Release\" />
+				<Option output="../lixserv.exe" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="../" />
+				<Option object_output="../obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option use_console_runner="0" />
@@ -35,9 +35,9 @@
 				</Linker>
 			</Target>
 			<Target title="Server - Release (Linux)">
-				<Option output="..\lixserv" prefix_auto="0" extension_auto="0" />
-				<Option working_dir="..\" />
-				<Option object_output="..\obj\Release\" />
+				<Option output="../lixserv" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="../" />
+				<Option object_output="../obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option use_console_runner="0" />
@@ -67,22 +67,22 @@
 			<Add option="-lws2_32" />
 			<Add option="-lwinmm" />
 		</Linker>
-		<Unit filename="network\net_t.cpp" />
-		<Unit filename="network\net_t.h" />
-		<Unit filename="network\permu.cpp" />
-		<Unit filename="network\permu.h" />
-		<Unit filename="network\server.cpp" />
-		<Unit filename="network\server.h" />
-		<Unit filename="network\server_c.cpp" />
-		<Unit filename="other\date.cpp" />
-		<Unit filename="other\date.h" />
-		<Unit filename="other\globals.cpp" />
-		<Unit filename="other\globals.h" />
-		<Unit filename="other\io.cpp" />
-		<Unit filename="other\io.h" />
-		<Unit filename="other\myalleg.h" />
-		<Unit filename="other\types.h" />
-		<Unit filename="server\s_main.cpp" />
+		<Unit filename="network/net_t.cpp" />
+		<Unit filename="network/net_t.h" />
+		<Unit filename="network/permu.cpp" />
+		<Unit filename="network/permu.h" />
+		<Unit filename="network/server.cpp" />
+		<Unit filename="network/server.h" />
+		<Unit filename="network/server_c.cpp" />
+		<Unit filename="other/date.cpp" />
+		<Unit filename="other/date.h" />
+		<Unit filename="other/globals.cpp" />
+		<Unit filename="other/globals.h" />
+		<Unit filename="other/io.cpp" />
+		<Unit filename="other/io.h" />
+		<Unit filename="other/myalleg.h" />
+		<Unit filename="other/types.h" />
+		<Unit filename="server/s_main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

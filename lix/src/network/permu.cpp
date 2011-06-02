@@ -33,24 +33,10 @@ Permu::Permu(size_t n, const char* ptr)
 
 Permu::Permu(const std::string& str)
 {
-    bool last_was_digit = false;
-    int  buffer         = 0;
     // Read in a string that is separated by any non-digit characters
     for (std::string::const_iterator
-     itr = str.begin(); itr != str.end(); ++itr) {
-        if (*itr >= '0' && *itr <= '9') {
-            last_was_digit = true;
-            buffer *= 10;
-            buffer += *itr - '0';
-        }
-        else if (last_was_digit) {
-            last_was_digit = false;
-            p.push_back(buffer);
-            buffer = 0;
-        }
-    }
-    // Add the last number in case no non-digit followed
-    if (last_was_digit) p.push_back(buffer);
+        itr = str.begin(); itr != str.end(); ++itr)
+        if (*itr >= '0' && *itr <= '9') p.push_back(*itr - '0');
 }
 
 
@@ -87,7 +73,7 @@ bool Permu::operator == (const Permu& rhs) const
 std::ostream& operator << (std::ostream& o, const Permu& p)
 {
     for (size_t i = 0; i < p.get_size(); ++i) {
-        o << (int) p[i];
+        o << static_cast <int> (p[i]);
         if (i < p.get_size() - 1) o << ' ';
     }
     return o;

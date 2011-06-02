@@ -1,4 +1,4 @@
-$BUILT                                             2011-02-14 02:07:36
+$BUILT                                             2011-06-02 04:19:39
 $AUTHOR                                                          Simon
 $GERMAN                                                               
 $ENGLISH                                                 Raise the Bar
@@ -27,19 +27,29 @@ $ENGLISH                                                 Raise the Bar
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:Space-s09:                                              194       352
-:Space-s09:                                              416       352
+:Space-s9:                                               194       352
+:Space-s9:                                               416       352
 
-:Space-s00:                                              144        38
-:Space-s00:                                              398        38     r
-:Space-s00:                                              318       168
-:Space-s00:                                              224       168     r
+:Space-s0:                                               144        38
+:Space-s0:                                               398        38     r
+:Space-s0:                                               318       168
+:Space-s0:                                               224       168     r
 
-:Space-s01:                                              576       256
-:Space-s01:                                                0       256
+:Space-s1:                                               576       176
+:Space-s1:                                                 0       176
+:Space-s1:                                               576       192
+:Space-s1:                                                 0       192
+:Space-s1:                                               576       208
+:Space-s1:                                                 0       208
+:Space-s1:                                               576       224
+:Space-s1:                                                 0       224
+:Space-s1:                                               576       240
+:Space-s1:                                                 0       240
+:Space-s1:                                               576       256
+:Space-s1:                                                 0       256
 
-:Sports-s09:                                             224       368
-:Sports-s09:                                             320       368
+:Sports-s9:                                              224       368
+:Sports-s9:                                              320       368
 
 :Space-t69:                                              192       -48     f
 :Space-t38:                                              432       256
@@ -51,17 +61,17 @@ $ENGLISH                                                 Raise the Bar
 :Space-t39:                                              176       216
 :Space-t15:                                              576       352
 :Space-t21:                                                0        48
-:Space-t05:                                                0       112
+:Space-t5:                                                 0       112
 :Space-t20:                                              576        48
-:Space-t05:                                              576       112     frr
-:Space-t01:                                                0       -16
-:Space-t09:                                              384       -16
-:Space-t01:                                              512       -16
-:Space-t01:                                              128       -16
-:Space-t09:                                               64       -16
-:Space-t09:                                              192       -16
-:Space-t01:                                              448       -16
-:Space-t09:                                              576       -16
+:Space-t5:                                               576       112     frr
+:Space-t1:                                                 0       -16
+:Space-t9:                                               384       -16
+:Space-t1:                                               512       -16
+:Space-t1:                                               128       -16
+:Space-t9:                                                64       -16
+:Space-t9:                                               192       -16
+:Space-t1:                                               448       -16
+:Space-t9:                                               576       -16
 :Space-t24:                                               64        48
 :Space-t24:                                              512        48     frr
 :Space-t35:                                              208       144
@@ -102,4 +112,4 @@ $ENGLISH                                                 Raise the Bar
 :Space-t38:                                              160       256
 :Space-t39:                                              448       256
 :Space-t10:                                              256       -16
-:Space-t08:                                              320       -16
+:Space-t8:                                               320       -16
