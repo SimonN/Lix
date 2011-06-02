@@ -197,7 +197,9 @@ void Replay::save_to_file(const std::string& s, const Level* const lev)
 
     if (players.size() > 1) {
         std::ostringstream pstr;
-        pstr << permu;
+        pstr << permu
+        // debugging
+             << std::endl << permu.get_size();
         file << IO::LineDollar(gloB->replay_permu, pstr.str()) << std::endl;
     }
 
@@ -245,7 +247,7 @@ void Replay::load_from_file(const std::string& filename)
     case '$':
         if      (i->text1 == gloB->replay_built_required) built_required = i->text2;
         else if (i->text1 == gloB->replay_level_filename) level_filename = i->text2;
-        else if (i->text1 == gloB->replay_permu         ) permu = Permu  (i->text2);
+        else if (i->text1 == gloB->replay_permu         ) permu = Permu   (i->text2);
         break;
 
     case '#':

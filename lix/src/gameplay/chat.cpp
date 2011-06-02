@@ -21,7 +21,7 @@ GameplayChat::GameplayChat()
         y += 12;
     }
     add_child(name);
-    add_child(type);
+    // add_child(type);
 
     name.set_undraw_color(color[COL_PINK]);
     type.set_undraw_color(color[COL_PINK]);
