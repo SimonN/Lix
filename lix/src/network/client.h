@@ -95,11 +95,13 @@ public:
 
     inline int  get_number() { return ourself->number; }
     inline char get_style()  { return ourself->style;  }
+    inline bool get_spec()   { return ourself->spec;   }
 
     int         get_room();
     void        create_room();
     void        set_room (const char);
-    void        set_style(const char);
+
+    void        set_style_and_spec(const char, const bool);
 
     inline const Permu& get_permu() { return permu; }
     inline const Level& get_level() { return level; }

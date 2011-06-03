@@ -81,22 +81,6 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 					<Add option="-s" />
 				</Linker>
 			</Target>
-			<Target title="Release (Fenstermodus)">
-				<Option platforms="Windows;" />
-				<Option output="../lix.exe" prefix_auto="0" extension_auto="0" />
-				<Option working_dir="../" />
-				<Option object_output="../obj/Release/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Option use_console_runner="0" />
-				<Option parameters="-w" />
-				<Compiler>
-					<Add option="-O3" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
-			</Target>
 			<Target title="Release (Linux)">
 				<Option output="../lix" prefix_auto="0" extension_auto="0" />
 				<Option working_dir="../" />
@@ -112,6 +96,26 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add option="`allegro-config --libs`" />
+					<Add option="-lenet" />
+				</Linker>
+			</Target>
+			<Target title="Debug (Linux)">
+				<Option output="../lix" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="../" />
+				<Option object_output="../obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Option parameters="-w" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Compiler>
+					<Add option="-O3" />
+					<Add option="-Wall" />
+					<Add option="-ansi" />
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
 					<Add option="`allegro-config --libs`" />
 					<Add option="-lenet" />
 				</Linker>

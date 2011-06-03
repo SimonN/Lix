@@ -61,11 +61,13 @@ public:
     static inline int  get_number() { return client ?  client->get_number():0;}
     static inline int  get_room()   { return client ?  client->get_room()  :0;}
     static inline char get_style()  { return client ?  client->get_style() :0;}
+    static inline bool get_spec()   { return client ?  client->get_spec()  :0;}
     static inline const Permu& get_permu() { return    client->get_permu()   ;}
 
     static inline void create_room()     { if (client) client->create_room(); }
     static inline void set_room (int  r) { if (client) client->set_room (r);  }
-    static inline void set_style(char s) { if (client) client->set_style(s);  }
+    static inline void set_style_and_spec(char s, bool p)
+                              { if (client) client->set_style_and_spec(s, p); }
 
     static inline void set_level(const std::string& s) {if(client)client->set_level(s);}
     static inline bool get_level_change(){ return client && client->get_level_change();}

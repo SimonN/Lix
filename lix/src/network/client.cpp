@@ -161,11 +161,12 @@ void NetClient::send_replay_data(const ReplayData& data)
 
 
 
-void NetClient::set_style(const char st)
+void NetClient::set_style_and_spec(const char st, const bool sp)
 {
     if (!me || !server || ourself == players.end()) return;
     PlayerData copy = *ourself;
     copy.style = st;
+    copy.spec  = sp;
     ENetPacket* pck = copy.create_packet();
     enet_peer_send(server, LEMNET_CHANNEL_MAIN, pck);
 }

@@ -297,6 +297,15 @@ std::ostream& operator << (std::ostream& o, const Level::PosLi& li)
 bool Level::get_binary(const std::string& filename)
 {
     std::ifstream file(filename.c_str(), std::ios::binary);
+    // the length check before the read() was necessary for me on Linux
+    // to get the Debugger past this, it got stuck on read() when nothing
+    // was wrong.
+    file.seekg (0, std::ios::end);
+    if (file.tellg() < 8) {
+        file.close();
+        return false;
+    }
+    file.seekg(0, std::ios::beg);
     unsigned char buf[8];
     file.read((char*) &buf, 8);
     file.close();

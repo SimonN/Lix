@@ -33,7 +33,7 @@ private:
         bool           spec;
         bool           ready;
         std::string    name;
-        LixEn::Style     style;
+        LixEn::Style   style;
         const Cutbit*  cutbit;
         const Cutbit*  cutchk;
         LobbyDataButton(const int = 0, const int = 0);
