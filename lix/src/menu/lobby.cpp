@@ -168,6 +168,10 @@ void Lobby::set_mode(const Mode& mo)
         start_server.show();
         start_client.show();
         start_ip.show();
+        button_spec.set_off();
+        for (std::vector <LobbyColorButton> ::iterator
+         itr = button_color.begin(); itr != button_color.end(); ++itr)
+         itr->set_off();
     }
     else if (mo == CONNECTING) {
         // show nothing more
@@ -337,9 +341,11 @@ void Lobby::work_self()
         players.set_data(Network::get_player_data());
         button_ready.set_on(Network::get_ready());
         for (unsigned i = 0; i < button_color.size(); ++i) {
-            if (i == (unsigned)Network::get_style()) button_color[i].set_on();
-            else                                     button_color[i].set_off();
+            if (i == (unsigned)Network::get_style()
+                && !Network::get_spec()) button_color[i].set_on();
+            else                         button_color[i].set_off();
         }
+        button_spec.set_on(Network::get_spec());
     }
     // Room data arrived
     if (Network::get_room_data_change()) {
