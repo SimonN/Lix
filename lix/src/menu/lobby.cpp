@@ -263,14 +263,25 @@ void Lobby::calc_self()
 
     for (unsigned i = 0; i < button_color.size(); ++i)
      if (button_color[i].get_clicked()) {
-        Network::set_style((LixEn::Style) i);
+        Network::set_style_and_spec((LixEn::Style) i, false);
         // Already select newest button to be pressed in, so that
         // there is no flicker because the packet takes time
+        // Set all others off.
         for (std::vector <LobbyColorButton> ::iterator
          itr = button_color.begin(); itr != button_color.end(); ++itr)
          itr->set_off();
+        button_spec.set_off();
         button_color[i].set_on();
     }
+
+    if (button_spec.get_clicked()) {
+        Network::set_style_and_spec(Network::get_style(), true);
+        for (std::vector <LobbyColorButton> ::iterator
+         itr = button_color.begin(); itr != button_color.end(); ++itr)
+         itr->set_off();
+        button_spec.set_on();
+    }
+
 
     // Chatnachricht senden
     // done by chat_on_enter_callback().

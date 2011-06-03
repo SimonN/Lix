@@ -7,6 +7,40 @@
 
 
 
+2011-06-03
+(ncp)
+
+    Windows <-> Linux Desync fixed
+        All terrain graphics are now loaded with even-numbered heights and
+        widths. Odd sizes get expanded by a single transparent pixel row.
+        The Linux port of Allegro 4.2 was rotating the graphics badly otherwise
+        and will now work as expected. This fixes a desync, since the level
+        terrain wasn't generated exactly the same on all machines.
+
+        This desync never happened in L++ with the legacy Lemmings terrain,
+        since was loaded with everywhere doubled pixels anyway.
+
+    Pause and FF/FFF mutually exclusive
+        Pause cancels FF/FFF/ZZZ, and vice versa.
+
+    Digger physics
+        The digger could dig alongside a steel block without terrain if placed
+        with pixel precision. This is now fixed.
+
+
+
+2011-06-01
+
+    Digger physics
+        These now match the image.
+
+    Builder physics
+        Builders can jump off their bridge at any time without getting stuck
+        in the newly laid block.
+        
+        Also, they die when building out of the top of a non-wrapping level.
+
+
 2011-03-05
 (ncp)
 

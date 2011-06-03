@@ -115,26 +115,23 @@ void NetServer::start_game_random_permutation(char room)
 
     rooms[room].replay.clear();
 
-    // How many people are in the room? Also reset the server's ready flags.
+    // How many active people are in the room? Also reset server's ready flags.
     size_t count = 0;
     for (PlDatIt itr = players.begin(); itr != players.end(); ++itr)
      if (itr->room == room && itr->number != -1) {
         itr->ready = false;
-        ++count;
+        if (!itr->spec) ++count;
     }
 
     // Don't choose the last permu twice in a row. Only if we fail some times
     // to generate something fresh, use the old one anyway.
     for (size_t tries = 0; tries < count; ++tries) {
-        Permu old_permu    = rooms[count].permu;
-        rooms[count].permu = Permu(count);
+        Permu old_permu   = rooms[room].permu;
+        rooms[room].permu = Permu(count);
         if ( ! (old_permu == rooms[room].permu)) break;
     }
     std::cout << "Starting game in room " << (int) room << std::endl
               << "  -> using permutation: " << rooms[room].permu << std::endl;
-    std::cout << "  -> For debugging purposes, here's 5 random permus:";
-    for (int i = 0; i < 5; ++i)
-        std::cout << "     -> " << Permu(count) << std::endl;
 
     ENetPacket* p = create_packet(count + 3);
     p->data[0] = LEMNET_GAME_START;
@@ -182,6 +179,8 @@ void NetServer::calc()
             enet_peer_send(event.peer, LEMNET_CHANNEL_MAIN, kick_debug);
         }
 
+
+
         else if (event.type == ENET_EVENT_TYPE_DISCONNECT) {
             char room = players[event.peer - host->peers].room;
             players[event.peer - host->peers] = PlayerData();
@@ -194,13 +193,13 @@ void NetServer::calc()
             std::cout << "disconnect" << std::endl;
         }
 
+
+
         else if (type == LEMNET_WELCOME_DATA) {
             // The client always sends WelcomeData on connect.
             // The server doesn't send WelcomeData any more at all.
             WelcomeData wcd;
             wcd.read_from(event.packet);
-            std::cout << event.peer - host->peers << ": ";
-            std::cout << "welcome data" << std::endl;
 
             if ((int) wcd.protocol != NETWORK_PROTOCOL_VERSION
              || wcd.lpp_version < version_min) {
@@ -264,9 +263,13 @@ void NetServer::calc()
             }
         }
 
+
+
         else if (type == LEMNET_ROOM_CHANGE) {
             put_player_into_room(event.packet->data[1], event.packet->data[2]);
         }
+
+
 
         else if (type == LEMNET_ROOM_CREATE) {
             std::cout << (int) (event.peer - host->peers) << ": ";
@@ -286,11 +289,10 @@ void NetServer::calc()
             }
         }
 
+
+
         else if (type == LEMNET_PLAYER_DATA) {
             PlayerData& about_whom = players[event.peer - host->peers];
-
-            std::cout << (int) about_whom.number << ": ";
-            std::cout << "player data" << std::endl;
 
             // Set everybody non-ready if the player data change was something
             // else than a readyness change
@@ -312,14 +314,22 @@ void NetServer::calc()
             // Falls dies die letzte Bereitmeldung war, geben wir das Signal
             // zum Spielstarten an alle. Lag wird im Spiel durch die Gameplay-
             // -Klasse korrigiert.
-            bool everyone_ready = true;
-            for (PlDatIt i = players.begin(); i != players.end(); ++i)
-             if (i->room == about_whom.room && !i->ready && i->number != -1)
-             everyone_ready = false;
-
-            // This function resets the ready flags
-            if (everyone_ready) start_game_random_permutation(about_whom.room);
+            int players_ready = 0;
+            int players_unready = 0;
+            for (PlDatIt i = players.begin(); i != players.end(); ++i) {
+                if (i->number != -1 && i->room == about_whom.room
+                 && !i->spec) {
+                    if (i->ready) ++players_ready;
+                    else          ++players_unready;
+                }
+            }
+            if (players_ready > 0 && players_unready == 0) {
+                // This function resets the ready flags
+                start_game_random_permutation(about_whom.room);
+            }
         }
+
+
 
         else if (type == LEMNET_CHAT_MESSAGE
          ||      type == LEMNET_LEVEL_FILE

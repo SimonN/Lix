@@ -146,6 +146,9 @@ void Gameplay::calc_self()
         // Pause
         if (pan.get_mode_single() && pan.pause.get_clicked()) {
             pan.pause.set_on(!pan.pause.get_on());
+            pan.speed_slow.set_off();
+            pan.speed_fast.set_off();
+            pan.speed_turbo.set_off();
         }
         // Zoom
         if (pan.zoom.get_clicked()) {
@@ -160,6 +163,7 @@ void Gameplay::calc_self()
              : pan.speed_turbo.get_clicked() ? &pan.speed_turbo : 0;
             if (b) {
                 bool was_on = b->get_on();
+                pan.pause      .set_off();
                 pan.speed_slow .set_off();
                 pan.speed_fast .set_off();
                 pan.speed_turbo.set_off();
