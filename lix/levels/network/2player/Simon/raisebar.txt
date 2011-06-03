@@ -1,4 +1,4 @@
-$BUILT                                             2011-06-02 04:19:39
+$BUILT                                             2011-06-03 04:43:55
 $AUTHOR                                                          Simon
 $GERMAN                                                               
 $ENGLISH                                                 Raise the Bar
@@ -10,9 +10,9 @@ $ENGLISH                                                 Raise the Bar
 #TORUS_X                                                             0
 #TORUS_Y                                                             0
 #SECONDS                                                            45
-#INITIAL                                                            90
+#INITIAL                                                           120
 #REQUIRED                                                           20
-#RATE                                                               70
+#RATE                                                               80
 
 #WALKER                                                             40
 #JUMPER                                                             40
