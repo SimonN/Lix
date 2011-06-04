@@ -49,8 +49,6 @@ void NetServer::put_player_into_room(char player, char target_room)
         ENetPacket* pp = pl->create_packet();
         pp->data[0]    = LEMNET_PLAYER_BEFORE;
         enet_peer_send(host->peers + player, LEMNET_CHANNEL_MAIN, pp);
-        std::cout << "  -> send info about player "
-                  << (int) pl->number << std::endl;
     }
 
     // Notify people in the new room, do this before the room switcher enters
@@ -103,7 +101,6 @@ void NetServer::send_level_to(
     }
     p->data[i] = '\0';
     enet_peer_send(peer, LEMNET_CHANNEL_MAIN, p);
-    std::cout << "  -> submitting current level" << std::endl;
 }
 
 
@@ -340,7 +337,7 @@ void NetServer::calc()
                 rooms[pd.room].level = (char*) (event.packet->data + 2);
                 set_nobody_ready(pd.room);
                 std::cout << event.peer - host->peers << ": ";
-                std::cout << "level file" << std::endl;
+                std::cout << "selecting a new level" << std::endl;
             }
             // broadcast everything
             ENetPacket* p = enet_packet_create((void*) event.packet->data,
