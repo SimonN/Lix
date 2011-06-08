@@ -64,6 +64,14 @@ Gameplay
         Make a special sound when you're trying to switch to a skill you're
         out of (via hotkey or clicking on it)
 
+    Changing priority/z-coordinate on selection
+        If there's multiple pieces selected, their relative z-order should
+        be maintained when changing terrain priority. Currently, they get
+        messed up.
+
+    Terrain selection rotation and mirroring
+        Properly mirroring/rotating an entire selection
+
     Roper
         Verschiesst ein Seil zum Drueberlaufen.
 
