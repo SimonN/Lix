@@ -5,21 +5,7 @@
 
 
 
-Legende
-
-    (!)
-        Recht schwerer Fehler, wird nach Moeglichkeit schnell behoben.
-
-    (?)
-        Ein Bug, den ich bisher nicht reproduzieren konnte.
-
-    (/)
-        Ein Bug, gegen den ich bereits etwas unternommen habe. Ich bin mir
-        allerdings noch nicht sicher, ob er komplett behoben ist.
-
-
-
-Generell
+General
 
     Linux and Mac issues
         The game will compile, but maybe not run properly under these OSes.
@@ -54,7 +40,22 @@ Editor
         
 
 
-Gameplay
+Gameplay physics
+
+    Doors too tall
+        Lixes won't enter some exits. Also, some exits aren't sized at
+        multiples of 16 in both dimensions.
+
+    Exploder flinging
+        I tested it in Lix. What happens is actually the opposite of what you
+        said should happen:
+        -   If the second one bombs, it flings the first straight up
+        -   If the first one bombs, it flings the second one forward
+
+        Also, test assignment priority for stacked lixes. Inconsistent results?
+
+
+Gameplay non-physics
 
     RR buttons
         Their numbers aren't redrawn correctly everytime.
@@ -70,14 +71,6 @@ Gameplay
         the on/off graphic effect of a button during the draw step instead of
         instantly.
 
-    Spiesse an der Wand
-        Fallen an der Wand killen keine herabfallenden Lemmings, oder
-        Chamaeleons fressen keine fallenden Viecher. Im Original war das
-        allerdings so.
-
-    Einwegpfeile
-        In Originallevels werden Einbahnstrassen nur (komisch) eingezeichnet,
-        haben auf die Spielmechanik aber noch keine Wirkung.
 
 
 

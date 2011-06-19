@@ -1,4 +1,4 @@
-$BUILT                                             2011-06-03 04:43:55
+$BUILT                                             2011-06-11 11:17:51
 $AUTHOR                                                          Simon
 $GERMAN                                                               
 $ENGLISH                                                 Raise the Bar
@@ -30,10 +30,10 @@ $ENGLISH                                                 Raise the Bar
 :Space-s9:                                               194       352
 :Space-s9:                                               416       352
 
-:Space-s0:                                               144        38
-:Space-s0:                                               398        38     r
-:Space-s0:                                               318       168
-:Space-s0:                                               224       168     r
+:./bitmap/simon/hatch001.H:                              160        32
+:./bitmap/simon/hatch001.H:                              416        32     r
+:./bitmap/simon/hatch001.H:                              240       176     r
+:./bitmap/simon/hatch001.H:                              332       176
 
 :Space-s1:                                               576       176
 :Space-s1:                                                 0       176

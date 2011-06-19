@@ -1,4 +1,4 @@
-$BUILT                                             2011-02-23 14:22:21
+$BUILT                                             2011-06-11 11:24:52
 $AUTHOR                                                          Simon
 $GERMAN                                                               
 $ENGLISH                                         Raise the Bar Rubbish
@@ -12,7 +12,7 @@ $ENGLISH                                         Raise the Bar Rubbish
 #SECONDS                                                            45
 #INITIAL                                                            90
 #REQUIRED                                                           20
-#RATE                                                               70
+#RATE                                                               75
 
 #WALKER                                                             40
 #JUMPER                                                             40
@@ -30,11 +30,21 @@ $ENGLISH                                         Raise the Bar Rubbish
 :Space-s9:                                               194       352
 :Space-s9:                                               416       352
 
-:Space-s0:                                               144        38
-:Space-s0:                                               398        38     r
-:Space-s0:                                               318       168
-:Space-s0:                                               224       168     r
+:Space-s0:                                               144        46
+:Space-s0:                                               398        46     r
+:Space-s0:                                               318       174
+:Space-s0:                                               224       174     r
 
+:Space-s1:                                               576       176
+:Space-s1:                                                 0       176
+:Space-s1:                                               576       192
+:Space-s1:                                                 0       192
+:Space-s1:                                               576       208
+:Space-s1:                                                 0       208
+:Space-s1:                                               576       224
+:Space-s1:                                                 0       224
+:Space-s1:                                               576       240
+:Space-s1:                                                 0       240
 :Space-s1:                                               576       256
 :Space-s1:                                                 0       256
 
