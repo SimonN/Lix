@@ -37,7 +37,7 @@ void Goal::draw(bool owners)
      for (TribeVec::const_iterator i = tribes.begin(); i != tribes.end(); ++i){
         const Cutbit& c = GraLib::get_lix((*i)->style);
         c.draw(get_ground(),
-         get_x() + get_object()->trigger_x + get_object()->trigger_xl / 2
+         get_x() + get_object()->get_trigger_x() + get_object()->trigger_xl / 2
          - c.get_xl() / 2
          + (20 * offset++)
          - 10 * (tribes.size() - 1), // tribes vector only contains owners

@@ -47,7 +47,8 @@ void Editor::draw()
         map.clear_to_color(color[COL_PINK]);
         for (int type = Object::TERRAIN; type != Object::MAX; ++type)
          for (GraIt i =  object[Object::perm(type)].begin();
-                    i != object[Object::perm(type)].end(); ++i) i->draw();
+                    i != object[Object::perm(type)].end(); ++i)
+                        i->draw_with_trigger_area();
         clock = Help::timer_ticks - clock;
         if (clock < Help::timer_ticks_per_second / 5) draw_dragging = true;
         else                                          draw_dragging = false;

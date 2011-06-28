@@ -27,7 +27,7 @@ struct Object {
         TRAP,
         WATER,   // subtype 1 = fire
         ONEWAY,  // subtype 1 = pointing right instead of left
-        FLING,	 // subtype 1 = permanent
+        FLING,	 // subtype & 1 = always same xdir, subtype & 2 = non-constant
         TRAMPOLINE,
         MAX
     };
@@ -46,6 +46,8 @@ struct Object {
     int  trigger_y;
     int  trigger_xl;
     int  trigger_yl;
+    bool trigger_xc; // center around trigger_x instead of going right from it
+    bool trigger_yc; // center around trigger_y instead of going down from it
 
     int  special_x; // not used for everything, but e.g. for flingers
     int  special_y;
@@ -58,6 +60,14 @@ struct Object {
 
     Object(const Cutbit&, Type = EMPTY, int = 0);
     ~Object();
+
+    void read_definitions_file(const std::string&);
+
+    // these do automatically the calculation of the absolute trigger location
+    inline int get_trigger_x() const {
+                                return trigger_x - trigger_xc*trigger_xl/2; }
+    inline int get_trigger_y() const {
+                                return trigger_y - trigger_yc*trigger_yl/2; }
 
     // Macht aus TERRAIN = 0, HATCH = 1, ... die richtige Anzeigereihenfolge
     static Object::Type perm(const int);

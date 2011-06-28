@@ -578,6 +578,8 @@ void GraphicSetL2::make_specials()
 			}
 
 			Object ob(Cutbit(bitvec), obj_type, obj_subtype);
+            ob.trigger_xc = false;
+            ob.trigger_yc = false;
 
 			// set off by bitmap base position and stretch by 2
             // geoo wrote:

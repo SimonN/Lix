@@ -17,8 +17,8 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2011, 06, 03, 00)),
-    version_min          (CONCAT(2011, 06, 02, 00)),
+    version              (CONCAT(2011, 06, 28, 00)),
+    version_min          (CONCAT(2011, 06, 28, 00)),
 
     updates_per_second   (15),
     skill_max            (12),
@@ -52,6 +52,7 @@ Globals::Globals()
     ext_level_orig               (".lvl"),
     ext_replay                   (".txt"),
     ext_user                     (".txt"),
+    ext_object_definitions       (".txt"),
     mask_anything                ("*.*"),
     mask_ext_level               ("*.txt"),
     mask_ext_level_orig          ("*.lvl"),
@@ -154,6 +155,33 @@ Globals::Globals()
     level_rate                   ("RATE"),
     level_count_neutrals_only    ("COUNT_NEUTRALS_ONLY"),
     level_transfer_skills        ("TRANSFER_SKILLS"),
+
+    // Special level objects (hatches, exits, ...) definitions file
+    objdef_type                  ("TYPE"),
+    objdef_ta_absolute_x         ("TRIGGER_AREA_POSITION_ABSOLUTE_X"),
+    objdef_ta_absolute_y         ("TRIGGER_AREA_POSITION_ABSOLUTE_Y"),
+    objdef_ta_from_center_x      ("TRIGGER_AREA_POSITION_FROM_CENTER_X"),
+    objdef_ta_from_center_y      ("TRIGGER_AREA_POSITION_FROM_CENTER_Y"),
+    objdef_ta_from_bottom_y      ("TRIGGER_AREA_POSITION_FROM_BOTTOM_Y"),
+    objdef_ta_xl                 ("TRIGGER_AREA_SIZE_X"),
+    objdef_ta_yl                 ("TRIGGER_AREA_SIZE_Y"),
+    objdef_fling_ahead           ("FLING_SPEED_AHEAD"),
+    objdef_fling_x               ("FLING_SPEED_X"),
+    objdef_fling_y               ("FLING_SPEED_Y"),
+    objdef_cooldown              ("COOLDOWN"),
+
+    objdef_type_terrain          ("TERRAIN"),
+    objdef_type_steel            ("STEEL"),
+    objdef_type_deco             ("DECORATION"),
+    objdef_type_hatch            ("HATCH"),
+    objdef_type_goal             ("GOAL"),
+    objdef_type_trap             ("TRAP"),
+    objdef_type_water            ("WATER"),
+    objdef_type_fire             ("FIRE"),
+    objdef_type_oneway_left      ("ONEWAY_LEFT"),
+    objdef_type_oneway_right     ("ONEWAY_RIGHT"),
+    objdef_type_fling            ("FLING"),
+    objdef_type_trampoline       ("TRAMPOLINE"),
 
     // Replaydatei-Schluessel
     replay_version_min           ("VERSION_REQUIRED"),

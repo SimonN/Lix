@@ -105,6 +105,15 @@ void ObjLib::load_file(const std::string& no_ext, const std::string& s)
     else {
         object.insert(std::make_pair(no_ext, Object(c, type, st)));
     }
+
+    // Load more definitions from the accompanying text file.
+    if (type != Object::TERRAIN) {
+        std::map <std::string, Object> ::iterator itr = object.find(no_ext);
+        if (itr != object.end() && itr->second.type != Object::TERRAIN) {
+            const std::string defs = no_ext + gloB->ext_object_definitions;
+            itr->second.read_definitions_file(defs);
+        }
+    }
 }
 
 

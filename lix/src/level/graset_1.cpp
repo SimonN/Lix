@@ -360,12 +360,14 @@ void GraphicSetL1::make_specials(
             Object ob(Cutbit(bitvec), type, subtype);
             // Wir vermehren alle Werte 4 in der Doku zu 8, weil L++ doppelte
             // Aufloesung benutzt.
+            ob.trigger_xc = false;
             ob.trigger_x  = sp.trigger_left   * 8;
             ob.trigger_xl = sp.trigger_width  * 8;
             // Make a better experience by using L++ default y values for
             // any goal. You have to mine in CindyLand now to get in.
             // They don't jump through the roof in the Crystal set.
             if (type != Object::GOAL) {
+                ob.trigger_yc = false;
                 ob.trigger_y  = sp.trigger_top    * 8 - 8;
                 ob.trigger_yl = sp.trigger_height * 8;
             }

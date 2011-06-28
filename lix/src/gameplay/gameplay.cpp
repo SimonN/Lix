@@ -273,8 +273,8 @@ void Gameplay::prepare_level()
         int h = trlo->hatch_next;
         do {
             hatches[h].set_style(trlo->style);
-            sum_x += hatches[h].get_x() + hatches[h].get_object()->trigger_x;
-            sum_y += hatches[h].get_y() + hatches[h].get_object()->trigger_y;
+            sum_x+=hatches[h].get_x()+hatches[h].get_object()->get_trigger_x();
+            sum_y+=hatches[h].get_y()+hatches[h].get_object()->get_trigger_y();
             ++sum_h;
             // Die nächste Klappe kommt an die Reihe
             h += cs.tribes.size();

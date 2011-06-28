@@ -128,7 +128,7 @@ increasing order, reverting back to the first frame afterwards. The more frames
 a trap has, the longer it is busy killing one lem.
 
 The trigger area of goals, traps etc. depends on the size of a single frame.
-I should write detailed information about them some time. General rules are:
+You can edit them manually (see next paragraph) or keep the following defaults.
 Hatches spawn lems in their horizontal center and more towards their bottom.
 Goals have their trigger area in their horizontal center and exactly at the
 bottom of the picture. Water and fire have a trigger area that spans over the
@@ -136,4 +136,7 @@ object completely in the horizontal direction, but not completely vertically.
 Traps have horizontally centered trigger area, and its vertical location is
 around 80 percent down from the top.
 
+If you want to edit the trigger areas or hatch spawn points, you can do so
+by adding a .txt file with the same pre-extension name next to your object
+graphic file. Read the documentation in ``objdef.txt'' for instructions.
 

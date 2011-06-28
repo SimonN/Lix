@@ -40,5 +40,6 @@ public:
 
     virtual void animate();
     virtual void draw();
+            void draw_with_trigger_area();
 
 };

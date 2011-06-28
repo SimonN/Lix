@@ -133,16 +133,27 @@ void EdGraphic::draw()
                                   get_rotation() ? 1 : 0, 0);
         }
     }
-//    // Draw trigger area
-//    if (object->type == Object::GOAL
-//     || object->type == Object::TRAP
-//     || object->type == Object::WATER) {
-//        rect(get_ground().get_al_bitmap(),
-//        get_x() + object->trigger_x,
-//        get_y() + object->trigger_y,
-//        get_x() + object->trigger_x + object->trigger_xl,
-//        get_y() + object->trigger_y + object->trigger_yl,
-//        makecol(0x80, 0xC0, 0xFF));
-//    }
+}
+
+
+
+void EdGraphic::draw_with_trigger_area()
+{
+    // do the regular drawing
+    draw();
+    // now draw trigger area on top
+    if (object->type == Object::GOAL
+     || object->type == Object::HATCH
+     || object->type == Object::TRAP
+     || object->type == Object::WATER
+     || object->type == Object::FLING) {
+        get_ground().draw_rectangle(
+            get_x() + object->get_trigger_x(),
+            get_y() + object->get_trigger_y(),
+            object->trigger_xl,
+            object->trigger_yl,
+            makecol(0x40, 0xFF, 0xFF)
+        );
+    }
 }
 

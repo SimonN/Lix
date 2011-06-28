@@ -5,6 +5,7 @@
 
 #include "object.h"
 #include "../graphic/glob_gfx.h" // colors for the selbox determination
+#include "../other/io.h"
 
 Object::Object(const Cutbit& c, Type t, int st)
 :
@@ -19,6 +20,8 @@ Object::Object(const Cutbit& c, Type t, int st)
     trigger_y (0),
     trigger_xl(0),
     trigger_yl(0),
+    trigger_xc(false),
+    trigger_yc(false),
     sound     (Sound::NOTHING)
 {
     switch (type) {
@@ -27,16 +30,20 @@ Object::Object(const Cutbit& c, Type t, int st)
         trigger_y  = std::max(20, cb.get_yl() - 24);
         break;
     case GOAL:
-        trigger_x  = cb.get_xl() / 2 - 5;
-        trigger_y  = cb.get_yl() - 7;
+        trigger_x  = cb.get_xl() / 2;
+        trigger_y  = cb.get_yl() - 2;
         trigger_xl = 10;
         trigger_yl = 10;
+        trigger_xc = true;
+        trigger_yc = true;
         break;
     case TRAP:
-        trigger_x  = cb.get_xl() / 2     - 3;
-        trigger_y  = cb.get_yl() * 4 / 5 - 3;
+        trigger_x  = cb.get_xl() / 2;
+        trigger_y  = cb.get_yl() * 4 / 5;
         trigger_xl = 6;
         trigger_yl = 6;
+        trigger_xc = true;
+        trigger_yc = true;
         sound      = Sound::SPLAT;
         break;
     case WATER:
@@ -61,6 +68,70 @@ Object::Object(const Cutbit& c, Type t, int st)
 
 Object::~Object()
 {
+}
+
+
+
+void Object::read_definitions_file(const std::string& filename)
+{
+    // This assumes that the object's xl, yl, type, and subtype
+    // are all correctly set by the constructor or otherwise.
+
+    std::vector <IO::Line> lines;
+    if (! IO::fill_vector_from_file(lines, filename)) return;
+
+    for (IO::LineIt i = lines.begin(); i != lines.end(); ++i)
+        switch(i->type) {
+    case '#':
+        if      (i->text1 == gloB->objdef_ta_absolute_x) {
+            trigger_x = i->nr1;
+            trigger_xc = false;
+        }
+        else if (i->text1 == gloB->objdef_ta_absolute_y) {
+            trigger_y = i->nr1;
+            trigger_yc = false;
+        }
+        else if (i->text1 == gloB->objdef_ta_from_center_x) {
+            trigger_x = cb.get_xl() / 2 + i->nr1;
+            trigger_xc = true;
+        }
+        else if (i->text1 == gloB->objdef_ta_from_center_y) {
+            trigger_y = cb.get_yl() / 2 + i->nr1;
+            trigger_yc = true;
+        }
+        else if (i->text1 == gloB->objdef_ta_from_bottom_y) {
+            trigger_y = cb.get_yl() - 2 + i->nr1;
+            trigger_yc = true;
+        }
+        else if (i->text1 == gloB->objdef_ta_xl) {
+            trigger_xl = i->nr1;
+            if (trigger_xl < 0) trigger_xl = 0;
+        }
+        else if (i->text1 == gloB->objdef_ta_yl) {
+            trigger_yl = i->nr1;
+            if (trigger_yl < 0) trigger_yl = 0;
+        }
+        else if (i->text1 == gloB->objdef_fling_ahead) {
+            type = FLING;
+            subtype = (subtype > 1) ? 2 : 0; // bit 0 signifies fixed direction
+            special_x = i->nr1;
+        }
+        else if (i->text1 == gloB->objdef_fling_x) {
+            type = FLING;
+            subtype = (subtype > 1) ? 3 : 1; // bit 0 signifies fixed direction
+            special_x = i->nr1;
+        }
+        else if (i->text1 == gloB->objdef_fling_y) {
+            type = FLING;
+            special_y = i->nr1;
+        }
+        else if (i->text1 == gloB->objdef_cooldown) {
+            type = FLING;
+            subtype = (subtype % 1) + (i->nr1 > 0) * 2; // bit 1 means cooldown
+        }
+    default:
+        break;
+    }
 }
 
 

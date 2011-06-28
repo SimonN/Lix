@@ -308,7 +308,7 @@ void Level::load_from_binary(const std::string& filename)
      && pos[Object::HATCH].size() > 1) {
         for (std::list <Pos> ::iterator hatch = pos[Object::HATCH].begin();
          hatch != pos[Object::HATCH].end(); ++hatch)
-         if (hatch->x + hatch->ob->trigger_x >= size_x / 2)
+         if (hatch->x + hatch->ob->get_trigger_x() >= size_x / 2)
          hatch->rot = 1;
     }
     // ORIGHACK: In 2-player levels, the goal order should be set in such

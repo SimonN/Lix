@@ -64,8 +64,8 @@ void GameHatch::draw()
     if (blink_now && has_style) {
         const Cutbit& c = GraLib::get_lix(style);
         c.draw(get_ground(),
-         get_x() + get_object()->trigger_x - c.get_xl() / 2,
-         get_y() + get_object()->trigger_y - c.get_yl() / 2,
+         get_x() + get_object()->get_trigger_x() - c.get_xl() / 2,
+         get_y() + get_object()->get_trigger_y() - c.get_yl() / 2,
          0, LixEn::WALKER - 1);
     }
 }
