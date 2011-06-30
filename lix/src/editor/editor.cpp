@@ -25,7 +25,10 @@ Editor::Editor()
     mouse_cursor_offset(15),
     mouse_cursor(GraLib::get(gloB->file_bitmap_mouse), Api::Manager::get_torbit()),
 
-    level(useR->single_last_dir + useR->single_last_file),
+    level     (useR->single_last_dir + useR->single_last_file),
+    bg_color  (makecol(level.bg_red,
+                       level.bg_green,
+                       level.bg_blue)),
     map       (level.size_x, level.size_y, LEMSCR_X, LEMSCR_Y - 60),
     map_frames(level.size_x, level.size_y, LEMSCR_X, LEMSCR_Y - 60),
 
@@ -216,6 +219,10 @@ void Editor::calc() {
             delete window_scroll;
             window_scroll = 0;
             panel[MENU_SCROLL].set_off();
+            bg_color = makecol(level.bg_red,
+                               level.bg_green,
+                               level.bg_blue);
+            draw_required = true;
         }
     } else if (window_variable) {
         if (window_variable->get_exit()) {

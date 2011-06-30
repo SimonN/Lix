@@ -141,10 +141,14 @@ struct Level {
 
     int  size_x;
     int  size_y;
-    int  start_x;
-    int  start_y;
     bool torus_x;
     bool torus_y;
+
+    int  start_x;
+    int  start_y;
+    int  bg_red;
+    int  bg_green;
+    int  bg_blue;
 
     int  seconds;
     int  initial;

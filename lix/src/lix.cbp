@@ -17,8 +17,6 @@ Exploder
 Shrugger2
 Jumper
 
-Alle ungeraden Terrainstuecke sollen einen durchsichtigen Pixelrand kriegen, dass sie plattformuebergreifend gedreht werden.
-
 Basher soll im 1. Stroke weniger Erde zum Weitermachen verlangen, oder immer durch eine Treppe bohren.
 
 Absturz bei Shift+Esc aus Spielraum, nicht Lobby

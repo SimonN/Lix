@@ -28,19 +28,29 @@ private:
     Level& level;
     Map&   map;
 
+    Label desc_win_scroll;
+
     Number x;
     Number y;
 
     TextButton jump;
     TextButton current;
-    TextButton ok;
-    TextButton cancel;
+
+    Number     bg_r;
+    Number     bg_g;
+    Number     bg_b;
 
     Label      desc_win_scroll_x;
     Label      desc_win_scroll_y;
+    Label      desc_win_scroll_r;
+    Label      desc_win_scroll_g;
+    Label      desc_win_scroll_b;
+
+    TextButton ok;
+    TextButton cancel;
 
     // Kopierverbot
-    WindowScroll(const WindowScroll&);
+    WindowScroll    (const WindowScroll&);
     void operator = (const WindowScroll&);
 
 public:

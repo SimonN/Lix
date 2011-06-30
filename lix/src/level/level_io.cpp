@@ -72,10 +72,13 @@ void Level::load_from_vector(const std::vector <IO::Line>& lines)
     case '#':
         if      (i->text1 == gloB->level_size_x  ) size_x   = i->nr1;
         else if (i->text1 == gloB->level_size_y  ) size_y   = i->nr1;
-        else if (i->text1 == gloB->level_start_x ) start_x  = i->nr1;
-        else if (i->text1 == gloB->level_start_y ) start_y  = i->nr1;
         else if (i->text1 == gloB->level_torus_x ) torus_x  = i->nr1;
         else if (i->text1 == gloB->level_torus_y ) torus_y  = i->nr1;
+        else if (i->text1 == gloB->level_start_x ) start_x  = i->nr1;
+        else if (i->text1 == gloB->level_start_y ) start_y  = i->nr1;
+        else if (i->text1 == gloB->level_bg_red  ) bg_red   = i->nr1;
+        else if (i->text1 == gloB->level_bg_green) bg_green = i->nr1;
+        else if (i->text1 == gloB->level_bg_blue ) bg_blue  = i->nr1;
         else if (i->text1 == gloB->level_seconds ) seconds  = i->nr1;
         else if (i->text1 == gloB->level_initial ) initial  = i->nr1;
         else if (i->text1 == gloB->level_initial_legacy) initial  = i->nr1;
@@ -190,6 +193,10 @@ void Level::load_finalize()
     if (rate     < 1)                   rate     = 1;
     if (rate     > 99)                  rate     = 99;
 
+    if (bg_red   < 0) bg_red   = 0; if (bg_red   > 255) bg_red   = 255;
+    if (bg_green < 0) bg_green = 0; if (bg_green > 255) bg_green = 255;
+    if (bg_blue  < 0) bg_blue  = 0; if (bg_blue  > 255) bg_blue  = 255;
+
     start_x = Help::mod(start_x, size_x);
     start_y = Help::mod(start_y, size_y);
 
@@ -238,10 +245,16 @@ std::ostream& operator << (std::ostream& out, const Level& l)
 
      << IO::LineHash  (gloB->level_size_x,       l.size_x  )
      << IO::LineHash  (gloB->level_size_y,       l.size_y  )
-     << IO::LineHash  (gloB->level_start_x,      l.start_x )
-     << IO::LineHash  (gloB->level_start_y,      l.start_y )
      << IO::LineHash  (gloB->level_torus_x,      l.torus_x )
      << IO::LineHash  (gloB->level_torus_y,      l.torus_y )
+     << IO::LineHash  (gloB->level_start_x,      l.start_x )
+     << IO::LineHash  (gloB->level_start_y,      l.start_y )
+     << IO::LineHash  (gloB->level_bg_red,       l.bg_red  )
+     << IO::LineHash  (gloB->level_bg_green,     l.bg_green)
+     << IO::LineHash  (gloB->level_bg_blue,      l.bg_blue )
+
+     << std::endl
+
      << IO::LineHash  (gloB->level_seconds,      l.seconds )
      << IO::LineHash  (gloB->level_initial,      l.initial )
      << IO::LineHash  (gloB->level_required,     l.required)

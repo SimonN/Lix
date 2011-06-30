@@ -20,7 +20,7 @@ void Editor::undraw()
     // OSD zuerst entzeichnen
     mouse_cursor.undraw();
 
-    if (frame_draw_x1 != -1) draw_selection_frame(color[COL_BLACK]);
+    if (frame_draw_x1 != -1) draw_selection_frame(bg_color);
 }
 
 
@@ -107,7 +107,7 @@ void Editor::draw()
     mouse_cursor.set_y(hardware.get_my()-mouse_cursor_offset);
     mouse_cursor.draw();
 
-    pre_screen->clear_to_color(color[COL_BLACK]);
+    pre_screen->clear_to_color(bg_color);
 
     // Draw everything to pre_screen
     map       .draw(*pre_screen);

@@ -36,11 +36,14 @@ void Level::clear()
     name_english = "";
     size_x       = LEMSCR_X;
     size_y       = LEMSCR_Y - gloB->panel_gameplay_yl;
-    start_x      =  0;
-    start_y      =  0;
     torus_x      = false;
     torus_y      = false;
-    seconds      =  0;
+    start_x      = 0;
+    start_y      = 0;
+    bg_red       = 0;
+    bg_green     = 0;
+    bg_blue      = 0;
+    seconds      = 0;
     initial      = 30;
     required     = 20;
     rate         = 50;
@@ -68,10 +71,13 @@ bool Level::operator == (const Level& l) const
 
      || this->size_x       != l.size_x
      || this->size_y       != l.size_y
-     || this->start_x      != l.start_x
-     || this->start_y      != l.start_y
      || this->torus_x      != l.torus_x
      || this->torus_y      != l.torus_y
+     || this->start_x      != l.start_x
+     || this->start_y      != l.start_y
+     || this->bg_red       != l.bg_red
+     || this->bg_green     != l.bg_green
+     || this->bg_blue      != l.bg_blue
 
      || this->seconds      != l.seconds
      || this->initial      != l.initial

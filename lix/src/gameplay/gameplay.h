@@ -68,8 +68,9 @@ private:
     unsigned long timer_tick_last_F12;
     int           timer_ticks_for_update_client;
 
-    Map    map;
-    Torbit steel_mask;
+    int           bg_color;
+    Map           map;
+    Torbit        steel_mask;
 
     State         cs; // current state
     StateManager  state_manager;

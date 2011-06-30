@@ -176,8 +176,12 @@ win_size_torus_y,
 
 // Karten-Startausschnitt
 win_scroll_title,
+win_scroll_desc,
 win_scroll_x,
 win_scroll_y,
+win_scroll_r,
+win_scroll_g,
+win_scroll_b,
 win_scroll_jump,
 win_scroll_current,
 

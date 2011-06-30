@@ -17,7 +17,7 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2011, 06, 28, 00)),
+    version              (CONCAT(2011, 06, 29, 00)),
     version_min          (CONCAT(2011, 06, 28, 00)),
 
     updates_per_second   (15),
@@ -144,10 +144,13 @@ Globals::Globals()
     level_name_english           ("ENGLISH"),
     level_size_x                 ("SIZE_X"),
     level_size_y                 ("SIZE_Y"),
-    level_start_x                ("START_X"),
-    level_start_y                ("START_Y"),
     level_torus_x                ("TORUS_X"),
     level_torus_y                ("TORUS_Y"),
+    level_start_x                ("START_X"),
+    level_start_y                ("START_Y"),
+    level_bg_red                 ("BACKGROUND_RED"),
+    level_bg_green               ("BACKGROUND_GREEN"),
+    level_bg_blue                ("BACKGROUND_BLUE"),
     level_seconds                ("SECONDS"),
     level_initial                ("INITIAL"),
     level_initial_legacy         ("LEMMINGS"), // backwards compatibility

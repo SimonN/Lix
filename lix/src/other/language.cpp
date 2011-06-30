@@ -162,8 +162,12 @@ win_size_torus_y,
 
 // Karten-Startausschnitt
 win_scroll_title,
+win_scroll_desc,
 win_scroll_x,
 win_scroll_y,
+win_scroll_r,
+win_scroll_g,
+win_scroll_b,
 win_scroll_jump,
 win_scroll_current,
 
@@ -516,9 +520,14 @@ void Language::set(const Language lang)
         win_size_torus_y              = "Wrap around vertically";
 
         // Scrollposition
-        win_scroll_title              = "Initial Scrolling Position";
+        win_scroll_title              = "Level Visuals";
+        win_scroll_desc               = "Initially visible region"
+                                        " (Single Player only)";
         win_scroll_x                  = "X Coordinate (0 = left)";
         win_scroll_y                  = "Y Coordinate (0 = top)";
+        win_scroll_r                  = "Background red";
+        win_scroll_g                  = "Background green";
+        win_scroll_b                  = "Background blue";
         win_scroll_jump               = "Scroll there";
         win_scroll_current            = "Current Position";
 
@@ -739,7 +748,7 @@ eb[Editor::HELP]
 eb[Editor::MENU_SIZE]
  = "Measures: Set the size and the topology for the level.";
 eb[Editor::MENU_SCROLL]
- = "Scrolling position: Set the Single Player scrolling position.";
+ = "Visuals: Set the scrolling position and background color.";
 eb[Editor::MENU_LEMMING]
  = "Variables: Set the fundamental level variables.";
 eb[Editor::MENU_SKILL]
@@ -917,9 +926,14 @@ eb[Editor::ADD_HAZARD]
         win_size_torus_y              = "Vertikal rundumgehend";
 
         // Scrollposition
-        win_scroll_title              = "Start-Scrollposition";
+        win_scroll_title              = "Aussehen des Levels";
+        win_scroll_desc               = "Anfangs sichtbarer Bereich"
+                                        " (nur Einzelspieler)";
         win_scroll_x                  = "X-Koordinate (0 = links)";
         win_scroll_y                  = "Y-Koordinate (0 = oben)";
+        win_scroll_r                  = "Hintergrund Rot";
+        win_scroll_g                  = "Hintergrund Gruen";
+        win_scroll_b                  = "Hintergrund Blau";
         win_scroll_jump               = "Dorthin scrollen";
         win_scroll_current            = "Aktuelle Position";
 
@@ -1124,7 +1138,7 @@ eb[Editor::SELECT_NOOW]  = "Nicht ueberschreiben: Ausgew. Ter. ueberschr. nur du
 eb[Editor::VIEW_ZOOM]    = "Zoom: Vergroesserung der Karte ein- oder ausschalten.";
 eb[Editor::HELP]         = "Hilfe: Aktiviert/deaktiviert diese Button-Hilfstexte.";
 eb[Editor::MENU_SIZE]    = "Abmessungen: Festlegen der Groesse und Topologie des Levels.";
-eb[Editor::MENU_SCROLL]  = "Scrollposition: Festlegen der Einzelspieler-Scroll-Startposition";
+eb[Editor::MENU_SCROLL]  = "Aussehen: Festlegen der Startposition und Hintergrundfarbe.";
 eb[Editor::MENU_LEMMING] = "Variablen: Festlegen grundsaetzlicher Level-Variablen.";
 eb[Editor::MENU_SKILL]   = "Faehigkeiten: Festlegen der nutzbaren Lix-Faehigkeiten.";
 eb[Editor::ADD_TERRAIN]  = "Terrain: Ein durchgrabbares Terrain-Object platzieren.";

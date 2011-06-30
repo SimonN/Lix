@@ -44,6 +44,7 @@ private:
     bool      mouse_hold_started_outside_panel;
 
     Level level;
+    int   bg_color;
     Map   map;
     Map   map_frames; // Frames are drawn upon here. This map is resized
                       // and scrolled only in the drawing code, and only if

@@ -49,6 +49,9 @@ Gameplay::Gameplay(Replay* rep)
     timer_tick_last_F12    (0),
     timer_ticks_for_update_client(timer_ticks_for_update_normal),
 
+    bg_color               (makecol(level.bg_red,
+                                    level.bg_green,
+                                    level.bg_blue)),
     map                    (level.size_x, level.size_y, LEMSCR_X,
                             LEMSCR_Y - gloB->panel_gameplay_yl),
     steel_mask             (level.size_x, level.size_y, LEMSCR_X,

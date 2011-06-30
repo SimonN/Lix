@@ -26,7 +26,7 @@ void Gameplay::undraw()
 
 
 void Gameplay::draw() {
-    map.clear_screen_rectangle();
+    map.clear_screen_rectangle(bg_color);
 
     // Zuerst die interaktiven Objekte. Wir zeichnen Listen mit allen Indizies,
     // auch wenn die Listen von TERRAIN oder GOAL natuerlich immer leer sind.

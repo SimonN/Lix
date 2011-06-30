@@ -81,7 +81,7 @@ Torbit Level::create_preview(unsigned w, unsigned h, int c) const
                 i != pos[Object::perm(type)].end(); ++i)
      drit(i, Object::perm(type) == Object::TERRAIN ? temp_ter : temp_obj);
 
-    temp_obj.replace_color(color[COL_PINK], color[COL_BLACK]);
+    temp_obj.replace_color(color[COL_PINK], makecol(bg_red,bg_green,bg_blue));
     temp_ter.draw(temp_obj);
 
     // Etwas aus ../api/button_c.cpp kopierter Code:
