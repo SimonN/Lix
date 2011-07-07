@@ -14,7 +14,7 @@ MKDIR    := mkdir -p
 
 SRCDIR   := src
 OBJDIR   := obj
-DEPDIR   := deps
+DEPDIR   := $(OBJDIR)
 BINDIR   := bin
 
 CLIENT_BIN  := $(BINDIR)/lix
@@ -50,11 +50,15 @@ clean:
 
 $(CLIENT_BIN): $(CLIENT_OBJS)
 	@$(MKDIR) $(BINDIR)
-	$(LD) $(LDDIRS) $(LDALLEG) $(LDENET) $(CLIENT_OBJS) -o $(CLIENT_BIN)
+	@echo Linking the game binary \`$(CLIENT_BIN)\'.
+	@echo Linker flags: $(LDDIRS) $(LDALLEG) $(LDENET)
+	@$(LD) $(LDDIRS) $(LDALLEG) $(LDENET) $(CLIENT_OBJS) -o $(CLIENT_BIN)
 
 $(SERVER_BIN): $(SERVER_OBJS)
 	@$(MKDIR) $(BINDIR)
-	$(LD) $(LDDIRS) $(LDALLEG) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN)
+	@echo Linking the game binary \`$(SERVER_BIN)\'.
+	@echo Linker flags: $(LDDIRS) $(LDALLEG) $(LDENET)
+	@$(LD) $(LDDIRS) $(LDALLEG) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@$(MKDIR) `dirname $@` `dirname $(DEPDIR)/$*.d`
