@@ -52,6 +52,14 @@ int main(int argc, char* argv[])
     Log::initialize();
     LixEn::initialize();
 
+    // Check for proper working directory. Otherwise, exit with error
+    if (! Help::dir_exists(gloB->dir_data_bitmap)) {
+        allegro_message(gloB->error_wrong_working_dir.c_str());
+        Log::deinitialize();
+        Globals::deinitialize();
+        return -1;
+    }
+
     gloB->load();
     useR->load();
     Help::MainArgs margs = Help::parse_main_arguments(argc, argv);
@@ -79,8 +87,8 @@ int main(int argc, char* argv[])
     gloB->save();
 
     Network::deinitialize();
-    Sound::deinitialize();
     destroy_all_bitmaps();
+    Sound::deinitialize();
     Log::deinitialize();
     Globals::deinitialize();
 

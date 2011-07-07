@@ -309,6 +309,7 @@ std::ostream& operator << (std::ostream& o, const Level::PosLi& li)
 
 bool Level::get_binary(const std::string& filename)
 {
+    if (! ::exists(filename.c_str())) return false;
     std::ifstream file(filename.c_str(), std::ios::binary);
     // the length check before the read() was necessary for me on Linux
     // to get the Debugger past this, it got stuck on read() when nothing

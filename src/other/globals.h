@@ -68,6 +68,7 @@ public:
         // Diverses
         empty_string,
         net_ip_localhost,
+        error_wrong_working_dir,
 
         // Dateien laden
         ext_level,

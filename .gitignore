@@ -3,41 +3,42 @@
 # instead of this file, which will affect all users and is versioned.
 
 # exclude all object files due to compiling code
-*.[oad]
+obj/*
+deps/*
+bin/*debug*
 *.layout
 *.depend
-lix/lix_debug
 
 # exclude the user data, log and config files in data/
-lix/data/user/*.txt
-lix/data/config.txt
-lix/data/log.txt
+data/user/*.txt
+data/config.txt
+data/log.txt
 
 # exclude Lemmings legacy material: terrain and levels
-lix/bitmap/orig/L1/*
-lix/bitmap/orig/L1/*/*
-lix/bitmap/orig/L2/*/*
-lix/levels/orig/*
-lix/levels/network/2player/1. Lemmings/*
-lix/levels/network/2player/2. ONML/*
+bitmap/orig/L1/*
+bitmap/orig/L1/*/*
+bitmap/orig/L2/*/*
+levels/orig/*
+levels/network/2player/1. Lemmings/*
+levels/network/2player/2. ONML/*
 
 # exclude non-free sounds. Make an exception for finished replacements,
-lix/data/sound/*
-!lix/data/sound/brick.wav
-!lix/data/sound/assign.wav
-!lix/data/sound/clock.wav
-!lix/data/sound/fire.wav
-!lix/data/sound/goal.wav
-!lix/data/sound/goal_bad.wav
-!lix/data/sound/hatch.wav
-!lix/data/sound/lets_go.wav
-!lix/data/sound/overtime.wav
-!lix/data/sound/steel.wav
-!lix/data/sound/water.wav
+data/sound/*
+!data/sound/brick.wav
+!data/sound/assign.wav
+!data/sound/clock.wav
+!data/sound/fire.wav
+!data/sound/goal.wav
+!data/sound/goal_bad.wav
+!data/sound/hatch.wav
+!data/sound/lets_go.wav
+!data/sound/overtime.wav
+!data/sound/steel.wav
+!data/sound/water.wav
 
 # exclude any replay files, test levels, and Rubix's 
 # Tutorials.
-lix/replay/*
-lix/bitmap/Tutorial Files/*
-lix/levels/Tutorial/*
-lix/levels/test/*
+replay/*
+bitmap/Tutorial Files/*
+levels/Tutorial/*
+levels/test/*

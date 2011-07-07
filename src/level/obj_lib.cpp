@@ -132,8 +132,8 @@ void ObjLib::load_l1_set(const int set_id)
     if (set_id < 0 || set_id >= L1_MAX
      || set_id >= (int) graphic_set.size()
      || graphic_set[set_id] != 0) return;
-    std::ostringstream gro; gro << "./bitmap/orig/L1/" << set_id << ". ";
-    std::ostringstream vgr; vgr << "./bitmap/orig/L1/" << set_id << ". ";
+    std::ostringstream gro; gro << gloB->dir_bitmap_orig_l1 << set_id << ". ";
+    std::ostringstream vgr; vgr << gloB->dir_bitmap_orig_l1 << set_id << ". ";
     gro << orig_set_to_string(set_id) << "/GROUND"  << set_id << "O.DAT";
     vgr << orig_set_to_string(set_id) << "/VGAGR"   << set_id << ".DAT";
 
@@ -183,7 +183,7 @@ void ObjLib::load_l2_set(const int set_id)
      || graphic_set[set_id] != 0) return;
 
     std::ostringstream sty;
-	sty << "./bitmap/orig/L2/"
+	sty << gloB->dir_bitmap_orig_l2
 	    << orig_set_to_string(set_id) << "/"
 	    << orig_set_to_string(set_id) << ".dat";
     graphic_set[set_id] = new GraphicSetL2(sty.str());
@@ -198,7 +198,7 @@ void ObjLib::load_vgaspec(const int id)
     if (id < 0 || vgaspec[id] != NULL) return;
 
     std::ostringstream filename_vspec;
-    filename_vspec << "./bitmap/orig/L1/";
+    filename_vspec << gloB->dir_bitmap_orig_l1;
     filename_vspec << "VGASPEC" << (id - 1) << ".DAT";
     // id - 1 is done here because in LVL files, 0x0000 indicates that
     // no vgaspec file is used.

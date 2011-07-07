@@ -46,6 +46,10 @@ Globals::Globals()
     // Diverses
     empty_string                 (""),
     net_ip_localhost             ("127.0.0.1"),
+    error_wrong_working_dir      ("Wrong working directory!\n"
+                                  "Run the game from its root directory,\n"
+                                  "which is the directory containing \n"
+                                  "bitmap/, data/, levels/, ..."),
 
     // Dateien laden
     ext_level                    (".txt"),
@@ -74,6 +78,9 @@ Globals::Globals()
     pre_ext_water                ("W"),
     pre_ext_oneway_left          ("L"),
     pre_ext_oneway_right         ("R"),
+
+    // We presume that ./bin is the working directory. Thus, the following
+    // relative paths all start with `..'.
 
     // Wichtige Verzeichnisse
     dir_levels                   ("./levels/"),
