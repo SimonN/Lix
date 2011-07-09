@@ -17,9 +17,7 @@
 
 // At the end of this file, a pointer to a Globals called gloB
 // and a pointer to the User called useR will be declared externally.
-// These pointer will get new'd by Globals::initialize().
-// These are the only variables throughout the program
-// that are written with a capital at the end.
+// This pointer will get new'd by Globals::initialize().
 
 class Globals {
 
@@ -31,11 +29,9 @@ public:
     void load();
     void save();
 
-    // Konstanten
-    // version_min legt die aelteste Version fest, mit der wir kommunizieren
-    // duerfen. Der Client prueft die Server-Version und der Server die
-    // Client-Version. Wenn einem der jeweils andere zu alt ist, wird
-    // die Verbindung abgebrochen.
+    // version is the current version. version_min is the oldest version
+    // featuring the same game mechanics as the current one, so it's the
+    // oldest version that we can netplay with.
     const unsigned long version;
     const unsigned long version_min;
 
@@ -99,6 +95,8 @@ public:
         pre_ext_oneway_right,
 
         // Wichtige Verzeichnisse
+        dir_data_bitmap_from_root, // for checking the working directory
+        dir_root,
         dir_levels,
         dir_levels_single,
         dir_levels_network,
@@ -315,6 +313,8 @@ private:
     inline ~Globals() {}
 
     void operator = (const Globals&);
+
+    std::string determine_dir_root();
 
 };
 // end class gloB

@@ -79,6 +79,8 @@
 		<Unit filename="other/date.h" />
 		<Unit filename="other/globals.cpp" />
 		<Unit filename="other/globals.h" />
+		<Unit filename="other/help.cpp" />
+		<Unit filename="other/help.h" />
 		<Unit filename="other/io.cpp" />
 		<Unit filename="other/io.h" />
 		<Unit filename="other/myalleg.h" />

@@ -42,5 +42,9 @@ Finally, invoke make from the Lix root dir, where Makefile sits. It should
 build two binaries, ./bin/lix and ./bin/lixserv. Both should be run with the
 Lix root dir as the working directory, not ./bin/.
 
+I didn't intend the game to be installed further in any way. All files reside
+in a single directory somewhere under the user's home directory. Uninstall
+the game by deleting that directory.
+
 If you get problems, feel free to contact me. :-) See readme.txt for details.
 

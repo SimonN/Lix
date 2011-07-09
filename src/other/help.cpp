@@ -10,7 +10,6 @@
 #include <sstream>
 #include <vector>
 
-#include "user.h"
 #include "help.h"
 #include "log.h"
 
@@ -65,47 +64,6 @@ double random_double(const double min, const double max)
     // ggf. ueberlaeuft dann der Double. Also lieber * 1.0 vorneweg.
     return (rand() * 1.0 / RAND_MAX) * (max - min) + min;
 }
-
-
-
-MainArgs parse_main_arguments(int argc, char *argv[])
-{
-    MainArgs main_args;
-    main_args.scr_f = !useR->screen_windowed;
-    main_args.scr_x = 0;
-    main_args.scr_y = 0;
-    main_args.sound_load_driver = gloB->sound_load_driver;
-
-    // Argumente parsen:
-    // Es kommt derzeit nur darauf an, ob in allen Argumenten ein bestimmter
-    // Buchstabe ist oder nicht.
-    for (int i = 1; i < argc; ++i)
-     for (unsigned pos = 0; argv[i][pos] != '\0'; ++pos)
-     switch (argv[i][pos]) {
-    case 'w':
-        main_args.scr_f = false;
-        main_args.scr_x = LEMSCR_X;
-        main_args.scr_y = LEMSCR_Y;
-        break;
-
-    case 'n':
-        // Die globale Konfigdatei sowie die Userdatei des letzten Benutzers
-        // wurden bereits geladen. Damit dennoch die Nachfrage zu Beginn
-        // kommt, killen wir den User wieder.
-        gloB->user_name = "";
-        useR->load();
-        break;
-
-    case 'o':
-        main_args.sound_load_driver = false;
-        break;
-
-    default:
-        break;
-    }
-    return main_args;
-}
-// Ende von parse_main_arguments
 
 
 

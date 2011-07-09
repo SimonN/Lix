@@ -30,7 +30,8 @@ SERVER_BIN  := $(BINDIR)/lixserv
 SERVER_SRCS := $(wildcard src/server/*.cpp)   src/network/net_t.cpp \
                 src/network/permu.cpp         src/network/server.cpp \
                 src/network/server_c.cpp      src/other/date.cpp \
-                src/other/io.cpp              src/other/globals.cpp
+                src/other/io.cpp              src/other/globals.cpp \
+                src/other/help.cpp
 SERVER_OBJS := $(subst $(SRCDIR)/,$(OBJDIR)/,$(SERVER_SRCS:%.cpp=%.o))
 SERVER_DEPS := $(subst $(SRCDIR)/,$(DEPDIR)/,$(SERVER_SRCS:%.cpp=%.d))
 
@@ -56,7 +57,7 @@ $(CLIENT_BIN): $(CLIENT_OBJS)
 
 $(SERVER_BIN): $(SERVER_OBJS)
 	@$(MKDIR) $(BINDIR)
-	@echo Linking the game binary \`$(SERVER_BIN)\'.
+	@echo Linking the standalone server \`$(SERVER_BIN)\'.
 	@echo Linker flags: $(LDDIRS) $(LDALLEG) $(LDENET)
 	@$(LD) $(LDDIRS) $(LDALLEG) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN)
 

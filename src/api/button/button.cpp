@@ -44,9 +44,9 @@ void Button::calc_self()
         // Aktives Anklicken pruefen
         // KEY_ENTER als Hotkey laesst auch KEY_ENTER_PAD zu!
         bool b =
-            !warm && !hot && mouse_here && hardware.get_mlr()
-         ||  warm && !hot && mouse_here && hardware.get_ml ()
-         ||           hot && mouse_here && hardware.get_mlh();
+            (!warm && !hot && mouse_here && hardware.get_mlr())
+         || ( warm && !hot && mouse_here && hardware.get_ml ())
+         || (          hot && mouse_here && hardware.get_mlh());
         // See hardware.h/cpp for why Enter is separated
         if (hotkey == KEY_ENTER) b = b || hardware.key_enter_once();
         else                     b = b || hardware.key_once(hotkey);

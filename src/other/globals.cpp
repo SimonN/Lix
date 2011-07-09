@@ -4,6 +4,7 @@
  */
 
 #include "myalleg.h"
+#include "help.h" // test for directory existence
 
 #include <fstream>
 
@@ -17,7 +18,7 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2011, 06, 29, 00)),
+    version              (CONCAT(2011, 07, 09, 00)),
     version_min          (CONCAT(2011, 06, 28, 00)),
 
     updates_per_second   (15),
@@ -47,9 +48,8 @@ Globals::Globals()
     empty_string                 (""),
     net_ip_localhost             ("127.0.0.1"),
     error_wrong_working_dir      ("Wrong working directory!\n"
-                                  "Run the game from its root directory,\n"
-                                  "which is the directory containing \n"
-                                  "bitmap/, data/, levels/, ..."),
+                                  "Run the game from its root directory\n"
+                                  "or from the subdirectory bin/."),
 
     // Dateien laden
     ext_level                    (".txt"),
@@ -83,50 +83,52 @@ Globals::Globals()
     // relative paths all start with `..'.
 
     // Wichtige Verzeichnisse
-    dir_levels                   ("./levels/"),
-    dir_levels_single            ("./levels/"),
-    dir_levels_network           ("./levels/network/"),
-    dir_replay                   ("./replay/"),
-    dir_data                     ("./data/"),
-    dir_data_bitmap              ("./data/bitmap/"),
-    dir_data_sound               ("./data/sound/"),
-    dir_data_user                ("./data/user/"),
-    dir_bitmap                   ("./bitmap/"),
-    dir_bitmap_orig              ("./bitmap/orig/"),
-    dir_bitmap_orig_l1           ("./bitmap/orig/L1/"),
-    dir_bitmap_orig_l2           ("./bitmap/orig/L2/"),
+    dir_data_bitmap_from_root    ("./data/bitmap/"),
+    dir_root                     (determine_dir_root()),
+    dir_levels                   (dir_root + "levels/"),
+    dir_levels_single            (dir_root + "levels/"),
+    dir_levels_network           (dir_root + "levels/network/"),
+    dir_replay                   (dir_root + "replay/"),
+    dir_data                     (dir_root + "data/"),
+    dir_data_bitmap              (dir_root + "data/bitmap/"),
+    dir_data_sound               (dir_root + "data/sound/"),
+    dir_data_user                (dir_root + "data/user/"),
+    dir_bitmap                   (dir_root + "bitmap/"),
+    dir_bitmap_orig              (dir_root + "bitmap/orig/"),
+    dir_bitmap_orig_l1           (dir_root + "bitmap/orig/L1/"),
+    dir_bitmap_orig_l2           (dir_root + "bitmap/orig/L2/"),
 
     // Wichtige Dateien
-    file_config                  ("./data/config.txt"),
-    file_log                     ("./data/log.txt"),
-    file_level_network           ("./data/netlevel.txt"),
+    file_config                  (dir_data + "config.txt"),
+    file_log                     (dir_data + "log.txt"),
+    file_level_network           (dir_data + "netlevel.txt"),
 
-    file_bitmap_api_number       ("./data/bitmap/api_numb.I"),
-    file_bitmap_checkbox         ("./data/bitmap/checkbox.I"),
-    file_bitmap_debris           ("./data/bitmap/debris.I"),
-    file_bitmap_edit_flip        ("./data/bitmap/edit_flp.I"),
-    file_bitmap_edit_hatch       ("./data/bitmap/edit_hat.I"),
-    file_bitmap_edit_panel       ("./data/bitmap/edit_pan.I"),
-    file_bitmap_edit_big         ("./data/bitmap/edit_big.I"),
-    file_bitmap_explosion        ("./data/bitmap/explode.I"),
-    file_bitmap_fuse_flame       ("./data/bitmap/fuse_fla.I"),
-    file_bitmap_game_arrow       ("./data/bitmap/game_arr.I"),
-    file_bitmap_game_icon        ("./data/bitmap/game_ico.I"),
-    file_bitmap_game_nuke        ("./data/bitmap/game_nuk.I"),
-    file_bitmap_game_panel       ("./data/bitmap/game_pan.I"),
-    file_bitmap_game_panel_2     ("./data/bitmap/game_pa2.I"),
-    file_bitmap_game_pause       ("./data/bitmap/game_pau.I"),
-    file_bitmap_game_replay      ("./data/bitmap/game_rep.I"),
-    file_bitmap_lix              ("./data/bitmap/lix.I"),
-    file_bitmap_lix_recol        ("./data/bitmap/lixrecol.I"),
-    file_bitmap_lobby_spec       ("./data/bitmap/lobby_sp.I"),
-    file_bitmap_mouse            ("./data/bitmap/mouse.I"),
-    file_bitmap_preview_icon     ("./data/bitmap/prev_ico.I"),
+    file_bitmap_api_number       (dir_data_bitmap + "api_numb.I"),
+    file_bitmap_checkbox         (dir_data_bitmap + "checkbox.I"),
+    file_bitmap_debris           (dir_data_bitmap + "debris.I"),
+    file_bitmap_edit_flip        (dir_data_bitmap + "edit_flp.I"),
+    file_bitmap_edit_hatch       (dir_data_bitmap + "edit_hat.I"),
+    file_bitmap_edit_panel       (dir_data_bitmap + "edit_pan.I"),
+    file_bitmap_edit_big         (dir_data_bitmap + "edit_big.I"),
+    file_bitmap_explosion        (dir_data_bitmap + "explode.I"),
+    file_bitmap_fuse_flame       (dir_data_bitmap + "fuse_fla.I"),
+    file_bitmap_game_arrow       (dir_data_bitmap + "game_arr.I"),
+    file_bitmap_game_icon        (dir_data_bitmap + "game_ico.I"),
+    file_bitmap_game_nuke        (dir_data_bitmap + "game_nuk.I"),
+    file_bitmap_game_panel       (dir_data_bitmap + "game_pan.I"),
+    file_bitmap_game_panel_2     (dir_data_bitmap + "game_pa2.I"),
+    file_bitmap_game_pause       (dir_data_bitmap + "game_pau.I"),
+    file_bitmap_game_replay      (dir_data_bitmap + "game_rep.I"),
+    file_bitmap_lix              (dir_data_bitmap + "lix.I"),
+    file_bitmap_lix_recol        (dir_data_bitmap + "lixrecol.I"),
+    file_bitmap_lobby_spec       (dir_data_bitmap + "lobby_sp.I"),
+    file_bitmap_mouse            (dir_data_bitmap + "mouse.I"),
+    file_bitmap_preview_icon     (dir_data_bitmap + "prev_ico.I"),
 
-    file_bitmap_font_big         ("./data/bitmap/font_big.I.bmp"),
-    file_bitmap_font_nar         ("./data/bitmap/font_nar.I.bmp"),
-    file_bitmap_font_med         ("./data/bitmap/font_med.I.bmp"),
-    file_bitmap_font_sml         ("./data/bitmap/font_sml.I.bmp"),
+    file_bitmap_font_big         (dir_data_bitmap + "font_big.I.bmp"),
+    file_bitmap_font_nar         (dir_data_bitmap + "font_nar.I.bmp"),
+    file_bitmap_font_med         (dir_data_bitmap + "font_med.I.bmp"),
+    file_bitmap_font_sml         (dir_data_bitmap + "font_sml.I.bmp"),
 
     // Config-Schluessel
     config_user_name             ("USER_NAME"),
@@ -310,6 +312,17 @@ void Globals::deinitialize()
         delete gloB;
         gloB = 0;
     }
+}
+
+
+
+std::string Globals::determine_dir_root()
+{
+    std::string testdir = dir_data_bitmap_from_root;
+    if (Help::dir_exists(testdir)) return "./";
+    testdir = '.' + testdir;
+    if (Help::dir_exists(testdir)) return "../";
+    else return "No proper working dir; the check in main() will fail";
 }
 
 

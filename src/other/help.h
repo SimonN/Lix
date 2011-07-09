@@ -35,14 +35,6 @@ namespace Help {
     double random_double(const double, const double); // zw. 1. und 2. Argument
     int    mod          (const int,    const int); // besser als % im Negativen
 
-    struct MainArgs {
-        int  scr_f;
-        int  scr_x;
-        int  scr_y;
-        bool sound_load_driver;
-    };
-    MainArgs parse_main_arguments(int, char*[]);
-
     std::string version_to_string   (const unsigned long);
 
     void string_to_nice_case    (std::string&); // Alle ausser 1. Bch.
