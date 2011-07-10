@@ -75,20 +75,23 @@ void update_jumper(Lixxie& l, const UpdateArgs& ua)
         if      (sp_y <= 12) l.set_special_y(sp_y + 2);
         else if (sp_y <  64) l.set_special_y(sp_y + 1);
         if (l.get_special_y() > 14) {
-            const int sx = l.get_special_x();
-            const int sy = l.get_special_y();
-            if      (l.get_floater())
-                     l.assign(     LixEn::FLOATER);
-            else if (l.get_ac() != LixEn::TUMBLER)
-                     l.assign(     LixEn::TUMBLER);
-            l.set_special_x(sx);
-            l.set_special_y(sy);
+            if (l.get_floater()) {
+                const int sx = l.get_special_x();
+                const int sy = l.get_special_y();
+                l.assign(LixEn::FLOATER);
+                l.set_special_x(sx);
+                l.set_special_y(sy);
+            }
+            else if (l.get_ac() == LixEn::JUMPER)  {
+                l.set_ac(LixEn::TUMBLER);
+                l.set_frame(3); // override autoframechoice for 1 frame now
+            }
+            else { // we're already a tumbler
+                tumbler_frame_selection(l);
+            }
         }
-        if (l.get_ac() == LixEn::JUMPER && l.is_last_frame()) {
-            l.set_frame(l.get_frame() - 1);
-        }
-        else if (l.get_ac() == LixEn::TUMBLER)
-         tumbler_frame_selection(l);
-        else l.next_frame();
+        else if (l.get_ac() == LixEn::TUMBLER) tumbler_frame_selection(l);
+        else l.next_frame(); // jumper with less than 14 yspeed
     }
 }
+

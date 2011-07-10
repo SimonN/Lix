@@ -11,6 +11,21 @@ void update_tumbler(Lixxie& l, const UpdateArgs& ua)
     update_jumper(l, ua);
 }
 
+
+
+void tumbler_to_splatter(Lixxie& l)
+{
+    const int frame_to_get_second_splatter = 13;
+    const int second_splatter_frame = 10;
+
+    bool second_splatter = (l.get_ac() == LixEn::TUMBLER
+                         && l.get_frame() >= frame_to_get_second_splatter);
+    l.assign(LixEn::SPLATTER);
+    if (second_splatter) l.set_frame(second_splatter_frame);
+}
+
+
+
 // Prueft Boden, Decken und Waende nach jedem einzelnen vorgerueckten Pixel.
 // Liefert genau dann wahr, wenn es eine Kollision gab, damit das Vorruecken
 // update_jumper/update_tumbler abgebrochen werden kann.
@@ -85,6 +100,7 @@ bool jumper_and_tumbler_collision(Lixxie& l)
         }
         return true;
     }
+
     // Boden-Kollision
     // Damit sich die Lemminge auch mal mehr festhalten an den Klippen,
     // pruefen wir auf swh <= 2. Hoffentlich gibt das keine Bugs.
@@ -92,7 +108,9 @@ bool jumper_and_tumbler_collision(Lixxie& l)
      && (l.is_solid(0, 1) || l.is_solid(0, 2)))
     {
         while (l.is_solid(0, 1)) l.move_up(1);
-        if (l.get_special_y() > max_special_y) l.assign(LixEn::SPLATTER);
+        if (l.get_special_y() > max_special_y) {
+            tumbler_to_splatter(l);
+        }
         else {
             bool short_anim = (l.get_special_y() < 12);
             if (l.get_ac() == LixEn::JUMPER) {
@@ -109,7 +127,7 @@ bool jumper_and_tumbler_collision(Lixxie& l)
     else if (swh > 0) {
         if (l.get_special_y() > max_special_y) {
             l.move_up(swh);
-            l.assign(LixEn::SPLATTER);
+            tumbler_to_splatter(l);
         }
         else {
             l.assign(LixEn::ASCENDER);
