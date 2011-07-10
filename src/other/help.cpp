@@ -111,20 +111,20 @@ void string_cut_to_dir(std::string& s) {
             break;
 }   }   }
 std::string new_string_remove_root_dir(const std::string& s) {
-    for (int i = 0; i < s.length() && i < gloB->dir_root.length(); ++i)
+    for (size_t i = 0; i < s.length() && i < gloB->dir_root.length(); ++i)
         if (s[i] != gloB->dir_root[i]) return s;
     // there is a copy of gloB->dir_root at the beginning of s, return without
     return s.substr(gloB->dir_root.length(), std::string::npos);
 }
 void string_remove_root_dir(std::string& s) {
-    for (int i = 0; i < s.length() && i < gloB->dir_root.length(); ++i)
+    for (size_t i = 0; i < s.length() && i < gloB->dir_root.length(); ++i)
         if (s[i] != gloB->dir_root[i]) return;
     // there is a copy of gloB->dir_root at the beginning of s, erase that
     s.erase(0, gloB->dir_root.length());
 }
 void string_add_root_dir(std::string& s) {
     bool s_already_has_root_dir = true;
-    for (int i = 0; i < s.length() && i < gloB->dir_root.length(); ++i)
+    for (size_t i = 0; i < s.length() && i < gloB->dir_root.length(); ++i)
         if (s[i] != gloB->dir_root[i]) s_already_has_root_dir = false;
     if (! s_already_has_root_dir)
         s = gloB->dir_root + s;
