@@ -1,0 +1,142 @@
+
+/¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\
+|   Lix                                                           File Info   |
+\_____________________________________________________________________________/
+
+
+
+This file is about the directory and file structure of Lix. It also describes
+the file formats Lix uses. It can be useful if you design levels or graphics,
+work with the source code, or simply want to understand how everything works.
+
+
+
+TABLE OF CONTENTS
+-----------------
+
+
+
+
+
+GRAPHIC FILE GRIDS
+------------------
+
+Some of Lix's graphic files define animations instead of regular pictures.
+The game still uses BMP, TGA or PCX for these animations, and expects there
+to be a grid with equally sized cells.
+
+If a graphic contains an animation of XF frames aligned horizontally in the
+grid, YF frames aligned vertically, and each frame is of width W and height
+H, then the complete graphic file has a width of (W*XF + XF + 1) and a height
+of (H*YF + YF + 1).
+
+The grid should be of a color that doesn't appear inside any frame itself.
+This grid consists of lines with a thickness of 1 pixel. It can be explained
+best with a picture. This is what a file with 3 columns (XF = 3) and 2 rows
+(YF = 2) has for its grid -- the letters x represent single pixel lines:
+
+    xxxxxxxxxxxxxxxx
+    x    x    x    x
+    x    x    x    x
+    xxxxxxxxxxxxxxxx
+    x    x    x    x
+    x    x    x    x
+    xxxxxxxxxxxxxxxx
+
+Look at ./bitmap/data/lemming.I.bmp for more examples. Interactive objects
+use only a single row of frames (YF = 1), see their section for more
+information.
+
+
+
+DESIGNING TERRAIN
+-----------------
+
+You can draw your own terrain graphics and include them in Lix.
+
+All terrain files should be in ./bitmap/ or a subdirectory thereof. If you're
+going to make several pieces of terrain, consider making your own subdirectory.
+
+The game can read BMP, TGA and PCX files. Try to give the correct extension
+to your file. The color depth can be anything, because the game converts the
+graphic to its own depth (usually 16 bit) when the graphic file gets loaded.
+
+Each file contains exactly one terrain piece, and this piece will be generated
+from all the pixels in the file. You don't draw a 1x1 grid into the file first.
+
+Use bright pink (255 red, 0 green, 255 blue) for transparent/non-solid areas
+of the terrain piece.
+
+Save the file when you're done, and open Lix. The editor's terrain browser
+allows you to navigate the subdirectories of ./bitmap/ and insert your terrain
+piece into a level.
+
+
+
+DESIGNING STEEL
+---------------
+
+Steel objects are made almost in the same way as regular terrain objects,
+with the following exception: Name your file somename.S.bmp, somename.S.tga,
+or somename.S.pcx, depending on which graphic format you use.
+
+All files with names ending in .S before their extension are treated as steel
+by the game.
+
+
+
+DESIGNING INTERACTIVE OBJECTS
+-----------------------------
+
+These objects are entrance hatches, goals, traps, etc.
+
+Read the above section about designing terrain first. Interactive objects are
+made in the same way, with the exceptions described as follows.
+
+You have to give a special extension to the interactive object files, so that
+the game knows which kind of object they are. Name your file somename.X.bmp,
+somename.X.pcx, or somename.X.tga, with X depending on the object type:
+
+    hatch/entrance  H
+    goal/exit       G
+    water           W
+    fire            F
+    decoration      D
+    steel           S
+
+Steel isn't an interactive object, and thus requires no grid. See also the
+section above for steel.
+
+All other objects are animated, and all frames are drawn into a single file
+Before you start, decide on the object's width and height, and decide on
+the number of animation frames. Draw a grid with a just single row, but one
+column for each frame. To understand this, read the section about graphic file
+grids above, or look at other people's object graphics.
+
+For entrance hatches, the first frame contains the closed hatch, while the last
+frame contains the fully opened hatch. The frames in between contain the
+animation from closed to fully opened.
+
+Goals, water, fire, and decoration are animated constantly. The animation
+cycles through the frames in ascending order, reverting back to the first frame
+after the last one. It doesn't matter which frame is the first, simply pick the
+nicest-looking one because the editor will display this one.
+
+Traps kill one lem at a time, and display the first frame while waiting for one
+to enter. While they kill it, they cycle through the rest of the frames once in
+increasing order, reverting back to the first frame afterwards. The more frames
+a trap has, the longer it is busy killing one lem.
+
+The trigger area of goals, traps etc. depends on the size of a single frame.
+You can edit them manually (see next paragraph) or keep the following defaults.
+Hatches spawn lems in their horizontal center and more towards their bottom.
+Goals have their trigger area in their horizontal center and exactly at the
+bottom of the picture. Water and fire have a trigger area that spans over the
+object completely in the horizontal direction, but not completely vertically.
+Traps have horizontally centered trigger area, and its vertical location is
+around 80 percent down from the top.
+
+If you want to edit the trigger areas or hatch spawn points, you can do so
+by adding a .txt file with the same pre-extension name next to your object
+graphic file. Read the documentation in ``objdef.txt'' for instructions.
+

@@ -1,0 +1,64 @@
+Special object definitions
+
+Use this file to configure your special objects. Make a copy of this file,
+put it into the same directory as your object, and give it the same filename as
+the object except for its ending, which must be .txt. If your object is
+bitmap/somedir/goal.G.bmp, then this definitions file must be
+bitmap/somedir/goal.G.txt to get it to work.
+
+All lines that don't start with a # are ignored. Decide which of the following
+commands you need, you can select as many as you want. Then remove their
+trailing spaces and edit their numbers. After you're done, you can safely
+delete all other lines that don't start with # to save space.
+
+ #TRIGGER_AREA_POSITION_ABSOLUTE_X 20
+Remove the space before the # to use this command. This will happen:
+The left edge of the trigger area will be placed the given amount of pixels
+away from the left edge of the object. If you want to center the trigger area
+horizontally, use TRIGGER_AREA_POSITION_FROM_CENTER_X instead, see below.
+
+ #TRIGGER_AREA_POSITION_ABSOLUTE_Y 10
+Remove the space before the # to use this command. This will happen:
+The upper edge of the trigger area will start this amount of pixels away from
+the upper edge of the object. If you want to center the trigger area
+vertically or place it at the bottom of the object, use one
+of TRIGGER_AREA_POSITION_FROM_CENTER_Y or TRIGGER_AREA_POSITION_FROM_BOTTOM_Y
+instead, see below.
+
+ #TRIGGER_AREA_POSITION_FROM_CENTER_X -5
+Remove the space before the # to use this command. This will happen:
+The center (not left edge) of the trigger area will be placed the given amount
+of pixels away from the horizontal center of the object. Use positive values to
+shift the trigger area to the right, and negative values to shift to the left.
+
+ #TRIGGER_AREA_POSITION_FROM_CENTER_Y -12
+Remove the space before the # to use this command. This will happen:
+The center (not upper edge) of the trigger area will be placed the given amount
+of pixels away from the vertical center of the object. Use positive values to
+shift the trigger area down, and negative values to pull it further up.
+
+ #TRIGGER_AREA_POSITION_FROM_BOTTOM_Y 0
+Remove the space before the # to use this command. This will happen:
+The center (not upper edge) of the trigger area will be placed the given amount
+of pixels away from the bottom of the object. Positive values will push it
+even further down, negative values pull it up. If you use this command and
+give 0 as the number, the center will be on the second-to-last pixel row
+vertically. This is the default setting for goals (exits).
+
+ #TRIGGER_AREA_SIZE_X 20
+Remove the space before the # to use this command. This will happen:
+Instead of its default width, the trigger area will use the given amount of
+pixels as its width.
+
+ #TRIGGER_AREA_SIZE_Y 20
+Remove the space before the # to use this command. This will happen:
+Instead of its default height, the trigger area will use the given amount of
+pixels as its height.
+
+The following commands exist, but won't do anything yet; you cannot make
+custom fling objects yet.
+ #FLING_SPEED_AHEAD
+ #FLING_SPEED_X
+ #FLING_SPEED_Y
+ #COOLDOWN
+

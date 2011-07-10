@@ -1,0 +1,1353 @@
+ _____________________________________________________________________________
+/                                                                             \
+|   Lix                                                     Version History   |
+|                                                                             |
+|   (ncp) means netplay incompatibility with earlier versions.                |
+\_____________________________________________________________________________/
+
+
+
+2011-06-03
+(ncp)
+
+    Windows <-> Linux Desync fixed
+        All terrain graphics are now loaded with even-numbered heights and
+        widths. Odd sizes get expanded by a single transparent pixel row.
+        The Linux port of Allegro 4.2 was rotating the graphics badly otherwise
+        and will now work as expected. This fixes a desync, since the level
+        terrain wasn't generated exactly the same on all machines.
+
+        This desync never happened in L++ with the legacy Lemmings terrain,
+        since was loaded with everywhere doubled pixels anyway.
+
+    Pause and FF/FFF mutually exclusive
+        Pause cancels FF/FFF/ZZZ, and vice versa.
+
+    Digger physics
+        The digger could dig alongside a steel block without terrain if placed
+        with pixel precision. This is now fixed.
+
+
+
+2011-06-01
+
+    Digger physics
+        These now match the image.
+
+    Builder physics
+        Builders can jump off their bridge at any time without getting stuck
+        in the newly laid block.
+        
+        Also, they die when building out of the top of a non-wrapping level.
+
+
+2011-03-05
+(ncp)
+
+    Skill retrieving
+        When you had infinite builders, queued builders, and then cancelled
+        them, you retrieved builders and ended up with very few leftover
+        builders instead of still infinity. This is now fixed.
+
+
+
+2011-03-01
+
+    Editor bugs
+        Fixed a few bugs related to numbers in strings. The bitmap browsers
+        will display all images from an L1/ONML/L2 level set now instead of
+        just the first 10, and the overtime is displayed properly in the
+        corresponding dialogue.
+
+
+
+2011-03-26
+
+    Replay codewords
+        The keyword LEMMING that appears in the replay files has been changed
+        to the clearer and more universal ASSIGN. This and the upcoming
+        versions will still read replays with the old LEMMING keyword.
+
+
+
+2011-01-08
+(ncp)
+
+    999 of anything
+        Instead of the old limit of 999 for both skill usages and lixes, the
+        new limit is 999 now. Skills can be infinite as usual.
+
+    Torus display
+        Small torus maps will display without dark borders. In some cases,
+        things will appear multiple times on the screen.
+
+
+
+2010-10-16
+
+    Lix redrawing
+        Until now, the builder, lander and walker skills are redrawn with the
+        Lix character design, to obtain completely free graphics at some time
+        in the future. No frames are going to be drawn over any frames coming
+        directy from the original Lemmings games.
+
+
+
+2010-09-30
+
+    Library version upgrades
+        The game should be compiled with Allegro 4.4.1 and enet 1.3. Before,
+        I've used Allegro 4.2 and enet 1.2. I'm not sure if you can connect
+        to a L++ server compiled under 1.3 with an old L++ version that uses
+        enet 1.2.
+
+    Massive GUI rewrite
+        It's probably not visible, but I've revamped the fundamental structure
+        of my GUI code. It's now much more pleasant to write new dialogues
+        with it.
+
+    Editor hotkeys
+        The editor hotkeys are fully configurable now. The default layout
+        is different than before, it is now optimized for speed of the left
+        hand. Moving objects around is on [E], [S], [D], [F], copying is on
+        [A], and add terrain is on [Space]. Visit the options menu or switch
+        on the editor's help function to learn the other hotkeys. As said,
+        everything can be remapped.
+
+    Dead lem bugfix
+        If you nuked or assigned an exploder to a lem and he died before the
+        explosion, he would still explode some time after he was killed. This
+        is now fixed.
+
+    Scrolling
+        The middle mouse button can be used to scroll. It's off by default,
+        but it can be toggled in the options menu. This allows the right mouse
+        button to have only one function -- the non-priority lem assignment.
+
+        The scroll speed of the right and middle mouse buttons can be chosen.
+        The default value is 1, and this value acts as a multiplier for the
+        previous versions' scroll speed.
+
+
+
+2010-03-21
+
+
+    Last public version
+        This was the last version that got released to the public. This
+        and the compatible 2010-03-23 version are known as the
+        "March versions". The next public version will be released with
+        all-new ingame graphics.
+
+
+
+2010-03-11
+
+    Builder sound
+        The sound that builders and platformers make while placing their last
+        bricks will only play for own lemmings during a network game. Before,
+        it played in lower volume for other players as well, which was very
+        distracting.
+
+
+
+2010-03-09-02
+
+    Chat bugfix
+        Skill hotkeys and similar things are now disabled while the player is
+        typing things into the chat text field.
+
+    Background switching
+        The game will now continue to run while it is in the background.
+        It might be that some versions before didn't do that.
+
+
+
+2010-03-09-01
+
+    Hatch bugfix
+        In a multiplayer match with less hatches than players, the direction
+        of lems coming out of hatches alternates correctly between players
+        again. It depends on the permutation now, while in several versions
+        before it depended on the internal network player numbers.
+
+    Steel bugfix
+        Steel will now work properly even if it's placed in combination with
+        dark and/or no-overwrite pieces.
+
+    Climber bugfix
+        In Rubix' video, you could observe strange climber behavior on the
+        second map (Still everything to play for, L1 2-player map number 2).
+        This is now fixed, climbers won't pass through thin walls any more.
+
+    Builder bugfix
+        Horus has found that builders could pass through thin walls right
+        after becoming a builder. This is now fixed.
+
+    Basher bugfix
+        Horus has found another bug concerning bashers falling through
+        land so that nobody can follow. This is also fixed now.
+
+
+
+2010-03-09
+
+    Lem count bugfix
+        The number of lems per tribe in the level gets counted correctly
+        again. This is important for the overtime and the displayed count of
+        other players' lems.
+
+    Hatch spawn point
+        The point at which enter a lemming relative to a hatch has been
+        revised, it's a bit lower now in some cases. Maybe this setting is to
+        be kept, maybe not -- let's test.
+
+
+
+2010-03-08-02
+
+    Flinger bugfix
+        The flingers should now animate correctly.
+
+
+
+2010-03-08-01
+
+    Hatch bugfix
+        In the last build, lems always walked to the right when coming out of
+        a hatch. This has been fixed again.
+        
+    Flinger bugfix
+        Flingers will now get drawn, and hopefully fling lems into the correct
+        direction.
+
+
+
+2010-03-08
+
+    L2 objects
+        These got better trigger areas. Flingers are supported. Credits for
+        all this go to geoo again.
+
+    Hatch frame order
+        The first frame is the closed hatch, the last one the fully opened
+        hatch. L1 and L2 graphics get imported properly. Custom hatches should
+        be fixed, if there are any.
+
+    Editor page
+        The terrain browser remembers the last page it had open when terrain
+        was added to the level. Entering the browser again (by clicking the
+        button in the panel or pressing its hotkey F5) opens the same page.
+
+    Editor grid
+        The editor switches to the 16 x 16 grid (8 x 8 low-res pixels) when
+        an L2 piece is inserted. All newly added pieces are aligned to the
+        currently selected grid, so they can be pushed around with the cursor
+        keys immediately.
+
+    Internal memory improvement
+        Lems aren't saved in a linked list any more, but rather in a vector.
+        I hope this will speed up games with lots of players on slow machines,
+        because lems are frequently copied due to save state loading.
+
+
+
+2010-03-06
+
+    L2 graphic sets
+        geoo has written code to load L2 graphic sets, complete with their
+        special objects. Many thanks to him for this huge addition!
+
+
+
+2010-03-05-02
+
+    Skill panel bugfix
+        A panel couldn't be selected if the panel to its right ran out of
+        skills. This is now fixed.
+
+
+
+2010-03-05
+
+    Alt+Enter
+        You can press the combination [Alt] and [Enter] to toggle between
+        windowed mode and fullscreen.
+
+    Customizable hotkeys
+        The in-game hotkeys have been reordered. There is a new page in the
+        options menu to assign hotkeys for every in-game command. Some players
+        might prefer Clones-style hotkeys, others the traditional F-keys.
+
+    Multiplayer winner sounds
+        When the game results for a completed mutiplayer game are shown,
+        a sound will be playing depending on your result.
+
+    Editor selection
+        The selection boxes of terrain pieces and others were sometimes larger
+        then the graphic inside. The boxes are now cropped to fit the graphic.
+        This improves the selection of pieces by a dragged rectangle.
+        The graphics themselves are not cropped, so placement, rotation and
+        mirroring are still based on the regular coordinates. L1/ONML levels
+        can still be loaded as before.
+
+
+
+2010-03-01
+
+    Level end dialogue
+        After a game, the statistics can be dismissed not only with [ESC], but
+        also with [SPACE]. This makes it possible to just tab [SPACE] twice
+        to play a level right again.
+
+    Original two-player levels
+        If there is one hatch, the first player will always get the goal on
+        the right. If there are two hatches, their directions are set towards
+        the level's center.
+
+
+
+2010-02-28
+
+    Ready checkmarks
+        There was a server-side issue of not resetting readiness when a level
+        was selected. This is now fixed.
+
+
+
+2010-02-27
+
+    Lobby bugfix
+        The correct color buttons appears pushed down again when one comes
+        back into the lobby after a game.
+
+    New levels
+        Gallow Flinging by geoo/Simon is included in three versions
+        (2 players, 2/4 players, and 3/6 players).
+
+    Lemming colors
+        The yellow player color is now a light orange. Nobody wanted to use
+        the yellow lems before!
+
+    Replay bugfix
+        The permutation gets saved into a replay properly now.
+
+
+
+2010-02-26
+
+    Teamplay
+        Players who select the same color in multiplayer get to play the same
+        tribe: They control the same lemmings and share a single skillset.
+        The game treats each team like it has treated every single player in
+        the versions before.
+
+    Multiple rooms
+        The server now supports multiple parallel games in separate rooms.
+
+        While revamping the networking code for the multiple rooms, the bug
+        of a level being not sent to a newly incoming player got fixed.
+
+    New multiplayer levels
+        I've gone through the Lemmings Forums and collected all the neat
+        multiplayer maps. They are now included in the downloadable archive.
+        Some old ones have received an update as well. The most important
+        designers were geoo, Clam Spammer, Insane Steve, Rubix, and Liam.
+
+    Burner bugfix
+        A burner could be assigned a new skill, i.e. you could have made him
+        jump out of a fire. This is now fixed.
+
+    Editor rotation bugfix
+        The rotation button will now rotate into any position again, instead
+        of just alternating between two.
+
+    Editor copying
+        Selecting a whole range of objects, for example all objects with the
+        hotkey [A], and then pressing [C] to copy them doesn't invert the
+        z-order anymore.
+
+        The offset of copied pieces is now 5 pixels in each direction when
+        using no grid, 4 pixels when using the 2 grid, and the grid size
+        itself for the larger grids.
+
+    Replay saving
+        Multiplayer replays can be saved properly again, i.e. the whole level
+        is written into the replay file.
+
+
+
+2009-11-08
+
+    Lobby button
+        The networking lobby now features a button to connect to the central
+        server. This is Mindless' server at flux.camanis.net.
+
+    Lobby bugfix
+        When typing a space character into the lobby chat line, the "ready"
+        button was triggered. The [SPACE] button will continue to be the
+        button's hotkey, but not anymore during text input.
+
+    Editor saving
+        The L++ editor will never overwrite a .LVL file again, but instead
+        always create a new .TXT file. A .TXT file can still be overwritten
+        as usual with the Save or Save As functions.
+
+
+
+2009-11-01
+
+    Dedicated server
+        I have reorganized all the networking, and there is a standalone
+        server program available now. The possibility for any player to
+        host using the L++ application itself is still there.
+
+    VGASPEC support
+        Mindless has implemented support for the VGASPEC levels like
+        "A Beast of a Level". Thank you very much!
+
+    Hatch direction
+        The editor allows to set a walk direction for each entrance hatch,
+        all lemmings falling from the hatch will have this direction. If a
+        level in the LVL format is loaded from the network/ directory, it
+        is assumed that each hatch's walking direction is towards the center.
+
+    Goal trigger area
+        The y/yl values for the trigger area for goals are now always the L++
+        default. The x/xl values are read from the original graphics sets
+        as before. This prevents lemmings to jump through the roof of the
+        Crystal goal.
+
+    Digger physics
+        The digger will take its first swing now a bit faster after it has
+        been clicked upon, and the check for ground under the digger will
+        be done on every logic update. This makes it easy to overtake
+        opponents' diggers with one's own, a necessity for multiplayer.
+
+    Lemming bugfix
+        Lemmings can now walk up to the very first pixel row of a non-torus
+        map and still not get sucked into oblivion, unless they are climbers.
+        Non-climbers will turn around instead.
+
+    Editor grid
+        The grid can now be set to 1, 2, 10 or 16.
+
+    Level loading
+        The format (L1 or L++) that a level is saved in is not any more
+        determined by the file extension, but rather by the first bytes of
+        the file. The extension must still be .LVL or .TXT for the level to
+        be found in the menu.
+
+        It is still advised that levels are only saved as .TXT files. This
+        makes it easier to tell the format outside of L++ without relying
+        on the size or first bytes of the file.
+
+    Screen start bugfix
+        If the screen's starting position was set too far to the right or
+        down, it wasn't used correctly. It's now working correctly again.
+
+    Sound bugfixes
+        The ticking sound the gameplay's clock makes when there are only 15
+        seconds left aren't repeated anymore if a packet with game information
+        comes in and the game has to recalculate. The clock now ticks
+        exactly once per second.
+
+        The sounds for an exiter (lemming walks into an exit) in networking
+        mode have been changed to this: Any lemming walking into your own
+        exit triggers the goal sound with full volume. The "hehehe" sound
+        for stolen lemmings is only played if your lemmings walk into a
+        goal that doesn't belong to you, and also with full volume then.
+
+
+
+2009-10-19-01
+
+    Network ESC menu
+        The gameplay menu you can access via pressing [ESC] doesn't stop the
+        game in the background any more, and the restart option has been
+        removed from it.
+
+    Bugfixes
+        The names in the game panel at the bottom right are now correct.
+        Before, every player was labelled with the last player's name.
+
+        Older levels don't have the terrain's z-order wrongly reversed when
+        played over the network any more.
+
+
+
+2009-10-18-04
+
+    Network bugfixes
+        Mindless has tested the networking mode on his 64-bit machine, and
+        it didn't work. I have revamped some fundamental parts of the code
+        to make it independent from the machines' word length and endianess.
+        The field test of this version has yet to be performed.
+
+
+
+2009-10-18-02
+
+    New multiplayer maps
+        Some new multiplayer maps are included: Equator (by me, 4 players),
+        Towerhack (by ADmiral, 5 players) and Precise Fastclick Solves
+        (by ADmiral, 3 players).
+    
+    Editor, small bugfixes
+        Altering the level size does not mess up the starting position any
+        more. The starting position on a torus can now also be one with
+        the seam in the visible area.
+
+
+
+2009-10-18-01
+
+    Editor bugfixes
+        You can scroll vertically over the torus' y seam and select objects
+        below the line again, which was not possible before.
+
+        You can select the hatch/goal order now with [+] and [-] again, as
+        well as with the single-plus and single-minus keys on the panel.
+
+
+
+2009-10-18
+
+    Builder bugfix
+        The builder could build through vertical walls with a width of 2
+        pixels. This has been fixed.
+
+    Editor, original graphics sets
+        It is now possible to add new elements from the original graphics sets
+        inside the L++ editor. All elements are located in subdirectories of
+        orig/. The editor doubles the grid if it is uneven and an element
+        from an original set is added.
+
+
+
+
+2009-10-16-04
+
+    Drawing order bugfix
+        Some older TXT levels had their terrain drawn in the wrong order.
+        This should be fixed now.
+
+
+
+2009-10-16-03
+
+    Two-player level order
+        The 20 two-player levels from L1 have been brought into their correct
+        order, given by their appearance in L1. The complexity increases from
+        the first levels to the last levels now.
+
+
+
+2009-10-16-02
+
+    Decorations
+        Images with the pre-extension .D. can be included in L++ as deco-
+        rations, i.e. animated objects without interaction. Click on the
+        ribbon in the editor panel to browse for decoration objects.
+
+    Two-player original levels
+        The 20 two-player levels from L1 and the 10 two-player levels from
+        ONML are included in the main download file. Thanks to Mindless
+        for the files! According to the change from 2009-10-14-01, they
+        feature knockback exploders instead of L1-style exploders.
+
+    Time in original multiplayer levels
+        If an original level from the network/ directory is loaded, its
+        overtime is set to (1/2 of its time) - 30 seconds. If the resulting
+        time is equal or lower to zero, 15 seconds are used. This yields
+        2 minutes for an original two-player level set to 5 minutes, and
+        allows for better options when editing the LVL format.
+
+    Flags
+        The two-player levels from the original games had a waving flag above
+        each goal. These do not show up in L++ anymore, since L++ has a better
+        way of indicating goal ownership.
+
+    Editor with original levels
+        The editor can now display, alter and save the original games' levels
+        properly, with the following restrictions. Saving is only possible
+        in L++'s own format at this time. The bitmap browsers cannot add
+        pieces from the original games' graphics sets yet.
+
+
+
+2009-10-14-01
+
+    Original levels in multiplayer
+        Original levels (i.e. LVL and DAT files from L1/ONML/etc.) can now
+        be played in multiplayer mode. According to the changes for version
+        2009-10-14, all original levels feature knockback exploders instead
+        of L1-style exploders.
+
+
+
+2009-10-14
+
+    Graphics loading
+        The grafic files from the L++ bitmap directory are not loaded all at
+        once when the game starts anymore. Each graphic is loaded just when
+        it is first required, and then stored in memory afterwards as before.
+        
+    Exploders in multiplayer games
+        All exploders in a multiplayer game are knockback exploders now.
+        If you load a level with L1-style exploders (without knockback) and
+        play it in multiplayer, the players will still have knockback
+        exploders. The level file itself is not altered.
+
+
+
+2009-09-26
+
+    Source code compatibility
+        Mindless from Lemmings Forums has sent me a patchfile for L++ that
+        enables error-free compilation on his Arch Linux machine. The changes
+        from the patch are now implemented in this version. Thanks, Mindless!
+
+
+
+2009-09-24-01
+
+    OSD-Zeichnungs-Bugfix
+        Ein Mini-Bugfix, der die Spielerbuttons in der Lobby wieder korrekt
+        zeichnen laesst.
+
+
+
+2009-09-24
+
+    Explosionspixel
+        Dies ist ein alternativer Stil fuer die Lemming-Explosionen, der in
+        den Grafikoptionen gewaehlt werden kann.
+
+    Netzwerk-Timing
+        Der Server und die Clients sind nun besser zeitlich aneinander
+        angeglichen.
+
+    OSD-Zeichnungs-Bugfix
+        Die Aenderung der Version 2009-09-21 hatte noch ein paar Schoenheits-
+        fehler, die wurden jetzt behoben. In der Netzwerklobby hinterliessen
+        einige unbenoetigte Buttons noch Grafikreste.
+
+
+
+2009-09-21
+
+    Speicherdialog-Bugfix
+        Wenn man im Editor eine Datei ueberschreiben wollte und die Nachfrage
+        mit "Ja" bestaetigte, wurde die Nachfrage nicht vom Bildschirm
+        geloescht. Das wird sie jetzt wieder.
+
+
+
+2009-09-20
+
+    Editor-Bugfix
+        Neue Elemente werden nun wieder im Vordergrund eingesetzt anstatt
+        im Hintergrund.
+
+    Tarinf
+        Wenn die Maus ueber einem eigenen Lemming liegt, so wird im Panel
+        anstatt der Zeit nun angezeigt, wie viele Lemminge unter der Maus
+        liegen sowie die Taetigkeit und dauerhaften Faehigkeiten des Lemmings
+        mit der hoechsten Prioritaet.
+
+    Mitspieler-Namen im Spiel
+        Im Mehrspieler-Panel werden jetzt, sofern Platz ist, die Namen der
+        Mitspieler unter dem jeweiligen Spielerbereich angezeigt.
+
+    Vollbildmodus
+        Gibt man im Optionsmenue eine Vollbild-Aufloesung von 0 mal 0 Pixeln
+        an, so erfragt L++ die Desktop-Aufloesung des Benutzers und nutzt
+        diese ebenfalls.
+
+
+
+2009-09-19
+
+    Netzwerk-Bugfix
+        Von Zeit zu Zeit vergass das Spiel, ein Update neuzuberechnen,
+        naemlich immer dann, wenn ein Paket zum laufenden, bereits berechneten
+        Update eintraf. Das fuehrte zur sporadischen, aber in langen Spielen
+        nahezu sicheren Desynchronisation. Der Bug ist jetzt behoben.
+
+    Stahlmaske geaendert
+        Die Stahlmaske kommt nun mit beliebig geformtem Stahl zurecht, ferner
+        werden Stahlpixel in Originallevels nun korrekt erkannt.
+
+        Ich lese hier nicht die Stahlzonen aus der Leveldatei, sondern setze
+        alle Pixel in die Stahlmaske, die zu einem Stahlobjekt gehoeren und
+        nicht durch anderes Terrain ueberschrieben werden. Dadurch entsteht
+        eine Stahlmaske, die nicht dem Originalspiel entspricht - aber das ist
+        auch nicht das Ziel von L++.
+
+        Hierdurch dauert das Starten eines Levels nun etwas laenger, da die
+        Stahlmaske durch viele selbstgeschriebene Per-Pixel-Funktionen
+        erstellt wird.
+
+    Nachspielzeit-Bugfix
+        Die Nachspielzeit startet jetzt wieder korrekt in Netzwerkspielen.
+        In den letzten Versionen tat sie das ueberhaupt nicht.
+
+
+
+2009-09-16-01
+
+    Grafik-Bugfix
+        Lemminge und Sterne, die mal an einer Position gewesen waren, wurden
+        ein Grafik-Frame lang sichtbar, wenn man an ihre alte Position nach
+        links oder oben scrollte. Ist jetzt behoben.
+
+
+
+2009-09-16
+
+    Zeichnen von Originallevels
+        Die Originallevels werden praktisch korrekt gezeichnet, sowohl mit
+        schwarzem als auch mit nichtueberschreibendem Terrain. Moeglicherweise
+        werden einige Objekte noch ein-zwei Pixel zu hoch gezeichnet, ich
+        bin mir nicht sicher, ob dies derzeit auftritt.
+
+        Achtung - dies funktioniert noch nicht:
+        - Einwegpfeile funktionieren nicht.
+        - Editor zeigt Originallevels nicht korrekt an.
+
+    Versionsbezeichnung
+        Versionen, die auf "-00" enden, erscheinen nur mit Datum und ohne
+        Endung "-00".
+
+
+
+2009-08-29-01
+
+    Originallevels
+        Es koennen erstmals Originallevels geladen werden. Die Levels aus L1,
+        ONML und Holiday 1994 sind im Spiel enthalten.
+
+    Walker-Physik
+        Walker koennen nun eine Wandhoehe von bis zu 12 Pixeln erklimmen,
+        bisher war 10 das Maximum. Hiermit gleiche ich die Physik etwas an die
+        Physik der Originalspiele an. Es gibt etwa im Hell-Grafikset Steine mit
+        einer Original-Hoehe von 6 Pixeln, bei L++ sind das entsprechend 12.
+        Solche Steine sollten weiterhin erklimmbar sein.
+
+    Falldistanz
+        Die maximale sichere Falldistanz betraegt nun 126 Pixel anstatt 120
+        wie bisher. Das erreicht die im Original korrekte Distanz von 63
+        Pixlen. Es gab mehrere Original-Lemmings mit einer Distanz von 66
+        Pixeln, dort waren die Levels "We All Fall Down" ohne Faehigkeits-
+        -Einsatz loesbar. 60 Pixel Falldistanz gab es in keinem Original.
+
+    Replay-Bugfix
+        Die Replays wurden seit mehreren Wochen unbrauchbar in Dateien
+        geschrieben, naemlich ohne Aktionsnamen. Das ist jetzt korrigiert.
+
+    Netzwerk-Bugfix
+        Pakete mit Replay-Daten wurden mit Groesse der Spielerdaten allokiert.
+        Jetzt ist es korrekt. Ob das Netzwerk nun einwandfrei funktioniert,
+        weiss ich allerdings noch nicht, der Feldtest steht noch aus.
+
+    Replays im Spiel
+        Wenn das Replay fertiggespielt ist und die Zeitlupe aktiviert ist,
+        wurde das Spiel absichtlich pausiert. Das ist jetzt nicht mehr so.
+
+
+
+2009-08-03-00
+
+    Sound-Bugfix
+        Der Sound wurde beim Faehigkeitszuweisen in den ersten 15 Sekunden
+        doppelt abgespielt. Das ist nun behoben.
+
+
+
+2009-07-29-00
+
+    Datei-Bugfix
+        Lange Verzeichnisnamen wurden in der Konfigurationsdatei gespeichert,
+        ohne dass sie durch ein Leerzeichen vom Schluesselwort getrennt waren.
+        Dadurch vergass der Editor, in welchem Verzeichnis man zuletzt
+        gearbeitet hatte, wenn man das Spiel neu startete. Ist jetzt behoben.
+
+
+
+2009-07-08-00
+
+    Benutzerverwaltung
+        Der Benutzername, die allgemeine Konfigurationsdatei sowie die
+        benutzereigene Konfigurationsdatei werden jetzt wieder korrekt behan-
+        delt. Es wird etwa, wenn L++ zum zweiten Mal gestartet wird, nicht
+        noch einmal nach dem Namen gefragt, sondern der bekannte Name genutzt.
+
+
+
+2009-02-17-00
+
+    Ladetext
+        Die Meldung beim Spielstart, dass derzeit Daten geladen werden, ist
+        nun groesser und besser lesbar. Sie sieht jetzt genauso aus wie der
+        Original-Ladetext von Lemmings 1.
+
+    Quelltext
+        L++ besteht nun 23.200 Zeilen Quelltext, davon sind 15.000 Code.
+
+
+
+2009-02-17-00
+
+    Permutation
+        Im Netzwerkspiel werden die Startpositionen nun zufaellig permutiert,
+        anstatt dass sie lediglich um eine zufaellige Anzahl Plaetze weiter-
+        geschoben werden. Waren die Klappen etwa 1 3 (Platz) 2 4 verteilt,
+        so war man bisher immer mit demselben Gegner auf einer Seite. Mit
+        beliebigen Permutationen ist die Startposition nun komplett zufaellig.
+
+        Das Replay-Format ist entsprechend angepasst worden. Werden mit der
+        aktuellen Version alte Replays abgespielt, werden Spielernamen nicht
+        mehr gelesen (betrifft auch Einzelspieler-Replays) und alle Spieler
+        haben Gartenlemminge.
+
+
+
+2009-02-16-00
+
+    Fenstermodus
+        Die Aufloesung fuer den Fenstermodus kann nun ebenfalls frei gewaehlt
+        werden. Um mit dieser Aufloesung zu spielen, muss die Option
+        "Fenstermodus" aktiviert sein. Der Schalter "-w" fuehrt weiterhin
+        immer zum Fenstermodus mit einer Aufloesung von 640 x 480 Pixeln.
+
+    Sound-Option
+        Im Audio-Menue kann das Laden des Soundtreibers komplett deaktiviert
+        werden. Unter einigen Linuxsystemen (nicht in der Mathe) bereitete
+        das Spiel mit aktiviertem Sound sonst Probleme.
+
+
+
+2009-02-14-01
+
+    Erfolgspeicher-Bugfixe
+        Wird ein Level im Spiel zwar geloest, dann aber mit [ESC] abgebrochen,
+        so wird der Erfolg trotzdem abgespeichert.
+
+        Wurden genau so viele Lemminge gerettet wie erforderlich, erschien
+        bisher nur der Haken im Einzelspieler-Menue, nicht der Ergebnistext
+        unten rechts. Das ist jetzt behoben.
+
+    Tumbler-Bugfix
+        Bei der letzten Anpassung war ein Vorzeichen falsch und der Tumbler
+        bewegte sich rasend schnell weiter in soliden Felsen. Ist korrigiert.
+
+
+
+2009-02-14-00
+
+    Geschaffte Levels
+        Pro Spieler wird nun gespeichert, ob und wie gut jeder Einzelspieler-
+        level geschafft wurde. Ein durchgespielter Level bekommt einen Haken
+        in der Dateiliste, unten rechts wird das beste Ergebnis des Spielers
+        angezeigt. Wurde der Level zwischenzeitlich editiert, wird der Haken
+        in Klammern gesetzt und unten rechts ein Hinweis angezeigt.
+
+        Bei der Bestimmung des besten Ergebnisses wird so vorgegangen:
+        Neuere Levelversion schlaegt immer jede alte Levelversion.
+        Bei gleicher Levelversion gewinnt das Retten der meisten Lemminge.
+        Bei gleicher Anzahl Geretteter gewinnt das Geben weniger Faehigkeiten.
+        Bei gleicher Faehigkeits-Anzahl gewinnt die kuerzere Spieldauer.
+
+
+
+2009-02-11-00
+
+    Tumbler-Bugfix
+        Der Tumbler teleportiert nun nicht mehr durch das Land hindurch, wenn
+        er durch Explosionen in feste Landschaft geschleudert wird. Nun wird
+        er einfach zum naheliegensten offenen Bereich bewegt, der horizontal
+        oder vertikal erreichbar ist.
+
+
+
+2008-12-27-00
+
+    Bilddialog
+        Das aktuelle Verzeichnis wird nun auch in all den Editordialogen
+        angezeigt, in denen man Terrain und andere Objekte fuer den Level
+        aussuchen kann.
+
+    Siedler-II-Scrolling
+        Wird gegen den Rand gescrollt und bewegt man die Maus anschliessend
+        zurueck, so wird erst dann wieder vom Rand weggescrollt, wenn die
+        urspruengliche Entfernung vom Bildschirmrand mit der Maus erreicht
+        ist. Dies fuehlt sich wesentlich natuerlicher an.
+
+
+
+2008-12-22-00
+
+    Optionsmenue aufgeteilt
+        Das Optionsmenue ist nun in vier Gruppen von Optionen eingeteilt:
+        Allgemeines, Steuerung, Grafik, Klaenge. Das schafft Platz fuer neue
+        Optionen, die ich bereits seit Laengerem einbauen wollte.
+
+    Siedler-II-Scrollen
+        Optional kann nun gescrollt werden, indem die rechte Maustaste fest-
+        gehalten und dabei die Maus bewegt wird. Standardmaessig ist sowohl
+        dieses Scrollen wie auch das Scrollen am Rand aktiviert.
+
+    Editor-Bugfix
+        Wenn man ein Raster (2, 5, 10, 25) aktivierte, konnte man die Objekte
+        nicht ins Negative ziehen. Das habe ich behoben.
+
+    Augenzucker
+        Die herumfliegenden Sterne und Woelkchen koennen fuer andere Spieler
+        oder auch komplett deaktiviert werden.
+
+    Speicherdialog
+        Im Speicherdialog werden die Daten des Levels oder des Replays, den/
+        das man abspeichern moechte, stets oben angezeigt. Das hilft beim
+        Einsortieren in die eigene Dateistruktur.
+
+    Trauerrand dunkler
+        Der Trauerrand ist, sofern er ueberhaupt aktiviert ist, nur noch
+        halb so hell wie zuvor.
+
+
+
+2008-12-07-00
+
+    Feinere Zahlen
+        Zeit und Levelgroesse besitzen im Editor jetzt Zahl-Einstellfelder mit
+        jeweils drei Buttons fuers Erhoehen und Verringern. Damit ist die Zahl
+        feiner einstellbar als bisher.
+
+
+
+2008-11-26-00
+
+    Trauerrand einfaerben
+        Es gibt nun eine Option, den Trauerrand im Vollbildmodus in einer
+        dunklen Farbe einzufaerben. Dadurch wird im Spiel deutlicher, wo der
+        Spielfeldrand ist. Diese Option ist standardmaessig deaktiviert.
+
+
+
+2008-11-23-00
+
+    Feuer
+        Objekte mit der Prae-Endung .F. durchlaufen eine Animation aehnlich
+        wie Wasser und lassen Lemminge verbrennen, wenn sie in diese Objekte
+        geraten.
+
+    Kletterer-Bugfix
+        Kletterer erklimmen wieder die kleinen Hoehen, vor denen sie seit dem
+        letzten Bugfix faelschlicherweise nur umdrehten.
+
+
+
+2008-11-21-00
+
+    Kletterer-Bugfix
+        Der Kletterer klettert nun wieder alle Waende hoch, unabhaengig von
+        ihrer X-Paritaet (Rest der X-Koordinate beim Teilen durch zwei).
+
+    Bohrer-Bugfix
+        In manchen Faellen blieb eine ein Pixel breite Wand stehen nach dem
+        Bohren. Ich kontrolliere den Boden daher einen Pixel weiter als bisher.
+        Der Feldtest dieses Bugfixes steht allerdings noch aus.
+
+
+
+2008-11-16-00
+
+    Augenzucker
+        Die Exploder produzieren herumfliegende Sternchen und Woelkchen.
+        Hackern, die in den Stahl hacken, springt die Hacke um die Ohren.
+
+        Geplant ist, diese Effekte in den Optionen regulierbar zu machen, damit
+        sie den Mehrspielermodus nicht weiter mit visuellen Reizen ueberladen.
+
+
+
+2008-11-13-03
+
+    Tumbler-Bugfix
+        Die herumfliegenden Lemminge zuckeln nicht mehr im Gestein hin und her,
+        sondern liegen direkt in der Naehe des Punktes, an dem sie ins Terrain
+        eingetreten waeren.
+        
+    Replaybrowser-Bugfix
+        Replays, deren zugehorige Leveldatei fehlt, koennen nun korrekt aus
+        dem Browser geloescht werden.
+
+
+
+2008-11-13-01
+
+    Maus-Bugfix
+        Die fuer Version 2008-11-11-00 angekuendigte Ausbesserung des Yassin-
+        -Bugfixes wurde nochmals ueberarbeitet und sollte nun funktionieren.
+
+    Stahlgraben
+        Der senkrechte Graeber arbeitet liberaler: Damit er aufhoert, muss
+        sowohl links als auch rechts von ihm Stahl sein. Versperrt Stahl nur
+        eine seiner Seiten, graebt er einfach ein schmaleres Loch als normal.
+
+    Sounds
+        Neue Sounds eingebaut fuer Stahlgraben, Wasser, Nuke-Taste, Verlassen
+        des Spielfeldes am Rand.
+
+
+
+2008-11-11-00
+
+    Button-Einrasten
+        Es gibt kalte, warme und heisse Buttons: Die kalten reagieren wie die
+        bisherigen. Warme Buttons springen schon beim Druecken der Maustaste
+        an, nicht erst beim Loslassen. Beispiel: Pausetaste im Spiel. Heisse
+        Buttons springen schon an, wenn man mit gedrueckt gehaltener Maustaste
+        darueber faehrt. Beispiel: Faehigkeitstasten im Spiel.
+
+    Maus-Bugfix
+        Beim Beheben des Yassin-Bugs habe ich offenbar zu viel behoben:
+        Manchmal dachte das Spiel nach einem Klick, dass in jedem folgenden
+        Tick ebenfalls geklickt werde. Das ist nun abgestellt, der Feldtest
+        unter Linux hat allerdings noch zu erfolgen.
+
+
+
+2008-11-10-00
+
+    Sounds unter Linux
+        Ich verwende jetzt erfolgreich den OSS-Soundtreiber unter Linux. Die
+        automatische Allegro-Treiberwahl moechte immer den eigentlich besseren
+        ALSA-Treiber nutzen, der allerdings von Allegro vermutlich nicht
+        korrekt initialisert wird.
+
+    Sounds im Netzwerk
+        Die Sounds, die Lemminge andere Spieler verursachen, werden wesentlich
+        leiser abgespielt. So kann man besser unerwartete Ereignisse durch
+        Zuhoeren erkennen, falls die eigene Horde betroffen ist.
+
+    Effektmanager
+        Intern: Ein Effektmanager uebernimmt nun das Anzeigen von Pfeilen,
+        Sounds und Explosionen, um zu vermeiden, dass beim Netzwerk-Neurechnen
+        beispielsweise Sounds doppelt gespielt werden.
+
+
+
+2008-11-07-01
+
+    Uhr-Bugfix
+        Im Netzwerkspiel startet der Countdown wieder ordnungsgemaess.
+
+
+
+2008-11-07-00
+
+    Sounds
+        Ein paar Sounds sind testweise schon eingebaut. Im Netzwerkmodus werden
+        ggf. einige Sounds doppelt gespielt, wenn neu gerechnet wird. Das wird
+        in zukuenftigen Versionen aber behoben.
+
+    Editor-Drehen
+        Die Drehtaste im Editor dreht nun wirklich um 90 Grad, ohne dabei zu-
+        saetzlich zu spiegeln, wie es bisher gemacht wurde.
+
+
+
+2008-10-29-02
+
+    Bitmapbrowser-Bugfix
+        Im Editor ragten lange Dateinamen im Bild-Browser ueber den Button des
+        Bildes hinaus. Jetzt werden zu lange Namen dort gekuerzt.
+
+
+
+2008-10-28-01
+
+    Bildformate
+        Bilder werden jetzt ins Spiel geladen, wenn sie BMP, TGA oder PCX mit
+        der jeweils passenden Endung ".bmp", ".tga" oder ".pcx" versehen sind.
+        Neu abgespeicherte Levels haben nur den Dateinamen ohne Endung als
+        Angabe fuer die Bilder, die sie benutzen. Man kann somit alle Bilder
+        nach Belieben in andere Formate konvertieren und die Endung aendern,
+        solange der Name vor der Endung gleich bleibt.
+
+        Anmerkung: Weitere Formate ausser den dreien sind schwerer einzubauen,
+        da Allegro ohne Zusatzbibliotheken keine weiteren Formate unterstuetzt.
+
+    Drehungs-Bugfix
+        Spiegelungen und Drehungen von Objekten wurden manchmal nicht korrekt
+        gespeichert, das ist jetzt behoben.
+    
+    Bildzerstoerungs-Bugfix
+        Ich habe beim Beenden von L++ aus einem destroy_bitmap(bitmap) gemacht:
+        if (bitmap) destroy_bitmap(bitmap). Eventuell behebt das den Bug, bei
+        dem L++ nach dem Beenden noch in der Taskleiste/-liste aktiv ist, aber
+        da muessen wir den Feldtest abwarten.
+
+
+
+2008-10-28-00
+
+    Stahl-Bugfix
+        Stahl wurde in den vergangenen Versionen, die Drehen und Spiegeln
+        unterstuetzten, nicht korrekt in die Stahlmaske eingetragen: Oftmals
+        wurden dort X- und Y-Laenge vertauscht. Das ist jetzt korrigiert.
+
+        Vergleichbare Codezeilen finden sich ebenfalls fuer das Blitten von
+        Landschaftsobjekten in der Naehe von Torusnahtstellen. Dort wurde in
+        manchen Faellen ein Objekt nur auf einer Seite der Nahtstelle auf die
+        Landschaft geblittet, was jetzt analog zum Stahlproblem behoben ist.
+
+    Grobpixelungs-Bugfix
+        Egal, in welche Richtung Lemminge laufen, immer wird eine ein Pixel
+        breite Mauer entweder als Luft oder als Mauer erkannt. Diese Richtungs-
+        unabhaengigkeit war zuvor nicht gewaehrleistet. Die Tatsache, dass die
+        duenne Mauer ueberhaupt mitunter als Luft erkannt wird, ist erwuenscht:
+        Fuer die Spielmechanik soll nur jeder zweite Pixel in X-Richtung
+        relevant sein, in Y-Richtung ist es jeder Pixel.
+
+    Blocker-Bugfix
+        Blocker funktionieren nun auch an Torus-Nahtstellen wie gewohnt.
+
+    Tumbler-Bugfix
+        Der Tumbler durchlaeuft wieder seine gewohnte Animation. In den letzten
+        Versionen wurde stets das erste Bild gezeigt.
+
+
+
+2008-10-27-00
+
+    Zurechtschneiden
+        Bildobjekte ohne Prae-Erweiterung werden nicht mehr in Stuecke
+        geschnitten. Prae-Erweiterungen sind einzelne Buchstaben zwischen zwei
+        Punkten: ./bitmap/goal.G.bmp hat etwa die Prae-Erweiterung 'G' und
+        wird gemaess des Rasters in Einzelbilder geschnitten. Bei normaler
+        Landschaft ist das hingegen nicht noetig.
+
+
+
+2008-10-22-01
+
+    Dreh-Bugfix
+        Im Editor gedrehte Dinge hinterliessen beim Umherziehen manchmal noch
+        eine Spur, weil sie nicht korrekt positioniert waren. Jetzt geht's.
+
+
+
+2008-10-22-00
+
+    Drehen und Spiegeln
+        Alle Terrain-Objekte sind im Editor nun dreh- und spiegelbar. Klicks
+        auf den Dreh-Button fuehren eine Drehung inklusive Spiegelung aus, da
+        dann auch nach dem ersten Knopfdruck die Lichtverhaeltnisse sofort
+        noch stimmen (Objekte sind in der Regel oben und links hell).
+
+    Tumbler-Bugfix
+        Beim senkrechten Fall koennen die Tumbler nicht mehr mit dem Hinter-
+        kopf irgendwo anstossen, was manchmal dazu gefuehrt hatte, dass sie
+        ihre Geschwindigkeit nullsetzten und erneut anfingen zu beschleunigen.
+
+
+
+2008-10-19-00
+
+    Menuewahl
+        Nach dem Spielende kommt man in das Menue zurueck, aus dem man das
+        Spiel aufgerufen hat. Bei Replays kam man, falls der Level existierte,
+        zuvor mitunter ins Einzelspielermenue nach dem Spiel.
+
+    Yassin-Bugfix
+        Ich hoffe, dass nun kurze Klicks sauberer registriert werden.
+        Der Feldtest hat allerdings noch zu erfolgen.
+
+
+
+2008-10-16-01
+
+    Verzeichnisnamen
+        In den Browsern, bei denen man Levels oder Replays auswaehlen kann,
+        werden jetzt die Verzeichnisnamen in der Titelleiste angezeigt.
+
+    Platformer-Bugfix
+        Wenn der Platformer einen soliden Pixel ueber ihm hat, dann hoerte
+        er bisher auf. Walker laufen unter dem Pixel her, also baut der Plat-
+        former jetzt auch darunter her weiter.
+
+
+
+2008-10-09-01
+
+    Replay-Bugfix
+        Daten von Spielern mit aktivierem Builder-Mehrfachklick werden jetzt
+        auch bei Spielern, die den Mehrfachklick deaktiviert haben, korrekt
+        abgespielt. Vorher wurden dort die Mehrfachklicks einfach ignoriert.
+
+    Neustart und Schnelladen
+        Srollposition und Zoom-Einstellung bleiben beim Neustart erhalten,
+        ebenso, falls vorhanden, die Schnellspeicherung. Laedt man eine
+        Schnellspeicherung, bei der man null Stueck der ausgewaehlten Faehig-
+        keit hat, erscheint der Button im Panel nicht mehr eingedrueckt.
+
+
+
+2008-10-09-00
+
+    Torus-Bugfix
+        Stahl auf den Torus-Nahtstellen kann nicht mehr durchgraben werden.
+        Lemminge, die auf Zylinderkarten (horizontal, aber nicht vertikal
+        rundumgehend) runterfallen, kommen nicht mehr oben raus.
+
+
+
+2008-10-08-01
+
+    Editor-Buttons
+        Neben den Vorder-/Hintergrund-Buttons gibt es nun zwei Buttons, die
+        die Objekte jeweils nur vor/hinter das naechste Objekt setzen.
+
+        Man kann Objekte nun viel exakter mit der Maus anwaehlen, da man auf
+        einen nichttransparenten Bildpixel zeigen muss, nicht nur allgemein
+        in das Objekt-Rechteck.
+
+
+
+2008-10-03
+
+    Toruskarten
+        Solche Karten ermoeglichen balanciertere Mehrspielerpartien auch mit
+        mehr als zwei Spielern. Man kann fuer jede Karte festlegen, ob sie
+        vertikal, horizontal oder in beiden Richtungen wiederholt fortgesetzt
+        werden soll, sobald der Rand erreicht ist.
+
+    Replay-Pfeile
+        erscheinen bei zugewiesenen Faehigkeiten im Replay und/oder in
+        Netzwerkpartien. Beides ist unabhaengig voneinander im Optionsmenue
+        einstellbar.
+
+    Quelltext
+        Der Quelltext von Lemmings++ umfasst jetzt 20.000 Zeilen. Davon sind
+        13.000 Zeilen reiner Code, der Rest Kommentare und Leerzeilen.
+
+
+
+2008-10-01?
+
+    Replay-Menue
+        Hier koennen die gespeicherten Replays ausgewaehlt und angesehen
+        werden. In der folgenden Woche kommt der Loesch-Button dazu.
+
+
+
+2008-09-21
+
+    Walker
+        Laesst Arbeitstiere aufhoeren, sogar Blocker, oder dreht Walker um.
+
+    Platformer
+        Baut horizontale Bruecken.
+
+    Exploder Nr. 2
+        Hat Rueckstoss und ist ungemein wertvoll fuer das Balancing im
+        Mehrspielermodus. Diese Faehigkeit ist dort die lustigste von allen!
+
+    Desyncs weg
+        Der Netzwerknodus hat nicht mehr diese seltenen Desynchronisations-
+        fehler. Vermutlich sind sie verschwunden, als ich die interne
+        Speicherung der Replaydaten ueberarbeitet habe.
+
+
+
+2008-08-24
+
+    Statusanzeige im Netzwerk
+        Aktuelle Lemming-Daten der Mitspieler werden im Mehrspielermodus
+        angezeigt.
+
+    Editor-Speichern-Dialog
+        Der Editor bietet nun eine "Aenderungen speichern"-Abfrage, anstatt
+        bei jedem Beenden eine automatische Sicherheitskopie anzulegen.
+
+
+
+2008-08-02
+
+    Allegro-Projekt
+        Bei allegro.cc ist mein Projekt akzeptiert worden. Dies ist somit die
+        erste Version, die oeffentlich heruntergeladen werden konnte.
+
+    Sprachwahl
+        Saemtliche Texte sind in Deutsch oder Englisch verfuegbar.
+
+    Optionsmenue
+        Mit diesem Menuepunkt erspart man sich das Aendern der Spielerdaten
+        in der Datei config.txt.
+
+
+
+2008-07-10?
+
+    L++ in der Mathe
+        Die Leute spielen zum Zeitvertreib L++ in der Mathe, auch wenn ich gar
+        nicht zum Testspielen da bin. Super! :-D
+
+
+
+2008-06-23
+
+    Netzwerkmodus
+        Endlich steht ein funktionstuechtiger Netzwerkmodus! Die Replays sind
+        bei beiden Spielern allerdings noch nicht exakt gleich und werden auch
+        nicht immer identisch abgespielt. Das Neu-Rechnen-Prinzip hat sich
+        dennoch bereits bewaehrt, sofern nicht ein Rechner zeitlich stark dem
+        anderen hinterherhinkt.
+        
+    Quelltext
+        L++ besteht nun 16.000 Zeilen Quelltext, davon sind 9.700 Code.
+
+
+
+2006-04-01
+
+    Anfang
+        Nach einem Monat Einarbeitung in C++ und Allegro habe ich mit der
+        Programmierung von L++ angefangen. Mit den neuen Kenntnissen etwas
+        anderes als noch eine Lemmings-Variante zu programmieren, hatte ich
+        bis dahin nicht im Sinn. ;-)
+
+        Die erste Version besteht aus einem einzelnen Walker vor schwarzem
+        Hintergrund, der an den Seiten umdreht.
+
+
+
+2003-12-24
+
+    Weihnachtslemminge?
+        Frapela schreibt mir eine Mail, wo denn die Weihnachtslemminge 2003
+        als Erweiterung von GS Lemmings bleiben. Aehnliche Mails trudeln ab
+        sofort jedes Jahr mit schoener Regelmaessigkeit ein. :-)
+
+
+
+2003-09-10
+
+    GS Lemmings, Version zwei
+        Die zweite Version von GS Lemmings, meiner ersten Lemmings-Variante,
+        kommt ins GS-Forum. Es gibt die zwanzig Originallevels, zwanzig Modi-
+        fikationen dieser Levels von Frapela sowie zwanzig komplett neue
+        Levels. Ebenfalls neu sind das Nutzen mehrerer Klappen und Fallen
+        pro Level, ferner das Setzen von Fallen.
+
+
+
+2003-06-04
+
+    GS Lemmings
+        Die erste Version von GS Lemmings ist auf der Gravity-Strike-Seite
+        zum Herunterladen veroeffentlicht. Es gibt zwanzig Levels, alle
+        jeweils ein bildschirmgrosses mit MS-Paint gemaltes Bild.

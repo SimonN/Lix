@@ -1,0 +1,80 @@
+
+/¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\
+|   Lix                                                Known bugs and issues  |
+\_____________________________________________________________________________/
+
+
+
+General
+
+    Linux and Mac issues
+        The game will compile, but maybe not run properly under these OSes.
+        A workaround may be to run it with the -w switch to achieve windowed
+        mode. I will probably port the game to Allegro 5, hoping to fix it.
+
+
+
+Menu
+
+    Option help text
+        In the sound tab of the options menu, the *) text for the "load sound
+        driver" option is wrong. It should read "requires a program restart".
+
+
+
+Editor
+
+    [Ctrl] and copying
+        Selecting multiple parts with [Ctrl] and then copying everything does
+        not guarantee correct z-order of the newly copied parts.
+
+    [Shift]
+        Don't hold shift, start dragging a frame with the mouse. While doing
+        that, press and release shift. The selection will be cancelled in some
+        way. It shouldn't happen, since shift shall only trigger the frame-
+        -dragging when on too much terrain.
+
+    Steel dialogue (?)
+        phil said that it doesn't close on pressing cancel, instead it closes
+        and opens again right away.
+        
+
+
+Gameplay physics
+
+    Doors too tall
+        Lixes won't enter some exits. Also, some exits aren't sized at
+        multiples of 16 in both dimensions.
+
+    Exploder flinging
+        I tested it in Lix. What happens is actually the opposite of what you
+        said should happen:
+        -   If the second one bombs, it flings the first straight up
+        -   If the first one bombs, it flings the second one forward
+
+        Also, test assignment priority for stacked lixes. Inconsistent results?
+
+
+Gameplay non-physics
+
+    RR buttons
+        Their numbers aren't redrawn correctly everytime.
+
+    Multiple Hatches screen start
+        In multiplayer, if the player will have multiple hatches, the screen
+        start coordinates aren't calculated properly if the best point is
+        a torus-seam-using combination of the hatch coordinations.
+
+    Buttons and hotkeys
+        During intense networking action, when a player selects skills with
+        the keyboard hotkeys, the buttons may flicker. To remedy this, select
+        the on/off graphic effect of a button during the draw step instead of
+        instantly.
+
+
+
+
+Network game
+
+    Netzwerkspiel im ESC-Menue
+        Es laeuft korrekt weiter, aber Lemminge sind weiterhin anklickbar.
