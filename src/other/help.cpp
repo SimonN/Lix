@@ -110,6 +110,12 @@ void string_cut_to_dir(std::string& s) {
             s.erase(++i, s.end());
             break;
 }   }   }
+void string_remove_root_dir(std::string& s) {
+    for (int i = 0; i < s.length() && i < gloB->dir_root.length(); ++i)
+        if (s[i] != gloB->dir_root[i]) return;
+    // there is a copy of gloB->dir_root at the beginning of s, erase that
+    s.erase(0, gloB->dir_root.length());
+}
 void string_shorten(std::string& s, const FONT* ft, const int length) {
     if (text_length(ft, s.c_str()) > length) {
         while (text_length(ft, s.c_str()) > length - text_length(ft, "..."))

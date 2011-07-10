@@ -56,7 +56,7 @@ public:
     static const std::string  get_filename(const Object*);
 
     static const std::string& orig_set_to_string(const int);
-    static const OrigSet      string_to_orig_set(const std::string&);
+    static       OrigSet      string_to_orig_set(const std::string&);
 
 private:
 

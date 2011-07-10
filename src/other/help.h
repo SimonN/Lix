@@ -39,8 +39,9 @@ namespace Help {
 
     void string_to_nice_case    (std::string&); // Alle ausser 1. Bch.
     void string_remove_extension(std::string&);
-    void string_remove_dir      (std::string&);
+    void string_remove_dir      (std::string&); // cut everything incl last /
     void string_cut_to_dir      (std::string&);
+    void string_remove_root_dir (std::string&); // only if present in front
     void string_shorten         (std::string&, const FONT*, const int);
     std::string
          string_get_extension    (const std::string&);

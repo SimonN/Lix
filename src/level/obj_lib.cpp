@@ -92,7 +92,7 @@ void ObjLib::load_file(const std::string& no_ext, const std::string& s)
     // properly, creating a different landscape ==> desyncs.
     // We amend Terrain and Steel here, both are type == Object::TERRAIN.
     if (type == Object::TERRAIN
-     && c.get_xl() % 2 == 1 || c.get_yl() % 2 == 1) {
+     && (c.get_xl() % 2 == 1 || c.get_yl() % 2 == 1)) {
         int nxl = c.get_xl() + (c.get_xl() % 2);
         int nyl = c.get_yl() + (c.get_yl() % 2);
         BITMAP* amended = create_bitmap(nxl, nyl);
@@ -121,6 +121,8 @@ void ObjLib::load_file(const std::string& no_ext, const std::string& s)
 void ObjLib::load_file_callback(std::string& s, void* v) {
     std::string no_ext = s;
     Help::string_remove_extension(no_ext);
+    Help::string_remove_root_dir(no_ext);
+    no_ext = "./" + no_ext;
     ((ObjLib*) v)->queue.insert(std::make_pair(no_ext, s));
 }
 
@@ -263,7 +265,7 @@ const std::string& ObjLib::orig_set_to_string(const int o) {
 
 
 
-const ObjLib::OrigSet ObjLib::string_to_orig_set(const std::string& s) {
+ObjLib::OrigSet ObjLib::string_to_orig_set(const std::string& s) {
     for (std::map <OrigSet, std::string>::iterator
      i  =  lib->orig_set_string.begin();
       i != lib->orig_set_string.end(); ++i) {
