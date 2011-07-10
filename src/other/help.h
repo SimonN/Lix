@@ -41,7 +41,13 @@ namespace Help {
     void string_remove_extension(std::string&);
     void string_remove_dir      (std::string&); // cut everything incl last /
     void string_cut_to_dir      (std::string&);
+
+    // The following functions are for saving/loading filenames in files.
+    // Everything gets saved without the root dir, since that varies.
+    std::string new_string_remove_root_dir(const std::string&);
     void string_remove_root_dir (std::string&); // only if present in front
+    void string_add_root_dir    (std::string&); // only if not yet there
+
     void string_shorten         (std::string&, const FONT*, const int);
     std::string
          string_get_extension    (const std::string&);

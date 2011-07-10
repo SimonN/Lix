@@ -69,7 +69,7 @@ SaveBrowser::SaveBrowser(const std::string& bdir,
     level_list.set_write_file_names();
     if (replay_style) level_list.set_replay_style();
     level_list.load_dir(dir);
-    set_subtitle(dir);
+    set_subtitle(Help::new_string_remove_root_dir(dir));
 
     ok    .set_hotkey(KEY_ENTER);
     ok    .set_text  (Language::ok);
@@ -124,7 +124,8 @@ void SaveBrowser::calc_self()
             }
             else if (dir_list.get_clicked()) {
                 level_list.load_dir(dir_list.get_current_dir());
-                set_subtitle(dir_list.get_current_dir());
+                set_subtitle(Help::new_string_remove_root_dir(
+                    dir_list.get_current_dir()));
             }
             else if (level_list.get_clicked()) {
                 std::string s = level_list.get_current_file();
@@ -176,7 +177,7 @@ void SaveBrowser::calc_self()
 
 void SaveBrowser::set_info_file_name(const std::string& s)
 {
-    label_file_name.set_text(s);
+    label_file_name.set_text(Help::new_string_remove_root_dir(s));
 }
 
 
@@ -219,7 +220,8 @@ bool SaveBrowser::search_criterion_level(const std::string& s)
 
 BoxMessage* SaveBrowser::new_box_overwrite_level(const std::string&file)
 {
-    std::string s1 = Language::editor_file_name  + ' ' + file;
+    std::string s1 = Language::editor_file_name  + ' '
+                   + Help::new_string_remove_root_dir(file);
     std::string s2 = Language::editor_level_name + ' ' + Level::get_name(file);
 
     Api::BoxMessage* box_overwrite = new Api::BoxMessage(500, 3,

@@ -69,7 +69,8 @@ void BitmapBrowser::load_dir(const std::string& s, const int initial_page)
 {
     dir_list   .set_current_dir(s);
     list_bitmap.load_dir(s, initial_page);
-    set_subtitle(dir_list.get_current_dir());
+    set_subtitle(Help::new_string_remove_root_dir(
+                 dir_list.get_current_dir()));
 }
 
 

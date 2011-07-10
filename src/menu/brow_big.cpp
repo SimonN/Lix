@@ -8,6 +8,7 @@
 #include "../api/manager.h"
 #include "../level/level.h"
 #include "../other/language.h"
+#include "../other/help.h" // remove root dir in window title
 
 namespace Api {
 
@@ -44,7 +45,7 @@ BrowserBig::BrowserBig(const std::string& wintitle,
     lev_list.load_dir           (dir_list.get_current_dir());
     lev_list.highlight_file     (lastfile);
     filename = get_current_dir() + get_current_file();
-    set_subtitle(get_current_dir());
+    set_subtitle(Help::new_string_remove_root_dir(get_current_dir()));
 
     // on_level_highlight() muss von der abgeleiteten Klasse aufgerufen
     // werden, weil diese zu diesem Konstruktoraufruf-Zeitpunkt noch
@@ -73,7 +74,8 @@ void BrowserBig::calc_self()
 {
     if (dir_list.get_clicked()) {
         lev_list.load_dir(dir_list.get_current_dir());
-        set_subtitle(dir_list.get_current_dir());
+        set_subtitle(Help::new_string_remove_root_dir(
+                     dir_list.get_current_dir()));
         filename = get_current_dir() + get_current_file();
         on_file_highlight      (filename);
         lev_list.highlight_file(get_current_file());

@@ -7,6 +7,7 @@
 #include "user.h"
 #include "language.h"
 #include "io.h"
+#include "help.h"
 
 #include "../lix/lix_enum.h" // LixEn::AC_MAX
 #include "../network/net_t.h" // PlayerData::name_max_length
@@ -240,19 +241,28 @@ void User::load()
     for (IO::LineIt i = lines.begin(); i != lines.end(); ++i) switch(i->type) {
 
     case '$':
-        if      (i->text1 == gloB->user_single_last_dir        ) single_last_dir        = i->text2;
+        if      (i->text1 == gloB->user_single_last_dir        )
+            Help::string_add_root_dir(single_last_dir        = i->text2);
         else if (i->text1 == gloB->user_single_last_file       ) single_last_file       = i->text2;
-        else if (i->text1 == gloB->user_network_last_dir       ) network_last_dir       = i->text2;
+        else if (i->text1 == gloB->user_network_last_dir       )
+            Help::string_add_root_dir(network_last_dir       = i->text2);
         else if (i->text1 == gloB->user_network_last_file      ) network_last_file      = i->text2;
-        else if (i->text1 == gloB->user_replay_last_dir        ) replay_last_dir        = i->text2;
+        else if (i->text1 == gloB->user_replay_last_dir        )
+            Help::string_add_root_dir(replay_last_dir        = i->text2);
         else if (i->text1 == gloB->user_replay_last_file       ) replay_last_file       = i->text2;
 
-        else if (i->text1 == gloB->user_editor_last_dir_terrain) editor_last_dir_terrain= i->text2;
-        else if (i->text1 == gloB->user_editor_last_dir_steel  ) editor_last_dir_steel  = i->text2;
-        else if (i->text1 == gloB->user_editor_last_dir_hatch  ) editor_last_dir_hatch  = i->text2;
-        else if (i->text1 == gloB->user_editor_last_dir_goal   ) editor_last_dir_goal   = i->text2;
-        else if (i->text1 == gloB->user_editor_last_dir_deco   ) editor_last_dir_deco   = i->text2;
-        else if (i->text1 == gloB->user_editor_last_dir_hazard ) editor_last_dir_hazard = i->text2;
+        else if (i->text1 == gloB->user_editor_last_dir_terrain)
+            Help::string_add_root_dir(editor_last_dir_terrain= i->text2);
+        else if (i->text1 == gloB->user_editor_last_dir_steel  )
+            Help::string_add_root_dir(editor_last_dir_steel  = i->text2);
+        else if (i->text1 == gloB->user_editor_last_dir_hatch  )
+            Help::string_add_root_dir(editor_last_dir_hatch  = i->text2);
+        else if (i->text1 == gloB->user_editor_last_dir_goal   )
+            Help::string_add_root_dir(editor_last_dir_goal   = i->text2);
+        else if (i->text1 == gloB->user_editor_last_dir_deco   )
+            Help::string_add_root_dir(editor_last_dir_deco   = i->text2);
+        else if (i->text1 == gloB->user_editor_last_dir_hazard )
+            Help::string_add_root_dir(editor_last_dir_hazard = i->text2);
         break;
 
     case '#':
@@ -392,20 +402,20 @@ void User::save() const
      << IO::LineHash  (gloB->user_editor_grid_custom,      editor_grid_custom)
      << std::endl
 
-     << IO::LineDollar(gloB->user_single_last_dir,         single_last_dir)
+     << IO::LineDollar(gloB->user_single_last_dir,         Help::new_string_remove_root_dir(single_last_dir))
      << IO::LineDollar(gloB->user_single_last_file,        single_last_file)
-     << IO::LineDollar(gloB->user_network_last_dir,        network_last_dir)
+     << IO::LineDollar(gloB->user_network_last_dir,        Help::new_string_remove_root_dir(network_last_dir))
      << IO::LineDollar(gloB->user_network_last_file,       network_last_file)
-     << IO::LineDollar(gloB->user_replay_last_dir,         replay_last_dir)
+     << IO::LineDollar(gloB->user_replay_last_dir,         Help::new_string_remove_root_dir(replay_last_dir))
      << IO::LineDollar(gloB->user_replay_last_file,        replay_last_file)
      << std::endl
 
-     << IO::LineDollar(gloB->user_editor_last_dir_terrain, editor_last_dir_terrain)
-     << IO::LineDollar(gloB->user_editor_last_dir_steel,   editor_last_dir_steel)
-     << IO::LineDollar(gloB->user_editor_last_dir_hatch,   editor_last_dir_hatch)
-     << IO::LineDollar(gloB->user_editor_last_dir_goal,    editor_last_dir_goal)
-     << IO::LineDollar(gloB->user_editor_last_dir_deco,    editor_last_dir_deco)
-     << IO::LineDollar(gloB->user_editor_last_dir_hazard,  editor_last_dir_hazard)
+<< IO::LineDollar(gloB->user_editor_last_dir_terrain, Help::new_string_remove_root_dir(editor_last_dir_terrain))
+<< IO::LineDollar(gloB->user_editor_last_dir_steel,   Help::new_string_remove_root_dir(editor_last_dir_steel))
+<< IO::LineDollar(gloB->user_editor_last_dir_hatch,   Help::new_string_remove_root_dir(editor_last_dir_hatch))
+<< IO::LineDollar(gloB->user_editor_last_dir_goal,    Help::new_string_remove_root_dir(editor_last_dir_goal))
+<< IO::LineDollar(gloB->user_editor_last_dir_deco,    Help::new_string_remove_root_dir(editor_last_dir_deco))
+<< IO::LineDollar(gloB->user_editor_last_dir_hazard,  Help::new_string_remove_root_dir(editor_last_dir_hazard))
      << std::endl
 
      << IO::LineHash  (gloB->user_key_force_left,  key_force_left)
