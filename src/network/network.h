@@ -69,7 +69,7 @@ public:
     static inline void set_style_and_spec(char s, bool p)
                               { if (client) client->set_style_and_spec(s, p); }
 
-    static inline void set_level(const std::string& s) {if(client)client->set_level(s);}
+    static inline void set_level(const Filename& fn) {if(client) client->set_level(fn);}
     static inline bool get_level_change(){ return client && client->get_level_change();}
     static inline const Level& get_level(){return           client->get_level();       }
 

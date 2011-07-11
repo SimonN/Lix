@@ -209,9 +209,7 @@ void Lobby::calc_self()
         if (browser    ->get_exit_with() == NetworkBrowser::EXIT_WITH_OKAY
          || browser    ->get_exit_with() == NetworkBrowser::EXIT_WITH_EXIT) {
             if (browser->get_exit_with() == NetworkBrowser::EXIT_WITH_OKAY) {
-                std::string s = useR->network_last_dir
-                              + useR->network_last_file;
-                Network::set_level(s);
+                Network::set_level(useR->network_last_level);
                 // Und diesen Level auch sofort anzeigen, selbst wenn er
                 // noch nicht offiziell angekommen ist. So wird das Flackern
                 // bzw. das verzoegerte Akzeptieren der Vorschau unterbunden,
@@ -219,7 +217,7 @@ void Lobby::calc_self()
                 // Wir nehmen dabei den (nicht vorhandenen ;-)
                 // Geschwindigkeitsnachteil in Kauf, der beim Neuladen des
                 // Levels aus der Datei entsteht.
-                Level l(s);
+                Level l(useR->network_last_level);
                 preview.set_level(l);
             }
             delete browser;
@@ -349,9 +347,7 @@ void Lobby::work_self()
     }
     // Room data arrived
     if (Network::get_room_data_change()) {
-        Log::log("debugging rohan: room data change in lobby seen");
         room_list.set_room_data(Network::get_room_data());
-        Log::log("debugging rohan: room data change in lobby seen + done");
     }
     // Chat is set and thus redrawn every tick right now
     chat.set_chat_data(Console::get_lines_all());

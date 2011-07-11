@@ -1,5 +1,17 @@
 Special object definitions
 
+
+
+
+
+                        Bug:
+                        These don't work at the moment.
+
+
+
+
+
+
 Use this file to configure your special objects. Make a copy of this file,
 put it into the same directory as your object, and give it the same filename as
 the object except for its ending, which must be .txt. If your object is

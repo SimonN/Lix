@@ -14,7 +14,7 @@
 #include "../other/language.h"
 #include "../other/user.h"
 
-void NetClient::set_level(const std::string& filename)
+void NetClient::set_level(const Filename& filename)
 {
     if (!me || !server) return;
 

@@ -255,9 +255,8 @@ void WindowGameplay::calc_self()
     if (browser_save) {
         if (browser_save->get_exit()) {
             if (browser_save->get_exit_with()) {
-                replay->save_to_file(
-                 browser_save->get_current_dir_and_file(), level);
-                useR->replay_last_dir = browser_save->get_current_dir();
+                replay->save_to_file(browser_save->get_current_file(), level);
+                useR->replay_last_level = browser_save->get_current_file();
                 if (game_end) exit_with = MENU;
                 else          exit_with = RESUME;
                 Manager::remove_focus(this);
@@ -290,11 +289,10 @@ void WindowGameplay::calc_self()
             browser_save = new SaveBrowser(
              gloB->dir_replay,
              gloB->ext_replay,
-             useR->replay_last_dir,
-             gloB->empty_string,
+             useR->replay_last_level,
              search_criterion_save_replay,
              new_box_overwrite, true); // true = benutze Replay-Style
-            browser_save->set_info_file_name(replay->get_level_filename());
+            browser_save->set_info_filename(replay->get_level_filename());
             browser_save->set_info_level_name(
              Level::get_name(replay->get_level_filename()));
             Manager::add_focus(browser_save);
@@ -304,18 +302,18 @@ void WindowGameplay::calc_self()
 
 
 
-bool WindowGameplay::search_criterion_save_replay(const std::string& filename)
+bool WindowGameplay::search_criterion_save_replay(const Filename& fn)
 {
-    return Help::string_ends_with(filename, gloB->ext_replay);
+    return fn.get_extension() == gloB->ext_replay;
 }
 
 
 
-Api::BoxMessage* WindowGameplay::new_box_overwrite(const std::string& file)
+Api::BoxMessage* WindowGameplay::new_box_overwrite(const Filename& file)
 {
     Replay r;
     r.load_from_file(file);
-    std::string s1 = Language::editor_file_name + ' ' + file;
+    std::string s1 = Language::editor_file_name + ' ' + file.get_rootless();
     std::string s2 = Language::editor_level_name
                    + ' ' + Level::get_name(r.get_level_filename());
     Api::BoxMessage* box_overwrite = new Api::BoxMessage(500, 3,

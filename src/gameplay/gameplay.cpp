@@ -67,8 +67,8 @@ Gameplay::Gameplay(Replay* rep)
     replay_recalc_need(false),
     replay_recalc_from(0),
 
-    window_gameplay        (0),
-    special                (Object::MAX)
+    window_gameplay   (0),
+    special           (Object::MAX)
 {
     if (rep) replay = *rep;
     else     replay.set_level_filename(filename);
@@ -89,18 +89,17 @@ Gameplay::~Gameplay()
 
 
 
-std::string Gameplay::determine_filename(Replay* rep)
+const Filename& Gameplay::determine_filename(Replay* rep)
 {
     if (rep) {
-        std::string s = "./replay/a.txt";
         return rep->get_level_filename();
     }
     else if (Network::get_started()) {
-        return gloB->empty_string;
+        return gloB->empty_filename;
     }
     // Normaler Einzelspieler
     else {
-        return useR->single_last_dir + useR->single_last_file;
+        return useR->single_last_level;
     }
 }
 

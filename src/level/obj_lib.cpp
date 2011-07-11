@@ -28,8 +28,8 @@ ObjLib::ObjLib()
 {
     // Die Verzeichnisse nach Bilddateien durchsuchen
     // Abk.-Deklarationen, um die Funktionsaufrufe in einer Zeile zu haben
-    const std::string db            = gloB->dir_bitmap;
-    void (*cb)(std::string&, void*) = load_file_callback;
+    const Filename& db                 = gloB->dir_bitmap;
+    void (*cb)(const Filename&, void*) = load_file_callback;
 
     Help::find_tree(db, gloB->mask_ext_bmp, cb, (void*) this);
     Help::find_tree(db, gloB->mask_ext_tga, cb, (void*) this);
@@ -69,11 +69,11 @@ ObjLib::ObjLib()
 
 
 
-void ObjLib::load_file(const std::string& no_ext, const std::string& s)
+void ObjLib::load_file(const std::string& no_ext, const Filename& fn)
 {
     // zweites Argument: Nur Schneideversuch unternehmen, wenn mit Prae-End.
-    char pe = Help::string_get_pre_extension(s);
-    const Cutbit c(s, pe);
+    char pe = fn.get_pre_extension();
+    const Cutbit c(fn, pe);
 
     Object::Type type = Object::TERRAIN;
     int  st = 0;
@@ -106,11 +106,13 @@ void ObjLib::load_file(const std::string& no_ext, const std::string& s)
         object.insert(std::make_pair(no_ext, Object(c, type, st)));
     }
 
-    // Load more definitions from the accompanying text file.
+    // Load overriding definitions from a possibly accompanying text file.
+    // That file must have the same name, only its extension must be replaced.
     if (type != Object::TERRAIN) {
         std::map <std::string, Object> ::iterator itr = object.find(no_ext);
         if (itr != object.end() && itr->second.type != Object::TERRAIN) {
-            const std::string defs = no_ext + gloB->ext_object_definitions;
+            const Filename defs(fn.get_rootless_no_extension()
+                              + gloB->ext_object_definitions);
             itr->second.read_definitions_file(defs);
         }
     }
@@ -118,12 +120,9 @@ void ObjLib::load_file(const std::string& no_ext, const std::string& s)
 
 
 
-void ObjLib::load_file_callback(std::string& s, void* v) {
-    std::string no_ext = s;
-    Help::string_remove_extension(no_ext);
-    Help::string_remove_root_dir(no_ext);
-    no_ext = "./" + no_ext;
-    ((ObjLib*) v)->queue.insert(std::make_pair(no_ext, s));
+void ObjLib::load_file_callback(const Filename& s, void* v) {
+    static_cast <ObjLib*> (v)->queue.insert(
+        std::make_pair(s.get_rootless_no_extension(), s));
 }
 
 
@@ -134,8 +133,8 @@ void ObjLib::load_l1_set(const int set_id)
     if (set_id < 0 || set_id >= L1_MAX
      || set_id >= (int) graphic_set.size()
      || graphic_set[set_id] != 0) return;
-    std::ostringstream gro; gro << gloB->dir_bitmap_orig_l1 << set_id << ". ";
-    std::ostringstream vgr; vgr << gloB->dir_bitmap_orig_l1 << set_id << ". ";
+    std::ostringstream gro; gro << gloB->dir_bitmap_orig_l1.get_rootful() << set_id << ". ";
+    std::ostringstream vgr; vgr << gloB->dir_bitmap_orig_l1.get_rootful() << set_id << ". ";
     gro << orig_set_to_string(set_id) << "/GROUND"  << set_id << "O.DAT";
     vgr << orig_set_to_string(set_id) << "/VGAGR"   << set_id << ".DAT";
 
@@ -172,8 +171,8 @@ void ObjLib::load_l1_set(const int set_id)
     // If file not found, then the graphic set is empty and returns only
     // null pointers if one tries to get to its graphics. graphic_set[set_id]
     // is still != 0 in that case.
-    graphic_set[set_id] = new GraphicSetL1(gro.str(), vgr.str(),
-                                           steel_ids, flag_ids);
+    graphic_set[set_id] = new GraphicSetL1(
+        Filename(gro.str()), Filename(vgr.str()), steel_ids, flag_ids);
 }
 
 
@@ -185,7 +184,7 @@ void ObjLib::load_l2_set(const int set_id)
      || graphic_set[set_id] != 0) return;
 
     std::ostringstream sty;
-	sty << gloB->dir_bitmap_orig_l2
+	sty << gloB->dir_bitmap_orig_l2.get_rootful()
 	    << orig_set_to_string(set_id) << "/"
 	    << orig_set_to_string(set_id) << ".dat";
     graphic_set[set_id] = new GraphicSetL2(sty.str());
@@ -200,12 +199,13 @@ void ObjLib::load_vgaspec(const int id)
     if (id < 0 || vgaspec[id] != NULL) return;
 
     std::ostringstream filename_vspec;
-    filename_vspec << gloB->dir_bitmap_orig_l1;
+    filename_vspec << gloB->dir_bitmap_orig_l1.get_rootful();
     filename_vspec << "VGASPEC" << (id - 1) << ".DAT";
     // id - 1 is done here because in LVL files, 0x0000 indicates that
     // no vgaspec file is used.
 
-    const Crunch::File* crunchfile = Crunch::get_file(filename_vspec.str());
+    const Crunch::File* crunchfile = Crunch::get_file(
+        Filename(filename_vspec.str()));
     if (crunchfile && crunchfile->size() == 1) {
         BITMAP* spec_bitmap
          = GraphicSetL1::new_read_spec_bitmap((*crunchfile)[0]);
@@ -216,18 +216,18 @@ void ObjLib::load_vgaspec(const int id)
 
 
 // ORIGHACK
-void ObjLib::decrunch_level(std::string& s, void* v)
+void ObjLib::decrunch_level(const Filename& fn, void* v)
 {
     v = v; // counters the warning about unused variables
-    const Crunch::File* crunchfile = Crunch::get_file(s);
-    Help::string_remove_extension(s);
+    const Crunch::File* crunchfile = Crunch::get_file(fn);
+    std::string s = fn.get_rootful();
     s += '-';
     if (crunchfile)
      for (Crunch::File::const_iterator
      itr = crunchfile->begin(); itr != crunchfile->end(); ++itr) {
         std::ostringstream sstr;
         sstr << s << itr - crunchfile->begin() << gloB->ext_level_orig;
-        Crunch::save_section(*itr, sstr.str());
+        Crunch::save_section(*itr, Filename(sstr.str()));
     }
 }
 
@@ -275,6 +275,13 @@ ObjLib::OrigSet ObjLib::string_to_orig_set(const std::string& s) {
 
 
 
+const Object* ObjLib::get(const Filename& fn)
+{
+    return get(fn.get_rootless_no_extension());
+}
+
+
+
 const Object* ObjLib::get(const std::string& str)
 {
     // This function has a lot of returns along its way. Successfully found
@@ -318,7 +325,7 @@ const Object* ObjLib::get(const std::string& str)
     }
 
     // Seek object name in the prefetch queue, if it's there, load and return
-    std::map <std::string, std::string> ::iterator
+    std::map <std::string, Filename> ::iterator
      pre_itr = lib->queue.find(str);
     if (pre_itr != lib->queue.end()) {
         lib->load_file(pre_itr->first, pre_itr->second);
@@ -327,11 +334,14 @@ const Object* ObjLib::get(const std::string& str)
     }
 
     // Otherwise use deprecated text replacement
-    std::string search_str = GraLib::replace_string(str);
-    Help::string_remove_extension(search_str);
+    const std::string& search_str = GraLib::replace_filestring(str);
     if (search_str != str) {
         return lib->get(search_str); // recursive, hopefully depth 1 <_<;
     }
+
+    // Otherwise, strap "./" from the string
+    if (str.length() > 3) return lib->get(str.substr(2, std::string::npos));
+
     else return 0;
 }
 

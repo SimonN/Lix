@@ -77,6 +77,8 @@
 		<Unit filename="network/server_c.cpp" />
 		<Unit filename="other/date.cpp" />
 		<Unit filename="other/date.h" />
+		<Unit filename="other/filename.cpp" />
+		<Unit filename="other/filename.h" />
 		<Unit filename="other/globals.cpp" />
 		<Unit filename="other/globals.h" />
 		<Unit filename="other/help.cpp" />

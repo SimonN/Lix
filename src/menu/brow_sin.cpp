@@ -14,8 +14,7 @@ SingleBrowser::SingleBrowser()
 :
     BrowserBig(Language::browser_single_title,
                         gloB->dir_levels,
-                        useR->single_last_dir,
-                        useR->single_last_file,
+                        useR->single_last_level,
                         true, false), // Checkmark-Stil, aber kein Replay-Stil
 
     button_edit(but_x, 40 + (but_yl + but_y_spacing) * 1,
@@ -51,7 +50,7 @@ SingleBrowser::SingleBrowser()
 
     set_preview_y(40 + (but_yl + but_y_spacing) * 2);
 
-    on_file_highlight(get_current_dir() + get_current_file());
+    on_file_highlight(get_current_file());
 }
 
 SingleBrowser::~SingleBrowser()
@@ -65,13 +64,13 @@ void SingleBrowser::calc_self()
     BrowserBig::calc_self();
 
     if (button_edit.get_clicked()) {
-        on_file_select(get_current_dir() + get_current_file());
+        on_file_select(get_current_file());
     }
 }
 
 
 
-void SingleBrowser::on_file_highlight(const std::string& filename)
+void SingleBrowser::on_file_highlight(const Filename& filename)
 {
     std::string cl;
 
@@ -129,19 +128,17 @@ void SingleBrowser::on_file_highlight(const std::string& filename)
 
 
 
-void SingleBrowser::on_file_select(const std::string& filename)
+void SingleBrowser::on_file_select(const Filename& filename)
 {
     if (hardware.get_mrh() || button_edit.get_clicked()) {
         set_exit_with(EXIT_WITH_EDIT);
-        useR->single_last_dir  = get_current_dir();
-        useR->single_last_file = get_current_file();
+        useR->single_last_level = get_current_file();
     }
     else {
         Level l(filename);
         if (l.get_status() == Level::GOOD) {
             set_exit_with(EXIT_WITH_OKAY);
-            useR->single_last_dir  = get_current_dir();
-            useR->single_last_file = get_current_file();
+            useR->single_last_level = get_current_file();
         }
     }
 }
@@ -159,8 +156,7 @@ NetworkBrowser::NetworkBrowser()
 :
     BrowserBig(Language::browser_network_title,
                         gloB->dir_levels,
-                        useR->network_last_dir,
-                        useR->network_last_file),
+                        useR->network_last_level),
     info_hatches(but_x, get_info_y(),       but_xl),
     info_goals  (but_x, get_info_y() +  20, but_xl),
     info_initial(but_x, get_info_y() +  40, but_xl),
@@ -178,7 +174,7 @@ NetworkBrowser::NetworkBrowser()
     info_skills .set_desc(Language::browser_info_skills);
     info_clock  .set_desc(Language::browser_info_clock_2);
     set_button_play_text(Language::ok);
-    on_file_highlight(get_current_dir() + get_current_file());
+    on_file_highlight(get_current_file());
 }
 
 
@@ -196,13 +192,13 @@ void NetworkBrowser::calc_self()
     // on_file_select wird nochmal differenzieren, ob es per Rechtsklick
     // oder sonstwie aufgerufen wurde, falls der Level doof ist.
     if (hardware.get_mr()) {
-        on_file_select(get_current_dir() + get_current_file());
+        on_file_select(get_current_file());
     }
 }
 
 
 
-void NetworkBrowser::on_file_highlight(const std::string& filename)
+void NetworkBrowser::on_file_highlight(const Filename& filename)
 {
     Level l(filename);
     info_hatches.hide();
@@ -239,13 +235,12 @@ void NetworkBrowser::on_file_highlight(const std::string& filename)
 
 
 
-void NetworkBrowser::on_file_select(const std::string& filename)
+void NetworkBrowser::on_file_select(const Filename& filename)
 {
     Level l(filename);
     if (l.get_status() == Level::GOOD) {
         set_exit_with(EXIT_WITH_OKAY);
-        useR->network_last_dir  = get_current_dir();
-        useR->network_last_file = get_current_file();
+        useR->network_last_level = get_current_file();
     }
     else if (hardware.get_mr()) {
         set_exit_with(EXIT_WITH_EXIT);

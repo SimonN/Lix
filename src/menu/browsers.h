@@ -29,8 +29,8 @@ private:
     SingleBrowser   (const SingleBrowser&);
     void operator = (const SingleBrowser&);
 
-    virtual void on_file_highlight(const std::string&);
-    virtual void on_file_select(   const std::string&);
+    virtual void on_file_highlight(const Filename&);
+    virtual void on_file_select(   const Filename&);
 
 public:
 
@@ -55,8 +55,8 @@ private:
     NetworkBrowser  (const NetworkBrowser&);
     void operator = (const NetworkBrowser&);
 
-    virtual void on_file_highlight(const std::string&);
-    virtual void on_file_select(   const std::string&);
+    virtual void on_file_highlight(const Filename&);
+    virtual void on_file_select(   const Filename&);
 
 public:
              NetworkBrowser();
@@ -86,8 +86,8 @@ private:
 
     ReplayBrowser   (const ReplayBrowser&);
     void operator = (const ReplayBrowser&);
-    virtual void on_file_highlight(const std::string&);
-    virtual void on_file_select(   const std::string&);
+    virtual void on_file_highlight(const Filename&);
+    virtual void on_file_select(   const Filename&);
 
 public:
 

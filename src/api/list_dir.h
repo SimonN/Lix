@@ -22,7 +22,7 @@
 #include "button/b_text.h"
 #include "frame.h"
 
-#include "../other/globals.h" // empty_string
+#include "../other/filename.h"
 
 namespace Api {
 class DirList : public Frame {
@@ -33,31 +33,32 @@ private:
     unsigned int bottom_button;
     unsigned int real_buttons_per_page;
 
-    std::vector <std::string> dir_list;
+    std::vector <Filename>    dir_list;
     std::vector <TextButton*> buttons;
 
-    std::string base_dir;
-    std::string current_dir;
+    Filename base_dir;
+    Filename current_dir;
 
     bool clicked;
 
-    void add_button(const int, std::string&);
+    void add_button(const int, const Filename&);
+    void add_button(const int, const std::string&);
+
     void load_current_dir();
-    static void static_put_to_dir_list(std::string&, void*);
+    static void static_put_to_dir_list(const Filename&, void*);
 
 public:
 
     DirList(const int, const int, const int, const int,
-     const std::string&, const std::string& = gloB->empty_string);
-     //    Basisverz.,         aktuelles Verz.,
+     const Filename& base_dir, const Filename& current_dir);
     ~DirList();
 
-    bool                get_clicked()     { return clicked;     }
+    bool                   get_clicked()     { return clicked;     }
 
-    inline std::string& get_base_dir()    { return base_dir;    }
-    inline std::string& get_current_dir() { return current_dir; }
-    void                set_current_dir_to_parent_dir();
-    void                set_current_dir(const std::string& s);
+    inline const Filename& get_base_dir()    { return base_dir;    }
+    inline const Filename& get_current_dir() { return current_dir; }
+    void                   set_current_dir_to_parent_dir();
+    void                   set_current_dir(const Filename& s);
 
 protected:
 

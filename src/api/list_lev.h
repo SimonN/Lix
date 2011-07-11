@@ -38,7 +38,7 @@ public:
     inline void set_checkmark_style (const bool b = true) { checkmark_style  = b; }
 
     // Muss von anderen nie aufgerufen werden, kann aber gelesen/benutzt werden
-    static bool search_criterion(const std::string&);
+    static bool search_criterion(const Filename&);
 
 }; // Ende Klasse ListLevel
 }  // Ende Namensraum Api

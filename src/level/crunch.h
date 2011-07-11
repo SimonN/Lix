@@ -24,9 +24,9 @@
 
 #include <fstream>
 #include <map>
-#include <string>
 #include <vector>
 
+#include "../other/filename.h"
 #include "../other/types.h"
 
 class Crunch {
@@ -36,14 +36,14 @@ public:
     typedef std::vector <Byte>    Section;
     typedef std::vector <Section> File;
 
-    static const File* get_file    (const std::string&);
-    static void        save_section(const Section&, const std::string&);
+    static const File* get_file    (const Filename&);
+    static void        save_section(const Section&, const Filename&);
 
 private:
 
     static Crunch cr;
 
-    std::map <std::string, File> data;
+    std::map <Filename, File> data;
 
     inline Crunch() {};
     inline ~Crunch() {};

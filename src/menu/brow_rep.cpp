@@ -15,8 +15,7 @@ ReplayBrowser::ReplayBrowser()
 :
     BrowserBig(Language::browser_replay_title,
                gloB->dir_replay,
-               useR->replay_last_dir,
-               useR->replay_last_file,
+               useR->replay_last_level,
                false, true), // kein Checkmark-Stil, aber Replay-Stil
 
     button_extract(but_x, LEMSCR_Y - 180,
@@ -55,7 +54,7 @@ ReplayBrowser::ReplayBrowser()
     button_delete .set_undraw_color(color[COL_API_M]);
     button_delete .hide();
 
-    on_file_highlight(get_current_dir() + get_current_file());
+    on_file_highlight(get_current_file());
 }
 
 
@@ -76,14 +75,12 @@ void ReplayBrowser::calc_self()
         browser_save->set_draw_required();
         if (browser_save->get_exit()) {
             if (browser_save->get_exit_with()) {
-                useR->single_last_dir  = browser_save->get_current_dir();
-                useR->single_last_file = browser_save->get_current_file();
+                useR->single_last_level = browser_save->get_current_file();
                 // Replay-Verzeichnis und -Datei wurden aktualisiert, als
                 // auf den Extraktions-Button gedrueckt wurde
-                Replay r(get_current_dir() + get_current_file());
+                Replay r(get_current_file());
                 Level  l(r.get_level_filename());
-                l.save_to_file(browser_save->get_current_dir()
-                             + browser_save->get_current_file());
+                l.save_to_file(browser_save->get_current_file());
             }
             delete browser_save;
             browser_save = 0;
@@ -92,10 +89,9 @@ void ReplayBrowser::calc_self()
     }
     else if (box_delete) {
         box_delete->set_draw_required(); // Damit Buttons eingedrueckt werd.
-        std::string filename = get_current_dir() + get_current_file();
         switch (box_delete->get_button_clicked()) {
         case 1:
-            delete_file(filename.c_str());
+            delete_file(get_current_file().get_rootful().c_str());
             reload_dir();
             clear_preview();
 
@@ -120,27 +116,23 @@ void ReplayBrowser::calc_self()
     // Replaybrowser normal, also ohne Extraktionsdialog
     else {
         if (!button_extract.get_hidden() && button_extract.get_clicked()) {
-            useR->replay_last_dir  = get_current_dir();
-            useR->replay_last_file = get_current_file();
-            const std::string&   lf   = useR->replay_last_dir
-                                      + useR->replay_last_file;
+            useR->replay_last_level = get_current_file();
             browser_save = new Api::SaveBrowser(gloB->dir_levels,
                            gloB->ext_level,
-                           useR->single_last_dir,
-                           gloB->empty_string,
+                           useR->single_last_level,
                            Api::SaveBrowser::search_criterion_level,
                            Api::SaveBrowser::new_box_overwrite_level);
             browser_save->set_y(50); // mittig, nicht der Editor-Standard
-            browser_save->set_info_level_name(Level::get_name(lf));
-            browser_save->set_info_file_name(lf);
+            browser_save->set_info_level_name(Level::get_name(
+                                            useR->replay_last_level));
+            browser_save->set_info_filename(useR->replay_last_level);
             Manager::add_focus(browser_save);
         }
         else if (!button_delete.get_hidden() && button_delete.get_clicked()) {
-            std::string filename = get_current_dir() + get_current_file();
-            if (exists(filename.c_str())) {
-                Replay r(filename);
+            if (exists(get_current_file().get_rootful().c_str())) {
+                Replay r(get_current_file());
                 std::string s1 = Language::editor_file_name
-                               + ' ' + get_current_dir() + get_current_file();
+                               + ' ' + get_current_file().get_rootless();
                 std::string s2 = Language::editor_level_name
                                + ' ' + Level::get_name(r.get_level_filename());
                 box_delete = new Api::BoxMessage(500, 3,
@@ -164,7 +156,7 @@ void ReplayBrowser::calc_self()
 
 
 
-void ReplayBrowser::on_file_highlight(const std::string& filename)
+void ReplayBrowser::on_file_highlight(const Filename& filename)
 {
     Replay r(filename);
     Level  l(r.get_level_filename());
@@ -214,15 +206,14 @@ void ReplayBrowser::on_file_highlight(const std::string& filename)
 
 
 
-void ReplayBrowser::on_file_select(const std::string& filename)
+void ReplayBrowser::on_file_select(const Filename& filename)
 {
     Replay r(filename);
     Level  l(r.get_level_filename());
 
     if (l.get_status() == Level::GOOD) {
         set_exit_with(EXIT_WITH_OKAY);
-        useR->replay_last_dir  = get_current_dir();
-        useR->replay_last_file = get_current_file();
+        useR->replay_last_level = get_current_file();
     }
 }
 

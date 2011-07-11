@@ -15,12 +15,13 @@
 #include "../graphic/glob_gfx.h"
 
 GraphicSetL1::GraphicSetL1(
-    const std::string&       filename_defin,
-    const std::string&       filename_vgagr,
+    const Filename&          filename_defin,
+    const Filename&          filename_vgagr,
     const std::vector <int>& steel_ids,
     const std::vector <int>& waving_flag_ids
 ) {
-    std::ifstream defin(filename_defin.c_str(), std::ios::binary);
+    std::ifstream defin(filename_defin.get_rootful().c_str(),
+                        std::ios::binary);
     read_specials(defin);
     read_terrain(defin);
     read_palette(defin);

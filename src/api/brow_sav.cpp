@@ -15,12 +15,11 @@ const int SaveBrowser::dir_list_xl      (100);
 const int SaveBrowser::dir_list_yl      (220);
 const int SaveBrowser::file_list_xl     (360);
 
-SaveBrowser::SaveBrowser(const std::string& bdir,
+SaveBrowser::SaveBrowser(const Filename&    bdir,
                          const std::string& ext,
-                         const std::string& dir,
-                               std::string file,
+                         const Filename&    filename,
                                ListFile::SearchCrit crit,
-                               BoxMessage* (*cmb)(const std::string&),
+                               BoxMessage* (*cmb)(const Filename&),
                          const bool replay_style)
 :
     Window(60, 20, frame_offset*3
@@ -29,7 +28,7 @@ SaveBrowser::SaveBrowser(const std::string& bdir,
 
     dir_list  (frame_offset,
      dir_list_y, dir_list_xl,
-     dir_list_yl, bdir, dir),
+     dir_list_yl, bdir, filename),
 
     level_list(2 * frame_offset + dir_list_xl,
      dir_list_y, file_list_xl, dir_list_yl),
@@ -68,8 +67,8 @@ SaveBrowser::SaveBrowser(const std::string& bdir,
     level_list.set_search_criterion(crit);
     level_list.set_write_file_names();
     if (replay_style) level_list.set_replay_style();
-    level_list.load_dir(dir);
-    set_subtitle(Help::new_string_remove_root_dir(dir));
+    level_list.load_dir(filename);
+    set_subtitle(filename.get_rootless());
 
     ok    .set_hotkey(KEY_ENTER);
     ok    .set_text  (Language::ok);
@@ -77,9 +76,7 @@ SaveBrowser::SaveBrowser(const std::string& bdir,
     // cancel.set_hotkey(KEY_ESC); // Wird nicht gemacht, weil es manuell
     // kontrolliert wird. Beim Texteintippen soll ESC nur das Eintippen abbr.
 
-    Help::string_remove_dir(file);
-    Help::string_remove_extension(file);
-    file_name.set_text(file);
+    file_name.set_text(filename.get_file_no_ext_no_pre_ext());
     file_name.set_scroll();
 }
 
@@ -124,14 +121,11 @@ void SaveBrowser::calc_self()
             }
             else if (dir_list.get_clicked()) {
                 level_list.load_dir(dir_list.get_current_dir());
-                set_subtitle(Help::new_string_remove_root_dir(
-                    dir_list.get_current_dir()));
+                set_subtitle(dir_list.get_current_dir().get_rootless());
             }
             else if (level_list.get_clicked()) {
-                std::string s = level_list.get_current_file();
-                Help::string_remove_extension(s);
-                Help::string_remove_dir(s);
-                file_name.set_text(s);
+                file_name.set_text(level_list.get_current_file()
+                    .get_file_no_ext_no_pre_ext());
                 file_name.set_on();
             }
         }
@@ -151,11 +145,12 @@ void SaveBrowser::calc_self()
         else if (ok.get_clicked()) {
             if (file_name.get_text().empty()) return; // Nichts passiert
 
-            std::string complete_file_name = dir_list.get_current_dir()
-             + file_name.get_text() + extension;
+            Filename complete_file_name(
+                dir_list.get_current_dir().get_dir_rootful()
+                + file_name.get_text() + extension);
 
             // Testen, ob die Datei bereits exisitiert; ggf. box_overwrite new
-            if (exists(complete_file_name.c_str())) {
+            if (exists(complete_file_name.get_rootful().c_str())) {
                 box_overwrite = new_box_overwrite(complete_file_name);
                 Manager::add_focus(box_overwrite);
             }
@@ -175,9 +170,9 @@ void SaveBrowser::calc_self()
 
 
 
-void SaveBrowser::set_info_file_name(const std::string& s)
+void SaveBrowser::set_info_filename(const Filename& fn)
 {
-    label_file_name.set_text(Help::new_string_remove_root_dir(s));
+    label_file_name.set_text(fn.get_rootless());
 }
 
 
@@ -189,20 +184,14 @@ void SaveBrowser::set_info_level_name(const std::string& s)
 
 
 
-std::string SaveBrowser::get_current_file()
+Filename SaveBrowser::get_current_file()
 {
-    if (file_name.get_text().empty()) return gloB->empty_string;
-    else return file_name.get_text() + gloB->ext_level;
-}
-
-std::string SaveBrowser::get_current_dir_and_file()
-{
-    if (file_name.get_text().empty()) return gloB->empty_string;
+    if (file_name.get_text().empty()) return Filename("");
     else {
-        std::string str = dir_list.get_current_dir();
+        std::string str = dir_list.get_current_dir().get_dir_rootful();
         str += file_name.get_text();
         str += gloB->ext_level;
-        return str;
+        return Filename(str);
     }
 }
 
@@ -210,19 +199,20 @@ std::string SaveBrowser::get_current_dir_and_file()
 
 // Hauefig benoetigt und ein gutes Beispiel:
 // BoxMessage im Speicherdialog, und Suchkriterium
-bool SaveBrowser::search_criterion_level(const std::string& s)
+bool SaveBrowser::search_criterion_level(const Filename& fn)
 {
-    return Help::string_ends_with(s, gloB->ext_level)
-     ||    Help::string_ends_with(s, gloB->ext_level_orig);
+    return fn.get_extension() == gloB->ext_level
+     ||    fn.get_extension() == gloB->ext_level_orig;
 }
 
 
 
-BoxMessage* SaveBrowser::new_box_overwrite_level(const std::string&file)
+BoxMessage* SaveBrowser::new_box_overwrite_level(const Filename &filename)
 {
     std::string s1 = Language::editor_file_name  + ' '
-                   + Help::new_string_remove_root_dir(file);
-    std::string s2 = Language::editor_level_name + ' ' + Level::get_name(file);
+                   + filename.get_rootless();
+    std::string s2 = Language::editor_level_name + ' '
+                   + Level::get_name(filename);
 
     Api::BoxMessage* box_overwrite = new Api::BoxMessage(500, 3,
                                      Language::save_box_overwrite_title);

@@ -33,9 +33,9 @@ int Crunch::read_word(std::ifstream& file)
 
 
 
-void Crunch::save_section(const Section& section, const std::string& filename)
+void Crunch::save_section(const Section& section, const Filename& filename)
 {
-    std::ofstream file(filename.c_str(), std::ios::binary);
+    std::ofstream file(filename.get_rootful().c_str(), std::ios::binary);
     for (Section::const_iterator
      itr = section.begin(); itr != section.end(); ++itr)
      file.write((const char*) &*itr, 1);
@@ -44,17 +44,17 @@ void Crunch::save_section(const Section& section, const std::string& filename)
 
 
 
-const Crunch::File* Crunch::get_file(const std::string& filename)
+const Crunch::File* Crunch::get_file(const Filename& filename)
 {
     // Wird aehnlich gemacht wie in ObjLib::get()
-    const std::map <std::string, File> ::const_iterator
+    const std::map <Filename, File> ::const_iterator
      itr = cr.data.find(filename);
     if (itr != cr.data.end()) return &itr->second;
 
     // Wenn wir hier ankommen, dann gibt es noch keine fertig entcrunchte
     // Datei mit dem Namen. Also eine suchen und, falls Suche erfolgreich,
     // entcrunchen.
-    std::ifstream file(filename.c_str(), std::ios::binary);
+    std::ifstream file(filename.get_rootful().c_str(), std::ios::binary);
     if (!file.good()) return 0;
 
     File crunchfile; // Dies kommt in die Map, wenn es fertig ist
@@ -189,7 +189,7 @@ const Crunch::File* Crunch::get_file(const std::string& filename)
     file.close();
 
     if (!crunchfile.empty()) {
-        cr.data.insert(std::pair <std::string, File> (filename, crunchfile));
+        cr.data.insert(std::pair <Filename, File> (filename, crunchfile));
         return &cr.data[filename];
     }
     else return 0;

@@ -23,6 +23,7 @@
 #include "cutbit.h"
 
 #include "../lix/lix_enum.h"
+#include "../other/filename.h"
 
 class GraLib {
 
@@ -30,15 +31,16 @@ private:
 
     static GraLib* singleton;
 
-    std::map    <std::string, std::string>           replacement;
-    std::map    <std::string, const Cutbit>          internal;
-    std::vector <Cutbit>                             style;
-    std::vector <Cutbit>                             icons;
+    std::map    <std::string, std::string>  replacement;
+    std::map    <std::string, const Cutbit> internal;
+    std::vector <Cutbit>                    style;
+    std::vector <Cutbit>                    icons;
 
-    static void sort_string_into_cutbitfile(std::string&, void*);
-    static void sort_string_into_internal  (std::string&, void*);
+    static void sort_string_into_cutbitfile(const Filename&, void*);
+    static void sort_string_into_internal  (const Filename&, void*);
 
            void recolor_into_vector(const Cutbit&, std::vector <Cutbit>&);
+           void add_replace        (const std::string&, const std::string&);
 
     GraLib();
     ~GraLib();
@@ -52,10 +54,10 @@ public:
     static void  initialize();
     static void  deinitialize();
 
-    static const Cutbit& get      (const std::string&);
+    static const Cutbit& get      (const Filename&);
     static const Cutbit& get_lix  (const LixEn::Style);
     static const Cutbit& get_icon (const LixEn::Style); // for the panel
 
-    static const std::string& replace_string(const std::string&);
+    static const std::string& replace_filestring(const std::string&);
 
 };

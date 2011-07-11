@@ -11,14 +11,16 @@ General
         The game will compile, but maybe not run properly under these OSes.
         A workaround may be to run it with the -w switch to achieve windowed
         mode. I will probably port the game to Allegro 5, hoping to fix it.
+    
+    Object definitions
+        These aren't read right now. (object definitions are explained in
+        doc/objdef.txt) This likely depends on the working directory fix.
 
 
 
 Menu
 
-    Option help text
-        In the sound tab of the options menu, the *) text for the "load sound
-        driver" option is wrong. It should read "requires a program restart".
+    --
 
 
 

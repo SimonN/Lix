@@ -72,13 +72,13 @@ Object::~Object()
 
 
 
-void Object::read_definitions_file(const std::string& filename)
+void Object::read_definitions_file(const Filename& filename)
 {
     // This assumes that the object's xl, yl, type, and subtype
     // are all correctly set by the constructor or otherwise.
 
     std::vector <IO::Line> lines;
-    if (! IO::fill_vector_from_file(lines, filename)) return;
+    if (! IO::fill_vector_from_file(lines, filename.get_rootful())) return;
 
     for (IO::LineIt i = lines.begin(); i != lines.end(); ++i)
         switch(i->type) {

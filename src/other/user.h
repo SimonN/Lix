@@ -28,6 +28,7 @@
 #include <vector>
 
 #include "date.h"
+#include "filename.h"
 
 struct Result {
     Date built;
@@ -57,7 +58,7 @@ class User {
 
 private:
 
-    std::map <std::string, Result> result;
+    std::map <Filename, Result> result;
 
 public:
 
@@ -137,19 +138,16 @@ public:
     int  key_ed_add_deco;
     int  key_ed_add_hazard;
 
-    std::string single_last_dir;
-    std::string single_last_file;
-    std::string network_last_dir;
-    std::string network_last_file;
-    std::string replay_last_dir;
-    std::string replay_last_file;
+    Filename single_last_level;
+    Filename network_last_level;
+    Filename replay_last_level;
 
-    std::string editor_last_dir_terrain;
-    std::string editor_last_dir_steel;
-    std::string editor_last_dir_hatch;
-    std::string editor_last_dir_goal;
-    std::string editor_last_dir_deco;
-    std::string editor_last_dir_hazard;
+    Filename editor_last_dir_terrain;
+    Filename editor_last_dir_steel;
+    Filename editor_last_dir_hatch;
+    Filename editor_last_dir_goal;
+    Filename editor_last_dir_deco;
+    Filename editor_last_dir_hazard;
 
     ////////////////
     // Funktionen //
@@ -158,8 +156,8 @@ public:
     User();
     ~User();
 
-    const Result* get_level_result(const std::string&) const;
-    void          set_level_result(const std::string&, const Result&);
+    const Result* get_level_result(const Filename&) const;
+    void          set_level_result(const Filename&, const Result&);
 
     static void initialize();
     static void deinitialize();

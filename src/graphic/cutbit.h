@@ -34,10 +34,10 @@
 
 #pragma once
 
-#include <string>
 #include <vector>
 
 #include "torbit.h"
+#include "../other/filename.h"
 
 class Cutbit {
 
@@ -67,8 +67,8 @@ public:
 
     Cutbit();
     Cutbit(const Cutbit&);
-    Cutbit(const std::string&, const bool);
-    Cutbit(BITMAP*,            const bool); // takes over the bitmap!
+    Cutbit(const Filename&, const bool);
+    Cutbit(BITMAP*,         const bool); // takes over the bitmap!
     Cutbit(const std::vector <BITMAP*>&);
     ~Cutbit();
 

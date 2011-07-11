@@ -30,8 +30,8 @@ SERVER_BIN  := $(BINDIR)/lixserv
 SERVER_SRCS := $(wildcard src/server/*.cpp)   src/network/net_t.cpp \
                 src/network/permu.cpp         src/network/server.cpp \
                 src/network/server_c.cpp      src/other/date.cpp \
-                src/other/io.cpp              src/other/globals.cpp \
-                src/other/help.cpp
+                src/other/filename.cpp        src/other/globals.cpp \
+                src/other/help.cpp            src/other/io.cpp
 SERVER_OBJS := $(subst $(SRCDIR)/,$(OBJDIR)/,$(SERVER_SRCS:%.cpp=%.o))
 SERVER_DEPS := $(subst $(SRCDIR)/,$(DEPDIR)/,$(SERVER_SRCS:%.cpp=%.d))
 

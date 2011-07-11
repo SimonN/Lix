@@ -70,7 +70,8 @@ private:
         SortablePlayer(const bool b, const std::string& n, const unsigned s)
          : pl(b), name(n), score(s) {}
         inline bool operator < (const SortablePlayer& s) const {
-         return this->score>s.score || this->score==s.score && this->pl&&!s.pl;
+            return  this->score > s.score
+                || (this->score==s.score && this->pl && !s.pl);
         }
     };
 
@@ -82,8 +83,8 @@ private:
 
     // Funktion
     void common_constructor();
-    static Api::BoxMessage* new_box_overwrite           (const std::string&);
-    static bool             search_criterion_save_replay(const std::string&);
+    static Api::BoxMessage* new_box_overwrite           (const Filename&);
+    static bool             search_criterion_save_replay(const Filename&);
 
 public:
 

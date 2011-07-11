@@ -166,7 +166,7 @@ struct Level {
 
     std::vector <Skill> skill;
 
-    Level(const std::string& = gloB->empty_string);
+    Level(const Filename& = gloB->empty_filename);
     ~Level();
 
     bool operator == (const Level&) const;
@@ -179,14 +179,14 @@ struct Level {
     void    draw_to       (Torbit&, Torbit* = 0   ) const;
     Torbit  create_preview(unsigned, unsigned, int) const;
 
-    void load_from_stream(      std::istream&);
-    void load_from_file  (const std::string&);
-    void save_to_file    (const std::string&) const;
+    void load_from_stream(std::istream&);
+    void load_from_file  (const Filename&);
+    void save_to_file    (const Filename&) const;
     void clear();
 
     // Statische Funktionen ausser == und !=
-    static std::string get_name (const std::string&);
-    static std::string get_built(const std::string&);
+    static std::string get_name (const Filename&);
+    static std::string get_built(const Filename&);
 
 private:
 
@@ -196,7 +196,7 @@ private:
     void drit(PosIt, Torbit&, Torbit* = 0) const;
 
     void load_from_vector(const std::vector <IO::Line>&);
-    void load_from_binary(const std::string&);
+    void load_from_binary(const Filename&);
     void load_finalize   ();
 
     void add_object_from_ascii_line(const std::string&,
@@ -204,9 +204,9 @@ private:
     void record_missing_image      (const std::string&);
 
     // Statisches Hilfszeug
-    static std::string get_name_ascii (const std::string&);
-    static std::string get_name_binary(const std::string&);
-    static bool        get_binary     (const std::string&);
+    static std::string get_name_ascii (const Filename&);
+    static std::string get_name_binary(const Filename&);
+    static bool        get_binary     (const Filename&);
 
 };
 
