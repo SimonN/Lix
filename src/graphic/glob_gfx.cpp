@@ -69,10 +69,10 @@ void load_all_bitmaps()
     ObjLib::initialize();
 
     // Schriftarten laden
-    font_sml = load_font(gloB->file_bitmap_font_sml.c_str(), 0, 0);
-    font_med = load_font(gloB->file_bitmap_font_med.c_str(), 0, 0);
-    font_nar = load_font(gloB->file_bitmap_font_nar.c_str(), 0, 0);
-    font_big = load_font(gloB->file_bitmap_font_big.c_str(), 0, 0);
+    font_sml = load_font(gloB->file_bitmap_font_sml.get_rootful().c_str(),0,0);
+    font_med = load_font(gloB->file_bitmap_font_med.get_rootful().c_str(),0,0);
+    font_nar = load_font(gloB->file_bitmap_font_nar.get_rootful().c_str(),0,0);
+    font_big = load_font(gloB->file_bitmap_font_big.get_rootful().c_str(),0,0);
 
     // Falls Datei nicht gefunden, Standardfont nutzen, damit das Programm
     // nicht abstuerzt

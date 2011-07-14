@@ -48,6 +48,7 @@
 #include "../network/net_t.h" // work with struct ReplayData
 #include "../network/permu.h"
 #include "../other/date.h"
+#include "../other/filename.h"
 #include "../other/types.h"
 
 class Level;
@@ -91,7 +92,7 @@ private:
 
     Ulng              version_min;
     Date              built_required; // Welche Version vom Level ist OK?
-    std::string       level_filename;
+    Filename          level_filename;
 
     std::set <Player> players;
     Permu             permu;
@@ -104,12 +105,12 @@ private:
 public:
 
     Replay();
-    Replay(const std::string&);
+    Replay(const Filename&);
     ~Replay();
 
-    inline void set_level_filename(const std::string& s) { level_filename = s;
-                                                         holds_level = false;}
-    inline std::string& get_level_filename()         { return level_filename;}
+    inline void set_level_filename(const Filename& s) { level_filename = s;
+                                                        holds_level = false;}
+    inline const Filename& get_level_filename()      { return level_filename;}
     inline const std::set <Player>& get_players()    { return players;       }
            void  add_player(Uint pos, LixEn::Style s, const std::string& name);
     const  std::string& get_player_local_name();
@@ -137,8 +138,8 @@ public:
     void        add                            (const Data&);
     void        add                            (const Vec&);
 
-    void        save_to_file                   (const std::string&,
+    void        save_to_file                   (const Filename&,
                                                 const Level* const = 0);
-    void        load_from_file                 (const std::string&);
+    void        load_from_file                 (const Filename&);
 
 };

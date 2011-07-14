@@ -51,9 +51,9 @@ private:
     const int mouse_max_lix_distance_u;
     const int mouse_max_lix_distance_d;
 
-    bool              exit;
-    const std::string filename;
-    const Level       level;
+    bool           exit;
+    const Filename filename;
+    const Level    level;
 
     PlNr           player_local;
     Tribe*         trlo; // Abkuerzung fuer cs.tribes[tribe_local]
@@ -107,10 +107,11 @@ private:
 
     Replay::Data new_replay_data(); // Replay::Data() mit guten Standardinfos
 
-    std::string  determine_filename(Replay* = 0);
-    void         prepare_players   (Replay*);
-    void         prepare_level     ();
-    void         save_result       ();
+    const Filename& determine_filename(Replay* = 0);
+
+    void prepare_players   (Replay*);
+    void prepare_level     ();
+    void save_result       ();
 
     // Calculate-Subroutinen
     void calc_window(); // Fuers Unterfenster, ansonsten:
@@ -136,10 +137,10 @@ public:
     Gameplay(Replay* = 0);
     ~Gameplay();
 
-    inline const bool         get_exit    () { return exit;             }
-    inline const std::string& get_filename() { return filename;         }
-    inline Replay&            get_replay  () { return replay;           }
-    inline int                get_tribes  () { return cs.tribes.size(); }
+    inline bool            get_exit    () { return exit;             }
+    inline const Filename& get_filename() { return filename;         }
+    inline Replay&         get_replay  () { return replay;           }
+    inline int             get_tribes  () { return cs.tribes.size(); }
 
     void undraw();
     void calc();

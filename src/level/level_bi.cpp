@@ -38,9 +38,9 @@ std::string read_level_name_bytes(std::ifstream&);
 
 
 
-void Level::load_from_binary(const std::string& filename)
+void Level::load_from_binary(const Filename& filename)
 {
-    std::ifstream file(filename.c_str(), std::ios::binary);
+    std::ifstream file(filename.get_rootful().c_str(), std::ios::binary);
     if (!file.good()) {
         status = BAD_FILE_NOT_FOUND;
         return;
@@ -88,7 +88,7 @@ void Level::load_from_binary(const std::string& filename)
     // a multiplayer game. The overtime starts counting after the first player
     // is out of lemmings, but has some saved.
     // Also: Use knockback exploders instead of L1-style exploders.
-    if (filename.find("network/") != std::string::npos) {
+    if (filename.get_rootful().find("network/") != std::string::npos) {
         skill[2].ac = LixEn::EXPLODER2;
         seconds = (seconds / 2) - 30;
         if (seconds <= 0) seconds = 15;
@@ -111,10 +111,11 @@ void Level::load_from_binary(const std::string& filename)
 
     // ORIGHACK: Bei Levels aus den Verzeichnissen zu ONML oder Holiday
     // entsprechend um 5 erhoehen bzw. auf 9 setzen.
-    if (filename.find("ONML/")         != std::string::npos
-     || filename.find("onml/")         != std::string::npos
-     || filename.find("ore Lemmings/") != std::string::npos) graphics_set += 5;
-    if (filename.find("oliday")        != std::string::npos) graphics_set =  9;
+    const std::string& filestr = filename.get_rootful();
+    if (filestr.find("ONML/")         != std::string::npos
+     || filestr.find("onml/")         != std::string::npos
+     || filestr.find("ore Lemmings/") != std::string::npos) graphics_set += 5;
+    if (filestr.find("oliday")        != std::string::npos) graphics_set =  9;
 
     // BYTES 0x001C to 0x001D
     // Extended Graphic Set: corresponds to VGASPEC?.DAT
@@ -304,7 +305,7 @@ void Level::load_from_binary(const std::string& filename)
 
     // ORIGHACK: In multiplayer levels, the hatch direction should point
     // towards the center because torus_x can't be set.
-    if (filename.find("network/") != std::string::npos
+    if (filestr.find("network/") != std::string::npos
      && pos[Object::HATCH].size() > 1) {
         for (std::list <Pos> ::iterator hatch = pos[Object::HATCH].begin();
          hatch != pos[Object::HATCH].end(); ++hatch)
@@ -315,7 +316,7 @@ void Level::load_from_binary(const std::string& filename)
     // a way that the distance for both players to get to their goal is
     // the same. This is only done for 1. Lemmings, as in 2. ONML, the
     // goal order is already as intended.
-    if (filename.find("network/2player/1. Lemmings") != std::string::npos
+    if (filestr.find("network/2player/1. Lemmings") != std::string::npos
      && pos[Object::HATCH].size() == 2 && pos[Object::GOAL].size() == 2) {
         const Pos& h1 = *  pos[Object::HATCH].begin();
         const Pos& h2 = *++pos[Object::HATCH].begin();
@@ -329,8 +330,8 @@ void Level::load_from_binary(const std::string& filename)
     }
     // ORIGHACK: In 2-player levels, if there's one hatch only, player 0 goes
     // to the right and player 1 to the left. Thus, put goal 0 to the right.
-    if ((filename.find("network/2player/1. Lemmings") != std::string::npos
-      || filename.find("network/2player/2. ONML")     != std::string::npos)
+    if ((filestr.find("network/2player/1. Lemmings") != std::string::npos
+      || filestr.find("network/2player/2. ONML")     != std::string::npos)
      && pos[Object::HATCH].size() == 1 && pos[Object::GOAL].size() == 2) {
         const Pos& g1 = *  pos[Object::GOAL ].begin();
         const Pos& g2 = *++pos[Object::GOAL ].begin();
@@ -370,9 +371,9 @@ std::string read_level_name_bytes(std::ifstream& file)
 
 
 
-std::string Level::get_name_binary(const std::string& filename)
+std::string Level::get_name_binary(const Filename& filename)
 {
-    std::ifstream file(filename.c_str(), std::ios::binary);
+    std::ifstream file(filename.get_rootful().c_str(), std::ios::binary);
     std::string ret = read_level_name_bytes(file);
     file.close();
     return ret;

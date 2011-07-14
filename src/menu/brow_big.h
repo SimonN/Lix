@@ -57,7 +57,6 @@ public:
 private:
 
     ExitWith    exit_with;
-    std::string filename;
     unsigned    info_y;
 
     DirList     dir_list;
@@ -75,9 +74,8 @@ private:
 public:
 
              BrowserBig(const std::string&,  // Fenstertitel
-                        const std::string&,  // Basisverzeichnis
-                        const std::string&,  // letztes Verzeichnis
-                        const std::string&,  // letzte Datei
+                        const Filename&,     // Basisverzeichnis
+                        const Filename&,     // letztes Verzeichnis/Datei
                         const bool = false,  // Checkmark-Stil in der LevelList
                         const bool = false); // Replay-Stil in der LevelList
     virtual ~BrowserBig();
@@ -88,10 +86,10 @@ public:
            void         set_exit_with(ExitWith e);
     inline ExitWith     get_exit_with()             { return exit_with;     }
 
-    inline const std::string& get_base_dir()        { return dir_list.get_base_dir();     }
-    inline const std::string& get_current_dir()     { return lev_list.get_current_dir();  }
-    inline const std::string& get_current_file()    { return lev_list.get_current_file(); }
-           void               set_current_dir_to_parent_dir();
+    inline const Filename& get_base_dir()     { return dir_list.get_base_dir();     }
+    inline const Filename& get_current_dir()  { return lev_list.get_current_dir();  }
+    inline const Filename& get_current_file() { return lev_list.get_current_file(); }
+           void            set_current_dir_to_parent_dir();
 
            void         reload_dir();
 
@@ -102,8 +100,8 @@ public:
     inline unsigned     get_info_y   () const       { return info_y;        }
     inline void         set_info_y   (const int i)  { info_y = i;           }
 
-    inline virtual void on_file_highlight(const std::string&) {}
-    inline virtual void on_file_select   (const std::string&) {}
+    inline virtual void on_file_highlight(const Filename&) {}
+    inline virtual void on_file_select   (const Filename&) {}
 
 protected:
 

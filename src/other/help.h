@@ -17,6 +17,7 @@
 #include <vector>
 
 #include "globals.h"
+#include "filename.h"
 #include "../network/net_t.h"    // Uint32
 
 #include "../graphic/glob_gfx.h" // Standardfarbe fuer Schattentext
@@ -38,21 +39,8 @@ namespace Help {
     std::string version_to_string   (const unsigned long);
 
     void string_to_nice_case    (std::string&); // Alle ausser 1. Bch.
-    void string_remove_extension(std::string&);
-    void string_remove_dir      (std::string&); // cut everything incl last /
-    void string_cut_to_dir      (std::string&);
-
-    // The following functions are for saving/loading filenames in files.
-    // Everything gets saved without the root dir, since that varies.
-    std::string new_string_remove_root_dir(const std::string&);
-    void string_remove_root_dir (std::string&); // only if present in front
-    void string_add_root_dir    (std::string&); // only if not yet there
-
     void string_shorten         (std::string&, const FONT*, const int);
-    std::string
-         string_get_extension    (const std::string&);
-    char string_get_pre_extension(const std::string&); // 0, wenn keine
-    bool string_ends_with        (const std::string&, const std::string&);
+    bool string_ends_with       (const std::string&, const std::string&);
 
     void draw_shaded_text         (Torbit&, FONT*, const char*,
                                    int, int, int, int, int);
@@ -81,23 +69,23 @@ namespace Help {
 
 
     // Funktionszeigertypendefinition für die kommenden Suchfunktionen
-    typedef void (*DoStr)(std::string&, void*);
+    typedef void (*DoStr)(const Filename&, void*);
 
-    void find_files(const std::string&, const std::string&, DoStr,void*);
+    void find_files(const Filename&, const std::string&, DoStr, void*);
     // Die Funktion durchsucht das mit dem ersten Argument angegebene Verzeich-
     // nis nach Dateien, die dem zweiten Argument "*.abc" entsprechen. Es
     // wird ein Pfad/Dateiname relativ zur Lemmings-Executable gefunden.
     // DoStr ist ein Funktionszeiger. Die entsprechende Funktion wird für jeden
     // String aufgerufen, der gefunden wird.
 
-    void find_dirs(std::string, DoStr, void*);
+    void find_dirs(const Filename&, DoStr, void*);
     // Wie find_files, allerdings wird hier im angegebenen Ordner nach Unter-
     // verzeichnissen gesucht mit Ausnahme von "." und "..". Diese Funktion
     // benötigt keine Suchmaske und somit kein drittes Argument.
 
-    void find_tree(std::string, const std::string&, DoStr, void*);
+    void find_tree(const Filename&, const std::string&, DoStr, void*);
     // Wie find_files, schließt allerdings auch alle Unterverzeichnisse in der
     // Suche nach passenden Dateien ein.
 
-    bool dir_exists(const std::string&);
+    bool dir_exists(const Filename&);
 }

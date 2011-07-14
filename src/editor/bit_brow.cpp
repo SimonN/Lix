@@ -28,7 +28,7 @@ const int BitmapBrowser::file_list_entry_yl   (60);
 
 BitmapBrowser::BitmapBrowser(
     ListFile::SearchCrit crit,
-    const std::string&   cdir,
+    const Filename&      cdir,
     const std::string&   tit,
     const int            initial_page
 ) :
@@ -37,7 +37,7 @@ BitmapBrowser::BitmapBrowser(
      this_yl, tit),
 
     dir_list(frame_offset, frame_offset + 20,
-     dir_list_xl, dir_list_yl, gloB->dir_bitmap),
+     dir_list_xl, dir_list_yl, gloB->dir_bitmap, gloB->dir_bitmap),
 
     list_bitmap(2*frame_offset + dir_list_xl,
      frame_offset + 20, file_list_xl, file_list_yl, crit),
@@ -65,12 +65,11 @@ BitmapBrowser::~BitmapBrowser()
 
 
 
-void BitmapBrowser::load_dir(const std::string& s, const int initial_page)
+void BitmapBrowser::load_dir(const Filename& s, const int initial_page)
 {
     dir_list   .set_current_dir(s);
     list_bitmap.load_dir(s, initial_page);
-    set_subtitle(Help::new_string_remove_root_dir(
-                 dir_list.get_current_dir()));
+    set_subtitle(dir_list.get_current_dir().get_dir_rootless());
 }
 
 
@@ -80,7 +79,7 @@ void BitmapBrowser::calc_self()
     // Verzeichnis wechseln
     if (dir_list.get_clicked()) {
         list_bitmap.load_dir(dir_list.get_current_dir());
-        set_subtitle(dir_list.get_current_dir());
+        set_subtitle(dir_list.get_current_dir().get_dir_rootless());
     }
     else if (hardware.get_mr() && (dir_list.is_mouse_here()
                              || list_bitmap.is_mouse_here())) {
@@ -95,15 +94,7 @@ void BitmapBrowser::calc_self()
     }
     // Dateibuttons angeklickt?
     else if (list_bitmap.get_clicked()) {
-        // Original graphics sets' objects
         return_object = ObjLib::get(list_bitmap.get_current_file());
-        if (!return_object) {
-            // L++ bitmap directory files
-            std::string str = list_bitmap.get_current_dir()
-                            + list_bitmap.get_current_file();
-            Help::string_remove_extension(str);
-            return_object = ObjLib::get(str);
-        }
         set_exit();
     }
     else if (cancel.get_clicked()
@@ -148,10 +139,12 @@ ListBitmap::~ListBitmap()
 void ListBitmap::on_dir_load()
 {
     // Is there an original graphics set to show?
-    if (get_current_dir().find(gloB->dir_bitmap_orig) != std::string::npos)
+    if (get_current_dir() .get_dir_rootful().find(
+     gloB->dir_bitmap_orig.get_dir_rootful()) != std::string::npos)
      for (int set = ObjLib::DIRT; set != ObjLib::MAX; ++set) {
         const std::string& set_name = ObjLib::orig_set_to_string(set);
-        if (get_current_dir().find(set_name) != std::string::npos) {
+        if (get_current_dir().get_dir_rootful().find(set_name)
+         != std::string::npos) {
             std::string base = set_name;
             base += '-';
             // Add all objects from the graphics set
@@ -160,14 +153,14 @@ void ListBitmap::on_dir_load()
             for (nr = 0; (ob = ObjLib::get_orig_terrain(set, nr)) != 0; ++nr) {
                 std::ostringstream filename;
                 filename << base << 't' << nr;
-                if (get_search_criterion()(filename.str()))
-                 put_to_file_list(filename.str());
+                Filename fn(filename.str());
+                if (get_search_criterion()(fn)) put_to_file_list(fn);
             }
             for (nr = 0; (ob = ObjLib::get_orig_special(set, nr)) != 0; ++nr) {
                 std::ostringstream filename;
                 filename << base << 's' << nr;
-                if (get_search_criterion()(filename.str()))
-                 put_to_file_list(filename.str());
+                Filename fn(filename.str());
+                if (get_search_criterion()(fn)) put_to_file_list(fn);
             }
             // Only the display of one graphics set is required
             break;
@@ -181,25 +174,22 @@ void ListBitmap::add_file_button(const int nr, const int which_from_file)
      xl * (nr % in_row),
      yl * (nr / in_row), xl, yl);
 
-    std::string str = get_file(which_from_file);
+    const Filename& fn = get_file(which_from_file);
 
     // Original graphics sets' objects don't need a directory
-    if (get_current_dir().find(gloB->dir_bitmap_orig) != std::string::npos){
-        b->set_object(ObjLib::get(str));
+    if (get_current_dir() .get_dir_rootful().find(
+     gloB->dir_bitmap_orig.get_dir_rootful()) != std::string::npos)
+    {
+        b->set_object(ObjLib::get(fn));
         // Draw the entire number to the
+        const std::string& str = fn.get_file();
         int pos = str.size() - 1;
         while (pos > 0 && str[pos] >= '0' && str[pos] <= '9') --pos;
         b->set_text(str.substr(pos + 1));
     }
     else {
-        Help::string_remove_extension(str);
-        str = get_current_dir() + str;
-        b->set_object(ObjLib::get(str));
-
-        Help::string_remove_dir(str);
-        if (Help::string_get_pre_extension(str))
-         Help::string_remove_extension(str);
-        b->set_text(str);
+        b->set_object(ObjLib::get(fn));
+        b->set_text(fn.get_file_no_ext_no_pre_ext());
     }
     button_push_back(b);
 }

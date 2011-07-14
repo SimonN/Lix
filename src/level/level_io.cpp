@@ -17,7 +17,7 @@
 #include "../other/language.h"
 #include "../other/log.h"
 
-void Level::load_from_file(const std::string& filename)
+void Level::load_from_file(const Filename& filename)
 {
     clear();
     status = GOOD;
@@ -29,7 +29,7 @@ void Level::load_from_file(const std::string& filename)
     // load something in the L++ text file format
     else {
         std::vector <IO::Line> lines;
-        if (IO::fill_vector_from_file(lines, filename)) {
+        if (IO::fill_vector_from_file(lines, filename.get_rootful())) {
             load_from_vector(lines);
         }
         else status = BAD_FILE_NOT_FOUND;
@@ -220,9 +220,9 @@ void Level::load_finalize()
 
 
 
-void Level::save_to_file(const std::string& filename) const
+void Level::save_to_file(const Filename& filename) const
 {
-    std::ofstream file(filename.c_str());
+    std::ofstream file(filename.get_rootful().c_str());
     file << *this;
     file.close();
 }
@@ -307,10 +307,10 @@ std::ostream& operator << (std::ostream& o, const Level::PosLi& li)
 
 
 
-bool Level::get_binary(const std::string& filename)
+bool Level::get_binary(const Filename& filename)
 {
-    if (! ::exists(filename.c_str())) return false;
-    std::ifstream file(filename.c_str(), std::ios::binary);
+    if (! ::exists(filename.get_rootful().c_str())) return false;
+    std::ifstream file(filename.get_rootful().c_str(), std::ios::binary);
     // the length check before the read() was necessary for me on Linux
     // to get the Debugger past this, it got stuck on read() when nothing
     // was wrong.
@@ -336,7 +336,7 @@ bool Level::get_binary(const std::string& filename)
 
 
 // A speedup of the whole loading functionn, this only extracts the name.
-std::string Level::get_name(const std::string& filename)
+std::string Level::get_name(const Filename& filename)
 {
     if (get_binary(filename)) return get_name_binary(filename);
     else                      return get_name_ascii (filename);
@@ -344,12 +344,13 @@ std::string Level::get_name(const std::string& filename)
 
 
 
-std::string Level::get_name_ascii(const std::string& filename)
+std::string Level::get_name_ascii(const Filename& filename)
 {
     std::vector <IO::Line> lines;
-    if (!IO::fill_vector_from_file(lines, filename)) {
-        if (!filename.empty()) {
-            std::string logstr = Language::log_file_not_found +' '+ filename;
+    if (!IO::fill_vector_from_file(lines, filename.get_rootful())) {
+        if (!filename.get_file().empty()) {
+            std::string logstr = Language::log_file_not_found + ' '
+                               + filename.get_rootless();
             Log::log(Log::ERROR, logstr);
         }
     }
@@ -372,12 +373,13 @@ std::string Level::get_name_ascii(const std::string& filename)
 
 
 
-std::string Level::get_built(const std::string& filename)
+std::string Level::get_built(const Filename& filename)
 {
     std::vector <IO::Line> lines;
-    if (!IO::fill_vector_from_file(lines, filename)) {
-        if (!filename.empty()) {
-            std::string logstr = Language::log_file_not_found +' '+ filename;
+    if (!IO::fill_vector_from_file(lines, filename.get_rootful())) {
+        if (!filename.get_file().empty()) {
+            std::string logstr = Language::log_file_not_found + ' '
+                               + filename.get_rootless();
             Log::log(Log::ERROR, logstr);
         }
     }

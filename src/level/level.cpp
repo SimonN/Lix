@@ -14,7 +14,7 @@ const int Level::min_yl (160);
 const int Level::max_xl (3200);
 const int Level::max_yl (2000);
 
-Level::Level(const std::string& filename)
+Level::Level(const Filename& filename)
 :
     pos(Object::MAX)
 {

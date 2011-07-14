@@ -128,12 +128,9 @@ User::User()
 
     key_skill              (LixEn::AC_MAX, 0),
 
-    single_last_dir        (gloB->dir_levels_single),
-    single_last_file       (gloB->empty_string),
-    network_last_dir       (gloB->dir_levels_network),
-    network_last_file      (gloB->empty_string),
-    replay_last_dir        (gloB->dir_replay),
-    replay_last_file       (gloB->empty_string),
+    single_last_level      (gloB->dir_levels_single),
+    network_last_level     (gloB->dir_levels_network),
+    replay_last_level      (gloB->dir_replay),
 
     editor_last_dir_terrain(gloB->dir_bitmap),
     editor_last_dir_steel  (gloB->dir_bitmap),
@@ -209,16 +206,16 @@ User::~User()
 
 
 
-const Result* User::get_level_result(const std::string& filename) const
+const Result* User::get_level_result(const Filename& filename) const
 {
-    std::map <std::string, Result>::const_iterator itr = result.find(filename);
+    std::map <Filename, Result>::const_iterator itr = result.find(filename);
     if (itr == result.end()) return 0;
     else return &itr->second;
 }
 
 
 
-void User::set_level_result(const std::string& filename, const Result& r)
+void User::set_level_result(const Filename& filename, const Result& r)
 {
     Result& saved_result = result[filename];
     if (saved_result < r) saved_result = r;
@@ -233,36 +230,24 @@ void User::load()
     if ((int) gloB->user_name.size() > PlayerData::name_max_length)
      gloB->user_name.resize(PlayerData::name_max_length);
 
-    std::string filename = gloB->dir_data_user
-                         + gloB->user_name + gloB->ext_level;
+    Filename filename(gloB->dir_data_user.get_dir_rootful()
+                      + gloB->user_name + gloB->ext_level);
     std::vector <IO::Line> lines;
-    IO::fill_vector_from_file(lines, filename);
+    IO::fill_vector_from_file(lines, filename.get_rootful());
 
     for (IO::LineIt i = lines.begin(); i != lines.end(); ++i) switch(i->type) {
 
     case '$':
-        if      (i->text1 == gloB->user_single_last_dir        )
-            Help::string_add_root_dir(single_last_dir        = i->text2);
-        else if (i->text1 == gloB->user_single_last_file       ) single_last_file       = i->text2;
-        else if (i->text1 == gloB->user_network_last_dir       )
-            Help::string_add_root_dir(network_last_dir       = i->text2);
-        else if (i->text1 == gloB->user_network_last_file      ) network_last_file      = i->text2;
-        else if (i->text1 == gloB->user_replay_last_dir        )
-            Help::string_add_root_dir(replay_last_dir        = i->text2);
-        else if (i->text1 == gloB->user_replay_last_file       ) replay_last_file       = i->text2;
+        if      (i->text1 == gloB->user_single_last_level      ) single_last_level  = Filename(i->text2);
+        else if (i->text1 == gloB->user_network_last_level     ) network_last_level = Filename(i->text2);
+        else if (i->text1 == gloB->user_replay_last_level      ) replay_last_level  = Filename(i->text2);
 
-        else if (i->text1 == gloB->user_editor_last_dir_terrain)
-            Help::string_add_root_dir(editor_last_dir_terrain= i->text2);
-        else if (i->text1 == gloB->user_editor_last_dir_steel  )
-            Help::string_add_root_dir(editor_last_dir_steel  = i->text2);
-        else if (i->text1 == gloB->user_editor_last_dir_hatch  )
-            Help::string_add_root_dir(editor_last_dir_hatch  = i->text2);
-        else if (i->text1 == gloB->user_editor_last_dir_goal   )
-            Help::string_add_root_dir(editor_last_dir_goal   = i->text2);
-        else if (i->text1 == gloB->user_editor_last_dir_deco   )
-            Help::string_add_root_dir(editor_last_dir_deco   = i->text2);
-        else if (i->text1 == gloB->user_editor_last_dir_hazard )
-            Help::string_add_root_dir(editor_last_dir_hazard = i->text2);
+        else if (i->text1 == gloB->user_editor_last_dir_terrain) editor_last_dir_terrain = Filename(i->text2);
+        else if (i->text1 == gloB->user_editor_last_dir_steel  ) editor_last_dir_steel   = Filename(i->text2);
+        else if (i->text1 == gloB->user_editor_last_dir_hatch  ) editor_last_dir_hatch   = Filename(i->text2);
+        else if (i->text1 == gloB->user_editor_last_dir_goal   ) editor_last_dir_goal    = Filename(i->text2);
+        else if (i->text1 == gloB->user_editor_last_dir_deco   ) editor_last_dir_deco    = Filename(i->text2);
+        else if (i->text1 == gloB->user_editor_last_dir_hazard ) editor_last_dir_hazard  = Filename(i->text2);
         break;
 
     case '#':
@@ -351,7 +336,8 @@ void User::load()
         // kleiner ist als die geladenen Daten. map::operator[] fuegt ja ein
         // neues standardkonstruiertes Objekt ein, wenn noch kein Eintrag mit
         // dem uebergebenen Schluessel existiert.
-        if (result[i->text1] < result_read) result[i->text1] = result_read;
+        Filename fn(i->text1);
+        if (result[fn] < result_read) result[fn] = result_read;
         break; }
 
     default:
@@ -365,7 +351,7 @@ void User::load()
 
 void User::save() const
 {
-    std::string filename = gloB->dir_data_user
+    std::string filename = gloB->dir_data_user.get_rootful()
                          + gloB->user_name + gloB->ext_level;
     std::ofstream file(filename.c_str());
 
@@ -402,20 +388,17 @@ void User::save() const
      << IO::LineHash  (gloB->user_editor_grid_custom,      editor_grid_custom)
      << std::endl
 
-     << IO::LineDollar(gloB->user_single_last_dir,         Help::new_string_remove_root_dir(single_last_dir))
-     << IO::LineDollar(gloB->user_single_last_file,        single_last_file)
-     << IO::LineDollar(gloB->user_network_last_dir,        Help::new_string_remove_root_dir(network_last_dir))
-     << IO::LineDollar(gloB->user_network_last_file,       network_last_file)
-     << IO::LineDollar(gloB->user_replay_last_dir,         Help::new_string_remove_root_dir(replay_last_dir))
-     << IO::LineDollar(gloB->user_replay_last_file,        replay_last_file)
+     << IO::LineDollar(gloB->user_single_last_level,       single_last_level.get_rootless())
+     << IO::LineDollar(gloB->user_network_last_level,      network_last_level.get_rootless())
+     << IO::LineDollar(gloB->user_replay_last_level,       replay_last_level.get_rootless())
      << std::endl
 
-<< IO::LineDollar(gloB->user_editor_last_dir_terrain, Help::new_string_remove_root_dir(editor_last_dir_terrain))
-<< IO::LineDollar(gloB->user_editor_last_dir_steel,   Help::new_string_remove_root_dir(editor_last_dir_steel))
-<< IO::LineDollar(gloB->user_editor_last_dir_hatch,   Help::new_string_remove_root_dir(editor_last_dir_hatch))
-<< IO::LineDollar(gloB->user_editor_last_dir_goal,    Help::new_string_remove_root_dir(editor_last_dir_goal))
-<< IO::LineDollar(gloB->user_editor_last_dir_deco,    Help::new_string_remove_root_dir(editor_last_dir_deco))
-<< IO::LineDollar(gloB->user_editor_last_dir_hazard,  Help::new_string_remove_root_dir(editor_last_dir_hazard))
+     << IO::LineDollar(gloB->user_editor_last_dir_terrain, editor_last_dir_terrain.get_rootless())
+     << IO::LineDollar(gloB->user_editor_last_dir_steel,   editor_last_dir_steel.get_rootless())
+     << IO::LineDollar(gloB->user_editor_last_dir_hatch,   editor_last_dir_hatch.get_rootless())
+     << IO::LineDollar(gloB->user_editor_last_dir_goal,    editor_last_dir_goal.get_rootless())
+     << IO::LineDollar(gloB->user_editor_last_dir_deco,    editor_last_dir_deco.get_rootless())
+     << IO::LineDollar(gloB->user_editor_last_dir_hazard,  editor_last_dir_hazard.get_rootless())
      << std::endl
 
      << IO::LineHash  (gloB->user_key_force_left,  key_force_left)
@@ -468,13 +451,14 @@ void User::save() const
 
     if (!result.empty()) file << std::endl;
 
-    for (std::map <std::string, Result> ::const_iterator itr = result.begin();
+    for (std::map <Filename, Result> ::const_iterator itr = result.begin();
      itr != result.end(); ++itr) {
         std::string bstr;
         bstr << itr->second.built;
-        file << IO::LineAngle(itr->first, itr->second.lix_saved,
-                                          itr->second.skills_used,
-                                          itr->second.updates_used, bstr);
+        file << IO::LineAngle(itr->first.get_rootless(),
+                itr->second.lix_saved,
+                itr->second.skills_used,
+                itr->second.updates_used, bstr);
     }
 
     file.close();

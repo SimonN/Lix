@@ -17,8 +17,8 @@ class GraphicSetL1 : public GraphicSet {
 
 public:
 
-    GraphicSetL1(const std::string&,        // groundXo.dat
-                 const std::string&,        // vgagrX.dat
+    GraphicSetL1(const Filename&,           // groundXo.dat
+                 const Filename&,           // vgagrX.dat
                  const std::vector <int>&,  // all steel ids
                  const std::vector <int>&); // all waving flag ids
 

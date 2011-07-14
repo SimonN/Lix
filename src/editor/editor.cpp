@@ -25,7 +25,7 @@ Editor::Editor()
     mouse_cursor_offset(15),
     mouse_cursor(GraLib::get(gloB->file_bitmap_mouse), Api::Manager::get_torbit()),
 
-    level     (useR->single_last_dir + useR->single_last_file),
+    level     (useR->single_last_level),
     bg_color  (makecol(level.bg_red,
                        level.bg_green,
                        level.bg_blue)),
@@ -116,8 +116,8 @@ Editor::Editor()
         // Use grid of 1, and set user variable to avoid ambiguity.
         // If an original level is loaded, use appropriate grid instead of 1
         useR->editor_grid_selected = 1;
-        if (Help::string_get_extension(useR->single_last_file)
-         == gloB->ext_level_orig) panel[GRID_2].set_on();
+        if (useR->single_last_level.get_extension() == gloB->ext_level_orig)
+            panel[GRID_2].set_on();
     }
     if (useR->editor_grid_custom < 1) useR->editor_grid_custom = 8;
 
@@ -164,8 +164,8 @@ void Editor::calc() {
     if (browser_save) {
         if (browser_save->get_exit()) {
             if (browser_save->get_exit_with()) {
-                useR->single_last_dir  = browser_save->get_current_dir();
-                useR->single_last_file = browser_save->get_current_file();
+                useR->single_last_level
+                 = Filename(browser_save->get_current_file());
                 save_lists_and_level();
                 // Dies ist wichtig, falls der Speichern-Dialog vom Code, der
                 // die Exit-Box behandelt, aufgerufen wurde
@@ -241,17 +241,15 @@ void Editor::calc() {
     else if (box_unsaved_data) {
         unsigned i = box_unsaved_data->get_button_clicked();
         if (i == 1) {
-            if (useR->single_last_file.empty()) {
+            if (useR->single_last_level.get_file().empty()) {
                 browser_save = new Api::SaveBrowser(
                  gloB->dir_levels,
                  gloB->ext_level,
-                 useR->single_last_dir,
-                 useR->single_last_file,
+                 useR->single_last_level,
                  Api::SaveBrowser::search_criterion_level,
                  Api::SaveBrowser::new_box_overwrite_level);
                 browser_save->set_info_level_name(level.get_name());
-                browser_save->set_info_file_name(useR->single_last_dir
-                 + useR->single_last_file);
+                browser_save->set_info_filename  (useR->single_last_level);
                 delete box_unsaved_data;
                 box_unsaved_data = 0;
                 // Anhand des Status von panel[FILE_EXIT] erkennt der Code
@@ -285,7 +283,7 @@ void Editor::calc() {
 
 
 // Dies koennen verschiedene Browser sein
-void Editor::calc_bitmap_browser(std::string& save_last_dir)
+void Editor::calc_bitmap_browser(Filename& save_last_dir)
 {
     Api::BitmapBrowser*& br = browser_bitmap;
     if (br->get_exit()) {
@@ -320,13 +318,15 @@ void Editor::calc_bitmap_browser(std::string& save_last_dir)
             // gameplay, use twice the current grid if it's not an even number.
             // If it's an L2 graphic, use the 16 x 16 grid. (That is 8 x 8
             // pixels in L2, and that game works with a strict 16 x 8 grid.)
-            if (br->get_current_dir().find(gloB->dir_bitmap_orig_l2)
+            if (br->get_current_dir().get_dir_rootful().find(
+             gloB->dir_bitmap_orig_l2.get_dir_rootful())
              != std::string::npos) {
                 panel[GRID_2 ].set_off();
                 panel[GRID_CUSTOM].set_off();
                 panel[GRID_16].set_on();
             }
-            else if (br->get_current_dir().find(gloB->dir_bitmap_orig)
+            else if (br->get_current_dir().get_dir_rootful().find(
+                     gloB->dir_bitmap_orig.get_dir_rootful())
              != std::string::npos) {
                 if (!panel[GRID_2 ].get_on()
                  && !panel[GRID_CUSTOM].get_on()
@@ -338,7 +338,7 @@ void Editor::calc_bitmap_browser(std::string& save_last_dir)
             a->set_x(a->get_x() + grid/2 - Help::mod(a->get_x()+grid/2,grid));
             a->set_y(a->get_y() + grid/2 - Help::mod(a->get_y()+grid/2,grid));
         }
-        save_last_dir = br->get_current_dir();
+        save_last_dir = Filename(br->get_current_dir());
         if (ob && ob->type == Object::TERRAIN && ob->subtype == 0) {
             browser_terrain_last_page = br->get_page();
         }
@@ -359,19 +359,16 @@ void Editor::save_lists_and_level()
 {
     save_lists();
 
-    Level l          (useR->single_last_dir
-                    + useR->single_last_file);
+    Level l(useR->single_last_level);
     if (level != l) {
         level.built = Date();
         // Always save in the L++ format, and also provide the correct
         // file extension
-        if (Help::string_get_extension(useR->single_last_file)
-         != gloB->ext_level) {
-            Help::string_remove_extension(useR->single_last_file);
-            useR->single_last_file += gloB->ext_level;
-        }
-        level.save_to_file(useR->single_last_dir
-                         + useR->single_last_file);
+        if (useR->single_last_level.get_extension() != gloB->ext_level)
+            useR->single_last_level = Filename(
+                useR->single_last_level.get_rootless_no_extension()
+                + gloB->ext_level);
+        level.save_to_file(useR->single_last_level);
     }
 }
 

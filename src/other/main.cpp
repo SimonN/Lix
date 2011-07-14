@@ -37,15 +37,13 @@
  *
  */
 
-#include "lmain.h" // Main object, as commented upon above
+#include "lmain.h" // Main object, as commented on above
 #include "user.h"
 
 #include "../lix/lix_enum.h" // initialize the strings in there
 
 struct MainArgs {
-    int  scr_f;
-    int  scr_x;
-    int  scr_y;
+    int  scr_f, scr_x, scr_y;
     bool sound_load_driver;
 };
 MainArgs parse_main_arguments(int, char*[]);

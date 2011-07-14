@@ -20,6 +20,8 @@ ListFile::ListFile(
     activate_clicked_button (false),
     clicked                 (false),
     button_last_clicked(0),
+    current_dir        (""),
+    current_file       (""),
     search_criterion   (crit)
 {
     set_undraw_color(color[COL_API_M]);
@@ -38,24 +40,23 @@ ListFile::~ListFile()
 
 
 
-void ListFile::static_put_to_file(std::string& s, void* which_object)
+void ListFile::static_put_to_file(const Filename& fn, void* which_object)
 {
     ListFile* this_object = (ListFile*) which_object;
     if (this_object) {
         if (!this_object->search_criterion
-         || this_object->search_criterion(s)) {
-            Help::string_remove_dir(s);
-            this_object->file.push_back(s);
+         || this_object->search_criterion(fn)) {
+            this_object->file.push_back(fn);
         }
     }
 }
 
 
 
-void ListFile::load_dir(const std::string& s, const int which_page)
+void ListFile::load_dir(const Filename& s, const int which_page)
 {
-    if (current_dir != s) {
-        current_dir = s;
+    if (current_dir.get_dir_rootful() != s.get_dir_rootful()) {
+        current_dir = Filename(s.get_dir_rootful());
         page = which_page;
     }
     load_current_dir();
@@ -121,7 +122,7 @@ void ListFile::load_current_dir()
     }
 
     // Eventuell Highlight-Button anklicken und Zeiger darauf setzen
-    if (current_dir == current_file_dir)
+    if (current_dir.get_dir_rootful() == current_file.get_dir_rootful())
      for (unsigned i = 0; i < button.size(); ++i) {
         if (i != bottom_button || !bottom_button_flips_page) {
             if (current_file == file[file_number_at_top + i]) {
@@ -132,19 +133,17 @@ void ListFile::load_current_dir()
 
 
 
-void ListFile::highlight_file(const std::string& filename)
+void ListFile::highlight_file(const Filename& filename)
 {
-    std::vector <std::string> ::iterator itr;
-    unsigned                             itr_number = 0;
+    std::vector <Filename> ::iterator itr;
+    unsigned                          itr_number = 0;
 
     // Suchen, ob diese Datei wirklich im Verzeichnis ist, sonst passiert nix
     for (itr = file.begin(); itr != file.end(); ++itr, ++itr_number) {
         if (*itr == filename) break;
     }
     if (itr != file.end()) {
-        // Wenn es also eine Datei gibt, dann nehmen wir die einfach und setzen
-        // auch gleich das current_file_dir korrekt hin.
-        current_file_dir  = current_dir;
+        // Die Datei ist tatsaechlich unter den derzeit gelisteten
         unsigned page_new = 0;
         if (bottom_button_flips_page) page_new = itr_number / bottom_button;
 
@@ -180,8 +179,7 @@ void ListFile::calc_self()
             }
             // Ansonsten den Dateinamen nach aussen hin kenntlich machen
             else {
-                current_file_dir = current_dir;
-                current_file     = file[file_number_at_top + i];
+                current_file = file[file_number_at_top + i];
                 if (activate_clicked_button) {
                     if (button_last_clicked == button[i]) {
                         button[i]->set_on(!button[i]->get_on());

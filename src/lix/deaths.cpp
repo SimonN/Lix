@@ -10,6 +10,23 @@
 
 #include "ac.h"
 
+const int tumbler_frame_steep_drown = 7;
+const int drowner_steep_frame = 6;
+
+
+void assign_drowner(Lixxie& l)
+{    
+    int drowner_frame = 0;
+    if (l.get_ac() == LixEn::TUMBLER
+        && l.get_frame() > tumbler_frame_steep_drown) {
+        drowner_frame = drowner_steep_frame;
+    }
+    l.assign_default(LixEn::DROWNER);
+    l.set_frame(drowner_frame);
+}
+
+
+
 void update_splatter(Lixxie& l, const UpdateArgs& ua)
 {
     ua.suppress_unused_variable_warning();
@@ -61,10 +78,10 @@ void update_drowner(Lixxie& l, const UpdateArgs& ua)
          l.get_updates_since_bomb()+l.get_frame());
     }
 
-    if (l.get_frame() < 3 || l.get_frame() > 6) l.move_down();
-    else if (l.get_frame() == 4)                l.move_up();
-
-    if (!l.is_solid(8, 0))                      l.move_ahead();
+    // Make it look more nicely
+    // if (!l.is_solid(0, 6)) l.move_down(1);
+    if (l.get_frame() < drowner_steep_frame && !l.is_solid(8, 0))
+        l.move_ahead();
 
     // Nach Ablauf der Animation zerstören...
     if (l.is_last_frame()) l.assign(LixEn::NOTHING);

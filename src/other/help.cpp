@@ -15,6 +15,8 @@
 
 #include "../graphic/glob_gfx.h" // color[COL_BLACK]
 
+
+
 namespace Help {
 
 // Timer-Funktionen
@@ -85,50 +87,6 @@ void string_to_nice_case(std::string& s) {
 }
 
 
-
-void string_remove_extension(std::string& s) {
-    for (std::string::iterator i = --s.end(); i != --s.begin()
-                                           && i !=   s.begin(); --i) {
-        if (*i == '.') {
-            s.erase(i, s.end());
-            break;
-        }
-        else if (*i == '/') break;
-}   }
-void string_remove_dir(std::string& s) {
-    std::string::iterator i = s.end();
-    if (i != s.begin()) --i;
-    if (i != s.begin() && *i == '/') --i; // Falls selbst ein Verzeichnis
-    for (; i != --s.begin(); --i) {
-        if (*i == '/') {
-            s.erase(s.begin(), ++i);
-            break;
-}   }   }
-void string_cut_to_dir(std::string& s) {
-    for (std::string::iterator i = --s.end(); i != --s.begin(); --i) {
-        if (*i == '/') {
-            s.erase(++i, s.end());
-            break;
-}   }   }
-std::string new_string_remove_root_dir(const std::string& s) {
-    for (size_t i = 0; i < s.length() && i < gloB->dir_root.length(); ++i)
-        if (s[i] != gloB->dir_root[i]) return s;
-    // there is a copy of gloB->dir_root at the beginning of s, return without
-    return s.substr(gloB->dir_root.length(), std::string::npos);
-}
-void string_remove_root_dir(std::string& s) {
-    for (size_t i = 0; i < s.length() && i < gloB->dir_root.length(); ++i)
-        if (s[i] != gloB->dir_root[i]) return;
-    // there is a copy of gloB->dir_root at the beginning of s, erase that
-    s.erase(0, gloB->dir_root.length());
-}
-void string_add_root_dir(std::string& s) {
-    bool s_already_has_root_dir = true;
-    for (size_t i = 0; i < s.length() && i < gloB->dir_root.length(); ++i)
-        if (s[i] != gloB->dir_root[i]) s_already_has_root_dir = false;
-    if (! s_already_has_root_dir)
-        s = gloB->dir_root + s;
-}
 void string_shorten(std::string& s, const FONT* ft, const int length) {
     if (text_length(ft, s.c_str()) > length) {
         while (text_length(ft, s.c_str()) > length - text_length(ft, "..."))
@@ -138,37 +96,6 @@ void string_shorten(std::string& s, const FONT* ft, const int length) {
 }
 
 
-
-char string_get_pre_extension(const std::string& s)
-{
-    // Schaue, ob das letzte Zeichen eines endungslosen Strings gesucht ist
-    std::string::const_iterator itr = --s.end();
-    if (*--itr == '.') return *++itr;
-
-    // Sonst: Durchsuche einen String mit Endung nach der Prae-Endung
-    else for (itr = --s.end(); itr != --s.begin(); --itr) {
-        if (*itr == '.') {
-            if (--itr == --s.begin()) return '\0';
-            if (--itr == --s.begin()) return '\0';
-            else if (*itr == '.')     return *++itr; // "bla.A.txt" -> 'A'
-            else                      return '\0';   // "bla.txt"   -> '\0'
-            break;
-        }
-    }
-    return '\0'; // Falls nicht einmal '.' enthalten
-}
-
-std::string string_get_extension(const std::string& s)
-{
-    std::string ext = "";
-    std::string::const_iterator itr = --s.end();
-    while (itr != s.begin() && itr != --s.begin() && *itr != '.') --itr;
-    while (itr != s.end()   && itr != --s.begin()) {
-        ext += *itr;
-        ++itr;
-    }
-    return ext;
-}
 
 bool string_ends_with(const std::string& s, const std::string& tail)
 {
@@ -255,22 +182,22 @@ void draw_shadow_fixed_updates_used(
 
 
 
-
 // Dateisuchfunktionen in verschiedenen Variationen
 void find_files(
-    const std::string& where,
+    const Filename& fn_where,
     const std::string& what,
     DoStr              dostr,
     void*              from
 ) {
+    std::string where = fn_where.get_rootful();
     al_ffblk info;
     std::string search_for = where + what;
     if (al_findfirst(search_for.c_str(), &info,
      FA_RDONLY | FA_HIDDEN | FA_LABEL | FA_ARCH) == 0) {
         do {
             // Gefundene Datei zum Vektor hinzufügen
-            std::string s = where + info.name;
-            dostr(s, from);
+            Filename fn_result(where + info.name);
+            dostr(fn_result, from);
         } while (al_findnext(&info) == 0);
         al_findclose(&info);
     }
@@ -279,9 +206,10 @@ void find_files(
 
 
 
-void find_dirs(std::string where, DoStr dostr, void* from)
+void find_dirs(const Filename& fn_where, DoStr dostr, void* from)
 {
     al_ffblk info;
+    std::string where = fn_where.get_rootful();
     if (where[where.size()-1] != '/') where += '/';
     if (where[where.size()-1] != '*') where += '*';
     if (al_findfirst(where.c_str(), &info,
@@ -293,7 +221,8 @@ void find_dirs(std::string where, DoStr dostr, void* from)
                 s.resize(s.size() -1 ); // * von der Maske abschnibbeln
                 s += info.name;
                 s += '/';
-                dostr(s, from);
+                Filename fn_result(s);
+                dostr(fn_result, from);
             }
         } while (al_findnext(&info) == 0);
         al_findclose(&info);
@@ -304,8 +233,9 @@ void find_dirs(std::string where, DoStr dostr, void* from)
 
 
 void find_tree
-(std::string where, const std::string& what, DoStr dostr, void* from)
+(const Filename& fn_where, const std::string& what, DoStr dostr, void* from)
 {
+    std::string where = fn_where.get_rootful();
     // Nach Verzeichnissen suchen
     al_ffblk info;
     if (where[where.size()-1] != '/') where += '/';
@@ -316,21 +246,22 @@ void find_tree
             // Dies nur für jedes Verzeichnis außer . und .. ausführen:
             // Neue Suche mit gleichem Vektor im gefundenen Verzeichnis
             if ((info.attrib & FA_DIREC) == FA_DIREC && info.name[0] != '.') {
-                find_tree(where + info.name + '/', what, dostr, from);
+                Filename fn_recurs(where + info.name + '/');
+                find_tree(fn_recurs, what, dostr, from);
             }
         } while (al_findnext(&info) == 0);
         al_findclose(&info);
     }
     // Nach Dateien suchen, die dem Suchkriterium entsprechen
-    find_files(where, what, dostr, from);
+    find_files(fn_where, what, dostr, from);
 }
 // Ende der Unterverzeichnis-einschließenden Dateisuche
 
 
 
-bool dir_exists(const std::string& s)
+bool dir_exists(const Filename& fn)
 {
-    std::string dir = s;
+    std::string dir = fn.get_rootful();
     if (dir[dir.size() - 1] == '/') dir.erase(--dir.end());
     return file_exists(dir.c_str(), FA_DIREC, 0);
 }

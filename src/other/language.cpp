@@ -365,7 +365,7 @@ void Language::set(const Language lang)
         main_loading_1                = "---------- Loading Lix ----------";
         main_loading_2                = "---------- Please Wait ----------";
         main_version                  = "Version:";
-        main_website                  = "lplusplus.co.cc";
+        main_website                  = "asdfasdf.ethz.ch/~simon";
         break;
 
     case MAX:
@@ -378,7 +378,7 @@ void Language::set(const Language lang)
         main_loading_1                = "---------- Loading Lix ----------";
         main_loading_2                = "---------- Please Wait ----------";
         main_version                  = "Version:";
-        main_website                  = "lplusplus.co.cc";
+        main_website                  = "asdfasdf.ethz.ch/~simon";
 
         // Logging
         log_error                     = "Error: ";
@@ -784,7 +784,7 @@ eb[Editor::ADD_HAZARD]
         main_loading_1                = "------- Lix wird geladen -------";
         main_loading_2                = "--------- Bitte warten ---------";
         main_version                  = "Version:";
-        main_website                  = "lplusplus.co.cc";
+        main_website                  = "asdfasdf.ethz.ch/~simon";
 
         // Logging
         log_error                     = "Fehler:";

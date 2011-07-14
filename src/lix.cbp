@@ -327,6 +327,8 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="other/console.h" />
 		<Unit filename="other/date.cpp" />
 		<Unit filename="other/date.h" />
+		<Unit filename="other/filename.cpp" />
+		<Unit filename="other/filename.h" />
 		<Unit filename="other/globals.cpp" />
 		<Unit filename="other/globals.h" />
 		<Unit filename="other/hardware.cpp" />

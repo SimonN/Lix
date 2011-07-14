@@ -128,8 +128,7 @@ void Editor::calc_self()
         case FILE_NEW:
         case FILE_EXIT:
             save_lists();
-            if (Level(useR->single_last_dir
-             +        useR->single_last_file) != level) {
+            if (Level(useR->single_last_level) != level) {
                 box_unsaved_data = new_box_unsaved_data(level);
                 Api::Manager::add_focus(box_unsaved_data);
                 b.set_on();
@@ -139,18 +138,16 @@ void Editor::calc_self()
             break;
 
         case FILE_SAVE:
-            if (useR->single_last_file.empty()) { // wie FILE_SAVE_AS
+            if (useR->single_last_level.get_file().empty()) {
+                // same as FILE_SAVE_AS
                 b.set_on();
                 browser_save = new Api::SaveBrowser(gloB->dir_levels,
                                gloB->ext_level,
-                               useR->single_last_dir,
-                               useR->single_last_file,
+                               useR->single_last_level,
                                Api::SaveBrowser::search_criterion_level,
                                Api::SaveBrowser::new_box_overwrite_level);
                 browser_save->set_info_level_name(level.get_name());
-                browser_save->set_info_file_name(
-                   useR->single_last_dir
-                 + useR->single_last_file);
+                browser_save->set_info_filename(useR->single_last_level);
                 Api::Manager::add_focus(browser_save);
             }
             else save_lists_and_level();
@@ -160,13 +157,11 @@ void Editor::calc_self()
             b.set_on();
             browser_save = new Api::SaveBrowser(gloB->dir_levels,
                                gloB->ext_level,
-                               useR->single_last_dir,
-                               useR->single_last_file,
+                               useR->single_last_level,
                                Api::SaveBrowser::search_criterion_level,
                                Api::SaveBrowser::new_box_overwrite_level);
             browser_save->set_info_level_name(level.get_name());
-            browser_save->set_info_file_name(
-             useR->single_last_dir + useR->single_last_file);
+            browser_save->set_info_filename(useR->single_last_level);
             Api::Manager::add_focus(browser_save);
             break;
 
