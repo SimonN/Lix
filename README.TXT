@@ -1,7 +1,7 @@
 Welcome to Lix.
 
-Lix is an action-puzzle game featuring networked multiplayer games,
-a level editor, and a single-player mode.
+Lix is an action-puzzle game in the IRS genre (Interactive Rodent Simulation).
+It has a networked multiplayer mode, a level editor, and also single-player.
 
 Read these files in the doc/ directory:
 
