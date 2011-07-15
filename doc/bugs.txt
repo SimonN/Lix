@@ -16,10 +16,7 @@ General
 
 Menu
 
-    Last directory
-        On Windows, the directory/level/replay used in the previous session
-        of Lix isn't loaded properly from the ./data/user/yourname.txt file
-        each time.
+    --
 
 
 
@@ -73,5 +70,5 @@ Gameplay non-physics
 
 Network game
 
-    Netzwerkspiel im ESC-Menue
-        Es laeuft korrekt weiter, aber Lemminge sind weiterhin anklickbar.
+    [Esc] pressed during game
+        It runs on properly, but cursor still opens over lixes.

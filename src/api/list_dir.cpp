@@ -64,6 +64,7 @@ void DirList::add_button(const int i, const std::string& str)
 }
 
 
+
 void DirList::load_current_dir() {
     set_draw_required();
     dir_list.clear();
