@@ -1,0 +1,124 @@
+$BUILT                                             2011-07-15 09:12:44
+$AUTHOR                                                          Simon
+$GERMAN                                                               
+$ENGLISH                                   A good first 2-player level
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                            45
+#INITIAL                                                            60
+#REQUIRED                                                           20
+#RATE                                                               70
+
+#WALKER                                                             20
+#JUMPER                                                             20
+#CLIMBER                                                            20
+#FLOATER                                                            20
+#EXPLODER2                                                          20
+#BLOCKER                                                             1
+#NOTHING                                                             0
+#BUILDER                                                            40
+#PLATFORMER                                                         20
+#BASHER                                                             20
+#MINER                                                              20
+#DIGGER                                                             20
+
+:bitmap/Rebuilds/01 - Earth/Hatch.H:                     100        64
+:bitmap/Rebuilds/01 - Earth/Hatch.H:                     476        64     r
+
+:bitmap/Rebuilds/02 - Gold Mine/Goal.G:                  552       280
+:bitmap/Rebuilds/02 - Gold Mine/Goal.G:                   32       280
+
+:bitmap/Universal/water.W:                               288       368
+:bitmap/Universal/water.W:                               320       368
+
+:bitmap/Rebuilds/01 - Earth/09:                          442       114     rr
+:bitmap/Rebuilds/01 - Earth/18:                          506       116
+:bitmap/Universal/32x16.S:                               496       116
+:bitmap/Rebuilds/01 - Earth/02:                          434       112     fr
+:bitmap/Rebuilds/01 - Earth/03:                          418       120     r
+:bitmap/Rebuilds/01 - Earth/09:                          272       288
+:bitmap/Rebuilds/01 - Earth/09:                          304       288
+:bitmap/Rebuilds/01 - Earth/09:                          312       280
+:bitmap/Rebuilds/01 - Earth/09:                          344       288
+:bitmap/Rebuilds/01 - Earth/12:                          378       286
+:bitmap/Rebuilds/01 - Earth/05:                          390       200     f
+:bitmap/Rebuilds/01 - Earth/09:                          344       280
+:bitmap/Rebuilds/01 - Earth/05:                          392       192
+:bitmap/Rebuilds/01 - Earth/18:                          400       184
+:bitmap/Rebuilds/01 - Earth/01:                          416       216
+:bitmap/Rebuilds/01 - Earth/09:                          136       114     rr
+:bitmap/Rebuilds/01 - Earth/18:                           98       116
+:bitmap/Universal/32x16.S:                               112       116
+:bitmap/Rebuilds/01 - Earth/02:                           96       112     r
+:bitmap/Rebuilds/01 - Earth/03:                          184       120     fr
+:bitmap/Rebuilds/01 - Earth/18:                          218       188
+:bitmap/Rebuilds/01 - Earth/19:                          222       184     frr
+:bitmap/Rebuilds/01 - Earth/01:                          368       184
+:bitmap/Rebuilds/01 - Earth/02:                          352       336     fr
+:bitmap/Rebuilds/01 - Earth/04:                          382       232
+:bitmap/Rebuilds/01 - Earth/19:                          224       182
+:bitmap/Rebuilds/01 - Earth/18:                          208       186
+:bitmap/Universal/64x32.S:                                32       320
+:bitmap/Rebuilds/02 - Gold Mine/crate64:                 -32       280
+:bitmap/Rebuilds/01 - Earth/10-simon:                    -56       320
+:bitmap/Rebuilds/01 - Earth/10-simon:                     40       312
+:bitmap/Rebuilds/01 - Earth/09:                          248       288
+:bitmap/Rebuilds/01 - Earth/16:                          160       200
+:bitmap/Rebuilds/01 - Earth/18:                          180       214
+:bitmap/Rebuilds/01 - Earth/05:                          226       328
+:bitmap/Rebuilds/01 - Earth/11:                          224       288
+:bitmap/Rebuilds/01 - Earth/00:                          590       348
+:bitmap/Universal/64x32.S:                               544       320
+:bitmap/Rebuilds/02 - Gold Mine/crate64:                 608       280
+:bitmap/Rebuilds/01 - Earth/01:                          584       318
+:bitmap/Rebuilds/01 - Earth/14:                          354       290     r
+:bitmap/Rebuilds/01 - Earth/09:                          288       280
+:bitmap/Rebuilds/01 - Earth/09:                          248       280
+:bitmap/Rebuilds/01 - Earth/10:                          374       296
+:bitmap/Rebuilds/01 - Earth/01:                          352       316
+:bitmap/Rebuilds/01 - Earth/18:                          184       296
+:bitmap/Rebuilds/01 - Earth/17:                          200       296
+:bitmap/Rebuilds/01 - Earth/01:                          152       312
+:bitmap/Rebuilds/01 - Earth/02:                          128       292     rr
+:bitmap/Rebuilds/01 - Earth/00:                          136       344
+:bitmap/Rebuilds/01 - Earth/01:                          428       264
+:bitmap/Rebuilds/01 - Earth/10:                          440       316
+:bitmap/Rebuilds/01 - Earth/10:                          362       328
+:bitmap/Rebuilds/01 - Earth/06:                          156       250
+:bitmap/Rebuilds/01 - Earth/06:                          200       178
+:bitmap/Rebuilds/01 - Earth/09:                          384       180
+:bitmap/Rebuilds/01 - Earth/07:                          416       184
+:bitmap/Rebuilds/01 - Earth/07:                          444       254
+:bitmap/Rebuilds/01 - Earth/00:                          588       320
+:bitmap/Rebuilds/01 - Earth/08:                          172       202     r
+:bitmap/Rebuilds/01 - Earth/08:                          444       212
+:bitmap/Universal/16x32.S:                               272       376
+:bitmap/Universal/16x32.S:                               352       376
+:bitmap/Rebuilds/01 - Earth/26:                          280         0
+:bitmap/Rebuilds/01 - Earth/07:                          224        56
+:bitmap/Rebuilds/01 - Earth/08:                          232        88     fr
+:bitmap/Rebuilds/01 - Earth/28:                          232       104
+:bitmap/Rebuilds/01 - Earth/10:                          192       -88     r
+:bitmap/Rebuilds/01 - Earth/24:                          346        26     r
+:bitmap/Rebuilds/01 - Earth/28:                          376       104     frr
+:bitmap/Rebuilds/01 - Earth/06:                          376        72
+:bitmap/Rebuilds/01 - Earth/29:                          360        64
+:bitmap/Rebuilds/01 - Earth/10:                          336       -88     fr
+:bitmap/Rebuilds/01 - Earth/09:                          108       118     f
+:bitmap/Rebuilds/01 - Earth/09:                          152       110
+:bitmap/Rebuilds/01 - Earth/09:                          442       110
+:bitmap/Rebuilds/01 - Earth/09:                          476       118     rr
+:bitmap/Rebuilds/01 - Earth/09:                          178       164     fr
+:bitmap/Rebuilds/01 - Earth/09:                          448       162     frrr
+:bitmap/Rebuilds/01 - Earth/08:                          430       182
+:bitmap/Rebuilds/02 - Gold Mine/crate64:                 -40       216
+:bitmap/Rebuilds/02 - Gold Mine/crate64:                 616       216

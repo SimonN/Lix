@@ -82,7 +82,28 @@ bool Filename::operator != (const Filename& rhs) const
     return (rootful != rhs.rootful);
 }
 
+
+
 bool Filename::operator <  (const Filename& rhs) const
 {
-    return rootful < rhs.rootful;
+    // I roll my own here instead of using std::string::operator <, since
+    // I use the convention throughout the program that file-less directory
+    // names end with '/'. The directory "abc-def/" is therefore smaller than
+    // "abc/", since '-' < '/' in ASCII, but we want lexicographical sorting
+    // in the program's directory listings. Thus, this function here lets
+    // '/' behave as being smaller than anything.
+    const size_t la = rootful.length();
+    const size_t lb = rhs.rootful.length();
+    for (size_t i = 0; (i < la && i < lb); ++i) {
+        const unsigned char& a = rootful[i];
+        const unsigned char& b = rhs.rootful[i];
+        if      (a == '/' && b == '/') continue;
+        else if (a == '/') return true;
+        else if (b == '/') return false;
+        else if (a < b)    return true;
+        else if (b < a)    return false;
+    }
+    // If we get here, one string is an initial segment of the other.
+    // The shorter string shall be smaller.
+    return la < lb;
 }

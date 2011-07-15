@@ -1,0 +1,93 @@
+$BUILT                                             2011-07-15 08:20:23
+$AUTHOR                                                          Simon
+$GERMAN                                                               
+$ENGLISH                                    Look out below! (no diags)
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            576
+#TORUS_X                                                             1
+#TORUS_Y                                                             1
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                   32
+#BACKGROUND_BLUE                                                    32
+
+#SECONDS                                                            90
+#INITIAL                                                           120
+#REQUIRED                                                           20
+#RATE                                                               74
+
+#WALKER                                                             60
+#JUMPER                                                             20
+#CLIMBER                                                            20
+#FLOATER                                                             0
+#EXPLODER2                                                          20
+#BLOCKER                                                             0
+#NOTHING                                                             0
+#BUILDER                                                           120
+#PLATFORMER                                                          0
+#BASHER                                                             20
+#MINER                                                              60
+#DIGGER                                                              0
+
+:bitmap/simon/hatch001.H:                                240       336     r
+:bitmap/simon/hatch001.H:                                336        48
+:bitmap/simon/hatch001.H:                                336       336
+:bitmap/simon/hatch001.H:                                240        48     r
+
+:bitmap/Rebuilds/09 - Marble/Goal.G:                     288       112
+:bitmap/Rebuilds/09 - Marble/Goal.G:                     288       400
+
+:bitmap/Rebuilds/08 - Bricks/03a:                         64       224
+:bitmap/Rebuilds/08 - Bricks/03a:                         64       160
+:bitmap/Rebuilds/08 - Bricks/03a:                         64       352
+:bitmap/Rebuilds/08 - Bricks/03a:                         64       288
+:bitmap/Rebuilds/08 - Bricks/03a:                         64       480
+:bitmap/Rebuilds/08 - Bricks/03a:                         64       416
+:bitmap/Rebuilds/08 - Bricks/03a:                        128       224
+:bitmap/Rebuilds/08 - Bricks/03a:                        128       160
+:bitmap/Rebuilds/08 - Bricks/03a:                        128       352
+:bitmap/Rebuilds/08 - Bricks/03a:                        128       288
+:bitmap/Rebuilds/08 - Bricks/03a:                        128       480
+:bitmap/Rebuilds/08 - Bricks/03a:                        128       416
+:bitmap/Rebuilds/08 - Bricks/03a:                        448       160
+:bitmap/Rebuilds/08 - Bricks/03a:                        448       480
+:bitmap/Rebuilds/08 - Bricks/03a:                        448       288
+:bitmap/Rebuilds/08 - Bricks/03a:                        448       224
+:bitmap/Rebuilds/08 - Bricks/03a:                        448       416
+:bitmap/Rebuilds/08 - Bricks/03a:                        448       352
+:bitmap/Rebuilds/08 - Bricks/03a:                        512       160
+:bitmap/Rebuilds/08 - Bricks/03a:                        512       480
+:bitmap/Rebuilds/08 - Bricks/03a:                        512       288
+:bitmap/Rebuilds/08 - Bricks/03a:                        512       224
+:bitmap/Rebuilds/08 - Bricks/03a:                        512       416
+:bitmap/Rebuilds/08 - Bricks/03a:                        512       352
+:bitmap/Universal/64x32.S:                               256       448
+:bitmap/Universal/64x32.S:                               320       448
+:bitmap/Universal/64x32.S:                               256       160
+:bitmap/Universal/64x32.S:                               320       160
+:bitmap/Rebuilds/08 - Bricks/01:                          80       448
+:bitmap/Rebuilds/08 - Bricks/01:                         144       448
+:bitmap/Rebuilds/08 - Bricks/01b:                        464       160
+:bitmap/Rebuilds/08 - Bricks/01b:                        528       160
+:bitmap/Rebuilds/08 - Bricks/05b:                        256       192
+:bitmap/Rebuilds/08 - Bricks/06b:                        320       192
+:bitmap/Rebuilds/08 - Bricks/06:                         320       480
+:bitmap/Rebuilds/08 - Bricks/05:                         256       480
+:bitmap/Rebuilds/08 - Bricks/03a:                         64       544
+:bitmap/Rebuilds/08 - Bricks/03a:                        128       544
+:bitmap/Rebuilds/08 - Bricks/03a:                        448       544
+:bitmap/Rebuilds/08 - Bricks/03a:                        512       544
+:bitmap/Rebuilds/08 - Bricks/09a:                        288       480
+:bitmap/Rebuilds/08 - Bricks/11a:                        320       480
+:bitmap/Rebuilds/08 - Bricks/09a:                        288       192
+:bitmap/Rebuilds/08 - Bricks/11a:                        320       192
+:bitmap/Rebuilds/08 - Bricks/03a:                         64        32
+:bitmap/Rebuilds/08 - Bricks/03a:                        128        32
+:bitmap/Rebuilds/08 - Bricks/03a:                         64        96
+:bitmap/Rebuilds/08 - Bricks/03a:                        128        96
+:bitmap/Rebuilds/08 - Bricks/03a:                        448        32
+:bitmap/Rebuilds/08 - Bricks/03a:                        512        32
+:bitmap/Rebuilds/08 - Bricks/03a:                        448        96
+:bitmap/Rebuilds/08 - Bricks/03a:                        512        96
