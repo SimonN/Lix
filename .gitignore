@@ -15,12 +15,12 @@ data/config.txt
 data/log.txt
 
 # exclude Lemmings legacy material: terrain and levels
+# the last line excludes free levels that need legacy terrain
 bitmap/orig/L1/*
 bitmap/orig/L1/*/*
 bitmap/orig/L2/*/*
 levels/orig/*
-levels/network/2player/1. Lemmings/*
-levels/network/2player/2. ONML/*
+levels/network/*oldgfx/*
 
 # exclude non-free sounds. Make an exception for finished replacements,
 data/sound/*

@@ -221,6 +221,7 @@ void Editor::delete_everything() {
     map.resize     (level.size_x, level.size_y);
     map.set_torus_x(level.torus_x);
     map.set_torus_y(level.torus_y);
+    bg_color = makecol(level.bg_red, level.bg_green, level.bg_blue);
 
     draw_required = true;
 }

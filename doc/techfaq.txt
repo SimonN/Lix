@@ -1,5 +1,5 @@
-
-/¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\
+ _____________________________________________________________________________
+/                                                                             \
 |   L++                                          Frequently Asked Questions   |
 \_____________________________________________________________________________/
 
@@ -103,14 +103,13 @@ standard settings will be used.
 Problem: The game cannot connect to a friend who is hosting a networked game.
 ------------------------------------------------------------------------------
 
-The hosting player should configure his router so it forwards port 22934
-via UDP to his computer.
+The hosting player should configure his router so it forwards UDP port 22934
+to his computer.
 
 Alternatively, everybody can try to use the central server instead of somebody
 hosting a game himself. This is the recommended option anyway, nobody has to
-open a port then.
+open a port then. The server supports multiple concurrent games.
 
 Alternatively, try to set up a virtual private network that provides NAT
-punchthrough. A possible solution is the program Hamachi, downloadable under:
-
-http://www.hamachi.cc
+punchthrough. A possible solution for Windows and Mac users is Logmein Hamachi,
+search the web for this.

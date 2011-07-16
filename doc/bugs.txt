@@ -1,5 +1,5 @@
-
-/¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\
+ _____________________________________________________________________________
+/                                                                             \
 |   Lix                                                Known bugs and issues  |
 \_____________________________________________________________________________/
 
@@ -11,10 +11,6 @@ General
         The game will compile, but maybe not run properly under these OSes.
         A workaround may be to run it with the -w switch to achieve windowed
         mode. I will probably port the game to Allegro 5, hoping to fix it.
-    
-    Object definitions
-        These aren't read right now. (object definitions are explained in
-        doc/objdef.txt) This likely depends on the working directory fix.
 
 
 
@@ -36,10 +32,6 @@ Editor
         way. It shouldn't happen, since shift shall only trigger the frame-
         -dragging when on too much terrain.
 
-    Steel dialogue (?)
-        phil said that it doesn't close on pressing cancel, instead it closes
-        and opens again right away.
-        
 
 
 Gameplay physics
@@ -78,5 +70,5 @@ Gameplay non-physics
 
 Network game
 
-    Netzwerkspiel im ESC-Menue
-        Es laeuft korrekt weiter, aber Lemminge sind weiterhin anklickbar.
+    [Esc] pressed during game
+        It runs on properly, but cursor still opens over lixes.

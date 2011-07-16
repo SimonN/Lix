@@ -7,6 +7,18 @@
 
 
 
+2011-07-13
+(ncp)
+
+    Sprites
+        Drew the exploder, two drowners, and included the previously drawn
+        second splatter.
+
+    Much more
+        Read the numerous git commit messages, basically much small stuff >_>
+
+
+
 2011-06-03
 (ncp)
 
