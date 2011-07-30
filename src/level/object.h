@@ -61,7 +61,7 @@ struct Object {
     Object(const Cutbit&, Type = EMPTY, int = 0);
     ~Object();
 
-    void read_definitions_file(const std::string&);
+    void read_definitions_file(const Filename&);
 
     // these do automatically the calculation of the absolute trigger location
     inline int get_trigger_x() const {

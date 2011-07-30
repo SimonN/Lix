@@ -3,6 +3,8 @@
  *
  */
 
+#include <sstream>
+
 #include "cutbit.h"
 
 #include "../other/help.h" // Fehlertext beim Blitten nicht vorhandener Frames
@@ -97,7 +99,7 @@ Cutbit::Cutbit(const std::vector <BITMAP*>& vec)
 
 
 
-Cutbit::Cutbit(const std::string& filename, const bool cut)
+Cutbit::Cutbit(const Filename& filename, const bool cut)
 :
     bitmap  (0),
     xl      (0),
@@ -107,11 +109,11 @@ Cutbit::Cutbit(const std::string& filename, const bool cut)
 {
     // Angegebene Datei als Bild laden.
     // Wenn dies kein Bild ist, Fehlermeldung schreiben und abbrechen.
-    bitmap = load_bitmap(filename.c_str(), 0);
+    bitmap = load_bitmap(filename.get_rootful().c_str(), 0);
     if (!bitmap) {
         std::string str = Language::log_bitmap_bad;
         str += " ";
-        str += filename;
+        str += filename.get_rootless();
         Log::log(Log::ERROR, str);
         return;
     }
@@ -313,9 +315,9 @@ void Cutbit::draw(
         int          col_text = makecol(255, 255, 255);
         int          col_back = makecol( 64,  64,  64);
         if (!bitmap) col_back = makecol(255,  64,  64);
-        std::string str = "( ";
-        str += fx; str += " | "; str += fy; str += " )";
-        textout_ex(target, font, "Frame?!?!", x, y,   col_text, col_back);
-        textout_ex(target, font, str.c_str(), x, y+8, col_text, col_back);
+        std::ostringstream str;
+        str << "( " << fx << " | " << fy << " )";
+        textout_ex(target, font, "Frame?!?!", x, y,        col_text, col_back);
+        textout_ex(target, font, str.str().c_str(), x, y+8,col_text, col_back);
     }
 }

@@ -18,6 +18,7 @@
 #include "../api/window.h"
 #include "../api/message.h"
 #include "../other/language.h"
+#include "../other/filename.h"
 
 namespace Api {
 class SaveBrowser : public Window {
@@ -43,7 +44,7 @@ private:
 
     // Unterfenster
     BoxMessage* box_overwrite;
-    BoxMessage* (*new_box_overwrite)(const std::string&);
+    BoxMessage* (*new_box_overwrite)(const Filename&);
 
     // Kopierverbot
     SaveBrowser     (const SaveBrowser&);
@@ -61,26 +62,22 @@ private:
 
 public:
 
-    SaveBrowser(const std::string&, // Basisverzeichnis
+    SaveBrowser(const Filename&,    // Basisverzeichnis
                 const std::string&, // Dateiendung ohne Stern - NICHT Such*!
-                const std::string&, // Verzeichnis
-                      std::string,  // Datei mit/ohne Verzeichnis
+                const Filename&,    // Verzeichnis mit ggf. Datei
                       ListFile::SearchCrit,
-                      BoxMessage* (*)(const std::string&),
+                      BoxMessage* (*)(const Filename&),
                 const bool = false); // Replay-Style in der Dateiliste?
     virtual ~SaveBrowser();
 
-    inline       bool         get_exit_with()   { return exit_with;                  }
-    inline const std::string& get_current_dir() { return dir_list.get_current_dir(); }
-                 std::string  get_current_file();
-                 std::string  get_current_dir_and_file();
-
-            void set_info_file_name (const std::string&);
-            void set_info_level_name(const std::string&);
+    inline bool get_exit_with() { return exit_with; }
+    Filename    get_current_file(); // debugging filenamedebugging: Implementation ggf neu, dies macht naemlich nun alles!
+           void set_info_filename  (const Filename&);
+           void set_info_level_name(const std::string&);
 
     // Nutzbare Funktionen, auch als Beispiel
-    static bool        search_criterion_level (const std::string&);
-    static BoxMessage* new_box_overwrite_level(const std::string&);
+    static bool        search_criterion_level (const Filename&);
+    static BoxMessage* new_box_overwrite_level(const Filename&);
 
 protected:
 

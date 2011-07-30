@@ -1,5 +1,5 @@
-
-/¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\
+ _____________________________________________________________________________
+/                                                                             \
 |   Lix                                                Known bugs and issues  |
 \_____________________________________________________________________________/
 
@@ -16,9 +16,7 @@ General
 
 Menu
 
-    Option help text
-        In the sound tab of the options menu, the *) text for the "load sound
-        driver" option is wrong. It should read "requires a program restart".
+    --
 
 
 
@@ -34,10 +32,6 @@ Editor
         way. It shouldn't happen, since shift shall only trigger the frame-
         -dragging when on too much terrain.
 
-    Steel dialogue (?)
-        phil said that it doesn't close on pressing cancel, instead it closes
-        and opens again right away.
-        
 
 
 Gameplay physics
@@ -76,5 +70,5 @@ Gameplay non-physics
 
 Network game
 
-    Netzwerkspiel im ESC-Menue
-        Es laeuft korrekt weiter, aber Lemminge sind weiterhin anklickbar.
+    [Esc] pressed during game
+        It runs on properly, but cursor still opens over lixes.

@@ -15,6 +15,7 @@ std::vector <Lixxie::AcFunc>      Lixxie::ac_func(LixEn::AC_MAX);
 void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
 {
     ac_func     [LixEn::FALLER]    .assign = assign_faller;
+    ac_func     [LixEn::DROWNER]   .assign = assign_drowner;
     ac_func     [LixEn::EXITER]    .assign = assign_exiter;
     ac_func     [LixEn::WALKER]    .assign = assign_walker;
     ac_func     [LixEn::CLIMBER]   .assign = assign_climber;
@@ -65,3 +66,4 @@ void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
     ac_func     [LixEn::ROPER]     .aiming    = true;
     ac_func     [LixEn::ROPER]     .aim_sound = Sound::ROPER;
 }
+

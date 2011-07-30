@@ -13,7 +13,7 @@
 
 #pragma once
 
-#include <string>
+#include "filename.h"
 
 // At the end of this file, a pointer to a Globals called gloB
 // and a pointer to the User called useR will be declared externally.
@@ -93,54 +93,6 @@ public:
         pre_ext_water,
         pre_ext_oneway_left,
         pre_ext_oneway_right,
-
-        // Wichtige Verzeichnisse
-        dir_data_bitmap_from_root, // for checking the working directory
-        dir_root,
-        dir_levels,
-        dir_levels_single,
-        dir_levels_network,
-        dir_replay,
-        dir_data,
-        dir_data_bitmap,
-        dir_data_sound,
-        dir_data_user,
-        dir_bitmap,
-        dir_bitmap_orig,
-        dir_bitmap_orig_l1,
-        dir_bitmap_orig_l2,
-
-        // Wichtige Dateien
-        file_config,
-        file_log,
-        file_level_network,
-
-        file_bitmap_api_number,
-        file_bitmap_checkbox,
-        file_bitmap_debris,
-        file_bitmap_edit_flip,
-        file_bitmap_edit_hatch,
-        file_bitmap_edit_panel,
-        file_bitmap_edit_big,
-        file_bitmap_explosion,
-        file_bitmap_fuse_flame,
-        file_bitmap_game_arrow,
-        file_bitmap_game_icon,
-        file_bitmap_game_nuke,
-        file_bitmap_game_panel,
-        file_bitmap_game_panel_2,
-        file_bitmap_game_pause,
-        file_bitmap_game_replay,
-        file_bitmap_lix,
-        file_bitmap_lix_recol,
-        file_bitmap_lobby_spec,
-        file_bitmap_mouse,
-        file_bitmap_preview_icon,
-
-        file_bitmap_font_big,
-        file_bitmap_font_nar,
-        file_bitmap_font_med,
-        file_bitmap_font_sml,
 
         // Config-Schluessel
         config_user_name,
@@ -250,12 +202,9 @@ public:
         user_editor_grid_selected,
         user_editor_grid_custom,
 
-        user_single_last_dir,
-        user_single_last_file,
-        user_network_last_dir,
-        user_network_last_file,
-        user_replay_last_dir,
-        user_replay_last_file,
+        user_single_last_level,
+        user_network_last_level,
+        user_replay_last_level,
 
         user_editor_last_dir_terrain,
         user_editor_last_dir_steel,
@@ -307,14 +256,62 @@ public:
         user_key_ed_add_deco,
         user_key_ed_add_hazard;
 
+    const Filename
+
+        empty_filename,
+
+        // Wichtige Verzeichnisse
+        dir_levels,
+        dir_levels_single,
+        dir_levels_network,
+        dir_replay,
+        dir_data,
+        dir_data_bitmap,
+        dir_data_sound,
+        dir_data_user,
+        dir_bitmap,
+        dir_bitmap_orig,
+        dir_bitmap_orig_l1,
+        dir_bitmap_orig_l2,
+
+        // Wichtige Dateien
+        file_config,
+        file_log,
+        file_level_network,
+
+        file_bitmap_api_number,
+        file_bitmap_checkbox,
+        file_bitmap_debris,
+        file_bitmap_edit_flip,
+        file_bitmap_edit_hatch,
+        file_bitmap_edit_panel,
+        file_bitmap_edit_big,
+        file_bitmap_explosion,
+        file_bitmap_fuse_flame,
+        file_bitmap_game_arrow,
+        file_bitmap_game_icon,
+        file_bitmap_game_nuke,
+        file_bitmap_game_panel,
+        file_bitmap_game_panel_2,
+        file_bitmap_game_pause,
+        file_bitmap_game_replay,
+        file_bitmap_lix,
+        file_bitmap_lix_recol,
+        file_bitmap_lobby_spec,
+        file_bitmap_mouse,
+        file_bitmap_preview_icon,
+
+        file_bitmap_font_big,
+        file_bitmap_font_nar,
+        file_bitmap_font_med,
+        file_bitmap_font_sml;
+
 private:
 
     Globals();
     inline ~Globals() {}
 
     void operator = (const Globals&);
-
-    std::string determine_dir_root();
 
 };
 // end class gloB

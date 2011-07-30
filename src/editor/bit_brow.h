@@ -78,16 +78,16 @@ private:
 public:
 
     BitmapBrowser(ListFile::SearchCrit = 0,
-                  const std::string& = gloB->dir_bitmap, // cur. directory
-                  const std::string& = "",                  // Fenstertitel
-                  const int = 0);                           // page to load
+                  const Filename&    = gloB->dir_bitmap,   // cur. directory
+                  const std::string& = gloB->empty_string, // Fenstertitel
+                  const int = 0);                          // page to load
     ~BitmapBrowser();
 
-    void load_dir (const std::string&, const int initial_page);
+    void load_dir (const Filename&, const int initial_page);
 
-    inline int           get_page()       { return list_bitmap.get_page();    }
-    inline std::string&  get_current_dir(){ return dir_list.get_current_dir();}
-    inline const Object* get_exit_with()  { return return_object;             }
+    inline int             get_page()       { return list_bitmap.get_page();  }
+    inline const Filename& get_current_dir(){ return dir_list.get_current_dir();}
+    inline const Object*   get_exit_with()  { return return_object;           }
 
 protected:
 

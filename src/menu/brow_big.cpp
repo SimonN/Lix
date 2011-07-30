@@ -13,9 +13,8 @@
 namespace Api {
 
 BrowserBig::BrowserBig(const std::string& wintitle,
-                       const std::string& basedir,
-                       const std::string& lastdir,
-                       const std::string& lastfile,
+                       const Filename&    basedir,
+                       const Filename&    lastfilename,
                        const bool checkmark_style,
                        const bool replay_style)
 :
@@ -23,7 +22,7 @@ BrowserBig::BrowserBig(const std::string& wintitle,
     exit_with  (EXIT_WITH_NOTHING),
     info_y     (200),
     dir_list   (20, 40,
-                dir_list_xl, any_list_yl, basedir, lastdir),
+                dir_list_xl, any_list_yl, basedir, lastfilename),
     lev_list   (40+dir_list_xl, 40,
                 lev_list_xl, any_list_yl),
     button_play(but_x, 40 + (but_yl + but_y_spacing) * 0,
@@ -43,9 +42,8 @@ BrowserBig::BrowserBig(const std::string& wintitle,
     lev_list.set_checkmark_style(checkmark_style);
     lev_list.set_replay_style   (replay_style);
     lev_list.load_dir           (dir_list.get_current_dir());
-    lev_list.highlight_file     (lastfile);
-    filename = get_current_dir() + get_current_file();
-    set_subtitle(Help::new_string_remove_root_dir(get_current_dir()));
+    lev_list.highlight_file     (lastfilename);
+    set_subtitle(get_current_dir().get_dir_rootless());
 
     // on_level_highlight() muss von der abgeleiteten Klasse aufgerufen
     // werden, weil diese zu diesem Konstruktoraufruf-Zeitpunkt noch
@@ -74,10 +72,8 @@ void BrowserBig::calc_self()
 {
     if (dir_list.get_clicked()) {
         lev_list.load_dir(dir_list.get_current_dir());
-        set_subtitle(Help::new_string_remove_root_dir(
-                     dir_list.get_current_dir()));
-        filename = get_current_dir() + get_current_file();
-        on_file_highlight      (filename);
+        set_subtitle(dir_list.get_current_dir().get_dir_rootless());
+        on_file_highlight      (get_current_file());
         lev_list.highlight_file(get_current_file());
         // DEBUGGING: Dies ist noch nicht optimal bei mehreren Dateien, die
         // gleich heissen in verschiedenen Verzeichnissen!
@@ -86,19 +82,17 @@ void BrowserBig::calc_self()
         Button* b = lev_list.get_button_last_clicked();
         // Gerade zum ersten Mal angeklickt
         if (b->get_on()) {
-            filename = get_current_dir() + get_current_file();
-            on_file_highlight(filename);
+            on_file_highlight(get_current_file());
         }
         // Button schon angeklickt?
         else {
             b->set_on(); // Damit ein nichtguter Level nicht deselektiert wird
-            on_file_select(filename);
+            on_file_select(get_current_file());
         }
     }
     else if (button_play.get_clicked()) {
         // Ohne Check, ob wir im richtigen Verzeichnis sind
-        filename = get_current_dir() + get_current_file();
-        on_file_select(filename);
+        on_file_select(get_current_file());
     }
     else if (button_exit.get_clicked()) {
         set_exit_with(EXIT_WITH_EXIT);

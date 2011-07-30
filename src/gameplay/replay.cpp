@@ -20,14 +20,17 @@ Replay::Replay()
     holds_level   (false),
     version_min   (gloB->version_min),
     built_required(gloB->empty_string),
+    level_filename(gloB->empty_filename),
     max_updates   (0),
     player_local  (0)
 {
 }
 
-Replay::Replay(const std::string& filename)
+Replay::Replay(const Filename& fn)
+:
+    level_filename(fn)
 {
-    load_from_file(filename);
+    load_from_file(level_filename);
 }
 
 Replay::~Replay()
@@ -42,7 +45,7 @@ void Replay::clear()
     holds_level    = false;
     version_min    = gloB->version_min;
     built_required = gloB->empty_string;
-    level_filename .clear();
+    level_filename = gloB->empty_filename;
     player_local   = 0;
     max_updates    = 0;
     players        .clear();
@@ -172,17 +175,18 @@ const std::string& Replay::get_player_local_name()
 
 
 
-void Replay::save_to_file(const std::string& s, const Level* const lev)
+void Replay::save_to_file(const Filename& s, const Level* const lev)
 {
     bool save_level_into_file = holds_level
-                             || level_filename == gloB->empty_string
+                             || level_filename == gloB->empty_filename
                              || lev != 0;
 
-    std::ofstream file(s.c_str());
+    std::ofstream file(s.get_rootful().c_str());
 
     if (!save_level_into_file) {
         built_required = Level::get_built(level_filename);
-        file << IO::LineDollar(gloB->replay_level_filename, level_filename)
+        file << IO::LineDollar(gloB->replay_level_filename,
+                               level_filename.get_rootless())
              << IO::LineDollar(gloB->replay_built_required, built_required);
     }
     file << IO::LineHash(gloB->replay_version_min, version_min)
@@ -197,9 +201,7 @@ void Replay::save_to_file(const std::string& s, const Level* const lev)
 
     if (players.size() > 1) {
         std::ostringstream pstr;
-        pstr << permu
-        // debugging
-             << std::endl << permu.get_size();
+        pstr << permu;
         file << IO::LineDollar(gloB->replay_permu, pstr.str()) << std::endl;
     }
 
@@ -229,7 +231,7 @@ void Replay::save_to_file(const std::string& s, const Level* const lev)
 
 
 
-void Replay::load_from_file(const std::string& filename)
+void Replay::load_from_file(const Filename& filename)
 {
     clear();
 
@@ -237,7 +239,7 @@ void Replay::load_from_file(const std::string& filename)
     unsigned long vm = 0;        // version_min erst spaeter setzen wegen add()
 
     std::vector <IO::Line> lines;
-    if (!IO::fill_vector_from_file(lines, filename)) {
+    if (!IO::fill_vector_from_file(lines, filename.get_rootful())) {
         file_not_found = true;
         holds_level    = false;
         return;
@@ -246,8 +248,8 @@ void Replay::load_from_file(const std::string& filename)
     for (IO::LineIt i = lines.begin(); i != lines.end(); ++i) switch(i->type) {
     case '$':
         if      (i->text1 == gloB->replay_built_required) built_required = i->text2;
-        else if (i->text1 == gloB->replay_level_filename) level_filename = i->text2;
-        else if (i->text1 == gloB->replay_permu         ) permu = Permu   (i->text2);
+        else if (i->text1 == gloB->replay_level_filename) level_filename = Filename(i->text2);
+        else if (i->text1 == gloB->replay_permu         ) permu          = Permu   (i->text2);
         break;
 
     case '#':

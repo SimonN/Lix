@@ -108,7 +108,7 @@ public:
 
     bool        get_room_data_change();
     bool        get_level_change();
-    void        set_level(const std::string&);
+    void        set_level(const Filename&);
 
     bool        get_ready();
     void        set_ready(const bool = true);

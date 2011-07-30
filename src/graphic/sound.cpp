@@ -122,35 +122,37 @@ Sound::Sound()
     // jeweils gespielte Lautstaerke.
     set_volume(225, 0);
 
-    sample[SAVE]        = Sample(gloB->dir_data_sound + "save.wav");
+    const std::string dds = gloB->dir_data_sound.get_rootful();
 
-    sample[PANEL]       = Sample(gloB->dir_data_sound + "panel.wav");
-    sample[ASSIGN]      = Sample(gloB->dir_data_sound + "assign.wav");
-    sample[CLOCK]       = Sample(gloB->dir_data_sound + "clock.wav");
+    sample[SAVE]        = Sample(dds + "save.wav");
 
-    sample[LETS_GO]     = Sample(gloB->dir_data_sound + "lets_go.wav");
-    sample[HATCH_OPEN]  = Sample(gloB->dir_data_sound + "hatch.wav");
-    sample[HATCH_CLOSE] = Sample(gloB->dir_data_sound + "hatch.wav");
-    sample[OBLIVION]    = Sample(gloB->dir_data_sound + "oblivion.wav");
-    sample[FIRE]        = Sample(gloB->dir_data_sound + "fire.wav");
-    sample[WATER]       = Sample(gloB->dir_data_sound + "water.wav");
-    sample[GOAL]        = Sample(gloB->dir_data_sound + "goal.wav");
-    sample[GOAL_BAD]    = Sample(gloB->dir_data_sound + "goal_bad.wav");
-    sample[YIPPIE]      = Sample(gloB->dir_data_sound + "yippie.wav");
-    sample[OVERTIME]    = Sample(gloB->dir_data_sound + "overtime.wav");
+    sample[PANEL]       = Sample(dds + "panel.wav");
+    sample[ASSIGN]      = Sample(dds + "assign.wav");
+    sample[CLOCK]       = Sample(dds + "clock.wav");
 
-    sample[OUCH]        = Sample(gloB->dir_data_sound + "ouch.wav");
-    sample[SPLAT]       = Sample(gloB->dir_data_sound + "splat.wav");
-    sample[OHNO]        = Sample(gloB->dir_data_sound + "ohno.wav");
-    sample[POP]         = Sample(gloB->dir_data_sound + "pop.wav");
-    sample[BRICK]       = Sample(gloB->dir_data_sound + "brick.wav");
-    sample[ROPER]       = Sample(gloB->dir_data_sound + "roper.wav");
-    sample[STEEL]       = Sample(gloB->dir_data_sound + "steel.wav");
+    sample[LETS_GO]     = Sample(dds + "lets_go.wav");
+    sample[HATCH_OPEN]  = Sample(dds + "hatch.wav");
+    sample[HATCH_CLOSE] = Sample(dds + "hatch.wav");
+    sample[OBLIVION]    = Sample(dds + "oblivion.wav");
+    sample[FIRE]        = Sample(dds + "fire.wav");
+    sample[WATER]       = Sample(dds + "water.wav");
+    sample[GOAL]        = Sample(dds + "goal.wav");
+    sample[GOAL_BAD]    = Sample(dds + "goal_bad.wav");
+    sample[YIPPIE]      = Sample(dds + "yippie.wav");
+    sample[OVERTIME]    = Sample(dds + "overtime.wav");
 
-    sample[AWARD_1]     = Sample(gloB->dir_data_sound + "award_1.wav");
-    sample[AWARD_2]     = Sample(gloB->dir_data_sound + "award_2.wav");
-    sample[AWARD_3]     = Sample(gloB->dir_data_sound + "award_3.wav");
-    sample[AWARD_4]     = Sample(gloB->dir_data_sound + "award_4.wav");
+    sample[OUCH]        = Sample(dds + "ouch.wav");
+    sample[SPLAT]       = Sample(dds + "splat.wav");
+    sample[OHNO]        = Sample(dds + "ohno.wav");
+    sample[POP]         = Sample(dds + "pop.wav");
+    sample[BRICK]       = Sample(dds + "brick.wav");
+    sample[ROPER]       = Sample(dds + "roper.wav");
+    sample[STEEL]       = Sample(dds + "steel.wav");
+
+    sample[AWARD_1]     = Sample(dds + "award_1.wav");
+    sample[AWARD_2]     = Sample(dds + "award_2.wav");
+    sample[AWARD_3]     = Sample(dds + "award_3.wav");
+    sample[AWARD_4]     = Sample(dds + "award_4.wav");
 }
 
 

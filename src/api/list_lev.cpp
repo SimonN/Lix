@@ -11,7 +11,7 @@
 
 namespace Api {
 
-ListLevel::ListLevel(const int x,  const int y, const int xl, const int yl)
+ListLevel::ListLevel(const int x, const int y, const int xl, const int yl)
 :
     ListFile(x, y, xl, yl, search_criterion),
     write_file_names(false),
@@ -28,10 +28,10 @@ ListLevel::~ListLevel()
 
 
 
-bool ListLevel::search_criterion(const std::string& s)
+bool ListLevel::search_criterion(const Filename& fn)
 {
-    return Help::string_ends_with(s, gloB->ext_level)
-     ||    Help::string_ends_with(s, gloB->ext_level_orig);
+    return fn.get_extension() == gloB->ext_level
+     ||    fn.get_extension() == gloB->ext_level_orig;
 }
 
 
@@ -39,7 +39,7 @@ bool ListLevel::search_criterion(const std::string& s)
 void ListLevel::add_file_button(const int nr, const int which_from_file)
 {
     std::ostringstream button_text;
-    std::string f = get_current_dir() + get_file(which_from_file);
+    const Filename& f = get_file(which_from_file);
     // Breite Leerzeichen (so breit wie eine Ziffer) schreiben, damit
     // alle Nummern gescheit untereinander liegen. '@' ist leergemalt.
     if (!write_file_names && !replay_style) {
@@ -52,9 +52,7 @@ void ListLevel::add_file_button(const int nr, const int which_from_file)
         button_text << which_from_file + 1 << ". ";
     }
     else {
-        std::string f_no_path = get_file(which_from_file);
-        Help::string_remove_extension(f_no_path);
-        button_text << f_no_path << ": ";
+        button_text << f.get_file_no_ext_no_pre_ext() << ": ";
     }
     if (replay_style) {
         Replay r(f);

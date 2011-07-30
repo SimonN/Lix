@@ -56,8 +56,8 @@ public:
                 LanguageMenu();
     virtual    ~LanguageMenu();
 
-    inline const bool               get_exit()      { return exit;      }
-    inline const Language::Language get_exit_with() { return exit_with; }
+    inline bool               get_exit()      { return exit;      }
+    inline Language::Language get_exit_with() { return exit_with; }
 
 protected:
 

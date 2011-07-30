@@ -201,15 +201,15 @@ private:
     Api::BoxMessage*      box_unsaved_data;
 
     // Funktionen
-    void calc_bitmap_browser(std::string&); // which Last Dir string
+    void calc_bitmap_browser(Filename&); // which Last Dir string
 
     static Api::BoxMessage* new_box_unsaved_data(const Level&);
 
-    static bool search_criterion_terrain(const std::string&);
-    static bool search_criterion_steel  (const std::string&);
-    static bool search_criterion_hatch  (const std::string&);
-    static bool search_criterion_goal   (const std::string&);
-    static bool search_criterion_deco   (const std::string&);
-    static bool search_criterion_hazard (const std::string&);
+    static bool search_criterion_terrain(const Filename&);
+    static bool search_criterion_steel  (const Filename&);
+    static bool search_criterion_hatch  (const Filename&);
+    static bool search_criterion_goal   (const Filename&);
+    static bool search_criterion_deco   (const Filename&);
+    static bool search_criterion_hazard (const Filename&);
 
 };

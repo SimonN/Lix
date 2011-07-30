@@ -1,4 +1,9 @@
-Special object definitions
+  ____________________________________________________________________________
+ /                                                                            \
+ |   Lix                                          Special object definitions  |
+ \____________________________________________________________________________/
+
+
 
 Use this file to configure your special objects. Make a copy of this file,
 put it into the same directory as your object, and give it the same filename as
@@ -8,8 +13,9 @@ bitmap/somedir/goal.G.txt to get it to work.
 
 All lines that don't start with a # are ignored. Decide which of the following
 commands you need, you can select as many as you want. Then remove their
-trailing spaces and edit their numbers. After you're done, you can safely
-delete all other lines that don't start with # to save space.
+trailing spaces (but not the #) and edit their numbers. After you're done,
+you can safely delete all other lines that don't start with # to save space,
+i.e. delete all this blah-blah text and unused commands.
 
  #TRIGGER_AREA_POSITION_ABSOLUTE_X 20
 Remove the space before the # to use this command. This will happen:

@@ -33,7 +33,7 @@ void Log::deinitialize()
 
 Log::Log()
 :
-    file(gloB->file_log.c_str(), std::ios::app)
+    file(gloB->file_log.get_rootful().c_str(), std::ios::app)
 {
     priority = INFO;
     something_was_logged_already_this_session = false;

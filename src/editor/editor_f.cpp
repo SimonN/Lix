@@ -216,10 +216,12 @@ void Editor::delete_everything() {
     for (int type = Object::TERRAIN; type != Object::MAX; ++type)
      object[type].clear();
 
-    useR->single_last_file = gloB->empty_string;
+    useR->single_last_level
+     = Filename(useR->single_last_level.get_dir_rootless());
     map.resize     (level.size_x, level.size_y);
     map.set_torus_x(level.torus_x);
     map.set_torus_y(level.torus_y);
+    bg_color = makecol(level.bg_red, level.bg_green, level.bg_blue);
 
     draw_required = true;
 }
@@ -231,16 +233,16 @@ Api::BoxMessage* Editor::new_box_unsaved_data(const Level& l)
 {
     Api::BoxMessage* box;
 
-    if (useR->single_last_file.empty()) {
+    if (useR->single_last_level.get_file().empty()) {
         box = new Api::BoxMessage(500, 2, Language::editor_unsaved_title_new);
         box->add_text(Language::editor_unsaved_question_new);
         box->add_text(Language::editor_level_name + ' ' + l.get_name());
     }
     else {
-        std::string s1, s2;
-        s1 = useR->single_last_dir + useR->single_last_file;
-        s2 = Language::editor_level_name + ' ' + Level::get_name(s1);
-        s1 = Language::editor_file_name  + ' ' + s1;
+        std::string s1 = Language::editor_file_name  + ' '
+                       + useR->single_last_level.get_rootless();
+        std::string s2 = Language::editor_level_name + ' '
+                       + Level::get_name(useR->single_last_level);
 
         box = new Api::BoxMessage(500, 3, Language::editor_unsaved_title);
         box->add_text(Language::editor_unsaved_question);
@@ -256,27 +258,27 @@ Api::BoxMessage* Editor::new_box_unsaved_data(const Level& l)
 
 
 
-bool Editor::search_criterion_terrain(const std::string& s) {
+bool Editor::search_criterion_terrain(const Filename& s) {
     const Object* ob = ObjLib::get(s);
     return ob && ob->type == Object::TERRAIN && ob->subtype != 1;
 }
-bool Editor::search_criterion_steel(const std::string& s) {
+bool Editor::search_criterion_steel(const Filename& s) {
     const Object* ob = ObjLib::get(s);
     return ob && ob->type == Object::TERRAIN && ob->subtype == 1;
 }
-bool Editor::search_criterion_hatch(const std::string& s) {
+bool Editor::search_criterion_hatch(const Filename& s) {
     const Object* ob = ObjLib::get(s);
     return ob && ob->type == Object::HATCH;
 }
-bool Editor::search_criterion_goal(const std::string& s) {
+bool Editor::search_criterion_goal(const Filename& s) {
     const Object* ob = ObjLib::get(s);
     return ob && ob->type == Object::GOAL;
 }
-bool Editor::search_criterion_deco(const std::string& s) {
+bool Editor::search_criterion_deco(const Filename& s) {
     const Object* ob = ObjLib::get(s);
     return ob && ob->type == Object::DECO;
 }
-bool Editor::search_criterion_hazard(const std::string& s) {
+bool Editor::search_criterion_hazard(const Filename& s) {
     const Object* ob = ObjLib::get(s);
     return ob && (ob->type == Object::TRAP
      ||           ob->type == Object::WATER
