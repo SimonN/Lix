@@ -12,6 +12,7 @@ Customizing the game:
 
     doc/files.txt    - file and bitmap format descriptions
     doc/objdef.txt   - how to further customize self-made in-game objects
+    doc/sounds.txt   - sound file replacements to-do list
 
 General information:
 

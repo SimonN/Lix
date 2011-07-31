@@ -5,9 +5,8 @@
 
 
 
-This file contains lots of general information about the game.
-If you're troubleshooting a technical problem, try the file techfaq.txt.
-If you're looking for info about file formats, try the file files.txt.
+This file contains lots of general information about the game. There are other
+files about special topics in this directory.
 
 
 
@@ -34,8 +33,8 @@ There is a level editor included in the game. You can design your own levels
 and maps with it.
 
 Play in a group of up to eight friends via LAN or the internet. Try to
-lead as many lemmings as possible into your goal, even your opponents'
-lemmings -- should they let you.
+lead as many lixes as possible into your goal, even your opponents' lixes
+-- should they let you.
 
 For info about the multiplayer game modes, read the proper chapter below.
 
@@ -50,8 +49,8 @@ If you encounter any problems, read techfaq.txt in this directory.
 ----------
 
 Lix is free software. You can do whatever you like with it. Alter the levels,
-the graphics and even the game itself (source is available) to your pleasure,
-and then give copies to everyone and their neighbor.
+graphics, sound effects and even the game itself (source is available) to your
+pleasure, and then give copies to everyone and their neighbor.
 
 You cannot hold me responsible for any damage Lix does to you or your machine.
 Don't save your diploma's thesis as a *.txt file and delete it using the
@@ -66,9 +65,9 @@ with such content already included.
 3. CONTACT
 ----------
 
-The Lix website is: http://lplusplus.co.cc
+The Lix website: http://lplusplus.co.cc
 
-My email address is: eiderdaus@gmail.com
+My email address: eiderdaus@gmail.com
 
 Visit the Lix IRC channel: irc.quakenet.com #lix
 
@@ -122,7 +121,7 @@ The rules for the multiplayer game are as following. Everyone controls his
 own horde of lixes, you can only assign skills to your own lixes.
 Try to get as many lixes into the goal that displays your player color.
 It doesn't matter whose lixes they are. You will want to lead your
-opponents' lemmings in there as well for extra points...
+opponents' lixes in there as well for extra points...
 
 If a player has no more lixes due to saving, losing or nuking them all,
 overtime will start. This is a time limit for the other players to catch up to
