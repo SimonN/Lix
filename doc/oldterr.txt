@@ -1,0 +1,134 @@
+ _____________________________________________________________________________
+/                                                                             \
+|   Lix                                              Using Lemmings Terrain   |
+\_____________________________________________________________________________/
+
+
+
+Lix can use the graphics and levels from these games:
+Lemmings, Oh no more Lemmings, Holiday Lemmings, and Lemmings 2: The Tribes.
+Since these games are copyright-restricted, Lix doesn't contain any of their
+files.
+
+The game can still use the legacy terrain. If you have the DOS versions of
+the named games, you can take some of their files and put them into the lix
+directory structure.
+
+
+
+INSTALLING THE TERRAIN
+----------------------
+
+From DOS Lemmings 1, take VGAGRx.DAT (with x being any one-digit number) and
+GROUNDxO.DAT, optionally also VGASPECx.DAT, and put them into the following
+dir structure: (you have to create the directory `./bitmap/orig/' and its
+subdirectories first:)
+./bitmap/orig/L1/0. Dirt/GROUND0O.DAT
+./bitmap/orig/L1/0. Dirt/VGAGR0.DAT
+./bitmap/orig/L1/1. Hell/GROUND1O.DAT
+./bitmap/orig/L1/1. Hell/VGAGR1.DAT
+./bitmap/orig/L1/2. Pastel/GROUND2O.DAT
+./bitmap/orig/L1/2. Pastel/VGAGR2.DAT
+./bitmap/orig/L1/3. Pillar/GROUND3O.DAT
+./bitmap/orig/L1/3. Pillar/VGAGR3.DAT
+./bitmap/orig/L1/4. Pillar/GROUND4O.DAT
+./bitmap/orig/L1/4. Pillar/VGAGR4.DAT
+./bitmap/orig/L1/VGASPEC0.DAT
+./bitmap/orig/L1/VGASPEC1.DAT
+./bitmap/orig/L1/VGASPEC2.DAT
+./bitmap/orig/L1/VGASPEC3.DAT
+
+If you have Oh no more Lemmings, you can take the same files (except
+VGASPECx.DAT, it doesn't have any), but you must add 5 to the single digit in
+each file's name by renaming it:
+./bitmap/orig/L1/5. Brick/GROUND5O.DAT
+./bitmap/orig/L1/5. Brick/VGAGR5.DAT
+./bitmap/orig/L1/6. Rock/GROUND6O.DAT
+./bitmap/orig/L1/6. Rock/VGAGR6.DAT
+./bitmap/orig/L1/7. Snow/GROUND7O.DAT
+./bitmap/orig/L1/7. Snow/VGAGR7.DAT
+./bitmap/orig/L1/8. Bubble/GROUND8O.DAT
+./bitmap/orig/L1/8. Bubble/VGAGR8.DAT
+
+If you have Holiday Lemmings 1993 or 1994 (I think 1992 does as well), you can
+also take the holiday terrain and change the 0 to a 9:
+./bitmap/orig/L1/9. Holiday/GROUND9O.DAT
+./bitmap/orig/L1/9. Holiday/VGAGR9.DAT
+
+If you have Lemmings 2, you can take the 12 files from its STYLES/ directory.
+For each tribe, make a directory as following, and put the corresponding file
+in there. Rename the L2 style files so that only the first letter is capital,
+all else is small case (including the extension).
+./bitmap/orig/L2/Beach/Beach.dat
+./bitmap/orig/L2/Cavelems/Cavelems.dat
+./bitmap/orig/L2/Circus/Circus.dat
+... a total of 12 of these ...
+./bitmap/orig/L2/Sports/Sports.dat
+Note that for CAVEMAN.DAT, this file must be named Cavelems.dat
+(not Caveman.dat) and its directory must also be called Cavelems.dat.
+
+Note that if you're going to include content from those Lemmings games,
+you shouldn't distribute your game directory as a whole any more.
+
+
+
+USING LEMMINGS LEVELS
+---------------------
+
+On the Lix website, you can download a package of multiplayer levels which
+use the Lemmings terrain. They were built by Lix players in the past. Extract
+the archive in the root directory of the game.
+
+You can take the LEVELxxx.DAT files from Lemmings 1, ONML, and Holiday
+Lemmings, and Lix will be able to extract them and play the levels, but note
+that all information on level order gets lost in that case. You'd have to
+manually sort the extracted .LVL files into the proper ratings.
+
+If you have built your own levels with Lemmix Level Editor, LemEdit or a
+similar program, you can load these levels with Lix as well, provided you
+have installed the graphics from the corresponding Lemmings games.
+
+Put your single .LVL levels or .DAT level packs into subdirectories of the
+level directory. Lix will unpack .DAT packs automatically, and determine the
+graphics set based on the subdirectory structure you put the files in:
+
+(anywhere)
+
+    You can create any subdirectory hierarchy of levels/, put the .LVL or
+    .DAT files in there, and it will work. This makes Lix read out the graphics
+    set information and use it unmodified. The used set will be:
+
+    0 = L1 Dirt
+    1 = L1 Hell
+    2 = L1 Pastel
+    3 = L1 Pillar
+    4 = L1 Crystal
+    5 = ONML Brick
+    6 = ONML Rock
+    7 = ONML Snow
+    8 = ONML Bubble
+    9 = Holiday
+
+(with "ONML"/"onml" in the level path)
+
+    Any path with "ONML" or "onml" in its name will work here. This makes Lix
+    add the number 5 to the graphics set information from the file before it
+    determines which graphics set to use. This is the desired behavior for
+    levels taken directly from Oh no more Lemmings.
+    
+    However, custom-built levels in ONML-styles have the 5 already added in the
+    .LVL file and thus shouldn't be added in a directory reading "ONML"/"onml".
+    In any way, Lix treats the set numbers in these subdirectories as follows:
+
+    0 = ONML Brick
+    1 = ONML Rock
+    2 = ONML Snow
+    3 = ONML Bubble
+    4 = Holiday
+
+(with "Holiday"/"holiday" in the level path)
+
+    Any path with "oliday" in its name will work. A path like
+    this currently makes Lix use the Holiday graphics set for the level.
+    This is not entirely correct yet, as there are levels like
+    "Vacation in Gemland" that require the ONML Rock set instead.
