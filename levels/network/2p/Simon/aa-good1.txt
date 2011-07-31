@@ -1,4 +1,4 @@
-$BUILT                                             2011-07-15 09:12:44
+$BUILT                                             2011-07-31 18:41:09
 $AUTHOR                                                          Simon
 $GERMAN                                                               
 $ENGLISH                                   A good first 2-player level
@@ -68,9 +68,8 @@ $ENGLISH                                   A good first 2-player level
 :bitmap/Rebuilds/01 - Earth/19:                          224       182
 :bitmap/Rebuilds/01 - Earth/18:                          208       186
 :bitmap/Universal/64x32.S:                                32       320
+:bitmap/Rebuilds/01 - Earth/10:                           -6       314     frr
 :bitmap/Rebuilds/02 - Gold Mine/crate64:                 -32       280
-:bitmap/Rebuilds/01 - Earth/10-simon:                    -56       320
-:bitmap/Rebuilds/01 - Earth/10-simon:                     40       312
 :bitmap/Rebuilds/01 - Earth/09:                          248       288
 :bitmap/Rebuilds/01 - Earth/16:                          160       200
 :bitmap/Rebuilds/01 - Earth/18:                          180       214
@@ -122,3 +121,4 @@ $ENGLISH                                   A good first 2-player level
 :bitmap/Rebuilds/01 - Earth/08:                          430       182
 :bitmap/Rebuilds/02 - Gold Mine/crate64:                 -40       216
 :bitmap/Rebuilds/02 - Gold Mine/crate64:                 616       216
+:bitmap/Rebuilds/01 - Earth/10:                         -116       320     frr
