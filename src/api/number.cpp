@@ -146,12 +146,12 @@ void Number::calc_self() {
         }
     }
 
-    if (down_big.get_draw_required() && six_buttons
-     || down_med.get_draw_required()
-     || down_sml.get_draw_required()
-     || up_sml  .get_draw_required()
-     || up_med  .get_draw_required()
-     || up_big  .get_draw_required() && six_buttons) set_draw_required();
+    if ((down_big.get_draw_required() && six_buttons)
+     ||  down_med.get_draw_required()
+     ||  down_sml.get_draw_required()
+     ||  up_sml  .get_draw_required()
+     ||  up_med  .get_draw_required()
+     || (up_big  .get_draw_required() && six_buttons)) set_draw_required();
 }
 
 

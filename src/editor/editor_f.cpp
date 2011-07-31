@@ -259,26 +259,32 @@ Api::BoxMessage* Editor::new_box_unsaved_data(const Level& l)
 
 
 bool Editor::search_criterion_terrain(const Filename& s) {
+    if (s.get_extension() == gloB->ext_object_definitions) return false;
     const Object* ob = ObjLib::get(s);
     return ob && ob->type == Object::TERRAIN && ob->subtype != 1;
 }
 bool Editor::search_criterion_steel(const Filename& s) {
+    if (s.get_extension() == gloB->ext_object_definitions) return false;
     const Object* ob = ObjLib::get(s);
     return ob && ob->type == Object::TERRAIN && ob->subtype == 1;
 }
 bool Editor::search_criterion_hatch(const Filename& s) {
+    if (s.get_extension() == gloB->ext_object_definitions) return false;
     const Object* ob = ObjLib::get(s);
     return ob && ob->type == Object::HATCH;
 }
 bool Editor::search_criterion_goal(const Filename& s) {
+    if (s.get_extension() == gloB->ext_object_definitions) return false;
     const Object* ob = ObjLib::get(s);
     return ob && ob->type == Object::GOAL;
 }
 bool Editor::search_criterion_deco(const Filename& s) {
+    if (s.get_extension() == gloB->ext_object_definitions) return false;
     const Object* ob = ObjLib::get(s);
     return ob && ob->type == Object::DECO;
 }
 bool Editor::search_criterion_hazard(const Filename& s) {
+    if (s.get_extension() == gloB->ext_object_definitions) return false;
     const Object* ob = ObjLib::get(s);
     return ob && (ob->type == Object::TRAP
      ||           ob->type == Object::WATER
