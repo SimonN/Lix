@@ -1,4 +1,4 @@
-$BUILT                                             2011-07-31 19:21:18
+$BUILT                                             2011-07-31 20:02:26
 $AUTHOR                                                          Simon
 $GERMAN                                                               
 $ENGLISH                                              Shredding Stones
@@ -19,8 +19,8 @@ $ENGLISH                                              Shredding Stones
 #RATE                                                               60
 
 #WALKER                                                             50
-#JUMPER                                                             20
-#CLIMBER                                                            10
+#JUMPER                                                             50
+#CLIMBER                                                            20
 #FLOATER                                                            10
 #EXPLODER2                                                          20
 #BLOCKER                                                             0
@@ -148,6 +148,7 @@ $ENGLISH                                              Shredding Stones
 :bitmap/geoo/steel/dark_64x64.S:                         448       336
 :bitmap/geoo/steel/dark_64x64.S:                         448       272
 :bitmap/geoo/steel/dark_64x64.S:                         448       208
+:bitmap/geoo/construction/rod_steel/link.S:              440       210     d
 :bitmap/geoo/construction/wall/big_brick1:                96        96
 :bitmap/geoo/construction/wall/big_brick2:               160        96
 :bitmap/geoo/construction/wall/big_brick1:               224        96
@@ -163,3 +164,4 @@ $ENGLISH                                              Shredding Stones
 :bitmap/geoo/construction/rod_steel/straight32.S:        192       264
 :bitmap/geoo/construction/rod_steel/link.S:              216       264
 :bitmap/geoo/construction/rod_steel/link.S:              152       264     frr
+:bitmap/geoo/construction/rod_steel/link.S:              504       210     frrd
