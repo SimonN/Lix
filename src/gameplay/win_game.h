@@ -91,12 +91,11 @@ public:
     // Aufruf waehrend des Spiels; Level* == 0 in singleplayer, != 0 in multpl
     WindowGameplay(Replay*, const Level* const);
     // Aufruf nach einem Einzelspielerspiel
-    WindowGameplay(Replay*, int, int, int, int, int, const std::string&);
+    WindowGameplay(Replay*, const Tribe*, int, int, int, const std::string&);
     // Aufruf nach einem Mehrspielerspiel
     WindowGameplay(Replay* rep, const std::vector <Tribe>&,
-                // tribe_local   cs.tribes.size(), Fenstertitel
-                   const Tribe*, const unsigned, const std::string&,
-                   const Level* const);
+                   // tribe_local, spec
+                   const Tribe*, const bool, const Level* const);
 
     virtual ~WindowGameplay();
 

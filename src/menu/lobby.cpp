@@ -191,8 +191,8 @@ void Lobby::set_mode(const Mode& mo)
             set_subtitle(Language::win_lobby_title_lobby);
             button_level.show();
             preview.show();
-            button_ready.show();
             button_exit.set_text(Language::win_lobby_room_leave);
+            // button_ready.show(); // this will be done in work_self()
         }
         players.show();
         chat_type.show();
@@ -324,16 +324,14 @@ void Lobby::calc_self()
 void Lobby::work_self()
 {
     if (browser) return;
-
     // work_self() stuff:
     // This isn't triggered by GUI element clicks/hotkeys, but rather by
     // actions from the network.
-    if (Network::get_people_in_room() > 1) button_exit.set_hotkey();
-    else                                   button_exit.set_hotkey(KEY_ESC);
+
     // Successfully connected
     if (mode == CONNECTING && Network::get_people_in_room()) {
         set_mode(CHOOSE_ROOM);
-        if (!Network::get_server()) gloB->ip_last_used=start_ip.get_text();
+        if (!Network::get_server()) gloB->ip_last_used = start_ip.get_text();
     }
     // Level arrived
     if (Network::get_level_change()) {
@@ -359,6 +357,18 @@ void Lobby::work_self()
 
     // Game starts
     if (Network::get_game_start()) exit_with = EXIT_WITH_PLAY;
+
+
+
+    // Use the evaluated network data to modify other buttons
+    if (Network::get_people_in_room() > 1) button_exit.set_hotkey();
+    else                                   button_exit.set_hotkey(KEY_ESC);
+
+    if (mode == INSIDE_ROOM) {
+        if (button_spec.get_down() || Network::get_spec()
+         || Network::get_people_in_room() <= 1) button_ready.hide();
+        else                                    button_ready.show();
+    }
 }
 
 

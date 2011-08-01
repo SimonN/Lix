@@ -26,15 +26,14 @@ unsigned Lixxie::get_priority(LixEn::Ac                   new_ac,
     // Nothing allowed at all, don't even open the cursor
     if (ac == LixEn::NOTHING || ! ac_func[ac].nukable) return 0;
 
-    // Bleibende Faehigkeiten
+    // Permanent skills
     if ((new_ac == LixEn::EXPLODER  && updates_since_bomb > 0)
      || (new_ac == LixEn::EXPLODER2 && updates_since_bomb > 0)
      || (new_ac == LixEn::RUNNER    && runner)
      || (new_ac == LixEn::CLIMBER   && climber)
      || (new_ac == LixEn::FLOATER   && floater) ) return 1;
 
-    // Blocker duerfen im Mehrspielermodus nicht in die Naehe von Ausgaengen
-    // gepflanzt werden
+    // Don't plant blockers close to exits
     if (new_ac == LixEn::BLOCKER && tribes_active > 1)
      for (Goal::CIt i = goal.begin(); i != goal.end(); ++i)
      if (get_in_trigger_area(*i, true)) return 1; // true == twice

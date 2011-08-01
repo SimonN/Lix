@@ -17,7 +17,7 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2011, 08, 23, 04)),
+    version              (CONCAT(2011, 08, 28, 00)),
     version_min          (CONCAT(2011, 08, 23, 04)),
 
     updates_per_second   (15),
@@ -218,6 +218,7 @@ Globals::Globals()
     user_key_state_save          ("KEY_STATE_SAVE"),
     user_key_zoom                ("KEY_ZOOM"),
     user_key_nuke                ("KEY_NUKE"),
+    user_key_spec_tribe          ("KEY_SPECTATE_NEXT_PLAYER"),
     user_key_chat                ("KEY_CHAT"),
 
     user_key_ed_left             ("KEY_EDITOR_LEFT"),

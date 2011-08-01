@@ -130,6 +130,7 @@ private:
     KeyButton  key_state_save;
     KeyButton  key_zoom;
     KeyButton  key_chat;
+    KeyButton  key_spec_tribe;
     KeyButton  key_nuke;
     std::vector <KeyButton> key_skill;
     std::vector <Label>     desc_key_skill;
@@ -146,6 +147,7 @@ private:
                desc_key_state_save,
                desc_key_zoom,
                desc_key_chat,
+               desc_key_spec_tribe,
                desc_key_nuke,
                desc_key_info_1,
                desc_key_info_2,

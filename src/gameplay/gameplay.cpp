@@ -38,9 +38,8 @@ Gameplay::Gameplay(Replay* rep)
     filename               (determine_filename(rep)),
     level                  (Network::get_started()
                             ? Network::get_level() : filename),
-    player_local           (0), // will be assigned in prepare_players
-    trlo                   (0), // same
-    malo                   (0), // same
+    trlo                   (0),
+    malo                   (0),
     local_ticks            (0),
     update_last_exiter     (0),
     timer_tick_last_update (Help::timer_ticks),
@@ -59,9 +58,11 @@ Gameplay::Gameplay(Replay* rep)
     effect                 (map),
 
     mouse_cursor(GraLib::get(gloB->file_bitmap_mouse),
-                  Api::Manager::get_torbit()),
+                                Api::Manager::get_torbit()),
     replay_sign (GraLib::get(gloB->file_bitmap_game_replay),
-                  Api::Manager::get_torbit()),
+                                Api::Manager::get_torbit()),
+    spectating        (false),
+    multiplayer       (false),
 
     replaying         (rep? true : false),
     replay_recalc_need(false),
@@ -75,6 +76,7 @@ Gameplay::Gameplay(Replay* rep)
 
     prepare_players(rep);
     prepare_level();
+    prepare_panel();
 }
 
 
@@ -128,8 +130,12 @@ void Gameplay::prepare_players(Replay* rep)
                      static_cast <LixEn::Style> (pitr->style), pitr->name);
                 }
             }
-            replay.set_player_local(Network::get_number());
-            replay.set_permu       (Network::get_permu());
+            const int count = replay.get_players().size();
+            if (Network::get_spec() && count > 0)
+                 replay.set_player_local(::rand() % count);
+            else replay.set_player_local(Network::get_number());
+
+            replay.set_permu(Network::get_permu());
         }
     }
 
@@ -155,20 +161,26 @@ void Gameplay::prepare_players(Replay* rep)
             titr->masters.push_back(Tribe::Master());
             titr->masters.back().number = itr->number;
             titr->masters.back().name   = itr->name;
-            if (itr->number == replay.get_player_local()) {
-                player_local = itr->number;
-                trlo         = &*titr;
-            }
+            if (itr->number == replay.get_player_local())
+                trlo = &*titr;
         }
     }
+
     // Find local master. We cannot do this in the last for/if, because
     // there are still masters being added and STL containers may reallocate.
-    for (std::list <Tribe::Master> ::iterator
-     mitr = trlo->masters.begin(); mitr != trlo->masters.end(); ++mitr)
-     if (mitr->number == player_local) {
+    if (trlo)
+        for (std::list <Tribe::Master> ::iterator
+        mitr = trlo->masters.begin(); mitr != trlo->masters.end(); ++mitr)
+        if (mitr->number == replay.get_player_local()) {
         malo = &*mitr;
         break;
     }
+
+    multiplayer = (cs.tribes.size() > 1);
+    if (multiplayer && rep) malo = 0;
+    spectating = ! malo;
+
+    effect.set_trlo(trlo);
 }
 
 
@@ -187,7 +199,6 @@ void Gameplay::prepare_level()
     // save_bmp("test_land.bmp",  cs.land   .get_al_bitmap(), 0);
     // save_bmp("test_steel.bmp", steel_mask.get_al_bitmap(), 0);
 
-    effect.set_trlo(trlo);
     cs.clock         = level.seconds * gloB->updates_per_second;
     cs.clock_running = (cs.tribes.size() == 1);
     // set_show_clock() wird stets aktuell in Gameplay::draw() aufgerufen
@@ -261,14 +272,14 @@ void Gameplay::prepare_level()
         // Auf dem Panel unten eintragen
         pan.stats.add_tribe(t);
     }
-    if (trlo) pan.stats.set_tribe_local(*trlo);
+    if (trlo) pan.stats.set_tribe_local(trlo);
 
     // Bildschirm-Start-Koordinaten festlegen fuer den lokalen Spieler, wenn
     // wir nicht alleine sind: In die Mitte aller eigenen Klappen
     // Debugging: Eventuell Antipode auf dem Torus nehmen, wenn die naeher
     // an allen liegt als das Ergebnis hier.
     // Also, these hatches will be marked to blink with the player's icon.
-    if (cs.tribes.size() > 1) {
+    if (multiplayer) {
         unsigned sum_h = 0;
         int sum_x = 0;
         int sum_y = 0;
@@ -303,11 +314,23 @@ void Gameplay::prepare_level()
         break;
     }
 
-    pan.set_like_tribe(trlo, malo);
-    if (Network::get_started()) pan.set_mode_network();
-    else                        pan.set_mode_single();
-
     state_manager.save_zero(cs);
+}
+
+
+
+void Gameplay::prepare_panel()
+{
+    pan.set_like_tribe(trlo, malo);
+
+    if (multiplayer) {
+        if      (replaying)  pan.set_gapamode(GM_REPLAY_MULTI);
+        else if (spectating) pan.set_gapamode(GM_SPEC_MULTI);
+        else                 pan.set_gapamode(GM_PLAY_MULTI);
+    }
+    else {
+        pan.set_gapamode(GM_PLAY_SINGLE);
+    }
 }
 
 
@@ -321,9 +344,9 @@ void Gameplay::save_result()
     // und kurz vor Replay-Ende eingreifen - aber schummeln kann man ohnehin
     // schon durch Bearbeiten der User-Datei.
     // Wandernde soll man nicht aufhalten. :-)
-    if (cs.tribes.size()     == 1
+    if (! multiplayer
      && trlo->lix_saved >= level.required
-     && malo->name           == gloB->user_name)
+     && malo->name      == gloB->user_name)
     {
         Result res(level.built, trlo->lix_saved,
          trlo->skills_used, update_last_exiter);

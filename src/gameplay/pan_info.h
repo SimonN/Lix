@@ -40,6 +40,18 @@
 #include "../api/button/button.h"
 #include "../lix/lix_enum.h" // Farben und Tarinf
 
+ // Gameplay panel mode
+enum GapaMode {
+    GM_NONE,
+    GM_PLAY_SINGLE,
+    GM_PLAY_MULTI,
+    GM_REPLAY_SINGLE,
+    GM_REPLAY_MULTI,
+    GM_SPEC_MULTI
+};
+
+
+
 class GameplayStats : public Api::Element {
 
 private:
@@ -92,6 +104,7 @@ private:
     Api::Button stats_multi; // The extra space at the right
 
     std::vector <PanelTribe> tribes;
+    GapaMode gapamode;   // show the multiplayer stats
     bool show_clock;     // Wenn unbefristet, ist die Uhr unnoetig.
 
     int           tarcnt; // Gesamtzahl der Lixxies unterm Cursor
@@ -99,6 +112,10 @@ private:
     int           clock;
 
     void          draw_button_connection(); // for multiplayer eye candy
+
+    void draw_self_play_single();
+    void draw_self_play_multi();
+    void draw_self_spec_multi();
 
 public:
 
@@ -108,8 +125,9 @@ public:
 
     void add_tribe(const Tribe&);
 
+    inline void set_gapamode   (GapaMode gm)         { gapamode = gm;        }
     inline void sdr()                                { set_draw_required();  }
-           void set_tribe_local(const Tribe&);
+           void set_tribe_local(const Tribe*);
     inline void set_show_clock (const bool b = true) { show_clock = b; sdr();}
     inline void set_tarinf     (const Lixxie*     l) { tarinf     = l; sdr();}
     inline void set_tarcnt     (const int u)         { tarcnt     = u; sdr();}

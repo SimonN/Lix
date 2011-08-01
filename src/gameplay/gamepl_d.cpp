@@ -40,12 +40,12 @@ void Gameplay::draw() {
     for (HatchIt i = hatches.begin(); i != hatches.end(); ++i)
      if ( i->get_has_style()) i->draw();
 
-    if (cs.tribes.size() == 1)
+    if (! multiplayer)
      for (Goal::It i = goal.begin(); i != goal.end(); ++i) i->draw(false);
     for (int type = Object::TERRAIN; type != Object::MAX; ++type)
      for (IacIt i =  special[Object::perm(type)].begin();
                 i != special[Object::perm(type)].end(); ++i) i->draw();
-    if (cs.tribes.size() > 1)
+    if (multiplayer)
      for (Goal::It i = goal.begin(); i != goal.end();     ++i) i->draw(true);
     for (IacIt i = cs.trap.begin();  i != cs.trap.end();  ++i) i->draw();
     for (IacIt i = cs.fling.begin(); i != cs.fling.end(); ++i) i->draw();
@@ -64,23 +64,20 @@ void Gameplay::draw() {
         for (LixIt i = --t->lixvec.end(); i != --t->lixvec.begin(); --i)
          if ( i->get_mark()) i->draw();
     }
-    for (LixIt i = --trlo->lixvec.end(); i != --trlo->lixvec.begin(); --i)
-     if (!i->get_mark()) i->draw();
-    for (LixIt i = --trlo->lixvec.end(); i != --trlo->lixvec.begin(); --i)
-     if ( i->get_mark()) i->draw();
+    if (trlo) {
+        for (LixIt i = --trlo->lixvec.end(); i != --trlo->lixvec.begin(); --i)
+         if (!i->get_mark()) i->draw();
+        for (LixIt i = --trlo->lixvec.end(); i != --trlo->lixvec.begin(); --i)
+         if ( i->get_mark()) i->draw();
+    }
 
 
 
     // OSD: Replay-Zeichen
-    if (replaying) {
+    if (replaying && ! multiplayer) {
         replay_sign.set_y((int) (5 + 5 * -std::sin(local_ticks * 0.07)));
         replay_sign.draw();
     }
-    // Alle Faehigkeiten
-
-    // Panel
-    if (!Network::get_started() && !pan.get_mode_single())
-     pan.set_mode_single();
 
     // Statusanzeige
     if (cs.clock > 0) pan.stats.set_show_clock();

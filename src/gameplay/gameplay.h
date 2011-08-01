@@ -55,7 +55,6 @@ private:
     const Filename filename;
     const Level    level;
 
-    PlNr           player_local;
     Tribe*         trlo; // Abkuerzung fuer cs.tribes[tribe_local]
     Tribe::Master* malo; // The master of cs.tribes[tribe_local] that
                           // has player_local as its player number
@@ -83,6 +82,9 @@ private:
 
     GameplayPanel pan;
 
+    bool              spectating;
+    bool              multiplayer;
+
     // Alles fuers Replay
     bool              replaying;
     Replay            replay;
@@ -109,9 +111,10 @@ private:
 
     const Filename& determine_filename(Replay* = 0);
 
-    void prepare_players   (Replay*);
-    void prepare_level     ();
-    void save_result       ();
+    void prepare_players(Replay*);
+    void prepare_level  ();
+    void prepare_panel  ();
+    void save_result    ();
 
     // Calculate-Subroutinen
     void calc_window(); // Fuers Unterfenster, ansonsten:

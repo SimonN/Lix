@@ -8,11 +8,12 @@
 #pragma once
 
 #include "tribe.h"
-#include "stats.h"
+#include "pan_info.h"
 
 #include "../api/element.h"
 #include "../api/label.h"
 #include "../api/button/b_bitmap.h"
+#include "../api/button/b_text.h"
 #include "../api/button/b_skill.h"
 
 struct GameplayPanel : public Api::Element {
@@ -39,6 +40,8 @@ public:
         nuke_single,
         nuke_multi;
 
+    Api::TextButton spec_tribe;
+
     GameplayStats stats;
 
     Api::Label rate_min;
@@ -49,9 +52,8 @@ public:
     GameplayPanel();
     virtual ~GameplayPanel() {}
 
-    void set_mode_single();
-    void set_mode_network();
-    bool get_mode_single() { return mode_single; }
+    void            set_gapamode(GapaMode);
+    inline GapaMode get_gapamode() { return gapamode;}
 
     void set_like_tribe   (const Tribe*, const Tribe::Master*);
     void set_skill_numbers(const Tribe&);
@@ -64,6 +66,6 @@ protected:
 
 private:
 
-    bool mode_single; // wenn false, dann weniger Panels, laengere Stats
+    GapaMode gapamode;
 
 };

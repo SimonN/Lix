@@ -65,14 +65,13 @@ WindowGameplay::WindowGameplay(Replay* rep, const Level* const lev)
 
 
 WindowGameplay::WindowGameplay(
-    Replay* rep,
-    int _lix_saved,
-    int _lix_required,
-    int _lix_at_start,
-    int skills_used,
-    int updates_used,
-    const std::string& tit)
-:
+    Replay*            rep,
+    const Tribe*       trlo,
+    int                updates_used,
+    int                _lix_required,
+    int                _lix_at_start,
+    const std::string& tit
+) :
     Window(
      LEMSCR_X/2                             - this_xl_single_results/2,
      (LEMSCR_Y - gloB->panel_gameplay_yl)/2 - this_yl_single_results/2,
@@ -81,7 +80,7 @@ WindowGameplay::WindowGameplay(
     game_end(true),
     game_net(false),
     exit_with    (NOTHING),
-    lix_saved    (_lix_saved),
+    lix_saved    (trlo && trlo->lix_saved),
     lix_required (_lix_required),
     lix_at_start (_lix_at_start),
     resume       (20, y_button     , this_xl_single_results-40),
@@ -115,7 +114,8 @@ WindowGameplay::WindowGameplay(
     labels.push_back(Label(20, y_comment + 60,
      Language::win_game_result_time));
 
-    labels.push_back(Label(get_xl() - 20, y_comment + 40, skills_used));
+    labels.push_back(Label(get_xl() - 20, y_comment + 40,
+                           trlo && trlo->skills_used));
     const int secs = updates_used / gloB->updates_per_second;
 
     std::ostringstream timestr;
@@ -132,15 +132,14 @@ WindowGameplay::WindowGameplay(
     Replay*                    rep,
     const std::vector <Tribe>& pv,
     const Tribe*               pl,
-    const unsigned             pls_act,
-    const std::string&         tit,
+    const bool                 spec,
     const Level* const         lev)
 :
     Window(LEMSCR_X/2 - this_xl_network_results/2,
            (LEMSCR_Y - gloB->panel_gameplay_yl)/2
-                            - this_yl_network_results/2 - pls_act * 10,
-                              this_xl_network_results,
-                              this_yl_network_results   + pls_act * 20, tit),
+                     - this_yl_network_results/2 - pv.size() * 10,
+            this_xl_network_results,
+            this_yl_network_results + pv.size() * 20, lev->get_name()),
     game_end(true),
     game_net(true),
     exit_with    (NOTHING),
@@ -155,10 +154,12 @@ WindowGameplay::WindowGameplay(
     // Ergebnisse auswerten, sortieren und Listenerstellung vorbereiten
     std::vector <SortablePlayer> sortvec;
     for (Tribe::CIt i = pv.begin(); i != pv.end(); ++i)
-     sortvec.push_back(SortablePlayer(&*i == pl, i->get_name(),
-                                                 i->lix_saved));
+     sortvec.push_back(SortablePlayer(&*i == pl && ! spec, i->get_name(),
+                                                           i->lix_saved));
     std::sort(sortvec.begin(), sortvec.end());
     // Komische Abkuerzungen: o = own, s = score, p = place
+    // These will be used to select the award sound later, but only
+    // if spec is not set.
     unsigned op = 0;
     unsigned os = 0;
 
@@ -191,15 +192,17 @@ WindowGameplay::WindowGameplay(
     const unsigned ls =    sortvec.rbegin() ->score;
     const unsigned lp =    sortvec.size()   - 1;
 
-    if      (fs == 0)             c = Language::win_game_net_all_zero;
-    else if (os == 0)             c = Language::win_game_net_zero;
-    else if (fs == ls)            c = Language::win_game_net_all_tie;
-    else if (op == 0 && os == ss) c = Language::win_game_net_first_tie;
-    else if (op < lp && os == ls) c = Language::win_game_net_last_tie;
-    else if (op == 0)             c = Language::win_game_net_first;
-    else if (op == lp)            c = Language::win_game_net_last;
-    else if (op == 1)             c = Language::win_game_net_second;
-    else                          c = Language::win_game_net_middle;
+    if (! spec) {
+        if      (fs == 0)             c = Language::win_game_net_all_zero;
+        else if (os == 0)             c = Language::win_game_net_zero;
+        else if (fs == ls)            c = Language::win_game_net_all_tie;
+        else if (op == 0 && os == ss) c = Language::win_game_net_first_tie;
+        else if (op < lp && os == ls) c = Language::win_game_net_last_tie;
+        else if (op == 0)             c = Language::win_game_net_first;
+        else if (op == lp)            c = Language::win_game_net_last;
+        else if (op == 1)             c = Language::win_game_net_second;
+        else                          c = Language::win_game_net_middle;
+    }
 
     labels.push_back(Label(get_xl()/2, get_yl() - 110,
      c, Label::CENTERED));

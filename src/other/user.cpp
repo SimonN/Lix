@@ -174,6 +174,7 @@ User::User()
     key_state_save             = KEY_F5;
     key_zoom                   = KEY_Y;
     key_nuke                   = KEY_F12;
+    key_spec_tribe             = KEY_TAB;
     key_chat                   = KEY_ENTER;
 
     key_ed_left                = KEY_S;
@@ -305,6 +306,7 @@ void User::load()
         else if (i->text1 == gloB->user_key_state_save         ) key_state_save         = i->nr1;
         else if (i->text1 == gloB->user_key_zoom               ) key_zoom               = i->nr1;
         else if (i->text1 == gloB->user_key_nuke               ) key_nuke               = i->nr1;
+        else if (i->text1 == gloB->user_key_spec_tribe         ) key_spec_tribe         = i->nr1;
         else if (i->text1 == gloB->user_key_chat               ) key_chat               = i->nr1;
 
         else if (i->text1 == gloB->user_key_ed_left            ) key_ed_left            = i->nr1;
@@ -429,6 +431,7 @@ void User::save() const
      << IO::LineHash  (gloB->user_key_state_save,  key_state_save)
      << IO::LineHash  (gloB->user_key_zoom,        key_zoom)
      << IO::LineHash  (gloB->user_key_nuke,        key_nuke)
+     << IO::LineHash  (gloB->user_key_spec_tribe,  key_spec_tribe)
      << IO::LineHash  (gloB->user_key_chat,        key_chat);
     for (size_t i = 0; i < key_skill.size(); ++i)
      if (key_skill[i] != 0) file << IO::LineHash(

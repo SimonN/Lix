@@ -13,7 +13,7 @@
 Replay::Data Gameplay::new_replay_data()
 {
     Replay::Data data;
-    data.player = player_local;
+    data.player = malo->number;
     data.update = cs.update + 1;
     return data;
 }
@@ -101,16 +101,16 @@ void Gameplay::calc_active()
                     // Die Anforderungen den offenen Mauscursur
                     // und das Schreiben des Strings auf die Info...
                     ++tarcnt;
-                    if (priority > tarinf_priority
-                     ||(hypot < tarinf_hypot && priority == tarinf_priority)) {
+                    if (priority >  tarinf_priority
+                     ||(priority == tarinf_priority && hypot < tarinf_hypot)) {
                         tarinf = i;
                         tarinf_priority = priority;
                         tarinf_hypot    = hypot;
                     }
                     // ...sind geringer als die für Anklick-Inbetrachtnahme!
                     if ((priority > 1 && priority < 99999)
-                     && (priority > target_priority
-                     || (hypot < target_hypot && priority == target_priority))
+                     && (priority >  target_priority
+                     || (priority == target_priority && hypot < target_hypot))
                      && !(only_dir_l && i->get_dir() ==  1)
                      && !(only_dir_r && i->get_dir() == -1)) {
                         target          = i;

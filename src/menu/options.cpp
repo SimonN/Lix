@@ -109,7 +109,8 @@ OptionMenu::OptionMenu()
     key_state_load        (key_b1,  310, key_xl),
     key_state_save        (key_b1,  330, key_xl),
     key_zoom              (key_b1,  360, key_xl),
-    key_chat              (key_b1,  390, key_xl),
+    key_chat              (key_b1,  380, key_xl),
+    key_spec_tribe        (key_b1,  400, key_xl),
     key_nuke              (key_b3,  220, key_xl),
     // Some of the following buttons will be moved again.
     key_skill             (LixEn::AC_MAX, KeyButton(9999, 9999, key_xl)),
@@ -126,7 +127,8 @@ OptionMenu::OptionMenu()
     desc_key_state_load   (key_t1, 310, Language::option_key_state_load),
     desc_key_state_save   (key_t1, 330, Language::option_key_state_save),
     desc_key_zoom         (key_t1, 360, Language::option_key_zoom),
-    desc_key_chat         (key_t1, 390, Language::option_key_chat),
+    desc_key_chat         (key_t1, 380, Language::option_key_chat),
+    desc_key_spec_tribe   (key_t1, 400, Language::option_key_spec_tribe),
     desc_key_nuke         (key_t3, 220, Language::option_key_nuke),
     desc_key_info_1       (key_b3, 330, Language::option_key_info_1),
     desc_key_info_2       (key_b3, 350, Language::option_key_info_2),
@@ -283,6 +285,7 @@ OptionMenu::OptionMenu()
     pointers[GROUP_HOTKEYS ].push_back(&key_state_save);
     pointers[GROUP_HOTKEYS ].push_back(&key_zoom);
     pointers[GROUP_HOTKEYS ].push_back(&key_chat);
+    pointers[GROUP_HOTKEYS ].push_back(&key_spec_tribe);
     pointers[GROUP_HOTKEYS ].push_back(&key_nuke);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_force_left);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_force_right);
@@ -297,6 +300,7 @@ OptionMenu::OptionMenu()
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_state_save);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_zoom);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_chat);
+    pointers[GROUP_HOTKEYS ].push_back(&desc_key_spec_tribe);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_nuke);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_1);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_2);
@@ -477,6 +481,7 @@ void OptionMenu::reset_elements()
     key_state_save       .set_scancode(useR->key_state_save);
     key_zoom             .set_scancode(useR->key_zoom);
     key_nuke             .set_scancode(useR->key_nuke);
+    key_spec_tribe       .set_scancode(useR->key_spec_tribe);
     key_chat             .set_scancode(useR->key_chat);
     for (size_t i = 0; i < key_skill.size(); ++i)
      key_skill[i]        .set_scancode(useR->key_skill[i]);
@@ -627,8 +632,9 @@ void OptionMenu::calc_self()
         useR->key_state_load  = key_state_load .get_scancode();
         useR->key_state_save  = key_state_save .get_scancode();
         useR->key_zoom        = key_zoom       .get_scancode();
-        useR->key_nuke        = key_nuke       .get_scancode();
         useR->key_chat        = key_chat       .get_scancode();
+        useR->key_spec_tribe  = key_spec_tribe .get_scancode();
+        useR->key_nuke        = key_nuke       .get_scancode();
         for (size_t i = 0; i < key_skill.size(); ++i)
          useR->key_skill[i]   = key_skill[i]   .get_scancode();
         // There's only the Exploder hotkey in the options menu, but

@@ -37,7 +37,7 @@ void Gameplay::calc_window()
         switch (exit_with)
         {
         case Api::WindowGameplay::RESUME:
-            // debugging: irgendwie werden sonst Panels geloescht
+            // kludge: irgendwie werden sonst Panels geloescht
             pan.set_draw_required();
             break;
 
@@ -107,92 +107,20 @@ void Gameplay::calc_self()
         chat.set_type_off();
         if (cs.tribes.size() == 1) {
             // Ergebnisfenster anzeigen
-            window_gameplay = new Api::WindowGameplay(&replay,
-             trlo->lix_saved, level.required, level.initial, trlo->skills_used,
-             // Augenzucker bei null Geretteten, wird ohnehin nicht gespeichert
-             (trlo->lix_saved > 0 ? update_last_exiter : cs.update),
-              level.get_name());
+            window_gameplay = new Api::WindowGameplay(&replay, trlo,
+                // Eye candy when not saving anything, won't be saved anyway
+                (trlo->lix_saved > 0 ? update_last_exiter : cs.update),
+                level.required, level.initial, level.get_name());
             Api::Manager::add_elder(window_gameplay);
         }
         else {
-            window_gameplay = new Api::WindowGameplay(&replay, cs.tribes, trlo,
-             cs.tribes.size(), level.get_name(), &level);
+            window_gameplay = new Api::WindowGameplay(&replay,
+                cs.tribes, trlo, (malo == 0), &level);
             Api::Manager::add_elder(window_gameplay);
         }
         return;
     }
     // Beachte das return im vorhergehenden if.
-
-    pan.calc();
-    chat.calc();
-
-    // Konsole deaktiviert, normale Buttons ansehen und,
-    // wenn kein Replay stattfindet, auch den aktiven Main-Loop abarbeiten
-    // console_tt_on_last_frame is a bit kludgy, but it works nicely.
-    // Gameplay is not an elder, so this will get calced every frame here,
-    // and without said variable, the console would be opened again upon
-    // sending text with enter or the menu would open on cancelling typing.
-    if (!chat.get_type_on()) {
-        // Speichern
-        if (pan.get_mode_single() && pan.state_save.get_clicked()) {
-            state_manager.save_user(cs);
-        }
-
-        // Laden
-        if (pan.get_mode_single() && pan.state_load.get_clicked()) {
-            load_state(state_manager.load_user());
-        }
-
-        // Pause
-        if (pan.get_mode_single() && pan.pause.get_clicked()) {
-            pan.pause.set_on(!pan.pause.get_on());
-            pan.speed_slow.set_off();
-            pan.speed_fast.set_off();
-            pan.speed_turbo.set_off();
-        }
-        // Zoom
-        if (pan.zoom.get_clicked()) {
-            pan.zoom.set_on(!pan.zoom.get_on());
-            map.set_zoom(pan.zoom.get_on());
-        }
-        // Geschwindigkeit
-        if (pan.get_mode_single()) {
-            GameplayPanel::BiB* b
-             = pan.speed_slow .get_clicked() ? &pan.speed_slow
-             : pan.speed_fast .get_clicked() ? &pan.speed_fast
-             : pan.speed_turbo.get_clicked() ? &pan.speed_turbo : 0;
-            if (b) {
-                bool was_on = b->get_on();
-                pan.pause      .set_off();
-                pan.speed_slow .set_off();
-                pan.speed_fast .set_off();
-                pan.speed_turbo.set_off();
-                b->set_on(!was_on);
-            }
-        }
-        // Neustart
-        if (pan.get_mode_single() && pan.restart.get_clicked()) {
-            load_state(state_manager.load_zero());
-        }
-
-        // Konsoleneingabe aktivieren
-        if (!pan.get_mode_single()
-         && !chat.get_type_on_last_frame()
-         && hardware.key_once(useR->key_chat)) {
-            chat.set_type_on();
-        }
-
-        // Beenden bzw. Menue?
-        if (hardware.key_once(KEY_ESC)
-         && !chat.get_type_on_last_frame()
-         && !window_gameplay) {
-            window_gameplay = new Api::WindowGameplay(&replay,
-                               Network::get_started() ? &level : 0);
-            Api::Manager::add_elder(window_gameplay);
-            return;
-        }
-    }
-    // Ende von deaktivierter Konsole
 
 
 
@@ -201,7 +129,7 @@ void Gameplay::calc_self()
     // Replay oder normales Spiel: Hauptsaechlichkeiten abarbeiten
     // Wenn ein Geschwindigkeitsbutton angeklickt oder per Hotkey aktiviert
     // wurde, dann ueberspringen wir den Replay-Abbruch doch noch.
-    if (replaying && (hardware.get_ml()
+    if (replaying && ! multiplayer && (hardware.get_ml()
      || cs.update >= replay.get_max_updates()
      || replay.get_max_updates() == 0)) {
         bool b = true; // Replay abbrechen?
@@ -222,6 +150,98 @@ void Gameplay::calc_self()
         }
     }
 
+    pan.calc();
+    chat.calc();
+
+    // Konsole deaktiviert, normale Buttons ansehen und,
+    // wenn kein Replay stattfindet, auch den aktiven Main-Loop abarbeiten
+    // console_tt_on_last_frame is a bit kludgy, but it works nicely.
+    // Gameplay is not an elder, so this will get calced every frame here,
+    // and without said variable, the console would be opened again upon
+    // sending text with enter or the menu would open on cancelling typing.
+    if (!chat.get_type_on()) {
+        // Speichern
+        if (pan.state_save.get_clicked()) {
+            state_manager.save_user(cs);
+        }
+
+        // Laden
+        if (pan.state_load.get_clicked()) {
+            load_state(state_manager.load_user());
+        }
+
+        // Pause
+        if (pan.pause.get_clicked()) {
+            pan.pause.set_on(!pan.pause.get_on());
+            pan.speed_slow.set_off();
+            pan.speed_fast.set_off();
+            pan.speed_turbo.set_off();
+        }
+        // Zoom
+        if (pan.zoom.get_clicked()) {
+            pan.zoom.set_on(!pan.zoom.get_on());
+            map.set_zoom(pan.zoom.get_on());
+        }
+        // Geschwindigkeit
+        {
+            GameplayPanel::BiB* b
+             = pan.speed_slow .get_clicked() ? &pan.speed_slow
+             : pan.speed_fast .get_clicked() ? &pan.speed_fast
+             : pan.speed_turbo.get_clicked() ? &pan.speed_turbo : 0;
+            if (b) {
+                bool was_on = b->get_on();
+                pan.pause      .set_off();
+                pan.speed_slow .set_off();
+                pan.speed_fast .set_off();
+                pan.speed_turbo.set_off();
+                b->set_on(!was_on);
+            }
+        }
+        // Neustart
+        if (pan.restart.get_clicked()) {
+            load_state(state_manager.load_zero());
+        }
+
+        // Switch the spectator's panel to a different tribe's skillset
+        if (pan.spec_tribe.get_clicked()) {
+            if (! cs.tribes.empty()) {
+                for (Tribe::It itr = cs.tribes.begin();
+                    itr != cs.tribes.end(); ++itr) {
+                    if (itr == --cs.tribes.end()) {
+                        trlo = &*cs.tribes.begin();
+                    }
+                    else if (trlo == &*itr) {
+                        trlo = &*(++itr); break;
+                    }
+                }
+                pan.set_like_tribe(trlo, malo);
+                effect.set_trlo   (trlo);
+            }
+        }
+
+        // Konsoleneingabe aktivieren
+        if (!chat.get_type_on_last_frame()
+         && hardware.key_once(useR->key_chat)) {
+            chat.set_type_on();
+        }
+
+        // Beenden bzw. Menue?
+        if (hardware.key_once(KEY_ESC)
+         && !chat.get_type_on_last_frame()
+         && !window_gameplay) {
+            window_gameplay = new Api::WindowGameplay(&replay,
+                               Network::get_started() ? &level : 0);
+            Api::Manager::add_elder(window_gameplay);
+            return;
+        }
+    }
+    // Ende von deaktivierter Konsole
+
+
+
+
+
+
     // Grafikeffekte muessen noch vor dem Update berechnet werden,
     // aber geschwindigkeitsmaessig unabhaengig von den cs.update
     // Trotzdem "cs.update" uebergeben, damit zu alte Effektspeicherungen
@@ -238,35 +258,33 @@ void Gameplay::calc_self()
     // Jetzt die Schleife für ein Update, also eine Gameplay-Zeiteinheit
     // Dies prueft nicht die lokalen Ticks, sondern richtet sich nur nach
     // den vom Timer gezaehlten Ticks!
-    if (pan.get_mode_single()) {
-        if (!pan.pause.get_on()) {
-            if (pan.speed_turbo.get_on()) {
-                if (Help::timer_ticks >= timer_tick_last_update
-                                       + timer_ticks_for_update_fast)
-                 for (unsigned i = 0; i < turbo_times_faster_than_fast; ++i) {
-                    update();
-                }
-            }
-            else if (pan.speed_fast.get_on()) {
-                if (Help::timer_ticks >= timer_tick_last_update
-                                       + timer_ticks_for_update_fast) {
-                    update();
-                }
-            }
-            else if (pan.speed_slow.get_on()) {
-                if (Help::timer_ticks >= timer_tick_last_update
-                                       + timer_ticks_for_update_slow) {
-                    update();
-                }
-            }
-            else if (Help::timer_ticks >= timer_tick_last_update
-                                        + timer_ticks_for_update_normal) {
+    if (!pan.pause.get_on()) {
+        if (pan.speed_turbo.get_on()) {
+            if (Help::timer_ticks >= timer_tick_last_update
+                                   + timer_ticks_for_update_fast)
+             for (unsigned i = 0; i < turbo_times_faster_than_fast; ++i) {
                 update();
             }
         }
+        else if (pan.speed_fast.get_on()) {
+            if (Help::timer_ticks >= timer_tick_last_update
+                                   + timer_ticks_for_update_fast) {
+                update();
+            }
+        }
+        else if (pan.speed_slow.get_on()) {
+            if (Help::timer_ticks >= timer_tick_last_update
+                                   + timer_ticks_for_update_slow) {
+                update();
+            }
+        }
+        else if (Help::timer_ticks >= timer_tick_last_update
+                                    + timer_ticks_for_update_normal) {
+            update();
+        }
     }
     // Im Netzwerk die Zeit anhand der Server-Informationen synchronisieren
-    else {
+    if (pan.get_gapamode() == GM_PLAY_MULTI) {
         unsigned u = Network::get_updates();
         if (u != 0) {
             u += Network::get_ping_millis()

@@ -230,6 +230,7 @@ public:
         user_key_state_save,
         user_key_zoom,
         user_key_nuke,
+        user_key_spec_tribe,
         user_key_chat,
 
         user_key_ed_left,

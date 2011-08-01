@@ -15,7 +15,7 @@ void Gameplay::update()
 {
     // Noch schnell die Replaydaten mit der eingestellten Rate fertig machen:
     // Siehe Ratenbutton-Calculate fuer Kommentar, warum dies hier passiert.
-    if (!replaying && pan.rate.get_number() != trlo->rate) {
+    if (trlo && !replaying && pan.rate.get_number() != trlo->rate) {
         trlo->rate        = pan.rate.get_number();
         Replay::Data data = new_replay_data();
         data.action       = Replay::RATE;
@@ -347,7 +347,7 @@ void Gameplay::update_cs_one_data(Tribe& t, Tribe::Master* m, Replay::It i)
                 lix.evaluate_click(psk.ac);
                 // Draw arrow if necessary, read arrow.h/effect.h for info
                 if ((useR->arrows_replay  && replaying)
-                 || (useR->arrows_network && Network::get_started()
+                 || (useR->arrows_network && (multiplayer && ! replaying)
                                           && m != malo)) {
                     Arrow arr(map, t.style, lix.get_ex(), lix.get_ey(),
                      psk.ac, upd, i->what);

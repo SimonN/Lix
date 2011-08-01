@@ -71,7 +71,7 @@ public:
     virtual ~SaveBrowser();
 
     inline bool get_exit_with() { return exit_with; }
-    Filename    get_current_file(); // debugging filenamedebugging: Implementation ggf neu, dies macht naemlich nun alles!
+    Filename    get_current_file();
            void set_info_filename  (const Filename&);
            void set_info_level_name(const std::string&);
 

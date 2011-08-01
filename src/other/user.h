@@ -111,6 +111,7 @@ public:
     int  key_state_save;
     int  key_zoom;
     int  key_nuke;
+    int  key_spec_tribe;
     int  key_chat;
 
     int  key_ed_left;

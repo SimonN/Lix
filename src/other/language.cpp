@@ -286,8 +286,9 @@ option_key_restart,
 option_key_state_load,
 option_key_state_save,
 option_key_zoom,
-option_key_nuke,
 option_key_chat,
+option_key_spec_tribe,
+option_key_nuke,
 option_key_info_1,
 option_key_info_2,
 option_key_info_3,
@@ -657,7 +658,7 @@ void Language::set(const Language lang)
         option_sound_load_driver      = "Load sound driver*";
         option_sound_volume           = "Sound volume";
         option_info_sound             = "*) This option requires a program "
-                                        "restart to tkae effect.";
+                                        "restart to take effect.";
 
         option_key_unassigned         = "none";
         option_key_force_left         = "Force left";
@@ -672,8 +673,9 @@ void Language::set(const Language lang)
         option_key_state_load         = "Load state";
         option_key_state_save         = "Save state";
         option_key_zoom               = "Zoom";
-        option_key_nuke               = "Nuke";
         option_key_chat               = "Chat";
+        option_key_spec_tribe         = "Cycle spectated teams";
+        option_key_nuke               = "Nuke";
         option_key_info_1             = "A hotkey assigned to";
         option_key_info_2             = "multiple skills will";
         option_key_info_3             = "alternate between them.";
@@ -1091,8 +1093,9 @@ eb[Editor::ADD_HAZARD]
         option_key_state_load         = "Stand laden";
         option_key_state_save         = "Stand spei.";
         option_key_zoom               = "Zoom";
-        option_key_nuke               = "Atombombe";
         option_key_chat               = "Chat";
+        option_key_spec_tribe         = "Anderem Team zuschauen";
+        option_key_nuke               = "Atombombe";
         option_key_info_1             = "Ein mehrfach zugewiesener";
         option_key_info_2             = "Hotkey alterniert zwischen";
         option_key_info_3             = "seinen Faehigkeiten.";

@@ -21,11 +21,11 @@ GameplayPanel::GameplayPanel()
     restart    (GraLib::get(gloB->file_bitmap_game_panel  ), 40*15, 20),
     nuke_single(GraLib::get(gloB->file_bitmap_game_panel  ), 40*15, 50),
     nuke_multi (GraLib::get(gloB->file_bitmap_game_nuke   ), 40*12, 60),
-
+    spec_tribe (40*12, 60, 40*4),
     stats      (),
-
-    rate_min(rate_minus.get_x() + 27, rate_minus.get_y()),
-    rate    (rate_plus .get_x() + 27, rate_plus .get_y())
+    rate_min   (rate_minus.get_x() + 27, rate_minus.get_y()),
+    rate       (rate_plus .get_x() + 27, rate_plus .get_y()),
+    gapamode   (GM_NONE)
 {
     for (SkBIt itr = skill.begin(); itr != skill.end(); ++itr) add_child(*itr);
     add_child(rate_minus);
@@ -40,10 +40,16 @@ GameplayPanel::GameplayPanel()
     add_child(restart);
     add_child(nuke_single);
     add_child(nuke_multi);
+    add_child(spec_tribe);
 
     add_child(stats);
     add_child(rate_min);
     add_child(rate);
+
+    for (unsigned i = 0; i < skill.size(); ++i) {
+        skill[i].set_x(i * 40);
+        skill[i].set_y(20);
+    }
 
     rate_minus.set_x_frame(0);
     rate_plus .set_x_frame(1);
@@ -75,6 +81,7 @@ GameplayPanel::GameplayPanel()
     restart    .set_hotkey(useR->key_restart);
     nuke_single.set_hotkey(useR->key_nuke);
     nuke_multi .set_hotkey(useR->key_nuke);
+    spec_tribe .set_hotkey(useR->key_spec_tribe);
 
     rate_min.set_align(Api::Label::CENTERED);
     rate    .set_align(Api::Label::CENTERED);
@@ -84,39 +91,51 @@ GameplayPanel::GameplayPanel()
 
 
 
-void GameplayPanel::set_mode_single()
+void GameplayPanel::set_gapamode(const GapaMode m)
 {
-    mode_single = true;
+    if (m == gapamode || m == GM_NONE) return;
+
+    gapamode = m;
     hide_all_children(false);
-    for (unsigned i = 0; i < skill.size(); ++i) {
-        skill[i].set_x(i * 40);
-        skill[i].set_y(20);
+    stats.set_gapamode(gapamode);
+
+    if (gapamode == GM_PLAY_SINGLE
+     || gapamode == GM_REPLAY_SINGLE) {
+        nuke_multi.hide();
+        spec_tribe.hide();
     }
-    nuke_multi.hide();
-}
-
-
-
-void GameplayPanel::set_mode_network()
-{
-    mode_single = false;
-    rate_minus .hide();
-    rate_plus  .hide();
-    rate_min   .hide();
-    rate       .hide();
-    pause      .hide();
-    zoom       .hide();
-    speed_slow .hide();
-    speed_fast .hide();
-    speed_turbo.hide();
-    state_save .hide();
-    state_load .hide();
-    restart    .hide();
-    nuke_single.hide();
-    nuke_multi .show();
-    for (unsigned i = 0; i < skill.size(); ++i) {
-        skill[i].set_x(i * 40);
-        skill[i].set_y(20);
+    else if (gapamode == GM_REPLAY_MULTI) {
+        rate_minus.hide();
+        rate_plus .hide();
+        rate_min  .hide();
+        rate      .hide();
+        nuke_multi.hide(); // we use most of the singleplayer interface
+        spec_tribe.set_x(40*12);
+        spec_tribe.set_y(0);
+        spec_tribe.set_xl(40*2);
+    }
+    else if (gapamode == GM_PLAY_MULTI
+     ||      gapamode == GM_SPEC_MULTI) {
+        rate_minus .hide();
+        rate_plus  .hide();
+        rate_min   .hide();
+        rate       .hide();
+        pause      .hide();
+        zoom       .hide();
+        speed_slow .hide();
+        speed_fast .hide();
+        speed_turbo.hide();
+        state_save .hide();
+        state_load .hide();
+        restart    .hide();
+        nuke_single.hide();
+        if (gapamode == GM_PLAY_MULTI) spec_tribe.hide();
+        else {
+            nuke_multi.hide();
+            spec_tribe.set_x(40*12);
+            spec_tribe.set_y(60);
+            spec_tribe.set_xl(40*4);
+        }
     }
 }
 
@@ -133,10 +152,13 @@ void GameplayPanel::set_like_tribe(const Tribe* tr, const Tribe::Master* ma)
     }
     if (ma) set_skill_on(ma->skill_sel);
 
+    stats.set_tribe_local(tr);
+
     rate_min   .set_number(tr->rate_min);
     rate       .set_number(tr->rate);
     nuke_single.set_on    (tr->nuke);
     nuke_multi .set_on    (tr->nuke);
+    spec_tribe .set_text  (tr->get_name());
 
     set_draw_required();
 }
