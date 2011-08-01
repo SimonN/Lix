@@ -66,11 +66,11 @@ GraLib::GraLib()
     recolor_into_vector(internal[gloB->file_bitmap_game_icon.
                                  get_rootless_no_extension()], icons);
     // Alle Namensersetzungen
-    add_replace("bitmap/goal/goal.G"         , "bitmap/goal.G.bmp"  );
-    add_replace("bitmap/hatch/hatch.H"       , "bitmap/hatch.H.bmp" );
-    add_replace("bitmap/hazard/trap/10tons.T", "bitmap/10tons.T.bmp");
-    add_replace("bitmap/hazard/trap/spike.T" , "bitmap/spike.T.bmp" );
-    add_replace("bitmap/hazard/water/water.W", "bitmap/water.W.bmp" );
+    add_replace("bitmap/Universal/water.W",  "bitmap/matt/water.W"  );
+    add_replace("bitmap/Universal/10tons.T", "bitmap/matt/10tons.T" );
+
+    add_substr_replace("bitmap/Universal/", "bitmap/matt/steel/");
+    add_substr_replace("bitmap/Rebuilds/",  "bitmap/matt/");
 }
 
 
@@ -134,9 +134,11 @@ void GraLib::recolor_into_vector(
 
 
 
-void GraLib::add_replace(const std::string& a, const std::string& b)
-{
-    replacement.insert(std::make_pair <std::string, std::string> (a, b));
+void GraLib::add_replace(const std::string& a, const std::string& b) {
+    replace_exact .insert(std::make_pair <std::string, std::string> (a, b));
+}
+void GraLib::add_substr_replace(const std::string& a, const std::string& b) {
+    replace_substr.insert(std::make_pair <std::string, std::string> (a, b));
 }
 
 
@@ -185,10 +187,24 @@ const Cutbit& GraLib::get_icon(const LixEn::Style st)
 
 
 
-const std::string& GraLib::replace_filestring(const std::string& str)
+std::string GraLib::replace_filestring(const std::string& str)
 {
-    const std::map <std::string, std::string> ::const_iterator
-     itr = singleton->replacement.find(str);
-    if (itr != singleton->replacement.end()) return itr->second;
-    else return str;
+    typedef std::map <std::string, std::string> ::const_iterator CItr;
+
+    const CItr exactitr = singleton->replace_exact.find(str);
+    if (exactitr != singleton->replace_exact.end()) return exactitr->second;
+
+    // If we get to here, no match has been found in the exact replacements
+    for (CItr itr =  singleton->replace_substr.begin();
+              itr != singleton->replace_substr.end(); ++itr) {
+        size_t pos = str.find(itr->first);
+        if (pos != std::string::npos) {
+            std::string replcopy = str;
+            replcopy.replace(pos, itr->first.length(), itr->second);
+            return replcopy;
+        }
+    }
+
+    // Nothing found in the substring replacements
+    return str;
 }

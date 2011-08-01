@@ -31,7 +31,9 @@ private:
 
     static GraLib* singleton;
 
-    std::map    <std::string, std::string>  replacement;
+    std::map    <std::string, std::string>  replace_exact;
+    std::map    <std::string, std::string>  replace_substr;
+
     std::map    <std::string, const Cutbit> internal;
     std::vector <Cutbit>                    style;
     std::vector <Cutbit>                    icons;
@@ -41,6 +43,7 @@ private:
 
            void recolor_into_vector(const Cutbit&, std::vector <Cutbit>&);
            void add_replace        (const std::string&, const std::string&);
+           void add_substr_replace (const std::string&, const std::string&);
 
     GraLib();
     ~GraLib();
@@ -58,6 +61,6 @@ public:
     static const Cutbit& get_lix  (const LixEn::Style);
     static const Cutbit& get_icon (const LixEn::Style); // for the panel
 
-    static const std::string& replace_filestring(const std::string&);
+    static std::string replace_filestring(const std::string&);
 
 };
