@@ -30,7 +30,7 @@ Replay::Replay(const Filename& fn)
 :
     level_filename(fn)
 {
-    load_from_file(level_filename);
+    load_from_file(fn);
 }
 
 Replay::~Replay()
@@ -229,17 +229,15 @@ void Replay::save_to_file(const Filename& s, const Level* const lev)
 
 
 
-
-
-void Replay::load_from_file(const Filename& filename)
+void Replay::load_from_file(const Filename& fn)
 {
     clear();
 
-    level_filename   = filename; // Standardwert: Annahme, Level in Replaydatei
-    unsigned long vm = 0;        // version_min erst spaeter setzen wegen add()
+    level_filename   = fn; // Standardwert: Annahme, Level in Replaydatei
+    unsigned long vm = 0;  // version_min erst spaeter setzen wegen add()
 
     std::vector <IO::Line> lines;
-    if (!IO::fill_vector_from_file(lines, filename.get_rootful())) {
+    if (!IO::fill_vector_from_file(lines, fn.get_rootful())) {
         file_not_found = true;
         holds_level    = false;
         return;
@@ -284,7 +282,7 @@ void Replay::load_from_file(const Filename& filename)
 
     // Variablen nach dem Laden zuweisen, damit add() nichts kaputtmacht
     version_min = vm;
-    if (level_filename == filename) {
+    if (level_filename == fn) {
         holds_level    = true;
         built_required = Level::get_built(level_filename);
     }
