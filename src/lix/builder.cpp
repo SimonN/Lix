@@ -98,10 +98,7 @@ void update_shrugger(Lixxie& l, const UpdateArgs& ua)
     ua.suppress_unused_variable_warning();
 
     if (l.is_last_frame()) {
-        // bool was_builder = l.get_ac() == LixEn::SHRUGGER;
-        l.assign(LixEn::WALKER);
-        // Dieser Code wird auch von update_shrugger2() genutzt, daher ?:
-        // l.set_frame(was_builder ? 0 : 8);
+        l.assign_default(LixEn::WALKER);
     }
     else l.next_frame();
 }
