@@ -43,17 +43,17 @@ clock.wav
     Flavor: very short, mechanical like a clock hand, different from brick.wav
 
 fire.wav
-    Status: missing
+    Status: done
     Event:  Death from catching fire.
     Flavor: around 1 second of length, anything that sounds somewhat like fire
 
 goal_bad.wav
-    Status: done, will likely be redone by me
+    Status: done
     Event:  An own lix enters the goal/exit of an opponent.
     Flavor: voice, annoying, immediately alerting, maybe sad
     
 goal.wav
-    Status: done, will likely be redone
+    Status: done
     Event:  Any lix, no matter her color, enters the player's own goal/exit.
     Flavor: May be voice, or just any satisfying, spammable sound. The very
             first moments should be among the loudest of the whole sound,
@@ -93,17 +93,17 @@ ouch.wav
     Event:  A lix lands on her belly after tumbling.
     Flavor: voice, a short voiced shout, the beginning should be one of the
             loudest parts of the file for the same reasons as goal.wav.
-    
+
 overtime.wav
     Status: done, can of course be redone if someone is good at this
     Event:  Overtime triggers in a multiplayer game.
     Flavor: "Ding!", a markant, fun bell sound, like a boxing bell.
 
 panel.wav
-    Status: missing
+    Status: done
     Event:  Player selects a different skill from the panel at the bottom
     Flavor: A short, confirming, mechanical sound.
-    
+
 pop.wav
     Status: missing
     Event:  Exploder explodes
@@ -135,7 +135,7 @@ steel.wav
     Flavor: Very metallic
 
 water.wav
-    Status: done, may be made louder or different
+    Status: done
     Event:  A lix enters water and will die from drowning
     Flavor: like dropping some object into water. It must be immediately
             recognizable that this has something to do with water.

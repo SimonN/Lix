@@ -34,7 +34,9 @@ data/sound/*
 !data/sound/goal_bad.wav
 !data/sound/hatch.wav
 !data/sound/lets_go.wav
+!data/sound/ouch.wav
 !data/sound/overtime.wav
+!data/sound/panel.wav
 !data/sound/steel.wav
 !data/sound/water.wav
 
