@@ -12,15 +12,16 @@ Customizing the game:
 
     doc/files.txt    - file and bitmap format descriptions
     doc/objdef.txt   - how to further customize self-made in-game objects
-    doc/sounds.txt   - sound file replacements to-do list
+    doc/oldterr.txt  - how to extend the game with Lemmings content
 
-General information:
+Miscellaneous information:
 
     doc/bugs.txt     - known bugs and issues
+    doc/ideas.txt    - longer feature ideas not found in the wishlist
     doc/history.txt  - version history of the game
     doc/techfaq.txt  - some older troubleshooting tips
+    doc/sounds.txt   - sound file replacements to-do list
     doc/wishes.txt   - feature wish list
 
 Have fun!
 Simon
-

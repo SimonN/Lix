@@ -2,17 +2,19 @@
 # If you wish to exclude files that only you have, use .git/info/exclude
 # instead of this file, which will affect all users and is versioned.
 
-# exclude all object files due to compiling code
+# exclude all object files due to compiling code,
+# also all binaries, including Windows ones
 obj/*
 deps/*
-bin/*debug*
+bin/*
 *.layout
 *.depend
 
-# exclude the user data, log and config files in data/
+# exclude the user data, log and config files in data/, exclude replays
 data/user/*.txt
 data/config.txt
 data/log.txt
+replay/*
 
 # exclude Lemmings legacy material: terrain and levels
 # the last line excludes free levels that need legacy terrain
@@ -32,13 +34,13 @@ data/sound/*
 !data/sound/goal_bad.wav
 !data/sound/hatch.wav
 !data/sound/lets_go.wav
+!data/sound/ouch.wav
 !data/sound/overtime.wav
+!data/sound/panel.wav
 !data/sound/steel.wav
 !data/sound/water.wav
 
-# exclude any replay files, test levels, and Rubix's 
-# Tutorials.
-replay/*
+# exclude test levels, and Rubix's Tutorials.
 bitmap/Tutorial Files/*
 levels/Tutorial/*
 levels/test/*

@@ -27,6 +27,13 @@ void assign_walker(Lixxie& l)
     else if (l.get_ac() == LixEn::PLATFORMER && l.get_frame() > 5) {
         l.set_ac(LixEn::SHRUGGER2);
         l.set_frame(9);
+        // see also next else if. Clicking twice on the platformer shall turn
+        // it around.
+    }
+    else if (l.get_ac() == LixEn::SHRUGGER || l.get_ac() == LixEn::SHRUGGER2) {
+        l.turn();
+        l.set_ac(LixEn::WALKER);
+        l.set_frame(0);
     }
     else {
         l.set_ac(LixEn::WALKER);
