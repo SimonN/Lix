@@ -37,6 +37,7 @@ data/sound/*
 !data/sound/ouch.wav
 !data/sound/overtime.wav
 !data/sound/panel.wav
+!data/sound/pop.wav
 !data/sound/steel.wav
 !data/sound/water.wav
 
