@@ -50,19 +50,20 @@ private:
     static const unsigned updates_med;
     static const unsigned updates_big;
 
-    State zero,  user,
-          sml_1, sml_2,
-          med_1, med_2,
-          big_1, big_2;
+    GameState
+        zero,  user,
+        sml_1, sml_2,
+        med_1, med_2,
+        big_1, big_2;
 
 public:
 
-    inline void         save_zero(const State& s) { zero = s;    }
-    inline void         save_user(const State& s) { user = s;    }
-    inline const State& load_zero()               { return zero; }
-    inline const State& load_user()               { return user; }
+    inline void             save_zero(const GameState& s) { zero = s;    }
+    inline void             save_user(const GameState& s) { user = s;    }
+    inline const GameState& load_zero()                   { return zero; }
+    inline const GameState& load_user()                   { return user; }
 
-    const        State& load_auto(Ulng);
-    void                calc_save_auto(const State&);
+    const        GameState& load_auto(Ulng);
+    void                    calc_save_auto(const GameState&);
 
 };

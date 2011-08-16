@@ -5,7 +5,7 @@
 
 #include "state.h"
 
-State::State()
+GameState::GameState()
 :
     update(0),
     land(1, 1)

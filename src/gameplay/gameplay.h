@@ -72,7 +72,7 @@ private:
     Map           map;
     Torbit        steel_mask;
 
-    State         cs; // current state
+    GameState     cs; // current state
     StateManager  state_manager;
     EffectManager effect;
 
@@ -117,7 +117,7 @@ private:
     void calc_window(); // Fuers Unterfenster, ansonsten:
     void calc_self  (); // Wird sonst in jedem Tick ausgeführt
     void calc_active(); // "Aktiv" == kein Replay abzuspielen
-    void load_state      (const State&);
+    void load_state (const GameState&);
 
     // Update-Subroutinen
     void update();           // Normalerweise 15x pro Sek., ruft auf:

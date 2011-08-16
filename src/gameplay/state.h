@@ -13,7 +13,7 @@
 #include "../editor/graph_ed.h"
 #include "../other/types.h"
 
-struct State {
+struct GameState {
 
 private:
 
@@ -32,7 +32,7 @@ public:
 
     Torbit   land;
 
-    State();
+    GameState();
 
     inline operator bool () const { return land.get_xl() > 1; }
 

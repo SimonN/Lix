@@ -148,6 +148,8 @@ Sound::Sound()
     sample[BRICK]       = Sample(dds + "brick.wav");
     sample[ROPER]       = Sample(dds + "roper.wav");
     sample[STEEL]       = Sample(dds + "steel.wav");
+    sample[BATTER_MISS] = Sample(dds + "bat_miss.wav");
+    sample[BATTER_HIT]  = Sample(dds + "bat_hit.wav");
 
     sample[AWARD_1]     = Sample(dds + "award_1.wav");
     sample[AWARD_2]     = Sample(dds + "award_2.wav");

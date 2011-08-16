@@ -46,7 +46,7 @@ void Gameplay::update()
 
     // Updaten, entweder mehrmals oder nur einmal
     if (replay_recalc_need) {
-        State state = state_manager.load_auto(replay_recalc_from);
+        GameState state = state_manager.load_auto(replay_recalc_from);
         if (state) {
             // Wir nutzen nicht load_state(), weil dies kein manuelles Laden
             // ist. Dies sollte das einizge nicht-manuelle Laden sein.
@@ -227,8 +227,7 @@ void Gameplay::update_cs_once()
         // ruft allerdings nur Lemming::update() auf, nicht
         // Gameplay::update_lixvec(). Es werden also Sachen wie Hochzaehlen
         // des Bomben-Countdowns oder das Laufen ins Ziel nicht ueberprueft.
-        UpdateArgs ua;
-        ua.upd   = upd;
+        UpdateArgs ua(cs);
         ua.aim_x = map.get_mouse_x(); // Alle schauen zum Cursor, macht nix,
         ua.aim_y = map.get_mouse_y(); // weil das nur Augenzucker sein darf.
         ua.aim_c = false;
@@ -371,8 +370,7 @@ void Gameplay::update_cs_one_data(Tribe& t, Tribe::Master* m, Replay::It i)
         size_t lem_id = (int) i->what % level.initial;
         if (lem_id < t.lixvec.size()) {
             Lixxie& lix = t.lixvec[lem_id];
-            UpdateArgs ua;
-            ua.upd   = upd;
+            UpdateArgs ua(cs);
             ua.id    = lem_id;
             ua.aim_x = (i->what / level.initial) % map.get_xl();
             ua.aim_y = i->what / (map.get_xl() * level.initial);

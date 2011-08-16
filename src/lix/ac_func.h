@@ -35,6 +35,7 @@ void assclk_miner     (Lixxie&);
 void assclk_digger    (Lixxie&);
 void assclk_jumper    (Lixxie&);
 void assclk_roper     (Lixxie&);
+void assclk_batter    (Lixxie&);
 
 void become_faller    (Lixxie&);
 void become_tumbler   (Lixxie&);
@@ -61,6 +62,7 @@ void become_miner     (Lixxie&);
 void become_digger    (Lixxie&);
 void become_jumper    (Lixxie&);
 void become_roper     (Lixxie&);
+void become_batter    (Lixxie&);
 
 void update_faller    (Lixxie&, const UpdateArgs&);
 void update_tumbler   (Lixxie&, const UpdateArgs&);
@@ -87,3 +89,4 @@ void update_miner     (Lixxie&, const UpdateArgs&);
 void update_digger    (Lixxie&, const UpdateArgs&);
 void update_jumper    (Lixxie&, const UpdateArgs&);
 void update_roper     (Lixxie&, const UpdateArgs&);
+void update_batter    (Lixxie&, const UpdateArgs&);

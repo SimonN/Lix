@@ -10,18 +10,20 @@
 #pragma once
 
 #include "../gameplay/effect.h"
+#include "../gameplay/state.h"
 
 struct UpdateArgs {
-    unsigned long upd; // the update
-    unsigned      id;  // the lemming's id, to pass to the effect manager
+    const GameState& st;
+    unsigned         id;  // the lemming's id, to pass to the effect manager
 
     // Zielen
     int  aim_x; // Wo ist die Maus auf dem Land?
     int  aim_y;
     bool aim_c; // Geklickt?
 
+    inline UpdateArgs(const GameState& s) : st(s) { }
+
     // Gegen Kompiliererwarnungen in einigen Funktionen, die ueberhaupt nix
     // brauchen hieraus, sondern nur den ebenfalls uebergebenen Lemming
     inline void suppress_unused_variable_warning() const {}
-
 };

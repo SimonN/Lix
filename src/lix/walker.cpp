@@ -54,6 +54,9 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua);
 
 void update_walker(Lixxie& l, const UpdateArgs& ua)
 {
+    if (l.is_last_frame())  l.set_frame(3);
+    else                    l.next_frame();
+
     update_walker_or_runner(l, ua);
 }
 
@@ -66,10 +69,8 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
     // Das erste Frame dient zur kurzen Pause, die der Lemming vor dem
     // Weiterlaufen machen soll, wenn die Walker-Faehigkeit vom Benutzer
     // explizit zugewiesen wird. Dieses Frame darf im normalen Walker-
-    // Framezyklus nicht angenommen werdent.
-    const int first_looping_frame = (l.get_ac() == LixEn::RUNNER ? 1 : 3);
-    if (l.is_last_frame())  l.set_frame(first_looping_frame);
-    else                    l.next_frame();
+    // Framezyklus nicht angenommen werden.
+    // Also true for runners.
     if (l.get_frame() != 0) l.move_ahead();
 
     bool turn_after_all   = false;

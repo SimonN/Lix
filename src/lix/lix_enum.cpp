@@ -47,6 +47,7 @@ void initialize()
 
     ac_string   [JUMPER]            = "JUMPER";
     ac_string   [ROPER]             = "ROPER";
+    ac_string   [BATTER]            = "BATTER";
     ac_string   [AC_MAX]            = "AC_MAX";
 
     style_string[GARDEN]            = "Garden";

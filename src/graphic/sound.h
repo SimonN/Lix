@@ -80,6 +80,8 @@ public:
         STEEL,       // Ground remover hits steel and stops
         ROPER,       // Roper shoots
         ROPER_HIT,   // Roper hook hits terrain
+        BATTER_MISS, // Batter doesn't hit anything
+        BATTER_HIT,  // Batter hits something
 
         AWARD_1,     // Player is first in multiplayer
         AWARD_2,     // Player is second or ties for first place, no super tie.

@@ -58,6 +58,7 @@ void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
     ac_func     [LixEn::DIGGER]    .update = update_digger;
     ac_func     [LixEn::JUMPER]    .update = update_jumper;
     ac_func     [LixEn::ROPER]     .update = update_roper;
+    ac_func     [LixEn::BATTER]    .update = update_batter;
 
     ac_func     [LixEn::FALLER]    .pass_top =
     ac_func     [LixEn::TUMBLER]   .pass_top =

@@ -58,7 +58,7 @@ void update_exploder(Lixxie& l, const UpdateArgs& ua)
         // Explosionsanimation starten
         l.play_sound(ua, Sound::POP);
         l.get_ef()->add_explosion(
-         ua.upd, l.get_tribe(), ua.id, l.get_ex(), l.get_ey());
+         ua.st.update, l.get_tribe(), ua.id, l.get_ex(), l.get_ey());
 
         l.become(LixEn::NOTHING); // entfernt den Lemming next time
     }

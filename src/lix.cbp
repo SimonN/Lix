@@ -266,6 +266,7 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="lix/ac_func.cpp" />
 		<Unit filename="lix/ac_func.h" />
 		<Unit filename="lix/basher.cpp" />
+		<Unit filename="lix/batter.cpp" />
 		<Unit filename="lix/blocker.cpp" />
 		<Unit filename="lix/builder.cpp" />
 		<Unit filename="lix/climber.cpp" />

@@ -88,7 +88,7 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
         // rechts, ferner +1 = Drehung um 90 Grad nach rechts).
         int axe_rotation = l.get_dir() < 0;
         if (l.get_frame() == 0) axe_rotation = 3 - axe_rotation;
-        l.get_ef()->add_pickaxe(ua.upd, l.get_tribe(), ua.id,
+        l.get_ef()->add_pickaxe(ua.st.update, l.get_tribe(), ua.id,
          l.get_ex() + 10, l.get_frame() == 1 ? l.get_ey() - 2 : l.get_ey() -16,
          axe_rotation);
         l.turn();

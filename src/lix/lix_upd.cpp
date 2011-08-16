@@ -25,7 +25,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
         // Exploder a la L2 mit Knockback und sofortigem Tod
         if (l.get_updates_since_bomb() == 76 && l.get_exploder_knockback()) {
             // Der Wert -6 (etwas ueber Fusshoehe) stammt aus L2-Screenshots
-            make_knockback_explosion(ua.upd, l.get_tribe(),
+            make_knockback_explosion(ua.st.update, l.get_tribe(),
              ua.id, l.get_ex(), l.get_ey() - 6);
             l.play_sound(ua, Sound::POP);
             l.set_ac(LixEn::NOTHING);
@@ -210,9 +210,9 @@ void Gameplay::update_lix_goals(Lixxie& l, const UpdateArgs& ua)
         // Sound is always played as if the player was the local player.
         // No sound is played if the player is not involved.
         if (goal[i].has_tribe(trlo))
-         effect.add_sound(ua.upd, *trlo, ua.id, Sound::GOAL);
+         effect.add_sound(ua.st.update, *trlo, ua.id, Sound::GOAL);
         else if (&l.get_tribe() == trlo)
-         effect.add_sound(ua.upd, *trlo, ua.id, Sound::GOAL_BAD);
+         effect.add_sound(ua.st.update, *trlo, ua.id, Sound::GOAL_BAD);
 }   }
 
 

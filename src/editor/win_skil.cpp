@@ -42,7 +42,7 @@ WindowSkill::WindowSkill(Level& l)
     possible.push_back(PosSk(px(i), py(i), LixEn::WALKER));     ++i;
     possible.push_back(PosSk(px(i), py(i), LixEn::RUNNER));     ++i;
     possible.push_back(PosSk(px(i), py(i), LixEn::JUMPER));     ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::NOTHING));    ++i;
+    possible.push_back(PosSk(px(i), py(i), LixEn::BATTER));     ++i;
     possible.push_back(PosSk(px(i), py(i), LixEn::PLATFORMER)); ++i;
     possible.push_back(PosSk(px(i), py(i), LixEn::NOTHING));    ++i;
     possible.push_back(PosSk(px(i), py(i), LixEn::NOTHING));    ++i;
