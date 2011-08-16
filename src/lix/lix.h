@@ -241,6 +241,7 @@ private:
     char updates_since_bomb;
     char exploder_knockback;
 
+    char runner;
     char climber;
     char floater;
 
@@ -314,8 +315,10 @@ public:
     inline bool get_exploder_knockback() const { return exploder_knockback; }
     inline void set_exploder_knockback(bool b = true) { exploder_knockback=b; }
 
+    inline bool get_runner () const { return runner;  }
     inline bool get_climber() const { return climber; }
     inline bool get_floater() const { return floater; }
+    inline void set_runner ()       { runner  = true; }
     inline void set_climber()       { climber = true; }
     inline void set_floater()       { floater = true; }
 

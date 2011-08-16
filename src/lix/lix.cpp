@@ -57,6 +57,7 @@ Lixxie::Lixxie(
     frame             (0),
     updates_since_bomb(0),
     exploder_knockback(false),
+    runner            (false),
     climber           (false),
     floater           (false),
 

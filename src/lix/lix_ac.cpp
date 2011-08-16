@@ -32,6 +32,7 @@ unsigned Lixxie::get_priority(LixEn::Ac                   new_ac,
     // Bleibende Faehigkeiten
     if (new_ac == LixEn::EXPLODER  && updates_since_bomb > 0
      || new_ac == LixEn::EXPLODER2 && updates_since_bomb > 0
+     || new_ac == LixEn::RUNNER    && runner
      || new_ac == LixEn::CLIMBER   && climber
      || new_ac == LixEn::FLOATER   && floater) return 1;
 
@@ -66,15 +67,18 @@ unsigned Lixxie::get_priority(LixEn::Ac                   new_ac,
         case LixEn::CLIMBER:
         case LixEn::FLOATER:
         case LixEn::JUMPER:
-            if (new_ac == LixEn::CLIMBER
+            if (new_ac == LixEn::RUNNER
+             || new_ac == LixEn::CLIMBER
              || new_ac == LixEn::FLOATER
              || new_ac == LixEn::EXPLODER
              || new_ac == LixEn::EXPLODER2) p = 2000;
             else return 1;
             break;
 
+        // Standard activities, not considered working lixes
         case LixEn::WALKER:
         case LixEn::LANDER:
+        case LixEn::RUNNER:
             p = 3000;
             break;
 
@@ -89,15 +93,14 @@ unsigned Lixxie::get_priority(LixEn::Ac                   new_ac,
             else                                              return      1;
             break;
 
-        // Normalerweise kann alles zugewiesen werden, was der Lemming
-        // gerade nicht tut.
+        // Usually, anything different from the current activity can be assign.
         default:
             if (new_ac != ac) p = 4000;
             else return 1;
 
     }
     p += updates_since_bomb;
-    p += 100 * (climber + floater);
+    p += 400 * runner + 200 * climber + 100 * floater;
     return p;
 }
 
@@ -106,9 +109,10 @@ unsigned Lixxie::get_priority(LixEn::Ac                   new_ac,
 void Lixxie::evaluate_click(LixEn::Ac new_ac)
 {
     switch (new_ac) {
+    case LixEn::RUNNER:    runner  = true;            break;
     case LixEn::CLIMBER:   climber = true;            break;
     case LixEn::FLOATER:   floater = true;            break;
-    case LixEn::EXPLODER2: exploder_knockback = true; // faellt durch
+    case LixEn::EXPLODER2: exploder_knockback = true; // falls through
     case LixEn::EXPLODER:  inc_updates_since_bomb();  break;
 
     default:

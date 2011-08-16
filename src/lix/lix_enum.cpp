@@ -29,6 +29,7 @@ void initialize()
     ac_string   [DROWNER]           = "DROWNER";
     ac_string   [EXITER]            = "EXITER";
     ac_string   [WALKER]            = "WALKER";
+    ac_string   [RUNNER]            = "RUNNER";
 
     ac_string   [CLIMBER]           = "CLIMBER";
     ac_string   [ASCENDER]          = "ASCENDER";

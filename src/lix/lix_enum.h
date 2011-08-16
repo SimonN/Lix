@@ -29,6 +29,7 @@ namespace LixEn {
         DROWNER,
         EXITER,
         WALKER,
+        RUNNER,
 
         CLIMBER,
         ASCENDER,
