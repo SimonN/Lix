@@ -15,11 +15,10 @@
 
 #include "ac.h"
 
-void assign_digger(Lixxie& l)
+void become_digger(Lixxie& l)
 {
-    l.assign_default(LixEn::DIGGER);
+    l.become_default(LixEn::DIGGER);
     l.set_special_x(1);
-    l.set_special_y(0);
 }
 
 
@@ -73,13 +72,13 @@ void update_digger(Lixxie& l, const UpdateArgs& ua)
     if (steel_pixels_hit && l.get_special_y() == 1) {
         // Steel was hit and we actually want to stop
         l.turn();
-        l.assign(LixEn::WALKER);
+        l.become(LixEn::WALKER);
         l.set_frame(1);
         l.play_sound(ua, Sound::STEEL);
     }
     else if (!l.is_solid() && !l.is_solid(-2, 2) && !l.is_solid(2, 2)
              && l.get_frame() != 2) {
-        l.assign(LixEn::FALLER);
+        l.become(LixEn::FALLER);
     }
     else {
         // Stay digger

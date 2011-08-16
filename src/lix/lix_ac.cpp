@@ -89,8 +89,8 @@ unsigned Lixxie::get_priority(LixEn::Ac                   new_ac,
         case LixEn::PLATFORMER:
             if      (new_ac == ac
                 && (!personal || useR->multiple_builders)) p = 1000;
-            else if (new_ac != ac)                                 p = 4000;
-            else                                              return      1;
+            else if (new_ac != ac)                         p = 4000;
+            else                                           return 1;
             break;
 
         // Usually, anything different from the current activity can be assign.
@@ -108,16 +108,5 @@ unsigned Lixxie::get_priority(LixEn::Ac                   new_ac,
 
 void Lixxie::evaluate_click(LixEn::Ac new_ac)
 {
-    switch (new_ac) {
-    case LixEn::RUNNER:    runner  = true;            break;
-    case LixEn::CLIMBER:   climber = true;            break;
-    case LixEn::FLOATER:   floater = true;            break;
-    case LixEn::EXPLODER2: exploder_knockback = true; // falls through
-    case LixEn::EXPLODER:  inc_updates_since_bomb();  break;
-
-    default:
-        if (ac == new_ac)   assign(new_ac);
-        else              { assign(new_ac); --frame; }
-        break;
-    }
+    assclk(new_ac);
 }

@@ -287,6 +287,7 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="lix/miner.cpp" />
 		<Unit filename="lix/platform.cpp" />
 		<Unit filename="lix/roper.cpp" />
+		<Unit filename="lix/runner.cpp" />
 		<Unit filename="lix/stunner.cpp" />
 		<Unit filename="lix/tumbler.cpp" />
 		<Unit filename="lix/walker.cpp" />

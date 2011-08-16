@@ -14,12 +14,16 @@
 
 #include "ac.h"
 
-void assign_climber(Lixxie& l)
+void assclk_climber(Lixxie& l)
 {
-    l.set_ac(LixEn::CLIMBER);
-    l.set_frame    (0);
-    l.set_special_x(0);
-    l.set_special_y(0);
+    l.set_climber();
+}
+
+
+
+void become_climber(Lixxie& l)
+{
+    l.become_default(LixEn::CLIMBER);
 
     // Verhindern, dass er in der Wand zu klettern beginnt
     // Y = -10 [Edit im August 09: -12],
@@ -47,7 +51,7 @@ void assign_climber(Lixxie& l)
             // Nochmal vorwärts, wenn es keine schroffe Klippe ist
             if (!l.is_solid(2, -i-2)) l.move_ahead();
             l.move_down(11-i);
-            l.assign(LixEn::ASCENDER);
+            l.become(LixEn::ASCENDER);
             break;
         }
     }
@@ -83,12 +87,12 @@ void update_climber(Lixxie& l, const UpdateArgs& ua)
          || l.get_dir() < 0 && (solid_here || solid_diff &&  diff)) {
             l.move_down(1);
             l.turn();
-            l.assign(LixEn::FALLER);
+            l.become(LixEn::FALLER);
             break;
         }
         // Ist der obere Rand erreicht zum Ascender-Werden?
         else if (!l.is_solid(2, -16)) {
-            l.assign(LixEn::ASCENDER);
+            l.become(LixEn::ASCENDER);
             l.move_ahead();
             l.move_up(5);
             // Ist's eine schroffe Klippe? Sonst noch einen nach vorne.
@@ -118,10 +122,6 @@ void update_ascender(Lixxie& l, const UpdateArgs& ua)
 
     l.move_up();
 
-    if (l.is_last_frame()) {
-        l.assign(LixEn::WALKER);
-        // Das letzte Walker-Frame passt am besten
-        l.set_frame(8);
-    }
+    if (l.is_last_frame()) l.become(LixEn::WALKER);
     else l.next_frame();
 }

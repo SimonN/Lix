@@ -5,6 +5,12 @@
 
 #include "ac.h"
 
+void assclk_floater(Lixxie& l)
+{
+    l.set_floater();
+}
+
+
 void update_floater(Lixxie& l, const UpdateArgs& ua)
 {
     ua.suppress_unused_variable_warning();
@@ -41,7 +47,7 @@ void update_floater(Lixxie& l, const UpdateArgs& ua)
         if (l.is_solid(x, i+2)) {
             l.move_ahead(x);
             l.move_down(i);
-            l.assign(LixEn::LANDER);
+            l.become(LixEn::LANDER);
             break;
         }
     }

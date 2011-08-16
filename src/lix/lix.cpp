@@ -65,7 +65,7 @@ Lixxie::Lixxie(
     ac                (LixEn::NOTHING)
 {
     if (tribe) {
-        assign(LixEn::FALLER);
+        become(LixEn::FALLER);
         frame = 4;
     }
     // Wichtig fuer den Torus: Rechtzeitig Modulo rechnen

@@ -11,16 +11,15 @@ void tumbler_frame_selection     (Lixxie&);
 
 
 
-void assign_jumper(Lixxie& l)
+void become_jumper(Lixxie& l)
 {
-    l.set_frame    ( 0);
+    l.become_default(LixEn::JUMPER);
     l.set_special_y(-8); // Y-Geschwindigkeit
     l.set_special_x( 6); // X-Geschwindigkeit
-    l.set_ac       (LixEn::JUMPER);
 
     for (int i = -4; i > -16; --i)
      if (l.is_solid(0, i)) {
-        l.assign(LixEn::STUNNER);
+        l.become(LixEn::STUNNER);
         return;
     }
 }
@@ -78,7 +77,7 @@ void update_jumper(Lixxie& l, const UpdateArgs& ua)
             if (l.get_floater()) {
                 const int sx = l.get_special_x();
                 const int sy = l.get_special_y();
-                l.assign(LixEn::FLOATER);
+                l.become(LixEn::FLOATER);
                 l.set_special_x(sx);
                 l.set_special_y(sy);
             }

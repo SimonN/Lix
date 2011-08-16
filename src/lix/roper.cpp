@@ -72,13 +72,13 @@ void update_roper(Lixxie& l, const UpdateArgs& ua)
             // Wenn man zu lange wartet, weiterlaufen, einfach
             l.set_special_y(l.get_special_y() + 1);
             if (l.get_special_y() > Lixxie::updates_roper_before)
-             l.assign(LixEn::WALKER);
+             l.become(LixEn::WALKER);
         }
         // Haken wurde schon abgeschossen, warten, ehe man weiterlaeuft
         else {
             l.set_special_y(l.get_special_y() + 1);
             if (l.get_special_y() > Lixxie::updates_roper_after)
-             l.assign(LixEn::WALKER);
+             l.become(LixEn::WALKER);
         }
     }
 

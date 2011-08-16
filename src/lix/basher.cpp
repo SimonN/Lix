@@ -128,7 +128,7 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
                 // Nicht abgebrochen?
                 if (x == 23) stop_bashing = true;
             }
-            if (stop_bashing) l.assign(LixEn::WALKER);
+            if (stop_bashing) l.become(LixEn::WALKER);
         }
         break;
 
@@ -145,7 +145,7 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
     // Die Object-Sachen können ruhig noch ausgeführt werden.
     if (steel_hit && l.get_special_y() != 0) {
         l.turn();
-        l.assign(LixEn::WALKER);
+        l.become(LixEn::WALKER);
         l.play_sound(ua, Sound::STEEL);
     }
 
@@ -170,7 +170,7 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
     // Object zu hoch? Dann Faller werden, sonst special_x senken.
     if (l.get_special_x() > 8) {
         l.move_up(1);
-        l.assign(LixEn::FALLER);
+        l.become(LixEn::FALLER);
     }
     else if (l.get_special_x() > 0) l.set_special_x(l.get_special_x() - 1);
 

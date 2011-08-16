@@ -20,7 +20,7 @@ void tumbler_to_splatter(Lixxie& l)
 
     bool second_splatter = (l.get_ac() == LixEn::TUMBLER
                          && l.get_frame() >= frame_to_get_second_splatter);
-    l.assign(LixEn::SPLATTER);
+    l.become(LixEn::SPLATTER);
     if (second_splatter) l.set_frame(second_splatter_frame);
 }
 
@@ -44,7 +44,7 @@ bool jumper_and_tumbler_collision(Lixxie& l)
 
      || l.get_ac() == LixEn::JUMPER
      && l.is_solid( 0, -14) && !l.is_solid( 0, -8)) {
-        if (l.get_ac() != LixEn::TUMBLER) l.assign(LixEn::TUMBLER);
+        if (l.get_ac() != LixEn::TUMBLER) l.become(LixEn::TUMBLER);
         // Halb so schnell in x-Richtung wie bisher, aber
         // gerade Geschwindigkeitszahl beibehalten
         if (l.get_special_y() < 0) l.set_special_y(0);
@@ -70,7 +70,7 @@ bool jumper_and_tumbler_collision(Lixxie& l)
         // Dabei wird untersucht, wo der naechste freie Raum ist, und entweder
         // vor, zurueck oder entgegen der Y-Richtung vertikal bewegt.
         if (l.is_solid(0, 0)) {
-            l.assign(LixEn::STUNNER);
+            l.become(LixEn::STUNNER);
             /* DEBUGGING, testing with geoo
             for (int dist = 1; ; ++dist) {
                 if (!l.is_solid(dist/2*2, 0)) {
@@ -114,10 +114,10 @@ bool jumper_and_tumbler_collision(Lixxie& l)
         else {
             bool short_anim = (l.get_special_y() < 12);
             if (l.get_ac() == LixEn::JUMPER) {
-                l.assign(LixEn::LANDER);
+                l.become(LixEn::LANDER);
                 if (short_anim) l.next_frame();
             }
-            else l.assign(LixEn::STUNNER);
+            else l.become(LixEn::STUNNER);
         }
         return true;
     }
@@ -130,7 +130,7 @@ bool jumper_and_tumbler_collision(Lixxie& l)
             tumbler_to_splatter(l);
         }
         else {
-            l.assign(LixEn::ASCENDER);
+            l.become(LixEn::ASCENDER);
             l.set_frame(5-swh/2 < 0 ? 0 : 5-swh/2);
             l.move_down(1 + !(swh%2));
             // Zeile aus lemupd.cpp kopiert, vom Climber:

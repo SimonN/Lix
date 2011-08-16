@@ -221,7 +221,8 @@ private:
         bool      aiming;
         int       returns_x;
         Sound::Id aim_sound;
-        void (*assign)(Lixxie&);
+        void (*assclk)(Lixxie&);
+        void (*become)(Lixxie&);
         void (*update)(Lixxie&, const UpdateArgs&);
         AcFunc();
         ~AcFunc();
@@ -349,10 +350,10 @@ public:
            bool is_last_frame();
            void next_frame(int = 0);
 
-           void assign        (const LixEn::Ac);
-           void assign_default(const LixEn::Ac); // Fuer acfunc
-
-           void update(const UpdateArgs&);
+           void assclk        (const LixEn::Ac);
+           void become        (const LixEn::Ac);
+           void become_default(const LixEn::Ac);
+           void update        (const UpdateArgs&);
 
            void draw();
 

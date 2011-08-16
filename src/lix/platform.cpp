@@ -5,22 +5,23 @@
 
 #include "ac.h"
 
-void assign_platformer(Lixxie& l)
+void assclk_platformer(Lixxie& l)
 {
-    l.set_special_y(0);
     if (l.get_ac() == LixEn::PLATFORMER) {
         l.set_special_x(l.get_special_x() + 12);
     }
-    else {
-        l.set_special_x(12);
-        // Der Shrugger soll auf gleicher Hoehe weiterbauen
-        if (l.get_ac() == LixEn::SHRUGGER2
-         && l.get_frame() < 11) {
-            l.set_frame(16);
-        }
-        else l.set_frame(0);
-        l.set_ac(LixEn::PLATFORMER);
-    }
+    else l.become(LixEn::PLATFORMER);
+}
+
+
+
+void become_platformer(Lixxie& l)
+{
+    const bool continue_on_same_height
+        = (l.get_ac() == LixEn::SHRUGGER2 && l.get_frame() < 11);
+    l.become_default(LixEn::PLATFORMER);
+    l.set_special_x(12);
+    l.set_frame(continue_on_same_height ? 16 : 0);
 }
 
 
@@ -51,7 +52,7 @@ void update_platformer(Lixxie& l, const UpdateArgs& ua)
         // anders als in Frame 25 umdrehen. Man kann also direkt vor eine
         // Wand bauen, um umzudrehen.
         if (l.is_solid(6, 0) && l.is_solid(8, 0) && l.is_solid(10, 0)) {
-            l.assign(LixEn::WALKER);
+            l.become(LixEn::WALKER);
             l.turn();
         }
         break;
@@ -59,7 +60,7 @@ void update_platformer(Lixxie& l, const UpdateArgs& ua)
     case  6:
         if (!l.is_solid(0, -2)) l.move_up();
         else {
-            l.assign(LixEn::SHRUGGER2);
+            l.become(LixEn::SHRUGGER2);
             l.set_frame(8);
             l.turn();
         }
@@ -73,7 +74,7 @@ void update_platformer(Lixxie& l, const UpdateArgs& ua)
         // ob da ein Pixel ist. Sonst laufen die Walker durch.
         if (!l.is_solid(2, 1)) l.move_ahead();
         else {
-            l.assign(LixEn::SHRUGGER2);
+            l.become(LixEn::SHRUGGER2);
             l.set_frame(9);
         }
         break;
@@ -81,7 +82,7 @@ void update_platformer(Lixxie& l, const UpdateArgs& ua)
     case 25: // durchaus auch das letzte Frame
         // Kann noch ein Stein verlegt werden?
         if (l.get_special_x() == 0) {
-            l.assign(LixEn::SHRUGGER2);
+            l.become(LixEn::SHRUGGER2);
             l.set_special_y(2); // Bei Klick 2 tiefer anfng. = weiterbauen
         }
         else if (l.is_solid(2, 2)
@@ -90,7 +91,7 @@ void update_platformer(Lixxie& l, const UpdateArgs& ua)
             // In die aktuelle Richtung weiterlaufen! Dies unterscheidet
             // sich von der Vorausplanung nach dem allerersten Stein, dort
             // wird gedreht.
-            l.assign(LixEn::SHRUGGER2);
+            l.become(LixEn::SHRUGGER2);
             l.set_frame(9);
         }
         break;

@@ -20,9 +20,9 @@
 
 #include "ac.h"
 
-void assign_faller(Lixxie& l)
+void become_faller(Lixxie& l)
 {
-    l.assign_default(LixEn::FALLER);
+    l.become_default(LixEn::FALLER);
     l.set_special_y(4);
 }
 
@@ -38,7 +38,7 @@ void update_faller(Lixxie& l, const UpdateArgs& ua)
             // Schirm in letzter Sekunde?
             if (l.get_special_x() > Lixxie::distance_safe_fall
              && !l.get_floater()) {
-                l.assign(LixEn::SPLATTER);
+                l.become(LixEn::SPLATTER);
                 l.play_sound(ua, Sound::SPLAT);
                 // Nicht explodieren lassen, das täte er bei 76 :-)
                 if (l.get_updates_since_bomb() == 75)
@@ -46,15 +46,15 @@ void update_faller(Lixxie& l, const UpdateArgs& ua)
             }
             else if (l.get_special_x() <= 9 && l.get_frame() < 3
              ||      l.get_special_x() == 0) {
-                l.assign(LixEn::WALKER);
+                l.become(LixEn::WALKER);
                 l.set_frame(8);
             }
             else if (l.get_frame() < 3) {
-                l.assign(LixEn::LANDER);
+                l.become(LixEn::LANDER);
                 l.set_frame(1);
             }
             else {
-                l.assign(LixEn::LANDER);
+                l.become(LixEn::LANDER);
                 // use the regular frame 0
             }
         }
@@ -74,7 +74,7 @@ void update_faller(Lixxie& l, const UpdateArgs& ua)
         if (l.get_floater()
          && l.get_special_x() >= Lixxie::distance_float) {
             const int sy = l.get_special_y();
-            l.assign(LixEn::FLOATER);
+            l.become(LixEn::FLOATER);
             l.set_special_y(sy);
         }
     }
