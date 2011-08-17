@@ -83,6 +83,11 @@ private:
     void delete_dublicates_from_selection();
     void delete_from_selection(Selection&);
 
+    void rotate_selection_individual();
+    void rotate_selection();
+    void flip_selection_individual();
+    void flip_selection();
+
     void selection_fore_background(const bool, const bool);
 
     // Rahmen ziehen

@@ -2,45 +2,42 @@
 # If you wish to exclude files that only you have, use .git/info/exclude
 # instead of this file, which will affect all users and is versioned.
 
-# exclude all object files due to compiling code,
-# also all binaries, including Windows ones
-obj/*
-deps/*
-bin/*
+# exclude all object files due to compiling code
+*.[oad]
 *.layout
 *.depend
+lix/lix_debug
 
-# exclude the user data, log and config files in data/, exclude replays
-data/user/*.txt
-data/config.txt
-data/log.txt
-replay/*
+# exclude the user data, log and config files in data/
+lix/data/user/*.txt
+lix/data/config.txt
+lix/data/log.txt
 
 # exclude Lemmings legacy material: terrain and levels
-# the last line excludes free levels that need legacy terrain
-bitmap/orig/L1/*
-bitmap/orig/L1/*/*
-bitmap/orig/L2/*/*
-levels/orig/*
-levels/network/*oldgfx/*
+lix/bitmap/orig/L1/*
+lix/bitmap/orig/L1/*/*
+lix/bitmap/orig/L2/*/*
+lix/levels/orig/*
+lix/levels/network/2player/1. Lemmings/*
+lix/levels/network/2player/2. ONML/*
 
 # exclude non-free sounds. Make an exception for finished replacements,
-data/sound/*
-!data/sound/brick.wav
-!data/sound/assign.wav
-!data/sound/clock.wav
-!data/sound/fire.wav
-!data/sound/goal.wav
-!data/sound/goal_bad.wav
-!data/sound/hatch.wav
-!data/sound/lets_go.wav
-!data/sound/ouch.wav
-!data/sound/overtime.wav
-!data/sound/panel.wav
-!data/sound/steel.wav
-!data/sound/water.wav
+lix/data/sound/*
+!lix/data/sound/brick.wav
+!lix/data/sound/assign.wav
+!lix/data/sound/clock.wav
+!lix/data/sound/fire.wav
+!lix/data/sound/goal.wav
+!lix/data/sound/goal_bad.wav
+!lix/data/sound/hatch.wav
+!lix/data/sound/lets_go.wav
+!lix/data/sound/overtime.wav
+!lix/data/sound/steel.wav
+!lix/data/sound/water.wav
 
-# exclude test levels, and Rubix's Tutorials.
-bitmap/Tutorial Files/*
-levels/Tutorial/*
-levels/test/*
+# exclude any replay files, test levels, and Rubix's 
+# Tutorials.
+lix/replay/*
+lix/bitmap/Tutorial Files/*
+lix/levels/Tutorial/*
+lix/levels/test/*
