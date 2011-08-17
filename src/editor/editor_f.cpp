@@ -313,21 +313,17 @@ void Editor::flip_selection() {
     int y_pivot = (y_max + y_min) / 2;
     for (SelIt i = selection.begin(); i != selection.end(); ++i) {
         i->o->set_y(2 * y_pivot - i->o->get_y() - i->o->get_yl());
-        if (i->l == &object[Object::TERRAIN])
+        if (i->l == &object[Object::TERRAIN]) {
             i->o->set_mirror(!i->o->get_mirror());
+            if (i->o->get_rotation() == 1 || i->o->get_rotation() == 3)
+                i->o->set_rotation(i->o->get_rotation() + 2);
+        }
         if (i->l == &object[Object::HATCH])
             i->o->set_rotation(!i->o->get_rotation());
     }
 }
 
-void Editor::rotate_selection_individual() {
-    for (SelIt i = selection.begin(); i != selection.end(); ++i) {
-        if (i->l == &object[Object::TERRAIN])
-         i->o->set_rotation(i->o->get_rotation()+1);
-        else if (i->l == &object[Object::HATCH])
-         i->o->set_rotation(! i->o->get_rotation());
-    }
-}
+
 
 void Editor::rotate_selection() {
     int y_max = INT_MIN;
@@ -351,7 +347,7 @@ void Editor::rotate_selection() {
         i->o->set_y(y_new);
         i->o->set_x(x_new);
         if (i->l == &object[Object::TERRAIN])
-            i->o->set_rotation(i->o->get_rotation()+1);
+            i->o->set_rotation(i->o->get_rotation() + 3);
         else if (i->l == &object[Object::HATCH])
             i->o->set_rotation(! i->o->get_rotation());
     }
