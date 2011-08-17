@@ -71,7 +71,6 @@ bool jumper_and_tumbler_collision(Lixxie& l)
         // vor, zurueck oder entgegen der Y-Richtung vertikal bewegt.
         if (l.is_solid(0, 0)) {
             l.become(LixEn::STUNNER);
-            /* DEBUGGING, testing with geoo
             for (int dist = 1; ; ++dist) {
                 if (!l.is_solid(dist/2*2, 0)) {
                     l.move_ahead(dist/2*2);
@@ -92,11 +91,10 @@ bool jumper_and_tumbler_collision(Lixxie& l)
                     // // Die + 1 in der Bedingung stehen dort, weil Fuss des
                     // // Lemmings immer noch einen freien Pixel drunter hat.
                     // l.move_up(dist);
-                    l.assign(LixEn::STUNNER);
+                    l.become(LixEn::STUNNER);
                     break;
                 }
             }
-            */
         }
         return true;
     }

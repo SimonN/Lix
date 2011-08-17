@@ -267,6 +267,7 @@ public:
     static void           set_static_maps   (Torbit&, Torbit&, Map&);
     static void           set_effect_manager(EffectManager& e) { effect = &e; }
     static EffectManager* get_ef()                             {return effect;}
+    static const Torbit&  get_land() { return *land; }
 
     inline bool get_mark() { return marked;  }
     inline void mark()     { marked = true;  }

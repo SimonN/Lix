@@ -39,10 +39,18 @@ void update_jumper(Lixxie& l, const UpdateArgs& ua)
     // nix, weil in dem Fall null Schleifendurchlaeufe passieren oder
     // mit null multipliziert wird.
 
+    if (jumper_and_tumbler_collision(l)) {
+        switch (l.get_ac()) {
+            case LixEn::STUNNER:  l.play_sound(ua, Sound::OUCH);  break;
+            case LixEn::SPLATTER: l.play_sound(ua, Sound::SPLAT); break;
+            default: break;
+        }
+    }
+
     // Schrittweise schraeg vorruecken und jedes Mal auf
     // Kollision mit der Landschaft testen.
     // Die groessere Laenge wird pixelweise abgearbeitet.
-    for (unsigned i = 0; i < (abs >= spe ? abs : spe); ++i) {
+    else for (unsigned i = 0; i < (abs >= spe ? abs : spe); ++i) {
         // 2 * (... / 2) sorgt fuer das Einhalten der geraden X-Zahlen.
         // Es wird jeweils geguckt, ob der Zaehler i weit genug vor-
         // geschritten ist, damit in die kurze Richtung ein

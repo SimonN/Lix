@@ -99,7 +99,7 @@ unsigned Lixxie::get_priority(LixEn::Ac                   new_ac,
             else return 1;
 
     }
-    p += updates_since_bomb;
+    p += (new_ac == LixEn::BATTER ? -updates_since_bomb : updates_since_bomb);
     p += 400 * runner + 200 * climber + 100 * floater;
     return p;
 }
