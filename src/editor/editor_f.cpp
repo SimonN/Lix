@@ -6,6 +6,7 @@
  *
  */
 
+#include <climits>
 #include "editor.h"
 #include "../level/obj_lib.h" // Suche nach Terrain/Spezialobjekten
 #include "../other/user.h"
@@ -290,4 +291,68 @@ bool Editor::search_criterion_hazard(const Filename& s) {
      ||           ob->type == Object::WATER
      ||           ob->type == Object::FLING
      ||           ob->type == Object::TRAMPOLINE);
+}
+
+
+void Editor::flip_selection_individual() {
+    for (SelIt i = selection.begin(); i != selection.end(); ++i) {
+        if (i->l == &object[Object::TERRAIN])
+         i->o->set_mirror(!i->o->get_mirror());
+        if (i->l == &object[Object::HATCH])
+         i->o->set_rotation(!i->o->get_rotation());
+    }
+}
+
+void Editor::flip_selection() {
+    int y_max = INT_MIN;
+    int y_min = INT_MAX;
+    for (SelIt i = selection.begin(); i != selection.end(); ++i) {
+        y_max = std::max(y_max, i->o->get_y() + i->o->get_yl());
+        y_min = std::min(y_min, i->o->get_y());
+    }
+    int y_pivot = (y_max + y_min) / 2;
+    for (SelIt i = selection.begin(); i != selection.end(); ++i) {
+        i->o->set_y(2 * y_pivot - i->o->get_y() - i->o->get_yl());
+        if (i->l == &object[Object::TERRAIN])
+            i->o->set_mirror(!i->o->get_mirror());
+        if (i->l == &object[Object::HATCH])
+            i->o->set_rotation(!i->o->get_rotation());
+    }
+}
+
+void Editor::rotate_selection_individual() {
+    for (SelIt i = selection.begin(); i != selection.end(); ++i) {
+        if (i->l == &object[Object::TERRAIN])
+         i->o->set_rotation(i->o->get_rotation()+1);
+        else if (i->l == &object[Object::HATCH])
+         i->o->set_rotation(! i->o->get_rotation());
+    }
+}
+
+void Editor::rotate_selection() {
+    int y_max = INT_MIN;
+    int y_min = INT_MAX;
+    int x_max = INT_MIN;
+    int x_min = INT_MAX;
+    for (SelIt i = selection.begin(); i != selection.end(); ++i) {
+        y_max = std::max(y_max, i->o->get_y() + i->o->get_yl());
+        y_min = std::min(y_min, i->o->get_y());
+        x_max = std::max(x_max, i->o->get_x() + i->o->get_xl());
+        x_min = std::min(x_min, i->o->get_x());
+    }
+    int y_pivot = (y_max + y_min) / 2;
+    int x_pivot = (x_max + x_min) / 2;
+    for (SelIt i = selection.begin(); i != selection.end(); ++i) {
+        int xl = i->o->get_xl();
+        int dy = i->o->get_y() - y_pivot;
+        int dx = i->o->get_x() - x_pivot;
+        int y_new = y_pivot - dx - xl;
+        int x_new = x_pivot + dy;
+        i->o->set_y(y_new);
+        i->o->set_x(x_new);
+        if (i->l == &object[Object::TERRAIN])
+            i->o->set_rotation(i->o->get_rotation()+1);
+        else if (i->l == &object[Object::HATCH])
+            i->o->set_rotation(! i->o->get_rotation());
+    }
 }

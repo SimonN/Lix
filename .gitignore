@@ -26,10 +26,11 @@ levels/network/*oldgfx/*
 
 # exclude non-free sounds. Make an exception for finished replacements,
 data/sound/*
+!data/sound/assign.wav
+!data/sound/award*.wav
 !data/sound/bat_hit.wav
 !data/sound/bat_miss.wav
 !data/sound/brick.wav
-!data/sound/assign.wav
 !data/sound/clock.wav
 !data/sound/fire.wav
 !data/sound/goal.wav

@@ -215,22 +215,12 @@ void Editor::calc_self()
         case SELECT_FRONT: selection_fore_background(false, true ); break;
 
         case SELECT_FLIP:
-            for (SelIt i = selection.begin(); i != selection.end(); ++i) {
-                if (i->l == &object[Object::TERRAIN])
-                 i->o->set_mirror(!i->o->get_mirror());
-                if (i->l == &object[Object::HATCH])
-                 i->o->set_rotation(!i->o->get_rotation());
-            }
+            flip_selection();
             if (!selection.empty()) draw_required = true;
             break;
 
         case SELECT_ROTATE:
-            for (SelIt i = selection.begin(); i != selection.end(); ++i) {
-                if (i->l == &object[Object::TERRAIN])
-                 i->o->set_rotation(i->o->get_rotation()+1);
-                else if (i->l == &object[Object::HATCH])
-                 i->o->set_rotation(! i->o->get_rotation());
-            }
+            rotate_selection();
             if (!selection.empty()) draw_required = true;
             break;
 
