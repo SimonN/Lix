@@ -48,8 +48,8 @@ void update_batter(Lixxie& l, const UpdateArgs& ua)
     if (l.get_ac() == LixEn::BATTER && l.get_frame() == 3) {
         // the fun batting forward
         bool someone_was_hit = fling_all_in_rectangle(ua,
-            l.get_ex() + 6 * l.get_dir(), l.get_ey(), 4,
-            12, 10,
+            l.get_ex() + 6 * l.get_dir(), l.get_ey() - 4, 4,
+            12, 12,
             10, -12, l);
         if (someone_was_hit) l.play_sound        (ua, Sound::BATTER_HIT);
         else                 l.play_sound_if_trlo(ua, Sound::BATTER_MISS);

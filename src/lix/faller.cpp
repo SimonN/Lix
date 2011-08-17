@@ -47,7 +47,8 @@ void update_faller(Lixxie& l, const UpdateArgs& ua)
             else if (l.get_special_x() <= 9 && l.get_frame() < 3
              ||      l.get_special_x() == 0) {
                 l.become(LixEn::WALKER);
-                l.set_frame(8);
+                if (l.get_runner()) l.set_frame(6);
+                else                l.set_frame(8);
             }
             else if (l.get_frame() < 3) {
                 l.become(LixEn::LANDER);
