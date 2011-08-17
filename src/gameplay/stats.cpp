@@ -156,11 +156,12 @@ void GameplayStats::PanelTribe::draw_local(
         Help::string_to_nice_case(str);
         if (tarcnt > 1 && Language::get() != Language::GERMAN) str += 's';
         str = cnt.str() + str;
-        if (tarinf->get_climber() || tarinf->get_floater()) {
+        if (tarinf->get_climber() || tarinf->get_floater()
+                                  || tarinf->get_runner()) {
             ab += " (";
-            if (tarinf->get_climber() && tarinf->get_floater()) ab += 'A';
-            else if (tarinf->get_climber()) ab += 'C';
-            else if (tarinf->get_floater()) ab += 'F';
+            if (tarinf->get_runner() ) ab += 'R';
+            if (tarinf->get_climber()) ab += 'C';
+            if (tarinf->get_floater()) ab += 'F';
             ab += ')';
         }
         while (text_length(font_med, (str + ab).c_str()) > xl_tarinf

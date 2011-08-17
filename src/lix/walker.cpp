@@ -8,11 +8,12 @@
 
 #include "ac.h"
 
-void assign_walker(Lixxie& l)
+void assclk_walker(Lixxie& l)
 {
     l.set_special_y(0);
     l.set_special_x(0);
     if (l.get_ac() == LixEn::WALKER
+     || l.get_ac() == LixEn::RUNNER
      || l.get_ac() == LixEn::LANDER) {
         l.turn();
         // Da bei Walker -> Walker nicht --frame von evaluate_click() kommt,
@@ -31,28 +32,45 @@ void assign_walker(Lixxie& l)
         // it around.
     }
     else if (l.get_ac() == LixEn::SHRUGGER || l.get_ac() == LixEn::SHRUGGER2) {
+        l.become(LixEn::WALKER);
         l.turn();
-        l.set_ac(LixEn::WALKER);
-        l.set_frame(0);
     }
     else {
-        l.set_ac(LixEn::WALKER);
-        l.set_frame(0);
+        l.become(LixEn::WALKER);
     }
 }
 
 
 
+void become_walker(Lixxie& l)
+{
+    if (l.get_runner()) l.become        (LixEn::RUNNER);
+    else                l.become_default(LixEn::WALKER);
+}
+
+
+
+void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua);
+
 void update_walker(Lixxie& l, const UpdateArgs& ua)
+{
+    if (l.is_last_frame())  l.set_frame(3);
+    else                    l.next_frame();
+
+    update_walker_or_runner(l, ua);
+}
+
+
+
+void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
 {
     ua.suppress_unused_variable_warning();
 
     // Das erste Frame dient zur kurzen Pause, die der Lemming vor dem
     // Weiterlaufen machen soll, wenn die Walker-Faehigkeit vom Benutzer
     // explizit zugewiesen wird. Dieses Frame darf im normalen Walker-
-    // Framezyklus nicht angenommen werdent.
-    if (l.is_last_frame())  l.set_frame(3);
-    else                    l.next_frame();
+    // Framezyklus nicht angenommen werden.
+    // Also true for runners.
     if (l.get_frame() != 0) l.move_ahead();
 
     bool turn_after_all   = false;
@@ -75,7 +93,7 @@ void update_walker(Lixxie& l, const UpdateArgs& ua)
             l.move_up(u);
             // ...und ggf. kurz anhalten, um Höhen ab 7 Pixeln zu klettern
             if (up_by_what1 > 6 || up_by_what2 > 6) {
-                l.assign(LixEn::ASCENDER);
+                l.become(LixEn::ASCENDER);
                 // Frame wählen und hinunter bewegen, denn der Ascender
                 // hängt ja zunächst in der Wand
                 l.set_frame(12-u);
@@ -109,7 +127,7 @@ void update_walker(Lixxie& l, const UpdateArgs& ua)
         else {
             // Aber nicht direkt so weit nach unten zum Fallen bewegen
             l.move_up(6);
-            l.assign(LixEn::FALLER);
+            l.become(LixEn::FALLER);
             l.set_special_x(2);
         }
     }
@@ -129,9 +147,9 @@ void update_walker(Lixxie& l, const UpdateArgs& ua)
                     break;
                 }
             }
-            if (enough_space) l.assign(LixEn::CLIMBER);
+            if (enough_space) l.become(LixEn::CLIMBER);
         }
-        if (l.get_ac() == LixEn::WALKER) {
+        if (! l.get_climber()) {
             l.turn();
             l.move_ahead();
         }

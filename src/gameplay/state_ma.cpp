@@ -9,9 +9,9 @@ const unsigned StateManager::updates_sml( 10);
 const unsigned StateManager::updates_med( 50);
 const unsigned StateManager::updates_big(200);
 
-const State& StateManager::load_auto(Ulng u)
+const GameState& StateManager::load_auto(Ulng u)
 {
-    State*                              s = &zero;
+    GameState*                          s = &zero;
     if      (sml_1 && sml_1.update < u) s = &sml_1;
     else if (sml_2 && sml_2.update < u) s = &sml_2;
     else if (med_1 && med_1.update < u) s = &med_1;
@@ -19,19 +19,19 @@ const State& StateManager::load_auto(Ulng u)
     else if (big_1 && big_1.update < u) s = &big_1;
     else if (big_2 && big_2.update < u) s = &big_2;
 
-    if (sml_1 && sml_1.update > s->update) sml_1 = State();
-    if (sml_2 && sml_2.update > s->update) sml_2 = State();
-    if (med_1 && med_1.update > s->update) med_1 = State();
-    if (med_2 && med_2.update > s->update) med_2 = State();
-    if (big_1 && big_1.update > s->update) big_1 = State();
-    if (big_2 && big_2.update > s->update) big_2 = State();
+    if (sml_1 && sml_1.update > s->update) sml_1 = GameState();
+    if (sml_2 && sml_2.update > s->update) sml_2 = GameState();
+    if (med_1 && med_1.update > s->update) med_1 = GameState();
+    if (med_2 && med_2.update > s->update) med_2 = GameState();
+    if (big_1 && big_1.update > s->update) big_1 = GameState();
+    if (big_2 && big_2.update > s->update) big_2 = GameState();
 
     return *s;
 }
 
 
 
-void StateManager::calc_save_auto(const State& s)
+void StateManager::calc_save_auto(const GameState& s)
 {
     const bool save_sml  =   ( s.update % updates_sml == 0);
     const bool which_sml = ! ((s.update / updates_sml) % 2);

@@ -29,6 +29,7 @@ void initialize()
     ac_string   [DROWNER]           = "DROWNER";
     ac_string   [EXITER]            = "EXITER";
     ac_string   [WALKER]            = "WALKER";
+    ac_string   [RUNNER]            = "RUNNER";
 
     ac_string   [CLIMBER]           = "CLIMBER";
     ac_string   [ASCENDER]          = "ASCENDER";
@@ -46,6 +47,7 @@ void initialize()
 
     ac_string   [JUMPER]            = "JUMPER";
     ac_string   [ROPER]             = "ROPER";
+    ac_string   [BATTER]            = "BATTER";
     ac_string   [AC_MAX]            = "AC_MAX";
 
     style_string[GARDEN]            = "Garden";

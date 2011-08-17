@@ -26,7 +26,7 @@ void update_stunner(Lixxie& l, const UpdateArgs& ua)
         }
         if (!l.is_solid()) {
             l.move_up(moved_down_by);
-            l.assign(LixEn::TUMBLER);
+            l.become(LixEn::TUMBLER);
             l.set_special_y(2);
             l.set_special_x(0);
         }
@@ -41,7 +41,7 @@ void update_stunner(Lixxie& l, const UpdateArgs& ua)
             l.set_special_x(l.get_special_x() + 1);
             if (l.get_special_x() == 17) l.next_frame();
         }
-        else if (l.is_last_frame()) l.assign(LixEn::WALKER);
+        else if (l.is_last_frame()) l.become(LixEn::WALKER);
         else l.next_frame();
     }
 }

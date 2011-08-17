@@ -289,7 +289,7 @@ void Gameplay::calc_self()
 
 
 
-void Gameplay::load_state(const State& state)
+void Gameplay::load_state(const GameState& state)
 {
     if (state) {
         cs = state;

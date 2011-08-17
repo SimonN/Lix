@@ -52,6 +52,7 @@ struct Tribe {
     typedef std::vector <Tribe>  ::iterator       It;
     typedef std::vector <Tribe>  ::const_iterator CIt;
     typedef std::list   <Master> ::iterator       MIt;
+    typedef std::vector <Lixxie> ::iterator       LixIt;
 
     int         initial;
     int         required;

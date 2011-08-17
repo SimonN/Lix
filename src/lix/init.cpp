@@ -14,16 +14,25 @@ std::vector <Lixxie::AcFunc>      Lixxie::ac_func(LixEn::AC_MAX);
 
 void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
 {
-    ac_func     [LixEn::FALLER]    .assign = assign_faller;
-    ac_func     [LixEn::DROWNER]   .assign = assign_drowner;
-    ac_func     [LixEn::EXITER]    .assign = assign_exiter;
-    ac_func     [LixEn::WALKER]    .assign = assign_walker;
-    ac_func     [LixEn::CLIMBER]   .assign = assign_climber;
-    ac_func     [LixEn::BUILDER]   .assign = assign_builder;
-    ac_func     [LixEn::PLATFORMER].assign = assign_platformer;
-    ac_func     [LixEn::MINER]     .assign = assign_miner;
-    ac_func     [LixEn::DIGGER]    .assign = assign_digger;
-    ac_func     [LixEn::JUMPER]    .assign = assign_jumper;
+    ac_func     [LixEn::WALKER]    .assclk = assclk_walker;
+    ac_func     [LixEn::RUNNER]    .assclk = assclk_runner;
+    ac_func     [LixEn::CLIMBER]   .assclk = assclk_climber;
+    ac_func     [LixEn::FLOATER]   .assclk = assclk_floater;
+    ac_func     [LixEn::EXPLODER]  .assclk = assclk_exploder;
+    ac_func     [LixEn::EXPLODER2] .assclk = assclk_exploder2;
+    ac_func     [LixEn::BUILDER]   .assclk = assclk_builder;
+    ac_func     [LixEn::PLATFORMER].assclk = assclk_platformer;
+
+    ac_func     [LixEn::FALLER]    .become = become_faller;
+    ac_func     [LixEn::DROWNER]   .become = become_drowner;
+    ac_func     [LixEn::EXITER]    .become = become_exiter;
+    ac_func     [LixEn::WALKER]    .become = become_walker;
+    ac_func     [LixEn::CLIMBER]   .become = become_climber;
+    ac_func     [LixEn::BUILDER]   .become = become_builder;
+    ac_func     [LixEn::PLATFORMER].become = become_platformer;
+    ac_func     [LixEn::MINER]     .become = become_miner;
+    ac_func     [LixEn::DIGGER]    .become = become_digger;
+    ac_func     [LixEn::JUMPER]    .become = become_jumper;
 
     ac_func     [LixEn::FALLER]    .update = update_faller;
     ac_func     [LixEn::TUMBLER]   .update = update_tumbler;
@@ -34,6 +43,7 @@ void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
     ac_func     [LixEn::DROWNER]   .update = update_drowner;
     ac_func     [LixEn::EXITER]    .update = update_exiter;
     ac_func     [LixEn::WALKER]    .update = update_walker;
+    ac_func     [LixEn::RUNNER]    .update = update_runner;
     ac_func     [LixEn::CLIMBER]   .update = update_climber;
     ac_func     [LixEn::ASCENDER]  .update = update_ascender;
     ac_func     [LixEn::FLOATER]   .update = update_floater;
@@ -48,6 +58,7 @@ void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
     ac_func     [LixEn::DIGGER]    .update = update_digger;
     ac_func     [LixEn::JUMPER]    .update = update_jumper;
     ac_func     [LixEn::ROPER]     .update = update_roper;
+    ac_func     [LixEn::BATTER]    .update = update_batter;
 
     ac_func     [LixEn::FALLER]    .pass_top =
     ac_func     [LixEn::TUMBLER]   .pass_top =

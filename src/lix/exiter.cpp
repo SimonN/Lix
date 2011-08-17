@@ -17,14 +17,9 @@
 
 #include "ac.h"
 
-void assign_exiter(Lixxie& l)
+void become_exiter(Lixxie& l)
 {
-    l.set_ac(LixEn::EXITER);
-    l.set_frame(0);
-    l.set_special_x(0);
-    l.set_special_y(0);
-
-    // Nicht explodieren lassen
+    l.become_default(LixEn::EXITER);
     l.set_updates_since_bomb(0);
 }
 

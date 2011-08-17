@@ -57,6 +57,7 @@ Lixxie::Lixxie(
     frame             (0),
     updates_since_bomb(0),
     exploder_knockback(false),
+    runner            (false),
     climber           (false),
     floater           (false),
 
@@ -64,7 +65,7 @@ Lixxie::Lixxie(
     ac                (LixEn::NOTHING)
 {
     if (tribe) {
-        assign(LixEn::FALLER);
+        become(LixEn::FALLER);
         frame = 4;
     }
     // Wichtig fuer den Torus: Rechtzeitig Modulo rechnen
@@ -288,14 +289,15 @@ void Lixxie::draw_brick(int x1, int y1, int x2, int y2)
 
 void Lixxie::play_sound(const UpdateArgs& ua, Sound::Id sound_id)
 {
-    if (effect) effect->add_sound(ua.upd, *tribe, ua.id, sound_id);
+    if (effect) effect->add_sound(ua.st.update, *tribe, ua.id, sound_id);
 }
 
 
 
 void Lixxie::play_sound_if_trlo(const UpdateArgs& ua, Sound::Id sound_id)
 {
-    if (effect) effect->add_sound_if_trlo(ua.upd, *tribe, ua.id, sound_id);
+    if (effect) effect->add_sound_if_trlo(
+                            ua.st.update, *tribe, ua.id, sound_id);
 }
 
 

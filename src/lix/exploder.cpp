@@ -5,6 +5,21 @@
 
 #include "ac.h"
 
+void assclk_exploder2(Lixxie& l)
+{
+    l.set_exploder_knockback();
+    l.inc_updates_since_bomb();
+}
+
+
+
+void assclk_exploder(Lixxie& l)
+{
+    l.inc_updates_since_bomb();
+}
+
+
+
 void update_exploder(Lixxie& l, const UpdateArgs& ua)
 {
     // Bis zu sechs Pixel fallen
@@ -43,9 +58,9 @@ void update_exploder(Lixxie& l, const UpdateArgs& ua)
         // Explosionsanimation starten
         l.play_sound(ua, Sound::POP);
         l.get_ef()->add_explosion(
-         ua.upd, l.get_tribe(), ua.id, l.get_ex(), l.get_ey());
+         ua.st.update, l.get_tribe(), ua.id, l.get_ex(), l.get_ey());
 
-        l.assign(LixEn::NOTHING); // entfernt den Lemming next time
+        l.become(LixEn::NOTHING); // entfernt den Lemming next time
     }
 
     else l.next_frame();

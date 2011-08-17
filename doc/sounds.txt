@@ -32,6 +32,17 @@ award_4.wav
     Event:  Finishing with a lowest score.
     Flavor: funny, signalling failure, shouldn't be a fanfare
 
+bat_hit.wav
+    Status: done
+    Event:  A batter hits at least one other lix.
+    Flavor: Like a large meat steak smashed onto a table. This must be a very
+            full, comforting, comical sound.
+    
+bat_miss.wav
+    Status: done
+    Event:  An own batter misses.
+    Flavor: A short, soft swoosh, not that significant.
+
 brick.wav
     Status: done
     Event:  Builder has placed a brick and it was one of her 3 last ones.
@@ -105,7 +116,7 @@ panel.wav
     Flavor: A short, confirming, mechanical sound.
 
 pop.wav
-    Status: missing
+    Status: done
     Event:  Exploder explodes
     Flavor: Very short and markant.
 

@@ -25,7 +25,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
         // Exploder a la L2 mit Knockback und sofortigem Tod
         if (l.get_updates_since_bomb() == 76 && l.get_exploder_knockback()) {
             // Der Wert -6 (etwas ueber Fusshoehe) stammt aus L2-Screenshots
-            make_knockback_explosion(ua.upd, l.get_tribe(),
+            make_knockback_explosion(ua.st.update, l.get_tribe(),
              ua.id, l.get_ex(), l.get_ey() - 6);
             l.play_sound(ua, Sound::POP);
             l.set_ac(LixEn::NOTHING);
@@ -44,15 +44,15 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
             // Alles, was in der Luft ist, soll sofort explodieren
             if (l.get_ac() == LixEn::FALLER
              || l.get_ac() == LixEn::TUMBLER
-             || l.get_ac() == LixEn::STUNNER && l.get_frame() < 13
+             ||(l.get_ac() == LixEn::STUNNER && l.get_frame() < 13)
              || l.get_ac() == LixEn::FLOATER
              || l.get_ac() == LixEn::JUMPER) {
-                l.assign(LixEn::EXPLODER);
+                l.become(LixEn::EXPLODER);
                 l.set_frame(15);
             }
             else {
                 bool b = (l.get_ac() == LixEn::BLOCKER);
-                l.assign(LixEn::EXPLODER);
+                l.become(LixEn::EXPLODER);
                 l.set_frame(-1); // weil assign immer auf Frame 2 setzt
                 if (b) l.set_special_x(1); // Damit der Exploder weiterblockt
                 if (!l.get_tribe().nuke) l.play_sound(ua, Sound::OHNO);
@@ -75,7 +75,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
     // Blocker: Abarbeiten anderer Lixxiee geschieht hier, weil dies ja
     // nicht nur den einen Lixxie betrifft
     if (l.get_ac() == LixEn::BLOCKER
-     || l.get_ac() == LixEn::EXPLODER && l.get_special_x() == 1)
+     ||(l.get_ac() == LixEn::EXPLODER && l.get_special_x() == 1))
      update_lix_blocker(l);
 
 
@@ -125,7 +125,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
      if (l.get_in_trigger_area(*i)) {
         int fire = i->get_object()->subtype;
         if (!fire) l.set_ey(i->get_y() + i->get_object()->trigger_y + 2);
-        l.assign(fire ? LixEn::BURNER : LixEn::DROWNER);
+        l.become(fire ? LixEn::BURNER : LixEn::DROWNER);
         // Nicht explodieren lassen, das täte er bei 76 :-)
         if (l.get_updates_since_bomb() == 75) l.set_updates_since_bomb(0);
         l.play_sound(ua, fire ? Sound::FIRE : Sound::WATER);
@@ -145,7 +145,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
             else continue;
         }
         int dir = l.get_dir();
-        l.assign(LixEn::TUMBLER);
+        l.become(LixEn::TUMBLER);
         int special_x = i->get_object()->special_x;
         if (!(sub & 1)) special_x *= dir;
         l.set_special_x(std::abs(special_x));
@@ -158,9 +158,9 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
 
     // Lixxie aus dem Bild?
     if (l.get_ey() >= map.get_yl() + 23
-     || l.get_ey() >= map.get_yl() + 15 && l.get_ac() != LixEn::FLOATER
+     ||(l.get_ey() >= map.get_yl() + 15 && l.get_ac() != LixEn::FLOATER)
      || l.get_ex() >= map.get_xl() +  4
-     || l.get_ey() < -1 && !l.get_pass_top() // -1 because ey is 2 over floor
+     ||(l.get_ey() < -1 && !l.get_pass_top()) // -1 because ey is 2 over floor
      || l.get_ex() < -4) {
         l.play_sound(ua, Sound::OBLIVION);
         l.set_ac(LixEn::NOTHING);
@@ -185,12 +185,12 @@ void Gameplay::update_lix_blocker(Lixxie& l)
             const int dy = map.distance_x(i->get_ey(), l.get_ey());
             if (dx > - distance_side && dx < distance_side
              && dy > - block_d       && dy < block_u) {
-                if (i->get_dir() > 0 && dx > 0
-                 || i->get_dir() < 0 && dx < 0) {
+                if ((i->get_dir() > 0 && dx > 0)
+                 || (i->get_dir() < 0 && dx < 0)) {
                     i->turn();
                     // Platformer drehten sonst um, hoeren auf, drehen erneut
                     if (i->get_ac() == LixEn::PLATFORMER) {
-                        i->assign(LixEn::WALKER); // = mit kurzem Aufstehen
+                        i->become(LixEn::WALKER); // = mit kurzem Aufstehen
                         i->set_frame(i->get_frame() - 1);
 }   }   }   }   }   }
 
@@ -203,16 +203,16 @@ void Gameplay::update_lix_goals(Lixxie& l, const UpdateArgs& ua)
      for (int i = 0; i < (int) goal.size(); ++i)
      if (l.get_in_trigger_area(goal[i])) {
         // Lixxie soll ins Ziel gehen und sich merken, in welches
-        l.assign(LixEn::EXITER);
+        l.become(LixEn::EXITER);
         l.set_special_y(i);
         // Wem gehoert das Ziel, um den Sound abzuspielen? Diese Kontrolle
         // wird beim Exiter nochmal gemacht, wenn der Lixxie verschwindet.
         // Sound is always played as if the player was the local player.
         // No sound is played if the player is not involved.
         if (goal[i].has_tribe(trlo))
-         effect.add_sound(ua.upd, *trlo, ua.id, Sound::GOAL);
+         effect.add_sound(ua.st.update, *trlo, ua.id, Sound::GOAL);
         else if (&l.get_tribe() == trlo)
-         effect.add_sound(ua.upd, *trlo, ua.id, Sound::GOAL_BAD);
+         effect.add_sound(ua.st.update, *trlo, ua.id, Sound::GOAL_BAD);
 }   }
 
 
@@ -250,7 +250,7 @@ void Gameplay::make_knockback_explosion(
         if (distance <= range) {
             const int sx = (int) (dx * strength_x * (1 - distance / range));
             const int sy = (int) (dy * strength_y * (1 - distance / range));
-            i->assign       (LixEn::TUMBLER);
+            i->become       (LixEn::TUMBLER);
             i->set_dir      (dx);
             i->set_special_x(sx/i->get_dir());
             i->set_special_y(sy - 6); // Mehr lustiges Hochfliegen!

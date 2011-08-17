@@ -11,16 +11,15 @@ void tumbler_frame_selection     (Lixxie&);
 
 
 
-void assign_jumper(Lixxie& l)
+void become_jumper(Lixxie& l)
 {
-    l.set_frame    ( 0);
+    l.become_default(LixEn::JUMPER);
     l.set_special_y(-8); // Y-Geschwindigkeit
     l.set_special_x( 6); // X-Geschwindigkeit
-    l.set_ac       (LixEn::JUMPER);
 
     for (int i = -4; i > -16; --i)
      if (l.is_solid(0, i)) {
-        l.assign(LixEn::STUNNER);
+        l.become(LixEn::STUNNER);
         return;
     }
 }
@@ -40,10 +39,18 @@ void update_jumper(Lixxie& l, const UpdateArgs& ua)
     // nix, weil in dem Fall null Schleifendurchlaeufe passieren oder
     // mit null multipliziert wird.
 
+    if (jumper_and_tumbler_collision(l)) {
+        switch (l.get_ac()) {
+            case LixEn::STUNNER:  l.play_sound(ua, Sound::OUCH);  break;
+            case LixEn::SPLATTER: l.play_sound(ua, Sound::SPLAT); break;
+            default: break;
+        }
+    }
+
     // Schrittweise schraeg vorruecken und jedes Mal auf
     // Kollision mit der Landschaft testen.
     // Die groessere Laenge wird pixelweise abgearbeitet.
-    for (unsigned i = 0; i < (abs >= spe ? abs : spe); ++i) {
+    else for (unsigned i = 0; i < (abs >= spe ? abs : spe); ++i) {
         // 2 * (... / 2) sorgt fuer das Einhalten der geraden X-Zahlen.
         // Es wird jeweils geguckt, ob der Zaehler i weit genug vor-
         // geschritten ist, damit in die kurze Richtung ein
@@ -78,7 +85,7 @@ void update_jumper(Lixxie& l, const UpdateArgs& ua)
             if (l.get_floater()) {
                 const int sx = l.get_special_x();
                 const int sy = l.get_special_y();
-                l.assign(LixEn::FLOATER);
+                l.become(LixEn::FLOATER);
                 l.set_special_x(sx);
                 l.set_special_y(sy);
             }

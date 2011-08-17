@@ -14,14 +14,15 @@ const int tumbler_frame_steep_drown = 7;
 const int drowner_steep_frame = 6;
 
 
-void assign_drowner(Lixxie& l)
-{    
+
+void become_drowner(Lixxie& l)
+{
     int drowner_frame = 0;
     if (l.get_ac() == LixEn::TUMBLER
         && l.get_frame() > tumbler_frame_steep_drown) {
         drowner_frame = drowner_steep_frame;
     }
-    l.assign_default(LixEn::DROWNER);
+    l.become_default(LixEn::DROWNER);
     l.set_frame(drowner_frame);
 }
 
@@ -42,7 +43,7 @@ void update_splatter(Lixxie& l, const UpdateArgs& ua)
         l.set_updates_since_bomb(l.get_updates_since_bomb()
          + 5 + 3*l.get_frame());
     }
-    if (l.is_last_frame()) l.assign(LixEn::NOTHING);
+    if (l.is_last_frame()) l.become(LixEn::NOTHING);
     else l.next_frame();
 }
 
@@ -84,6 +85,6 @@ void update_drowner(Lixxie& l, const UpdateArgs& ua)
         l.move_ahead();
 
     // Nach Ablauf der Animation zerstören...
-    if (l.is_last_frame()) l.assign(LixEn::NOTHING);
+    if (l.is_last_frame()) l.become(LixEn::NOTHING);
     else l.next_frame();
 }

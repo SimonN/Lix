@@ -10,11 +10,13 @@
 
 #include "ac.h"
 
-void assign_miner(Lixxie& l)
+void become_miner(Lixxie& l)
 {
-    l.assign_default(LixEn::MINER);
+    l.become_default(LixEn::MINER);
     l.set_special_x(1);
 }
+
+
 
 void update_miner(Lixxie& l, const UpdateArgs& ua)
 {
@@ -86,17 +88,17 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
         // rechts, ferner +1 = Drehung um 90 Grad nach rechts).
         int axe_rotation = l.get_dir() < 0;
         if (l.get_frame() == 0) axe_rotation = 3 - axe_rotation;
-        l.get_ef()->add_pickaxe(ua.upd, l.get_tribe(), ua.id,
+        l.get_ef()->add_pickaxe(ua.st.update, l.get_tribe(), ua.id,
          l.get_ex() + 10, l.get_frame() == 1 ? l.get_ey() - 2 : l.get_ey() -16,
          axe_rotation);
         l.turn();
-        l.assign(LixEn::WALKER);
+        l.become(LixEn::WALKER);
         l.play_sound(ua, Sound::STEEL);
     }
 
     // Fertig gegraben?
     else if (!l.is_solid( 0, 2) && !l.is_solid( 0, 1)) {
-        l.assign(LixEn::FALLER);
+        l.become(LixEn::FALLER);
     }
     else if (l.get_ac() == LixEn::MINER) l.next_frame();
 }

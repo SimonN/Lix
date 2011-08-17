@@ -221,7 +221,8 @@ private:
         bool      aiming;
         int       returns_x;
         Sound::Id aim_sound;
-        void (*assign)(Lixxie&);
+        void (*assclk)(Lixxie&);
+        void (*become)(Lixxie&);
         void (*update)(Lixxie&, const UpdateArgs&);
         AcFunc();
         ~AcFunc();
@@ -241,6 +242,7 @@ private:
     char updates_since_bomb;
     char exploder_knockback;
 
+    char runner;
     char climber;
     char floater;
 
@@ -265,6 +267,7 @@ public:
     static void           set_static_maps   (Torbit&, Torbit&, Map&);
     static void           set_effect_manager(EffectManager& e) { effect = &e; }
     static EffectManager* get_ef()                             {return effect;}
+    static const Torbit&  get_land() { return *land; }
 
     inline bool get_mark() { return marked;  }
     inline void mark()     { marked = true;  }
@@ -314,8 +317,10 @@ public:
     inline bool get_exploder_knockback() const { return exploder_knockback; }
     inline void set_exploder_knockback(bool b = true) { exploder_knockback=b; }
 
+    inline bool get_runner () const { return runner;  }
     inline bool get_climber() const { return climber; }
     inline bool get_floater() const { return floater; }
+    inline void set_runner ()       { runner  = true; }
     inline void set_climber()       { climber = true; }
     inline void set_floater()       { floater = true; }
 
@@ -346,10 +351,10 @@ public:
            bool is_last_frame();
            void next_frame(int = 0);
 
-           void assign        (const LixEn::Ac);
-           void assign_default(const LixEn::Ac); // Fuer acfunc
-
-           void update(const UpdateArgs&);
+           void assclk        (const LixEn::Ac);
+           void become        (const LixEn::Ac);
+           void become_default(const LixEn::Ac);
+           void update        (const UpdateArgs&);
 
            void draw();
 

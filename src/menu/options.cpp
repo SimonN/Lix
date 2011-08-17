@@ -104,7 +104,7 @@ OptionMenu::OptionMenu()
     key_state_save        (key_b1,  330, key_xl),
     key_zoom              (key_b1,  360, key_xl),
     key_chat              (key_b1,  390, key_xl),
-    key_nuke              (key_b3,  160, key_xl),
+    key_nuke              (key_b3,  220, key_xl),
     // Some of the following buttons will be moved again.
     key_skill             (LixEn::AC_MAX, KeyButton(9999, 9999, key_xl)),
     desc_key_skill        (LixEn::AC_MAX, Label    (9999, 9999)),
@@ -121,7 +121,7 @@ OptionMenu::OptionMenu()
     desc_key_state_save   (key_t1, 330, Language::option_key_state_save),
     desc_key_zoom         (key_t1, 360, Language::option_key_zoom),
     desc_key_chat         (key_t1, 390, Language::option_key_chat),
-    desc_key_nuke         (key_t3, 160, Language::option_key_nuke),
+    desc_key_nuke         (key_t3, 220, Language::option_key_nuke),
     desc_key_info_1       (key_b3, 330, Language::option_key_info_1),
     desc_key_info_2       (key_b3, 350, Language::option_key_info_2),
     desc_key_info_3       (key_b3, 370, Language::option_key_info_3),
@@ -290,7 +290,9 @@ OptionMenu::OptionMenu()
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_2);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_3);
     add_skill_to_hotkey_dialogue(LixEn::WALKER);
+    add_skill_to_hotkey_dialogue(LixEn::RUNNER);
     add_skill_to_hotkey_dialogue(LixEn::JUMPER);
+    add_skill_to_hotkey_dialogue(LixEn::BATTER);
     add_skill_to_hotkey_dialogue(LixEn::CLIMBER);
     add_skill_to_hotkey_dialogue(LixEn::FLOATER);
     add_skill_to_hotkey_dialogue(LixEn::EXPLODER);

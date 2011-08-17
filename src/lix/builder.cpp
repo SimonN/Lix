@@ -15,17 +15,21 @@
 
 #include "ac.h"
 
-void assign_builder(Lixxie& l)
+void assclk_builder(Lixxie& l)
 {
     if (l.get_ac() == LixEn::BUILDER) {
         l.set_special_x(l.get_special_x() + 12);
     }
-    else {
-        l.set_special_y(0);
-        l.set_special_x(12);
-        l.set_frame(6);
-        l.set_ac(LixEn::BUILDER);
-    }
+    else l.become(LixEn::BUILDER);
+}
+
+
+
+void become_builder(Lixxie& l)
+{
+    l.become_default(LixEn::BUILDER);
+    l.set_special_x(12);
+    l.set_frame(6);
 }
 
 
@@ -72,7 +76,7 @@ void update_builder(Lixxie& l, const UpdateArgs& ua)
             // See top comment for the check of special_y.
             l.turn();
             if (l.get_special_y() == 1) l.move_down();
-            l.assign(LixEn::WALKER);
+            l.become(LixEn::WALKER);
         }
         break;
 
@@ -83,7 +87,7 @@ void update_builder(Lixxie& l, const UpdateArgs& ua)
 
     // Klötze zählen und ggf. zum Shrugger werden.
     case 15:
-        if (l.get_special_x() <= 0) l.assign(LixEn::SHRUGGER);
+        if (l.get_special_x() <= 0) l.become(LixEn::SHRUGGER);
         break;
     }
 
@@ -97,8 +101,6 @@ void update_shrugger(Lixxie& l, const UpdateArgs& ua)
 {
     ua.suppress_unused_variable_warning();
 
-    if (l.is_last_frame()) {
-        l.assign_default(LixEn::WALKER);
-    }
+    if (l.is_last_frame()) l.become(LixEn::WALKER);
     else l.next_frame();
 }
