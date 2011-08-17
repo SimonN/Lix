@@ -14,8 +14,14 @@ void tumbler_frame_selection     (Lixxie&);
 void become_jumper(Lixxie& l)
 {
     l.become_default(LixEn::JUMPER);
-    l.set_special_y(-8); // Y-Geschwindigkeit
-    l.set_special_x( 6); // X-Geschwindigkeit
+    if (l.get_runner()) {
+        l.set_special_x(  8); // X-speed
+        l.set_special_y(-12); // Y-speed
+    }
+    else {
+        l.set_special_x( 6); // X-speed
+        l.set_special_y(-8); // Y-speed
+    }
 
     for (int i = -4; i > -16; --i)
      if (l.is_solid(0, i)) {
@@ -39,8 +45,10 @@ void update_jumper(Lixxie& l, const UpdateArgs& ua)
     // nix, weil in dem Fall null Schleifendurchlaeufe passieren oder
     // mit null multipliziert wird.
 
+    // do this before the for loop as well, to not glitch into terrain.
+    // Unlike then, don't do anything here if it doesn't have ground.
     if (jumper_and_tumbler_collision(l)) {
-        switch (l.get_ac()) {
+        if (l.is_solid()) switch (l.get_ac()) {
             case LixEn::STUNNER:  l.play_sound(ua, Sound::OUCH);  break;
             case LixEn::SPLATTER: l.play_sound(ua, Sound::SPLAT); break;
             default: break;
@@ -98,7 +106,8 @@ void update_jumper(Lixxie& l, const UpdateArgs& ua)
             }
         }
         else if (l.get_ac() == LixEn::TUMBLER) tumbler_frame_selection(l);
-        else l.next_frame(); // jumper with less than 14 yspeed
+        else if (l.is_last_frame()) l.set_frame(l.get_frame() - 1);
+        else l.next_frame();
     }
 }
 
