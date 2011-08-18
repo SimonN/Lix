@@ -50,7 +50,7 @@ unsigned Lixxie::get_priority(LixEn::Ac                   new_ac,
         // Nur Exploder ist erlaubt, und zwar mit wesentlich hoeherer Prior.!
         // Falls der Walker zuweisbar ist, dann ist er es ebenfalls Blockern.
         case LixEn::BLOCKER:
-            if (new_ac == LixEn::WALKER && frame < 20
+            if (new_ac == LixEn::WALKER
              || new_ac == LixEn::EXPLODER
              || new_ac == LixEn::EXPLODER2) p = 5000;
             else return 1;

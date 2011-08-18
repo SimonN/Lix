@@ -18,12 +18,14 @@ void assclk_walker(Lixxie& l)
         l.turn();
         // Da bei Walker -> Walker nicht --frame von evaluate_click() kommt,
         // setzen wir hier manuell das Frame auf -1, weil wir das 0. wollen.
-        if (l.get_ac() == LixEn::WALKER) l.set_frame(-1);
+        if (l.get_ac() == LixEn::WALKER
+         || l.get_ac() == LixEn::RUNNER) l.set_frame(-1);
     }
-    else if (l.get_ac() == LixEn::BLOCKER && l.get_frame() < 20) {
+    else if (l.get_ac() == LixEn::BLOCKER) {
         // Da assign haeufig beim Mausklick-Zuweisen aufgerufen wird, gilt
         // wieder die Konvention, dass --frame hinterher gemacht wird, also:
-        l.set_frame(21);
+        if (l.get_frame() < 20) l.set_frame(21);
+        else                    l.turn(); // turn a blocker->walker transistion
     }
     else if (l.get_ac() == LixEn::PLATFORMER && l.get_frame() > 5) {
         l.set_ac(LixEn::SHRUGGER2);

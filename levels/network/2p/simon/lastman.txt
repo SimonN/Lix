@@ -1,0 +1,169 @@
+$BUILT                                             2011-08-18 17:23:06
+$AUTHOR                                                          Simon
+$GERMAN                                                               
+$ENGLISH                                             Last Man Standing
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             1
+#INITIAL                                                            50
+#REQUIRED                                                           20
+#RATE                                                               90
+
+#WALKER                                                             80
+#RUNNER                                                             40
+#JUMPER                                                             40
+#NOTHING                                                             0
+#BLOCKER                                                            20
+#BATTER                                                             -1
+#NOTHING                                                             0
+#BUILDER                                                             1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/simon/hatch001.H:                                192       160
+:bitmap/simon/hatch001.H:                                384       160     r
+:bitmap/simon/hatch001.H:                                320       160     r
+:bitmap/simon/hatch001.H:                                256       160
+
+:bitmap/matt/09 - Marble/Goal.G:                         568       160
+:bitmap/matt/09 - Marble/Goal.G:                           8       160
+
+:bitmap/geoo/construction/sawblade_small.F:              104       176
+:bitmap/geoo/construction/Laser_vr_64.F:                 168        40
+:bitmap/geoo/construction/Laser_hz_16.F:                 176        32
+:bitmap/geoo/construction/Laser_hz_16.F:                 176        64
+:bitmap/geoo/construction/Laser_hz_16.F:                 192        64
+:bitmap/geoo/construction/Laser_hz_16.F:                 192        32
+:bitmap/geoo/construction/Laser_vr_64.F:                 232        40
+:bitmap/geoo/construction/Laser_hz_16.F:                 232        32
+:bitmap/geoo/construction/Laser_hz_16.F:                 232        96
+:bitmap/geoo/construction/Laser_hz_16.F:                 168        96
+:bitmap/geoo/construction/Laser_vr_16.F:                 200        32
+:bitmap/geoo/construction/Laser_vr_16.F:                 200        64
+:bitmap/geoo/construction/Laser_vr_64.F:                 272        40
+:bitmap/geoo/construction/Laser_hz_16.F:                 280        96
+:bitmap/geoo/construction/Laser_hz_16.F:                 296        96
+:bitmap/geoo/construction/Laser_hz_16.F:                 296        64
+:bitmap/geoo/construction/Laser_vr_16.F:                 304        72
+:bitmap/geoo/construction/Laser_vr_16.F:                 304        88
+:bitmap/geoo/construction/Laser_hz_16.F:                 280        32
+:bitmap/geoo/construction/Laser_hz_16.F:                 296        32
+:bitmap/geoo/construction/Laser_vr_16.F:                 304        32
+:bitmap/geoo/construction/Laser_vr_16.F:                 288        64
+:bitmap/geoo/construction/Laser_vr_64.F:                 336        40
+:bitmap/geoo/construction/Laser_hz_16.F:                 336        32
+:bitmap/geoo/construction/Laser_hz_16.F:                 336        96
+:bitmap/geoo/construction/Laser_vr_64.F:                 368        40
+:bitmap/geoo/construction/Laser_hz_16.F:                 368        32
+:bitmap/geoo/construction/Laser_hz_16.F:                 368        96
+:bitmap/geoo/construction/Laser_hz_16.F:                 344        64
+:bitmap/geoo/construction/Laser_hz_16.F:                 360        64
+:bitmap/geoo/construction/Laser_vr_64.F:                 416        40
+:bitmap/geoo/construction/Laser_hz_16.F:                 424        32
+:bitmap/geoo/construction/Laser_hz_16.F:                 416        96
+:bitmap/geoo/construction/Laser_hz_16.F:                 408        32
+:bitmap/geoo/construction/Laser_vr_16.F:                 400        32
+:bitmap/geoo/construction/Laser_vr_16.F:                 432        32
+:bitmap/geoo/construction/Laser_hz_16.F:                 464        26
+:bitmap/geoo/construction/Laser_hz_16.F:                 464        96
+:bitmap/geoo/construction/Laser_hz_16.F:                 464        80
+:bitmap/geoo/construction/Laser_vr_16.F:                 456        50
+:bitmap/geoo/construction/Laser_vr_16.F:                 456        64
+:bitmap/geoo/construction/Laser_vr_16.F:                 472        50
+:bitmap/geoo/construction/Laser_vr_16.F:                 472        64
+:bitmap/geoo/construction/Laser_hz_16.F:                 464        72
+:bitmap/geoo/construction/Laser_vr_16.F:                 456        34
+:bitmap/geoo/construction/Laser_vr_16.F:                 472        34
+:bitmap/geoo/construction/Laser_vr_16.F:                 460        50
+:bitmap/geoo/construction/Laser_vr_16.F:                 460        64
+:bitmap/geoo/construction/Laser_vr_16.F:                 460        34
+:bitmap/geoo/construction/Laser_vr_16.F:                 464        50
+:bitmap/geoo/construction/Laser_vr_16.F:                 464        64
+:bitmap/geoo/construction/Laser_vr_16.F:                 464        34
+:bitmap/geoo/construction/Laser_vr_16.F:                 468        50
+:bitmap/geoo/construction/Laser_vr_16.F:                 468        64
+:bitmap/geoo/construction/Laser_vr_16.F:                 468        34
+:bitmap/geoo/construction/Laser_vr_16.F:                 456        88
+:bitmap/geoo/construction/Laser_vr_16.F:                 472        88
+:bitmap/geoo/construction/Laser_vr_16.F:                 460        88
+:bitmap/geoo/construction/Laser_vr_16.F:                 464        88
+:bitmap/geoo/construction/Laser_vr_16.F:                 468        88
+:bitmap/geoo/construction/sawblade_small.F:              520       176
+:bitmap/geoo/construction/sawblade_small.F:               88       176
+:bitmap/geoo/construction/sawblade_small.F:              504       176
+:bitmap/geoo/construction/sawblade_small.F:              120       184
+:bitmap/geoo/construction/sawblade_small.F:              488       184
+:bitmap/geoo/construction/sawblade_small.F:               72       176
+:bitmap/geoo/construction/sawblade_small.F:              536       176
+
+:bitmap/matt/09 - Marble/23e:                            192       264
+:bitmap/matt/09 - Marble/23e:                            224       264
+:bitmap/geoo/steel/dark_64x32o.S:                        192       232
+:bitmap/matt/09 - Marble/23e:                            256       264
+:bitmap/matt/09 - Marble/23e:                            288       264
+:bitmap/geoo/steel/dark_64x32o.S:                        256       232
+:bitmap/matt/09 - Marble/23e:                            320       264
+:bitmap/matt/09 - Marble/23e:                            352       264
+:bitmap/geoo/steel/dark_64x32o.S:                        320       232
+:bitmap/matt/09 - Marble/23e:                            384       264
+:bitmap/matt/09 - Marble/23e:                            416       264
+:bitmap/geoo/steel/dark_64x32o.S:                        384       232
+:bitmap/matt/09 - Marble/23e:                            192       296
+:bitmap/matt/09 - Marble/23e:                            224       296
+:bitmap/matt/09 - Marble/23e:                            256       296
+:bitmap/matt/09 - Marble/23e:                            288       296
+:bitmap/matt/09 - Marble/23e:                            320       296
+:bitmap/matt/09 - Marble/23e:                            352       296
+:bitmap/matt/09 - Marble/23e:                            384       296
+:bitmap/matt/09 - Marble/23e:                            416       296
+:bitmap/geoo/steel/dark_32x64o.S:                        160       232
+:bitmap/geoo/steel/dark_32x64o.S:                        160       296
+:bitmap/geoo/steel/dark_32x64o.S:                        448       232
+:bitmap/geoo/steel/dark_32x64o.S:                        448       296
+:bitmap/matt/09 - Marble/23e:                            192       328
+:bitmap/matt/09 - Marble/23e:                            224       328
+:bitmap/matt/09 - Marble/23e:                            256       328
+:bitmap/matt/09 - Marble/23e:                            288       328
+:bitmap/matt/09 - Marble/23e:                            320       328
+:bitmap/matt/09 - Marble/23e:                            352       328
+:bitmap/matt/09 - Marble/23e:                            384       328
+:bitmap/matt/09 - Marble/23e:                            416       328
+:bitmap/matt/09 - Marble/23e:                            192       360
+:bitmap/matt/09 - Marble/23e:                            224       360
+:bitmap/matt/09 - Marble/23e:                            256       360
+:bitmap/matt/09 - Marble/23e:                            288       360
+:bitmap/matt/09 - Marble/23e:                            320       360
+:bitmap/matt/09 - Marble/23e:                            352       360
+:bitmap/matt/09 - Marble/23e:                            384       360
+:bitmap/matt/09 - Marble/23e:                            416       360
+:bitmap/simon/tapir/064h:                                584       336
+:bitmap/simon/tapir/064h:                                552       272
+:bitmap/simon/tapir/064h:                                520       208
+:bitmap/simon/tapir/064h:                                -72       336
+:bitmap/simon/tapir/064h:                                -40       272
+:bitmap/simon/tapir/064h:                                 -8       208
+:bitmap/simon/tapir/032vc:                               520       272
+:bitmap/simon/tapir/032vc:                               552       336
+:bitmap/simon/tapir/032vd:                                88       272
+:bitmap/simon/tapir/032vd:                                56       336
+:bitmap/matt/09 - Marble/23e:                            192       392
+:bitmap/matt/09 - Marble/23e:                            224       392
+:bitmap/matt/09 - Marble/23e:                            256       392
+:bitmap/matt/09 - Marble/23e:                            288       392
+:bitmap/matt/09 - Marble/23e:                            320       392
+:bitmap/matt/09 - Marble/23e:                            352       392
+:bitmap/matt/09 - Marble/23e:                            384       392
+:bitmap/matt/09 - Marble/23e:                            416       392
+:bitmap/geoo/steel/dark_32x64o.S:                        416       336
+:bitmap/geoo/steel/dark_32x64o.S:                        192       336
