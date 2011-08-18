@@ -149,7 +149,7 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
             }
             if (enough_space) l.become(LixEn::CLIMBER);
         }
-        if (! l.get_climber()) {
+        if (l.get_ac() != LixEn::CLIMBER) {
             l.turn();
             l.move_ahead();
         }

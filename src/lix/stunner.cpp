@@ -25,8 +25,8 @@ void update_stunner(Lixxie& l, const UpdateArgs& ua)
             else break;
         }
         if (!l.is_solid()) {
-            l.move_up(moved_down_by);
-            l.become(LixEn::TUMBLER);
+            l.move_up(moved_down_by - 1); // against getting stuck in terrain
+            l.become(LixEn::TUMBLER);                     // after 2011-08-17
             l.set_special_y(2);
             l.set_special_x(0);
         }

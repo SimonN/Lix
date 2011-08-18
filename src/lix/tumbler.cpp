@@ -37,13 +37,13 @@ bool jumper_and_tumbler_collision(Lixxie& l)
     // Das Vorruecken zum jeweiligen Pixel ist bereits gemacht.
 
     // Kopfhoehe wird als etwas niedriger angesehen als beim Builder
-    if (l.get_ac() == LixEn::TUMBLER
-     && l.is_solid(-2, -12) && !l.is_solid(-2, -6)
-     && (l.get_special_x() > 0 || l.get_special_y() < 0)
+    if ((l.get_ac() == LixEn::TUMBLER
+        && l.is_solid(-2, -12) && !l.is_solid(-2, -6)
+        && (l.get_special_x() > 0 || l.get_special_y() < 0))
          // die vorige Zeile behebt das Langsamwerden beim oo-Fall
-
-     || l.get_ac() == LixEn::JUMPER
-     && l.is_solid( 0, -14) && !l.is_solid( 0, -8)) {
+     || (l.get_ac() == LixEn::JUMPER
+        && l.is_solid( 0, -14) && !l.is_solid( 0, -8))
+    ) {
         if (l.get_ac() != LixEn::TUMBLER) l.become(LixEn::TUMBLER);
         // Halb so schnell in x-Richtung wie bisher, aber
         // gerade Geschwindigkeitszahl beibehalten
@@ -58,8 +58,8 @@ bool jumper_and_tumbler_collision(Lixxie& l)
     }
     // Vor eine Wand springen: Muss vor die Bodenkollision, damit wir somit
     // den Hochteleportier-Bug bekaempfen
-    else if (swh > 9  && l.get_ac() == LixEn::JUMPER
-     ||      swh > 0  && l.get_ac() == LixEn::TUMBLER) {
+    else if ((swh > 9  && l.get_ac() == LixEn::JUMPER)
+     ||      (swh > 0  && l.get_ac() == LixEn::TUMBLER)) {
         // Suche in horizontaler Richtung nach dem ersten freien Pixel,
         // bewege dorthin, drehe Lemming in die Richtung dieser Bewegung.
         l.turn();
@@ -81,16 +81,15 @@ bool jumper_and_tumbler_collision(Lixxie& l)
                     l.move_ahead(dist/2*2);
                     break;
                 }
-                else if (l.get_special_y() <  0 && !l.is_solid(0,  dist)) {
+                else if (l.get_special_y() <= 0 && !l.is_solid(0,  dist)) {
                     l.move_down(dist);
-                    l.set_special_y(0);
+                    l.set_special_y(-l.get_special_y());
                     break;
                 }
                 else if (l.get_special_y() >= 0 && !l.is_solid(0, -dist + 1)) {
-                    // Outdated comm. since discusison with geoo -> stun immed.
-                    // // Die + 1 in der Bedingung stehen dort, weil Fuss des
-                    // // Lemmings immer noch einen freien Pixel drunter hat.
-                    // l.move_up(dist);
+                    // Die + 1 in der Bedingung stehen dort, weil Fuss des
+                    // Lemmings immer noch einen freien Pixel drunter hat.
+                    l.move_up(dist);
                     l.become(LixEn::STUNNER);
                     break;
                 }
