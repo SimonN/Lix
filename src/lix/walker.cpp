@@ -85,7 +85,9 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
         // Bei zu starker Steigung umdrehen...
         int up_by_what1 = l.solid_wall_height(0);
         int up_by_what2 = l.solid_wall_height(0);
-        if (up_by_what1 == 13 && up_by_what2 == 13) turn_after_all = true;
+        if (up_by_what1 == 13 && up_by_what2 == 13) {
+            turn_after_all = true;
+        }
         // ...sonst sich nach oben bewegen...
         else {
             int u;
@@ -137,6 +139,7 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
     if (turn_after_all) {
         l.set_ex(old_ex);
         l.set_ey(old_ey);
+        bool climbed_after_all = false;
 
         if (l.get_climber()) {
             // Auf Landschaft über der derzeitigen Position prüfen
@@ -147,9 +150,12 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
                     break;
                 }
             }
-            if (enough_space) l.become(LixEn::CLIMBER);
+            if (enough_space) {
+                l.become(LixEn::CLIMBER);
+                climbed_after_all = true;
+            }
         }
-        if (l.get_ac() != LixEn::CLIMBER) {
+        if (! climbed_after_all) {
             l.turn();
             l.move_ahead();
         }
