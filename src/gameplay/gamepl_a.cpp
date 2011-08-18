@@ -90,8 +90,8 @@ void Gameplay::calc_active()
                  cs.tribes.size(), goal, true);
 
                 // Invert priority if a corresponding mouse button is held
-                if (hardware.get_mr() && useR->prioinv_right
-                 || hardware.get_mm() && useR->prioinv_middle) {
+                if ((hardware.get_mrh() && useR->prioinv_right)
+                 || (hardware.get_mmh() && useR->prioinv_middle)) {
                     priority = 100000 - priority;
                 }
                 double hypot = map.hypot(mx, my, i->get_ex(),
