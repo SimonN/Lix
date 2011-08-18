@@ -17,7 +17,7 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2011, 08, 18, 01)),
+    version              (CONCAT(2011, 08, 18, 02)),
     version_min          (CONCAT(2011, 08, 18, 01)),
 
     updates_per_second   (15),
@@ -175,6 +175,9 @@ Globals::Globals()
     user_scroll_torus_x          ("SCROLL_TORUS_X"),
     user_scroll_torus_y          ("SCROLL_TORUS_Y"),
     user_multiple_builders       ("MULTIPLE_BUILDERS"),
+    user_batter_priority         ("BATTER_PRIORITY"),
+    user_prioinv_middle          ("PRIORITY_INVERT_MIDDLE"),
+    user_prioinv_right           ("PRIORITY_INVERT_RIGHT"),
 
     user_screen_scaling          ("SCREEN_SCALING"),
     user_screen_border_colored   ("SCREEN_BORDER_COLORED"),

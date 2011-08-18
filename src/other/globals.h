@@ -187,6 +187,9 @@ public:
         user_scroll_torus_x,
         user_scroll_torus_y,
         user_multiple_builders,
+        user_batter_priority,
+        user_prioinv_middle,
+        user_prioinv_right,
 
         user_screen_scaling,
         user_screen_border_colored,

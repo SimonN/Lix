@@ -81,6 +81,9 @@ OptionMenu::OptionMenu()
     scroll_torus_x        (other_x, 220, button_xl),
     scroll_torus_y        (other_x, 250, button_xl),
     multiple_builders     (check_x, 220),
+    batter_priority       (check_x, 250),
+    prioinv_middle        (check_x, 280),
+    prioinv_right         (check_x, 310),
     desc_mouse_speed      (other_nx, 100, Language::option_mouse_speed),
     desc_scroll_speed_edge(other_nx, 130, Language::option_scroll_speed_edge),
     desc_scroll_speed_click(other_nx,160, Language::option_scroll_speed_click),
@@ -90,6 +93,9 @@ OptionMenu::OptionMenu()
     desc_scroll_torus_x   (other_nx, 220, Language::option_scroll_torus_x),
     desc_scroll_torus_y   (other_nx, 250, Language::option_scroll_torus_y),
     desc_multiple_builders(check_nx, 220, Language::option_multiple_builders),
+    desc_batter_priority  (check_nx, 250, Language::option_batter_priority),
+    desc_prioinv_middle   (check_nx, 280, Language::option_prioinv_middle),
+    desc_prioinv_right    (check_nx, 310, Language::option_prioinv_right),
 
     key_force_left        (key_b1,  100, key_xl),
     key_force_right       (key_b1,  120, key_xl),
@@ -248,6 +254,9 @@ OptionMenu::OptionMenu()
     pointers[GROUP_CONTROLS].push_back(&scroll_torus_x);
     pointers[GROUP_CONTROLS].push_back(&scroll_torus_y);
     pointers[GROUP_CONTROLS].push_back(&multiple_builders);
+    pointers[GROUP_CONTROLS].push_back(&batter_priority);
+    pointers[GROUP_CONTROLS].push_back(&prioinv_middle);
+    pointers[GROUP_CONTROLS].push_back(&prioinv_right);
     pointers[GROUP_CONTROLS].push_back(&desc_mouse_speed);
     pointers[GROUP_CONTROLS].push_back(&desc_scroll_speed_edge);
     pointers[GROUP_CONTROLS].push_back(&desc_scroll_speed_click);
@@ -257,6 +266,9 @@ OptionMenu::OptionMenu()
     pointers[GROUP_CONTROLS].push_back(&desc_scroll_torus_x);
     pointers[GROUP_CONTROLS].push_back(&desc_scroll_torus_y);
     pointers[GROUP_CONTROLS].push_back(&desc_multiple_builders);
+    pointers[GROUP_CONTROLS].push_back(&desc_batter_priority);
+    pointers[GROUP_CONTROLS].push_back(&desc_prioinv_middle);
+    pointers[GROUP_CONTROLS].push_back(&desc_prioinv_right);
 
     pointers[GROUP_HOTKEYS ].push_back(&key_force_left);
     pointers[GROUP_HOTKEYS ].push_back(&key_force_right);
@@ -447,6 +459,9 @@ void OptionMenu::reset_elements()
     scroll_torus_x       .set_number (useR->scroll_torus_x);
     scroll_torus_y       .set_number (useR->scroll_torus_y);
     multiple_builders    .set_checked(useR->multiple_builders);
+    batter_priority      .set_checked(useR->batter_priority);
+    prioinv_middle       .set_checked(useR->prioinv_middle);
+    prioinv_right        .set_checked(useR->prioinv_right);
 
     key_force_left       .set_scancode(useR->key_force_left);
     key_force_right      .set_scancode(useR->key_force_right);
@@ -573,10 +588,10 @@ void OptionMenu::calc_self()
         // menu remainders on the screen borders.
         bool call_ssm = false;
         if (       useR->screen_scaling != screen_scaling.get_number()
-         ||   full && gloB->screen_resolution_x != res_fx
-         ||   full && gloB->screen_resolution_y != res_fy
-         || ! full && gloB->screen_windowed_x   != res_wx
-         || ! full && gloB->screen_windowed_y   != res_wy) call_ssm = true;
+         ||(  full && gloB->screen_resolution_x != res_fx)
+         ||(  full && gloB->screen_resolution_y != res_fy)
+         ||(! full && gloB->screen_windowed_x   != res_wx)
+         ||(! full && gloB->screen_windowed_y   != res_wy)) call_ssm = true;
 
         // Die Werte aller Checkboxen und Buttons in die Optionen schreiben
         // Die Konfigurationsdatei wird gegen eventuelle Abstuerze oder
@@ -595,6 +610,9 @@ void OptionMenu::calc_self()
         useR->scroll_torus_x    = scroll_torus_x    .get_number();
         useR->scroll_torus_y    = scroll_torus_y    .get_number();
         useR->multiple_builders = multiple_builders .get_checked();
+        useR->batter_priority   = batter_priority   .get_checked();
+        useR->prioinv_middle    = prioinv_middle    .get_checked();
+        useR->prioinv_right     = prioinv_right     .get_checked();
 
         useR->key_force_left  = key_force_left .get_scancode();
         useR->key_force_right = key_force_right.get_scancode();

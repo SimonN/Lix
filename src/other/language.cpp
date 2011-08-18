@@ -244,6 +244,9 @@ option_scroll_torus_never,
 option_scroll_torus_big,
 option_scroll_torus_always,
 option_multiple_builders,
+option_batter_priority,
+option_prioinv_middle,
+option_prioinv_right,
 option_screen_resolution,
 option_screen_windowed_res,
 option_screen_windowed,
@@ -620,7 +623,11 @@ void Language::set(const Language lang)
         option_scroll_torus_never     = "Never";
         option_scroll_torus_big       = "On big maps";
         option_scroll_torus_always    = "Always";
-        option_multiple_builders      = "Builders: mult. clicks";
+        option_multiple_builders      = "Builders: multiple clicks";
+        option_batter_priority        = "Avoid Exploder -> Batter";
+        option_prioinv_middle         = "Middle button inverts priority";
+        option_prioinv_right          = "Right button inverts priority";
+
         option_screen_windowed        = "Windowed mode*";
         option_screen_resolution      = "Fullscreen resol.**";
         option_screen_windowed_res    = "Windowed resolution";
@@ -1033,6 +1040,10 @@ eb[Editor::ADD_HAZARD]
         option_scroll_torus_big       = "Grosse Level";
         option_scroll_torus_always    = "Immer";
         option_multiple_builders      = "Builder mehrm. klickbar";
+        option_batter_priority        = "Exploder -> Batter vermeiden";
+        option_prioinv_middle         = "Mittl. Taste invert. Prioritaet";
+        option_prioinv_right          = "Rechte Taste invert. Prioritaet";
+
         option_screen_windowed        = "Fenstermodus*";
         option_screen_resolution      = "Vollbild-Aufloesung**";
         option_screen_windowed_res    = "Fenster-Aufloesung";

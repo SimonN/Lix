@@ -101,6 +101,9 @@ private:
     EnumButton scroll_torus_x;
     EnumButton scroll_torus_y;
     Checkbox   multiple_builders;
+    Checkbox   batter_priority;
+    Checkbox   prioinv_middle;
+    Checkbox   prioinv_right;
     Label      desc_mouse_speed,
                desc_scroll_speed_edge,
                desc_scroll_speed_click,
@@ -109,7 +112,10 @@ private:
                desc_scroll_middle,
                desc_scroll_torus_x,
                desc_scroll_torus_y,
-               desc_multiple_builders;
+               desc_multiple_builders,
+               desc_batter_priority,
+               desc_prioinv_middle,
+               desc_prioinv_right;
 
     KeyButton  key_force_left;
     KeyButton  key_force_right;

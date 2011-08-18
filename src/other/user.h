@@ -78,6 +78,9 @@ public:
     int  scroll_torus_x;
     int  scroll_torus_y;
     bool multiple_builders;
+    bool batter_priority;
+    bool prioinv_middle;
+    bool prioinv_right;
 
     int  screen_scaling;
     bool screen_border_colored;

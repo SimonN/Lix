@@ -111,6 +111,9 @@ User::User()
     scroll_torus_x         (2),
     scroll_torus_y         (2),
     multiple_builders      (true),
+    batter_priority        (false),
+    prioinv_middle         (true),
+    prioinv_right          (true),
 
     screen_scaling         (2),
     screen_border_colored  (true),
@@ -267,6 +270,9 @@ void User::load()
         else if (i->text1 == gloB->user_scroll_torus_x         ) scroll_torus_x         = i->nr1;
         else if (i->text1 == gloB->user_scroll_torus_y         ) scroll_torus_y         = i->nr1;
         else if (i->text1 == gloB->user_multiple_builders      ) multiple_builders      = i->nr1;
+        else if (i->text1 == gloB->user_batter_priority        ) batter_priority        = i->nr1;
+        else if (i->text1 == gloB->user_prioinv_middle         ) prioinv_middle         = i->nr1;
+        else if (i->text1 == gloB->user_prioinv_right          ) prioinv_right          = i->nr1;
 
         else if (i->text1 == gloB->user_screen_scaling         ) screen_scaling         = i->nr1;
         else if (i->text1 == gloB->user_screen_border_colored  ) screen_border_colored  = i->nr1;
@@ -371,6 +377,9 @@ void User::save() const
      << IO::LineHash  (gloB->user_scroll_torus_x,          scroll_torus_x)
      << IO::LineHash  (gloB->user_scroll_torus_y,          scroll_torus_y)
      << IO::LineHash  (gloB->user_multiple_builders,       multiple_builders)
+     << IO::LineHash  (gloB->user_batter_priority,         batter_priority)
+     << IO::LineHash  (gloB->user_prioinv_middle,          prioinv_middle)
+     << IO::LineHash  (gloB->user_prioinv_right,           prioinv_right)
      << std::endl
 
      << IO::LineHash  (gloB->user_screen_scaling,          screen_scaling)
