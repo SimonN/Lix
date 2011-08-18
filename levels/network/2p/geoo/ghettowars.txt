@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-17 13:36:05
+$BUILT                                             2011-08-17 15:41:21
 $AUTHOR                                                           geoo
 $GERMAN                                                               
 $ENGLISH                                                   Ghetto wars
@@ -19,7 +19,7 @@ $ENGLISH                                                   Ghetto wars
 #RATE                                                               99
 
 #CLIMBER                                                             3
-#PLATFORMER                                                          3
+#PLATFORMER                                                          4
 #NOTHING                                                             0
 #NOTHING                                                             0
 #EXPLODER2                                                          20
@@ -100,6 +100,10 @@ $ENGLISH                                                   Ghetto wars
 :bitmap/geoo/construction/sawblade.F:                    600        48
 :bitmap/geoo/construction/sawblade.F:                    600        96
 :bitmap/geoo/construction/sawblade.F:                    600       144
+:bitmap/geoo/construction/Laseremit_vrb_16.F:            488        32
+:bitmap/geoo/construction/Laser_vr_16.F:                 488        16
+:bitmap/geoo/construction/Laseremit_vrb_16.F:            136        32
+:bitmap/geoo/construction/Laser_vr_16.F:                 136        16
 
 :bitmap/geoo/construction/rod_rust/edge_ru:              368        64
 :bitmap/geoo/construction/rod_rust/straight32:           376        64
@@ -201,3 +205,7 @@ $ENGLISH                                                   Ghetto wars
 :bitmap/geoo/steel/16x32o.S:                             592       208
 :bitmap/geoo/steel/16x16o.S:                              16       224
 :bitmap/geoo/steel/16x16o.S:                             608       224
+:bitmap/geoo/steel/32x16o.S:                             464         0
+:bitmap/geoo/steel/32x16o.S:                             496         0
+:bitmap/geoo/steel/32x16o.S:                             112         0
+:bitmap/geoo/steel/32x16o.S:                             144         0

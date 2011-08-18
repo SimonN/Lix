@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-02 21:53:43
+$BUILT                                             2011-08-18 07:55:13
 $AUTHOR                                                           geoo
 $GERMAN                                                               
 $ENGLISH                                                      Stalling
@@ -34,8 +34,8 @@ $ENGLISH                                                      Stalling
 :bitmap/geoo/construction/Hatch.H:                        16       112
 :bitmap/geoo/construction/Hatch.H:                        16       256
 
-:bitmap/geoo/construction/Goal2.G:                       696       128
 :bitmap/geoo/construction/Goal2.G:                       696       272
+:bitmap/geoo/construction/Goal2.G:                       696       128
 
 :bitmap/geoo/construction/sawblade.F:                    426       222
 :bitmap/geoo/construction/sawblade.F:                    462       222
