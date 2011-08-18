@@ -338,9 +338,10 @@ public:
     static void remove_pixel_absolute(const int, const int);
            bool remove_rectangle     (int, int, int, int);
 
-           void draw_pixel    (int, int, int);
-           void draw_rectangle(int, int, int, int, int);
-           void draw_brick    (int, int, int, int);
+           void draw_pixel       (int, int, int);
+           void draw_rectangle   (int, int, int, int, int);
+           void draw_brick       (int, int, int, int);
+           void draw_frame_to_map(int, int, int, int, int, int, int, int);
 
            void play_sound        (const UpdateArgs&, Sound::Id);
            void play_sound_if_trlo(const UpdateArgs&, Sound::Id);//see effect.h

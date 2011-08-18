@@ -270,6 +270,7 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="lix/blocker.cpp" />
 		<Unit filename="lix/builder.cpp" />
 		<Unit filename="lix/climber.cpp" />
+		<Unit filename="lix/cuber.cpp" />
 		<Unit filename="lix/deaths.cpp" />
 		<Unit filename="lix/digger.cpp" />
 		<Unit filename="lix/exiter.cpp" />

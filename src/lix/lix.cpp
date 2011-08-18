@@ -285,6 +285,28 @@ void Lixxie::draw_brick(int x1, int y1, int x2, int y2)
     }
 }
 
+/*
+ * Draws the the rectangle specified by xs, ys, ws, hs of the
+ * specified animation frame onto the level map at position (xd, yd),
+ * where (xd, yd) specifies the top left of the destination rectangle
+ * relative to the lix' position
+ */
+void Lixxie::draw_frame_to_map
+    (
+        int frame, int anim,
+        int xs, int ys, int ws, int hs,
+        int xd, int yd
+    )
+{
+    for (int y = 0; y < hs; ++y) {
+        for (int x = 0; x < ws; ++x) {
+            const int col = get_cutbit()->get_pixel(frame, anim, xs+x, ys+y);
+            if (col != color[COL_PINK] && ! get_steel(xd + x, yd + y)) {
+                set_pixel(xd + x, yd + y, col);
+            }
+        }
+    }
+}
 
 
 void Lixxie::play_sound(const UpdateArgs& ua, Sound::Id sound_id)

@@ -29,6 +29,7 @@ void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
     ac_func     [LixEn::WALKER]    .become = become_walker;
     ac_func     [LixEn::CLIMBER]   .become = become_climber;
     ac_func     [LixEn::BUILDER]   .become = become_builder;
+    ac_func     [LixEn::CUBER]     .become = become_cuber;
     ac_func     [LixEn::PLATFORMER].become = become_platformer;
     ac_func     [LixEn::MINER]     .become = become_miner;
     ac_func     [LixEn::DIGGER]    .become = become_digger;
@@ -59,6 +60,7 @@ void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
     ac_func     [LixEn::JUMPER]    .update = update_jumper;
     ac_func     [LixEn::ROPER]     .update = update_roper;
     ac_func     [LixEn::BATTER]    .update = update_batter;
+    ac_func     [LixEn::CUBER]     .update = update_cuber;
 
     ac_func     [LixEn::FALLER]    .pass_top =
     ac_func     [LixEn::TUMBLER]   .pass_top =
@@ -69,7 +71,8 @@ void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
     ac_func     [LixEn::SPLATTER]  .nukable =
     ac_func     [LixEn::DROWNER]   .nukable =
     ac_func     [LixEn::EXITER]    .nukable =
-    ac_func     [LixEn::EXPLODER]  .nukable = false;
+    ac_func     [LixEn::EXPLODER]  .nukable =
+    ac_func     [LixEn::CUBER]     .nukable = false;
 
     ac_func     [LixEn::BUILDER]   .returns_x =
     ac_func     [LixEn::PLATFORMER].returns_x = 12;

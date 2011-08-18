@@ -48,6 +48,7 @@ namespace LixEn {
         JUMPER,
         ROPER,
         BATTER,
+        CUBER,
 
         AC_MAX
     };

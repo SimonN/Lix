@@ -309,6 +309,7 @@ OptionMenu::OptionMenu()
     add_skill_to_hotkey_dialogue(LixEn::FLOATER);
     add_skill_to_hotkey_dialogue(LixEn::EXPLODER);
     add_skill_to_hotkey_dialogue(LixEn::BLOCKER);
+    add_skill_to_hotkey_dialogue(LixEn::CUBER);
     add_skill_to_hotkey_dialogue(LixEn::BUILDER);
     add_skill_to_hotkey_dialogue(LixEn::PLATFORMER);
     add_skill_to_hotkey_dialogue(LixEn::BASHER);

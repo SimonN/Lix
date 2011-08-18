@@ -150,6 +150,7 @@ User::User()
     key_skill[LixEn::DIGGER]     = KEY_G;
     key_skill[LixEn::MINER]      = KEY_D;
     key_skill[LixEn::BLOCKER]    = KEY_V;
+    key_skill[LixEn::CUBER]      = KEY_V;
     key_skill[LixEn::EXPLODER]   = KEY_X;
     key_skill[LixEn::EXPLODER2]  = KEY_X;
 
