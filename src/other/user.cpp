@@ -111,7 +111,7 @@ User::User()
     scroll_torus_x         (2),
     scroll_torus_y         (2),
     multiple_builders      (true),
-    batter_priority        (false),
+    batter_priority        (true),
     prioinv_middle         (true),
     prioinv_right          (true),
 
