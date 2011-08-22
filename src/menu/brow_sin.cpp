@@ -44,6 +44,12 @@ SingleBrowser::SingleBrowser()
     rec_saved    .set_desc(Language::browser_info_result_saved);
     rec_skills   .set_desc(Language::browser_info_result_skills);
     rec_updates  .set_desc(Language::browser_info_result_time);
+    info_initial .set_undraw_color(color[COL_API_M]);
+    info_required.set_undraw_color(color[COL_API_M]);
+    info_clock   .set_undraw_color(color[COL_API_M]);
+    rec_saved    .set_undraw_color(color[COL_API_M]);
+    rec_skills   .set_undraw_color(color[COL_API_M]);
+    rec_updates  .set_undraw_color(color[COL_API_M]);
 
     set_button_play_text(Language::browser_play);
     button_edit.set_text(Language::browser_edit);
@@ -173,6 +179,12 @@ NetworkBrowser::NetworkBrowser()
     info_initial.set_desc(Language::browser_info_lems);
     info_skills .set_desc(Language::browser_info_skills);
     info_clock  .set_desc(Language::browser_info_clock_2);
+    info_hatches.set_undraw_color(color[COL_API_M]);
+    info_goals  .set_undraw_color(color[COL_API_M]);
+    info_initial.set_undraw_color(color[COL_API_M]);
+    info_skills .set_undraw_color(color[COL_API_M]);
+    info_clock  .set_undraw_color(color[COL_API_M]);
+
     set_button_play_text(Language::ok);
     on_file_highlight(get_current_file());
 }

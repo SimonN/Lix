@@ -161,6 +161,10 @@ void ListFile::highlight_file(const Filename& filename)
                     button_last_clicked->set_on();
         }   }   }
     }
+    else {
+        // file to be highlighted is not in the directory
+        current_file = current_dir;
+    }
 }
 
 

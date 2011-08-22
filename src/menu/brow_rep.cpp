@@ -46,6 +46,13 @@ ReplayBrowser::ReplayBrowser()
     label_info_version.set_color(::color[COL_WHITE]);
     label_info_built.set_color(::color[COL_WHITE]);
 
+    label_info_player .set_undraw_color(color[COL_API_M]);
+    desc_info_player  .set_undraw_color(color[COL_API_M]);
+    label_info_version.set_undraw_color(color[COL_API_M]);
+    desc_info_version .set_undraw_color(color[COL_API_M]);
+    label_info_built  .set_undraw_color(color[COL_API_M]);
+    desc_info_built   .set_undraw_color(color[COL_API_M]);
+
     set_button_play_text(Language::browser_replay);
     button_extract.set_text(Language::browser_extract);
     button_extract.set_undraw_color(color[COL_API_M]);
@@ -147,9 +154,7 @@ void ReplayBrowser::calc_self()
         }
         // Den normalen Dialog-Siedler-2-Rechtsklick realisieren:
         else if (hardware.get_mr()) {
-            if (get_current_dir() != get_base_dir())
-             set_current_dir_to_parent_dir();
-            else set_exit_with(EXIT_WITH_EXIT);
+            set_exit_with(EXIT_WITH_EXIT);
         }
     }
 }

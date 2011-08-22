@@ -59,6 +59,8 @@ private:
     ExitWith    exit_with;
     unsigned    info_y;
 
+    Filename    file_recent; // only used for highlighting, not selecting
+
     DirList     dir_list;
     ListLevel   lev_list;
 
@@ -86,8 +88,7 @@ public:
            void         set_exit_with(ExitWith e);
     inline ExitWith     get_exit_with()             { return exit_with;     }
 
-    inline const Filename& get_base_dir()     { return dir_list.get_base_dir();     }
-    inline const Filename& get_current_dir()  { return lev_list.get_current_dir();  }
+    inline const Filename& get_base_dir()     { return dir_list.get_base_dir(); }
     inline const Filename& get_current_file() { return lev_list.get_current_file(); }
            void            set_current_dir_to_parent_dir();
 

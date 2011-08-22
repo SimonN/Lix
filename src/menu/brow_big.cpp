@@ -21,6 +21,7 @@ BrowserBig::BrowserBig(const std::string& wintitle,
     Window(0, 0, LEMSCR_X, LEMSCR_Y, wintitle),
     exit_with  (EXIT_WITH_NOTHING),
     info_y     (200),
+    file_recent(lastfilename),
     dir_list   (20, 40,
                 dir_list_xl, any_list_yl, basedir, lastfilename),
     lev_list   (40+dir_list_xl, 40,
@@ -43,7 +44,7 @@ BrowserBig::BrowserBig(const std::string& wintitle,
     lev_list.set_replay_style   (replay_style);
     lev_list.load_dir           (dir_list.get_current_dir());
     lev_list.highlight_file     (lastfilename);
-    set_subtitle(get_current_dir().get_dir_rootless());
+    set_subtitle(dir_list.get_current_dir().get_dir_rootless());
 
     // on_level_highlight() muss von der abgeleiteten Klasse aufgerufen
     // werden, weil diese zu diesem Konstruktoraufruf-Zeitpunkt noch
@@ -73,26 +74,24 @@ void BrowserBig::calc_self()
     if (dir_list.get_clicked()) {
         lev_list.load_dir(dir_list.get_current_dir());
         set_subtitle(dir_list.get_current_dir().get_dir_rootless());
-        on_file_highlight      (get_current_file());
-        lev_list.highlight_file(get_current_file());
-        // DEBUGGING: Dies ist noch nicht optimal bei mehreren Dateien, die
-        // gleich heissen in verschiedenen Verzeichnissen!
+        lev_list.highlight_file(file_recent);
+        on_file_highlight      (lev_list.get_current_file());
     }
     else if (lev_list.get_clicked()) {
         Button* b = lev_list.get_button_last_clicked();
         // Gerade zum ersten Mal angeklickt
         if (b->get_on()) {
-            on_file_highlight(get_current_file());
+            file_recent = lev_list.get_current_file();
+            on_file_highlight(lev_list.get_current_file());
         }
         // Button schon angeklickt?
         else {
             b->set_on(); // Damit ein nichtguter Level nicht deselektiert wird
-            on_file_select(get_current_file());
+            on_file_select(lev_list.get_current_file());
         }
     }
     else if (button_play.get_clicked()) {
-        // Ohne Check, ob wir im richtigen Verzeichnis sind
-        on_file_select(get_current_file());
+        on_file_select(lev_list.get_current_file());
     }
     else if (button_exit.get_clicked()) {
         set_exit_with(EXIT_WITH_EXIT);
