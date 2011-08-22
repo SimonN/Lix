@@ -15,8 +15,8 @@ DirList::DirList(const int x,  const int y,
     Frame(x, y, xl, yl),
     page              (0),
     bottom_button     (yl/20-1),
-    base_dir    (bdir),
-    current_dir (cdir),
+    base_dir    (bdir.get_dir_rootful()),
+    current_dir (cdir.get_dir_rootful()),
     clicked     (false)
 {
     load_current_dir();
@@ -134,10 +134,12 @@ void DirList::set_current_dir_to_parent_dir() {
     }
 }
 
+
+
 void DirList::set_current_dir(const Filename& s) {
     if (current_dir == s) return;
     // Wenn wirklich neu...
-    current_dir = s;
+    current_dir = Filename(s.get_dir_rootful());
     load_current_dir();
 }
 
