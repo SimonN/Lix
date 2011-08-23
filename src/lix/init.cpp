@@ -69,6 +69,7 @@ void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
 
     ac_func     [LixEn::NOTHING]   .nukable =
     ac_func     [LixEn::SPLATTER]  .nukable =
+    ac_func     [LixEn::BURNER]    .nukable =
     ac_func     [LixEn::DROWNER]   .nukable =
     ac_func     [LixEn::EXITER]    .nukable =
     ac_func     [LixEn::EXPLODER]  .nukable =
