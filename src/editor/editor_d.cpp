@@ -35,12 +35,12 @@ void Editor::draw()
 {
     // Draw the map
     // If drawing takes very long, wait until after dragging.
-    if (draw_required && (draw_dragging
-     || !hardware.key_hold(KEY_UP)
+    if (draw_required && (draw_dragging || (
+        !hardware.key_hold(KEY_UP)
      && !hardware.key_hold(KEY_RIGHT)
      && !hardware.key_hold(KEY_DOWN)
      && !hardware.key_hold(KEY_LEFT)
-     && !hardware.get_mlh() ) ) {
+     && !hardware.get_mlh() ))) {
         draw_required = false;
         int clock     = Help::timer_ticks;
         // clear_screen_rectangle() is not enough to prevent drag remainders

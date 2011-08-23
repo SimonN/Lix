@@ -79,7 +79,7 @@ void Sound::Sample::draw()
     // Mittlere 1000: Normale Schnelligkeit
     // Hintere 0: Kein Loop
     if (sample) {
-        if (unique && (loud || quiet && !last_was_loud)) stop_sample(sample);
+        if (unique && (loud || (quiet && !last_was_loud))) stop_sample(sample);
 
         if (loud) {
             last_was_loud = true;

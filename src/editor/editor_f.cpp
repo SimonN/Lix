@@ -120,10 +120,10 @@ bool Editor::get_overlap_at
 {
     const int x3  = map.get_xl(); const bool tx = level.torus_x;
     const int y3  = map.get_yl(); const bool ty = level.torus_y;
-    return          get_overlap_at_2(g, x1,    y1,    x2,    y2   )
-     || tx       && get_overlap_at_2(g, x1+x3, y1,    x2+x3, y2   )
-     || ty       && get_overlap_at_2(g, x1,    y1+y3, x2,    y2+y3)
-     || tx && ty && get_overlap_at_2(g, x1+x3, y1+y3, x3+x3, y2+y3);
+    return           get_overlap_at_2(g, x1,    y1,    x2,    y2   )
+     || (tx       && get_overlap_at_2(g, x1+x3, y1,    x2+x3, y2   ))
+     || (ty       && get_overlap_at_2(g, x1,    y1+y3, x2,    y2+y3))
+     || (tx && ty && get_overlap_at_2(g, x1+x3, y1+y3, x3+x3, y2+y3));
 }
 
 // Eigentliche Auswahl beim Rahmenziehen:

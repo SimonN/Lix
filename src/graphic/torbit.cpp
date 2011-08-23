@@ -135,8 +135,8 @@ void Torbit::set_pixel(const int x, const int y, const int col)
     // Hier allerdings ausserhalb des Randes nicht zeichnen, anders als bei
     // Map::get_pixel(), siehe oben.
     if (bitmap
-     && (torus_x || x >= 0 && x < bitmap->w)
-     && (torus_y || y >= 0 && y < bitmap->h))
+     && (torus_x || (x >= 0 && x < bitmap->w))
+     && (torus_y || (y >= 0 && y < bitmap->h)) )
      _putpixel16(bitmap, torus_x ? Help::mod(x, bitmap->w) : x,
                          torus_y ? Help::mod(y, bitmap->h) : y, col);
 }

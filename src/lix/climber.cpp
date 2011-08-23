@@ -38,8 +38,8 @@ void become_climber(Lixxie& l)
     // Felsen sitzt: In diesem Fall wird special_x = 1 gesetzt. Wenn diese
     // Korrektur beim Climber-Update stattfinden muss, wird man Faller!
     l.set_ex(l.get_ex());
-    if (l.get_dir() > 0 &&  l.is_solid(1, -6)
-     || l.get_dir() < 0 && !l.is_solid(1, -6)) {
+    if ((l.get_dir() > 0 &&  l.is_solid(1, -6))
+     || (l.get_dir() < 0 && !l.is_solid(1, -6)) ) {
         l.set_x(l.get_x() - 1);
         l.set_special_x(1);
     }
@@ -83,8 +83,8 @@ void update_climber(Lixxie& l, const UpdateArgs& ua)
         const bool diff       = l.get_special_x();
         const bool solid_here = l.is_solid(0, -16);
         const bool solid_diff = l.is_solid(1, -16);
-        if (l.get_dir() > 0 && (solid_here || solid_diff && !diff)
-         || l.get_dir() < 0 && (solid_here || solid_diff &&  diff)) {
+        if ((l.get_dir() > 0 && (solid_here || (solid_diff && !diff)) )
+         || (l.get_dir() < 0 && (solid_here || (solid_diff &&  diff)) ) ) {
             l.move_down(1);
             l.turn();
             l.become(LixEn::FALLER);
@@ -108,8 +108,8 @@ void update_climber(Lixxie& l, const UpdateArgs& ua)
         // Korrektur der Anzeige, damit der Climber nicht mit einer Pixel-
         // reihe im Felsen sitzt
         l.set_ex(l.get_ex());
-        if (l.get_dir() > 0 &&  l.is_solid(1, -6)
-         || l.get_dir() < 0 && !l.is_solid(1, -6))
+        if ((l.get_dir() > 0 &&  l.is_solid(1, -6))
+         || (l.get_dir() < 0 && !l.is_solid(1, -6)) )
             l.set_x(l.get_x() - 1);
     }
 }

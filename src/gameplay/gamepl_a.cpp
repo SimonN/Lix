@@ -102,7 +102,7 @@ void Gameplay::calc_active()
                     // und das Schreiben des Strings auf die Info...
                     ++tarcnt;
                     if (priority > tarinf_priority
-                     || hypot < tarinf_hypot && priority == tarinf_priority) {
+                     ||(hypot < tarinf_hypot && priority == tarinf_priority)) {
                         tarinf = i;
                         tarinf_priority = priority;
                         tarinf_hypot    = hypot;
@@ -110,7 +110,7 @@ void Gameplay::calc_active()
                     // ...sind geringer als die für Anklick-Inbetrachtnahme!
                     if ((priority > 1 && priority < 99999)
                      && (priority > target_priority
-                     || hypot < target_hypot && priority == target_priority)
+                     || (hypot < target_hypot && priority == target_priority))
                      && !(only_dir_l && i->get_dir() ==  1)
                      && !(only_dir_r && i->get_dir() == -1)) {
                         target          = i;

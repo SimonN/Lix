@@ -170,9 +170,9 @@ void Debris::calc()
     const bool& tx = map.get_torus_x();
     const bool& ty = map.get_torus_y();
     const int   xl = (cutbit ? cutbit->get_xl() : 2);
-    if (!tx && (x + xl < 0 || x > map.get_xl())
-     || !ty &&                y > map.get_yl() )
-     ttl = 0;
+    if ((!tx && (x + xl < 0 || x > map.get_xl()) )
+     || (!ty &&                y > map.get_yl()  ) )
+        ttl = 0;
 
     if (cutbit) rot += (x_speed / 20);
 }
