@@ -40,12 +40,18 @@ void Window::set_title(const std::string& s)
 {
     title = s;
     label_title.set_text(subtitle.empty() ? title : title + " - " + subtitle);
+    // the lobby does hide_all_children. This is a bit
+    // kludgy, but it's fair to always show this when set.
+    label_title.set_undraw_color(color[COL_API_ON_M]);
+    label_title.show();
 }
 
 void Window::set_subtitle(const std::string& s)
 {
     subtitle = s;
     label_title.set_text(subtitle.empty() ? title : title + " - " + subtitle);
+    label_title.set_undraw_color(color[COL_API_ON_M]);
+    label_title.show();
 }
 
 

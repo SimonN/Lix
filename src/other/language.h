@@ -98,6 +98,8 @@ browser_box_delete_question,
 
 // Lobby
 win_lobby_title,
+win_lobby_title_lobby,
+win_lobby_title_room,
 win_lobby_exit,
 win_lobby_start_central,
 win_lobby_start_server,

@@ -84,6 +84,8 @@ browser_box_delete_question,
 
 // Lobby
 win_lobby_title,
+win_lobby_title_lobby,
+win_lobby_title_room,
 win_lobby_exit,
 win_lobby_start_central,
 win_lobby_start_server,
@@ -446,6 +448,8 @@ void Language::set(const Language lang)
 
         // Lobby
         win_lobby_title               = "Network Game";
+        win_lobby_title_lobby         = "Lobby";
+        win_lobby_title_room          = "Room #";
         win_lobby_exit                = "Leave network";
         win_lobby_start_central       = "Connect to central server";
         win_lobby_start_server        = "Host a game yourself";
@@ -856,6 +860,8 @@ eb[Editor::ADD_HAZARD]
 
         // Lobby
         win_lobby_title               = "Netzwerkspiel";
+        win_lobby_title_lobby         = "Lobby";
+        win_lobby_title_room          = "Raum Nr. ";
         win_lobby_exit                = "Netz verlassen";
         win_lobby_start_central       = "Verbinden zu zentralem Server";
         win_lobby_start_server        = "Selbst ein Spiel hosten";

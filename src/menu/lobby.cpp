@@ -178,16 +178,17 @@ void Lobby::set_mode(const Mode& mo)
     }
     else {
         if (mo == CHOOSE_ROOM) {
+            set_subtitle(Language::win_lobby_title_lobby);
             room_list.show();
             button_exit.set_text(Language::win_lobby_exit);
         }
         else if (mo == INSIDE_ROOM) {
+            // Don't show the room yet, instead poll the network later
+            // Instead, show this, so it doesn't flicker.
+            set_subtitle(Language::win_lobby_title_lobby);
             button_level.show();
             preview.show();
             button_ready.show();
-            std::ostringstream sstr;
-            sstr << Language::win_lobby_room_number << Network::get_room();
-            set_subtitle(sstr.str());
             button_exit.set_text(Language::win_lobby_room_leave);
         }
         players.show();
@@ -291,6 +292,12 @@ void Lobby::calc_self()
     }
 
     // Inside a game room
+    // Do this "if", otherwise the title would show room #0 when creating room
+    if (mode == INSIDE_ROOM && Network::get_room() > 0) {
+        std::ostringstream subtitle;
+        subtitle << Language::win_lobby_title_room << Network::get_room();
+        set_subtitle(subtitle.str());
+    }
     if (button_level.get_clicked()) {
         if (Network::get_ready()) {
             button_ready.set_off();
