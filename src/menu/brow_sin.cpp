@@ -200,12 +200,13 @@ NetworkBrowser::~NetworkBrowser()
 void NetworkBrowser::calc_self()
 {
     BrowserBig::calc_self();
-    // Den normalen Dialog-Siedler-2-Rechtsklick realisieren:
-    // on_file_select wird nochmal differenzieren, ob es per Rechtsklick
-    // oder sonstwie aufgerufen wurde, falls der Level doof ist.
-    if (hardware.get_mr()) {
-        on_file_select(get_current_file());
-    }
+
+    if (hardware.get_mr() && get_exit_with() == EXIT_WITH_NOTHING)
+        set_exit_with(EXIT_WITH_EXIT);
+
+    if (get_exit_with() == EXIT_WITH_OKAY
+     || get_exit_with() == EXIT_WITH_EXIT)
+        useR->network_last_level = get_current_file();
 }
 
 
@@ -250,13 +251,7 @@ void NetworkBrowser::on_file_highlight(const Filename& filename)
 void NetworkBrowser::on_file_select(const Filename& filename)
 {
     Level l(filename);
-    if (l.get_status() == Level::GOOD) {
-        set_exit_with(EXIT_WITH_OKAY);
-        useR->network_last_level = get_current_file();
-    }
-    else if (hardware.get_mr()) {
-        set_exit_with(EXIT_WITH_EXIT);
-    }
+    if (l.get_status() == Level::GOOD) set_exit_with(EXIT_WITH_OKAY);
 }
 
 } // Ende Namensraum Api

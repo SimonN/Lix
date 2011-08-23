@@ -209,16 +209,10 @@ void Lobby::calc_self()
         if (browser    ->get_exit_with() == NetworkBrowser::EXIT_WITH_OKAY
          || browser    ->get_exit_with() == NetworkBrowser::EXIT_WITH_EXIT) {
             if (browser->get_exit_with() == NetworkBrowser::EXIT_WITH_OKAY) {
-                Network::set_level(useR->network_last_level);
-                // Und diesen Level auch sofort anzeigen, selbst wenn er
-                // noch nicht offiziell angekommen ist. So wird das Flackern
-                // bzw. das verzoegerte Akzeptieren der Vorschau unterbunden,
-                // die sonst erst den Lag abwarten muesste.
-                // Wir nehmen dabei den (nicht vorhandenen ;-)
-                // Geschwindigkeitsnachteil in Kauf, der beim Neuladen des
-                // Levels aus der Datei entsteht.
-                Level l(useR->network_last_level);
-                preview.set_level(l);
+                // Browser should make sure that this is valid
+                Network::set_level(browser->get_current_file());
+                // Don't show the level immediately, wait for it to return
+                // from the server again.
             }
             delete browser;
             browser = 0;
