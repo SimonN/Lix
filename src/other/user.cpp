@@ -134,6 +134,7 @@ User::User()
     single_last_level      (gloB->dir_levels_single),
     network_last_level     (gloB->dir_levels_network),
     replay_last_level      (gloB->dir_replay),
+    network_last_style     (0),
 
     editor_last_dir_terrain(gloB->dir_bitmap),
     editor_last_dir_steel  (gloB->dir_bitmap),
@@ -289,6 +290,8 @@ void User::load()
         else if (i->text1 == gloB->user_editor_grid_selected   ) editor_grid_selected   = i->nr1;
         else if (i->text1 == gloB->user_editor_grid_custom     ) editor_grid_custom     = i->nr1;
 
+        else if (i->text1 == gloB->user_network_last_style     ) network_last_style     = i->nr1;
+
         else if (i->text1 == gloB->user_key_force_left         ) key_force_left         = i->nr1;
         else if (i->text1 == gloB->user_key_force_right        ) key_force_right        = i->nr1;
         else if (i->text1 == gloB->user_key_rate_minus         ) key_rate_minus         = i->nr1;
@@ -331,7 +334,6 @@ void User::load()
         else if (i->text1 == gloB->user_key_ed_add_goal        ) key_ed_add_goal        = i->nr1;
         else if (i->text1 == gloB->user_key_ed_add_deco        ) key_ed_add_deco        = i->nr1;
         else if (i->text1 == gloB->user_key_ed_add_hazard      ) key_ed_add_hazard      = i->nr1;
-
 
         else {
             LixEn::Ac ac = LixEn::string_to_ac(i->text1);
@@ -403,6 +405,7 @@ void User::save() const
      << IO::LineDollar(gloB->user_single_last_level,       single_last_level.get_rootless())
      << IO::LineDollar(gloB->user_network_last_level,      network_last_level.get_rootless())
      << IO::LineDollar(gloB->user_replay_last_level,       replay_last_level.get_rootless())
+     << IO::LineHash  (gloB->user_network_last_style,      network_last_style)
      << std::endl
 
      << IO::LineDollar(gloB->user_editor_last_dir_terrain, editor_last_dir_terrain.get_rootless())

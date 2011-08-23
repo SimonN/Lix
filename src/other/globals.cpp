@@ -17,7 +17,7 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2011, 08, 23, 00)),
+    version              (CONCAT(2011, 08, 23, 02)),
     version_min          (CONCAT(2011, 08, 18, 03)),
 
     updates_per_second   (15),
@@ -196,6 +196,7 @@ Globals::Globals()
     user_single_last_level       ("SINGLE_LAST_LEVEL"),
     user_network_last_level      ("NETWORK_LAST_LEVEL"),
     user_replay_last_level       ("REPLAY_LAST_LEVEL"),
+    user_network_last_style      ("NETWORK_LAST_STYLE"),
 
     user_editor_last_dir_terrain ("EDITOR_LAST_DIR_TERRAIN"),
     user_editor_last_dir_steel   ("EDITOR_LAST_DIR_STEEL"),

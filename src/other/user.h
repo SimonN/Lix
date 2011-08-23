@@ -144,6 +144,7 @@ public:
     Filename single_last_level;
     Filename network_last_level;
     Filename replay_last_level;
+    int      network_last_style;
 
     Filename editor_last_dir_terrain;
     Filename editor_last_dir_steel;

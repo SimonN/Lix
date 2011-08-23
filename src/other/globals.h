@@ -208,6 +208,7 @@ public:
         user_single_last_level,
         user_network_last_level,
         user_replay_last_level,
+        user_network_last_style,
 
         user_editor_last_dir_terrain,
         user_editor_last_dir_steel,

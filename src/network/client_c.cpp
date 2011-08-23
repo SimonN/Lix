@@ -138,6 +138,10 @@ void NetClient::calc()
             PlayerData pd(event.packet->data[2],
              gloB->user_name.c_str());
             pd.style = pd.number % (LixEn::STYLE_MAX-1) + 1;
+            if (useR->network_last_style > 0
+             && useR->network_last_style < LixEn::STYLE_MAX)
+                pd.style = static_cast <char> (useR->network_last_style);
+            // The lobby saves the style to useR->...
 
             players.clear();
             players.push_back(pd);

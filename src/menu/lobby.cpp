@@ -126,8 +126,11 @@ Lobby::Lobby()
 
         button_ready.set_on(Network::get_ready());
         for (unsigned i = 0; i < button_color.size(); ++i) {
-            if (i == (unsigned)Network::get_style()) button_color[i].set_on();
-            else                                     button_color[i].set_off();
+            if (i == (unsigned)Network::get_style() && ! Network::get_spec()) {
+                button_color[i].set_on();
+                useR->network_last_style = i;
+            }
+            else button_color[i].set_off();
         }
     }
     // Or just about to start a network session
@@ -269,6 +272,7 @@ void Lobby::calc_self()
          itr->set_off();
         button_spec.set_off();
         button_color[i].set_on();
+        useR->network_last_style = i;
     }
 
     if (button_spec.get_clicked()) {
