@@ -6,6 +6,7 @@
 #include "main_men.h"
 
 #include "../api/manager.h"
+#include "../graphic/gra_lib.h"
 #include "../other/help.h"
 #include "../other/language.h"
 
@@ -98,7 +99,10 @@ void MainMenuWindow::calc_self()
 
 void MainMenuWindow::draw_self()
 {
-    get_ground().clear_to_color(::color[COL_BLACK]);
+    const Cutbit& bg = GraLib::get(gloB->file_bitmap_menu_background);
+    if (bg) bg.draw(get_ground());
+    else    get_ground().clear_to_color(::color[COL_BLACK]);
+
     Window::draw_self();
 }
 
