@@ -1,5 +1,5 @@
 /*
- * lemming/ac_func.cpp
+ * lix/ac_func.cpp
  *
  * Grundlage die Funktionen, die pro Faehigkeit aufgerufen werden,
  * Festlegung der Standardfunktionen

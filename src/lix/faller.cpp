@@ -1,12 +1,12 @@
 /*
- * lemming/faller.cpp
+ * lix/faller.cpp
  *
  * special_x
  *
- *   Zaehlt, wie viele Pixel der Lemming bereits nach unten gefallen ist.
- *   Wird ein Lemming zum Faller, so sollten die anderen Faehigkeiten, wenn
+ *   Zaehlt, wie viele Pixel die Lix bereits nach unten gefallen ist.
+ *   Wird eine Lix zum Faller, so sollten die anderen Faehigkeiten, wenn
  *   sie diese Aktivitaet zuweisen, schon einige Pixel vorgeben mit
- *   set_special_x(), falls sie den Lemming bereits etwas bewegt haben.
+ *   set_special_x(), falls sie die Lix bereits etwas bewegt haben.
  *
  *   Der Faller nutzt die Standardzuweisung assign_default(), damit beginnt
  *   er ansonsten bei null gefallenen Pixeln.

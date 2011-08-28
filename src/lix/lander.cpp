@@ -1,5 +1,5 @@
 /*
- * lemming/lander.cpp
+ * lix/lander.cpp
  *
  */
 

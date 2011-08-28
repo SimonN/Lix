@@ -257,7 +257,7 @@ void Editor::calc_self()
             Api::Manager::add_focus(window_scroll);
             break;
 
-        case MENU_LEMMING:
+        case MENU_VARS:
             b.set_on();
             window_variable = new Api::WindowVariables(level);
             Api::Manager::add_focus(window_variable);

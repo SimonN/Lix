@@ -1,5 +1,5 @@
 /*
- * lemming/jumper.cpp
+ * lix/jumper.cpp
  *
  * special_x
  *
@@ -18,7 +18,7 @@
  *   nicht den Haken abgeschossen hat, so wird er wieder zum Walker, aber nur,
  *   falls special_x noch nicht 1 ist.
  *
- *   Wird beim Abfeuern des Ropers auf 0 gesetzt. Der Lemming verharrt naemlich
+ *   Wird beim Abfeuern des Ropers auf 0 gesetzt. Die Lix verharrt naemlich
  *   eine gewisse Zeit nach dem Abfeuern in seiner letzten Blickrichtung vor
  *   dem Abfeuern, bevor er zum Walker wird. Diese Zeit wird hiermit gemessen.
  *
@@ -36,7 +36,7 @@ void set_frame_after_aiming(Lixxie& l, const UpdateArgs& ua)
     const double pi = std::acos(-1.0);
     const int    x  = (ua.aim_x - l.get_ex()) * l.get_dir();
     const int    y  =  ua.aim_y - l.get_ey();
-    // Fuer (0, 0) einfach nix machen, Lemming soll wie vorher schauen
+    // Fuer (0, 0) einfach nix machen, Lix soll wie vorher schauen
     if (x != 0 || y != 0) {
         // Den Winkel so ausrechnen, als sei (0, 1) der Nullwinkel,
         // nicht (1, 0), wie es normal waere. Alles gedreht.

@@ -1,18 +1,10 @@
 /*
- * lemming/lemming.cpp
- *
- * Es gibt in der Tat schoene Spruecke in der INI-Datei von GS Lixxies:
- *
- * Und der Autor sprach: Ich forme dich nach meinem Ebenbild, mit gruenem Haar
- * und nichts zu tun, was auch ich nicht taete. Ebenso wie ich wirst du immer
- * in der Welt des Computers gefangen sein.
- *
- *   -- Aus dem Buch ueber lustige Funktionen, Kapitel create_lemming(ax, ay).
+ * lix/lix.cpp
  *
  */
 
 #include <algorithm> // swap
-#include <cmath> // sin - Wichtig für die Zündschnur
+#include <cmath> // sin - for the fuse
 
 #include "ac.h" // update args
 #include "lix.h"

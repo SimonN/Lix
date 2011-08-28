@@ -1,5 +1,5 @@
 /*
- * lemming/jumper.cpp
+ * lix/jumper.cpp
  *
  */
 

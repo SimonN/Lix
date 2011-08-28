@@ -1,10 +1,7 @@
 /*
  * ./api/button/b_skill.h
  *
- * Ein 60 x 40 Pixel grosser Button mit einer Lemming-Faehigkeit als Bild und
- * einer grossen Zahl oben.
- *
- * Ist die Zahl >= 100, gilt die Faehigkeit als unbegrenzt oft nutzbar.
+ * A button of size 40 x 60 with a skill and a number.
  *
  */
 
@@ -23,7 +20,7 @@ private:
     int       number;
     LixEn::Ac skill;
 
-    Graphic   lem;
+    Graphic   icon;
 
 public:
 

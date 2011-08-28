@@ -17,7 +17,7 @@
  *   Veraendert die Benutzerdaten des Levels, falls das LevelResult-Objekt
  *   ein besseres Ergebnis ist (Result::operator >). Besser ist das Ergebnis
  *   immer, wenn Level::built neuer ist als Result::built, bei Versions-
- *   gleichheit entscheidet die Zahl der geretteten Lemminge, bei erneuter
+ *   gleichheit entscheidet die Zahl der geretteten Lixen, bei erneuter
  *   Gleichheit die kuerzere Zeit.
  *
  */

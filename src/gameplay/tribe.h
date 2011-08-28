@@ -2,7 +2,7 @@
  * gameplay/tribe.h
  *
  * Informationen ueber einen Spieler: Eine Liste mit der eigenen
- * Lemminghorde, die ausgewaehlte Farbe, Lemminge in der Klappe, im Ziel usw.
+ * Lixhorde, die ausgewaehlte Farbe, Lixen in der Klappe, im Ziel usw.
  *
  * Die Klasse Gameplay verwaltet die korrekte Anzahl Spieler in entsprechend
  * vielen Player-Objekten. Eines dieser Objekte ist als lokaler Spieler

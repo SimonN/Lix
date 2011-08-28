@@ -1,10 +1,10 @@
 /*
- * lemming/deaths.cpp
+ * lix/deaths.cpp
  *
  * Enthaelt Splatter, Drowner, Burner und derlgeichen.
  *
- * Am Ende der Animationen wird diesen Lemmingen die Aktivitaet NOTHING
- * zugewiesen. Die Gameplay-Klasse erkennt das und loescht sie.
+ * Am Ende der Animationen wird diesen Lixen die Aktivitaet NOTHING
+ * zugewiesen. Die Gameplay-Klasse erkennt das.
  *
  */
 

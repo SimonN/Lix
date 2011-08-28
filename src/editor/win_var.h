@@ -1,9 +1,7 @@
 /*
  * varwin.h
  *
- * Dies ist ein editorinternes Fenster zum Einstellen der Levelvariablen,
- * etwa Name und Anzahl der Lemminge. Faehigkeiten werden in einem separaten
- * Fenster konfiguriert!
+ * This window sets general level variables, but not skills.
  *
  */
 

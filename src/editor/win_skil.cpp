@@ -298,11 +298,11 @@ PossibleSkill::PossibleSkill(
  const int nx, const int ny, const LixEn::Ac nac, const LixEn::Style sk)
 :
     Button(nx, ny, this_length, this_length),
-    lem   (GraLib::get_lix(sk), get_ground()),
+    icon   (GraLib::get_lix(sk), get_ground()),
     ac    (nac)
 {
-    if (ac != LixEn::NOTHING) lem.set_y_frame(ac - 1);
-    else                    lem.set_y_frame(0);
+    if (ac != LixEn::NOTHING) icon.set_y_frame(ac - 1);
+    else                    icon.set_y_frame(0);
 }
 
 PossibleSkill::~PossibleSkill()
@@ -314,12 +314,12 @@ PossibleSkill::~PossibleSkill()
 bool PossibleSkill::get_color()
 {
     set_draw_required();
-    return !lem.get_x_frame();
+    return !icon.get_x_frame();
 }
 
 void PossibleSkill::set_color(const bool b)
 {
-    lem.set_x_frame(b ? 0 : 1);
+    icon.set_x_frame(b ? 0 : 1);
     set_draw_required();
 }
 
@@ -328,9 +328,9 @@ void PossibleSkill::set_color(const bool b)
 void PossibleSkill::draw_self()
 {
     Button::draw_self();
-    lem.set_x(get_x_here() + 2);
-    lem.set_y(get_y_here() + 3);
-    lem.draw();
+    icon.set_x(get_x_here() + 2);
+    icon.set_y(get_y_here() + 3);
+    icon.draw();
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * lemming/basher.cpp
+ * lix/basher.cpp
  *
  * The basher will bash away the lowest rectangle of most frames again during
  * the next frame. This is to prevent the horizontal lines when he's bashing
@@ -9,19 +9,19 @@
  *
  * special_x
  *
- *   Misst, wie weit ein Lemming hinuntergestiegen ist beim Bohren. Wenn das
- *   zu viel war, hoert er auf zu bohren. Siehe ausfuehrlichen Kommentar unten.
+ *   Misst, wie weit eine Lix hinuntergestiegen ist beim Bohren. Wenn das
+ *   zu viel war, hoert sie auf Siehe ausfuehrlichen Kommentar unten.
  *
  *   The basher will go up again if he's walked through a very small pit while
  *   bashing, to counter Horus' bug.
  *
  * special_y
-
+ *
  *  DEBUGGING: is just 0 or 1.
  *
  *   This takes three values, 0, 1, and 2.
  *
- *   0: This is 0 until the lemming has completed half of its first swing.
+ *   0: This is 0 until the lix has completed half of its first swing.
  *   While it's 0, steel doesn't cancel the basher.
  *
  *   1: This is 1 during the second half of the first swing, until the check
@@ -113,9 +113,9 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
     case 8:
         // Gibt es noch etwas zu Bohren?
         // Hier nehmen wir nicht alle Pixel am Fuß
-        // oder am Kopf des Lemmings mit.
+        // oder am Kopf der Lix mit.
 
-        // Auch die vom Lemming am weitesten entfernten Doppelpixel
+        // Auch die von der Lix am weitesten entfernten Doppelpixel
         // werden nicht überbrückt.
 
         // Alles wäre dagegen 12, -16, 23, +1
@@ -150,8 +150,8 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
     }
 
     // Object misst, wie viele Pixel kürzlich hinunter gestiegen wurden
-    // Ab 9 Object-Punkten wird der Lemming zum Faller.
-    // Die Pixel, in dem der Lemming steht, müssen auch hohl sein, denn
+    // Ab 9 Object-Punkten wird die Lix zum Faller.
+    // Die Pixel, in dem die Lix steht, müssen auch hohl sein, denn
     // sonst fällt ein Basher im Zipfel seines Ganges, aber die Kollegen
     // nicht!
     while (!l.is_solid() && !l.is_solid(0, 1) && !l.is_solid(0, 0)

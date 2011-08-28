@@ -1,5 +1,5 @@
 /*
- * lemming/init.cpp
+ * lix/init.cpp
  *
  * Initialisierungs-Unterklasse
  *

@@ -1,5 +1,5 @@
 /*
- * lemming/stunner.cpp
+ * lix/stunner.cpp
  *
  */
 

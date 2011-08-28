@@ -325,7 +325,7 @@ bool Level::get_binary(const Filename& filename)
     file.close();
 
     // A binary file has two-byte numbers in big endian
-    // for rate, lemmings, required, seconds at the beginning.
+    // for rate, lixes, required, seconds at the beginning.
     // Neither should be > 0x00FF. If all of them are,
     // this is an ASCII file which shouldn't have '\0' chars.
     if (buf[0] != '\0' && buf[2] != '\0' && buf[4] != '\0' && buf[6] != '\0')

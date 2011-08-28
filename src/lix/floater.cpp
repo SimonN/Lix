@@ -1,5 +1,5 @@
 /*
- * lemming/floater.cpp
+ * lix/floater.cpp
  *
  */
 
@@ -15,7 +15,7 @@ void update_floater(Lixxie& l, const UpdateArgs& ua)
 {
     ua.suppress_unused_variable_warning();
 
-    // special_y und special_x steuern, wie viel Pixel der Lemming jeweils
+    // special_y und special_x steuern, wie viel Pixel die Lix jeweils
     // faellt. Die Vorgaben sind 0|0, sie sollten nach assign vom Faller
     // und vom Jumper geaendert werden.
     switch (l.get_frame()) {

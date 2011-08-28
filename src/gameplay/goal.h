@@ -2,7 +2,7 @@
  * gameplay/goal.h
  *
  * Ein Ziel ist ein Grafikobjekt, das im Mehrspielermodus zusaetzlich die
- * Farben der Spieler zeigt, denen eintretende Lemminge gutgeschrieben werden.
+ * Farben der Spieler zeigt, denen eintretende Lixen gutgeschrieben werden.
  *
  * Ferner bietet diese Klasse, aehnlich wie die anderen interaktiven Objekte,
  * eine Update-Methode zum Wechseln auf das naechste Frame.

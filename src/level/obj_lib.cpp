@@ -254,7 +254,7 @@ void ObjLib::deinitialize() { if (lib) { delete lib; lib = 0; } }
 
 
 
-// Genau wie fuer string_to_ac() etc. in lemming/init.cpp
+// Genau wie fuer string_to_ac() etc. in lix/init.cpp
 const std::string& ObjLib::orig_set_to_string(const int o) {
     for (std::map <OrigSet, std::string>::iterator
      i  =  lib->orig_set_string.begin();

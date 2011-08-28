@@ -1,5 +1,5 @@
 /*
- * lemming/platform.cpp
+ * lix/platform.cpp
  *
  */
 

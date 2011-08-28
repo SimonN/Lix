@@ -87,7 +87,7 @@ struct PossibleSkill : public Button {
 
     static const unsigned this_length;
 
-    Graphic     lem;
+    Graphic icon;
     LixEn::Ac ac;
 
     PossibleSkill (const int = 0, const int = 0,

@@ -1,12 +1,12 @@
 /*
- * lemming/climber.cpp
+ * lix/climber.cpp
  *
  * Enthaelt alles zum Climber und das Wenige zum Ascender, auch wenn der
  * Ascender oft vom Walker mitbenutzt wird.
  *
  * special_x
  *
- *   Ist 1, wenn der Lemming um 1 in X-Richtung versetzt gezeichnet werden
+ *   Ist 1, wenn die Lix um 1 in X-Richtung versetzt gezeichnet werden
  *   muss. Hat Einfluss auf die Kontrolle der X-Koordinaten. Damit ist der
  *   Climber die einzige Faehigkeit, die sich an horizontalen Pixeln stoert.
  *
@@ -76,8 +76,8 @@ void update_climber(Lixxie& l, const UpdateArgs& ua)
      for (int i = 0; i < up_by; ++i) {
         l.move_up(1);
         // Fallen? Dann sofort aus der Schleife ausbrechen!
-        // Object ist 1, wenn der Lemming einen Pixel zurück liegt
-        // solid_diff wird gebraucht, wenn das Lemmingbild um einen Pixel nach
+        // Object ist 1, wenn die Lix einen Pixel zurück liegt
+        // solid_diff wird gebraucht, wenn das Lixbild um einen Pixel nach
         // rechts verschoben worden ist. Das muss jeweils unterschiedlich
         // gehandhabt werden, je nach Richtung.
         const bool diff       = l.get_special_x();

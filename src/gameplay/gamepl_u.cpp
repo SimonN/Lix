@@ -2,7 +2,7 @@
  * gameplay/gamepl_u.cpp
  *
  * Ein Update, also eine spielmechanische Zeiteinheit, in der sich
- * beispielsweise die Lemminge bewegen
+ * beispielsweise die Lixen bewegen
  *
  */
 
@@ -150,8 +150,8 @@ void Gameplay::update_cs_once()
                 effect.add_sound(upd, *tr, 0, Sound::OHNO);
             }
         }
-        // Ebenfalls etwas Uhriges: Gibt es Spieler mit geretteten Lemmingen,
-        // die aber keine Lemminge mehr im Spiel haben oder haben werden? Dann
+        // Ebenfalls etwas Uhriges: Gibt es Spieler mit geretteten Lixen,
+        // die aber keine Lixen mehr im Spiel haben oder haben werden? Dann
         // wird die Nachspielzeit angesetzt. Falls aber alle Spieler schon
         // genukt sind, dann setzen wir die Zeit nicht an, weil sie vermutlich
         // gerade schon ausgelaufen ist.
@@ -205,7 +205,7 @@ void Gameplay::update_cs_once()
             --t->lix_hatch;
             ++t->lix_out;
 
-            // Lemmings start walking to the left instead of right?
+            // Lixes start walking to the left instead of right?
             if (h.get_rotation()) newlix.turn();
             // This extra turning solution here is necessary to make
             // some L1 and ONML two-player levels better playable.
@@ -220,11 +220,11 @@ void Gameplay::update_cs_once()
 
 
 
-        // Lemmings updaten
+        // Lixen updaten
         // Reaktionen auf Aiming wurden bereits beim Auswerten der Replaydaten
-        // umgesetzt. Fuer diese Lemminge wird also zweimal die Update-Funktion
+        // umgesetzt. Fuer diese Lixen wird also zweimal die Update-Funktion
         // aufgerufen, einmal dort und einmal hier. Die dortige Funktion
-        // ruft allerdings nur Lemming::update() auf, nicht
+        // ruft allerdings nur Lixxie::update() auf, nicht
         // Gameplay::update_lixvec(). Es werden also Sachen wie Hochzaehlen
         // des Bomben-Countdowns oder das Laufen ins Ziel nicht ueberprueft.
         UpdateArgs ua(cs);
@@ -251,8 +251,9 @@ void Gameplay::update_cs_once()
             }
         }
         // Dritter Durchlauf: Nuke
-        // Abbruch, wenn in diesem Update ein Lemming bearbeitet wird
-        // Lemmings mit verlassenden Aktivitäten werden nicht mitgenommen!
+        // Abbruch, wenn in diesem Update eine Lix bearbeitet wird.
+        // Lixen mit verlassenden Aktivitäten (we check for "not nukable")
+        // werden nicht mitgenommen!
         if (t->nuke == true)
          for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
             if (i->get_updates_since_bomb() == 0 && i->get_nukable()) {
@@ -269,7 +270,7 @@ void Gameplay::update_cs_once()
         }
         // Ende Nuke
     }
-    // Ende Haupt-Lemmingupdate-Geschichten
+    // Ende Haupt-Lix-Update-Geschichten
     // Dies ist aber ebenfalls sehr wichtig fuer jedes Update, egal ob
     // normal oder nachberechnet:
     for (IacIt i = cs.trap.begin(); i != cs.trap.end(); ++i) {

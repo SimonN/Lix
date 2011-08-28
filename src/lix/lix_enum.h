@@ -1,7 +1,7 @@
 /*
- * lemming/lix_enum.h
+ * lix/lix_enum.h
  *
- * This outsources all Lemming enums that were previously in lemming/lix.h.
+ * This outsources all Lix enums that were previously in lix/lix.h.
  * The idea is to not have almost everything depend on that file.
  *
  */

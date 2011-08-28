@@ -114,9 +114,9 @@ LobbyColorButton::LobbyColorButton(
     const LixEn::Style st)
 :
     Button(nx, ny, this_xl, this_yl),
-    lem   (GraLib::get_lix(st), get_ground(), get_x() - 7, get_y() - 3)
+    icon  (GraLib::get_lix(st), get_ground(), get_x() - 7, get_y() - 3)
 {
-    lem.set_y_frame(LixEn::WALKER - 1);
+    icon.set_y_frame(LixEn::WALKER - 1);
     set_undraw_color(color[COL_API_M]);
 }
 
@@ -127,8 +127,8 @@ LobbyColorButton::~LobbyColorButton()
 void LobbyColorButton::draw_self()
 {
     Button::draw_self();
-    lem.set_x_frame(19);
-    lem.draw();
+    icon.set_x_frame(19);
+    icon.draw();
 }
 
 

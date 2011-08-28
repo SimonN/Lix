@@ -1,5 +1,5 @@
 /*
- * lemming/lem_enum.cpp
+ * lix/lem_enum.cpp
  *
  */
 

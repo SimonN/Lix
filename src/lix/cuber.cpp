@@ -1,5 +1,5 @@
 /*
- * lemming/cuber.cpp
+ * lix/cuber.cpp
  *
  */
 

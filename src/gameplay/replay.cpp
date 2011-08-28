@@ -109,8 +109,8 @@ Replay::Vec Replay::get_data_for_update(const unsigned long i) const
 
 
 
-bool Replay::get_on_update_lemming_clicked(const unsigned long u,
-                                           const unsigned      lem_id)
+bool Replay::get_on_update_lix_clicked(const unsigned long u,
+                                       const unsigned      lem_id)
 {   Replay::Vec vec = get_data_for_update(u);
     for (ConstIt it = vec.begin(); it != vec.end(); ++it)
      if (it->action == ASSIGN && it->what == lem_id) return true;

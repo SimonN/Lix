@@ -1,5 +1,5 @@
 /*
- * lemming/builder.cpp
+ * lix/builder.cpp
  *
  * special_x
  *
@@ -56,9 +56,9 @@ void update_builder(Lixxie& l, const UpdateArgs& ua)
     case 11:
         // Kollision mit Landschaft? Dann umdrehen!
         // Kopf und Fuß werden geprüft hierfür.
-        // +6|-18 statt +2|-16: Der Lemming soll wissen, wo's hin geht.
+        // +6|-18 statt +2|-16: Die Lix soll wissen, wo's hin geht.
         // +6|-1 ist die Koordinate über dem Stein, nicht -2, da sonst
-        // in seltenen Fällen (Lemming in dünner Horizontalen) nicht
+        // in seltenen Fällen (Lix in dünner Horizontalen) nicht
         // bis zu dieser Ebene hochgebaut wird.
 
         // Die zweite Abfrage in der Und-Klammer dient dazu, Treppen
@@ -91,7 +91,6 @@ void update_builder(Lixxie& l, const UpdateArgs& ua)
         break;
     }
 
-    // Wenn der Lemming noch ein Builder ist, nächstes Frame wählen!
     if (l.get_ac() == LixEn::BUILDER) l.next_frame();
 }
 

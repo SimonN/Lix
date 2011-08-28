@@ -1,5 +1,5 @@
 /*
- * lemming/exploder.cpp
+ * lix/exploder.cpp
  *
  */
 
@@ -26,7 +26,7 @@ void update_exploder(Lixxie& l, const UpdateArgs& ua)
     for (int i = 0; i < 6; ++i) if (!l.is_solid()) l.move_down(1);
 
     // Nach Ende der Animation den Krater erstellen
-    // und den Lemming entfernen.
+    // und die Lix entfernen.
     if (l.is_last_frame()) {
         l.remove_rectangle( -4, -26,   3, -26);
         l.remove_rectangle( -6, -25,   5, -25);
@@ -60,7 +60,7 @@ void update_exploder(Lixxie& l, const UpdateArgs& ua)
         l.get_ef()->add_explosion(
          ua.st.update, l.get_tribe(), ua.id, l.get_ex(), l.get_ey());
 
-        l.become(LixEn::NOTHING); // entfernt den Lemming next time
+        l.become(LixEn::NOTHING); // kill it
     }
 
     else l.next_frame();

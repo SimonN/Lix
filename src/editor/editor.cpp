@@ -96,7 +96,7 @@ Editor::Editor()
     panel[HELP]         .set_hotkey(useR->key_ed_help);
     panel[MENU_SIZE]    .set_hotkey(useR->key_ed_menu_size);
     panel[MENU_SCROLL]  .set_hotkey();
-    panel[MENU_LEMMING] .set_hotkey(useR->key_ed_menu_vars);
+    panel[MENU_VARS]    .set_hotkey(useR->key_ed_menu_vars);
     panel[MENU_SKILL]   .set_hotkey(useR->key_ed_menu_skills);
 
     panel[ADD_TERRAIN].set_hotkey(useR->key_ed_add_terrain);
@@ -228,7 +228,7 @@ void Editor::calc() {
         if (window_variable->get_exit()) {
             delete window_variable;
             window_variable = 0;
-            panel[MENU_LEMMING].set_off();
+            panel[MENU_VARS].set_off();
         }
     } else if (window_skill) {
         if (window_skill->get_exit()) {

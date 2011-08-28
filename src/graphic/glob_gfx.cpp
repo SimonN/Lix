@@ -5,10 +5,10 @@
 
 #include "glob_gfx.h"
 #include "gra_lib.h" // initialisieren
-#include "graphic.h" // Weil bitmap.cpp die Lemming-Graphics erschafft/killt
+#include "graphic.h" // Weil bitmap.cpp die Lix-Graphics erschafft/killt
 
 #include "../api/manager.h" // initializes the manager
-#include "../lix/lix.h" // call the initializer of Lemming
+#include "../lix/lix.h" // call the initializer of Lixxie
 #include "../level/obj_lib.h"
 #include "../other/globals.h"
 #include "../other/help.h" // Dateisuche
@@ -30,9 +30,9 @@ FONT* font_big;
 // Diese werden in load_all_bitmaps() aufgerufen
 void make_all_colors();
 void make_all_bitmap_replacements();
-void make_all_lemming_colors();
-void make_lemming_color(const LixEn::Style, const int = 0, const int = 0,
-                                              const int = 0, const int = 0);
+void make_all_lix_colors();
+void make_lix_color(const LixEn::Style, const int = 0, const int = 0,
+                                        const int = 0, const int = 0);
 
 void load_all_bitmaps()
 {

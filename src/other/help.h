@@ -74,7 +74,7 @@ namespace Help {
     void find_files(const Filename&, const std::string&, DoStr, void*);
     // Die Funktion durchsucht das mit dem ersten Argument angegebene Verzeich-
     // nis nach Dateien, die dem zweiten Argument "*.abc" entsprechen. Es
-    // wird ein Pfad/Dateiname relativ zur Lemmings-Executable gefunden.
+    // wird ein Pfad/Dateiname relativ zur Lix-Executable gefunden.
     // DoStr ist ein Funktionszeiger. Die entsprechende Funktion wird für jeden
     // String aufgerufen, der gefunden wird.
 

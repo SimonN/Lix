@@ -61,7 +61,7 @@ public:
 
 
 class LobbyColorButton : public Button {
-    Graphic lem;
+    Graphic icon;
 public:
     static const unsigned this_xl;
     static const unsigned this_yl;

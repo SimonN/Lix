@@ -1,5 +1,5 @@
 /*
- * lemming/tumbler.cpp
+ * lix/tumbler.cpp
  *
  */
 
@@ -51,8 +51,8 @@ bool jumper_and_tumbler_collision(Lixxie& l)
         l.set_special_x(l.get_special_x() / 4);
         l.set_special_x(l.get_special_x() * 2);
         return true;
-        // Es kann sein, dass sich der Lemming in eine Wand hineinbewegt, wenn
-        // nur oder obere Teil vom Lemming vor der Wand ist, nicht der untere.
+        // Es kann sein, dass sich die Lix in eine Wand hineinbewegt, wenn
+        // nur oder obere Teil von der Lix vor der Wand ist, nicht der untere.
         // Das macht hoffentlich nichts, denn einzig der Lauf-Pixel soll
         // wandfrei sein, und sowas wird kontrolliert bei "if (swh > 6 ..."
     }
@@ -61,7 +61,7 @@ bool jumper_and_tumbler_collision(Lixxie& l)
     else if ((swh > 9  && l.get_ac() == LixEn::JUMPER)
      ||      (swh > 0  && l.get_ac() == LixEn::TUMBLER)) {
         // Suche in horizontaler Richtung nach dem ersten freien Pixel,
-        // bewege dorthin, drehe Lemming in die Richtung dieser Bewegung.
+        // bewege dorthin, drehe Lix in die Richtung dieser Bewegung.
         l.turn();
         l.move_ahead();
         // Dies behebt das Zuckeln in der Wand, was auftrat, als wir den
@@ -87,8 +87,8 @@ bool jumper_and_tumbler_collision(Lixxie& l)
                     break;
                 }
                 else if (l.get_special_y() >= 0 && !l.is_solid(0, -dist + 1)) {
-                    // Die + 1 in der Bedingung stehen dort, weil Fuss des
-                    // Lemmings immer noch einen freien Pixel drunter hat.
+                    // Die + 1 in der Bedingung stehen dort, weil Fuss der
+                    // Lix immer noch einen freien Pixel drunter hat.
                     l.move_up(dist);
                     l.become(LixEn::STUNNER);
                     break;
@@ -99,7 +99,7 @@ bool jumper_and_tumbler_collision(Lixxie& l)
     }
 
     // Boden-Kollision
-    // Damit sich die Lemminge auch mal mehr festhalten an den Klippen,
+    // Damit sich die Lixen auch mal mehr festhalten an den Klippen,
     // pruefen wir auf swh <= 2. Hoffentlich gibt das keine Bugs.
     else if (l.get_special_y() >= 0 && swh <= 2
      && (l.is_solid(0, 1) || l.is_solid(0, 2)))

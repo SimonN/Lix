@@ -165,7 +165,7 @@ public:
         HELP,
         MENU_SIZE,
         MENU_SCROLL,
-        MENU_LEMMING,
+        MENU_VARS,
         MENU_SKILL,
         ADD_TERRAIN,
         ADD_STEEL,

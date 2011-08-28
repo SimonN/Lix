@@ -1,5 +1,5 @@
 /*
- * lemming/digger.cpp
+ * lix/digger.cpp
  *
  * special_x
  *

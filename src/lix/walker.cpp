@@ -1,5 +1,5 @@
 /*
- * lemming/walker.cpp
+ * lix/walker.cpp
  *
  * Der Walker nutzt auch viel den Ascender zum Erklimmen von hoehren Stufen,
  * der entsprechende Code steht in climber.cpp.
@@ -68,7 +68,7 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
 {
     ua.suppress_unused_variable_warning();
 
-    // Das erste Frame dient zur kurzen Pause, die der Lemming vor dem
+    // Das erste Frame dient zur kurzen Pause, die die Lix vor dem
     // Weiterlaufen machen soll, wenn die Walker-Faehigkeit vom Benutzer
     // explizit zugewiesen wird. Dieses Frame darf im normalen Walker-
     // Framezyklus nicht angenommen werden.
@@ -136,8 +136,8 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
         }
     }
 
-    // Wenn der Lemming umdrehen soll, beginnt er entweder zu klettern
-    // oder er dreht um, beides auf seiner alten Stelle
+    // Wenn die Lix umdrehen soll, beginnt sie entweder zu klettern
+    // oder dreht um, beides auf seiner alten Stelle
     if (turn_after_all) {
         l.set_ex(old_ex);
         l.set_ey(old_ey);

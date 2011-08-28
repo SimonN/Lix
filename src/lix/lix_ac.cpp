@@ -1,5 +1,5 @@
 /*
- * lemming/lemmi_ac.cpp
+ * lix/lix_ac.cpp
  *
  * Auslagerung aller faehigkeitslastigen Memberfunktionen
  *
@@ -53,7 +53,7 @@ unsigned Lixxie::get_priority(LixEn::Ac                   new_ac,
             else return 1;
             break;
 
-        // Sonstige vereinnahmende Aktivitaeten, die den Lemming mehr oder
+        // Sonstige vereinnahmende Aktivitaeten, die die Lix mehr oder
         // weniger willentlich in Komplettbeschlag nehmen:
         // Bleibende Fähigkeiten und Exploder sind immer erlaubt
         case LixEn::FALLER:

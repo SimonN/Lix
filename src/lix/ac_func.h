@@ -1,9 +1,9 @@
 /*
- * lemming/ac_func.h
+ * lix/ac_func.h
  *
  * Achtung: Hier wird nicht die Klasse AcFunc definiert! Das geschieht in
- * lemming/lix.h. Hier werden nur die globalen Funktionen deklariert,
- * die in Lemming::Initializer::Initializer() dem ac_func-Vektor zugewiesen
+ * lix/lix.h. Hier werden nur die globalen Funktionen deklariert,
+ * die in Lixxie::Initializer::Initializer() dem ac_func-Vektor zugewiesen
  * werden.
  *
  */

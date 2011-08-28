@@ -1,10 +1,10 @@
 /*
- * lemming/exiter.cpp
+ * lix/exiter.cpp
  *
  * special_x
  *
  *   Wird auf 1 gesetzt, wenn die Animation vollstaendig durchlaufen wurde.
- *   Dann kann die Gameplay-Funktion diesen Lemming entfernen und dem ent-
+ *   Dann kann die Gameplay-Funktion diese Lix entfernen und dem ent-
  *   sprechenden Spieler einen Punkt geben - hier kennen wir ja keine Ziele.
  *
  * special_y

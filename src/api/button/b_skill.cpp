@@ -12,7 +12,7 @@ SkillButton::SkillButton(const unsigned nx, const unsigned ny,
  const LixEn::Ac ac, const int nr, const LixEn::Style style)
 :
     Button (nx, ny, 40, 60),
-    lem(GraLib::get_lix(style), get_ground(),
+    icon(GraLib::get_lix(style), get_ground(),
      get_x_here() + 3, get_y_here() + 23)
 {
     set_skill(ac);
@@ -29,7 +29,7 @@ void SkillButton::set_skill(const LixEn::Ac ac)
 {
     set_draw_required();
     skill = ac;
-    lem.set_y_frame(skill - 1);
+    icon.set_y_frame(skill - 1);
     if (skill == LixEn::NOTHING) set_number(0);
 }
 
@@ -40,11 +40,11 @@ void SkillButton::set_number(const int nr)
     set_draw_required();
     number = (skill != LixEn::NOTHING ? nr : 0);
     if (number != 0 ) {
-        lem.set_x_frame(0);
+        icon.set_x_frame(0);
     }
     else {
         set_off();
-        lem.set_x_frame(1);
+        icon.set_x_frame(1);
     }
 }
 
@@ -52,7 +52,7 @@ void SkillButton::set_number(const int nr)
 
 void SkillButton::set_style(const LixEn::Style st)
 {
-    lem.set_cutbit(GraLib::get_lix(st));
+    icon.set_cutbit(GraLib::get_lix(st));
 }
 
 
@@ -61,9 +61,9 @@ void SkillButton::draw_self()
 {
     Button::draw_self();
     if (skill != LixEn::NOTHING) {
-        lem.set_x(get_x_here() +  3);
-        lem.set_y(get_y_here() + 23);
-        lem.draw();
+        icon.set_x(get_x_here() +  3);
+        icon.set_y(get_y_here() + 23);
+        icon.draw();
 
         std::ostringstream s;
         if      (number == LixEn::infinity) s << "*";

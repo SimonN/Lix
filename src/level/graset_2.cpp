@@ -400,9 +400,9 @@ void GraphicSetL2::make_specials()
 				obj_type = Object::WATER;
 				obj_subtype = 1;
 				break;
-			case 12: // lemming launchers
+			case 12: // launchers
 				obj_type = Object::FLING;
- 				// bit0 indicates to invert the x_vel when the lemming is facing left
+ 				// bit0 indicates to invert the x_vel if the lix is facing left
 				// bit1 indicates that the animation is NOT permanent
  				obj_subtype = s[offset + 10];
 				// fling velocities
@@ -584,7 +584,7 @@ void GraphicSetL2::make_specials()
 			// set off by bitmap base position and stretch by 2
             // geoo wrote:
             // I noticed a little issue with the field sized trigger areas
-            // being slightly too low, as it seems that a Lemming is
+            // being slightly too low, as it seems that a lix is
             // positioned at the low-res pixel on the ground, and not at
             // the pixel within the terrain (like in L1 and L2), which made the
             // Sports ball and Space robot trap not work. Thus, we shift up

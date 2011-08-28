@@ -1,5 +1,5 @@
 /*
- * lemming/blocker.cpp
+ * lix/blocker.cpp
  *
  */
 

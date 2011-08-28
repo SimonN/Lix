@@ -1,5 +1,5 @@
 /*
- * lemming/miner.cpp
+ * lix/miner.cpp
  *
  * special_x
  *

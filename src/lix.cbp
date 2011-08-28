@@ -11,13 +11,6 @@
 				<![CDATA[// debugging fuer allgemeine Hinweise
 // lemdebug fuer Umarbeiten Lemming -> Lix
 
-Noch umzumalen:
-Drowner
-Floater
-Exploder
-Shrugger2
-Jumper
-
 Basher soll im 1. Stroke weniger Erde zum Weitermachen verlangen, oder immer durch eine Treppe bohren.
 
 Absturz bei Shift+Esc aus Spielraum, nicht Lobby
@@ -177,6 +170,7 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="api/window.h" />
 		<Unit filename="editor/bit_brow.cpp" />
 		<Unit filename="editor/bit_brow.h" />
+		<Unit filename="editor/button_k.h" />
 		<Unit filename="editor/editor.cpp" />
 		<Unit filename="editor/editor.h" />
 		<Unit filename="editor/editor_c.cpp" />
@@ -208,6 +202,9 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="gameplay/goal.h" />
 		<Unit filename="gameplay/hatch.cpp" />
 		<Unit filename="gameplay/hatch.h" />
+		<Unit filename="gameplay/pan_i_tr.cpp" />
+		<Unit filename="gameplay/pan_info.cpp" />
+		<Unit filename="gameplay/pan_info.h" />
 		<Unit filename="gameplay/panel.cpp" />
 		<Unit filename="gameplay/panel.h" />
 		<Unit filename="gameplay/replay.cpp" />
@@ -216,8 +213,6 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="gameplay/state.h" />
 		<Unit filename="gameplay/state_ma.cpp" />
 		<Unit filename="gameplay/state_ma.h" />
-		<Unit filename="gameplay/stats.cpp" />
-		<Unit filename="gameplay/stats.h" />
 		<Unit filename="gameplay/tribe.cpp" />
 		<Unit filename="gameplay/tribe.h" />
 		<Unit filename="gameplay/win_game.cpp" />

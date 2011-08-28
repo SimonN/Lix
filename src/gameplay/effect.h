@@ -37,16 +37,16 @@ struct Effect {
 
     const unsigned update;
     const Tribe*   tribe;
-    const unsigned lemming; // ggf. ebenfalls 0, wenn nicht noetig
+    const unsigned lixnr; // if not necessary, set to 0
 
     inline Effect(const unsigned u, const Tribe* t, const unsigned l = 0)
-           : update(u), tribe(t), lemming (l) {}
+           : update(u), tribe(t), lixnr (l) {}
     inline ~Effect() {}
 
     inline bool operator < (const Effect& e) const {
         return update <  e.update
          ||   (update == e.update && tribe <  e.tribe)
-         ||   (update == e.update && tribe == e.tribe && lemming < e.lemming);
+         ||   (update == e.update && tribe == e.tribe && lixnr < e.lixnr);
     }
 };
 
@@ -97,7 +97,7 @@ public:
     // add_explosion nimmt die Koordinaten der Explosion, add_sound: bool=laut
     // add_pickaxe   nimmt die Koordinaten der Hacke sowie ihre Rotation
     // add_overtime  nimmt Updates, fertigen Spieler, Anzahl Sekunden Nachzeit
-    // add_sound_gen spielt laut ab, braucht keine Infos zu Tribe oder Lemming
+    // add_sound_gen spielt laut ab, braucht keine Infos zu Tribe oder Lix
     // add_sound     spielt laut ab, falls Tribe& == trlo, sonst leise.
     // add_sound_qui spielt immer leise ab und nutzt dieselbe Effektmenge.
     // add_sound_if_ spielt laut ab, wenn Tribe == trlo, sonst gar nicht.

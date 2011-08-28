@@ -86,7 +86,7 @@ void Level::load_from_binary(const Filename& filename)
     // ORIGHACK: If a two-player level is loaded, make the given calculation
     // for the time, as the result (5 -> 2 minutes) is a nice overtime for
     // a multiplayer game. The overtime starts counting after the first player
-    // is out of lemmings, but has some saved.
+    // is out of lixes, but has some saved.
     // Also: Use knockback exploders instead of L1-style exploders.
     if (filename.get_rootful().find("network/") != std::string::npos) {
         skill[2].ac = LixEn::EXPLODER2;

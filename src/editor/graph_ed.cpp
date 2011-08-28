@@ -2,7 +2,7 @@
  * editor/graph_ed.cpp
  *
  * Hatches are always drawn with a rotation of 0. Instead, rotation means
- * if lemmings should walk to the left (!= 0) instead of the right (== 0).
+ * if lixes should walk to the left (!= 0) instead of the right (== 0).
  * Thus, some functions must override those in Graphic:: to implement this.
  *
  */

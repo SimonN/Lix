@@ -1,5 +1,5 @@
 /*
- * lemming/ac.h
+ * lix/ac.h
  *
  * Diese Datei bindet die kompletten Klassen ein, die von den einzelnen
  * Faehigkeitsdateien gebraucht werden. Wir tun das nicht in lix.h und
@@ -14,7 +14,7 @@
 
 struct UpdateArgs {
     GameState& st;
-    unsigned   id;  // the lemming's id, to pass to the effect manager
+    unsigned   id;  // the lix's id, to pass to the effect manager
 
     // Zielen
     int  aim_x; // Wo ist die Maus auf dem Land?
@@ -24,6 +24,6 @@ struct UpdateArgs {
     inline UpdateArgs(GameState& s) : st(s) { }
 
     // Gegen Kompiliererwarnungen in einigen Funktionen, die ueberhaupt nix
-    // brauchen hieraus, sondern nur den ebenfalls uebergebenen Lemming
+    // brauchen hieraus, sondern nur die uebergebene Lix
     inline void suppress_unused_variable_warning() const {}
 };

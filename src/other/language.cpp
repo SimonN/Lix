@@ -760,7 +760,7 @@ eb[Editor::MENU_SIZE]
  = "Measures: Set the size and the topology for the level.";
 eb[Editor::MENU_SCROLL]
  = "Visuals: Set the scrolling position and background color.";
-eb[Editor::MENU_LEMMING]
+eb[Editor::MENU_VARS]
  = "Variables: Set the fundamental level variables.";
 eb[Editor::MENU_SKILL]
  = "Skills: Set the usable lix skills.";
@@ -1156,7 +1156,7 @@ eb[Editor::VIEW_ZOOM]    = "Zoom: Vergroesserung der Karte ein- oder ausschalten
 eb[Editor::HELP]         = "Hilfe: Aktiviert/deaktiviert diese Button-Hilfstexte.";
 eb[Editor::MENU_SIZE]    = "Abmessungen: Festlegen der Groesse und Topologie des Levels.";
 eb[Editor::MENU_SCROLL]  = "Aussehen: Festlegen der Startposition und Hintergrundfarbe.";
-eb[Editor::MENU_LEMMING] = "Variablen: Festlegen grundsaetzlicher Level-Variablen.";
+eb[Editor::MENU_VARS]    = "Variablen: Festlegen grundsaetzlicher Level-Variablen.";
 eb[Editor::MENU_SKILL]   = "Faehigkeiten: Festlegen der nutzbaren Lix-Faehigkeiten.";
 eb[Editor::ADD_TERRAIN]  = "Terrain: Ein durchgrabbares Terrain-Object platzieren.";
 eb[Editor::ADD_STEEL]    = "Stahl: Ein nicht durchgrabbares Stahlobjekt platzieren.";

@@ -1,7 +1,7 @@
 /*
  * gameplay/arrow.h
  *
- * Die Pfeile mit Faehigkeitssymbolen, die ueber einzelnen Lemmingen beim
+ * Die Pfeile mit Faehigkeitssymbolen, die ueber einzelnen Lixen beim
  * Replay eingeblendet werden. Verwaltet werden sie in der Klasse ArrowList,
  * von denen Gameplay eine Instanz besitzen sollte.
  *

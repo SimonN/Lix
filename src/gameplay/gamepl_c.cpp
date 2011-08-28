@@ -232,7 +232,7 @@ void Gameplay::calc_self()
 
 
 
-    // Steuerung der Lemminge
+    // Player may issue skills and do related things
     if (!replaying && !chat.get_type_on()) calc_active();
 
     // Jetzt die Schleife für ein Update, also eine Gameplay-Zeiteinheit

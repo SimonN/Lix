@@ -8,7 +8,7 @@
  * und deren Grafiken unterstuetzt wurden. Die Originalgrafiken werden naemlich
  * nicht als Datei gespeichert.
  *
- * Lemming-Bitmaps und andere interne Bitmaps werden direkt als Referenz
+ * Lix-Bitmaps und andere interne Bitmaps werden direkt als Referenz
  * zurueckgegeben, weil die Dinger immer existieren sollten. Ansonsten wird
  * leeres Cutbit in der Map erzeugt und zurueckgegeben, was dann zu roten
  * Frame-existiert-nicht-Boxen fuehrt.

@@ -58,22 +58,22 @@ public:
         SAVE,        // File gets saved. Not used right now.
 
         PANEL,       // Choice of skill on the panel
-        ASSIGN,      // Assignment of a skill to a lemming
+        ASSIGN,      // Assignment of a skill to a lix
         CLOCK,       // Once per second played when the clock is low on time
 
         LETS_GO,     // Lets-go sound played after starting a level
         HATCH_OPEN,  // Entrance hatches open
         HATCH_CLOSE, // Entrance hatches close
-        OBLIVION,    // Feep: Lemming walks/falls out of the level area
-        FIRE,        // Lemming catches on fire and burns to death
-        WATER,       // Glug: Lemming falls into water
-        GOAL,        // Any lemming enters the player's own goal
-        GOAL_BAD,    // Own lemming enters an opponent's goal
-        YIPPIE,      // Single player: Enough lemmings saved
+        OBLIVION,    // Feep: lix walks/falls out of the level area
+        FIRE,        // Lix catches on fire and burns to death
+        WATER,       // Glug-glug: lix falls into water
+        GOAL,        // Any lix enters the player's own goal
+        GOAL_BAD,    // Own lix enters an opponent's goal
+        YIPPIE,      // Single player: Enough lixes saved
         OVERTIME,    // Beginning of overtime. DING!
 
         OUCH,        // Tumbler hits the ground and becomes a stunner
-        SPLAT,       // Lemming splats because of high drop distance
+        SPLAT,       // Lix splats because of high drop distance
         OHNO,        // Nuke, or L1-style exploder begins oh-no animation
         POP,         // L1-/L2-Exploder explodes
         BRICK,       // Builder/Platformer lays down his last three bricks

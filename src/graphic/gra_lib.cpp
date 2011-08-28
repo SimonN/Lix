@@ -123,13 +123,13 @@ void GraLib::recolor_into_vector(
     }
     // end of all color replacement
 
-    //        // This saving is just while LEMDEBUG is happening
-    //        for (size_t i = 0; i < 2; ++i) {
-    //            std::string filename = "./lixstyle";
-    //            filename += (int) i;
-    //            filename += ".bmp";
-    //            save_bmp(filename.c_str(), style[i].get_al_bitmap(), 0);
-    //        }
+    //    // This can save the palette-replaced style to a file
+    //    for (size_t i = 0; i < 2; ++i) {
+    //        std::string filename = "./lixstyle";
+    //        filename += (int) i;
+    //        filename += ".bmp";
+    //        save_bmp(filename.c_str(), style[i].get_al_bitmap(), 0);
+    //    }
 }
 
 

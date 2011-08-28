@@ -28,7 +28,7 @@ void Gameplay::calc_active()
 
     const bool mouse_on_panel = hardware.get_my() > map.get_screen_yl();
 
-    // Maus im Spielfeld, Lemminge anvisierbar
+    // mouse on the playing field, lixes are selectable
     if (!mouse_on_panel && malo->aiming != 2 && trlo) {
         // Bestimmte Richtung anwählen?
         bool only_dir_l = false;
@@ -43,17 +43,17 @@ void Gameplay::calc_active()
             only_dir_r = true;
             mouse_cursor.set_x_frame(2);
         }
-        // Bestimmung des anvisierten Lemmings
-        // Die Liste der Lemmings wird durchlaufen und die Priorität jedes
-        // Lemmings errechnet. Wird eine höhere Priorität als die derzeitig
-        // höchste gefunden, wechselt LixIt target. Bei gleicher Priorität haben
-        // Lemmings, die näher am Mauscursor liegen, Vorrang! Mit rechter Maustaste
-        // wählt man dagegen den letzten Lemming mit der niedrigsten Priorität.
-        // Auch hier haben näher liegende Lemmings Vorrang.
-
-        LixIt  target = trlo->lixvec.end(); // Klickbarer Lemming mit Prior.
+        // Decide which lix the cursor points at
+        // Die Liste der Lixen wird durchlaufen und die Priorität jeder
+        // Lix errechnet. Wird eine höhere Priorität als die derzeitig
+        // höchste gefunden, wechselt LixIt target. Bei gleicher Prioritaet
+        // haben Lixen, die naeher am Mauscursor liegen, Vorrang! Mit rechter
+        // Maustaste (selectable in the options) waehlt man dagegen die letzte
+        // Lix mit der niedrigsten Priorität. Auch hier haben naeher liegende
+        // Lixen Vorrang.
+        LixIt  target = trlo->lixvec.end(); // Klickbar mit Prioritaet
         LixIt  tarinf = trlo->lixvec.end(); // Nicht unb. klickbar mit Prior.
-        int    tarcnt = 0; // Anzahl Lemminge unter Cursor
+        int    tarcnt = 0; // Anzahl Lixen unter Cursor
         int    target_priority = 0;
         int    tarinf_priority = 0;
         double target_hypot = 1000;
@@ -145,13 +145,13 @@ void Gameplay::calc_active()
             // Die sichtbare Zahl hinabsetzen geschieht nur fuer's Auge,
             // in Wirklichkeit geschieht dies erst beim Update. Das Augen-
             // spielzeug verabreichen wir allerdings nur, wenn nicht z.B.
-            // zweimal auf denselben Lemming mit derselben Faehigkeit
+            // zweimal auf dieselbe Lix mit derselben Faehigkeit
             // geklickt wurde. Den unwahrscheinlichen Fall, dass man
-            // zweimal mit beide Male anwendbaren Faehigkeiten auf denselben
-            // Lemming geklickt hat, koennen wir vernachlaessigen - dann
+            // zweimal mit beide Male anwendbaren Faehigkeiten auf dieselbe
+            // Lix geklickt hat, koennen wir vernachlaessigen - dann
             // erscheint die Nummernaenderung eben erst beim kommenden Update.
             // Auch der Sound (s.u.) wird dann nicht gespielt.
-            if (!replay.get_on_update_lemming_clicked(cs.update + 1, lem_id)
+            if (!replay.get_on_update_lix_clicked(cs.update + 1, lem_id)
              && pan.skill[skill_visible].get_number() != LixEn::infinity) {
                 pan.skill[skill_visible].set_number(
                 pan.skill[skill_visible].get_number() - 1);
@@ -168,7 +168,7 @@ void Gameplay::calc_active()
 
     // Zielen
     else if (malo->aiming == 2) {
-        // Hingucken der Lemmings wird im Update der Lemminge erledigt. Hier
+        // Hingucken der Lixen wird im Update der Lixen erledigt. Hier
         // geht es nur darum, einen Klick und dessen Koordinaten zu
         // registrieren. Es wird entsprechend auch ein Netzwerkpaket versandt.
         if (hardware.get_ml() && !pan.pause.is_mouse_here())
@@ -316,7 +316,7 @@ void Gameplay::calc_active()
              <= hardware.doubleclick_speed) {
                 // set_on() kommt zwar auch im Update, aber wenn wir das
                 // hier immer machen, sieht es besser aus. Gleiches gilt fuer
-                // den Sound, ist wie beim normalen Lemming-Anklicken.
+                // den Sound, ist wie beim normalen Anklicken.
                 pan.nuke_single.set_on();
                 pan.nuke_multi .set_on();
                 pan.pause      .set_off();

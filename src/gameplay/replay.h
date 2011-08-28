@@ -26,14 +26,14 @@
  *
  * ULong what
  *
- *   Beschreibt, welcher Lemming/Skill/welche Rate gewaehlt wurde.
+ *   Beschreibt, welche/r Lix/Skill/Rate gewaehlt wurde.
  *   Im Falle von AIM (Zielen mit der Maus) wird folgendes Format angewandt:
  *
- *     what = (y * xl * maxlem) + (x * maxlem) + lemid
+ *     what = (y * xl * maxlix) + (x * maxlem) + lixid
  *
  *   Hier sind (x, y) die Koordinaten des Punktes, auf den gezielt wird,
- *   und xl ist die Breite des Levels. lemid ist die ID des Lemmings, der
- *   zielen soll, und maxlem ist die Anfangsanzahl an Lemmingen des Spielers.
+ *   und xl ist die Breite des Levels. lixid ist die ID der Lix, der
+ *   zielen soll, und maxlix ist die Anfangsanzahl an Lixen des Spielers.
  *   Das passt auf jeden Fall in einen 32-Bit-Unsigned.
  *
  */
@@ -131,7 +131,7 @@ public:
 
     void        clear                          ();
     void        erase_data_after_update        (const Ulng);
-    bool        get_on_update_lemming_clicked  (const Ulng, const Uint);
+    bool        get_on_update_lix_clicked      (const Ulng, const Uint);
     Vec         get_and_erase_data_until_update(const Ulng);
     Vec         get_data_for_update            (const Ulng) const;
     inline const Vec& get_data                 () { return data; }

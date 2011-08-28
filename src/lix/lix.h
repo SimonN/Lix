@@ -5,57 +5,48 @@
  * because Lix appears as a substring of many type names. A Lixxie is a
  * single lix walking around.
  *
- *
- * Im Lemming-Bitmap (auffindbar im internen Ordner) sind in manchen Frames
- * einige Pixel rot. Sie markieren den Kopf des Lemmings, waehrend der Fuss
- * (effektive Koordinaten) immer an der gleichen Stelle im Frame gemalt ist.
- * Der rote Pixel wird ausgelesen, und seine Position pro Frame in der Matrix
- * countdown gespeichert. Anschliessend bekommt der rote Pixel die Farbe
- * des Pixels rechts neben ihm.
- *
  * static void initialize_this_gets_called_from_glob_gfx_cpp()
  *
  *   Wird von glob.gfx.cpp() aufgerufen. Fuellt die Vektoren und Maps
- *   mit Strings und Farben, und bemalt die kopierten Lemming-Bitmaps.
+ *   mit Strings und Farben, und bemalt die kopierten Lix-Bitmaps.
  *   Es gibt keine Funktion deinitialize() oder aehnliches.
  *
  * const int id
  *
- *   Kennziffer, die fuer Replays genutzt wird. Wird dem Lemming per
+ *   Kennziffer, die fuer Replays genutzt wird. Wird der Lix per
  *   Konstruktor zugewiesen.
  *
  * int ex
  * int ey
  *
- *   Ein Lemming wird nicht nach den X-/Y-Koordinaten sines Grafikobjekts be-
+ *   Eine Lix wird nicht nach den X-/Y-Koordinaten sines Grafikobjekts be-
  *   rechnet, sondern nach den sogenannten effektiven X-/Y-Koordinaten ex, ey.
  *
  *   Diese Koordinaten kennzeichnen die obere linke Ecke des 2-x-2-Quadrates,
- *   welches sich ueblicherweise am Fuss des Lemmings befindet, unterhalb des
+ *   welches sich ueblicherweise am Fuss der Lix befindet, unterhalb des
  *   vorderen Koerperrandes.
  *
- *   Schaut der Lemming allerdings nach links, so wird fuer alle Berechnungen
+ *   Schaut die Lix allerdings nach links, so wird fuer alle Berechnungen
  *   vom Punkt (ex-1|ey) ausgegangen, welcher gleich weit vom linken Koerper-
  *   rand entfernt ist wie (ex|ey) bei einem nach rechts Schauenden.
  *
  * int dir
  *
- *   Diese Variable ist 1, wenn der Lemming nach rechts schaut, oder -1, falls
- *   der Lemming nach links schaut. Aus einer Klappe fallende Lemmings schauen
- *   grundsaetzlich nach rechts - das war schon im Original so.
+ *   Diese Variable ist 1, wenn die Lix nach rechts schaut, oder -1, falls
+ *   sie nach links schaut. Is initialized with 1.
  *
  * bool marked
  * bool get_mark()
  * void mark()
  * void unmark()
  *
- *   Eine Markierung dient lediglich dazu, den Lemming später zu bearbeiten:
+ *   Eine Markierung dient lediglich dazu, die Lix später zu bearbeiten:
  *   Die Hauptschleife bearbeitet zunächchst nur Arbeitstiere und markiert
- *   sie, dann durchläuft sie nochmals alle Lemmings. Hier werden Markierte
+ *   sie, dann durchläuft sie nochmals alle Lixen. Hier werden Markierte
  *   entmarkiert, alle anderen aber bearbeitet.
  *
  *   Markierungen sind nicht zu verwechseln mit Highlighting (Hervorhebung)!
- *   Highlighting dient dazu, den Lemming für den Benutzer leichter anklickbar
+ *   Highlighting dient dazu, die Lix für den Benutzer leichter anklickbar
  *   zu machen. Ich habe es jedoch nicht eingebaut.
  *
  * unsigned get_priority(const Ac = NOTHING)
@@ -66,20 +57,20 @@
  *              2 bis 99.998, falls anklickbar. Hoehere Zahl = hoehere Prior.
  *
  *   Das Spiel sollte auf gehaltene rechte Maustaste pruefen und in dem Fall
- *   den Lemming mit der niedrigsten Prioritaet, die aber in jedem Fall
+ *   der Lix mit der niedrigsten Prioritaet, die aber in jedem Fall
  *   mindestens 2 ist, bevorzugen.
  *
  * bool is_solid(int x = 0, int y = 2)
  *
  *   Diese Funktion kontrolliert, ob sich x Pixel vor und y Pixel unter der
- *   effektiven Lemming-Position (ex|ey) ein Stueck Landschaft befindet. Dabei
- *   ist zu beachten, dass die Richtung des Lemmings bereits beruecksichtigt
- *   wird - positive Werte fuer x liegen immer vor dem Lemming. Positive Werte
- *   fuer Y liegen unter, negative Werte ueber dem Fuss des Lemmings.
+ *   effektiven Lix-Position (ex|ey) ein Stueck Landschaft befindet. Dabei
+ *   ist zu beachten, dass die Richtung der Lix bereits beruecksichtigt
+ *   wird - positive Werte fuer x liegen immer vor der Lix. Positive Werte
+ *   fuer Y liegen unter, negative Werte ueber dem Fuss der Lix.
  *
  *   is_solid();
  *   ...liefert aufgrund der Standardwerte 0 und 2 true, wenn sich unter dem
- *   Fuss des Lemmings Boden befindet. Boden unter den Fuessen ist fuer die
+ *   Fuss der Lix Boden befindet. Boden unter den Fuessen ist fuer die
  *   meisten Aktionen notwendig :-)
  *
  * int solid_wall_height(int x = 0, int y = 1)
@@ -93,8 +84,8 @@
  * void move_up(int y = 2)
  *
  *   Diese Funktionen bewegen sowohl das Bildobjekt als auch eine der effek-
- *   tiven Koordinaten des Lemmings in die entsprechende Richtung. Wichtig ist
- *   fuer move_ahead(), dass sie die Richtung des Lemmings beruecksichtigt.
+ *   tiven Koordinaten der Lix in die entsprechende Richtung. Wichtig ist
+ *   fuer move_ahead(), dass sie die Richtung der Lix beruecksichtigt.
  *
  * int count_solid(int x1, int y1, int x2, int y2)
  *
@@ -110,7 +101,7 @@
  * bool remove_pixel(int x, int y)
  *
  *   x und y sind relativ zu (ex|ey) anzugeben, wobei ein positiver Wert für
- *   x aufgrund der Richtungsbrücksichtigung immer vor den Lemming verweist.
+ *   x aufgrund der Richtungsbrücksichtigung immer vor der Lix verweist.
  *   Entfernt den Pixel, falls es abbaubares Material ist. In diesem Fall oder
  *   im Fall, dass der Pixel bereits Luft war, wird false zurückgegeben.
  *   Ist es allerdings unabbaubarer Stahl, wird true zurückgegeben.
@@ -131,7 +122,7 @@
  *
  *   Im Gegensatz zu den Landschaftsentfernungs-Funktionen hat draw_pixel()
  *   keinen Rückgabewert! Hindernisse beim Bauen müssen anderweitig erkannt
- *   werden. Dies war im Original-Lemmings auch nicht anders, da Bauen und
+ *   werden. Dies war in Lemmings auch nicht anders, da Bauen und
  *   Landschaftsprüfungen in verschiedenen Frames stattfanden.
  *
  * void draw_rectangle(int x1, int y1, int x2, int y2, int col)
@@ -152,7 +143,7 @@
  *
  * void next_frame(int = 0)
  *
- *   Zeigt beim folgenden Zeichnen das naechste Frame des Lemmings an. Die Zahl
+ *   Zeigt beim folgenden Zeichnen das naechste Frame der Lix an. Die Zahl
  *   des Frames wird auf 0 zurueck gesetzt, wenn sie so gross geworden ist wie
  *   das angegebene Argument oder aber das letzte Frame im gemalten Bitmap ist.
  *
@@ -165,21 +156,21 @@
  *
  * bool get_pass_top()
  *
- *   Liefert true, wenn der Lemming auf Nicht-Walzenkarten oben aus dem
+ *   Liefert true, wenn die Lix auf Nicht-Walzenkarten oben aus dem
  *   Bildschirm fliegen darf. Passiert etwa bei Tumblern.
  *
  * bool get_nukable()
  *
- *   Liefert true, wenn die Nuke-Abarbeitung der Gameplay-Klasse diesen
- *   Lemming erwischen soll. Ist nur in wenigen Faellen nicht so, etwa, wenn
- *   der Lemming gerade schon stirbt. Auch das Weggeschleudere bei Explosionen
- *   betrifft nur nukbare Lemminge.
+ *   Liefert true, wenn die Nuke-Abarbeitung der Gameplay-Klasse diese Lix
+ *   erwischen soll. Ist nur in wenigen Faellen nicht so, etwa, wenn
+ *   die Lix gerade schon stirbt. Auch das Weggeschleudere bei Explosionen
+ *   betrifft nur nukbare Lix.
  *
  * bool get_aiming()
  *
- *   Liefert, ob die Faehigkeit grundsaetzlich zielen kann && ob der Lemming
+ *   Liefert, ob die Faehigkeit grundsaetzlich zielen kann && ob die Lix
  *   es gerade tut. Ob er gerade zielt, haengt per Konvention von special_x
- *   ab! Wenn special_x == 0 ist, so zielt der Lemming bzw. bereitet sich
+ *   ab! Wenn special_x == 0 ist, so zielt die Lix bzw. bereitet sich
  *   darauf vor; in jedem Fall ist die Maus nun das Zielgeraet.
  *
  */
