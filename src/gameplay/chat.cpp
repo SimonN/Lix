@@ -17,14 +17,11 @@ GameplayChat::GameplayChat()
         itr->set_font(font_sml);
         itr->set_undraw_color(color[COL_PINK]);
         itr->set_y(y);
-        add_child(*itr);
         y += 12;
     }
-    add_child(name);
-    // add_child(type);
 
-    name.set_undraw_color(color[COL_PINK]);
-    type.set_undraw_color(color[COL_PINK]);
+    set_undraw_color(color[COL_PINK]);
+    name.set_undraw_color(0); // don't cut away a part of the lowermost msg
 
     std::string str = gloB->user_name + ':';
     name.set_text(str);
@@ -87,8 +84,6 @@ void GameplayChat::calc_self()
     name.set_hidden(!type.get_on());
     if (type_on_last_frame > 0) --type_on_last_frame;
     if (type.get_on()) type_on_last_frame = 2;
-
-    set_draw_required();
 }
 
 
@@ -96,4 +91,8 @@ void GameplayChat::calc_self()
 void GameplayChat::draw_self()
 {
     undraw_self();
+    for (std::vector <Api::Label> ::iterator itr = msgs.begin();
+     itr != msgs.end(); ++itr) itr->draw();
+    name.draw();
+    type.draw();
 }
