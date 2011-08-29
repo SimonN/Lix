@@ -158,7 +158,11 @@ Lobby::~Lobby()
 void Lobby::set_mode(const Mode& mo)
 {
     mode = mo;
+
+    // prevent the flashing of button_ready when rendering everything hidden
+    bool old_state_of_ready = button_ready.get_hidden();
     hide_all_children();
+
     button_exit.show();
     chat.show();
     preview.clear();
@@ -192,7 +196,8 @@ void Lobby::set_mode(const Mode& mo)
             button_level.show();
             preview.show();
             button_exit.set_text(Language::win_lobby_room_leave);
-            // button_ready.show(); // this will be done in work_self()
+            // button_ready is set in work_self() after network polling
+            button_ready.set_hidden(old_state_of_ready);
         }
         players.show();
         chat_type.show();
