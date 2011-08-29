@@ -221,8 +221,16 @@ void Gameplay::calc_self()
 
         // Konsoleneingabe aktivieren
         if (!chat.get_type_on_last_frame()
+         && multiplayer && ! replaying && ! spectating
          && hardware.key_once(useR->key_chat)) {
             chat.set_type_on();
+        }
+        if (chat.get_type_on_last_frame()) {
+            // if we just come out of typing something into the chat,
+            // have the full panel redraw. Since we don't use elders in
+            // Gameplay, this ensures that the mouse doesn't drag garbage
+            // on some of the buttons. It's maybe a bit kludgy this way.
+            pan.set_draw_required();
         }
 
         // Beenden bzw. Menue?
