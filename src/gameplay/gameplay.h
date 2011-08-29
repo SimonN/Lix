@@ -121,6 +121,7 @@ private:
     void calc_self  (); // Wird sonst in jedem Tick ausgeführt
     void calc_active(); // "Aktiv" == kein Replay abzuspielen
     void load_state (const GameState&);
+    void write_outcome_to_console();
 
     // Update-Subroutinen
     void update();           // Normalerweise 15x pro Sek., ruft auf:

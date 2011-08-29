@@ -123,6 +123,7 @@ win_game_net_last_tie,
 win_game_net_all_tie,
 win_game_net_zero,
 win_game_net_all_zero,
+win_game_net_replay_done,
 win_game_overwrite_title,
 win_game_overwrite_question,
 
@@ -221,6 +222,7 @@ net_game_start,
 net_game_how_to_chat_1,
 net_game_how_to_chat_2,
 net_game_end,
+net_game_end_result,
 net_game_overtime_1,
 net_game_overtime_2,
 net_game_overtime_2_one,
@@ -488,6 +490,7 @@ void Language::set(const Language lang)
         win_game_net_all_tie          = "What's that? No true winner?";
         win_game_net_zero             = "Rock bottom! Did you nuke them?";
         win_game_net_all_zero         = "Do we have a nuclear winter?";
+        win_game_net_replay_done      = "The replay has finished playing.";
         win_game_overwrite_title      = "Overwrite Replay?";
         win_game_overwrite_question   = "Do you really want to overwrite this replay?";
 
@@ -598,6 +601,7 @@ void Language::set(const Language lang)
         net_game_how_to_chat_1        = " Press [";
         net_game_how_to_chat_2        = "] to chat.";
         net_game_end                  = "The game is over.";
+        net_game_end_result           = "Game outcome:";
         net_game_overtime_1           = "has finished playing and has saved";
         net_game_overtime_2           = "lix.";
         net_game_overtime_2_one       = "one lix.";
@@ -901,6 +905,7 @@ eb[Editor::ADD_HAZARD]
         win_game_net_all_tie          = "Wie das? Kein klarer Sieger?";
         win_game_net_zero             = "Null komma nix, diese Runde!";
         win_game_net_all_zero         = "Haben wir nuklearen Winter?";
+        win_game_net_replay_done      = "Das Replay ist beendet.";
         win_game_overwrite_title      = "Replay ueberschreiben?";
         win_game_overwrite_question   = "Soll dieses Replay wirklich ueberschrieben werden?";
 
@@ -1018,6 +1023,7 @@ eb[Editor::ADD_HAZARD]
         net_game_how_to_chat_1        = " Du kannst mit [";
         net_game_how_to_chat_2        = "] chatten.";
         net_game_end                  = "Das Spiel ist zu Ende.";
+        net_game_end_result           = "Spielergebnis:";
         net_game_overtime_1           = "hat zu Ende gespielt und";
         net_game_overtime_2           = "Lix gerettet.";
         net_game_overtime_2_one       = "eine Lix gerettet.";

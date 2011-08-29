@@ -5,6 +5,9 @@
  *
  */
 
+#include <algorithm> // std::sort for the console message after spectating
+#include <sstream>   // console message creation
+
 #include "gameplay.h"
 
 #include "../api/manager.h"
@@ -43,6 +46,7 @@ void Gameplay::calc_window()
 
         case Api::WindowGameplay::MENU:
             save_result();
+            if (multiplayer && ! replaying) write_outcome_to_console();
             exit = true;
             break;
 
@@ -105,6 +109,10 @@ void Gameplay::calc_self()
     // the action keeps running in the background
     if (ec == 0 && !window_gameplay) {
         chat.set_type_off();
+        if (multiplayer && spectating && ! replaying) {
+            write_outcome_to_console();
+            exit = true;
+        }
         if (! multiplayer) {
             // Ergebnisfenster anzeigen
             window_gameplay = new Api::WindowGameplay(&replay, trlo,
@@ -316,6 +324,12 @@ void Gameplay::calc_self()
 
 
 
+// ############################################################################
+// ############################################################################
+// ############################################################################
+
+
+
 void Gameplay::load_state(const GameState& state)
 {
     if (state) {
@@ -327,4 +341,29 @@ void Gameplay::load_state(const GameState& state)
         // Sauberputzen
         effect.delete_after(cs.update);
     }
+}
+
+
+
+void Gameplay::write_outcome_to_console()
+{
+    typedef Api::WindowGameplay::SortablePlayer SoPl;
+
+    // Sort the results
+    std::vector <SoPl> sortvec;
+    for (Tribe::CIt i = cs.tribes.begin(); i != cs.tribes.end(); ++i)
+        sortvec.push_back(SoPl(&*i == trlo && ! spectating, i->get_name(),
+                                                            i->lix_saved));
+    std::sort(sortvec.begin(), sortvec.end());
+
+    // Format the results
+    std::ostringstream str;
+    str << Language::net_game_end_result;
+    std::vector <SoPl> ::const_iterator itr = sortvec.begin();
+    while (itr != sortvec.end()) {
+        str << " " << itr->name << ": " << itr->score;
+        ++itr;
+        str << (itr == sortvec.end() ? "." : " --");
+    }
+    Console::push_back(str.str());
 }

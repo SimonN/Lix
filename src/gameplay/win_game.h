@@ -28,6 +28,19 @@ public:
         MENU
     };
 
+    // Sortierung der Netzwerkspieler
+    struct SortablePlayer {
+        bool        pl;
+        std::string name;
+        unsigned    score;
+        SortablePlayer(const bool b, const std::string& n, const unsigned s)
+         : pl(b), name(n), score(s) {}
+        inline bool operator < (const SortablePlayer& s) const {
+            return  this->score > s.score
+                || (this->score==s.score && this->pl && !s.pl);
+        }
+    };
+
 private:
 
     static const unsigned this_xl_network_results;
@@ -61,21 +74,6 @@ private:
     std::vector <Label> labels; // add everything here, only then add_child()
 
     SaveBrowser*       browser_save;
-
-    // Sortierung der Netzwerkspieler
-    struct SortablePlayer {
-        bool        pl;
-        std::string name;
-        unsigned    score;
-        SortablePlayer(const bool b, const std::string& n, const unsigned s)
-         : pl(b), name(n), score(s) {}
-        inline bool operator < (const SortablePlayer& s) const {
-            return  this->score > s.score
-                || (this->score==s.score && this->pl && !s.pl);
-        }
-    };
-
-
 
     // Kopierverbot
     WindowGameplay  (const WindowGameplay&);
