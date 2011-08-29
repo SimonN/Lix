@@ -3,44 +3,45 @@
  *
  * Introduction
  *
- *   This is the main file for Lix. The game is written in C++ and uses
- *   two libraries:
+ *   This is the main source file for Lix. For build instructions, read the
+ *   file ./doc/linux.txt.
  *
- *   - Allegro (www.allegro.cc)  for graphics, sound and input,
- *   - enet    (enet.bespin.org) for networking.
+ * Public domain dedication
  *
- * License
+ *   Lix -- a multiplayer-capable action-puzzle game
  *
- *   Lix is free software.
+ *   Written in 2006 to 2012 by Simon <eiderdaus@gmail.com> and others.
+ *   See ./doc/copying.txt for the full credits for code, graphics, levels, ...
  *
- *   You may do anything you'd like with this game. Download, play, use, alter
- *   and spread Lix as you wish. There are no restrictions. I am just not
- *   responsible for any bugs, loss of data, or the like.
+ *   To the extent possible under law, the authors have dedicated all copyright
+ *   and related and neighboring rights to this software to the public domain
+ *   worldwide. This software is distributed without any warranty.
+ *
+ *   You should have received a copy of the CC0 Public Domain Dedication along
+ *   with this software, see the file ./doc/copying.txt. If not, see
+ *
+ *     http://creativecommons.org/publicdomain/zero/1.0/
  *
  *   I believe that programming should be an entertaining hobby, not fiddling
- *   around with license restrictions. I've had and still have a lot of fun
- *   with the development and playtesting of this game. You should have as
- *   as possible, too.
+ *   around with copyright or license restrictions. I've had and still have a
+ *   lot of fun with the development and playtesting of this game. You should
+ *   have as much fun as possible, too.
  *
  * About the source code itself
  *
- *   The source code consists of about 850 KB. It consists of roughly 30,000
- *   lines. 20,000 of those are code lines, the rest are comments and empty
- *   lines.
+ *   The source code consists of roughly 32,000 lines. Of these, 21,000 are
+ *   actual code lines, the rest are comments and empty lines.
  *
- *   The core of the program is an object of class LMain. Usually I have
- *   commented each class in its header file. For LMain, this is other/lmain.h.
- *
- * Have fun going through the souce code!
+ *   Have fun going through the source code!
  *
  * Simon
  *
  */
 
-#include "lmain.h" // Main object, as commented on above
+#include "lmain.h" // Main object to manage the different parts of the program
 #include "user.h"
 
-#include "../lix/lix_enum.h" // initialize the strings in there
+#include "../lix/lix_enum.h" // initialize strings
 
 struct MainArgs {
     int  scr_f, scr_x, scr_y;
