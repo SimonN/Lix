@@ -105,7 +105,7 @@ void Gameplay::calc_self()
     // the action keeps running in the background
     if (ec == 0 && !window_gameplay) {
         chat.set_type_off();
-        if (cs.tribes.size() == 1) {
+        if (! multiplayer) {
             // Ergebnisfenster anzeigen
             window_gameplay = new Api::WindowGameplay(&replay, trlo,
                 // Eye candy when not saving anything, won't be saved anyway
@@ -221,7 +221,8 @@ void Gameplay::calc_self()
 
         // Konsoleneingabe aktivieren
         if (!chat.get_type_on_last_frame()
-         && multiplayer && ! replaying && ! spectating
+         && ((multiplayer && ! replaying)
+          || (! multiplayer && spectating))
          && hardware.key_once(useR->key_chat)) {
             chat.set_type_on();
         }

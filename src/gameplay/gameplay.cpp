@@ -132,7 +132,7 @@ void Gameplay::prepare_players(Replay* rep)
             }
             const int count = replay.get_players().size();
             if (Network::get_spec() && count > 0)
-                 replay.set_player_local(::rand() % count);
+                 replay.set_player_local(-1);
             else replay.set_player_local(Network::get_number());
 
             replay.set_permu(Network::get_permu());
@@ -161,19 +161,24 @@ void Gameplay::prepare_players(Replay* rep)
             titr->masters.push_back(Tribe::Master());
             titr->masters.back().number = itr->number;
             titr->masters.back().name   = itr->name;
-            if (itr->number == replay.get_player_local())
+            if (itr->number == replay.get_player_local()) {
                 trlo = &*titr;
+            }
         }
     }
 
     // Find local master. We cannot do this in the last for/if, because
     // there are still masters being added and STL containers may reallocate.
-    if (trlo)
+    if (trlo) {
         for (std::list <Tribe::Master> ::iterator
-        mitr = trlo->masters.begin(); mitr != trlo->masters.end(); ++mitr)
-        if (mitr->number == replay.get_player_local()) {
-        malo = &*mitr;
-        break;
+            mitr = trlo->masters.begin(); mitr != trlo->masters.end(); ++mitr)
+            if (mitr->number == replay.get_player_local()) {
+                malo = &*mitr;
+                break;
+            }
+    }
+    else if (cs.tribes.size() > 0) {
+        trlo = & cs.tribes[ ::rand() % cs.tribes.size() ];
     }
 
     multiplayer = (cs.tribes.size() > 1);
@@ -329,7 +334,8 @@ void Gameplay::prepare_panel()
         else                 pan.set_gapamode(GM_PLAY_MULTI);
     }
     else {
-        pan.set_gapamode(GM_PLAY_SINGLE);
+        if (spectating) pan.set_gapamode(GM_REPLAY_MULTI);
+        else            pan.set_gapamode(GM_PLAY_SINGLE);
     }
 }
 
