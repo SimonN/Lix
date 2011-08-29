@@ -22,7 +22,7 @@ Replay::Replay()
     built_required(gloB->empty_string),
     level_filename(gloB->empty_filename),
     max_updates   (0),
-    player_local  (0)
+    player_local  (-1)
 {
 }
 
@@ -46,7 +46,7 @@ void Replay::clear()
     version_min    = gloB->version_min;
     built_required = gloB->empty_string;
     level_filename = gloB->empty_filename;
-    player_local   = 0;
+    player_local   = -1;
     max_updates    = 0;
     players        .clear();
     permu          = Permu();

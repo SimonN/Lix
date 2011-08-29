@@ -203,6 +203,7 @@ WindowGameplay::WindowGameplay(
         else if (op == 1)             c = Language::win_game_net_second;
         else                          c = Language::win_game_net_middle;
     }
+    else c = Language::win_game_net_replay_done;
 
     labels.push_back(Label(get_xl()/2, get_yl() - 110,
      c, Label::CENTERED));
@@ -219,7 +220,7 @@ WindowGameplay::WindowGameplay(
      ||      c == Language::win_game_net_all_tie) {
         Sound::play_loud(Sound::AWARD_3);
     }
-    else Sound::play_loud(Sound::AWARD_4);
+    else if (! spec) Sound::play_loud(Sound::AWARD_4);
 
     common_constructor();
 }
