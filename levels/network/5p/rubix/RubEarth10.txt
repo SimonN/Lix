@@ -1,0 +1,355 @@
+$BUILT                                             2011-08-21 12:46:13
+$AUTHOR                                                          RubiX
+$GERMAN                                                               
+$ENGLISH                                           The undergrowth(5p)
+
+#SIZE_X                                                           1280
+#SIZE_Y                                                            678
+#TORUS_X                                                             1
+#TORUS_Y                                                             1
+#START_X                                                          1074
+#START_Y                                                           138
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                            50
+#INITIAL                                                            60
+#REQUIRED                                                           20
+#RATE                                                               20
+
+#WALKER                                                             50
+#JUMPER                                                             40
+#EXPLODER2                                                          10
+#PLATFORMER                                                         70
+#MINER                                                              50
+#BASHER                                                             30
+#DIGGER                                                             20
+#RUNNER                                                             10
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/01 - Earth/Hatch.H:                          32        88
+:bitmap/matt/01 - Earth/Hatch.H:                         288        88
+:bitmap/matt/01 - Earth/Hatch.H:                         544        88
+:bitmap/matt/01 - Earth/Hatch.H:                         800        88
+:bitmap/matt/01 - Earth/Hatch.H:                        1056        88
+
+:bitmap/matt/01 - Earth/Goal.G:                          432       539
+:bitmap/matt/01 - Earth/Goal.G:                          689       540
+:bitmap/matt/01 - Earth/Goal.G:                          945       539
+:bitmap/matt/01 - Earth/Goal.G:                         1200       539
+:bitmap/matt/01 - Earth/Goal.G:                          176       539
+
+:bitmap/matt/01 - Earth/09:                              608       224
+:bitmap/matt/01 - Earth/09:                              352       224
+:bitmap/matt/01 - Earth/09:                               96       224
+:bitmap/matt/01 - Earth/09:                             1120       224
+:bitmap/matt/01 - Earth/09:                              864       224
+:bitmap/matt/01 - Earth/06:                             1168       192
+:bitmap/matt/01 - Earth/06:                              912       192
+:bitmap/matt/01 - Earth/06:                              656       192
+:bitmap/matt/01 - Earth/06:                              400       192
+:bitmap/matt/01 - Earth/06:                              144       192
+:bitmap/matt/01 - Earth/06:                             1104       256
+:bitmap/matt/01 - Earth/06:                              848       256
+:bitmap/matt/01 - Earth/06:                              592       256
+:bitmap/matt/01 - Earth/06:                              336       256
+:bitmap/matt/01 - Earth/06:                               80       256
+:bitmap/matt/01 - Earth/09:                              132       140
+:bitmap/matt/01 - Earth/09:                             1156       140
+:bitmap/matt/01 - Earth/09:                              896       140
+:bitmap/matt/01 - Earth/09:                              642       140
+:bitmap/matt/01 - Earth/09:                              384       140
+:bitmap/matt/01 - Earth/07:                             1088       272     rr
+:bitmap/matt/01 - Earth/07:                              832       272     rr
+:bitmap/matt/01 - Earth/07:                              576       272     rr
+:bitmap/matt/01 - Earth/07:                              320       272     rr
+:bitmap/matt/01 - Earth/07:                               64       272     rr
+:bitmap/matt/01 - Earth/28:                              128        16
+:bitmap/matt/01 - Earth/28:                              384        16
+:bitmap/matt/01 - Earth/28:                              640        16
+:bitmap/matt/01 - Earth/28:                              128        16
+:bitmap/matt/01 - Earth/28:                              640        16
+:bitmap/matt/01 - Earth/28:                              896        16
+:bitmap/matt/01 - Earth/28:                             1152        16
+:bitmap/matt/01 - Earth/06:                              496       496
+:bitmap/matt/01 - Earth/06:                              752       496
+:bitmap/matt/01 - Earth/06:                             1008       496
+:bitmap/matt/01 - Earth/06:                             1264       496
+:bitmap/matt/01 - Earth/06:                              240       496
+:bitmap/matt/01 - Earth/07:                             1072       512
+:bitmap/matt/01 - Earth/07:                              816       512
+:bitmap/matt/01 - Earth/07:                              560       512
+:bitmap/matt/01 - Earth/07:                               48       512
+:bitmap/matt/01 - Earth/07:                              304       512
+:bitmap/matt/01 - Earth/09:                               90       586
+:bitmap/matt/01 - Earth/09:                              134       588
+:bitmap/matt/01 - Earth/09:                             1116       586
+:bitmap/matt/01 - Earth/09:                             1160       588
+:bitmap/matt/01 - Earth/09:                              858       586
+:bitmap/matt/01 - Earth/09:                              902       588
+:bitmap/matt/01 - Earth/09:                              602       586
+:bitmap/matt/01 - Earth/09:                              646       588
+:bitmap/matt/01 - Earth/09:                              390       588
+:bitmap/matt/01 - Earth/09:                              346       586
+:bitmap/matt/01 - Earth/28:                              144       416
+:bitmap/matt/01 - Earth/28:                             1168       416
+:bitmap/matt/01 - Earth/28:                              912       416
+:bitmap/matt/01 - Earth/28:                              656       416
+:bitmap/matt/01 - Earth/28:                              400       416
+:bitmap/matt/01 - Earth/02:                                0        80
+:bitmap/matt/01 - Earth/02:                              256        80
+:bitmap/matt/01 - Earth/02:                              512        80
+:bitmap/matt/01 - Earth/02:                              768        80
+:bitmap/matt/01 - Earth/02:                             1024        80
+:bitmap/matt/steel/32x32.S:                               16        80
+:bitmap/matt/steel/32x32.S:                              272        80
+:bitmap/matt/steel/32x32.S:                              528        80
+:bitmap/matt/steel/32x32.S:                              784        80
+:bitmap/matt/steel/32x32.S:                             1040        80
+:bitmap/matt/01 - Earth/10:                              288       128
+:bitmap/matt/01 - Earth/10:                              544       128
+:bitmap/matt/01 - Earth/10:                              800       128
+:bitmap/matt/01 - Earth/10:                             1056       128
+:bitmap/matt/01 - Earth/10:                               32       128
+:bitmap/matt/01 - Earth/10:                             1008       128     fr
+:bitmap/matt/01 - Earth/10:                             1264       128     fr
+:bitmap/matt/01 - Earth/10:                              240       128     fr
+:bitmap/matt/01 - Earth/10:                              496       128     fr
+:bitmap/matt/01 - Earth/10:                              752       128     fr
+:bitmap/matt/01 - Earth/06:                              704       160     frr
+:bitmap/matt/01 - Earth/04:                              672       176
+:bitmap/matt/01 - Earth/06:                              960       160     frr
+:bitmap/matt/01 - Earth/04:                              928       176
+:bitmap/matt/01 - Earth/06:                             1216       160     frr
+:bitmap/matt/01 - Earth/04:                             1184       176
+:bitmap/matt/01 - Earth/06:                              192       160     frr
+:bitmap/matt/01 - Earth/04:                              160       176
+:bitmap/matt/01 - Earth/06:                              448       160     frr
+:bitmap/matt/01 - Earth/04:                              416       176
+:bitmap/matt/01 - Earth/10:                              320       256
+:bitmap/matt/01 - Earth/10:                              576       256
+:bitmap/matt/01 - Earth/10:                              832       256
+:bitmap/matt/01 - Earth/10:                             1088       256
+:bitmap/matt/01 - Earth/10:                               64       256
+:bitmap/matt/01 - Earth/10:                              208       304
+:bitmap/matt/01 - Earth/10:                              240       304
+:bitmap/matt/01 - Earth/10:                              272       304
+:bitmap/matt/01 - Earth/10:                              304       304
+:bitmap/matt/01 - Earth/10:                              336       304
+:bitmap/matt/01 - Earth/10:                              368       304
+:bitmap/matt/01 - Earth/10:                              400       304
+:bitmap/matt/01 - Earth/10:                              432       304
+:bitmap/matt/01 - Earth/10:                              464       304
+:bitmap/matt/01 - Earth/10:                              496       304
+:bitmap/matt/01 - Earth/10:                              528       304
+:bitmap/matt/01 - Earth/10:                              560       304
+:bitmap/matt/01 - Earth/10:                              576       304
+:bitmap/matt/01 - Earth/10:                              608       304
+:bitmap/matt/01 - Earth/10:                              640       304
+:bitmap/matt/01 - Earth/10:                              672       304
+:bitmap/matt/01 - Earth/10:                              704       304
+:bitmap/matt/01 - Earth/10:                              736       304
+:bitmap/matt/01 - Earth/10:                              768       304
+:bitmap/matt/01 - Earth/10:                              800       304
+:bitmap/matt/01 - Earth/10:                              832       304
+:bitmap/matt/01 - Earth/10:                              864       304
+:bitmap/matt/01 - Earth/10:                              896       304
+:bitmap/matt/01 - Earth/10:                              928       304
+:bitmap/matt/01 - Earth/10:                              960       304
+:bitmap/matt/01 - Earth/10:                              992       304
+:bitmap/matt/01 - Earth/10:                             1024       304
+:bitmap/matt/01 - Earth/10:                             1056       304
+:bitmap/matt/01 - Earth/10:                             1088       304
+:bitmap/matt/01 - Earth/10:                             1120       304
+:bitmap/matt/01 - Earth/10:                             1152       304
+:bitmap/matt/01 - Earth/10:                             1184       304
+:bitmap/matt/01 - Earth/10:                             1216       304
+:bitmap/matt/01 - Earth/10:                             1248       304
+:bitmap/matt/01 - Earth/09:                             1271       409
+:bitmap/matt/01 - Earth/10:                                0       304
+:bitmap/matt/01 - Earth/10:                               32       304
+:bitmap/matt/01 - Earth/10:                               64       304
+:bitmap/matt/01 - Earth/10:                               96       304
+:bitmap/matt/01 - Earth/10:                              128       304
+:bitmap/matt/01 - Earth/10:                              160       304
+:bitmap/matt/01 - Earth/10:                              192       304
+:bitmap/matt/steel/32x32.S:                              272       112
+:bitmap/matt/steel/32x32.S:                              528       112
+:bitmap/matt/steel/32x32.S:                              528       144
+:bitmap/matt/steel/32x32.S:                              272       144
+:bitmap/matt/steel/32x32.S:                              784       112
+:bitmap/matt/steel/32x32.S:                              784       144
+:bitmap/matt/steel/32x32.S:                             1040       112
+:bitmap/matt/steel/32x32.S:                             1040       144
+:bitmap/matt/steel/32x32.S:                               16       112
+:bitmap/matt/steel/32x32.S:                               16       144
+:bitmap/matt/01 - Earth/10:                              752       496     r
+:bitmap/matt/01 - Earth/10:                             1008       496     r
+:bitmap/matt/01 - Earth/10:                             1264       496     r
+:bitmap/matt/01 - Earth/10:                              240       496     r
+:bitmap/matt/01 - Earth/10:                              496       496     r
+:bitmap/matt/01 - Earth/10:                              608       592
+:bitmap/matt/01 - Earth/10:                              624       592
+:bitmap/matt/01 - Earth/10:                              656       592
+:bitmap/matt/01 - Earth/10:                              688       592
+:bitmap/matt/01 - Earth/10:                              720       592
+:bitmap/matt/01 - Earth/10:                              752       592
+:bitmap/matt/01 - Earth/10:                              784       592
+:bitmap/matt/01 - Earth/10:                              816       592
+:bitmap/matt/01 - Earth/10:                              848       592
+:bitmap/matt/01 - Earth/10:                              880       592
+:bitmap/matt/01 - Earth/10:                              912       592
+:bitmap/matt/01 - Earth/10:                              944       592
+:bitmap/matt/01 - Earth/10:                              976       592
+:bitmap/matt/01 - Earth/10:                             1008       592
+:bitmap/matt/01 - Earth/10:                             1040       592
+:bitmap/matt/01 - Earth/10:                             1072       592
+:bitmap/matt/01 - Earth/10:                             1104       592
+:bitmap/matt/01 - Earth/10:                             1136       592
+:bitmap/matt/01 - Earth/10:                             1168       592
+:bitmap/matt/01 - Earth/10:                             1200       592
+:bitmap/matt/01 - Earth/10:                             1232       592
+:bitmap/matt/01 - Earth/10:                             1264       592
+:bitmap/matt/01 - Earth/10:                              304       592
+:bitmap/matt/01 - Earth/10:                              336       592
+:bitmap/matt/01 - Earth/10:                              368       592
+:bitmap/matt/01 - Earth/10:                              400       592
+:bitmap/matt/01 - Earth/10:                              432       592
+:bitmap/matt/01 - Earth/10:                              464       592
+:bitmap/matt/01 - Earth/10:                              496       592
+:bitmap/matt/01 - Earth/10:                              528       592
+:bitmap/matt/01 - Earth/10:                              560       592
+:bitmap/matt/01 - Earth/10:                              592       592
+:bitmap/matt/01 - Earth/10:                               16       592
+:bitmap/matt/01 - Earth/10:                               48       592
+:bitmap/matt/01 - Earth/10:                               80       592
+:bitmap/matt/01 - Earth/10:                              112       592
+:bitmap/matt/01 - Earth/10:                              144       592
+:bitmap/matt/01 - Earth/10:                              176       592
+:bitmap/matt/01 - Earth/10:                              208       592
+:bitmap/matt/01 - Earth/10:                              240       592
+:bitmap/matt/01 - Earth/10:                              272       592
+:bitmap/matt/steel/48x48.S:                              112       592
+:bitmap/matt/steel/48x48.S:                              160       592
+:bitmap/matt/steel/48x48.S:                              208       592
+:bitmap/matt/steel/48x48.S:                              624       592
+:bitmap/matt/steel/48x48.S:                              464       592
+:bitmap/matt/steel/48x48.S:                              368       592
+:bitmap/matt/steel/48x48.S:                              416       592
+:bitmap/matt/steel/48x48.S:                              880       592
+:bitmap/matt/steel/48x48.S:                              720       592
+:bitmap/matt/steel/48x48.S:                              672       592
+:bitmap/matt/steel/48x48.S:                             1136       592
+:bitmap/matt/steel/48x48.S:                              976       592
+:bitmap/matt/steel/48x48.S:                              928       592
+:bitmap/matt/steel/48x48.S:                             1232       592
+:bitmap/matt/steel/48x48.S:                             1184       592
+:bitmap/matt/01 - Earth/09:                              608       410
+:bitmap/matt/01 - Earth/09:                              656       410
+:bitmap/matt/01 - Earth/09:                              688       410
+:bitmap/matt/01 - Earth/09:                              736       410
+:bitmap/matt/01 - Earth/09:                              784       410
+:bitmap/matt/01 - Earth/09:                              832       410
+:bitmap/matt/01 - Earth/09:                              864       410
+:bitmap/matt/01 - Earth/09:                              912       410
+:bitmap/matt/01 - Earth/09:                              944       410
+:bitmap/matt/01 - Earth/09:                              992       410
+:bitmap/matt/01 - Earth/09:                             1024       410
+:bitmap/matt/01 - Earth/09:                             1072       410
+:bitmap/matt/01 - Earth/09:                             1104       410
+:bitmap/matt/01 - Earth/09:                             1152       410
+:bitmap/matt/01 - Earth/09:                             1184       410
+:bitmap/matt/01 - Earth/09:                             1232       410
+:bitmap/matt/01 - Earth/09:                               32       410
+:bitmap/matt/01 - Earth/09:                               64       410
+:bitmap/matt/01 - Earth/09:                              112       410
+:bitmap/matt/01 - Earth/09:                              160       410
+:bitmap/matt/01 - Earth/09:                              208       410
+:bitmap/matt/01 - Earth/09:                              240       410
+:bitmap/matt/01 - Earth/09:                              288       410
+:bitmap/matt/01 - Earth/09:                              336       410
+:bitmap/matt/01 - Earth/09:                              384       410
+:bitmap/matt/01 - Earth/09:                              416       410
+:bitmap/matt/01 - Earth/09:                              464       410
+:bitmap/matt/01 - Earth/09:                              496       410
+:bitmap/matt/01 - Earth/09:                              528       410
+:bitmap/matt/01 - Earth/09:                              576       410
+:bitmap/matt/01 - Earth/28:                              768        16
+:bitmap/matt/01 - Earth/09:                              720        16
+:bitmap/matt/01 - Earth/09:                              768        16
+:bitmap/matt/01 - Earth/09:                              800        16
+:bitmap/matt/01 - Earth/09:                              848        16
+:bitmap/matt/01 - Earth/09:                              896        16
+:bitmap/matt/01 - Earth/09:                              944        16
+:bitmap/matt/01 - Earth/09:                              976        16
+:bitmap/matt/01 - Earth/09:                              528        16
+:bitmap/matt/01 - Earth/09:                              576        16
+:bitmap/matt/01 - Earth/09:                              608        16
+:bitmap/matt/01 - Earth/09:                              640        16
+:bitmap/matt/01 - Earth/09:                              688        16
+:bitmap/matt/01 - Earth/28:                             1024        16
+:bitmap/matt/01 - Earth/09:                              976        16
+:bitmap/matt/01 - Earth/09:                             1024        16
+:bitmap/matt/01 - Earth/09:                             1056        16
+:bitmap/matt/01 - Earth/09:                             1104        16
+:bitmap/matt/01 - Earth/09:                             1152        16
+:bitmap/matt/01 - Earth/09:                             1200        16
+:bitmap/matt/01 - Earth/09:                             1232        16
+:bitmap/matt/01 - Earth/09:                              784        16
+:bitmap/matt/01 - Earth/09:                              832        16
+:bitmap/matt/01 - Earth/09:                              864        16
+:bitmap/matt/01 - Earth/09:                              896        16
+:bitmap/matt/01 - Earth/09:                              944        16
+:bitmap/matt/01 - Earth/09:                             1232        16
+:bitmap/matt/01 - Earth/09:                             1040        16
+:bitmap/matt/01 - Earth/09:                             1088        16
+:bitmap/matt/01 - Earth/09:                             1120        16
+:bitmap/matt/01 - Earth/09:                             1152        16
+:bitmap/matt/01 - Earth/09:                             1200        16
+:bitmap/matt/01 - Earth/28:                                0        16
+:bitmap/matt/01 - Earth/09:                                0        16
+:bitmap/matt/01 - Earth/09:                               32        16
+:bitmap/matt/01 - Earth/09:                               80        16
+:bitmap/matt/01 - Earth/09:                              128        16
+:bitmap/matt/01 - Earth/09:                              176        16
+:bitmap/matt/01 - Earth/09:                              208        16
+:bitmap/matt/01 - Earth/28:                              256        16
+:bitmap/matt/01 - Earth/09:                              208        16
+:bitmap/matt/01 - Earth/09:                              256        16
+:bitmap/matt/01 - Earth/09:                              288        16
+:bitmap/matt/01 - Earth/09:                              336        16
+:bitmap/matt/01 - Earth/09:                              384        16
+:bitmap/matt/01 - Earth/09:                              432        16
+:bitmap/matt/01 - Earth/09:                              464        16
+:bitmap/matt/01 - Earth/09:                               16        16
+:bitmap/matt/01 - Earth/09:                               64        16
+:bitmap/matt/01 - Earth/09:                               96        16
+:bitmap/matt/01 - Earth/09:                              128        16
+:bitmap/matt/01 - Earth/09:                              176        16
+:bitmap/matt/01 - Earth/28:                              512        16
+:bitmap/matt/01 - Earth/09:                              464        16
+:bitmap/matt/01 - Earth/09:                              512        16
+:bitmap/matt/01 - Earth/09:                              544        16
+:bitmap/matt/01 - Earth/09:                              592        16
+:bitmap/matt/01 - Earth/09:                              640        16
+:bitmap/matt/01 - Earth/09:                              688        16
+:bitmap/matt/01 - Earth/09:                              720        16
+:bitmap/matt/01 - Earth/09:                              272        16
+:bitmap/matt/01 - Earth/09:                              320        16
+:bitmap/matt/01 - Earth/09:                              352        16
+:bitmap/matt/01 - Earth/09:                              384        16
+:bitmap/matt/01 - Earth/09:                              432        16
+:bitmap/matt/01 - Earth/08:                              176       144
+:bitmap/matt/01 - Earth/08:                              432       144
+:bitmap/matt/01 - Earth/08:                              688       144
+:bitmap/matt/01 - Earth/08:                              944       144
+:bitmap/matt/01 - Earth/08:                             1200       144
+:bitmap/matt/01 - Earth/09:                               12        74
+:bitmap/matt/01 - Earth/09:                              268        74
+:bitmap/matt/01 - Earth/09:                              524        74
+:bitmap/matt/01 - Earth/09:                              780        74
+:bitmap/matt/01 - Earth/09:                             1036        74

@@ -1,0 +1,269 @@
+$BUILT                                             2011-08-21 10:16:21
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                         Wack for pleasure(2p)
+
+#SIZE_X                                                           1536
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                           126
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                            40
+#INITIAL                                                            50
+#REQUIRED                                                           20
+#RATE                                                               75
+
+#WALKER                                                             80
+#JUMPER                                                             50
+#RUNNER                                                             15
+#BATTER                                                             -1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/geoo/construction/Hatch.H:                       330        46
+:bitmap/geoo/construction/Hatch.H:                      1170        48     r
+
+:bitmap/geoo/construction/Goal2.G:                      1440       144
+:bitmap/geoo/construction/Goal2.G:                        32       144
+
+:bitmap/matt/water.W:                                   1024       352
+:bitmap/matt/water.W:                                   1056       352
+:bitmap/matt/water.W:                                   1088       352
+:bitmap/matt/water.W:                                   1120       352
+:bitmap/matt/water.W:                                   1152       352
+:bitmap/matt/water.W:                                   1184       352
+:bitmap/matt/water.W:                                   1216       352
+:bitmap/matt/water.W:                                   1248       352
+:bitmap/matt/water.W:                                   1280       352
+:bitmap/matt/water.W:                                   1312       352
+:bitmap/matt/water.W:                                   1344       352
+:bitmap/matt/water.W:                                   1376       352
+:bitmap/matt/water.W:                                   1408       352
+:bitmap/matt/water.W:                                   1440       352
+:bitmap/matt/water.W:                                   1472       352
+:bitmap/matt/water.W:                                   1504       352
+:bitmap/matt/water.W:                                   1024       368
+:bitmap/matt/water.W:                                   1056       368
+:bitmap/matt/water.W:                                   1088       368
+:bitmap/matt/water.W:                                   1120       368
+:bitmap/matt/water.W:                                   1152       368
+:bitmap/matt/water.W:                                   1184       368
+:bitmap/matt/water.W:                                   1216       368
+:bitmap/matt/water.W:                                   1248       368
+:bitmap/matt/water.W:                                   1280       368
+:bitmap/matt/water.W:                                   1312       368
+:bitmap/matt/water.W:                                   1344       368
+:bitmap/matt/water.W:                                   1376       368
+:bitmap/matt/water.W:                                   1408       368
+:bitmap/matt/water.W:                                   1440       368
+:bitmap/matt/water.W:                                   1472       368
+:bitmap/matt/water.W:                                   1504       368
+:bitmap/matt/water.W:                                    512       352
+:bitmap/matt/water.W:                                    544       352
+:bitmap/matt/water.W:                                    576       352
+:bitmap/matt/water.W:                                    608       352
+:bitmap/matt/water.W:                                    640       352
+:bitmap/matt/water.W:                                    672       352
+:bitmap/matt/water.W:                                    704       352
+:bitmap/matt/water.W:                                    736       352
+:bitmap/matt/water.W:                                    768       352
+:bitmap/matt/water.W:                                    800       352
+:bitmap/matt/water.W:                                    832       352
+:bitmap/matt/water.W:                                    864       352
+:bitmap/matt/water.W:                                    896       352
+:bitmap/matt/water.W:                                    928       352
+:bitmap/matt/water.W:                                    960       352
+:bitmap/matt/water.W:                                    992       352
+:bitmap/matt/water.W:                                    512       368
+:bitmap/matt/water.W:                                    544       368
+:bitmap/matt/water.W:                                    576       368
+:bitmap/matt/water.W:                                    608       368
+:bitmap/matt/water.W:                                    640       368
+:bitmap/matt/water.W:                                    672       368
+:bitmap/matt/water.W:                                    704       368
+:bitmap/matt/water.W:                                    736       368
+:bitmap/matt/water.W:                                    768       368
+:bitmap/matt/water.W:                                    800       368
+:bitmap/matt/water.W:                                    832       368
+:bitmap/matt/water.W:                                    864       368
+:bitmap/matt/water.W:                                    896       368
+:bitmap/matt/water.W:                                    928       368
+:bitmap/matt/water.W:                                    960       368
+:bitmap/matt/water.W:                                    992       368
+:bitmap/matt/water.W:                                      0       352
+:bitmap/matt/water.W:                                     32       352
+:bitmap/matt/water.W:                                     64       352
+:bitmap/matt/water.W:                                     96       352
+:bitmap/matt/water.W:                                    128       352
+:bitmap/matt/water.W:                                    160       352
+:bitmap/matt/water.W:                                    192       352
+:bitmap/matt/water.W:                                    224       352
+:bitmap/matt/water.W:                                    256       352
+:bitmap/matt/water.W:                                    288       352
+:bitmap/matt/water.W:                                    320       352
+:bitmap/matt/water.W:                                    352       352
+:bitmap/matt/water.W:                                    384       352
+:bitmap/matt/water.W:                                    416       352
+:bitmap/matt/water.W:                                    448       352
+:bitmap/matt/water.W:                                    480       352
+:bitmap/matt/water.W:                                      0       368
+:bitmap/matt/water.W:                                     32       368
+:bitmap/matt/water.W:                                     64       368
+:bitmap/matt/water.W:                                     96       368
+:bitmap/matt/water.W:                                    128       368
+:bitmap/matt/water.W:                                    160       368
+:bitmap/matt/water.W:                                    192       368
+:bitmap/matt/water.W:                                    224       368
+:bitmap/matt/water.W:                                    256       368
+:bitmap/matt/water.W:                                    288       368
+:bitmap/matt/water.W:                                    320       368
+:bitmap/matt/water.W:                                    352       368
+:bitmap/matt/water.W:                                    384       368
+:bitmap/matt/water.W:                                    416       368
+:bitmap/matt/water.W:                                    448       368
+:bitmap/matt/water.W:                                    480       368
+
+:bitmap/geoo/construction/concrete/032a:                 656       192
+:bitmap/geoo/construction/concrete/016:                  672       240
+:bitmap/geoo/construction/concrete/016:                  848       240
+:bitmap/geoo/construction/concrete/016:                  672       224
+:bitmap/geoo/construction/concrete/032b:                1328       176
+:bitmap/geoo/construction/concrete/032a:                1296       176
+:bitmap/geoo/construction/concrete/032a:                 176       176
+:bitmap/geoo/construction/concrete/032b:                 208       176
+:bitmap/geoo/construction/concrete/032va:                800       256     rrr
+:bitmap/geoo/construction/concrete/032vb:                672       256     r
+:bitmap/geoo/construction/concrete/podium_32:            992       288     f
+:bitmap/geoo/construction/concrete/064:                 1056       192
+:bitmap/geoo/construction/concrete/podium_32:           1056       160
+:bitmap/geoo/steel/dark_64x32o.S:                         32       208
+:bitmap/geoo/steel/dark_64x32o.S:                       1440       208
+:bitmap/geoo/construction/concrete/064:                 1120       224
+:bitmap/geoo/construction/concrete/064:                 1184       192
+:bitmap/geoo/construction/concrete/064:                 1248       224
+:bitmap/geoo/construction/concrete/064:                  864       224
+:bitmap/geoo/construction/concrete/064:                  928       192
+:bitmap/geoo/construction/concrete/064:                  992       224
+:bitmap/geoo/construction/concrete/064:                  544       192
+:bitmap/geoo/construction/concrete/064:                  608       224
+:bitmap/geoo/construction/concrete/064:                  288       192
+:bitmap/geoo/construction/concrete/064:                  352       224
+:bitmap/geoo/construction/concrete/064:                  416       192
+:bitmap/geoo/construction/concrete/064:                  480       224
+:bitmap/geoo/construction/concrete/064:                  224       224
+:bitmap/geoo/construction/concrete/podium_32:            480       288     f
+:bitmap/geoo/construction/concrete/podium_32:            352       288     f
+:bitmap/geoo/construction/concrete/podium_32:           1120       288     f
+:bitmap/geoo/construction/concrete/podium_32:            928       160
+:bitmap/geoo/construction/concrete/podium_32:           1184       160
+:bitmap/geoo/construction/concrete/podium_32:            544       160
+:bitmap/geoo/construction/concrete/podium_32:            416       160
+:bitmap/geoo/construction/concrete/podium_32:            288       160
+:bitmap/geoo/steel/dark_32x64o.S:                          0       208
+:bitmap/geoo/steel/dark_32x64o.S:                          0       144
+:bitmap/geoo/steel/dark_32x64o.S:                       1504       208
+:bitmap/geoo/steel/dark_32x64o.S:                       1504       144
+:bitmap/geoo/construction/concrete/032a:                 256       192
+:bitmap/geoo/construction/concrete/032a:                 384       192
+:bitmap/geoo/construction/concrete/032a:                 512       192
+:bitmap/geoo/construction/concrete/032b:                1248       192
+:bitmap/geoo/construction/concrete/032b:                1120       192
+:bitmap/geoo/construction/concrete/032b:                 992       192
+:bitmap/geoo/construction/concrete/016:                  848       224
+:bitmap/geoo/construction/concrete/032a:                 880       192
+:bitmap/geoo/construction/concrete/032a:                1024       192
+:bitmap/geoo/construction/concrete/032a:                1152       192
+:bitmap/geoo/construction/concrete/032a:                1280       192
+:bitmap/geoo/construction/concrete/032b:                 592       160
+:bitmap/geoo/construction/concrete/032b:                 480       192
+:bitmap/geoo/construction/concrete/032b:                 224       192
+:bitmap/geoo/steel/dark_32x64o.S:                         96       160
+:bitmap/geoo/steel/dark_32x64o.S:                       1408       224
+:bitmap/geoo/steel/dark_32x64o.S:                       1408       160
+:bitmap/geoo/steel/dark_32x64o.S:                         96       224
+:bitmap/geoo/steel/dark_32x64o.S:                          0       272
+:bitmap/geoo/steel/dark_32x64o.S:                        112       288
+:bitmap/geoo/steel/dark_32x64o.S:                          0       336
+:bitmap/geoo/steel/dark_32x64o.S:                        128       352
+:bitmap/geoo/steel/dark_32x64o.S:                       1504       272
+:bitmap/geoo/steel/dark_32x64o.S:                       1392       288
+:bitmap/geoo/steel/dark_32x64o.S:                       1504       336
+:bitmap/geoo/steel/dark_32x64o.S:                       1376       352
+:bitmap/geoo/steel/dark_32x64o.S:                       1520        80
+:bitmap/geoo/steel/dark_32x64o.S:                        -16        80
+:bitmap/geoo/construction/concrete/064:                  864       288
+:bitmap/geoo/construction/concrete/064:                  864       352
+:bitmap/geoo/construction/concrete/064:                  608       288
+:bitmap/geoo/construction/concrete/064:                  608       352
+:bitmap/geoo/construction/concrete/064:                  224       288
+:bitmap/geoo/construction/concrete/064:                  224       352
+:bitmap/geoo/construction/concrete/064:                 1248       288
+:bitmap/geoo/construction/concrete/064:                 1248       352
+:bitmap/geoo/construction/concrete/032h:                1328       192     rrr
+:bitmap/geoo/construction/concrete/032h:                 176       192     rrr
+:bitmap/geoo/steel/dark_32x32o.S:                          0        48
+:bitmap/geoo/steel/dark_32x32o.S:                       1504        48
+:bitmap/geoo/construction/concrete/032b:                 352       192
+:bitmap/geoo/construction/concrete/016:                  176       176
+:bitmap/geoo/construction/concrete/016:                 1344       176
+:bitmap/geoo/construction/concrete/016:                  720       256
+:bitmap/geoo/construction/concrete/016:                  800       256
+:bitmap/geoo/construction/concrete/032v:                 688       192
+:bitmap/geoo/construction/concrete/032v:                 816       192
+:bitmap/geoo/construction/concrete/032b:                 848       192
+:bitmap/geoo/construction/concrete/016:                  720       272
+:bitmap/geoo/construction/concrete/016:                  800       272
+:bitmap/geoo/construction/concrete/016:                  800       288
+:bitmap/geoo/construction/concrete/016:                  720       288
+:bitmap/geoo/construction/concrete/016:                  704       176
+:bitmap/geoo/construction/concrete/016:                  816       176
+:bitmap/geoo/construction/concrete/032b:                 624       192
+:bitmap/geoo/construction/concrete/032a:                 912       160
+:bitmap/geoo/construction/concrete/016:                  608       192
+:bitmap/geoo/construction/concrete/016:                  608       208
+:bitmap/geoo/construction/concrete/016:                  912       192
+:bitmap/geoo/construction/concrete/016:                  912       208
+:bitmap/geoo/construction/concrete/podium_16:            560       144
+:bitmap/geoo/construction/concrete/podium_16:            944       144
+:bitmap/geoo/construction/concrete/032va:                784       176
+:bitmap/geoo/construction/concrete/032vb:                720       176
+:bitmap/geoo/construction/concrete/016:                  704       288
+:bitmap/geoo/construction/concrete/016:                  816       288
+:bitmap/geoo/construction/concrete/016:                  720       192
+:bitmap/geoo/construction/concrete/016:                  800       192
+:bitmap/geoo/construction/concrete/008h:                 752       112
+:bitmap/geoo/construction/concrete/008h:                 736       112
+:bitmap/geoo/construction/concrete/008h:                 720       112
+:bitmap/geoo/construction/concrete/008h:                 704       112
+:bitmap/geoo/construction/concrete/008h:                 688       112
+:bitmap/geoo/construction/concrete/008h:                 672       112
+:bitmap/geoo/construction/concrete/008h:                 656       112
+:bitmap/geoo/construction/concrete/008h:                 864       112
+:bitmap/geoo/construction/concrete/008h:                 848       112
+:bitmap/geoo/construction/concrete/008h:                 832       112
+:bitmap/geoo/construction/concrete/008h:                 816       112
+:bitmap/geoo/construction/concrete/008h:                 800       112
+:bitmap/geoo/construction/concrete/008h:                 784       112
+:bitmap/geoo/construction/concrete/008h:                 768       112
+:bitmap/geoo/construction/fence_rust_64x64:              688        48
+:bitmap/geoo/construction/fence_rust_64x64:              784        48
+:bitmap/geoo/construction/fence_rust_64x64:              736        16
+:bitmap/geoo/construction/fence_rust_32x32:              752        48
+:bitmap/geoo/construction/fence_rust_32x32:              752        80
+:bitmap/geoo/construction/fence_rust_32x32:              720        32
+:bitmap/geoo/construction/fence_rust_32x32:              784        32
+:bitmap/geoo/construction/fence_rust_32x32:              832        80
+:bitmap/geoo/construction/fence_rust_32x32:              672        80
+:bitmap/geoo/construction/concrete/008h:                 640       112
+:bitmap/geoo/construction/concrete/008h:                 880       112

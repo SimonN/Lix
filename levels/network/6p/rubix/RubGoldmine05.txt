@@ -1,0 +1,376 @@
+$BUILT                                             2011-08-19 11:49:19
+$AUTHOR                                                          RubiX
+$GERMAN                                                               
+$ENGLISH                                           Golden Slumbers(6p)
+
+#SIZE_X                                                           1536
+#SIZE_Y                                                            878
+#TORUS_X                                                             1
+#TORUS_Y                                                             1
+#START_X                                                           128
+#START_Y                                                           138
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                            60
+#INITIAL                                                            60
+#REQUIRED                                                           20
+#RATE                                                               20
+
+#CLIMBER                                                             5
+#FLOATER                                                             5
+#WALKER                                                             50
+#JUMPER                                                             30
+#EXPLODER2                                                          10
+#BUILDER                                                            65
+#MINER                                                              30
+#BASHER                                                             25
+#DIGGER                                                             10
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   590       754
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   334       752
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                    78       752
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                  1356       752
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                  1102       752
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   846       752
+:bitmap/matt/02 - Gold Mine/mine cart.D:                 792       784
+:bitmap/matt/02 - Gold Mine/mine cart.D:                1048       784
+:bitmap/matt/02 - Gold Mine/mine cart.D:                1304       784
+:bitmap/matt/02 - Gold Mine/mine cart.D:                  24       784
+:bitmap/matt/02 - Gold Mine/mine cart.D:                 280       784
+:bitmap/matt/02 - Gold Mine/mine cart.D:                 536       784
+
+:bitmap/matt/02 - Gold Mine/Hatch.H:                     576        64
+:bitmap/matt/02 - Gold Mine/Hatch.H:                      64        64
+:bitmap/matt/02 - Gold Mine/Hatch.H:                     320        64
+:bitmap/matt/02 - Gold Mine/Hatch.H:                    1344        64
+:bitmap/matt/02 - Gold Mine/Hatch.H:                     832        64
+:bitmap/matt/02 - Gold Mine/Hatch.H:                    1088        64
+
+:bitmap/matt/02 - Gold Mine/Goal.G:                      592       794
+:bitmap/matt/02 - Gold Mine/Goal.G:                       80       792
+:bitmap/matt/02 - Gold Mine/Goal.G:                      336       792
+:bitmap/matt/02 - Gold Mine/Goal.G:                     1360       792
+:bitmap/matt/02 - Gold Mine/Goal.G:                      848       792
+:bitmap/matt/02 - Gold Mine/Goal.G:                     1104       792
+
+:bitmap/matt/02 - Gold Mine/07:                         1488       832
+:bitmap/matt/02 - Gold Mine/07:                          464       784     r
+:bitmap/matt/02 - Gold Mine/07:                          720       784     r
+:bitmap/matt/02 - Gold Mine/07:                          208       784     r
+:bitmap/matt/02 - Gold Mine/02:                          224       768     rr
+:bitmap/matt/02 - Gold Mine/02:                          736       768     rr
+:bitmap/matt/02 - Gold Mine/02:                          480       768     rr
+:bitmap/matt/02 - Gold Mine/02:                          752       736     rr
+:bitmap/matt/02 - Gold Mine/02:                          496       736     rr
+:bitmap/matt/02 - Gold Mine/02:                          240       736     rr
+:bitmap/matt/02 - Gold Mine/04:                          144       864
+:bitmap/matt/02 - Gold Mine/04:                          656       864
+:bitmap/matt/02 - Gold Mine/04:                          400       864
+:bitmap/matt/02 - Gold Mine/04:                          432       864     f
+:bitmap/matt/02 - Gold Mine/04:                          176       864     f
+:bitmap/matt/02 - Gold Mine/04:                          688       864     f
+:bitmap/matt/02 - Gold Mine/03:                          640       832
+:bitmap/matt/02 - Gold Mine/02:                           32        96     rr
+:bitmap/matt/02 - Gold Mine/02:                          288        96     rr
+:bitmap/matt/02 - Gold Mine/02:                          544        96     rr
+:bitmap/matt/02 - Gold Mine/03:                          208       832
+:bitmap/matt/02 - Gold Mine/03:                          128       832
+:bitmap/matt/02 - Gold Mine/03:                           64       832
+:bitmap/matt/02 - Gold Mine/03:                          752       832
+:bitmap/matt/02 - Gold Mine/03:                          688       832
+:bitmap/matt/02 - Gold Mine/03:                          608       832
+:bitmap/matt/02 - Gold Mine/03:                          448       832
+:bitmap/matt/02 - Gold Mine/03:                          368       832
+:bitmap/matt/02 - Gold Mine/04:                          272       144
+:bitmap/matt/02 - Gold Mine/04:                          528       144
+:bitmap/matt/02 - Gold Mine/04:                           16       144
+:bitmap/matt/02 - Gold Mine/04:                          448       256
+:bitmap/matt/02 - Gold Mine/04:                          192       256
+:bitmap/matt/02 - Gold Mine/04:                          704       256
+:bitmap/matt/02 - Gold Mine/02:                           96       192
+:bitmap/matt/02 - Gold Mine/02:                          608       192
+:bitmap/matt/02 - Gold Mine/02:                          352       192
+:bitmap/matt/02 - Gold Mine/07:                          272       112
+:bitmap/matt/02 - Gold Mine/07:                          528       112
+:bitmap/matt/02 - Gold Mine/07:                           16       112
+:bitmap/matt/02 - Gold Mine/04:                          720       144
+:bitmap/matt/02 - Gold Mine/04:                          176       160     frr
+:bitmap/matt/02 - Gold Mine/04:                          464       144
+:bitmap/matt/02 - Gold Mine/04:                          688       160     frr
+:bitmap/matt/02 - Gold Mine/04:                          208       144
+:bitmap/matt/02 - Gold Mine/04:                          432       160     frr
+:bitmap/matt/02 - Gold Mine/09:                          416       272     frr
+:bitmap/matt/02 - Gold Mine/09:                          528       272
+:bitmap/matt/02 - Gold Mine/09:                          672       272     frr
+:bitmap/matt/02 - Gold Mine/09:                           16       272
+:bitmap/matt/02 - Gold Mine/09:                          160       272     frr
+:bitmap/matt/02 - Gold Mine/09:                          272       272
+:bitmap/matt/02 - Gold Mine/09:                          544       352
+:bitmap/matt/02 - Gold Mine/09:                          400       352     frr
+:bitmap/matt/02 - Gold Mine/09:                           32       352
+:bitmap/matt/02 - Gold Mine/09:                          656       352     frr
+:bitmap/matt/02 - Gold Mine/09:                          288       352
+:bitmap/matt/02 - Gold Mine/09:                          144       352     frr
+:bitmap/matt/02 - Gold Mine/09:                          128       384     frr
+:bitmap/matt/02 - Gold Mine/09:                          304       384
+:bitmap/matt/02 - Gold Mine/09:                          384       384     frr
+:bitmap/matt/02 - Gold Mine/09:                          560       384
+:bitmap/matt/02 - Gold Mine/09:                          640       384     frr
+:bitmap/matt/02 - Gold Mine/09:                           48       384
+:bitmap/matt/02 - Gold Mine/02:                          608       384     f
+:bitmap/matt/02 - Gold Mine/02:                           96       384     f
+:bitmap/matt/02 - Gold Mine/02:                          352       384     f
+:bitmap/matt/steel/32x32.S:                              592       112
+:bitmap/matt/steel/32x32.S:                               80       112     r
+:bitmap/matt/steel/32x32.S:                              336       112
+:bitmap/matt/02 - Gold Mine/crate64:                     288       528
+:bitmap/matt/02 - Gold Mine/crate64:                     416       528
+:bitmap/matt/02 - Gold Mine/crate64:                     480       528
+:bitmap/matt/02 - Gold Mine/crate64:                     544       528
+:bitmap/matt/02 - Gold Mine/crate64:                     672       528
+:bitmap/matt/02 - Gold Mine/crate64:                     736       528
+:bitmap/matt/02 - Gold Mine/crate64:                      32       528
+:bitmap/matt/02 - Gold Mine/crate64:                     160       528
+:bitmap/matt/02 - Gold Mine/crate64:                     224       528
+:bitmap/matt/02 - Gold Mine/crate64:                     304       592
+:bitmap/matt/02 - Gold Mine/crate64:                     368       592
+:bitmap/matt/02 - Gold Mine/crate64:                     432       592
+:bitmap/matt/02 - Gold Mine/crate64:                     560       592
+:bitmap/matt/02 - Gold Mine/crate64:                     624       592
+:bitmap/matt/02 - Gold Mine/crate64:                     688       592
+:bitmap/matt/02 - Gold Mine/crate64:                      48       592
+:bitmap/matt/02 - Gold Mine/crate64:                     112       592
+:bitmap/matt/02 - Gold Mine/crate64:                     176       592
+:bitmap/matt/02 - Gold Mine/07:                           16       832
+:bitmap/matt/02 - Gold Mine/07:                           96       832
+:bitmap/matt/02 - Gold Mine/07:                          176       832
+:bitmap/matt/02 - Gold Mine/07:                          256       832
+:bitmap/matt/02 - Gold Mine/07:                          336       832
+:bitmap/matt/02 - Gold Mine/07:                          416       832
+:bitmap/matt/02 - Gold Mine/07:                          496       832
+:bitmap/matt/02 - Gold Mine/07:                          592       832
+:bitmap/matt/02 - Gold Mine/07:                          672       832
+:bitmap/matt/02 - Gold Mine/07:                          720       832
+:bitmap/matt/02 - Gold Mine/03:                          288       832
+:bitmap/matt/02 - Gold Mine/03:                          528       832
+:bitmap/matt/02 - Gold Mine/03:                           32       832
+:bitmap/matt/steel/32x32.S:                              336       832
+:bitmap/matt/steel/32x32.S:                              368       832
+:bitmap/matt/steel/32x32.S:                              592       832
+:bitmap/matt/steel/32x32.S:                              624       832
+:bitmap/matt/steel/32x32.S:                              240       112
+:bitmap/matt/steel/32x32.S:                              416        80
+:bitmap/matt/steel/32x32.S:                              672        80
+:bitmap/matt/steel/32x32.S:                              160        80
+:bitmap/matt/steel/32x32.S:                              752        80
+:bitmap/matt/steel/32x32.S:                              496        80
+:bitmap/matt/steel/32x32.S:                              240        80
+:bitmap/matt/steel/32x32.S:                              176        48
+:bitmap/matt/steel/32x32.S:                              432        48
+:bitmap/matt/steel/32x32.S:                              496        48
+:bitmap/matt/steel/32x32.S:                              688        48
+:bitmap/matt/steel/32x32.S:                              752        48
+:bitmap/matt/steel/32x32.S:                              560       832
+:bitmap/matt/steel/32x32.S:                              528       832
+:bitmap/matt/steel/32x32.S:                              656       832
+:bitmap/matt/steel/32x32.S:                              304       832
+:bitmap/matt/steel/32x32.S:                              272       832
+:bitmap/matt/steel/32x32.S:                              400       832
+:bitmap/matt/steel/32x32.S:                              144       832
+:bitmap/matt/steel/32x32.S:                               48       832
+:bitmap/matt/steel/32x32.S:                               16       832
+:bitmap/matt/steel/32x32.S:                              160       864
+:bitmap/matt/steel/32x32.S:                              176        16
+:bitmap/matt/steel/32x32.S:                              752        16
+:bitmap/matt/steel/32x32.S:                              752       864
+:bitmap/matt/steel/32x32.S:                              752       832
+:bitmap/matt/steel/32x32.S:                              752       112
+:bitmap/matt/steel/32x32.S:                              240        48
+:bitmap/matt/steel/32x32.S:                              240        16
+:bitmap/matt/steel/32x32.S:                              240       864
+:bitmap/matt/steel/32x32.S:                              240       832
+:bitmap/matt/steel/32x32.S:                              416       864
+:bitmap/matt/steel/32x32.S:                              432        16
+:bitmap/matt/steel/32x32.S:                              496        16
+:bitmap/matt/steel/32x32.S:                              496       864
+:bitmap/matt/steel/32x32.S:                              496       832
+:bitmap/matt/steel/32x32.S:                              688        16
+:bitmap/matt/steel/32x32.S:                              672       864
+:bitmap/matt/steel/32x32.S:                              496       112
+:bitmap/matt/steel/32x32.S:                              720       176     r
+:bitmap/matt/steel/32x32.S:                              208       176     r
+:bitmap/matt/steel/32x32.S:                              464       176     r
+:bitmap/matt/02 - Gold Mine/crate64:                     496       592
+:bitmap/matt/02 - Gold Mine/crate64:                     240       592
+:bitmap/matt/02 - Gold Mine/crate64:                     752       592
+:bitmap/matt/steel/64x64.S:                              112       592
+:bitmap/matt/steel/64x64.S:                              368       592
+:bitmap/matt/steel/64x64.S:                              624       592
+:bitmap/matt/steel/48x48.S:                              512       784
+:bitmap/matt/steel/48x48.S:                              256       784
+:bitmap/matt/02 - Gold Mine/07:                         1232       784     r
+:bitmap/matt/02 - Gold Mine/07:                         1488       784     r
+:bitmap/matt/02 - Gold Mine/07:                          976       784     r
+:bitmap/matt/02 - Gold Mine/02:                          992       768     rr
+:bitmap/matt/02 - Gold Mine/02:                         1504       768     rr
+:bitmap/matt/02 - Gold Mine/02:                         1248       768     rr
+:bitmap/matt/02 - Gold Mine/02:                         1520       736     rr
+:bitmap/matt/02 - Gold Mine/02:                         1264       736     rr
+:bitmap/matt/02 - Gold Mine/02:                         1008       736     rr
+:bitmap/matt/02 - Gold Mine/04:                          912       864
+:bitmap/matt/02 - Gold Mine/04:                         1424       864
+:bitmap/matt/02 - Gold Mine/04:                         1168       864
+:bitmap/matt/02 - Gold Mine/04:                         1200       864     f
+:bitmap/matt/02 - Gold Mine/04:                          944       864     f
+:bitmap/matt/02 - Gold Mine/04:                         1456       864     f
+:bitmap/matt/02 - Gold Mine/03:                         1408       832
+:bitmap/matt/02 - Gold Mine/02:                          800        96     rr
+:bitmap/matt/02 - Gold Mine/02:                         1056        96     rr
+:bitmap/matt/02 - Gold Mine/02:                         1312        96     rr
+:bitmap/matt/02 - Gold Mine/03:                          976       832
+:bitmap/matt/02 - Gold Mine/03:                          896       832
+:bitmap/matt/02 - Gold Mine/03:                          832       832
+:bitmap/matt/02 - Gold Mine/03:                         1520       832
+:bitmap/matt/02 - Gold Mine/03:                         1456       832
+:bitmap/matt/02 - Gold Mine/03:                         1376       832
+:bitmap/matt/02 - Gold Mine/03:                         1216       832
+:bitmap/matt/02 - Gold Mine/03:                         1136       832
+:bitmap/matt/02 - Gold Mine/04:                         1040       144
+:bitmap/matt/02 - Gold Mine/04:                         1296       144
+:bitmap/matt/02 - Gold Mine/04:                          784       144
+:bitmap/matt/02 - Gold Mine/04:                         1216       256
+:bitmap/matt/02 - Gold Mine/04:                          960       256
+:bitmap/matt/02 - Gold Mine/04:                         1472       256
+:bitmap/matt/02 - Gold Mine/02:                          864       192
+:bitmap/matt/02 - Gold Mine/02:                         1376       192
+:bitmap/matt/02 - Gold Mine/02:                         1120       192
+:bitmap/matt/02 - Gold Mine/07:                         1040       112
+:bitmap/matt/02 - Gold Mine/07:                         1296       112
+:bitmap/matt/02 - Gold Mine/07:                          784       112
+:bitmap/matt/02 - Gold Mine/04:                         1488       144
+:bitmap/matt/02 - Gold Mine/04:                          944       160     frr
+:bitmap/matt/02 - Gold Mine/04:                         1232       144
+:bitmap/matt/02 - Gold Mine/04:                         1456       160     frr
+:bitmap/matt/02 - Gold Mine/04:                          976       144
+:bitmap/matt/02 - Gold Mine/04:                         1200       160     frr
+:bitmap/matt/02 - Gold Mine/09:                         1184       272     frr
+:bitmap/matt/02 - Gold Mine/09:                         1296       272
+:bitmap/matt/02 - Gold Mine/09:                         1440       272     frr
+:bitmap/matt/02 - Gold Mine/09:                          784       272
+:bitmap/matt/02 - Gold Mine/09:                          928       272     frr
+:bitmap/matt/02 - Gold Mine/09:                         1040       272
+:bitmap/matt/02 - Gold Mine/09:                         1312       352
+:bitmap/matt/02 - Gold Mine/09:                         1168       352     frr
+:bitmap/matt/02 - Gold Mine/09:                          800       352
+:bitmap/matt/02 - Gold Mine/09:                         1424       352     frr
+:bitmap/matt/02 - Gold Mine/09:                         1056       352
+:bitmap/matt/02 - Gold Mine/09:                          912       352     frr
+:bitmap/matt/02 - Gold Mine/09:                          896       384     frr
+:bitmap/matt/02 - Gold Mine/09:                         1072       384
+:bitmap/matt/02 - Gold Mine/09:                         1152       384     frr
+:bitmap/matt/02 - Gold Mine/09:                         1328       384
+:bitmap/matt/02 - Gold Mine/09:                         1408       384     frr
+:bitmap/matt/02 - Gold Mine/09:                          816       384
+:bitmap/matt/02 - Gold Mine/02:                         1376       384     f
+:bitmap/matt/02 - Gold Mine/02:                          864       384     f
+:bitmap/matt/02 - Gold Mine/02:                         1120       384     f
+:bitmap/matt/steel/32x32.S:                             1360       112
+:bitmap/matt/steel/32x32.S:                              848       112     r
+:bitmap/matt/steel/32x32.S:                             1104       112
+:bitmap/matt/02 - Gold Mine/crate64:                    1056       528
+:bitmap/matt/02 - Gold Mine/crate64:                    1184       528
+:bitmap/matt/02 - Gold Mine/crate64:                    1248       528
+:bitmap/matt/02 - Gold Mine/crate64:                    1312       528
+:bitmap/matt/02 - Gold Mine/crate64:                    1440       528
+:bitmap/matt/02 - Gold Mine/crate64:                    1504       528
+:bitmap/matt/02 - Gold Mine/crate64:                     800       528
+:bitmap/matt/02 - Gold Mine/crate64:                     928       528
+:bitmap/matt/02 - Gold Mine/crate64:                     992       528
+:bitmap/matt/02 - Gold Mine/crate64:                    1072       592
+:bitmap/matt/02 - Gold Mine/crate64:                    1136       592
+:bitmap/matt/02 - Gold Mine/crate64:                    1200       592
+:bitmap/matt/02 - Gold Mine/crate64:                    1328       592
+:bitmap/matt/02 - Gold Mine/crate64:                    1392       592
+:bitmap/matt/02 - Gold Mine/crate64:                    1456       592
+:bitmap/matt/02 - Gold Mine/crate64:                     816       592
+:bitmap/matt/02 - Gold Mine/crate64:                     880       592
+:bitmap/matt/02 - Gold Mine/crate64:                     944       592
+:bitmap/matt/02 - Gold Mine/07:                          784       832
+:bitmap/matt/02 - Gold Mine/07:                          864       832
+:bitmap/matt/02 - Gold Mine/07:                          944       832
+:bitmap/matt/02 - Gold Mine/07:                         1024       832
+:bitmap/matt/02 - Gold Mine/07:                         1104       832
+:bitmap/matt/02 - Gold Mine/07:                         1184       832
+:bitmap/matt/02 - Gold Mine/07:                         1264       832
+:bitmap/matt/02 - Gold Mine/07:                         1360       832
+:bitmap/matt/02 - Gold Mine/07:                         1440       832
+:bitmap/matt/02 - Gold Mine/03:                         1056       832
+:bitmap/matt/02 - Gold Mine/03:                         1296       832
+:bitmap/matt/02 - Gold Mine/03:                          800       832
+:bitmap/matt/steel/32x32.S:                              848       832
+:bitmap/matt/steel/32x32.S:                              880       832
+:bitmap/matt/steel/32x32.S:                             1104       832
+:bitmap/matt/steel/32x32.S:                             1136       832
+:bitmap/matt/steel/32x32.S:                             1360       832
+:bitmap/matt/steel/32x32.S:                             1392       832
+:bitmap/matt/steel/32x32.S:                             1008       112
+:bitmap/matt/steel/32x32.S:                             1184        80
+:bitmap/matt/steel/32x32.S:                             1440        80
+:bitmap/matt/steel/32x32.S:                              928        80
+:bitmap/matt/steel/32x32.S:                             1520        80
+:bitmap/matt/steel/32x32.S:                             1264        80
+:bitmap/matt/steel/32x32.S:                             1008        80
+:bitmap/matt/steel/32x32.S:                              944        48
+:bitmap/matt/steel/32x32.S:                             1200        48
+:bitmap/matt/steel/32x32.S:                             1264        48
+:bitmap/matt/steel/32x32.S:                             1456        48
+:bitmap/matt/steel/32x32.S:                             1520        48
+:bitmap/matt/steel/32x32.S:                             1328       832
+:bitmap/matt/steel/32x32.S:                             1296       832
+:bitmap/matt/steel/32x32.S:                             1424       832
+:bitmap/matt/steel/32x32.S:                             1072       832
+:bitmap/matt/steel/32x32.S:                             1040       832
+:bitmap/matt/steel/32x32.S:                             1168       832
+:bitmap/matt/steel/32x32.S:                              912       832
+:bitmap/matt/steel/32x32.S:                              816       832
+:bitmap/matt/steel/32x32.S:                              784       832
+:bitmap/matt/steel/32x32.S:                              928       864
+:bitmap/matt/steel/32x32.S:                              944        16
+:bitmap/matt/steel/32x32.S:                             1520        16
+:bitmap/matt/steel/32x32.S:                             1520       864
+:bitmap/matt/steel/32x32.S:                             1520       832
+:bitmap/matt/steel/32x32.S:                             1520       112
+:bitmap/matt/steel/32x32.S:                             1008        48
+:bitmap/matt/steel/32x32.S:                             1008        16
+:bitmap/matt/steel/32x32.S:                             1008       864
+:bitmap/matt/steel/32x32.S:                             1008       832
+:bitmap/matt/steel/32x32.S:                             1184       864
+:bitmap/matt/steel/32x32.S:                             1200        16
+:bitmap/matt/steel/32x32.S:                             1264        16
+:bitmap/matt/steel/32x32.S:                             1264       864
+:bitmap/matt/steel/32x32.S:                             1264       832
+:bitmap/matt/steel/32x32.S:                             1456        16
+:bitmap/matt/steel/32x32.S:                             1440       864
+:bitmap/matt/steel/32x32.S:                             1264       112
+:bitmap/matt/steel/32x32.S:                             1488       176     r
+:bitmap/matt/steel/32x32.S:                              976       176     r
+:bitmap/matt/steel/32x32.S:                             1232       176     r
+:bitmap/matt/02 - Gold Mine/crate64:                    1264       592
+:bitmap/matt/02 - Gold Mine/crate64:                    1008       592
+:bitmap/matt/02 - Gold Mine/crate64:                    1520       592
+:bitmap/matt/steel/64x64.S:                              880       592
+:bitmap/matt/steel/64x64.S:                             1136       592
+:bitmap/matt/steel/64x64.S:                             1392       592
+:bitmap/matt/steel/48x48.S:                             1280       784
+:bitmap/matt/steel/48x48.S:                              768       784
+:bitmap/matt/steel/48x48.S:                             1024       784
+:bitmap/matt/steel/48x48.S:                                0       784
+:bitmap/matt/steel/32x32.S:                               80       832
+:bitmap/matt/steel/32x32.S:                               48       832
+:bitmap/matt/steel/32x32.S:                               16       832
+:bitmap/matt/steel/32x32.S:                              112       832

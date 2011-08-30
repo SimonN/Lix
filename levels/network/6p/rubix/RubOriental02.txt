@@ -1,0 +1,258 @@
+$BUILT                                             2011-08-19 11:10:21
+$AUTHOR                                                          RubiX
+$GERMAN                                                               
+$ENGLISH                                                 Tree Life(6p)
+
+#SIZE_X                                                           1536
+#SIZE_Y                                                           1038
+#TORUS_X                                                             1
+#TORUS_Y                                                             0
+#START_X                                                           128
+#START_Y                                                           618
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                            50
+#INITIAL                                                            75
+#REQUIRED                                                           20
+#RATE                                                               35
+
+#WALKER                                                             45
+#JUMPER                                                             30
+#EXPLODER2                                                           5
+#BLOCKER                                                             2
+#PLATFORMER                                                         60
+#BASHER                                                             45
+#MINER                                                              30
+#DIGGER                                                             15
+#RUNNER                                                             20
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/01 - Earth/Hatch.H:                         224        32
+:bitmap/matt/01 - Earth/Hatch.H:                         736        32
+:bitmap/matt/01 - Earth/Hatch.H:                         480        32
+:bitmap/matt/01 - Earth/Hatch.H:                         992        32
+:bitmap/matt/01 - Earth/Hatch.H:                        1504        32
+:bitmap/matt/01 - Earth/Hatch.H:                        1248        32
+
+:bitmap/matt/06 - Oriental/Goal.G:                       191       938
+:bitmap/matt/06 - Oriental/Goal.G:                       704       938
+:bitmap/matt/06 - Oriental/Goal.G:                       447       938
+:bitmap/matt/06 - Oriental/Goal.G:                       959       938
+:bitmap/matt/06 - Oriental/Goal.G:                      1472       939
+:bitmap/matt/06 - Oriental/Goal.G:                      1215       938
+
+:bitmap/matt/water.W:                                    256      1008
+:bitmap/matt/water.W:                                    288      1008
+:bitmap/matt/water.W:                                    256      1024
+:bitmap/matt/water.W:                                    288      1024
+:bitmap/matt/water.W:                                    512      1008
+:bitmap/matt/water.W:                                    544      1008
+:bitmap/matt/water.W:                                    512      1024
+:bitmap/matt/water.W:                                    544      1024
+:bitmap/matt/water.W:                                    768      1008
+:bitmap/matt/water.W:                                    800      1008
+:bitmap/matt/water.W:                                    768      1024
+:bitmap/matt/water.W:                                    800      1024
+:bitmap/matt/water.W:                                   1024      1008
+:bitmap/matt/water.W:                                   1056      1008
+:bitmap/matt/water.W:                                   1024      1024
+:bitmap/matt/water.W:                                   1056      1024
+:bitmap/matt/water.W:                                   1280      1008
+:bitmap/matt/water.W:                                   1312      1008
+:bitmap/matt/water.W:                                   1280      1024
+:bitmap/matt/water.W:                                   1312      1024
+:bitmap/matt/water.W:                                      0      1008
+:bitmap/matt/water.W:                                     32      1008
+:bitmap/matt/water.W:                                      0      1024
+:bitmap/matt/water.W:                                     32      1024
+
+:bitmap/matt/06 - Oriental/02:                           704         0
+:bitmap/matt/06 - Oriental/02:                           704        32
+:bitmap/matt/06 - Oriental/02:                           704        48
+:bitmap/matt/06 - Oriental/02:                           448         0
+:bitmap/matt/06 - Oriental/02:                           448        32
+:bitmap/matt/06 - Oriental/02:                           448        48
+:bitmap/matt/06 - Oriental/02:                           192        48
+:bitmap/matt/06 - Oriental/05:                            96       752
+:bitmap/matt/06 - Oriental/bonsai tree:                  432       544
+:bitmap/matt/06 - Oriental/bonsai tree:                  688       544
+:bitmap/matt/06 - Oriental/bonsai tree:                  176       544
+:bitmap/matt/06 - Oriental/05:                           608       752
+:bitmap/matt/06 - Oriental/05:                           352       752
+:bitmap/matt/06 - Oriental/bonsai tree:                    0       816
+:bitmap/matt/06 - Oriental/bonsai tree:                  512       816
+:bitmap/matt/06 - Oriental/bonsai tree:                  256       816
+:bitmap/matt/steel/32x32.S:                              256        80
+:bitmap/matt/steel/32x32.S:                              512        80
+:bitmap/matt/steel/32x32.S:                                0        80
+:bitmap/matt/06 - Oriental/04:                           592      1008
+:bitmap/matt/06 - Oriental/04:                           560      1008
+:bitmap/matt/06 - Oriental/04:                            48      1008
+:bitmap/matt/06 - Oriental/04:                            80      1008
+:bitmap/matt/06 - Oriental/04:                           304      1008
+:bitmap/matt/06 - Oriental/04:                           336      1008
+:bitmap/matt/06 - Oriental/04:                           112      1008
+:bitmap/matt/06 - Oriental/04:                           144      1008
+:bitmap/matt/06 - Oriental/04:                           176      1008
+:bitmap/matt/06 - Oriental/04:                           368      1008
+:bitmap/matt/06 - Oriental/04:                           400      1008
+:bitmap/matt/06 - Oriental/04:                           432      1008
+:bitmap/matt/06 - Oriental/04:                           624      1008
+:bitmap/matt/06 - Oriental/04:                           656      1008
+:bitmap/matt/06 - Oriental/04:                           688      1008
+:bitmap/matt/06 - Oriental/04:                           208      1008
+:bitmap/matt/06 - Oriental/04:                           464      1008
+:bitmap/matt/06 - Oriental/04:                           720      1008
+:bitmap/matt/06 - Oriental/07:                           592       720
+:bitmap/matt/06 - Oriental/07:                           656       720
+:bitmap/matt/06 - Oriental/07:                           720       720
+:bitmap/matt/06 - Oriental/07:                            80       720
+:bitmap/matt/06 - Oriental/07:                           144       720
+:bitmap/matt/06 - Oriental/07:                           208       720
+:bitmap/matt/06 - Oriental/07:                           272       720
+:bitmap/matt/06 - Oriental/07:                            16       720
+:bitmap/matt/06 - Oriental/07:                           336       720
+:bitmap/matt/06 - Oriental/07:                           400       720
+:bitmap/matt/06 - Oriental/07:                           464       720
+:bitmap/matt/06 - Oriental/07:                           528       720
+:bitmap/matt/06 - Oriental/bonsai tree:                  336       336
+:bitmap/matt/06 - Oriental/bonsai tree:                  592       336
+:bitmap/matt/06 - Oriental/bonsai tree:                   80       336
+:bitmap/matt/06 - Oriental/07:                           560       512
+:bitmap/matt/06 - Oriental/07:                           624       512
+:bitmap/matt/06 - Oriental/07:                           752       512
+:bitmap/matt/06 - Oriental/07:                            48       512
+:bitmap/matt/06 - Oriental/07:                           112       512
+:bitmap/matt/06 - Oriental/07:                           176       512
+:bitmap/matt/06 - Oriental/07:                           688       512
+:bitmap/matt/06 - Oriental/07:                           240       512
+:bitmap/matt/06 - Oriental/07:                           304       512
+:bitmap/matt/06 - Oriental/07:                           368       512
+:bitmap/matt/06 - Oriental/07:                           432       512
+:bitmap/matt/06 - Oriental/07:                           496       512
+:bitmap/matt/06 - Oriental/bonsai tree:                  480       160
+:bitmap/matt/06 - Oriental/bonsai tree:                  736       160
+:bitmap/matt/06 - Oriental/bonsai tree:                  224       160
+:bitmap/matt/06 - Oriental/07:                           704       336
+:bitmap/matt/06 - Oriental/07:                             0       336
+:bitmap/matt/06 - Oriental/07:                           128       336
+:bitmap/matt/06 - Oriental/07:                           192       336
+:bitmap/matt/06 - Oriental/07:                           256       336
+:bitmap/matt/06 - Oriental/07:                           320       336
+:bitmap/matt/06 - Oriental/07:                            64       336
+:bitmap/matt/06 - Oriental/07:                           384       336
+:bitmap/matt/06 - Oriental/07:                           448       336
+:bitmap/matt/06 - Oriental/07:                           512       336
+:bitmap/matt/06 - Oriental/07:                           576       336
+:bitmap/matt/06 - Oriental/07:                           640       336
+:bitmap/matt/steel/32x32.S:                              288        80
+:bitmap/matt/steel/32x32.S:                              544        80
+:bitmap/matt/steel/32x32.S:                              704        80
+:bitmap/matt/steel/32x32.S:                              736        80
+:bitmap/matt/steel/32x32.S:                              448        80
+:bitmap/matt/steel/32x32.S:                              480        80
+:bitmap/matt/steel/32x32.S:                              192        80
+:bitmap/matt/steel/32x32.S:                              224        80
+:bitmap/matt/06 - Oriental/02:                           192        32
+:bitmap/matt/06 - Oriental/02:                           192         0
+:bitmap/matt/steel/32x32.S:                               32        80
+:bitmap/matt/06 - Oriental/02:                          1472         0
+:bitmap/matt/06 - Oriental/02:                          1472        32
+:bitmap/matt/06 - Oriental/02:                          1472        48
+:bitmap/matt/06 - Oriental/02:                          1216         0
+:bitmap/matt/06 - Oriental/02:                          1216        32
+:bitmap/matt/06 - Oriental/02:                          1216        48
+:bitmap/matt/06 - Oriental/02:                           960        48
+:bitmap/matt/06 - Oriental/05:                           864       752
+:bitmap/matt/06 - Oriental/bonsai tree:                 1200       544
+:bitmap/matt/06 - Oriental/bonsai tree:                 1456       544
+:bitmap/matt/06 - Oriental/bonsai tree:                  944       544
+:bitmap/matt/06 - Oriental/05:                          1376       752
+:bitmap/matt/06 - Oriental/05:                          1120       752
+:bitmap/matt/06 - Oriental/bonsai tree:                  768       816
+:bitmap/matt/06 - Oriental/bonsai tree:                 1280       816
+:bitmap/matt/06 - Oriental/bonsai tree:                 1024       816
+:bitmap/matt/steel/32x32.S:                             1024        80
+:bitmap/matt/steel/32x32.S:                             1280        80
+:bitmap/matt/steel/32x32.S:                              768        80
+:bitmap/matt/06 - Oriental/04:                          1360      1008
+:bitmap/matt/06 - Oriental/04:                          1328      1008
+:bitmap/matt/06 - Oriental/04:                           816      1008
+:bitmap/matt/06 - Oriental/04:                           848      1008
+:bitmap/matt/06 - Oriental/04:                          1072      1008
+:bitmap/matt/06 - Oriental/04:                          1104      1008
+:bitmap/matt/06 - Oriental/04:                           880      1008
+:bitmap/matt/06 - Oriental/04:                           912      1008
+:bitmap/matt/06 - Oriental/04:                           944      1008
+:bitmap/matt/06 - Oriental/04:                          1136      1008
+:bitmap/matt/06 - Oriental/04:                          1168      1008
+:bitmap/matt/06 - Oriental/04:                          1200      1008
+:bitmap/matt/06 - Oriental/04:                          1392      1008
+:bitmap/matt/06 - Oriental/04:                          1424      1008
+:bitmap/matt/06 - Oriental/04:                          1456      1008
+:bitmap/matt/06 - Oriental/04:                           976      1008
+:bitmap/matt/06 - Oriental/04:                          1232      1008
+:bitmap/matt/06 - Oriental/04:                          1488      1008
+:bitmap/matt/06 - Oriental/07:                          1360       720
+:bitmap/matt/06 - Oriental/07:                          1424       720
+:bitmap/matt/06 - Oriental/07:                          1488       720
+:bitmap/matt/06 - Oriental/07:                           848       720
+:bitmap/matt/06 - Oriental/07:                           912       720
+:bitmap/matt/06 - Oriental/07:                           976       720
+:bitmap/matt/06 - Oriental/07:                          1040       720
+:bitmap/matt/06 - Oriental/07:                           784       720
+:bitmap/matt/06 - Oriental/07:                          1104       720
+:bitmap/matt/06 - Oriental/07:                          1168       720
+:bitmap/matt/06 - Oriental/07:                          1232       720
+:bitmap/matt/06 - Oriental/07:                          1296       720
+:bitmap/matt/06 - Oriental/bonsai tree:                 1104       336
+:bitmap/matt/06 - Oriental/bonsai tree:                 1360       336
+:bitmap/matt/06 - Oriental/bonsai tree:                  848       336
+:bitmap/matt/06 - Oriental/07:                          1328       512
+:bitmap/matt/06 - Oriental/07:                          1392       512
+:bitmap/matt/06 - Oriental/07:                          1520       512
+:bitmap/matt/06 - Oriental/07:                           816       512
+:bitmap/matt/06 - Oriental/07:                           880       512
+:bitmap/matt/06 - Oriental/07:                           944       512
+:bitmap/matt/06 - Oriental/07:                          1456       512
+:bitmap/matt/06 - Oriental/07:                          1008       512
+:bitmap/matt/06 - Oriental/07:                          1072       512
+:bitmap/matt/06 - Oriental/07:                          1136       512
+:bitmap/matt/06 - Oriental/07:                          1200       512
+:bitmap/matt/06 - Oriental/07:                          1264       512
+:bitmap/matt/06 - Oriental/bonsai tree:                 1248       160
+:bitmap/matt/06 - Oriental/bonsai tree:                 1504       160
+:bitmap/matt/06 - Oriental/bonsai tree:                  992       160
+:bitmap/matt/06 - Oriental/07:                          1472       336
+:bitmap/matt/06 - Oriental/07:                           768       336
+:bitmap/matt/06 - Oriental/07:                           896       336
+:bitmap/matt/06 - Oriental/07:                           960       336
+:bitmap/matt/06 - Oriental/07:                          1024       336
+:bitmap/matt/06 - Oriental/07:                          1088       336
+:bitmap/matt/06 - Oriental/07:                           832       336
+:bitmap/matt/06 - Oriental/07:                          1152       336
+:bitmap/matt/06 - Oriental/07:                          1216       336
+:bitmap/matt/06 - Oriental/07:                          1280       336
+:bitmap/matt/06 - Oriental/07:                          1344       336
+:bitmap/matt/06 - Oriental/07:                          1408       336
+:bitmap/matt/steel/32x32.S:                             1056        80
+:bitmap/matt/steel/32x32.S:                             1312        80
+:bitmap/matt/steel/32x32.S:                             1472        80
+:bitmap/matt/steel/32x32.S:                             1504        80
+:bitmap/matt/steel/32x32.S:                             1216        80
+:bitmap/matt/steel/32x32.S:                             1248        80
+:bitmap/matt/steel/32x32.S:                              960        80
+:bitmap/matt/steel/32x32.S:                              992        80
+:bitmap/matt/06 - Oriental/02:                           960        32
+:bitmap/matt/06 - Oriental/02:                           960         0
+:bitmap/matt/steel/32x32.S:                              800        80
+:bitmap/matt/steel/64x32.S:                              448      1008
+:bitmap/matt/steel/64x32.S:                              704      1008
+:bitmap/matt/steel/64x32.S:                              960      1008
+:bitmap/matt/steel/64x32.S:                             1216      1008
+:bitmap/matt/steel/64x32.S:                             1472      1008
+:bitmap/matt/steel/64x32.S:                              192      1008

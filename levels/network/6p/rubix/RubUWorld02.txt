@@ -1,0 +1,197 @@
+$BUILT                                             2011-08-19 12:10:34
+$AUTHOR                                                          RubiX
+$GERMAN                                                               
+$ENGLISH                                                   Vicious(6p)
+
+#SIZE_X                                                            768
+#SIZE_Y                                                           1116
+#TORUS_X                                                             1
+#TORUS_Y                                                             1
+#START_X                                                           320
+#START_Y                                                           138
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                            50
+#INITIAL                                                            70
+#REQUIRED                                                           20
+#RATE                                                               30
+
+#CLIMBER                                                             5
+#FLOATER                                                             5
+#WALKER                                                             50
+#JUMPER                                                             30
+#EXPLODER                                                            8
+#BLOCKER                                                             2
+#BUILDER                                                            70
+#PLATFORMER                                                         35
+#MINER                                                              55
+#BASHER                                                             60
+#DIGGER                                                              8
+#CUBER                                                              20
+
+:bitmap/matt/07 - Underworld/hatch.H:                    320         0     r
+:bitmap/matt/07 - Underworld/hatch.H:                    576         0     r
+:bitmap/matt/07 - Underworld/hatch.H:                     64         0     r
+:bitmap/matt/07 - Underworld/hatch.H:                    322       557     r
+:bitmap/matt/07 - Underworld/hatch.H:                    578       557     r
+:bitmap/matt/07 - Underworld/hatch.H:                     66       557     r
+
+:bitmap/matt/07 - Underworld/Goal.G:                     576       448
+:bitmap/matt/07 - Underworld/Goal.G:                      64       448
+:bitmap/matt/07 - Underworld/Goal.G:                     320       448
+:bitmap/matt/07 - Underworld/Goal.G:                     578      1005
+:bitmap/matt/07 - Underworld/Goal.G:                      66      1005
+:bitmap/matt/07 - Underworld/Goal.G:                     322      1005
+
+:bitmap/matt/07 - Underworld/09a:                        258       680
+:bitmap/matt/07 - Underworld/09a:                          2       680
+:bitmap/matt/07 - Underworld/09a:                        516       680
+:bitmap/matt/07 - Underworld/09a:                        256       124
+:bitmap/matt/07 - Underworld/09a:                        512       124
+:bitmap/matt/07 - Underworld/09a:                        767       125
+:bitmap/matt/07 - Underworld/09a:                        762       954
+:bitmap/matt/07 - Underworld/09a:                        645       953
+:bitmap/matt/07 - Underworld/09a:                        507       953
+:bitmap/matt/07 - Underworld/09a:                        390       953
+:bitmap/matt/07 - Underworld/09a:                        251       398
+:bitmap/matt/07 - Underworld/09a:                        134       397
+:bitmap/matt/07 - Underworld/09a:                        762       398
+:bitmap/matt/07 - Underworld/09a:                        645       397
+:bitmap/matt/07 - Underworld/09a:                        506       397
+:bitmap/matt/07 - Underworld/09a:                        389       396
+:bitmap/matt/07 - Underworld/09a:                        134       953
+:bitmap/matt/07 - Underworld/09a:                        251       954
+:bitmap/matt/07 - Underworld/02:                         576        80
+:bitmap/matt/07 - Underworld/02:                         320        80
+:bitmap/matt/07 - Underworld/02:                          64        80
+:bitmap/matt/steel/32x32.S:                              320        80
+:bitmap/matt/steel/32x32.S:                              576        80
+:bitmap/matt/steel/32x32.S:                               64        80
+:bitmap/matt/07 - Underworld/01:                           0       128
+:bitmap/matt/07 - Underworld/01:                         256       128
+:bitmap/matt/07 - Underworld/01:                         512       128
+:bitmap/matt/07 - Underworld/01:                           0       160
+:bitmap/matt/07 - Underworld/01:                           0       192
+:bitmap/matt/07 - Underworld/01:                         256       160
+:bitmap/matt/07 - Underworld/01:                         256       192
+:bitmap/matt/07 - Underworld/01:                         512       160
+:bitmap/matt/07 - Underworld/01:                         512       192
+:bitmap/matt/07 - Underworld/02:                         640       128
+:bitmap/matt/07 - Underworld/02:                         128       128
+:bitmap/matt/07 - Underworld/02:                         384       128
+:bitmap/matt/07 - Underworld/02:                         320       208
+:bitmap/matt/07 - Underworld/02:                         576       208
+:bitmap/matt/07 - Underworld/02:                          64       208
+:bitmap/matt/07 - Underworld/01:                          64       400
+:bitmap/matt/07 - Underworld/02:                         320       304
+:bitmap/matt/07 - Underworld/02:                         576       304
+:bitmap/matt/07 - Underworld/02:                          64       304
+:bitmap/matt/07 - Underworld/01:                         128       400
+:bitmap/matt/07 - Underworld/01:                         192       400
+:bitmap/matt/07 - Underworld/01:                         256       400
+:bitmap/matt/07 - Underworld/01:                         320       400
+:bitmap/matt/07 - Underworld/01:                         384       400
+:bitmap/matt/07 - Underworld/01:                         448       400
+:bitmap/matt/07 - Underworld/01:                         512       400
+:bitmap/matt/07 - Underworld/01:                         576       400
+:bitmap/matt/07 - Underworld/01:                         640       400
+:bitmap/matt/07 - Underworld/01:                         704       400
+:bitmap/matt/07 - Underworld/01:                           0       400
+:bitmap/matt/07 - Underworld/02:                         128       432
+:bitmap/matt/07 - Underworld/02:                         192       432
+:bitmap/matt/07 - Underworld/02:                         256       432
+:bitmap/matt/07 - Underworld/02:                         384       432
+:bitmap/matt/07 - Underworld/02:                         448       432
+:bitmap/matt/07 - Underworld/02:                         512       432
+:bitmap/matt/07 - Underworld/02:                         640       432
+:bitmap/matt/07 - Underworld/02:                         704       432
+:bitmap/matt/07 - Underworld/02:                           0       432
+:bitmap/matt/07 - Underworld/01:                          64       512
+:bitmap/matt/07 - Underworld/01:                         320       512
+:bitmap/matt/07 - Underworld/01:                         576       512
+:bitmap/matt/07 - Underworld/01:                          64       528
+:bitmap/matt/07 - Underworld/01:                         320       528
+:bitmap/matt/07 - Underworld/01:                         576       528
+:bitmap/matt/steel/32x32.S:                              352        80
+:bitmap/matt/steel/32x32.S:                              608        80
+:bitmap/matt/steel/32x32.S:                               96        80
+:bitmap/matt/steel/32x32.S:                              592       512
+:bitmap/matt/steel/32x32.S:                               80       512
+:bitmap/matt/steel/32x32.S:                              336       512
+:bitmap/matt/07 - Underworld/02:                         578       637
+:bitmap/matt/07 - Underworld/02:                         322       637
+:bitmap/matt/07 - Underworld/02:                          66       637
+:bitmap/matt/steel/32x32.S:                              322       637
+:bitmap/matt/steel/32x32.S:                              578       637
+:bitmap/matt/steel/32x32.S:                               66       637
+:bitmap/matt/07 - Underworld/01:                           2       685
+:bitmap/matt/07 - Underworld/01:                         258       685
+:bitmap/matt/07 - Underworld/01:                         514       685
+:bitmap/matt/07 - Underworld/01:                           2       717
+:bitmap/matt/07 - Underworld/01:                           2       749
+:bitmap/matt/07 - Underworld/01:                         258       717
+:bitmap/matt/07 - Underworld/01:                         258       749
+:bitmap/matt/07 - Underworld/01:                         514       717
+:bitmap/matt/07 - Underworld/01:                         514       749
+:bitmap/matt/07 - Underworld/02:                         642       685
+:bitmap/matt/07 - Underworld/02:                         130       685
+:bitmap/matt/07 - Underworld/02:                         386       685
+:bitmap/matt/07 - Underworld/02:                         322       765
+:bitmap/matt/07 - Underworld/02:                         578       765
+:bitmap/matt/07 - Underworld/02:                          66       765
+:bitmap/matt/07 - Underworld/01:                          66       957
+:bitmap/matt/07 - Underworld/02:                         322       861
+:bitmap/matt/07 - Underworld/02:                         578       861
+:bitmap/matt/07 - Underworld/02:                          66       861
+:bitmap/matt/07 - Underworld/01:                         130       957
+:bitmap/matt/07 - Underworld/01:                         194       957
+:bitmap/matt/07 - Underworld/01:                         258       957
+:bitmap/matt/07 - Underworld/01:                         322       957
+:bitmap/matt/07 - Underworld/01:                         386       957
+:bitmap/matt/07 - Underworld/01:                         450       957
+:bitmap/matt/07 - Underworld/01:                         514       957
+:bitmap/matt/07 - Underworld/01:                         578       957
+:bitmap/matt/07 - Underworld/01:                         642       957
+:bitmap/matt/07 - Underworld/01:                           2       957
+:bitmap/matt/07 - Underworld/02:                         130       989
+:bitmap/matt/07 - Underworld/02:                         194       989
+:bitmap/matt/07 - Underworld/02:                         258       989
+:bitmap/matt/07 - Underworld/02:                         386       989
+:bitmap/matt/07 - Underworld/02:                         450       989
+:bitmap/matt/07 - Underworld/02:                         514       989
+:bitmap/matt/07 - Underworld/02:                         642       989
+:bitmap/matt/07 - Underworld/02:                           0       990
+:bitmap/matt/07 - Underworld/01:                          66      1069
+:bitmap/matt/07 - Underworld/01:                         322      1069
+:bitmap/matt/07 - Underworld/01:                         578      1069
+:bitmap/matt/07 - Underworld/01:                          66      1085
+:bitmap/matt/07 - Underworld/01:                         322      1085
+:bitmap/matt/07 - Underworld/01:                         578      1085
+:bitmap/matt/steel/32x32.S:                              354       637
+:bitmap/matt/steel/32x32.S:                              610       637
+:bitmap/matt/steel/32x32.S:                               98       637
+:bitmap/matt/steel/32x32.S:                              594      1069
+:bitmap/matt/steel/32x32.S:                               82      1069
+:bitmap/matt/steel/32x32.S:                              338      1069
+:bitmap/matt/07 - Underworld/02:                         192      1088
+:bitmap/matt/07 - Underworld/02:                         448      1086
+:bitmap/matt/07 - Underworld/02:                         706       958
+:bitmap/matt/07 - Underworld/02:                         706       988
+:bitmap/matt/07 - Underworld/02:                         706      1084
+:bitmap/matt/07 - Underworld/02:                         192       528
+:bitmap/matt/07 - Underworld/02:                         448       528
+:bitmap/matt/07 - Underworld/02:                         704       528
+:bitmap/matt/07 - Underworld/09a:                        193       953
+:bitmap/matt/07 - Underworld/09a:                        448       396
+:bitmap/matt/07 - Underworld/09a:                        704       397
+:bitmap/matt/07 - Underworld/09a:                        193       397
+:bitmap/matt/07 - Underworld/09a:                        449       953
+:bitmap/matt/07 - Underworld/09a:                        704       953
+:bitmap/matt/07 - Underworld/09a:                        124       126
+:bitmap/matt/07 - Underworld/09a:                        381       126
+:bitmap/matt/07 - Underworld/09a:                        635       125
+:bitmap/matt/07 - Underworld/09a:                        126       683
+:bitmap/matt/07 - Underworld/09a:                        638       682
+:bitmap/matt/07 - Underworld/09a:                        382       682
