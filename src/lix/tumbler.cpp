@@ -63,18 +63,30 @@ bool jumper_and_tumbler_collision(Lixxie& l)
     // den Hochteleportier-Bug bekaempfen
     else if ((swh > 9  && l.get_ac() == LixEn::JUMPER)
      ||      (swh > 0  && l.get_ac() == LixEn::TUMBLER)) {
-        // Suche in horizontaler Richtung nach dem ersten freien Pixel,
-        // bewege dorthin, drehe Lix in die Richtung dieser Bewegung.
-        // Hmm, somehow we don't search, but just go ahead once (2 hi-res px).
-        l.turn();
-        l.move_ahead();
+        if (l.is_solid(0, 2) && ! l.is_solid(0, 0)) {
+            // Don't turn if batted onto a 45 degree slope.
+            l.become(LixEn::STUNNER);
+            while (l.is_solid(0, 1)) l.move_up(1);
+        }
+        else if (l.is_solid(-2, 2) && ! l.is_solid(-2, 0)) {
+            // Don't turn if batted onto a 45 degree slope, part 2
+            l.move_ahead(-2);
+            l.become(LixEn::STUNNER);
+            while (l.is_solid(0, 1)) l.move_up(1);
+        }
+        else {
+            // Suche in horizontaler Richtung nach dem ersten freien Pixel,
+            // bewege dorthin, drehe Lix in die Richtung dieser Bewegung.
+            // Hmm, somehow we don't search, but just go ahead 2 hi-res pixels.
+            l.turn();
+            l.move_ahead();
+        }
         // Dies behebt das Zuckeln in der Wand, was auftrat, als wir den
         // Hochteleportations-Bug entfernten: Hochbewegen oder hinunterbewegen
         // nach dem Umdrehen, je nach Y-Geschwindigkeit.
         // Dabei wird untersucht, wo der naechste freie Raum ist, und entweder
         // vor, zurueck oder entgegen der Y-Richtung vertikal bewegt.
-        if (l.is_solid(0, 0)) {
-            l.become(LixEn::STUNNER);
+        if (l.is_solid(0, 1)) {
             tumbler_unglitch_out_of_wall(l);
         }
         return true;
