@@ -80,7 +80,7 @@ WindowGameplay::WindowGameplay(
     game_end(true),
     game_net(false),
     exit_with    (NOTHING),
-    lix_saved    (trlo && trlo->lix_saved),
+    lix_saved    (trlo ? trlo->lix_saved : 0),
     lix_required (_lix_required),
     lix_at_start (_lix_at_start),
     resume       (20, y_button     , this_xl_single_results-40),
@@ -119,7 +119,8 @@ WindowGameplay::WindowGameplay(
     const int secs = updates_used / gloB->updates_per_second;
 
     std::ostringstream timestr;
-    timestr << secs / 60 << ':' << secs % 60;
+    timestr    << secs / 60
+        << ':' << (secs % 60 < 10 ? "0" : "") << secs % 60;
     labels.push_back(Label(get_xl() - 20, y_comment + 60,
                      timestr.str(), Label::BLOCKY));
 
