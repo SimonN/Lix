@@ -29,15 +29,15 @@ public:
     };
 
     // Sortierung der Netzwerkspieler
-    struct SortablePlayer {
-        bool        pl;
-        std::string name;
-        unsigned    score;
-        SortablePlayer(const bool b, const std::string& n, const unsigned s)
-         : pl(b), name(n), score(s) {}
-        inline bool operator < (const SortablePlayer& s) const {
-            return  this->score > s.score
-                || (this->score==s.score && this->pl && !s.pl);
+    struct SortableTribe {
+        bool         pl;
+        const Tribe* tr;
+        unsigned     score;
+        SortableTribe(const bool b, const Tribe* t, const unsigned s)
+         : pl(b), tr(t), score(s) {}
+        inline bool operator < (const SortableTribe& s) const {
+            return  this->score >  s.score
+                || (this->score == s.score && this->pl && !s.pl);
         }
     };
 

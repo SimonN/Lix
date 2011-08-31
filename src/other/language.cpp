@@ -123,7 +123,9 @@ win_game_net_last_tie,
 win_game_net_all_tie,
 win_game_net_zero,
 win_game_net_all_zero,
-win_game_net_replay_done,
+win_game_replay_win_one,
+win_game_replay_win_team,
+win_game_replay_tie,
 win_game_overwrite_title,
 win_game_overwrite_question,
 
@@ -490,7 +492,9 @@ void Language::set(const Language lang)
         win_game_net_all_tie          = "What's that? No true winner?";
         win_game_net_zero             = "Rock bottom! Did you nuke them?";
         win_game_net_all_zero         = "Do we have a nuclear winter?";
-        win_game_net_replay_done      = "The replay has finished playing.";
+        win_game_replay_win_one       = "has won!";
+        win_game_replay_win_team      = "have won!";
+        win_game_replay_tie           = "The game is a tie.";
         win_game_overwrite_title      = "Overwrite Replay?";
         win_game_overwrite_question   = "Do you really want to overwrite this replay?";
 
@@ -905,7 +909,9 @@ eb[Editor::ADD_HAZARD]
         win_game_net_all_tie          = "Wie das? Kein klarer Sieger?";
         win_game_net_zero             = "Null komma nix, diese Runde!";
         win_game_net_all_zero         = "Haben wir nuklearen Winter?";
-        win_game_net_replay_done      = "Das Replay ist beendet.";
+        win_game_replay_win_one       = "hat gewonnen!";
+        win_game_replay_win_team      = "haben gewonnen!";
+        win_game_replay_tie           = "Das Spiel ist unentschieden.";
         win_game_overwrite_title      = "Replay ueberschreiben?";
         win_game_overwrite_question   = "Soll dieses Replay wirklich ueberschrieben werden?";
 

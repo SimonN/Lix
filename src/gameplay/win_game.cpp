@@ -152,10 +152,9 @@ WindowGameplay::WindowGameplay(
     browser_save (0)
 {
     // Ergebnisse auswerten, sortieren und Listenerstellung vorbereiten
-    std::vector <SortablePlayer> sortvec;
+    std::vector <SortableTribe> sortvec;
     for (Tribe::CIt i = pv.begin(); i != pv.end(); ++i)
-     sortvec.push_back(SortablePlayer(&*i == pl && ! spec, i->get_name(),
-                                                           i->lix_saved));
+     sortvec.push_back(SortableTribe(&*i == pl && ! spec, &*i, i->lix_saved));
     std::sort(sortvec.begin(), sortvec.end());
     // Komische Abkuerzungen: o = own, s = score, p = place
     // These will be used to select the award sound later, but only
@@ -171,7 +170,7 @@ WindowGameplay::WindowGameplay(
             str << shown + 1;
             break;
         }
-        str << ". " << sortvec[place].name;
+        str << ". " << sortvec[place].tr->get_name();
         const int col = sortvec[place].pl ? color[COL_WHITE] : color[COL_TEXT];
         labels.push_back(Label(60, 40 + place*20, str.str()));
         labels.back().set_color(col);
@@ -203,10 +202,16 @@ WindowGameplay::WindowGameplay(
         else if (op == 1)             c = Language::win_game_net_second;
         else                          c = Language::win_game_net_middle;
     }
-    else c = Language::win_game_net_replay_done;
+    else {
+        const bool team_win     = (sortvec.begin()->tr->masters.size() != 1);
+        const std::string names =  sortvec.begin()->tr->get_name() + " ";
 
-    labels.push_back(Label(get_xl()/2, get_yl() - 110,
-     c, Label::CENTERED));
+        if      (fs == ss) c =         Language::win_game_replay_tie;
+        else if (team_win) c = names + Language::win_game_replay_win_team;
+        else               c = names + Language::win_game_replay_win_one;
+    }
+
+    labels.push_back(Label(get_xl()/2, get_yl() - 110, c, Label::CENTERED));
     labels.back().set_color(color[COL_WHITE]);
 
     if (c == Language::win_game_net_first) {

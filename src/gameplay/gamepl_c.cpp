@@ -347,21 +347,20 @@ void Gameplay::load_state(const GameState& state)
 
 void Gameplay::write_outcome_to_console()
 {
-    typedef Api::WindowGameplay::SortablePlayer SoPl;
+    typedef Api::WindowGameplay::SortableTribe SoTr;
 
     // Sort the results
-    std::vector <SoPl> sortvec;
+    std::vector <SoTr> sortvec;
     for (Tribe::CIt i = cs.tribes.begin(); i != cs.tribes.end(); ++i)
-        sortvec.push_back(SoPl(&*i == trlo && ! spectating, i->get_name(),
-                                                            i->lix_saved));
+     sortvec.push_back(SoTr(&*i == trlo && ! spectating, &*i, i->lix_saved));
     std::sort(sortvec.begin(), sortvec.end());
 
     // Format the results
     std::ostringstream str;
     str << Language::net_game_end_result;
-    std::vector <SoPl> ::const_iterator itr = sortvec.begin();
+    std::vector <SoTr> ::const_iterator itr = sortvec.begin();
     while (itr != sortvec.end()) {
-        str << " " << itr->name << ": " << itr->score;
+        str << " " << itr->tr->get_name() << ": " << itr->score;
         ++itr;
         str << (itr == sortvec.end() ? "." : " --");
     }
