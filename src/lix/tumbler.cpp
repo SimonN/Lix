@@ -39,7 +39,7 @@ bool jumper_and_tumbler_collision(Lixxie& l)
     // Kopfhoehe wird als etwas niedriger angesehen als beim Builder
     if ((l.get_ac() == LixEn::TUMBLER
         && l.is_solid(-2, -12) && !l.is_solid(-2, -6)
-        && (l.get_special_x() > 0 || l.get_special_y() < 0))
+        && l.get_special_y() < 4)
          // die vorige Zeile behebt das Langsamwerden beim oo-Fall
      || (l.get_ac() == LixEn::JUMPER
         && l.is_solid( 0, -14) && !l.is_solid( 0, -8))
@@ -47,9 +47,10 @@ bool jumper_and_tumbler_collision(Lixxie& l)
         if (l.get_ac() != LixEn::TUMBLER) l.become(LixEn::TUMBLER);
         // Halb so schnell in x-Richtung wie bisher, aber
         // gerade Geschwindigkeitszahl beibehalten
-        if (l.get_special_y() < 0) l.set_special_y(0);
+        if (l.get_special_y() < 4) l.set_special_y(4);
         l.set_special_x(l.get_special_x() / 4);
         l.set_special_x(l.get_special_x() * 2);
+
         return true;
         // Es kann sein, dass sich die Lix in eine Wand hineinbewegt, wenn
         // nur oder obere Teil von der Lix vor der Wand ist, nicht der untere.
