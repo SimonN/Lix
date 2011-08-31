@@ -39,10 +39,6 @@ unsigned Lixxie::get_priority(LixEn::Ac                   new_ac,
      if (get_in_trigger_area(*i, true)) return 1; // true == twice
 
     switch (ac) {
-        case LixEn::EXITER:
-        case LixEn::EXPLODER:
-            return 1;
-
         // Nur Exploder ist erlaubt, und zwar mit wesentlich hoeherer Prior.!
         // Falls der Walker zuweisbar ist, dann ist er es ebenfalls Blockern.
         case LixEn::BLOCKER:
@@ -52,12 +48,20 @@ unsigned Lixxie::get_priority(LixEn::Ac                   new_ac,
             else return 1;
             break;
 
+        // Stunners may be turned in their later frames, but otherwise act just
+        // like regular mostly unassignable-to acitivities (case falls through)
+        case LixEn::STUNNER:
+            if (get_frame() >= 16) {
+                p = 3000;
+                break;
+            }
+            // falls through if frame is less
+
         // Sonstige vereinnahmende Aktivitaeten, die die Lix mehr oder
         // weniger willentlich in Komplettbeschlag nehmen:
         // Bleibende Fähigkeiten und Exploder sind immer erlaubt
         case LixEn::FALLER:
         case LixEn::TUMBLER:
-        case LixEn::STUNNER:
 
         case LixEn::ASCENDER:
         case LixEn::CLIMBER:

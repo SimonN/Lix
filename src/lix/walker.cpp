@@ -18,8 +18,13 @@ void assclk_walker(Lixxie& l)
         l.turn();
         // Da bei Walker -> Walker nicht --frame von evaluate_click() kommt,
         // setzen wir hier manuell das Frame auf -1, weil wir das 0. wollen.
-        if (l.get_ac() == LixEn::WALKER
-         || l.get_ac() == LixEn::RUNNER) l.set_frame(-1);
+        if (l.get_ac() == LixEn::WALKER) l.set_frame(-1);
+        if (l.get_ac() == LixEn::RUNNER) l.set_frame(-1);
+    }
+    else if (l.get_ac() == LixEn::STUNNER) {
+        // lix_ac.cpp only allows to get here when the frame is high enough
+        l.become(LixEn::WALKER);
+        l.turn();
     }
     else if (l.get_ac() == LixEn::BLOCKER) {
         // Da assign haeufig beim Mausklick-Zuweisen aufgerufen wird, gilt
