@@ -71,7 +71,8 @@ void Gameplay::draw() {
          if ( i->get_mark()) i->draw();
     }
 
-
+    // Draw chat behind the replay sign
+    chat.draw();
 
     // OSD: Replay-Zeichen
     if (replaying && ! multiplayer) {
@@ -83,8 +84,6 @@ void Gameplay::draw() {
     if (cs.clock > 0) pan.stats.set_show_clock();
     pan.stats.set_clock(cs.clock);
     pan.draw();
-
-    chat.draw();
 
     // Mauszeiger ganz obenauf
     mouse_cursor.set_x(hardware.get_mx()-mouse_cursor_offset);
