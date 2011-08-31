@@ -113,17 +113,17 @@ void Gameplay::calc_self()
             write_outcome_to_console();
             exit = true;
         }
-        if (! multiplayer) {
-            // Ergebnisfenster anzeigen
+        else if (multiplayer) {
+            window_gameplay = new Api::WindowGameplay(&replay,
+                cs.tribes, trlo, (malo == 0), &level);
+            Api::Manager::add_elder(window_gameplay);
+        }
+        else {
+            // Singleplayer
             window_gameplay = new Api::WindowGameplay(&replay, trlo,
                 // Eye candy when not saving anything, won't be saved anyway
                 (trlo->lix_saved > 0 ? update_last_exiter : cs.update),
                 level.required, level.initial, level.get_name());
-            Api::Manager::add_elder(window_gameplay);
-        }
-        else {
-            window_gameplay = new Api::WindowGameplay(&replay,
-                cs.tribes, trlo, (malo == 0), &level);
             Api::Manager::add_elder(window_gameplay);
         }
         return;
