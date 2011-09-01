@@ -26,6 +26,8 @@ void tumbler_to_splatter(Lixxie& l)
 
 
 
+void tumbler_unglitch_out_of_wall(Lixxie& l);
+
 // Prueft Boden, Decken und Waende nach jedem einzelnen vorgerueckten Pixel.
 // Liefert genau dann wahr, wenn es eine Kollision gab, damit das Vorruecken
 // update_jumper/update_tumbler abgebrochen werden kann.
@@ -63,6 +65,7 @@ bool jumper_and_tumbler_collision(Lixxie& l)
      ||      (swh > 0  && l.get_ac() == LixEn::TUMBLER)) {
         // Suche in horizontaler Richtung nach dem ersten freien Pixel,
         // bewege dorthin, drehe Lix in die Richtung dieser Bewegung.
+        // Hmm, somehow we don't search, but just go ahead once (2 hi-res px).
         l.turn();
         l.move_ahead();
         // Dies behebt das Zuckeln in der Wand, was auftrat, als wir den
@@ -72,29 +75,7 @@ bool jumper_and_tumbler_collision(Lixxie& l)
         // vor, zurueck oder entgegen der Y-Richtung vertikal bewegt.
         if (l.is_solid(0, 0)) {
             l.become(LixEn::STUNNER);
-            for (int dist = 1; ; ++dist) {
-                if (!l.is_solid(dist/2*2, 0)) {
-                    l.move_ahead(dist/2*2);
-                    break;
-                }
-                else if (!l.is_solid(-(dist/2*2))) {
-                    l.turn();
-                    l.move_ahead(dist/2*2);
-                    break;
-                }
-                else if (l.get_special_y() <= 0 && !l.is_solid(0,  dist)) {
-                    l.move_down(dist);
-                    l.set_special_y(-l.get_special_y());
-                    break;
-                }
-                else if (l.get_special_y() >= 0 && !l.is_solid(0, -dist + 1)) {
-                    // Die + 1 in der Bedingung stehen dort, weil Fuss der
-                    // Lix immer noch einen freien Pixel drunter hat.
-                    l.move_up(dist);
-                    l.become(LixEn::STUNNER);
-                    break;
-                }
-            }
+            tumbler_unglitch_out_of_wall(l);
         }
         return true;
     }
@@ -115,7 +96,10 @@ bool jumper_and_tumbler_collision(Lixxie& l)
                 l.become(LixEn::LANDER);
                 if (short_anim) l.next_frame();
             }
-            else l.become(LixEn::STUNNER);
+            else {
+                l.become(LixEn::STUNNER);
+                tumbler_unglitch_out_of_wall(l);
+            }
         }
         return true;
     }
@@ -181,4 +165,38 @@ void tumbler_frame_selection(Lixxie& l)
     if (tf == l.get_frame() && anim) ++tf;
 
     l.set_frame(tf);
+}
+
+
+
+void tumbler_unglitch_out_of_wall(Lixxie& l)
+{
+    // We can be either a stunner or still a jumper/tumbler here.
+    // In the current implementation, we're always a stunner.
+    if (! l.is_solid(0, 1)) return;
+
+    // If we are in some stupid wall, do this loop.
+    for (int dist = 1; ; ++dist) {
+        if (!l.is_solid(dist/2*2, 1)) {
+            l.move_ahead(dist/2*2);
+            break;
+        }
+        else if (!l.is_solid(-(dist/2*2), 1)) {
+            l.turn();
+            l.move_ahead(dist/2*2);
+            break;
+        }
+        else if (l.get_special_y() <= 0 && !l.is_solid(0,  dist + 1)) {
+            l.move_down(dist);
+            l.set_special_y(-l.get_special_y());
+            break;
+        }
+        else if (l.get_special_y() >= 0 && !l.is_solid(0, -dist)) {
+            // Die + 1 in der Bedingung stehen dort, weil Fuss der
+            // Lix immer noch einen freien Pixel drunter hat.
+            l.move_up(dist);
+            l.become(LixEn::STUNNER);
+            break;
+        }
+    }
 }
