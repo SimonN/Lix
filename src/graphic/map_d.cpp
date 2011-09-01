@@ -19,8 +19,8 @@ void Map::draw(Torbit& target)
     if (!get_torus_y() && get_yl() * (z+1) < screen_yl)
      less_y = screen_yl - get_yl() * (z+1);
 
-    for     (int x = less_x/2; x < screen_xl; x += get_xl()) {
-        for (int y = less_y;   y < screen_yl; y += get_yl()) {
+    for     (int x = less_x/2; x < screen_xl; x += get_xl() * (z+1)) {
+        for (int y = less_y;   y < screen_yl; y += get_yl() * (z+1)) {
             draw_at(target, x, y);
             if (less_y != 0) break;
         }
