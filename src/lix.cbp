@@ -230,6 +230,7 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="graphic/graphic.h" />
 		<Unit filename="graphic/map.cpp" />
 		<Unit filename="graphic/map.h" />
+		<Unit filename="graphic/map_d.cpp" />
 		<Unit filename="graphic/sound.cpp" />
 		<Unit filename="graphic/sound.h" />
 		<Unit filename="graphic/torbit.cpp" />

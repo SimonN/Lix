@@ -90,8 +90,6 @@ void Map::draw_at(
         }
     }
     else {
-        // masked_stretch_blit(BITMAP *source, BITMAP *dest, int source_x, source_y, source_w, source_h, int dest_x, dest_y, dest_w, dest_h);
-
         // This is the above code copied, but with zoom things hacked in
         masked_stretch_blit(get_al_bitmap(), target.get_al_bitmap(),
          scrx, scry, // source x/y start
@@ -106,7 +104,7 @@ void Map::draw_at(
              0, scry,
              scrx + lx - mapx,
              short_y ? mapy - scry : ly,
-             offx + mapx - scrx,
+             offx + 2 * (mapx - scrx),
              offy,
              2 * (scrx + lx - mapx),
              short_y ? 2 * (mapy - scry) : 2 * ly);
@@ -117,7 +115,7 @@ void Map::draw_at(
              short_x ? mapx - scrx : lx,
              scry + ly - mapy,
              offx,
-             offy + mapy - scry,
+             offy + 2 * (mapy - scry),
              short_x ? 2 * (mapx - scrx) : 2 * lx,
              2 * (scry + ly - mapy));
         }
@@ -126,12 +124,13 @@ void Map::draw_at(
              0, 0,
              scrx + lx - mapx,
              scry + ly - mapy,
-             offx + mapx - scrx,
-             offy + mapy - scry,
+             offx + 2 * (mapx - scrx),
+             offy + 2 * (mapy - scry),
              2 * (scrx + lx - mapx),
              2 * (scry + ly - mapy));
         }
     }
+    // end if/else zoom
 }
 
 
