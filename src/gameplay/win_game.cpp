@@ -115,7 +115,7 @@ WindowGameplay::WindowGameplay(
      Language::win_game_result_time));
 
     labels.push_back(Label(get_xl() - 20, y_comment + 40,
-                           trlo && trlo->skills_used));
+                           trlo ? trlo->skills_used : 0));
     const int secs = updates_used / gloB->updates_per_second;
 
     std::ostringstream timestr;
