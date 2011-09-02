@@ -76,8 +76,11 @@ void update_digger(Lixxie& l, const UpdateArgs& ua)
         l.set_frame(1);
         l.play_sound(ua, Sound::STEEL);
     }
-    else if (!l.is_solid() && !l.is_solid(-2, 2) && !l.is_solid(2, 2)
-             && l.get_frame() != 2) {
+    else if (l.get_frame() > 5 &&
+             ! l.is_solid() && ! l.is_solid(-2, 2) && ! l.is_solid(2, 2)) {
+        // geoo and Clam like the l.get_frame() > 5 requirement, even if
+        // it makes the sprite float in midair. This way, the digger doesn't
+        // leave a ledge when digging out of a horizontal surface.
         l.become(LixEn::FALLER);
     }
     else {
