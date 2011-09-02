@@ -1,0 +1,157 @@
+$BUILT                                             2011-09-06 00:40:25
+$AUTHOR                                                          Simon
+$GERMAN                                                               
+$ENGLISH                                               Tapir Tapir Dig
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                            60
+#INITIAL                                                            90
+#REQUIRED                                                           25
+#RATE                                                               50
+
+#WALKER                                                             90
+#RUNNER                                                             40
+#JUMPER                                                             40
+#CLIMBER                                                            40
+#EXPLODER2                                                          40
+#BATTER                                                             40
+#CUBER                                                              90
+#BUILDER                                                            90
+#PLATFORMER                                                         90
+#BASHER                                                             40
+#MINER                                                              40
+#DIGGER                                                             40
+
+:bitmap/simon/hatch001.H:                                  0        64
+:bitmap/simon/hatch001.H:                                576        64     r
+:bitmap/simon/hatch001.H:                                180       -16     r
+:bitmap/simon/hatch001.H:                                396       -16
+:bitmap/simon/hatch001.H:                                  8       304
+:bitmap/simon/hatch001.H:                                568       304     r
+
+:bitmap/simon/tapir/goal.G:                              432       192
+:bitmap/simon/tapir/goal.G:                              144       192
+
+:bitmap/geoo/construction/sawblade.F:                     96       192
+:bitmap/geoo/construction/sawblade.F:                    504       192
+:bitmap/geoo/construction/sawblade.F:                    454        96
+:bitmap/geoo/construction/sawblade.F:                    144        96
+:bitmap/geoo/construction/sawblade.F:                    272       160
+:bitmap/geoo/construction/sawblade.F:                    328       160
+:bitmap/geoo/construction/sawblade.F:                    128       144
+:bitmap/geoo/construction/sawblade.F:                    472       144
+:bitmap/geoo/construction/sawblade.F:                     96       240
+:bitmap/geoo/construction/sawblade.F:                    504       240
+:bitmap/geoo/construction/sawblade.F:                    192       224
+:bitmap/geoo/construction/sawblade.F:                    408       224
+:bitmap/geoo/construction/sawblade.F:                    360        64
+:bitmap/geoo/construction/sawblade.F:                    240        64
+:bitmap/geoo/construction/sawblade.F:                    300       332
+:bitmap/geoo/construction/sawblade.F:                    300       228
+:bitmap/geoo/construction/sawblade.F:                    -16       336
+:bitmap/geoo/construction/sawblade.F:                    616       336
+
+:bitmap/simon/tapir/064v:                                576       176
+:bitmap/simon/tapir/064v:                                  0       176
+:bitmap/simon/tapir/032hc:                               512       176
+:bitmap/simon/tapir/032hd:                                64       176
+:bitmap/simon/tapir/032a:                                544       272
+:bitmap/simon/tapir/032b:                                 64       272
+:bitmap/simon/tapir/032vc:                               256       224
+:bitmap/simon/tapir/032vd:                               352       224
+:bitmap/simon/tapir/016a:                                256       208
+:bitmap/simon/tapir/016b:                                368       208
+:bitmap/simon/tapir/032va:                                96        80
+:bitmap/simon/tapir/032a:                                 64       144
+:bitmap/simon/tapir/032b:                                544       144
+:bitmap/simon/tapir/032vb:                               512        80
+:bitmap/simon/tapir/032vd:                               128       112
+:bitmap/simon/tapir/032vc:                               480       112
+:bitmap/simon/tapir/032:                                 128        80
+:bitmap/simon/tapir/032:                                 480        80
+:bitmap/simon/tapir/016a:                                128        64
+:bitmap/simon/tapir/016b:                                144        64
+:bitmap/simon/tapir/016a:                                480        64
+:bitmap/simon/tapir/016b:                                496        64
+:bitmap/simon/tapir/016v:                                  0       144
+:bitmap/simon/tapir/016v:                                624       144
+:bitmap/simon/tapir/064:                                 144       352
+:bitmap/simon/tapir/064:                                 144       288
+:bitmap/simon/tapir/064:                                 432       288
+:bitmap/simon/tapir/064:                                 432       352
+:bitmap/simon/tapir/016ha:                               112       240
+:bitmap/simon/tapir/016hb:                               208       240
+:bitmap/simon/tapir/032c:                                112       256
+:bitmap/simon/tapir/032d:                                208       256
+:bitmap/simon/tapir/016ha:                               400       240
+:bitmap/simon/tapir/016hb:                               496       240
+:bitmap/simon/tapir/032c:                                400       256
+:bitmap/simon/tapir/032d:                                496       256
+:bitmap/geoo/steel/dark_32x32o.S:                         96       144
+:bitmap/geoo/steel/dark_32x32o.S:                        512       144
+:bitmap/geoo/steel/dark_32x64o.S:                        304       160
+:bitmap/simon/tapir/032vc:                               272        96
+:bitmap/simon/tapir/032vd:                               336        96
+:bitmap/geoo/steel/dark_32x64o.S:                        304        96
+:bitmap/geoo/steel/dark_32x64o.S:                        304        32
+:bitmap/simon/tapir/032a:                                272        48
+:bitmap/simon/tapir/032b:                                336        48
+:bitmap/simon/tapir/016h:                                272        80
+:bitmap/simon/tapir/016h:                                336        80
+:bitmap/simon/tapir/032b:                                288       352
+:bitmap/simon/tapir/032a:                                320       352
+:bitmap/simon/tapir/032d:                                288       320
+:bitmap/simon/tapir/032c:                                320       320
+:bitmap/simon/tapir/016b:                                304       256
+:bitmap/simon/tapir/016d:                                304       224
+:bitmap/simon/tapir/016a:                                320       256
+:bitmap/simon/tapir/016c:                                320       224
+:bitmap/simon/tapir/016v:                                288       224
+:bitmap/simon/tapir/016v:                                288       256
+:bitmap/simon/tapir/016v:                                336       224
+:bitmap/simon/tapir/016v:                                336       256
+:bitmap/simon/tapir/016h:                                304       272
+:bitmap/simon/tapir/016ha:                               272       192
+:bitmap/simon/tapir/016hb:                               336       192
+:bitmap/simon/tapir/016h:                                272       208
+:bitmap/simon/tapir/016h:                                336       208
+:bitmap/simon/tapir/032h:                                288       288
+:bitmap/simon/tapir/032h:                                288       384
+:bitmap/geoo/steel/dark_16x16o.S:                        168       240
+:bitmap/geoo/steel/dark_16x16o.S:                        456       240
+:bitmap/simon/tapir/032h:                                144       256
+:bitmap/simon/tapir/032h:                                432       256
+:bitmap/simon/tapir/008v:                                144       240
+:bitmap/simon/tapir/008v:                                200       240
+:bitmap/simon/tapir/008v:                                432       240
+:bitmap/simon/tapir/008v:                                488       240
+:bitmap/simon/tapir/016:                                 152       240
+:bitmap/simon/tapir/016:                                 184       240
+:bitmap/simon/tapir/016:                                 440       240
+:bitmap/simon/tapir/016:                                 472       240
+:bitmap/geoo/steel/dark_32x16o.S:                        256         0
+:bitmap/geoo/steel/dark_32x16o.S:                        352         0
+:bitmap/geoo/steel/dark_64x64o.S:                        288       -32
+:bitmap/simon/tapir/032v:                                256       352
+:bitmap/simon/tapir/032v:                                352       352
+:bitmap/simon/tapir/032va:                               256       288
+:bitmap/simon/tapir/032vb:                               352       288
+:bitmap/simon/tapir/032vc:                                48       304
+:bitmap/simon/tapir/016v:                                 80       304
+:bitmap/simon/tapir/016v:                                 80       336
+:bitmap/simon/tapir/064h:                                -32       368
+:bitmap/simon/tapir/032vd:                                 0       304
+:bitmap/simon/tapir/032vc:                               608       304
+:bitmap/simon/tapir/064h:                                544       368
+:bitmap/simon/tapir/032vd:                               560       304
+:bitmap/simon/tapir/016v:                                544       304
+:bitmap/simon/tapir/016v:                                544       336
