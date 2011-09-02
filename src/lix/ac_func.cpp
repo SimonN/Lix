@@ -36,7 +36,7 @@ void Lixxie::assclk(const LixEn::Ac new_ac)
     const LixEn::Ac old_ac = ac;
     if (ac_func[new_ac].assclk) ac_func[new_ac].assclk(*this);
     else                        become(new_ac);
-    if (old_ac != new_ac) --frame;
+    if (old_ac != ac) --frame;
 }
 
 
