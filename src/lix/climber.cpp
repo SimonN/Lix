@@ -24,6 +24,7 @@ void assclk_climber(Lixxie& l)
 void become_climber(Lixxie& l)
 {
     l.become_default(LixEn::CLIMBER);
+    l.set_frame(3); // so this is the default for walkers -> climbers.
 
     // Verhindern, dass er in der Wand zu klettern beginnt
     // Y = -10 [Edit im August 09: -12],
@@ -65,14 +66,14 @@ void update_climber(Lixxie& l, const UpdateArgs& ua)
     ua.suppress_unused_variable_warning();
 
     int up_by = 0;
-    switch (l.get_frame() % 8) {
+    switch ((l.get_frame() - 4) % 8) {
         case 4: up_by = 2; break;
         case 5: up_by = 4; break;
         case 6: up_by = 2; break;
         default:           break;
     }
 
-    if (l.get_frame()%8 > 3)
+    if (l.get_frame() >= 4 && (l.get_frame() - 4) % 8 > 3)
      for (int i = 0; i < up_by; ++i) {
         l.move_up(1);
         // Fallen? Dann sofort aus der Schleife ausbrechen!
@@ -103,7 +104,8 @@ void update_climber(Lixxie& l, const UpdateArgs& ua)
 
     // Wenn noch Climber...
     if (l.get_ac() == LixEn::CLIMBER) {
-        l.next_frame();
+        if (l.is_last_frame()) l.set_frame(4);
+        else                   l.next_frame();
 
         // Korrektur der Anzeige, damit der Climber nicht mit einer Pixel-
         // reihe im Felsen sitzt

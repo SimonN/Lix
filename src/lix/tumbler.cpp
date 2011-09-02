@@ -63,7 +63,13 @@ bool jumper_and_tumbler_collision(Lixxie& l)
     // den Hochteleportier-Bug bekaempfen
     else if ((swh > 9  && l.get_ac() == LixEn::JUMPER)
      ||      (swh > 0  && l.get_ac() == LixEn::TUMBLER)) {
-        if (l.is_solid(0, 2) && ! l.is_solid(0, 0)) {
+        // Stick to the surface of the wall which we're inside right now
+        if (l.get_ac() == LixEn::JUMPER && l.get_climber()) {
+            l.move_ahead(-2);
+            l.become(LixEn::CLIMBER);
+            l.set_frame(0);
+        }
+        else if (l.is_solid(0, 2) && ! l.is_solid(0, 0)) {
             // Don't turn if batted onto a 45 degree slope.
             l.become(LixEn::STUNNER);
             while (l.is_solid(0, 1)) l.move_up(1);
@@ -75,9 +81,7 @@ bool jumper_and_tumbler_collision(Lixxie& l)
             while (l.is_solid(0, 1)) l.move_up(1);
         }
         else {
-            // Suche in horizontaler Richtung nach dem ersten freien Pixel,
-            // bewege dorthin, drehe Lix in die Richtung dieser Bewegung.
-            // Hmm, somehow we don't search, but just go ahead 2 hi-res pixels.
+            // Move out of wall we seem to be in.
             l.turn();
             l.move_ahead();
         }

@@ -78,6 +78,7 @@ public:
         POP,         // L1-/L2-Exploder explodes
         BRICK,       // Builder/Platformer lays down his last three bricks
         STEEL,       // Ground remover hits steel and stops
+        CLIMBER,     // Jumper sticks against the wall and starts to climb
         ROPER,       // Roper shoots
         ROPER_HIT,   // Roper hook hits terrain
         BATTER_MISS, // Batter doesn't hit anything

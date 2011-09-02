@@ -49,8 +49,9 @@ void update_jumper(Lixxie& l, const UpdateArgs& ua)
     // Unlike then, don't do anything here if it doesn't have ground.
     if (jumper_and_tumbler_collision(l)) {
         if (l.is_solid()) switch (l.get_ac()) {
-            case LixEn::STUNNER:  l.play_sound(ua, Sound::OUCH);  break;
-            case LixEn::SPLATTER: l.play_sound(ua, Sound::SPLAT); break;
+            case LixEn::STUNNER:  l.play_sound(ua, Sound::OUCH);    break;
+            case LixEn::SPLATTER: l.play_sound(ua, Sound::SPLAT);   break;
+            case LixEn::CLIMBER:  l.play_sound(ua, Sound::CLIMBER); break;
             default: break;
         }
     }
@@ -77,6 +78,7 @@ void update_jumper(Lixxie& l, const UpdateArgs& ua)
             switch (l.get_ac()) {
                 case LixEn::STUNNER:  l.play_sound(ua, Sound::OUCH);  break;
                 case LixEn::SPLATTER: l.play_sound(ua, Sound::SPLAT); break;
+                case LixEn::CLIMBER:  l.play_sound(ua, Sound::CLIMBER); break;
                 default: break;
             }
             break;
