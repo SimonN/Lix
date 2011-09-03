@@ -34,7 +34,17 @@ namespace Help {
 
     double hypot        (const int,    const int,    const int, const int);
     double random_double(const double, const double); // zw. 1. und 2. Argument
-    int    mod          (const int,    const int); // besser als % im Negativen
+
+    // inlined Modulo and /2*2 that works for negatives as expected
+    inline int mod(int base, int modulo)
+    {
+        if (modulo < 0) modulo *= -1;
+        if (base >= 0) return base % modulo;
+        else           return base % modulo + modulo;
+    }
+    inline int even(const int x) {
+        return (int) (((unsigned int) x) / 2 * 2);
+    }
 
     std::string version_to_string   (const unsigned long);
 

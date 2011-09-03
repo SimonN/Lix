@@ -38,8 +38,8 @@ Lixxie::Lixxie(
 ) :
     Graphic           (GraLib::get_lix(new_tribe ? new_tribe->style
                        : LixEn::GARDEN), *ground_map,
-                       new_ex / 2 * 2 - LixEn::ex_offset,
-                       new_ey         - LixEn::ey_offset),
+                       Help::even(new_ex) - LixEn::ex_offset,
+                       new_ey             - LixEn::ey_offset),
     tribe             (new_tribe),
     marked            (0),
     dir               (1),
@@ -61,7 +61,7 @@ Lixxie::Lixxie(
         frame = 4;
     }
     // Wichtig fuer den Torus: Rechtzeitig Modulo rechnen
-    set_ex(new_ex/2*2);
+    set_ex(Help::even(new_ex));
     set_ey(new_ey);
 }
 
@@ -84,8 +84,8 @@ void Lixxie::set_static_maps(Torbit& l, Torbit& s, Map& g)
 
 
 void Lixxie::set_ex(const int n) {
-    ex = n / 2 * 2;
-    set_x(n - LixEn::ex_offset);
+    ex = Help::even(n);
+    set_x(ex - LixEn::ex_offset);
     if (ground_map->get_torus_x()) ex = Help::mod(ex, land->get_xl());
 }
 
@@ -157,7 +157,8 @@ int Lixxie::solid_wall_height(const int px, const int py)
     return solid;
 }
 
-
+// debugging
+#include <iostream>
 
 int Lixxie::count_solid(int x1, int y1, int x2, int y2)
 {
@@ -165,12 +166,12 @@ int Lixxie::count_solid(int x1, int y1, int x2, int y2)
     if (y2 < y1) std::swap(y1, y2);
     // Totaler Rückgabewert
     int ret = 0;
-    for (int ix = x1; ix <= x2; ++ix) {
+    for (int ix = Help::even(x1); ix <= Help::even(x2); ix += 2) {
         for (int iy = y1; iy <= y2; ++iy) {
-            // Variable für jeden gefundenen Nicht-Luftpixel erhöhen
             if (is_solid(ix, iy)) ++ret;
         }
     }
+    std::cout << ret << std::endl;
     return ret;
 }
 
@@ -182,9 +183,8 @@ int Lixxie::count_steel(int x1, int y1, int x2, int y2)
     if (y2 < y1) std::swap(y1, y2);
     // Totaler Rückgabewert
     int ret = 0;
-    for (int ix = x1; ix <= x2; ++ix) {
+    for (int ix = Help::even(x1); ix <= Help::even(x2); ix += 2) {
         for (int iy = y1; iy <= y2; ++iy) {
-            // Variable für jeden gefundenen Nicht-Luftpixel erhöhen
             if (get_steel(ix, iy)) ++ret;
         }
     }

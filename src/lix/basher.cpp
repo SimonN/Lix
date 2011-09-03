@@ -120,14 +120,11 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
 
         // Alles wäre dagegen 12, -16, 23, +1
 
-        if (l.count_solid(12, -14, 21, -3) < 30) {
-            bool stop_bashing = false;
+        if (l.count_solid(12, -14, 21, -3) < 15) {
+            bool stop_bashing = true;
             // Tills Bohr-Problem: Nochmal auf hauchduenne Waende pruefen
-            for (int x = 12; x <= 23; ++x) {
-                if (l.solid_wall_height(x) > 8) break;
-                // Nicht abgebrochen?
-                if (x == 23) stop_bashing = true;
-            }
+            for (int x = 12; x <= 23; x += 2)
+                if (l.solid_wall_height(x) > 8) stop_bashing = false;
             if (stop_bashing) l.become(LixEn::WALKER);
         }
         break;

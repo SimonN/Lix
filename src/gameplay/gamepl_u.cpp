@@ -200,8 +200,8 @@ void Gameplay::update_cs_once()
             const EdGraphic& h = hatches[t->hatch_next];
             Lixxie& newlix = t->lixvec[level.initial - t->lix_hatch];
             newlix = Lixxie(&*t,
-             (h.get_x() + h.get_object()->get_trigger_x()) / 2 * 2,
-              h.get_y() + h.get_object()->get_trigger_y());
+             h.get_x() + h.get_object()->get_trigger_x(),
+             h.get_y() + h.get_object()->get_trigger_y());
             --t->lix_hatch;
             ++t->lix_out;
 
