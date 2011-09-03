@@ -157,8 +157,7 @@ int Lixxie::solid_wall_height(const int px, const int py)
     return solid;
 }
 
-// debugging
-#include <iostream>
+
 
 int Lixxie::count_solid(int x1, int y1, int x2, int y2)
 {
@@ -171,7 +170,6 @@ int Lixxie::count_solid(int x1, int y1, int x2, int y2)
             if (is_solid(ix, iy)) ++ret;
         }
     }
-    std::cout << ret << std::endl;
     return ret;
 }
 

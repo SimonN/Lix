@@ -2,8 +2,6 @@
 
 #include <algorithm>
 
-#include <iostream>
-
 // the rectangle is given by specifying its center point, half its width, and
 // half its height. returns whether any lixes were flung.
 bool fling_all_in_rectangle(

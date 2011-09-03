@@ -173,7 +173,6 @@ const std::string& Replay::get_player_local_name()
 // ######################################################## Speichern und Laden
 // ############################################################################
 
-#include <iostream> // debugging
 
 
 void Replay::save_as_auto_replay(const Level* const lev)
@@ -208,7 +207,6 @@ void Replay::save_as_auto_replay(const Level* const lev)
 
 void Replay::save_to_file(const Filename& s, const Level* const lev)
 {
-    std::cout << s.get_rootful() << std::endl; // debugging
     bool save_level_into_file = holds_level
                              || level_filename == gloB->empty_filename
                              || lev != 0;
