@@ -132,6 +132,7 @@ Lobby::Lobby()
             }
             else button_color[i].set_off();
         }
+        if (Network::get_spec()) button_spec.set_on();
     }
     // Or just about to start a network session
     else {
@@ -370,7 +371,7 @@ void Lobby::work_self()
     else                                   button_exit.set_hotkey(KEY_ESC);
 
     if (mode == INSIDE_ROOM) {
-        if (button_spec.get_down() || Network::get_spec()
+        if (button_spec.get_on() || Network::get_spec()
          || Network::get_people_in_room() <= 1) button_ready.hide();
         else                                    button_ready.show();
     }
