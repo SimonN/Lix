@@ -5,30 +5,40 @@
 
 
 
+The following effects are still missing:
+    jumper.wav
+    lets_go.wav
+    oblivion.wav
+    ohno.wav
+    roperhit.wav
+    roper.wav
+    splat.wav
+    yippie.wav
+
 assign.wav
     Status: done
     Event:  Clicking a lix to assign her the currently selected skill.
     Flavor: short, conforming, ding-like, okay-like
 
 award_1.wav
-    Status: missing
+    Status: done (merely not in source repository)
     Event:  Winning a multiplayer game alone, i.e. without tying.
     Flavor: A cool, elaborate fanfare.
     
 award_2.wav
-    Status: missing
+    Status: done (merely not in source repository)
     Event:  Sharing a multiplayer win with at least one, but not all others,
             or coming in second with enough players.
     Flavor: A fanfare, but a bit less elaborate than award_1.wav
     
 award_3.wav
-    Status: missing
+    Status: done (merely not in source repository)
     Event:  Finishing with neither a highest nor a lowest score.
     Flavor: Maybe an even less elaborate fanfare, or basically anything that
             doesn't sound especially good or bad.
 
 award_4.wav
-    Status: missing
+    Status: done (merely not in source repository)
     Event:  Finishing with a lowest score.
     Flavor: funny, signalling failure, shouldn't be a fanfare
 
@@ -47,6 +57,11 @@ brick.wav
     Status: done
     Event:  Builder has placed a brick and it was one of her 3 last ones.
     Flavor: very short, "tock" or "bob"
+
+climber.wav
+    Status: done
+    Event:  A jumping climber sticks to the wall and starts climbing up.
+    Flavor: short, juicy, "slurp"-like
 
 clock.wav
     Status: done
@@ -100,7 +115,7 @@ ohno.wav
             of either one.
 
 ouch.wav
-    Status: missing, to be made by me
+    Status: done
     Event:  A lix lands on her belly after tumbling.
     Flavor: voice, a short voiced shout, the beginning should be one of the
             loudest parts of the file for the same reasons as goal.wav.
