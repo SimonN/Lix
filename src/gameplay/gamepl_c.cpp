@@ -47,6 +47,7 @@ void Gameplay::calc_window()
         case Api::WindowGameplay::MENU:
             save_result();
             if (multiplayer && ! replaying) write_outcome_to_console();
+            if (! replaying) replay.save_as_auto_replay(&level);
             exit = true;
             break;
 

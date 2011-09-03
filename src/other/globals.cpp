@@ -17,7 +17,7 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2011, 09, 03, 00)),
+    version              (CONCAT(2011, 09, 03, 01)),
     version_min          (CONCAT(2011, 09, 03, 00)),
 
     updates_per_second   (15),
@@ -37,6 +37,12 @@ Globals::Globals()
     screen_fullscreen_now(false),
 
     sound_load_driver    (true),
+
+    replay_auto_max      (40),
+    replay_auto_single   ( 1),
+    replay_auto_multi    ( 1),
+    replay_auto_next_s   ( 0),
+    replay_auto_next_m   ( 0),
 
     ip_last_used         ("127.0.0.1"),
     ip_central_server    ("asdfasdf.ethz.ch"),
@@ -93,6 +99,12 @@ Globals::Globals()
     config_screen_vsync          ("SCREEN_VSYNC"),
 
     config_sound_load_driver     ("SOUND_LOAD_DRIVER"),
+
+    config_replay_auto_max       ("REPLAY_AUTO_MAX"),
+    config_replay_auto_single    ("REPLAY_AUTO_SINGLE"),
+    config_replay_auto_multi     ("REPLAY_AUTO_MULTI"),
+    config_replay_auto_next_s    ("REPLAY_AUTO_SINGLE_NEXT"),
+    config_replay_auto_next_m    ("REPLAY_AUTO_MULTI_NEXT"),
 
     config_ip_last_used          ("IP_LAST_USED"),
     config_ip_central_server     ("IP_CENTRAL_SERVER"),
@@ -257,6 +269,7 @@ Globals::Globals()
     dir_levels_single            ("levels/"),
     dir_levels_network           ("levels/network/"),
     dir_replay                   ("replay/"),
+    dir_replay_auto              ("replay/auto/"),
     dir_data                     ("data/"),
     dir_data_bitmap              ("data/bitmap/"),
     dir_data_sound               ("data/sound/"),
@@ -297,7 +310,10 @@ Globals::Globals()
     file_bitmap_font_big         (dir_data_bitmap.get_dir_rootless() + "font_big.I.bmp"),
     file_bitmap_font_nar         (dir_data_bitmap.get_dir_rootless() + "font_nar.I.bmp"),
     file_bitmap_font_med         (dir_data_bitmap.get_dir_rootless() + "font_med.I.bmp"),
-    file_bitmap_font_sml         (dir_data_bitmap.get_dir_rootless() + "font_sml.I.bmp")
+    file_bitmap_font_sml         (dir_data_bitmap.get_dir_rootless() + "font_sml.I.bmp"),
+
+    file_replay_auto_single      (dir_replay_auto.get_dir_rootless() + "s"),
+    file_replay_auto_multi       (dir_replay_auto.get_dir_rootless() + "m")
 {
 }
 
@@ -349,6 +365,12 @@ void Globals::load()
     case '#':
         if      (i->text1 == config_user_name_ask      ) user_name_ask       = i->nr1;
 
+        else if (i->text1 == config_replay_auto_max    ) replay_auto_max     = i->nr1;
+        else if (i->text1 == config_replay_auto_single ) replay_auto_single  = i->nr1;
+        else if (i->text1 == config_replay_auto_multi  ) replay_auto_multi   = i->nr1;
+        else if (i->text1 == config_replay_auto_next_s ) replay_auto_next_s  = i->nr1;
+        else if (i->text1 == config_replay_auto_next_m ) replay_auto_next_m  = i->nr1;
+
         else if (i->text1 == config_screen_resolution_x) screen_resolution_x = i->nr1;
         else if (i->text1 == config_screen_resolution_y) screen_resolution_y = i->nr1;
         else if (i->text1 == config_screen_windowed_x  ) screen_windowed_x   = i->nr1;
@@ -373,6 +395,11 @@ void Globals::save()
      << IO::LineHash  (config_user_name_ask,           user_name_ask)
      << std::endl
 
+     << IO::LineDollar(config_ip_last_used,            ip_last_used)
+     << IO::LineDollar(config_ip_central_server,       ip_central_server)
+     << IO::LineHash  (config_server_port,             server_port)
+     << std::endl
+
      << IO::LineHash  (config_screen_resolution_x,     screen_resolution_x)
      << IO::LineHash  (config_screen_resolution_y,     screen_resolution_y)
      << IO::LineHash  (config_screen_windowed_x,       screen_windowed_x)
@@ -383,9 +410,11 @@ void Globals::save()
      << IO::LineHash  (config_sound_load_driver,       sound_load_driver)
      << std::endl
 
-     << IO::LineDollar(config_ip_last_used,            ip_last_used)
-     << IO::LineDollar(config_ip_central_server,       ip_central_server)
-     << IO::LineHash  (config_server_port,             server_port);
+     << IO::LineHash  (config_replay_auto_max,         replay_auto_max)
+     << IO::LineHash  (config_replay_auto_single,      replay_auto_single)
+     << IO::LineHash  (config_replay_auto_multi,       replay_auto_multi)
+     << IO::LineHash  (config_replay_auto_next_s,      replay_auto_next_s)
+     << IO::LineHash  (config_replay_auto_next_m,      replay_auto_next_m);
 
     file.close();
 }

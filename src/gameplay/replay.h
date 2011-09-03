@@ -138,6 +138,7 @@ public:
     void        add                            (const Data&);
     void        add                            (const Vec&);
 
+    void        save_as_auto_replay            (const Level* const = 0);
     void        save_to_file                   (const Filename&,
                                                 const Level* const = 0);
     void        load_from_file                 (const Filename&);

@@ -68,9 +68,15 @@ OptionMenu::OptionMenu()
     user_name_ask         (check_x, 100),
     language              (other_x, 130, button_xl),
     language_nr           (useR->language),
+    replay_auto_single    (check_x, 190),
+    replay_auto_multi     (check_x, 220),
+    replay_auto_max       (other_x, 190, button_xl, 3, 0, 500),
     desc_user_name        (other_nx, 100, Language::option_user_name),
     desc_user_name_ask    (check_nx, 100, Language::option_user_name_ask),
     desc_language         (other_nx, 130, Language::option_language),
+    desc_replay_auto_single(check_nx,190, Language::option_replay_auto_single),
+    desc_replay_auto_multi(check_nx, 220, Language::option_replay_auto_multi),
+    desc_replay_auto_max  (other_nx, 190, Language::option_replay_auto_max),
 
     mouse_speed           (other_x, 100, button_xl, 2, 1, 40),
     scroll_speed_edge     (other_x, 130, button_xl, 2, 1, 40),
@@ -234,12 +240,21 @@ OptionMenu::OptionMenu()
         button_group.push_back(temp);
     }
 
+    replay_auto_max       .set_step_sml( 5);
+    replay_auto_max       .set_step_med(50);
+
     pointers[GROUP_GENERAL ].push_back(&user_name);
     pointers[GROUP_GENERAL ].push_back(&user_name_ask);
     pointers[GROUP_GENERAL ].push_back(&language);
+    pointers[GROUP_GENERAL ].push_back(&replay_auto_single);
+    pointers[GROUP_GENERAL ].push_back(&replay_auto_multi);
+    pointers[GROUP_GENERAL ].push_back(&replay_auto_max);
     pointers[GROUP_GENERAL ].push_back(&desc_user_name);
     pointers[GROUP_GENERAL ].push_back(&desc_user_name_ask);
     pointers[GROUP_GENERAL ].push_back(&desc_language);
+    pointers[GROUP_GENERAL ].push_back(&desc_replay_auto_single);
+    pointers[GROUP_GENERAL ].push_back(&desc_replay_auto_multi);
+    pointers[GROUP_GENERAL ].push_back(&desc_replay_auto_max);
 
     scroll_torus_x          .add_text   (Language::option_scroll_torus_never);
     scroll_torus_x          .add_text   (Language::option_scroll_torus_big);
@@ -454,6 +469,9 @@ void OptionMenu::reset_elements()
     user_name            .set_text   (gloB->user_name);
     user_name_ask        .set_checked(gloB->user_name_ask);
     language             .set_text   (Language::language_name[language_nr]);
+    replay_auto_single   .set_checked(gloB->replay_auto_single);
+    replay_auto_multi    .set_checked(gloB->replay_auto_multi);
+    replay_auto_max      .set_number (gloB->replay_auto_max);
 
     scroll_edge          .set_checked(useR->scroll_edge);
     scroll_right         .set_checked(useR->scroll_right);
@@ -603,6 +621,9 @@ void OptionMenu::calc_self()
         // Die Konfigurationsdatei wird gegen eventuelle Abstuerze oder
         // Allegro-Abschuesse schon am Ende dieser Abarbeitung gespeichert.
         gloB->user_name_ask          = user_name_ask.get_checked();
+        gloB->replay_auto_single     = replay_auto_single.get_checked();
+        gloB->replay_auto_multi      = replay_auto_multi.get_checked();
+        gloB->replay_auto_max        = replay_auto_max.get_number();
 
         if (useR->language != language_nr)
          Language::set(useR->language = language_nr);

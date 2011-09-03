@@ -173,10 +173,42 @@ const std::string& Replay::get_player_local_name()
 // ######################################################## Speichern und Laden
 // ############################################################################
 
+#include <iostream> // debugging
+
+
+void Replay::save_as_auto_replay(const Level* const lev)
+{
+    bool multi = (players.size() > 1);
+
+    if ((  multi && ! gloB->replay_auto_multi)
+     || (! multi && ! gloB->replay_auto_single)) return;
+
+    std::ostringstream outfile;
+    outfile << (multi ? gloB->file_replay_auto_multi.get_rootful()
+                      : gloB->file_replay_auto_single.get_rootful());
+
+    int       nr    = 0;
+    const int nrmax = gloB->replay_auto_max;
+
+    if (multi) nr = gloB->replay_auto_next_m;
+    else       nr = gloB->replay_auto_next_s;
+    if (nr >= nrmax) nr = 0;
+    if (nr < 100) outfile << "0";
+    if (nr <  10) outfile << "0";
+    outfile << nr << gloB->ext_replay;
+
+    // Done putting the number into 'outfile', now increasing global variable
+    if (multi) gloB->replay_auto_next_m = (nr + 1 > nrmax ? 0 : nr + 1);
+    else       gloB->replay_auto_next_s = (nr + 1 > nrmax ? 0 : nr + 1);
+
+    Filename outfile_filename(outfile.str());
+    save_to_file(outfile_filename, lev);
+}
 
 
 void Replay::save_to_file(const Filename& s, const Level* const lev)
 {
+    std::cout << s.get_rootful() << std::endl; // debugging
     bool save_level_into_file = holds_level
                              || level_filename == gloB->empty_filename
                              || lev != 0;

@@ -55,6 +55,12 @@ public:
 
     bool        sound_load_driver;
 
+    int         replay_auto_max;
+    bool        replay_auto_single;
+    bool        replay_auto_multi;
+    int         replay_auto_next_s;
+    int         replay_auto_next_m;
+
     std::string ip_last_used;
     std::string ip_central_server;
     unsigned    server_port;
@@ -105,6 +111,12 @@ public:
         config_screen_vsync,
 
         config_sound_load_driver,
+
+        config_replay_auto_max,
+        config_replay_auto_single,
+        config_replay_auto_multi,
+        config_replay_auto_next_s,
+        config_replay_auto_next_m,
 
         config_ip_last_used,
         config_ip_central_server,
@@ -270,6 +282,7 @@ public:
         dir_levels_single,
         dir_levels_network,
         dir_replay,
+        dir_replay_auto,
         dir_data,
         dir_data_bitmap,
         dir_data_sound,
@@ -310,7 +323,10 @@ public:
         file_bitmap_font_big,
         file_bitmap_font_nar,
         file_bitmap_font_med,
-        file_bitmap_font_sml;
+        file_bitmap_font_sml,
+
+        file_replay_auto_single,
+        file_replay_auto_multi;
 
 private:
 

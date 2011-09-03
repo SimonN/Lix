@@ -238,6 +238,9 @@ option_title,
 option_user_name,
 option_user_name_ask,
 option_language,
+option_replay_auto_max,
+option_replay_auto_single,
+option_replay_auto_multi,
 option_mouse_speed,
 option_scroll_speed_edge,
 option_scroll_speed_click,
@@ -625,6 +628,9 @@ void Language::set(const Language lang)
         option_user_name              = "Player name";
         option_user_name_ask          = "Ask for name on startup";
         option_language               = "Language";
+        option_replay_auto_max        = "Max. auto replays";
+        option_replay_auto_single     = "Auto replay in Singleplayer";
+        option_replay_auto_multi      = "Auto replay in Multiplayer";
         option_scroll_edge            = "Scroll at screen border";
         option_scroll_right           = "Scroll with right click";
         option_scroll_middle          = "Scroll with middle click";
@@ -1048,6 +1054,9 @@ eb[Editor::ADD_HAZARD]
         option_group[5]               = "Audio";
         option_user_name              = "Spielername";
         option_user_name_ask          = "Namensfrage bei Start";
+        option_replay_auto_max        = "Max. Auto-Replays";
+        option_replay_auto_single     = "Auto-Replay Einzelspieler";
+        option_replay_auto_multi      = "Auto-Replay Mehrspieler";
         option_scroll_edge            = "Scrollen am Bildrand";
         option_scroll_right           = "Scrollen bei Rechtsklick";
         option_scroll_middle          = "Scrollen bei mittl. Maust.";

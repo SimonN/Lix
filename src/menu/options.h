@@ -88,9 +88,15 @@ private:
     Checkbox   user_name_ask;
     TextButton language;
     int        language_nr;
+    Checkbox   replay_auto_single;
+    Checkbox   replay_auto_multi;
+    Number     replay_auto_max;
     Label      desc_user_name,
                desc_user_name_ask,
-               desc_language;
+               desc_language,
+               desc_replay_auto_single,
+               desc_replay_auto_multi,
+               desc_replay_auto_max;
 
     Number     mouse_speed;
     Number     scroll_speed_edge;
