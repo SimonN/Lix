@@ -15,7 +15,7 @@ void update_tumbler(Lixxie& l, const UpdateArgs& ua)
 
 void tumbler_to_splatter(Lixxie& l)
 {
-    const int frame_to_get_second_splatter = 13;
+    const int frame_to_get_second_splatter = 9;
     const int second_splatter_frame = 10;
 
     bool second_splatter = (l.get_ac() == LixEn::TUMBLER
