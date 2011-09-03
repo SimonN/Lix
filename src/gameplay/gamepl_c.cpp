@@ -47,7 +47,9 @@ void Gameplay::calc_window()
         case Api::WindowGameplay::MENU:
             save_result();
             if (multiplayer && ! replaying) write_outcome_to_console();
-            if (! replaying) replay.save_as_auto_replay(&level);
+            // Auto-save even if we were just watching a singleplayer replay,
+            // I can't differentiate quickly here.
+            if (! (multiplayer&&replaying)) replay.save_as_auto_replay(&level);
             exit = true;
             break;
 
@@ -112,6 +114,7 @@ void Gameplay::calc_self()
         chat.set_type_off();
         if (multiplayer && spectating && ! replaying) {
             write_outcome_to_console();
+            replay.save_as_auto_replay(&level);
             exit = true;
         }
         else if (multiplayer) {
