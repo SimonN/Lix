@@ -55,7 +55,7 @@ void update_floater(Lixxie& l, const UpdateArgs& ua)
     if (l.get_ac() == LixEn::FLOATER) {
         l.move_ahead(l.get_special_x());
         l.move_down(l.get_special_y());
-        if (l.is_last_frame()) l.set_frame(6);
+        if (l.is_last_frame()) l.set_frame(9);
         else l.next_frame();
     }
 }
