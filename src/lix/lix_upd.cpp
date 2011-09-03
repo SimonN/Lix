@@ -186,8 +186,16 @@ void Gameplay::update_lix_blocker(Lixxie& l)
             if (dx > - distance_side && dx < distance_side
              && dy > - block_d       && dy < block_u) {
                 if ((i->get_dir() > 0 && dx > 0)
-                 || (i->get_dir() < 0 && dx < 0)) {
+                 || (i->get_dir() < 0 && dx < 0))
+                {
                     i->turn();
+                    // Since blockers are updated last, the other lixes will
+                    // have moved into the blocker field during this frame.
+                    // It's nicer to see lixes _not_ move on an update they
+                    // turn on, so do this to move them back in most cases.
+                    // This will alter how builder stair look, but that is
+                    // welcomed anyway.
+                    i->move_ahead();
                     // Platformer drehten sonst um, hoeren auf, drehen erneut
                     if (i->get_ac() == LixEn::PLATFORMER) {
                         i->become(LixEn::WALKER); // = mit kurzem Aufstehen

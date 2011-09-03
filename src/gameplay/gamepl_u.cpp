@@ -217,25 +217,28 @@ void Gameplay::update_cs_once()
             t->hatch_next += cs.tribes.size();
             t->hatch_next %= hatches.size();
         }
+    }
 
 
 
-        // Lixen updaten
-        // Reaktionen auf Aiming wurden bereits beim Auswerten der Replaydaten
-        // umgesetzt. Fuer diese Lixen wird also zweimal die Update-Funktion
-        // aufgerufen, einmal dort und einmal hier. Die dortige Funktion
-        // ruft allerdings nur Lixxie::update() auf, nicht
-        // Gameplay::update_lixvec(). Es werden also Sachen wie Hochzaehlen
-        // des Bomben-Countdowns oder das Laufen ins Ziel nicht ueberprueft.
-        UpdateArgs ua(cs);
-        ua.aim_x = map.get_mouse_x(); // Alle schauen zum Cursor, macht nix,
-        ua.aim_y = map.get_mouse_y(); // weil das nur Augenzucker sein darf.
-        ua.aim_c = false;
+    // Lixen updaten
+    // Reaktionen auf Aiming wurden bereits beim Auswerten der Replaydaten
+    // umgesetzt. Fuer diese Lixen wird also zweimal die Update-Funktion
+    // aufgerufen, einmal dort und einmal hier. Die dortige Funktion
+    // ruft allerdings nur Lixxie::update() auf, nicht
+    // Gameplay::update_lixvec(). Es werden also Sachen wie Hochzaehlen
+    // des Bomben-Countdowns oder das Laufen ins Ziel nicht ueberprueft.
+    UpdateArgs ua(cs);
+    ua.aim_x = map.get_mouse_x(); // Alle schauen zum Cursor, macht nix,
+    ua.aim_y = map.get_mouse_y(); // weil das nur Augenzucker sein darf.
+    ua.aim_c = false;
 
-        // Zerstören, wenn die Update-Funktion "true" liefert.
-        // Erster Durchlauf: Nur die Arbeitstiere bearbeiten und markieren!
+    // Erster Durchlauf: Nur die Arbeitstiere bearbeiten und markieren!
+    // Blockers are updated last.
+    for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
         for (LixIt i = --t->lixvec.end(); i != --t->lixvec.begin(); --i) {
-            if (i->get_ac() > LixEn::WALKER) {
+            if (i->get_ac() > LixEn::WALKER
+             && i->get_ac() != LixEn::BLOCKER) {
                 ua.id = i - t->lixvec.begin();
                 i->mark();
                 update_lix(*i, ua);
@@ -243,17 +246,27 @@ void Gameplay::update_cs_once()
             // Sonst eine vorhandene Markierung ggf. entfernen
             else i->unmark();
         }
-        // Zweiter Durchlauf: Unmarkierte bearbeiten
+    }
+    // Zweiter Durchlauf: Unmarkierte bearbeiten
+    for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
+        for (LixIt i = --t->lixvec.end(); i != --t->lixvec.begin(); --i) {
+            if (!i->get_mark()
+             && i->get_ac() != LixEn::BLOCKER) {
+                ua.id = i - t->lixvec.begin();
+                i->mark();
+                update_lix(*i, ua);
+            }
+        }
+    }
+    // Third pass: Blockers and nuke
+    for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
         for (LixIt i = --t->lixvec.end(); i != --t->lixvec.begin(); --i) {
             if (!i->get_mark()) {
                 ua.id = i - t->lixvec.begin();
                 update_lix(*i, ua);
             }
         }
-        // Dritter Durchlauf: Nuke
-        // Abbruch, wenn in diesem Update eine Lix bearbeitet wird.
-        // Lixen mit verlassenden Aktivitäten (we check for "not nukable")
-        // werden nicht mitgenommen!
+        // Assign exploders in case of nuke
         if (t->nuke == true)
          for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
             if (i->get_updates_since_bomb() == 0 && i->get_nukable()) {
@@ -268,8 +281,10 @@ void Gameplay::update_cs_once()
                 break;
             }
         }
-        // Ende Nuke
     }
+
+
+
     // Ende Haupt-Lix-Update-Geschichten
     // Dies ist aber ebenfalls sehr wichtig fuer jedes Update, egal ob
     // normal oder nachberechnet:
