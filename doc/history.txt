@@ -7,6 +7,32 @@
 
 
 
+2011-09-03
+(ncp)
+
+    (This is just a summary of the development in the past two months)
+
+    New skills
+        We now have the baseball batter, the runner, and the cuber.
+        
+    Physics updates
+        We've done a lot of small physics fixes and features. Among others,
+        climbers will stick to the wall when they jump into one and aren't
+        a tumbler yet.
+    
+    Spectator mode
+        It's now possible to observe live multiplayer games without
+        participating or even hitting a button at the end of the game.
+
+    Automatic replays
+        Replays are saved into replay/auto/, unless the user disables that
+        in the options.
+    
+    Many bugfixes
+        Read the git commit messages if you wish to know everything.
+        
+        
+
 2011-07-13
 (ncp)
 

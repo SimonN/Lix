@@ -8,9 +8,10 @@
 General
 
     Linux and Mac issues
-        The game will compile, but maybe not run properly under these OSes.
-        A workaround may be to run it with the -w switch to achieve windowed
-        mode. I will probably port the game to Allegro 5, hoping to fix it.
+        Use Allegro 4.2 to compile it under Linux if things seem choppy with
+        Allgero 4.4. Mac users can try to compile the game from source, or
+        take a look at Phil's Mac port of the game, although that is currently
+        out of date.
 
 
 
@@ -22,9 +23,10 @@ Menu
 
 Editor
 
-    [Ctrl] and copying
-        Selecting multiple parts with [Ctrl] and then copying everything does
-        not guarantee correct z-order of the newly copied parts.
+    Multiple selection and copying
+        Selecting multiple parts (with [Ctrl] or the set hotkey) and then
+        copying everything does not guarantee correct z-order of the newly
+        copied parts.
 
     [Shift]
         Don't hold shift, start dragging a frame with the mouse. While doing
@@ -49,6 +51,7 @@ Gameplay physics
         Also, test assignment priority for stacked lixes. Inconsistent results?
 
 
+
 Gameplay non-physics
 
     RR buttons
@@ -65,7 +68,17 @@ Gameplay non-physics
         the on/off graphic effect of a button during the draw step instead of
         instantly.
 
+    Small torus maps and zoom
+        If a very small torus map is displayed (vertically smaller than one
+        screen) and zoom is switched on, the game may crash. It works for
+        horizontally small maps. Thus, don't use the zoom on small torus maps.
 
+    Two sounds from one lix at same time
+        Due to the implementation of the effect manager, the same lix may
+        only issue one sound to be played per update. If you jump into a trap
+        that kills the lix on the exact frame after the jumper assignment,
+        the trap/burn/kill sound won't play.
+        
 
 
 Network game

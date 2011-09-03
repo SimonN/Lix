@@ -39,11 +39,6 @@ Editor
         vom Spiel je nach Spielerzahl, die gerade dabei ist, vervielfaeltigen
         lassen.
 
-    Rotate/mirror group
-        If multiple elements are selected, rotating/mirroring should act on
-        the objects' relative positions as well. The idea is to rotate/mirror
-        a large part of the terrain to create symmectic levels more easily.
-
 
 
 Gameplay
@@ -69,24 +64,18 @@ Gameplay
         be maintained when changing terrain priority. Currently, they get
         messed up.
 
-    Terrain selection rotation and mirroring
-        Properly mirroring/rotating an entire selection in addition to the
-        currently supported mode (i.e. affecting each piece separately).
-        The old method is still useful to get shading of blocks right after
-        flipping a whole selection.
-
     Non-permanent traps
-        If lemmings of different players are under a trap, it prefers a
-        certain type of lemmings (i.e. from a certain player). If non-
-        permanent traps pick one lemming from each player currently in the
+        If lixes of different players are under a trap, it prefers a
+        certain type of lix (i.e. from a certain player). If non-
+        permanent traps pick one lix from each player currently in the
         trigger area, it would be balanced again
 
     Advanced trap definitions
-        For traps, a lemming animation to be played as well as a soundeffect
-        should be specifiable in the object definition. Lemming animation
+        For traps, a lix animation to be played as well as a soundeffect
+        should be specifiable in the object definition. Lix animation
         could be a custom one or one of the existing ones, and would allow
-        for proper coloring of player lemmings, and maintaining the position
-        of a lemming that gets into a trap.
+        for proper coloring of player lixes, and maintaining the position
+        of a lix that gets into a trap.
 
     Roper
         Verschiesst ein Seil zum Drueberlaufen.
@@ -101,28 +90,19 @@ Gameplay
         away control over their tribe and starts the overtime.
         
     End of time
-        When the remaining time has reached zero, currently lems are still
+        When the remaining time has reached zero, currently lixes are still
         able to enter the exit as long as the nuke's exploder assignment
         was late on them. This allows level solve times over the maximum.
-        Maybe lems should explode immedeately instead of exiting when walking
+        Maybe lixes should explode immedeately instead of exiting when walking
         into an exit with the clock being zero?
 
 
 
 Netzwerk
 
-    Observer mode
-        People shall be able to watch a game, i.e. to pick an option besides
-        the colors. Even better would be if a newcomer could view the ongoing
-        game.
-
     Statistics
         After a game, you can view better statistics than now. The better
-        screen could show how many lems every player got from whom.
-
-    Level lokal speichern
-        Netzwerklevel lokal zu speichern ermoeglichen, also ./data/netlevel.txt
-        im Levels-Ordner unter beliebigem Namen speichern auf Kommando.
+        screen could show how many lixes every player got from whom.
 
     Netzwerkpause
         Netzwerkpause einbauen, anstatt: Derzeit kann man auf [ESC] druecken,
@@ -132,7 +112,7 @@ Netzwerk
     Levelinfo
         Bei Mouseover in der Lobby über das Map-Image soll ein Tooltip-Fenster
         kommen und da drin steht dann, wie die Map heißt, wer der Autor ist,
-        wie viel Zeit, Lemminge usw. usf.
+        wie viel Zeit, Lixen usw. usf.
 
 
 
