@@ -90,25 +90,22 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
     // wir nicht hindurchfallen wollen?
     if (l.is_solid() || l.is_solid(0, 1)) {
         // Bei zu starker Steigung umdrehen...
-        int up_by_what1 = l.solid_wall_height(0);
-        int up_by_what2 = l.solid_wall_height(0);
-        if (up_by_what1 == 13 && up_by_what2 == 13) {
+        int up_by = l.solid_wall_height(0);
+        if (up_by == 13) {
             turn_after_all = true;
         }
         // ...sonst sich nach oben bewegen...
         else {
-            int u;
-            (up_by_what1 > up_by_what2) ? u = up_by_what2 : u = up_by_what1;
-            l.move_up(u);
+            l.move_up(up_by);
             // ...und ggf. kurz anhalten, um Höhen ab 7 Pixeln zu klettern
-            if (up_by_what1 > 6 || up_by_what2 > 6) {
+            if (up_by > 6) {
                 l.become(LixEn::ASCENDER);
                 // Frame wählen und hinunter bewegen, denn der Ascender
                 // hängt ja zunächst in der Wand
-                l.set_frame(12-u);
+                l.set_frame(12 - up_by);
                 if (!l.is_solid(2, -2)) l.move_ahead();
-                // Höhe dem Frame angleicihen
-                l.move_down(2*u - 12);
+                // Höhe dem Frame angleichen
+                l.move_down(2 * up_by - 12);
             }
             // Ende vom eventuellen Ascender
         }
@@ -128,7 +125,7 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
         }
         if (l.is_solid()) {
             // Bei zu starker Steigung umdrehen
-            if (l.solid_wall_height(-1) == 11 ||
+            if (// l.solid_wall_height(-1) == 11 || // wtf why -1?
                 l.solid_wall_height( 0) == 11) {
                 turn_after_all = true;
             }

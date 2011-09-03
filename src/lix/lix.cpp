@@ -133,7 +133,15 @@ void Lixxie::set_pixel(const int px, const int py, const int col) {
     land->set_pixel(ex + px * dir, ey + py, col);
 }
 
-bool Lixxie::is_solid(int px, int py) {
+bool Lixxie::is_solid(int px, int py)
+{
+    // Do stuff similar to Lixxie::get_pixel(), but always check the pixel
+    // to the right of it as well.
+    return land->get_pixel(ex + px * dir,     ey + py) != color[COL_PINK]
+        || land->get_pixel(ex + px * dir + 1, ey + py) != color[COL_PINK];
+}
+
+bool Lixxie::is_solid_single(int px, int py) {
     return get_pixel(px, py) != color[COL_PINK];
 }
 

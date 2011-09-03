@@ -321,6 +321,7 @@ public:
            void set_pixel         (const int = 0, const int = 0,
                                    const int = color[COL_PINK]);
            bool is_solid          (const int = 0, const int = 2);
+           bool is_solid_single   (const int = 0, const int = 2);
            int  solid_wall_height (const int = 0, const int = 0);
            int  count_solid       (const int, const int, const int, const int);
            int  count_steel       (const int, const int, const int, const int);
