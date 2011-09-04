@@ -24,9 +24,8 @@
 
 namespace OS {
 
-// "private" variables, these aren't in the header
-std::string lockfilename;
-bool        signal_received = false;
+static std::string lockfilename;
+static bool        signal_received = false;
 
 
 
@@ -35,7 +34,7 @@ int daemonize(const std::string& argument_lockfilename)
 #ifdef _WIN32
 
     std::cerr << "Daemonizing on Windows isn't implemented yet." << std::endl;
-    std::cerr << "Exiting this console will shut down the server." << std::endl;
+    std::cerr << "Exiting this console will shut down the server."<< std::endl;
 
     return 0;
 
@@ -76,7 +75,7 @@ int daemonize(const std::string& argument_lockfilename)
 
         if (lock) {
 
-            // This is the parent proces just before exiting, but it knows the
+            // This is the parent process just before exiting, but it knows the
             // pid that the child has got. Write this into the lock file.
             std::ofstream lockfile_out(lockfilename.c_str());
             lockfile_out << pid << std::endl;
