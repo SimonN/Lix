@@ -1,0 +1,78 @@
+$BUILT                                             2011-09-04 14:46:44
+$AUTHOR                                                           geoo
+$GERMAN                                                               
+$ENGLISH                                                         Jenga
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                            45
+#INITIAL                                                           120
+#REQUIRED                                                           20
+#RATE                                                               70
+
+#CLIMBER                                                            -1
+#FLOATER                                                            10
+#WALKER                                                             50
+#JUMPER                                                             80
+#BATTER                                                             10
+#EXPLODER2                                                          -1
+#CUBER                                                              -1
+#BUILDER                                                             5
+#PLATFORMER                                                         25
+#BASHER                                                             30
+#MINER                                                              20
+#DIGGER                                                             20
+
+:bitmap/geoo/construction/Hatch.H:                       192       128
+:bitmap/geoo/construction/Hatch.H:                       416       128     r
+
+:bitmap/geoo/construction/Goal2.G:                       208       304
+:bitmap/geoo/construction/Goal2.G:                       368       304
+
+:bitmap/geoo/construction/sawblade_medium.F:             288       304
+:bitmap/geoo/construction/sawblade_medium.F:             288        80
+:bitmap/geoo/construction/sawblade_small.F:              256        64
+:bitmap/geoo/construction/sawblade_medium.F:             288       192
+:bitmap/geoo/construction/sawblade_small.F:              352        64
+:bitmap/geoo/construction/sawblade_small.F:              272       160
+:bitmap/geoo/construction/sawblade_small.F:              336       160
+:bitmap/geoo/construction/sawblade_medium.F:             -16        16
+:bitmap/geoo/construction/sawblade_medium.F:             592        16
+:bitmap/geoo/construction/sawblade_small.F:              304        48
+:bitmap/geoo/construction/sawblade_small.F:              304        32
+:bitmap/geoo/construction/sawblade_small.F:              304        16
+
+:bitmap/geoo/construction/concrete/008h:                 200       256
+:bitmap/geoo/construction/concrete/008h:                 424       256
+:bitmap/geoo/steel/32x32o.S:                             304       336
+:bitmap/geoo/steel/64x32o.S:                               0       368
+:bitmap/geoo/steel/64x32o.S:                              64       368
+:bitmap/geoo/steel/64x32o.S:                             128       368
+:bitmap/geoo/steel/64x32o.S:                             192       368
+:bitmap/geoo/steel/64x32o.S:                             384       368
+:bitmap/geoo/steel/64x32o.S:                             448       368
+:bitmap/geoo/steel/64x32o.S:                             512       368
+:bitmap/geoo/steel/64x32o.S:                             576       368
+:bitmap/geoo/steel/32x64o.S:                               0       304
+:bitmap/geoo/construction/rod_steel/link.S:               22       268
+:bitmap/geoo/steel/32x64o.S:                               0       240
+:bitmap/geoo/steel/32x64o.S:                             608       304
+:bitmap/geoo/construction/rod_steel/link.S:              602       268     frr
+:bitmap/geoo/steel/32x64o.S:                             608       240
+:bitmap/geoo/steel/32x64o.S:                             608       176
+:bitmap/geoo/steel/32x64o.S:                             608       112
+:bitmap/geoo/steel/32x64o.S:                               0       176
+:bitmap/geoo/steel/32x64o.S:                               0       112
+:bitmap/geoo/steel/32x64o.S:                               0        48
+:bitmap/geoo/steel/32x64o.S:                             608        48
+:bitmap/geoo/steel/64x32o.S:                             288       368
+:bitmap/geoo/steel/32x32o.S:                             256       368
+:bitmap/geoo/steel/32x32o.S:                             352       368

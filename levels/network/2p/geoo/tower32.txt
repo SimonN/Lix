@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-08 00:17:37
+$BUILT                                             2011-09-04 23:27:42
 $AUTHOR                                                           geoo
 $GERMAN                                                               
 $ENGLISH                                        Tower Defense (Part 3)
@@ -109,13 +109,15 @@ $ENGLISH                                        Tower Defense (Part 3)
 :bitmap/geoo/construction/sawblade.F:                    348       158
 :bitmap/geoo/construction/sawblade.F:                    300        14
 :bitmap/geoo/construction/sawblade.F:                    300        36
-:bitmap/geoo/construction/sawblade.F:                    188       -10
-:bitmap/geoo/construction/sawblade.F:                    188         6
-:bitmap/geoo/construction/sawblade.F:                    412       -10
-:bitmap/geoo/construction/sawblade.F:                    412         6
+:bitmap/geoo/construction/sawblade.F:                    190       -10
+:bitmap/geoo/construction/sawblade.F:                    190         6
+:bitmap/geoo/construction/sawblade.F:                    410       -10
+:bitmap/geoo/construction/sawblade.F:                    410         6
 :bitmap/geoo/construction/sawblade.F:                    272        82
 :bitmap/geoo/construction/sawblade.F:                    328        82
 :bitmap/geoo/construction/sawblade.F:                    300       158
+:bitmap/geoo/construction/sawblade_small.F:              378         8
+:bitmap/geoo/construction/sawblade_small.F:              230         8
 
 :bitmap/geoo/construction/rod_steel/link.S:              438       348
 :bitmap/geoo/steel/32x64o.S:                             416       336
@@ -177,6 +179,7 @@ $ENGLISH                                        Tower Defense (Part 3)
 :bitmap/geoo/steel/32x16o.S:                             512        96
 :bitmap/geoo/steel/32x16o.S:                             544        96
 :bitmap/geoo/steel/16x16o.S:                             576        96
+:bitmap/geoo/construction/rod_steel/link.S:              602        44     frr
 :bitmap/geoo/steel/32x64o.S:                             608        16
 :bitmap/geoo/construction/rod_rust/end_rect:             592        82     fr
 :bitmap/geoo/steel/32x64o.S:                             608       -48
@@ -238,6 +241,7 @@ $ENGLISH                                        Tower Defense (Part 3)
 :bitmap/geoo/steel/32x16o.S:                             128        96
 :bitmap/geoo/steel/32x16o.S:                             160        96
 :bitmap/geoo/steel/16x16o.S:                              48        96
+:bitmap/geoo/construction/rod_steel/link.S:               22        44
 :bitmap/geoo/steel/32x64o.S:                               0        16
 :bitmap/geoo/steel/32x64o.S:                               0       -48
 :bitmap/geoo/construction/rod_rust/end_rect:             176       312     r

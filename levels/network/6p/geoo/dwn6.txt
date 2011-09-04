@@ -1,5 +1,5 @@
 $BUILT                                             2011-08-18 18:37:15
-$AUTHOR                                                               
+$AUTHOR                                                           geoo
 $GERMAN                                                               
 $ENGLISH                                            Downward Reduction
 

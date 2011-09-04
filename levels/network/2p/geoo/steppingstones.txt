@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-18 18:28:21
+$BUILT                                             2011-09-02 11:21:38
 $AUTHOR                                                           geoo
 $GERMAN                                                               
 $ENGLISH                                          Stepping Stones (2P)
@@ -31,8 +31,8 @@ $ENGLISH                                          Stepping Stones (2P)
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:Pastel-s1:                                             1130       104     r
-:Pastel-s1:                                              532       104
+:bitmap/simon/hatch001.H:                               1152       112     r
+:bitmap/simon/hatch001.H:                                544       112
 
 :bitmap/matt/09 - Marble/Goal.G:                         464       144
 :bitmap/matt/09 - Marble/Goal.G:                        1232       144

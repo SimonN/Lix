@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-18 07:55:13
+$BUILT                                             2011-09-02 11:37:07
 $AUTHOR                                                           geoo
 $GERMAN                                                               
 $ENGLISH                                                      Stalling
@@ -93,6 +93,7 @@ $ENGLISH                                                      Stalling
 :bitmap/geoo/steel/64x32o.S:                              16       224
 :bitmap/geoo/construction/concrete/008h:                 552       200
 :bitmap/geoo/steel/32x64o.S:                             576         0
+:bitmap/geoo/construction/rod_steel/link.S:              598       254
 :bitmap/geoo/steel/32x64o.S:                             576       224
 :bitmap/geoo/construction/rod_steel/edge_lu.S:           760       272
 :bitmap/geoo/construction/rod_steel/straight8.S:         752       272
@@ -125,8 +126,6 @@ $ENGLISH                                                      Stalling
 :bitmap/geoo/construction/concrete/064h:                  16        16
 :bitmap/geoo/steel/64x32o.S:                              16        80
 :bitmap/geoo/construction/concrete/008h:                 552        56
-:bitmap/geoo/construction/concrete/032b:                 480       192
-:bitmap/geoo/construction/concrete/032b:                 480        48
 :bitmap/geoo/construction/wall/small_brick3:             208        64
 :bitmap/geoo/construction/wall/small_brick3:             208       208
 :bitmap/geoo/steel/16x32o.S:                             368        80
@@ -152,6 +151,7 @@ $ENGLISH                                                      Stalling
 :bitmap/geoo/construction/rod_steel/straight32.S:        760       264     fr
 :bitmap/geoo/construction/rod_steel/link.S:              750       272
 :bitmap/geoo/steel/32x64o.S:                             576       144
+:bitmap/geoo/construction/rod_steel/link.S:              598       110
 :bitmap/geoo/steel/32x64o.S:                             576        80
 :bitmap/geoo/construction/rod_steel/edge_lu.S:           760       128
 :bitmap/geoo/construction/rod_steel/straight8.S:         752       128
@@ -196,3 +196,7 @@ $ENGLISH                                                      Stalling
 :bitmap/geoo/construction/rod_steel/straight32.S:        696        56     frr
 :bitmap/geoo/construction/rod_steel/straight32.S:        728        56     frr
 :bitmap/geoo/construction/rod_steel/link.S:              750        56
+:bitmap/geoo/construction/wall/small_brickdiag_td:       480       208
+:bitmap/geoo/construction/wall/small_diag_tu:            480       192
+:bitmap/geoo/construction/wall/small_brickdiag_td:       480        64
+:bitmap/geoo/construction/wall/small_diag_tu:            480        48

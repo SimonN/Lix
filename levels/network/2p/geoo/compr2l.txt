@@ -1,7 +1,7 @@
 $BUILT                                             2011-08-01 15:10:57
 $AUTHOR                                                           geoo
 $GERMAN                                                               
-$ENGLISH                               Lemming - Compression - Pancake
+$ENGLISH                                           Pancake Compression
 
 #SIZE_X                                                            640
 #SIZE_Y                                                            512

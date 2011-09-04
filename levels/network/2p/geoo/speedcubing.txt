@@ -1,0 +1,86 @@
+$BUILT                                             2011-08-29 17:59:32
+$AUTHOR                                                           geoo
+$GERMAN                                                               
+$ENGLISH                                                   Speedcubing
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                            45
+#INITIAL                                                           120
+#REQUIRED                                                           20
+#RATE                                                               75
+
+#CLIMBER                                                            -1
+#FLOATER                                                            10
+#WALKER                                                             50
+#JUMPER                                                             80
+#BATTER                                                             10
+#EXPLODER2                                                          -1
+#CUBER                                                              -1
+#BUILDER                                                             5
+#PLATFORMER                                                         25
+#BASHER                                                             30
+#MINER                                                              20
+#DIGGER                                                             20
+
+:bitmap/geoo/construction/Hatch.H:                       112       128
+:bitmap/geoo/construction/Hatch.H:                       496       128     r
+:bitmap/geoo/construction/Hatch.H:                       336       240
+:bitmap/geoo/construction/Hatch.H:                       272       240     r
+
+:bitmap/geoo/construction/Goal2.G:                        96       304
+:bitmap/geoo/construction/Goal2.G:                       480       304
+
+:bitmap/geoo/construction/sawblade_medium.F:             288       304
+:bitmap/geoo/construction/sawblade_medium.F:             272       272
+:bitmap/geoo/construction/sawblade_medium.F:             208       336
+:bitmap/geoo/construction/sawblade_medium.F:             272       336
+:bitmap/geoo/construction/sawblade_medium.F:             304       336
+:bitmap/geoo/construction/sawblade_medium.F:             368       336
+:bitmap/geoo/construction/sawblade_medium.F:             384       304
+:bitmap/geoo/construction/sawblade_medium.F:             192       304
+:bitmap/geoo/construction/sawblade_medium.F:             304       272
+:bitmap/geoo/construction/sawblade_small.F:              256       320
+:bitmap/geoo/construction/sawblade_small.F:              352       320
+
+:bitmap/geoo/construction/concrete/008h:                 120       256
+:bitmap/geoo/construction/concrete/008h:                 504       256
+:bitmap/geoo/steel/32x32o.S:                             304       336
+:bitmap/geoo/steel/32x32o.S:                             272       272
+:bitmap/geoo/steel/32x32o.S:                             336       272
+:bitmap/geoo/steel/64x32o.S:                               0       368
+:bitmap/geoo/steel/64x32o.S:                              64       368
+:bitmap/geoo/steel/64x32o.S:                             128       368
+:bitmap/geoo/steel/64x32o.S:                             192       368
+:bitmap/geoo/steel/64x32o.S:                             384       368
+:bitmap/geoo/steel/64x32o.S:                             448       368
+:bitmap/geoo/steel/64x32o.S:                             512       368
+:bitmap/geoo/steel/64x32o.S:                             576       368
+:bitmap/geoo/steel/32x64o.S:                               0       304
+:bitmap/geoo/steel/32x64o.S:                               0       240
+:bitmap/geoo/steel/32x64o.S:                             608       304
+:bitmap/geoo/steel/32x64o.S:                             608       240
+:bitmap/geoo/steel/32x64o.S:                             608       176
+:bitmap/geoo/steel/32x64o.S:                             608       112
+:bitmap/geoo/steel/32x64o.S:                               0       176
+:bitmap/geoo/steel/32x64o.S:                               0       112
+:bitmap/geoo/steel/32x32o.S:                             208       336
+:bitmap/geoo/steel/32x32o.S:                             400       336
+:bitmap/geoo/steel/32x64o.S:                             304       240
+:bitmap/geoo/steel/32x64o.S:                             304       176
+:bitmap/geoo/steel/32x64o.S:                             304       112
+:bitmap/geoo/steel/32x64o.S:                             304        48
+:bitmap/geoo/steel/32x64o.S:                             304       -16
+:bitmap/geoo/steel/32x64o.S:                               0        48
+:bitmap/geoo/steel/32x64o.S:                             608        48
+:bitmap/geoo/steel/64x32o.S:                             288       368
+:bitmap/geoo/steel/32x32o.S:                             256       368
+:bitmap/geoo/steel/32x32o.S:                             352       368
