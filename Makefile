@@ -26,12 +26,12 @@ CLIENT_SRCS := $(wildcard src/api/*.cpp)     $(wildcard src/api/button/*.cpp) \
 CLIENT_OBJS := $(subst $(SRCDIR)/,$(OBJDIR)/,$(CLIENT_SRCS:%.cpp=%.o))
 CLIENT_DEPS := $(subst $(SRCDIR)/,$(DEPDIR)/,$(CLIENT_SRCS:%.cpp=%.d))
 
-SERVER_BIN  := $(BINDIR)/lixserv
-SERVER_SRCS := $(wildcard src/server/*.cpp)   src/network/net_t.cpp \
-                src/network/permu.cpp         src/network/server.cpp \
-                src/network/server_c.cpp      src/other/date.cpp \
-                src/other/filename.cpp        src/other/globals.cpp \
-                src/other/help.cpp            src/other/io.cpp
+SERVER_BIN  := $(BINDIR)/lixd
+SERVER_SRCS := $(wildcard src/daemon/*.cpp) \
+                src/network/net_t.cpp        src/network/permu.cpp \
+                src/network/server.cpp       src/network/server_c.cpp \
+                src/other/date.cpp           src/other/filename.cpp \
+                src/other/globals.cpp        src/other/io.cpp
 SERVER_OBJS := $(subst $(SRCDIR)/,$(OBJDIR)/,$(SERVER_SRCS:%.cpp=%.o))
 SERVER_DEPS := $(subst $(SRCDIR)/,$(DEPDIR)/,$(SERVER_SRCS:%.cpp=%.d))
 
@@ -58,8 +58,8 @@ $(CLIENT_BIN): $(CLIENT_OBJS)
 $(SERVER_BIN): $(SERVER_OBJS)
 	@$(MKDIR) $(BINDIR)
 	@echo Linking the standalone server \`$(SERVER_BIN)\'.
-	@echo Linker flags: $(LDDIRS) $(LDALLEG) $(LDENET)
-	@$(LD) $(LDDIRS) $(LDALLEG) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN)
+	@echo Linker flags: $(LDDIRS) $(LDENET)
+	@$(LD) $(LDDIRS) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@$(MKDIR) `dirname $@` `dirname $(DEPDIR)/$*.d`

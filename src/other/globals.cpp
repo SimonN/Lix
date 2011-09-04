@@ -324,9 +324,14 @@ void Globals::initialize()
     // Determine root dir
     std::string testdir = "./data/bitmap";
     std::string rootdir = "?????";
-    if (file_exists(testdir.c_str(), FA_DIREC, 0)) rootdir = "./";
+
+    std::ifstream test1(testdir.c_str());
+    if (test1.good()) rootdir = "./";
+    test1.close();
     testdir = '.' + testdir;
-    if (file_exists(testdir.c_str(), FA_DIREC, 0)) rootdir = "../";
+    std::ifstream test2(testdir.c_str());
+    if (test2.good()) rootdir = "../";
+    test2.close();
 
     Filename::set_root_dir(rootdir);
 

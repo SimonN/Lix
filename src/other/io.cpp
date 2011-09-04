@@ -3,7 +3,6 @@
  *
  */
 
-#include "myalleg.h" // exists
 #include <sstream>
 
 #include "io.h"
@@ -257,7 +256,6 @@ std::ostream& operator << (std::ostream& original_stream, const Line& ld)
 
 bool fill_vector_from_file(std::vector <Line>& v, const std::string& filename)
 {
-    if (!exists(filename.c_str())) return false;
     std::ifstream file(filename.c_str());
     const bool b = fill_vector_from_stream(v, file);
     file.close();

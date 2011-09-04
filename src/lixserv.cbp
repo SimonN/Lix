@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Lix Server" />
+		<Option title="Lix Daemon" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -36,7 +36,7 @@
 			</Target>
 			<Target title="Server - Release (Linux)">
 				<Option platforms="Unix;" />
-				<Option output="../bin/lixserv" prefix_auto="0" extension_auto="0" />
+				<Option output="../bin/lixd" prefix_auto="0" extension_auto="0" />
 				<Option working_dir="../" />
 				<Option object_output="../obj/" />
 				<Option type="1" />
@@ -44,12 +44,10 @@
 				<Option use_console_runner="0" />
 				<Option projectLinkerOptionsRelation="1" />
 				<Compiler>
-					<Add option="-Os" />
 					<Add option="-O3" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add option="`allegro-config --libs`" />
 					<Add option="-lenet" />
 				</Linker>
 			</Target>
@@ -68,6 +66,9 @@
 			<Add option="-lws2_32" />
 			<Add option="-lwinmm" />
 		</Linker>
+		<Unit filename="daemon/os.cpp" />
+		<Unit filename="daemon/os.h" />
+		<Unit filename="daemon/s_main.cpp" />
 		<Unit filename="network/net_t.cpp" />
 		<Unit filename="network/net_t.h" />
 		<Unit filename="network/permu.cpp" />
@@ -81,13 +82,9 @@
 		<Unit filename="other/filename.h" />
 		<Unit filename="other/globals.cpp" />
 		<Unit filename="other/globals.h" />
-		<Unit filename="other/help.cpp" />
-		<Unit filename="other/help.h" />
 		<Unit filename="other/io.cpp" />
 		<Unit filename="other/io.h" />
-		<Unit filename="other/myalleg.h" />
 		<Unit filename="other/types.h" />
-		<Unit filename="server/s_main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

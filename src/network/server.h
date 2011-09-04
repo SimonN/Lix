@@ -23,7 +23,6 @@ private:
 
     const char  server_number; // != any player number
 
-    const bool  log;            // write to std::cout
     const bool  dedicated;
     Uint32      version_min;
 

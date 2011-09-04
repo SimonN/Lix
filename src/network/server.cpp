@@ -27,7 +27,6 @@ NetServer::NetServer(
 ) :
     server_number(127),
 
-    log        (b),
     dedicated  (b),
     version_min(0),
 

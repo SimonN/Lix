@@ -5,7 +5,6 @@
  *
  */
 
-#include <iostream> // log == true
 #include <fstream> // write levels
 #include <list>
 
@@ -32,10 +31,6 @@ void NetServer::notify_lobby()
 void NetServer::put_player_into_room(char player, char target_room)
 {
     if (!host) return;
-
-    std::cout << "Player " << (int) player
-              << " switches into room " << (int) target_room << "."
-              << std::endl;
 
     ENetPacket* p = create_packet(3);
     p->data[0] = LEMNET_ROOM_CHANGE;
@@ -127,8 +122,6 @@ void NetServer::start_game_random_permutation(char room)
         rooms[room].permu = Permu(count);
         if ( ! (old_permu == rooms[room].permu)) break;
     }
-    std::cout << "Starting game in room " << (int) room << std::endl
-              << "  -> using permutation: " << rooms[room].permu << std::endl;
 
     ENetPacket* p = create_packet(count + 3);
     p->data[0] = LEMNET_GAME_START;
@@ -164,9 +157,6 @@ void NetServer::calc()
                   : LEMNET_NOTHING;
 
         if (event.type == ENET_EVENT_TYPE_CONNECT) {
-            std::cout << event.peer - host->peers << ": ";
-            std::cout << "connect" << std::endl;
-
             // This is only important in the versions of nov/dec 2009.
             // This notifies clients older than Oct 25, 2009 about their
             // outdated version
@@ -186,8 +176,6 @@ void NetServer::calc()
             p->data[1] = event.peer - host->peers;
             broadcast_to_room(p, room);
             notify_lobby();
-            std::cout << event.peer - host->peers << ": ";
-            std::cout << "disconnect" << std::endl;
         }
 
 
@@ -200,8 +188,6 @@ void NetServer::calc()
 
             if ((int) wcd.protocol != NETWORK_PROTOCOL_VERSION
              || wcd.lpp_version < version_min) {
-                std::cout << "  -> too old, he has: "
-                          << wcd.lpp_version << std::endl;
                 ENetPacket* p = create_packet_from_uint32(version_min);
                 p->data[0]    = LEMNET_YOU_TOO_OLD;
                 p->data[1]    = server_number;
@@ -215,10 +201,6 @@ void NetServer::calc()
             }
             else if (wcd.lpp_version_min > version_min) {
                 if (dedicated) {
-                    std::cout << "  -> use new minvsn.: "
-                              << wcd.lpp_version_min << std::endl;
-                    std::cout << "  -> recheck all client versions"
-                              << std::endl;
                     version_min = wcd.lpp_version_min;
                     // Everybody must check if they can still compete with the
                     // new min version.
@@ -228,8 +210,6 @@ void NetServer::calc()
                     enet_host_broadcast(host, LEMNET_CHANNEL_MAIN, p);
                 }
                 else {
-                    std::cout << "  -> too new, he has: "
-                              << wcd.lpp_version_min << std::endl;
                     ENetPacket* p = create_packet_from_uint32(version_min);
                     p->data[0]    = LEMNET_YOU_TOO_NEW;
                     p->data[1]    = server_number;
@@ -255,7 +235,6 @@ void NetServer::calc()
                     enet_peer_send(event.peer, LEMNET_CHANNEL_MAIN, p);
                 }
                 else {
-                    std::cout << "  -> version recheck okay" << std::endl;
                 }
             }
         }
@@ -269,8 +248,6 @@ void NetServer::calc()
 
 
         else if (type == LEMNET_ROOM_CREATE) {
-            std::cout << (int) (event.peer - host->peers) << ": ";
-            std::cout << "creating a new room" << std::endl;
             // Find first empty room
             std::vector <bool> full(NETWORK_ROOMS_MAX, 0);
             for (int plr = 0; plr < NETWORK_PLAYERS_MAX; ++plr)
@@ -279,7 +256,6 @@ void NetServer::calc()
             for (int room = 1; room < NETWORK_ROOMS_MAX; ++room) {
                 if (!full[room]) {
                     rooms[room] = Room();
-                    std::cout << "  -> room " << room << std::endl;
                     put_player_into_room(event.packet->data[1], room);
                     break;
                 }
@@ -336,8 +312,6 @@ void NetServer::calc()
             if  (type == LEMNET_LEVEL_FILE) {
                 rooms[pd.room].level = (char*) (event.packet->data + 2);
                 set_nobody_ready(pd.room);
-                std::cout << event.peer - host->peers << ": ";
-                std::cout << "selecting a new level" << std::endl;
             }
             // broadcast everything
             ENetPacket* p = enet_packet_create((void*) event.packet->data,
