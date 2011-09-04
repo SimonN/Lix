@@ -10,6 +10,8 @@
 
 #pragma once
 
+#include "myalleg.h"
+
 #include <cstdlib> // RAND_MAX
 #include <string>
 #include <vector>
