@@ -66,9 +66,9 @@
 			<Add option="-lws2_32" />
 			<Add option="-lwinmm" />
 		</Linker>
+		<Unit filename="daemon/main.cpp" />
 		<Unit filename="daemon/os.cpp" />
 		<Unit filename="daemon/os.h" />
-		<Unit filename="daemon/s_main.cpp" />
 		<Unit filename="network/net_t.cpp" />
 		<Unit filename="network/net_t.h" />
 		<Unit filename="network/permu.cpp" />
@@ -76,14 +76,6 @@
 		<Unit filename="network/server.cpp" />
 		<Unit filename="network/server.h" />
 		<Unit filename="network/server_c.cpp" />
-		<Unit filename="other/date.cpp" />
-		<Unit filename="other/date.h" />
-		<Unit filename="other/filename.cpp" />
-		<Unit filename="other/filename.h" />
-		<Unit filename="other/globals.cpp" />
-		<Unit filename="other/globals.h" />
-		<Unit filename="other/io.cpp" />
-		<Unit filename="other/io.h" />
 		<Unit filename="other/types.h" />
 		<Extensions>
 			<code_completion />

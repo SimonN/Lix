@@ -14,8 +14,9 @@
     // nothing included yet
 #endif
 #ifdef __unix__
-    #include <fcntl.h>
     #include <csignal>
+    #include <cerrno>
+    #include <fcntl.h>
     #include <sys/stat.h>
     #include <sys/time.h>
 #endif
@@ -51,8 +52,8 @@ int daemonize(const std::string& argument_lockfilename)
         if (lockfile_exists.good()) {
             std::cerr
                 << "Error: There seems to be an instance running already."
-                << std::endl << "If you're sure there isn't, erase `"
-                << lockfilename << "'." << std::endl;
+                << std::endl << "(If you're sure there isn't, erase `"
+                << lockfilename << "'.)" << std::endl;
             lockfile_exists.close();
             return -1;
         }
@@ -71,7 +72,7 @@ int daemonize(const std::string& argument_lockfilename)
     }
     else if (pid > 0) {
 
-        ::umask(027);
+        ::umask(033);
 
         if (lock) {
 
@@ -86,6 +87,9 @@ int daemonize(const std::string& argument_lockfilename)
             if (! lockfile_test_creation.good()) {
                 std::cerr << "Error: Cannot create `"
                     << lockfilename.c_str() << "'. Are you root?"
+                    << std::endl << "(You can bypass the lock file with "
+                    << "`--no-lock' if you really want to," << std::endl <<
+                    "but please remember to kill the daemon manually later.)"
                     << std::endl;
                 lockfile_test_creation.close();
                 return -1;
@@ -96,7 +100,7 @@ int daemonize(const std::string& argument_lockfilename)
         return  1;
     }
 
-    ::umask(027);
+    ::umask(033);
 
     ::pid_t sid = ::setsid();
     if (sid < 0) {
@@ -201,6 +205,52 @@ void free_lockfile()
 #ifdef __unix__
 
     if (! lockfilename.empty()) ::remove(lockfilename.c_str());
+
+#endif
+}
+
+
+
+bool kill_daemon(const std::string& lf)
+{
+#ifdef _WIN32
+
+    // not implemented
+
+#endif
+#ifdef __unix__
+
+    lockfilename = lf;
+
+    std::ifstream pidfile(lf.c_str());
+    if ( ! pidfile.good()) {
+        std::cerr << "Error: Missing or unreadable lock file `" << lf << "'."
+         << std::endl << "(If you still think there are running instances of "
+         "the daemon," << std::endl << "kill them manually.)" << std::endl;
+        return false;
+    }
+
+    ::pid_t pid = 0;
+    if (! (pidfile >> pid) || pid < 2) {
+        std::cerr << "Error: No valid process ID in `" << lf << "'."
+         << std::endl << "(If you still think there are running instances of "
+         "the daemon," << std::endl << "kill them manually.)" << std::endl;
+    }
+
+    if ( ! ::kill(pid, SIGTERM)) return true;
+    else {
+        if (errno == EPERM) std::cerr <<
+         "Error: Don't have permission to stop the daemon. Are you root?"
+         << std::endl;
+        else {
+            std::cerr << "Error: No daemon running with process ID "
+             << pid << "." << std::endl
+             << "(If you still think there are running instances of "
+             "the daemon," << std::endl << "kill them manually.)" << std::endl;
+            free_lockfile();
+        }
+        return false;
+    }
 
 #endif
 }

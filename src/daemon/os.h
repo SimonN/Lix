@@ -40,4 +40,7 @@ namespace OS {
 
     void free_lockfile();
 
+    // Returns true on a successful kill, false if nothing to kill or error.
+    bool kill_daemon(const std::string&);
+
 }
