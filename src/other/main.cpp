@@ -63,7 +63,7 @@ int main(int argc, char* argv[])
     // Check whether the Globals decided we're in one of the accepted
     // working directories, so all files are found. Otherwise, exit with error.
     if (! Help::dir_exists(gloB->dir_data_bitmap)) {
-        allegro_message(gloB->error_wrong_working_dir.c_str());
+        allegro_message("%s", gloB->error_wrong_working_dir.c_str());
         Log::deinitialize();
         Globals::deinitialize();
         return -1;
