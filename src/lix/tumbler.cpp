@@ -68,6 +68,8 @@ bool jumper_and_tumbler_collision(Lixxie& l)
             l.move_ahead(-2);
             l.become(LixEn::CLIMBER);
             l.set_frame(0);
+
+            return true; // Do not tumbler_unglitch_out_of_wall near "Zuckeln"
         }
         else if (l.is_solid(0, 2) && ! l.is_solid(0, 0)) {
             // Don't turn if batted onto a 45 degree slope.
