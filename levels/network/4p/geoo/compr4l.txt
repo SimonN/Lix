@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-01 15:16:20
+$BUILT                                             2011-09-06 00:31:04
 $AUTHOR                                                           geoo
 $GERMAN                                                               
 $ENGLISH                                           Pancake Compression
@@ -13,7 +13,7 @@ $ENGLISH                                           Pancake Compression
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                            60
+#SECONDS                                                            48
 #INITIAL                                                            99
 #REQUIRED                                                           20
 #RATE                                                               80
