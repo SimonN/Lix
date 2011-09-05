@@ -28,6 +28,10 @@ namespace OS {
 static std::string lockfilename;
 static bool        signal_received = false;
 
+#ifdef __unix__
+    static bool    kill_daemon(::pid_t);
+#endif
+
 
 
 int daemonize(const std::string& argument_lockfilename)
@@ -92,6 +96,9 @@ int daemonize(const std::string& argument_lockfilename)
                     "but please remember to kill the daemon manually later.)"
                     << std::endl;
                 lockfile_test_creation.close();
+
+                kill_daemon(pid);
+
                 return -1;
             }
             lockfile_test_creation.close();
@@ -211,6 +218,31 @@ void free_lockfile()
 
 
 
+#ifdef __unix__
+static bool kill_daemon(const ::pid_t pid)
+{
+    if (pid < 2) return false;
+
+    if ( ! ::kill(pid, SIGTERM)) return true;
+    else {
+        if (errno == EPERM) std::cerr <<
+         "Error: Don't have permission to stop the daemon. Are you root?"
+         << std::endl;
+        else {
+            std::cerr << "Error: No daemon running with process ID "
+             << pid << "." << std::endl
+             << "(If you still think there are running instances of "
+             "the daemon," << std::endl << "kill them manually.)" << std::endl;
+            free_lockfile();
+        }
+        return false;
+    }
+
+}
+#endif
+
+
+
 bool kill_daemon(const std::string& lf)
 {
 #ifdef _WIN32
@@ -237,20 +269,7 @@ bool kill_daemon(const std::string& lf)
          "the daemon," << std::endl << "kill them manually.)" << std::endl;
     }
 
-    if ( ! ::kill(pid, SIGTERM)) return true;
-    else {
-        if (errno == EPERM) std::cerr <<
-         "Error: Don't have permission to stop the daemon. Are you root?"
-         << std::endl;
-        else {
-            std::cerr << "Error: No daemon running with process ID "
-             << pid << "." << std::endl
-             << "(If you still think there are running instances of "
-             "the daemon," << std::endl << "kill them manually.)" << std::endl;
-            free_lockfile();
-        }
-        return false;
-    }
+    return kill_daemon(pid);
 
 #endif
 }
