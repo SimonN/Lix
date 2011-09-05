@@ -209,6 +209,8 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="gameplay/gui/win_game.h" />
 		<Unit filename="gameplay/hatch.cpp" />
 		<Unit filename="gameplay/hatch.h" />
+		<Unit filename="gameplay/lookup.cpp" />
+		<Unit filename="gameplay/lookup.h" />
 		<Unit filename="gameplay/replay.cpp" />
 		<Unit filename="gameplay/replay.h" />
 		<Unit filename="gameplay/state.cpp" />

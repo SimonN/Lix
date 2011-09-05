@@ -8,26 +8,27 @@
 #include "level.h"
 #include "obj_lib.h"
 
+#include "../gameplay/lookup.h"
+#include "../graphic/graphic.h" // to access rotated pixel functions
 #include "../other/help.h"
 
-void Level::draw_to(Torbit& ground, Torbit* steel_mask) const
+void Level::draw_to(Torbit& ground, Lookup* lookup) const
 {
     ground.clear_to_color(color[COL_PINK]);
     ground.set_torus_xy(torus_x, torus_y);
-    if (steel_mask) {
-        steel_mask->clear_to_color(color[COL_PINK]);
-        steel_mask->set_torus_xy(torus_x, torus_y);
+    if (lookup) {
+        lookup->resize(size_x, size_y, torus_x, torus_y);
     }
     // Durch die Terrain-Liste iterieren, Wichtiges zuletzt blitten (obenauf)
     for (PosIt i =  pos[Object::TERRAIN].begin();
                i != pos[Object::TERRAIN].end(); ++i) {
-        drit(i, ground, steel_mask);
+        drit(i, ground, lookup);
     }
 }
 
 
 
-void Level::drit(PosIt itr, Torbit& ground, Torbit* steel_mask) const
+void Level::drit(PosIt itr, Torbit& ground, Lookup* lookup) const
 {
     if (!itr->ob) return;
     if (!itr->ob->cb) return;
@@ -43,20 +44,34 @@ void Level::drit(PosIt itr, Torbit& ground, Torbit* steel_mask) const
     // Da alles immer mit masked_blit auch auf die Stahlmaske geblittet wird
     // und diese zu Beginn schwarz ist, enthaelt sie niemals pinke Pixel --
     // bis auf die, die wir bei Stahl selbst einzeichnen!
-    if (steel_mask) {
-        const bool ter = itr->ob->type == Object::TERRAIN;
-        const bool st  = ter && itr->ob->subtype == 1 && ! itr->dark;
-        if (st)
-         bit.draw(*steel_mask, itr->x, itr->y, 0, 0, itr->mirr, itr->rot, 0,
-           itr->noow ? Cutbit::STEEL_NOOW
-         : itr->dark ? Cutbit::DARK
-         :             Cutbit::STEEL);
-        else if (ter)
-         bit.draw(*steel_mask, itr->x, itr->y, 0, 0, itr->mirr, itr->rot, 0,
-            itr->noow ? Cutbit::DARK_SHOW_NOOW
-          : itr->dark ? Cutbit::DARK
-          :             Cutbit::DARK_EDITOR);
+    if (lookup && itr->ob->type == Object::TERRAIN) {
+        // If this gets ever ported to A5, then the bitmap should get locked
+        // read-only into memory here, then read pixels, then release.
+        // This won't draw to ground, it's just to access rotated pixels.
+        Graphic tempgra(bit, ground);
+        tempgra.set_rotation(itr->rot);
+        tempgra.set_mirror  (itr->mirr);
+        for  (int x = itr->x; x < itr->x + tempgra.get_xl(); ++x)
+         for (int y = itr->y; y < itr->y + tempgra.get_yl(); ++y)
+         if (tempgra.get_pixel(x - itr->x, y - itr->y) != color[COL_PINK]) {
+            if (itr->noow) {
+                if (! lookup->get(x, y, Lookup::bit_terrain))
+                    lookup->add(x, y, itr->ob->subtype == 1 ?
+                    Lookup::bit_steel | Lookup::bit_terrain :
+                    Lookup::bit_terrain);
+            }
+            else if (itr->dark)
+                lookup->rm(x, y, Lookup::bit_terrain | Lookup::bit_steel);
+            else if (itr->ob->subtype == 1)
+                lookup->add(x, y, Lookup::bit_terrain | Lookup::bit_steel);
+            else {
+                lookup->add(x, y, Lookup::bit_terrain);
+                lookup->rm (x, y, Lookup::bit_steel);
+            }
+        }
+        // end of single pixel
     }
+    // end of preparing lookup
 }
 
 

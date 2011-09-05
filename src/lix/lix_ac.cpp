@@ -11,11 +11,11 @@
 #include "../gameplay/goal.h"     // Ebenso Blockerabstand
 #include "../other/user.h"
 
-unsigned Lixxie::get_priority(LixEn::Ac                   new_ac,
-                              unsigned                  tribes_active,
-                              const std::vector <Goal>& goal,
-                              const bool                personal)
-{
+unsigned Lixxie::get_priority(
+    LixEn::Ac  new_ac,
+    int        tribes_active,
+    const bool personal
+) {
     // Argument:  Die Faehigkeit, die beim Klick gegeben wuerde.
     // Rueckgabe: 0, falls nicht anklickbar und Cursor geschlossen.
     //            1, falls nicht anklickbar und Cursor dennoch offen.
@@ -33,10 +33,10 @@ unsigned Lixxie::get_priority(LixEn::Ac                   new_ac,
      || (new_ac == LixEn::CLIMBER   && climber)
      || (new_ac == LixEn::FLOATER   && floater) ) return 1;
 
-    // Don't plant blockers close to exits
-    if (new_ac == LixEn::BLOCKER && tribes_active > 1)
-     for (Goal::CIt i = goal.begin(); i != goal.end(); ++i)
-     if (get_in_trigger_area(*i, true)) return 1; // true == twice
+    // Don't plant blockers close to exits in multiplayer
+    if (new_ac == LixEn::BLOCKER && tribes_active > 1
+        && (enc_foot & Lookup::bit_goal_prox))
+        return 1;
 
     switch (ac) {
         // Nur Exploder ist erlaubt, und zwar mit wesentlich hoeherer Prior.!

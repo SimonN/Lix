@@ -18,6 +18,8 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
 {
     if (l.get_ac() == LixEn::NOTHING) return;
 
+    l.set_no_encounters();
+
     // Exploder-Dinge separat!
     // 76 statt 75 Updates sind nötig, weil 0->1->2 im selben Tick passiert.
     if (l.get_updates_since_bomb() > 0 && l.get_ac() != LixEn::EXPLODER) {
@@ -58,6 +60,17 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
                 if (!l.get_tribe().nuke) l.play_sound(ua, Sound::OHNO);
             }
         }
+        // Fuse still visible
+        else {
+            if (l.get_leaving()) {
+                // Make it burn down faster if the lix is going to be dead
+                // anyway without exploding
+                l.set_updates_since_bomb(l.get_updates_since_bomb()
+                                         + l.get_frame() + 1);
+                if (l.get_updates_since_bomb() >= 75)
+                    l.set_updates_since_bomb(0);
+            }
+        }
     }
 
 
@@ -72,8 +85,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
 
 
 
-    // Blocker: Abarbeiten anderer Lixxiee geschieht hier, weil dies ja
-    // nicht nur den einen Lixxie betrifft
+    // Blocker
     if (l.get_ac() == LixEn::BLOCKER
      ||(l.get_ac() == LixEn::EXPLODER && l.get_special_x() == 1))
      update_lix_blocker(l);
@@ -103,32 +115,29 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
 
 
 
-    // Fallen
-    for (IacIt i = cs.trap.begin(); i != cs.trap.end(); ++i) {
-        if (l.get_in_trigger_area(*i)
-         && i->get_x_frame() == 0 && i->get_y_frame() == 0) {
-            i->set_y_frame(1);
-            l.play_sound(ua, i->get_object()->sound);
-            l.set_ac(LixEn::NOTHING);
-            --l.get_tribe().lix_out;
-            return;
+    if (! l.get_leaving()) {
+        // Feuer und Wasser
+        if (l.get_body_encounters() & Lookup::bit_fire ) {
+            l.become(LixEn::BURNER);
+            l.play_sound(ua, Sound::FIRE);
         }
-    }
-
-
-
-    // Feuer und Wasser
-    if (l.get_ac() != LixEn::BURNER
-     && l.get_ac() != LixEn::DROWNER)
-     for (IacIt i =  special[Object::WATER].begin();
-                i != special[Object::WATER].end(); ++i)
-     if (l.get_in_trigger_area(*i)) {
-        int fire = i->get_object()->subtype;
-        if (!fire) l.set_ey(i->get_y() + i->get_object()->trigger_y + 2);
-        l.become(fire ? LixEn::BURNER : LixEn::DROWNER);
-        // Nicht explodieren lassen, das täte er bei 76 :-)
-        if (l.get_updates_since_bomb() == 75) l.set_updates_since_bomb(0);
-        l.play_sound(ua, fire ? Sound::FIRE : Sound::WATER);
+        else if (l.get_body_encounters() & Lookup::bit_water) {
+            l.become(LixEn::DROWNER);
+            l.play_sound(ua, Sound::WATER);
+        }
+        // Fallen
+        else if (l.get_foot_encounters() & Lookup::bit_trap) {
+            for (IacIt i = cs.trap.begin(); i != cs.trap.end(); ++i) {
+                if (l.get_in_trigger_area(*i)
+                 && i->get_x_frame() == 0 && i->get_y_frame() == 0) {
+                    i->set_y_frame(1);
+                    l.play_sound(ua, i->get_object()->sound);
+                    l.set_ac(LixEn::NOTHING);
+                    --l.get_tribe().lix_out;
+                    return;
+                }
+            }
+        }
     }
 
 
@@ -151,7 +160,6 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
         l.set_special_x(std::abs(special_x));
         l.set_special_y(i->get_object()->special_y);
         l.set_dir(special_x);
-        //l.play_sound(ua.upd, fire ? Sound::FIRE : Sound::WATER);
     }
 
 
@@ -197,7 +205,8 @@ void Gameplay::update_lix_blocker(Lixxie& l)
 void Gameplay::update_lix_goals(Lixxie& l, const UpdateArgs& ua)
 {
     // false: Keine persoenlichen Einstellungen wie !multbuilders beachten
-    if (l.get_priority(LixEn::EXITER, cs.tribes.size(), goal, false) > 1)
+    if (l.get_foot_encounters() & Lookup::bit_goal
+     && l.get_priority(LixEn::EXITER, cs.tribes.size(), false) > 1)
      for (int i = 0; i < (int) goal.size(); ++i)
      if (l.get_in_trigger_area(goal[i])) {
         // Lixxie soll ins Ziel gehen und sich merken, in welches

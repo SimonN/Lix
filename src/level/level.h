@@ -97,6 +97,8 @@
 #include "../other/globals.h"    // empty_string
 #include "../other/io.h"
 
+class Lookup;
+
 struct Level {
 
     enum Status {
@@ -176,7 +178,7 @@ struct Level {
     inline       bool   get_good()   const { return status == GOOD; }
     const std::string&  get_name()   const;
 
-    void    draw_to       (Torbit&, Torbit* = 0   ) const;
+    void    draw_to       (Torbit&, Lookup* = 0   ) const;
     Torbit  create_preview(unsigned, unsigned, int) const;
 
     void load_from_stream(std::istream&);
@@ -193,7 +195,7 @@ private:
     Status status;
 
     // Diese Funktionen sind Helfer. drit = draw_iterator_to_bitmap
-    void drit(PosIt, Torbit&, Torbit* = 0) const;
+    void drit(PosIt, Torbit&, Lookup* = 0) const;
 
     void load_from_vector(const std::vector <IO::Line>&);
     void load_from_binary(const Filename&);

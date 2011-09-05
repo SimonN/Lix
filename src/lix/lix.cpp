@@ -15,7 +15,7 @@
 #include "../other/help.h"      // Help::mod
 
 Torbit*        Lixxie::land       = 0;
-Torbit*        Lixxie::steel_mask = 0;
+Lookup*        Lixxie::lookup     = 0;
 Map*           Lixxie::ground_map = 0;
 EffectManager* Lixxie::effect     = 0;
 
@@ -52,6 +52,8 @@ Lixxie::Lixxie(
     runner            (false),
     climber           (false),
     floater           (false),
+    enc_body          (0),
+    enc_foot          (0),
 
     style             (tribe ? tribe->style : LixEn::GARDEN),
     ac                (LixEn::NOTHING)
@@ -74,11 +76,28 @@ Lixxie::~Lixxie()
 
 
 
-void Lixxie::set_static_maps(Torbit& l, Torbit& s, Map& g)
+void Lixxie::set_static_maps(Torbit& l, Lookup& lo, Map& g)
 {
     land       = &l;
-    steel_mask = &s;
+    lookup     = &lo;
     ground_map = &g;
+}
+
+
+
+// These are used for encounters and to draw the fuse
+static inline int get_fuse_x(const Lixxie& l)
+{
+    int ret = Lixxie::countdown[l.get_x_frame()][l.get_y_frame()].x;
+    if (l.get_dir() < 0) ret = GraLib::get_lix(l.get_style()).get_xl() - ret;
+    ret += l.get_x();
+    return ret;
+}
+static inline int get_fuse_y(const Lixxie& l)
+{
+    int ret = Lixxie::countdown[l.get_x_frame()][l.get_y_frame()].y;
+    ret += l.get_y();
+    return ret;
 }
 
 
@@ -87,24 +106,50 @@ void Lixxie::set_ex(const int n) {
     ex = Help::even(n);
     set_x(ex - LixEn::ex_offset);
     if (ground_map->get_torus_x()) ex = Help::mod(ex, land->get_xl());
+    enc_foot |= lookup->get(ex, ey);
+    enc_body |= enc_foot
+             |  lookup->get(ex, ey - 4)
+             |  lookup->get(get_fuse_x(*this), get_fuse_y(*this));
 }
 
 void Lixxie::set_ey(const int n) {
-    set_y(n - LixEn::ey_offset);
-    ey = get_y() + LixEn::ey_offset;
+    ey = n;
+    set_y(ey - LixEn::ey_offset);
     if (ground_map->get_torus_y()) ey = Help::mod(ey, land->get_yl());
+    enc_foot |= lookup->get(ex, ey);
+    enc_body |= enc_foot
+             |  lookup->get(ex, ey - 4)
+             |  lookup->get(get_fuse_x(*this), get_fuse_y(*this));
 }
 
-void Lixxie::move_ahead(int plus_x) { set_ex(ex + plus_x * dir);  }
-void Lixxie::move_down (int plus_y) { set_ey(ey + plus_y);        }
-void Lixxie::move_up  (int minus_y) { set_ey(ey - minus_y);       }
-void Lixxie::turn()                 { dir *= -1;                  }
-
-
-
-bool Lixxie::get_in_trigger_area(const EdGraphic& gr, const bool twice) const
+void Lixxie::move_ahead(int plus_x)
 {
-    const int div = twice ? 1 : 2;
+    plus_x = Help::even(plus_x);
+    plus_x *= dir;
+    for ( ; plus_x > 0; plus_x -= 2) set_ex(ex + 2);
+    for ( ; plus_x < 0; plus_x += 2) set_ex(ex - 2);
+}
+
+void Lixxie::move_down(int plus_y)
+{
+    for ( ; plus_y > 0; --plus_y) set_ey(ey + 1);
+    for ( ; plus_y < 0; ++plus_y) set_ey(ey - 1);
+}
+
+void Lixxie::move_up(int minus_y)
+{
+    move_down(-minus_y);
+}
+
+void Lixxie::turn()
+{
+    dir *= -1;
+}
+
+
+
+bool Lixxie::get_in_trigger_area(const EdGraphic& gr) const
+{
     const Object& ob = *gr.get_object();
     int dx = ground_map->distance_x(get_ex(),
               gr.get_x() + ob.get_trigger_x() + ob.trigger_xl/2);
@@ -112,37 +157,34 @@ bool Lixxie::get_in_trigger_area(const EdGraphic& gr, const bool twice) const
               gr.get_y() + ob.get_trigger_y() + ob.trigger_yl/2);
     if (dx < 0) dx *= -1;
     if (dy < 0) dy *= -1;
-    return dx <= ob.trigger_xl/div && dy <= ob.trigger_yl/2;
+    return dx <= ob.trigger_xl/2 && dy <= ob.trigger_yl/2;
 }
 
 
 
 bool Lixxie::get_steel(const int px, const int py) {
-    return steel_mask->get_pixel(ex + px*dir, ey+py) == color[COL_STEEL_MASK];
+    return lookup->get_steel(ex + px * dir, ey + py);
 }
 
 bool Lixxie::get_steel_absolute(const int x, const int y) {
-    return steel_mask->get_pixel(x, y) == color[COL_STEEL_MASK];
+    return lookup->get_steel(x, y);
 }
 
-int Lixxie::get_pixel(const int px, const int py) {
-    return land->get_pixel(ex + px * dir, ey + py);
+void Lixxie::add_land(const int px, const int py, const AlCol col) {
+    add_land_absolute(ex + px * dir, ey + py, col);
 }
 
-void Lixxie::set_pixel(const int px, const int py, const int col) {
-    land->set_pixel(ex + px * dir, ey + py, col);
+void Lixxie::add_land_absolute(const int x, const int y, const AlCol col) {
+    land->set_pixel(x, y, col);
+    lookup->add    (x, y, Lookup::bit_terrain);
 }
 
-bool Lixxie::is_solid(int px, int py)
-{
-    // Do stuff similar to Lixxie::get_pixel(), but always check the pixel
-    // to the right of it as well.
-    return land->get_pixel(ex + px * dir,     ey + py) != color[COL_PINK]
-        || land->get_pixel(ex + px * dir + 1, ey + py) != color[COL_PINK];
+bool Lixxie::is_solid(int px, int py) {
+    return lookup->get_solid_even(ex + px * dir, ey + py);
 }
 
 bool Lixxie::is_solid_single(int px, int py) {
-    return get_pixel(px, py) != color[COL_PINK];
+    return lookup->get_solid(ex + px * dir, ey + py);
 }
 
 
@@ -201,22 +243,23 @@ bool Lixxie::remove_pixel(int px, int py)
     if (dir < 0) --px;
 
     // Abbaubare Landschaft?
-    if (get_pixel(px, py) != color[COL_PINK] && !get_steel(px, py)) {
-        set_pixel(px, py, color[COL_PINK]);
+    if (! get_steel(px, py) && is_solid(px, py)) {
+        lookup->rm     (ex + px * dir, ey + py, Lookup::bit_terrain);
+        land->set_pixel(ex + px * dir, ey + py, color[COL_PINK]);
         return false;
     }
     // Stahl?
     else if (get_steel(px, py)) return true;
-    else                        return false;
+    else return false;
 }
 
 
 
 void Lixxie::remove_pixel_absolute(int x, int y)
 {
-    if (!get_steel_absolute(x, y)
-     && land->get_pixel(x, y) != color[COL_PINK]) {
-        land->set_pixel(x, y,    color[COL_PINK]);
+    if (!get_steel_absolute(x, y) && lookup->get_solid(x, y)) {
+        lookup->rm(x, y, Lookup::bit_terrain);
+        land->set_pixel(x, y, color[COL_PINK]);
     }
 }
 
@@ -245,7 +288,7 @@ void Lixxie::draw_pixel(int px, int py, int col)
     // Dies nur bei draw_pixel() und remove_pixel()
     if (dir < 0) --px;
 
-    if (get_pixel(px, py) == color[COL_PINK]) set_pixel(px, py, col);
+    if (! is_solid_single(px, py)) add_land(px, py, col);
 }
 
 
@@ -298,9 +341,9 @@ void Lixxie::draw_frame_to_map
 {
     for (int y = 0; y < hs; ++y) {
         for (int x = 0; x < ws; ++x) {
-            const int col = get_cutbit()->get_pixel(frame, anim, xs+x, ys+y);
+            const AlCol col = get_cutbit()->get_pixel(frame, anim, xs+x, ys+y);
             if (col != color[COL_PINK] && ! get_steel(xd + x, yd + y)) {
-                set_pixel(xd + x, yd + y, col);
+                add_land(xd + x, yd + y, col);
             }
         }
     }
@@ -347,6 +390,8 @@ void Lixxie::next_frame(int loop)
 
 
 
+
+
 void Lixxie::draw()
 {
     if (ac == LixEn::NOTHING) return;
@@ -356,11 +401,8 @@ void Lixxie::draw()
 
     // Wenn ein Zählwerk erforderlich ist...
     if (updates_since_bomb > 0) {
-        int fuse_x = countdown[get_x_frame()][get_y_frame()].x;
-        int fuse_y = countdown[get_x_frame()][get_y_frame()].y;
-        if (dir < 0) fuse_x = GraLib::get_lix(style).get_xl() - fuse_x;
-        fuse_x += get_x();
-        fuse_y += get_y();
+        int fuse_x = get_fuse_x(*this);
+        int fuse_y = get_fuse_y(*this);
 
         // Hierhin zeichnen
         Torbit& tb = *ground_map;

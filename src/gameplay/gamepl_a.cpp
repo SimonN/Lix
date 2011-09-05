@@ -87,7 +87,7 @@ void Gameplay::calc_active()
                 // Hypot geht von (ex|ey+etwas) aus
                 // true = Beachte persoenliche Einschraenkungen wie !MultBuild
                 int priority = i->get_priority(trlo->skill[skill_visible].ac,
-                 cs.tribes.size(), goal, true);
+                 cs.tribes.size(), true);
 
                 // Invert priority if a corresponding mouse button is held
                 if ((hardware.get_mrh() && useR->prioinv_right)

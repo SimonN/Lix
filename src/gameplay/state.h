@@ -8,6 +8,7 @@
 
 #pragma once
 
+#include "lookup.h"
 #include "tribe.h"
 
 #include "../editor/graph_ed.h"
@@ -31,6 +32,7 @@ public:
     EdGrVec  fling;
 
     Torbit   land;
+    Lookup   lookup;
 
     GameState();
 

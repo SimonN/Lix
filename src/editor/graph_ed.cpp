@@ -9,6 +9,7 @@
 
 #include "graph_ed.h"
 
+#include "../gameplay/lookup.h"
 #include "../graphic/gra_lib.h"
 #include "../other/globals.h"
 #include "../other/help.h" // proper modulo via Help::mod
@@ -155,5 +156,26 @@ void EdGraphic::draw_with_trigger_area()
             makecol(0x40, 0xFF, 0xFF)
         );
     }
+}
+
+
+
+void EdGraphic::draw_lookup(Lookup& lk)
+{
+    if (!object) return;
+    Lookup::LoNr nr = 0;
+    switch (object->type) {
+        case Object::GOAL:  nr = Lookup::bit_goal; break;
+        case Object::TRAP:  nr = Lookup::bit_trap; break;
+        case Object::WATER: nr = object->subtype == 0
+                               ? Lookup::bit_water
+                               : Lookup::bit_fire; break;
+        case Object::FLING: nr = Lookup::bit_fling; break;
+        default: break;
+    }
+    lk.add_rectangle(get_x() + object->get_trigger_x(),
+                     get_y() + object->get_trigger_y(),
+                     object->trigger_xl,
+                     object->trigger_yl, nr);
 }
 

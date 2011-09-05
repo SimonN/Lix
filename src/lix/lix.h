@@ -169,7 +169,7 @@
  * bool get_aiming()
  *
  *   Liefert, ob die Faehigkeit grundsaetzlich zielen kann && ob die Lix
- *   es gerade tut. Ob er gerade zielt, haengt per Konvention von special_x
+ *   es gerade tut. Ob sie gerade zielt, haengt per Konvention von special_x
  *   ab! Wenn special_x == 0 ist, so zielt die Lix bzw. bereitet sich
  *   darauf vor; in jedem Fall ist die Maus nun das Zielgeraet.
  *
@@ -183,9 +183,11 @@
 #include "lix_enum.h"
 
 #include "../editor/graph_ed.h"
+#include "../gameplay/lookup.h"
 #include "../graphic/map.h" // Map::distance_x/y
 #include "../graphic/graph_bg.h"
 #include "../graphic/sound.h"
+#include "../other/types.h" // AlCol
 
 struct UpdateArgs;
 
@@ -220,7 +222,7 @@ private:
     static std::vector <std::vector <int> > style_color;
 
     static Torbit*        land;
-    static Torbit*        steel_mask;
+    static Lookup*        lookup;
     static Map*           ground_map;
     static EffectManager* effect;
 
@@ -243,6 +245,9 @@ private:
     char climber;
     char floater;
 
+    Lookup::LoNr enc_body;
+    Lookup::LoNr enc_foot;
+
     LixEn::Style style;
     LixEn::Ac    ac;
 
@@ -261,7 +266,7 @@ public:
 
     static void initialize_this_gets_called_from_glob_gfx_cpp();
 
-    static void           set_static_maps   (Torbit&, Torbit&, Map&);
+    static void           set_static_maps   (Torbit&, Lookup&, Map&);
     static void           set_effect_manager(EffectManager& e) { effect = &e; }
     static EffectManager* get_ef()                             {return effect;}
     static const Torbit&  get_land() { return *land; }
@@ -273,21 +278,20 @@ public:
     inline Tribe&     get_tribe() const { return *tribe; }
     inline LixEn::Style get_style() const { return style;   }
 
-    inline int get_ex() const { return ex; }
-    inline int get_ey() const { return ey; }
-          void set_ex(const int);
-          void set_ey(const int);
+    inline int  get_ex() const { return ex; }
+    inline int  get_ey() const { return ey; }
+           void set_ex(const int);
+           void set_ey(const int);
 
-    void move_ahead(int = 2);
-    void move_down(int = 2);
-    void move_up(int = 2);
+           void move_ahead(int = 2);
+           void move_down(int = 2);
+           void move_up(int = 2);
 
     inline int  get_dir() const      { return dir; }
     inline void set_dir(const int i) { dir = i>0 ? 1 : i<0 ? -1 : dir; }
-    void turn();
+           void turn();
 
-    // true = double trigger area in x direction (not y direction)
-    bool get_in_trigger_area(const EdGraphic&, const bool = false) const;
+           bool get_in_trigger_area(const EdGraphic&) const;
 
     inline LixEn::Ac get_ac() const               { return ac;   }
     inline void    set_ac(const LixEn::Ac new_ac) { ac = new_ac; }
@@ -304,8 +308,7 @@ public:
     inline static const AcFunc& get_ac_func(LixEn::Ac a) { return ac_func[a]; }
 
     void        evaluate_click(const LixEn::Ac);
-    unsigned    get_priority  (const LixEn::Ac, const unsigned,
-                               const std::vector<Goal>&, const bool);
+    unsigned    get_priority  (const LixEn::Ac, int, bool);
 
     inline int  get_special_x()      { return special_x; }
     inline int  get_special_y()      { return special_y; }
@@ -328,9 +331,8 @@ public:
 
     static bool get_steel_absolute(const int,     const int    );
            bool get_steel         (const int = 0, const int = 0);
-           int  get_pixel         (const int = 0, const int = 0);
-           void set_pixel         (const int = 0, const int = 0,
-                                   const int = color[COL_PINK]);
+           void add_land          (int = 0, int = 0, AlCol = color[COL_PINK]);
+           void add_land_absolute (int = 0, int = 0, AlCol = color[COL_PINK]);
            bool is_solid          (const int = 0, const int = 2);
            bool is_solid_single   (const int = 0, const int = 2);
            int  solid_wall_height (const int = 0, const int = 0);
@@ -354,6 +356,10 @@ public:
 
            bool is_last_frame();
            void next_frame(int = 0);
+
+    inline Lookup::LoNr get_body_encounters() { return enc_body;         }
+    inline Lookup::LoNr get_foot_encounters() { return enc_foot;         }
+    inline void         set_no_encounters()   { enc_body = enc_foot = 0; }
 
            void assclk        (const LixEn::Ac);
            void become        (const LixEn::Ac);

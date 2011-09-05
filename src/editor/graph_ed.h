@@ -12,6 +12,8 @@
 #include "../graphic/map.h"
 #include "../level/object.h"
 
+class Lookup;
+
 class EdGraphic : public Graphic {
 
 private:
@@ -41,5 +43,6 @@ public:
     virtual void animate();
     virtual void draw();
             void draw_with_trigger_area();
+    virtual void draw_lookup(Lookup&);
 
 };

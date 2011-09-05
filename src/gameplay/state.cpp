@@ -8,6 +8,7 @@
 GameState::GameState()
 :
     update(0),
-    land(1, 1)
+    land(1, 1),
+    lookup(1, 1)
 {
 }

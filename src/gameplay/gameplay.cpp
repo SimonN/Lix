@@ -53,8 +53,6 @@ Gameplay::Gameplay(Replay* rep)
                                     level.bg_blue)),
     map                    (level.size_x, level.size_y, LEMSCR_X,
                             LEMSCR_Y - gloB->panel_gameplay_yl),
-    steel_mask             (level.size_x, level.size_y, LEMSCR_X,
-                            LEMSCR_Y - gloB->panel_gameplay_yl),
     effect                 (map),
 
     mouse_cursor(GraLib::get(gloB->file_bitmap_mouse),
@@ -193,12 +191,12 @@ void Gameplay::prepare_players(Replay* rep)
 void Gameplay::prepare_level()
 {
     // Die Karte erschaffen
-    map       .set_torus_xy(level.torus_x, level.torus_y);
-    steel_mask.set_torus_xy(level.torus_x, level.torus_y);
-    cs.land   .set_torus_xy(level.torus_x, level.torus_y);
-    cs.land   .resize      (level.size_x,  level.size_y);
-    level.draw_to          (cs.land, &steel_mask);
-    Lixxie::set_static_maps(cs.land, steel_mask, map);
+    map    .set_torus_xy(level.torus_x, level.torus_y);
+    cs.land.set_torus_xy(level.torus_x, level.torus_y);
+    cs.land.resize      (level.size_x,  level.size_y);
+    level.draw_to       (cs.land, &cs.lookup);
+
+    Lixxie::set_static_maps(cs.land, cs.lookup, map);
     Lixxie::set_effect_manager(effect);
     map.clear_to_color(color[COL_BLACK]);
     // save_bmp("test_land.bmp",  cs.land   .get_al_bitmap(), 0);
@@ -218,21 +216,26 @@ void Gameplay::prepare_level()
      case Object::HATCH:
          hatches.push_back(GameHatch(map, i->ob, i->x, i->y));
          hatches.back().set_rotation(i->rot);
+         hatches.back().draw_lookup(cs.lookup);
          break;
      case Object::GOAL:
         goal.push_back(Goal(map, i->ob, i->x, i->y));
+        goal.back().draw_lookup(cs.lookup);
         break;
      case Object::TRAP:
         cs.trap.push_back(EdGraphic(map, i->ob, i->x, i->y));
+        cs.trap.back().draw_lookup(cs.lookup);
         break;
      case Object::FLING:
         cs.fling.push_back(EdGraphic(map, i->ob, i->x, i->y));
+        cs.fling.back().draw_lookup(cs.lookup);
         break;
      case Object::DECO:
      case Object::WATER:
      case Object::ONEWAY:
      case Object::TRAMPOLINE:
         special[type].push_back(EdGraphic(map, i->ob, i->x, i->y));
+        special[type].back().draw_lookup(cs.lookup);
         break;
      default:
         break;

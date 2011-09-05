@@ -69,7 +69,6 @@ private:
 
     int           bg_color;
     Map           map;
-    Torbit        steel_mask;
 
     GameState     cs; // current state
     StateManager  state_manager;
