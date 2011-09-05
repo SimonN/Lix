@@ -8,6 +8,7 @@
 #include <fstream>
 
 #include "io.h"
+#include "../network/net_t.h" // for updates_per_second and default port
 
 #define CONCAT(a, b, c, d) (a ## b ## c ## d)
 
@@ -17,10 +18,10 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2011, 09, 04, 00)),
+    version              (CONCAT(2011, 09, 04, 01)),
     version_min          (CONCAT(2011, 09, 04, 00)),
 
-    updates_per_second   (15),
+    updates_per_second   (globals_updates_per_second),
     skill_max            (12),
     panel_gameplay_yl    (80),
     panel_editor_yl      (60),
@@ -46,7 +47,7 @@ Globals::Globals()
 
     ip_last_used         ("127.0.0.1"),
     ip_central_server    ("asdfasdf.ethz.ch"),
-    server_port          (22934),
+    server_port          (globals_port_default),
 
     // Constant strings
     // Diverses
@@ -324,14 +325,9 @@ void Globals::initialize()
     // Determine root dir
     std::string testdir = "./data/bitmap";
     std::string rootdir = "?????";
-
-    std::ifstream test1(testdir.c_str());
-    if (test1.good()) rootdir = "./";
-    test1.close();
+    if (file_exists(testdir.c_str(), FA_DIREC, 0)) rootdir = "./";
     testdir = '.' + testdir;
-    std::ifstream test2(testdir.c_str());
-    if (test2.good()) rootdir = "../";
-    test2.close();
+    if (file_exists(testdir.c_str(), FA_DIREC, 0)) rootdir = "../";
 
     Filename::set_root_dir(rootdir);
 

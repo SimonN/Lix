@@ -19,6 +19,9 @@ typedef uint32_t Uint32;
 typedef char     PlNr;   // player number
 typedef char     RoId;   // room ID
 
+extern const int globals_updates_per_second; // how fast shall the game run
+extern const int globals_port_default;       // the game uses Globals:: though
+
 extern const int
  NETWORK_PROTOCOL_VERSION,
  NETWORK_TEXT_LENGTH,

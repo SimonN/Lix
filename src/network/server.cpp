@@ -7,8 +7,6 @@
 
 #include "server.h"
 
-#include "../other/globals.h"
-
 NetServer::Room::Room()
 :
     owner            (-1),
@@ -34,8 +32,8 @@ NetServer::NetServer(
     players    (NETWORK_PLAYERS_MAX),
     rooms      (NETWORK_ROOMS_MAX),
 
-    updates_per_second(gloB->updates_per_second),
-    updates_for_notify(gloB->updates_per_second / 5),
+    updates_per_second(globals_updates_per_second),
+    updates_for_notify(globals_updates_per_second / 5),
     ticks_per_second  (ntpsec),
     ticks             (nticks)
 {

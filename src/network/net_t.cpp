@@ -7,6 +7,11 @@
 
 #include "net_t.h"
 
+const int globals_updates_per_second = 15;
+const int globals_port_default       = 22934;
+
+
+
 const int
  NETWORK_PROTOCOL_VERSION   =   2, // enet change, gui rewrite
  NETWORK_TEXT_LENGTH        = 300,
