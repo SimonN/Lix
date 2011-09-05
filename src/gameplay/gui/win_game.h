@@ -9,12 +9,12 @@
 
 #pragma once
 
-#include "tribe.h"
-#include "replay.h"
+#include "../tribe.h"
+#include "../replay.h"
 
-#include "../api/brow_sav.h"
-#include "../api/message.h"
-#include "../api/window.h"
+#include "../../api/brow_sav.h"
+#include "../../api/message.h"
+#include "../../api/window.h"
 
 namespace Api {
 class WindowGameplay : public Window {

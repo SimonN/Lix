@@ -8,14 +8,14 @@
 
 #pragma once
 
-#include "chat.h"
 #include "effect.h"
 #include "goal.h"
 #include "hatch.h"
-#include "panel.h"
 #include "replay.h"
 #include "state_ma.h"
-#include "win_game.h"
+#include "gui/chat.h"
+#include "gui/panel.h"
+#include "gui/win_game.h"
 
 #include "../api/button/b_bitmap.h"
 #include "../api/button/b_skill.h"

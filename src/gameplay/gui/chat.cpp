@@ -1,7 +1,7 @@
 #include "chat.h"
-#include "../other/globals.h" // player name
-#include "../other/user.h"
-#include "../network/network.h"
+#include "../../other/globals.h" // player name
+#include "../../other/user.h"
+#include "../../network/network.h"
 
 GameplayChat::GameplayChat()
 :

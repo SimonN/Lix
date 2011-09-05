@@ -7,14 +7,15 @@
 
 #pragma once
 
-#include "tribe.h"
 #include "pan_info.h"
 
-#include "../api/element.h"
-#include "../api/label.h"
-#include "../api/button/b_bitmap.h"
-#include "../api/button/b_text.h"
-#include "../api/button/b_skill.h"
+#include "../tribe.h"
+
+#include "../../api/element.h"
+#include "../../api/label.h"
+#include "../../api/button/b_bitmap.h"
+#include "../../api/button/b_text.h"
+#include "../../api/button/b_skill.h"
 
 struct GameplayPanel : public Api::Element {
 

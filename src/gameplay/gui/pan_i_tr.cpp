@@ -7,9 +7,9 @@
 
 #include "pan_info.h"
 
-#include "../graphic/gra_lib.h"
-#include "../other/language.h"
-#include "../other/help.h"
+#include "../../graphic/gra_lib.h"
+#include "../../other/language.h"
+#include "../../other/help.h"
 
 const int GameplayStats::PanelTribe::frame_outopp = 0;
 const int GameplayStats::PanelTribe::frame_out    = 1;

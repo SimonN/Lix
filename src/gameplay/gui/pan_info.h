@@ -35,10 +35,10 @@
 
 #pragma once
 
-#include "tribe.h"
+#include "../tribe.h"
 
-#include "../api/button/button.h"
-#include "../lix/lix_enum.h" // Farben und Tarinf
+#include "../../api/button/button.h"
+#include "../../lix/lix_enum.h" // Farben und Tarinf
 
  // Gameplay panel mode
 enum GapaMode {

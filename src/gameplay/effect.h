@@ -25,7 +25,7 @@
 
 #include <set>
 
-#include "arrow.h"
+#include "gui/arrow.h"
 #include "tribe.h"
 
 #include "../graphic/graphic.h"

@@ -5,10 +5,10 @@
 
 #include "arrow.h"
 
-#include "../graphic/gra_lib.h"
-#include "../level/level.h"     // Mindestmasse
-#include "../other/help.h"      // Help::random_double()
-#include "../other/globals.h"   // Bitmap fuer den Pfeil
+#include "../../graphic/gra_lib.h"
+#include "../../level/level.h"     // Mindestmasse
+#include "../../other/help.h"      // Help::random_double()
+#include "../../other/globals.h"   // Bitmap fuer den Pfeil
 
 const int Arrow::offset_x  = 30;
 const int Arrow::offset_y  = 56;

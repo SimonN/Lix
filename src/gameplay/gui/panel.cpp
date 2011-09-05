@@ -1,8 +1,8 @@
 #include "panel.h"
 
-#include "../level/level.h" // number of skills per level
-#include "../graphic/gra_lib.h"
-#include "../other/user.h"
+#include "../../level/level.h" // number of skills per level
+#include "../../graphic/gra_lib.h"
+#include "../../other/user.h"
 
 GameplayPanel::GameplayPanel()
 :

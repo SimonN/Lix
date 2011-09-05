@@ -33,9 +33,9 @@
 
 #include <list>
 
-#include "../graphic/graphic.h"
-#include "../graphic/map.h"
-#include "../lix/lix_enum.h"
+#include "../../graphic/graphic.h"
+#include "../../graphic/map.h"
+#include "../../lix/lix_enum.h"
 
 struct Arrow : public Graphic {
 

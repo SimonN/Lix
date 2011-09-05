@@ -8,11 +8,11 @@
 
 #include "win_game.h"
 
-#include "../api/manager.h"
-#include "../other/help.h"
-#include "../other/globals.h"
-#include "../other/user.h"
-#include "../level/level.h" // Minimalabmasse fuer Level fuer Fensterposition
+#include "../../api/manager.h"
+#include "../../other/help.h"
+#include "../../other/globals.h"
+#include "../../other/user.h"
+#include "../../level/level.h" // Minimalabmasse fuer Level fuer Fensterposition
 
 namespace Api {
 

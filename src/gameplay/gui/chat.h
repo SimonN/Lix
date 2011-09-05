@@ -7,9 +7,9 @@
 
 #pragma once
 
-#include "../api/label.h"
-#include "../api/texttype.h"
-#include "../other/console.h"
+#include "../../api/label.h"
+#include "../../api/texttype.h"
+#include "../../other/console.h"
 
 class GameplayChat : public Api::Element {
 
