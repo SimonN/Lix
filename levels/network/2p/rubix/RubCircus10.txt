@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 12:12:27
+$BUILT                                             2011-09-04 19:25:11
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                      High Voltage(2p or Team)
@@ -34,12 +34,12 @@ $ENGLISH                                      High Voltage(2p or Team)
 :bitmap/matt/03 - Carnival/Hatch.H:                      464       352     r
 :bitmap/matt/03 - Carnival/Hatch.H:                     1040       352
 
-:bitmap/matt/03 - Carnival/Goal.G:                       794       324
-:bitmap/matt/03 - Carnival/Goal.G:                       720       324
-:bitmap/matt/03 - Carnival/Goal.G:                       664       196
-:bitmap/matt/03 - Carnival/Goal.G:                       848       196
-:bitmap/matt/03 - Carnival/Goal.G:                       720        68
-:bitmap/matt/03 - Carnival/Goal.G:                       794        68
+:bitmap/matt/03 - Carnival/Goal.G:                       800       320
+:bitmap/matt/03 - Carnival/Goal.G:                       720       320
+:bitmap/matt/03 - Carnival/Goal.G:                       656       192
+:bitmap/matt/03 - Carnival/Goal.G:                       848       192
+:bitmap/matt/03 - Carnival/Goal.G:                       720        64
+:bitmap/matt/03 - Carnival/Goal.G:                       784        64
 
 :bitmap/matt/water.W:                                    656       560
 :bitmap/matt/water.W:                                    688       560

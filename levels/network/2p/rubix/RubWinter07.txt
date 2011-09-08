@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-21 10:44:44
+$BUILT                                             2011-09-04 22:33:08
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                              The cold war(2p)
@@ -20,22 +20,22 @@ $ENGLISH                                              The cold war(2p)
 
 #FLOATER                                                            20
 #WALKER                                                             50
-#JUMPER                                                             60
+#JUMPER                                                             70
 #EXPLODER2                                                          10
 #BLOCKER                                                             2
 #PLATFORMER                                                         30
 #BUILDER                                                            50
 #MINER                                                              30
 #BASHER                                                             25
-#DIGGER                                                             10
+#DIGGER                                                             20
 #RUNNER                                                             10
-#NOTHING                                                             0
+#BATTER                                                             20
 
-:bitmap/matt/05 - Winter/Hatch.H:                       1092        10
-:bitmap/matt/05 - Winter/Hatch.H:                        588        10     r
+:bitmap/matt/05 - Winter/Hatch.H:                       1328        16     r
+:bitmap/matt/05 - Winter/Hatch.H:                        352        16
 
-:bitmap/matt/05 - Winter/Goal.G:                           2       456
-:bitmap/matt/05 - Winter/Goal.G:                        1638       456
+:bitmap/matt/05 - Winter/Goal.G:                           0       448
+:bitmap/matt/05 - Winter/Goal.G:                        1632       448
 
 :bitmap/matt/water.W:                                   1504       544
 :bitmap/matt/water.W:                                   1536       544

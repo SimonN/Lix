@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 11:09:50
+$BUILT                                             2011-09-04 22:53:38
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                                 Tree Life(3p)
@@ -35,9 +35,9 @@ $ENGLISH                                                 Tree Life(3p)
 :bitmap/matt/01 - Earth/Hatch.H:                         736        32
 :bitmap/matt/01 - Earth/Hatch.H:                         480        32
 
-:bitmap/matt/06 - Oriental/Goal.G:                       188       939
-:bitmap/matt/06 - Oriental/Goal.G:                       704       939
-:bitmap/matt/06 - Oriental/Goal.G:                       448       938
+:bitmap/matt/06 - Oriental/Goal.G:                       192       928
+:bitmap/matt/06 - Oriental/Goal.G:                       704       928
+:bitmap/matt/06 - Oriental/Goal.G:                       448       928
 
 :bitmap/matt/water.W:                                    512      1008
 :bitmap/matt/water.W:                                    544      1008

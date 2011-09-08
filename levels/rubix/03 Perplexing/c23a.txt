@@ -1,0 +1,87 @@
+$BUILT                                             2011-09-05 19:16:20
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                    A taste of things to come.
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            416
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                           406
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           225
+#INITIAL                                                            50
+#REQUIRED                                                           45
+#RATE                                                                1
+
+#CLIMBER                                                             1
+#EXPLODER2                                                           3
+#BLOCKER                                                             4
+#BUILDER                                                             6
+#MINER                                                               2
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/09 - Marble/Hatch.H:                        464        64
+:bitmap/matt/09 - Marble/Hatch.H:                         96       304     r
+
+:bitmap/matt/09 - Marble/Goal.G:                          49       113
+
+:bitmap/matt/09 - Marble/08d:                              0         0
+:bitmap/matt/09 - Marble/08d:                             64         0
+:bitmap/matt/09 - Marble/08d:                            128         0
+:bitmap/matt/09 - Marble/08d:                            192         0
+:bitmap/matt/09 - Marble/08d:                            256         0
+:bitmap/matt/09 - Marble/08d:                            320         0
+:bitmap/matt/09 - Marble/08d:                            384         0
+:bitmap/matt/09 - Marble/08d:                              0       384
+:bitmap/matt/09 - Marble/08d:                             64       384
+:bitmap/matt/09 - Marble/08d:                            128       384
+:bitmap/matt/09 - Marble/08d:                            192       384
+:bitmap/matt/09 - Marble/08d:                            256       384
+:bitmap/matt/09 - Marble/08d:                            320       384
+:bitmap/matt/09 - Marble/08d:                            384       384
+:bitmap/matt/09 - Marble/08d:                            448       384
+:bitmap/matt/09 - Marble/08d:                            448         0
+:bitmap/matt/09 - Marble/08d:                            512         0
+:bitmap/matt/09 - Marble/08d:                            576         0
+:bitmap/matt/09 - Marble/08d:                            512       384
+:bitmap/matt/09 - Marble/08d:                            576       384
+:bitmap/matt/09 - Marble/06a:                              0        32
+:bitmap/matt/09 - Marble/06a:                              0        96
+:bitmap/matt/09 - Marble/06a:                              0       160
+:bitmap/matt/09 - Marble/06a:                              0       224
+:bitmap/matt/09 - Marble/06a:                              0       320
+:bitmap/matt/09 - Marble/06a:                            608        32
+:bitmap/matt/09 - Marble/06a:                            608       128
+:bitmap/matt/09 - Marble/06a:                            608       192
+:bitmap/matt/09 - Marble/06a:                            608       256
+:bitmap/matt/09 - Marble/06a:                            608       320
+:bitmap/matt/09 - Marble/08c:                            544       128
+:bitmap/matt/09 - Marble/08c:                            480       128
+:bitmap/matt/09 - Marble/09a:                            288       256
+:bitmap/matt/09 - Marble/09a:                            288       320
+:bitmap/matt/09 - Marble/08c:                             96       192
+:bitmap/matt/09 - Marble/08c:                             48       160
+:bitmap/matt/09 - Marble/09a:                            224       256
+:bitmap/matt/09 - Marble/09a:                            224       320
+:bitmap/matt/09 - Marble/09a:                            224       192
+:bitmap/matt/09 - Marble/09a:                            160       256
+:bitmap/matt/09 - Marble/09a:                            160       320
+:bitmap/matt/09 - Marble/09a:                            160       192
+:bitmap/matt/09 - Marble/08a:                            288       224
+:bitmap/matt/09 - Marble/08a:                            160       160
+:bitmap/matt/09 - Marble/09a:                            352       256
+:bitmap/matt/09 - Marble/09a:                            352       320
+:bitmap/matt/steel/64x32.S:                              608       352     r
+:bitmap/matt/steel/64x32.S:                              304       352     r
+:bitmap/matt/steel/64x32.S:                                0       352     r

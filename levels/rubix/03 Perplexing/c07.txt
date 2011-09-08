@@ -1,0 +1,127 @@
+$BUILT                                             2011-09-05 17:09:31
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                               Movement denied
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           105
+#INITIAL                                                            99
+#REQUIRED                                                           99
+#RATE                                                               99
+
+#WALKER                                                             20
+#JUMPER                                                              4
+#BUILDER                                                             1
+#BASHER                                                              1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/05 - Winter/Hatch.H:                        224       -16
+
+:bitmap/matt/05 - Winter/Goal.G:                         -38       114
+
+:bitmap/matt/05 - Winter/06:                             -10       140
+:bitmap/matt/05 - Winter/06:                             -10        90
+:bitmap/matt/05 - Winter/06:                             160       240
+:bitmap/matt/05 - Winter/06:                              64       256
+:bitmap/matt/05 - Winter/06:                               0       192
+:bitmap/matt/05 - Winter/06:                             352        32
+:bitmap/matt/05 - Winter/06:                             384        80     r
+:bitmap/matt/05 - Winter/06:                             448        80     r
+:bitmap/matt/05 - Winter/06:                             512        80     r
+:bitmap/matt/05 - Winter/06:                             624        80
+:bitmap/matt/05 - Winter/06:                             496       128     r
+:bitmap/matt/05 - Winter/06:                             560       128     r
+:bitmap/matt/05 - Winter/06:                             432       128     r
+:bitmap/matt/05 - Winter/06:                             320       128
+:bitmap/matt/05 - Winter/06:                             400       128     r
+:bitmap/matt/05 - Winter/06:                             464       128     r
+:bitmap/matt/05 - Winter/06:                             352       128     r
+:bitmap/matt/05 - Winter/06:                             480       176     r
+:bitmap/matt/05 - Winter/06:                             544       176     r
+:bitmap/matt/05 - Winter/06:                             416       176     r
+:bitmap/matt/05 - Winter/06:                             384       176     r
+:bitmap/matt/05 - Winter/06:                             448       176     r
+:bitmap/matt/05 - Winter/06:                             320       176     r
+:bitmap/matt/05 - Winter/06:                             624        32     f
+:bitmap/matt/05 - Winter/06:                             224       -32     rr
+:bitmap/matt/05 - Winter/06:                             224        32     r
+:bitmap/matt/05 - Winter/06:                             288        32     r
+:bitmap/matt/05 - Winter/06:                             368       224     r
+:bitmap/matt/05 - Winter/06:                             624       174     f
+:bitmap/matt/05 - Winter/06:                             320       224     r
+:bitmap/matt/05 - Winter/06:                             624       144
+:bitmap/matt/05 - Winter/06:                             432       224     r
+:bitmap/matt/05 - Winter/06:                             496       224     r
+:bitmap/matt/05 - Winter/06:                             560       224     r
+:bitmap/matt/05 - Winter/06:                             240       304     r
+:bitmap/matt/05 - Winter/06:                             320        80     f
+:bitmap/matt/05 - Winter/06:                             320        80     fr
+:bitmap/matt/05 - Winter/06:                             235       309     r
+:bitmap/matt/05 - Winter/04:                             250       223
+:bitmap/matt/05 - Winter/04:                             196       265
+:bitmap/matt/05 - Winter/04:                             170       347
+:bitmap/matt/05 - Winter/04:                             229       305
+:bitmap/matt/05 - Winter/10:                             295       223
+:bitmap/matt/05 - Winter/10:                             246       300
+:bitmap/matt/05 - Winter/10:                             217       333
+:bitmap/matt/05 - Winter/10:                             278       270
+:bitmap/matt/05 - Winter/10:                             311       237
+:bitmap/matt/05 - Winter/10:                             368       236
+:bitmap/matt/05 - Winter/10:                             319       313
+:bitmap/matt/05 - Winter/10:                             290       346
+:bitmap/matt/05 - Winter/10:                             351       283
+:bitmap/matt/05 - Winter/10:                             384       250
+:bitmap/matt/05 - Winter/10:                             411       233
+:bitmap/matt/05 - Winter/10:                             364       316
+:bitmap/matt/05 - Winter/10:                             335       349
+:bitmap/matt/05 - Winter/10:                             396       286
+:bitmap/matt/05 - Winter/10:                             429       253
+:bitmap/matt/05 - Winter/10:                             499       234
+:bitmap/matt/05 - Winter/10:                             407       314
+:bitmap/matt/05 - Winter/10:                             378       347
+:bitmap/matt/05 - Winter/10:                             439       284
+:bitmap/matt/05 - Winter/10:                             474       231
+:bitmap/matt/05 - Winter/10:                             549       236
+:bitmap/matt/05 - Winter/10:                             500       313
+:bitmap/matt/05 - Winter/10:                             471       346
+:bitmap/matt/05 - Winter/10:                             532       283
+:bitmap/matt/05 - Winter/10:                             565       250
+:bitmap/matt/05 - Winter/09a:                            -32       176
+:bitmap/matt/05 - Winter/09a:                             -8       176
+:bitmap/matt/05 - Winter/09a:                             16       176
+:bitmap/matt/05 - Winter/09a:                             32       192
+:bitmap/matt/05 - Winter/09a:                             48       208
+:bitmap/matt/05 - Winter/09a:                             62       224
+:bitmap/matt/05 - Winter/06:                             544        80     r
+:bitmap/matt/05 - Winter/09a:                             72       240
+:bitmap/matt/05 - Winter/09a:                             82       256
+:bitmap/matt/05 - Winter/06:                              64       320
+:bitmap/matt/05 - Winter/06:                               0       240
+:bitmap/matt/05 - Winter/06:                               0       288
+:bitmap/matt/05 - Winter/06:                               0       336
+:bitmap/matt/05 - Winter/06:                              64       368
+:bitmap/matt/05 - Winter/06:                             160        16
+:bitmap/matt/05 - Winter/06:                             160        80
+:bitmap/matt/05 - Winter/06:                             160       128
+:bitmap/matt/05 - Winter/06:                             160       128
+:bitmap/matt/05 - Winter/06:                             160       192
+:bitmap/matt/05 - Winter/06:                             -10       -16
+:bitmap/matt/05 - Winter/06:                             -10        48
+:bitmap/matt/05 - Winter/09a:                             96       276
+:bitmap/matt/05 - Winter/06:                             160         0

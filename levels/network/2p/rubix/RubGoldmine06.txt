@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-21 12:37:24
+$BUILT                                             2011-09-04 19:34:51
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                               Goldfinger (2p)
@@ -31,14 +31,14 @@ $ENGLISH                                               Goldfinger (2p)
 #CUBER                                                              10
 #NOTHING                                                             0
 
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   586       256
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                    -6       256
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   576       240
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                     0       240
 
-:bitmap/matt/02 - Gold Mine/Hatch.H:                     -16       -22
-:bitmap/matt/02 - Gold Mine/Hatch.H:                     592       -22     r
+:bitmap/matt/02 - Gold Mine/Hatch.H:                     -16       -16
+:bitmap/matt/02 - Gold Mine/Hatch.H:                     592       -16     r
 
-:bitmap/matt/02 - Gold Mine/Goal.G:                      588       296
-:bitmap/matt/02 - Gold Mine/Goal.G:                       -2       296
+:bitmap/matt/02 - Gold Mine/Goal.G:                      576       288
+:bitmap/matt/02 - Gold Mine/Goal.G:                        0       288
 
 :bitmap/matt/02 - Gold Mine/crate32:                     400        16
 :bitmap/matt/02 - Gold Mine/crate32:                     208        16

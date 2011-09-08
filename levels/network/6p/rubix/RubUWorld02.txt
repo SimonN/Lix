@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 12:10:34
+$BUILT                                             2011-09-04 23:58:33
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                                   Vicious(6p)
@@ -19,10 +19,10 @@ $ENGLISH                                                   Vicious(6p)
 #RATE                                                               30
 
 #CLIMBER                                                             5
-#FLOATER                                                             5
+#FLOATER                                                            15
 #WALKER                                                             50
 #JUMPER                                                             30
-#EXPLODER                                                            8
+#EXPLODER2                                                           8
 #BLOCKER                                                             2
 #BUILDER                                                            70
 #PLATFORMER                                                         35
@@ -31,12 +31,12 @@ $ENGLISH                                                   Vicious(6p)
 #DIGGER                                                              8
 #CUBER                                                              20
 
-:bitmap/matt/07 - Underworld/hatch.H:                    320         0     r
-:bitmap/matt/07 - Underworld/hatch.H:                    576         0     r
-:bitmap/matt/07 - Underworld/hatch.H:                     64         0     r
-:bitmap/matt/07 - Underworld/hatch.H:                    322       557     r
-:bitmap/matt/07 - Underworld/hatch.H:                    578       557     r
-:bitmap/matt/07 - Underworld/hatch.H:                     66       557     r
+:bitmap/matt/07 - Underworld/Hatch.H:                     64         0     r
+:bitmap/matt/07 - Underworld/Hatch.H:                    320         0     r
+:bitmap/matt/07 - Underworld/Hatch.H:                    576         0     r
+:bitmap/matt/07 - Underworld/Hatch.H:                     64       560     r
+:bitmap/matt/07 - Underworld/Hatch.H:                    320       560     r
+:bitmap/matt/07 - Underworld/Hatch.H:                    576       560     r
 
 :bitmap/matt/07 - Underworld/Goal.G:                     576       448
 :bitmap/matt/07 - Underworld/Goal.G:                      64       448

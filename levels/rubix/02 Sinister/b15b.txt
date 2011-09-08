@@ -1,0 +1,102 @@
+$BUILT                                             2011-09-05 14:37:34
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                    The Armory
+
+#SIZE_X                                                            800
+#SIZE_Y                                                            380
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                           160
+#START_Y                                                           -40
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           150
+#INITIAL                                                            30
+#REQUIRED                                                           30
+#RATE                                                                1
+
+#CLIMBER                                                             2
+#JUMPER                                                              1
+#WALKER                                                              1
+#BLOCKER                                                             1
+#BUILDER                                                             2
+#PLATFORMER                                                          1
+#MINER                                                               2
+#RUNNER                                                              1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/09 - Marble/Hatch.H:                        176       -16
+
+:bitmap/matt/09 - Marble/Goal.G:                         736       240
+
+:bitmap/matt/09 - Marble/21d:                             48         0
+:bitmap/matt/09 - Marble/09d:                            128       256
+:bitmap/matt/09 - Marble/18a:                            112       240
+:bitmap/matt/09 - Marble/18a:                            128       224
+:bitmap/matt/09 - Marble/18a:                            144       208
+:bitmap/matt/09 - Marble/18a:                            160       192
+:bitmap/matt/09 - Marble/18a:                            176       176
+:bitmap/matt/09 - Marble/18a:                            192       160
+:bitmap/matt/09 - Marble/18a:                            208       144
+:bitmap/matt/09 - Marble/21d:                            240         0
+:bitmap/matt/09 - Marble/21d:                            352         0
+:bitmap/matt/09 - Marble/21d:                            288         0
+:bitmap/matt/09 - Marble/21d:                            416         0
+:bitmap/matt/09 - Marble/09a:                            160        64
+:bitmap/matt/09 - Marble/09a:                            224       128
+:bitmap/matt/09 - Marble/09a:                            288       192
+:bitmap/matt/09 - Marble/09a:                            288       256
+:bitmap/matt/09 - Marble/09a:                            480       192
+:bitmap/matt/09 - Marble/09a:                            480       256
+:bitmap/matt/09 - Marble/09a:                            544       192
+:bitmap/matt/09 - Marble/09a:                            544       256
+:bitmap/matt/09 - Marble/09a:                            608       192
+:bitmap/matt/09 - Marble/09a:                            608       256
+:bitmap/matt/09 - Marble/08d:                            288       320     f
+:bitmap/matt/09 - Marble/08d:                            288       352
+:bitmap/matt/09 - Marble/08d:                            352       320     f
+:bitmap/matt/09 - Marble/08d:                            352       352
+:bitmap/matt/09 - Marble/08d:                            416       320     f
+:bitmap/matt/09 - Marble/08d:                            416       352
+:bitmap/matt/09 - Marble/08d:                            480       320     f
+:bitmap/matt/09 - Marble/08d:                            480       352
+:bitmap/matt/09 - Marble/08d:                            544       320     f
+:bitmap/matt/09 - Marble/08d:                            544       352
+:bitmap/matt/09 - Marble/08d:                            608       320     f
+:bitmap/matt/09 - Marble/08d:                            608       352
+:bitmap/matt/09 - Marble/08d:                            736       288     f
+:bitmap/matt/09 - Marble/08d:                            736       352
+:bitmap/matt/09 - Marble/22d:                            368         0
+:bitmap/matt/09 - Marble/21d:                            480         0
+:bitmap/matt/09 - Marble/21d:                            544         0
+:bitmap/matt/09 - Marble/21d:                            608         0
+:bitmap/matt/09 - Marble/21d:                            672         0
+:bitmap/matt/09 - Marble/21d:                            736         0
+:bitmap/matt/09 - Marble/22d:                            400        48
+:bitmap/matt/09 - Marble/22d:                            752         0
+:bitmap/matt/09 - Marble/22d:                            608        48
+:bitmap/matt/09 - Marble/22a:                            608         0     frr
+:bitmap/matt/09 - Marble/22a:                            560        48     frr
+:bitmap/matt/09 - Marble/15a:                            192       128     frr
+:bitmap/matt/09 - Marble/15a:                            256       192     frr
+:bitmap/matt/09 - Marble/15a:                            288       160     rrr
+:bitmap/matt/09 - Marble/15a:                            224        96     rrr
+:bitmap/matt/09 - Marble/22a:                            240         0     frr
+:bitmap/matt/09 - Marble/22a:                            368        48     frr
+:bitmap/matt/09 - Marble/09d:                            128       320
+:bitmap/matt/09 - Marble/08d:                            736       320     f
+:bitmap/matt/09 - Marble/09d:                              0       256
+:bitmap/matt/09 - Marble/09d:                              0       320
+:bitmap/matt/09 - Marble/09d:                              0       128
+:bitmap/matt/09 - Marble/09d:                              0       192
+:bitmap/matt/09 - Marble/09d:                              0         0
+:bitmap/matt/09 - Marble/09d:                              0        64
+:bitmap/matt/09 - Marble/22d:                             80       -16
+:bitmap/matt/09 - Marble/22d:                            112        16
+:bitmap/matt/09 - Marble/22a:                             80        16     frr

@@ -1,0 +1,124 @@
+$BUILT                                             2011-09-05 22:34:59
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                    You'll never fool me again
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           180
+#INITIAL                                                            20
+#REQUIRED                                                           16
+#RATE                                                                1
+
+#WALKER                                                              2
+#JUMPER                                                              2
+#CLIMBER                                                             1
+#BLOCKER                                                             2
+#BUILDER                                                             2
+#PLATFORMER                                                          1
+#BASHER                                                              2
+#MINER                                                               1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/05 - Winter/Hatch.H:                         68        78     r
+:bitmap/matt/05 - Winter/Hatch.H:                        602       252     r
+
+:bitmap/matt/05 - Winter/Goal.G:                         578        66
+
+:bitmap/matt/05 - Winter/13:                             308       253
+:bitmap/matt/05 - Winter/14:                             479       213
+:bitmap/matt/05 - Winter/05:                             456       -32     f
+:bitmap/matt/05 - Winter/03:                              12       217
+:bitmap/matt/05 - Winter/13:                             321       307
+:bitmap/matt/05 - Winter/06:                             203       165
+:bitmap/matt/05 - Winter/03:                              59         0
+:bitmap/matt/05 - Winter/03:                              34       -16
+:bitmap/matt/05 - Winter/06:                               9       127     r
+:bitmap/matt/05 - Winter/06:                              73       127     r
+:bitmap/matt/05 - Winter/06:                              56       129     rd
+:bitmap/matt/05 - Winter/06:                              75       129     rd
+:bitmap/matt/05 - Winter/04:                              24       -17     r
+:bitmap/matt/05 - Winter/10:                             520       127
+:bitmap/matt/05 - Winter/06:                             -46       127     r
+:bitmap/matt/05 - Winter/06:                               0       129     rd
+:bitmap/matt/05 - Winter/03:                              14       129
+:bitmap/matt/05 - Winter/10:                             -17       134
+:bitmap/matt/05 - Winter/02:                              12       -10     rr
+:bitmap/matt/05 - Winter/06:                              37       -15     rd
+:bitmap/matt/05 - Winter/06:                              99       -15     rd
+:bitmap/matt/05 - Winter/02:                             -21       -60     rrd
+:bitmap/matt/05 - Winter/02:                             -15       -88     rrd
+:bitmap/matt/05 - Winter/06:                             120       -15     rd
+:bitmap/matt/05 - Winter/04:                              84         2     rr
+:bitmap/geoo/construction/rod_steel/straight32.S:         78       126
+:bitmap/matt/steel/32x16.S:                              103       127
+:bitmap/matt/steel/32x32.S:                              103        95
+:bitmap/matt/05 - Winter/13:                              89        42     rd
+:bitmap/matt/05 - Winter/09c:                             87        54
+:bitmap/matt/05 - Winter/13:                             111        19     rd
+:bitmap/matt/05 - Winter/09c:                            112        53
+:bitmap/matt/05 - Winter/06:                              -2       158     d
+:bitmap/matt/05 - Winter/06:                              -2       184     d
+:bitmap/matt/05 - Winter/11:                             -33       352
+:bitmap/matt/05 - Winter/10:                             -42       278
+:bitmap/matt/05 - Winter/09a:                            568       375
+:bitmap/matt/05 - Winter/10:                             367       329
+:bitmap/matt/05 - Winter/06:                             308       338
+:bitmap/matt/05 - Winter/13:                             317       267
+:bitmap/matt/05 - Winter/06:                             308       217
+:bitmap/matt/05 - Winter/06:                             308       275
+:bitmap/matt/05 - Winter/10:                             320       290     fr
+:bitmap/matt/05 - Winter/14:                             469       240
+:bitmap/matt/05 - Winter/10:                             494       148     fr
+:bitmap/matt/05 - Winter/04:                             374       155     f
+:bitmap/matt/05 - Winter/10:                              63       175
+:bitmap/matt/05 - Winter/04:                             160        85     d
+:bitmap/matt/05 - Winter/06:                             216       180
+:bitmap/matt/05 - Winter/06:                             216       116
+:bitmap/matt/05 - Winter/03:                              31       129     rrn
+:bitmap/matt/05 - Winter/09a:                            612       295
+:bitmap/matt/05 - Winter/09a:                            596       339
+:bitmap/matt/05 - Winter/09c:                            152        29
+:bitmap/matt/05 - Winter/17:                             150        13
+:bitmap/matt/05 - Winter/04:                             123        99
+:bitmap/matt/05 - Winter/09c:                            111        66
+:bitmap/matt/05 - Winter/09c:                             96        69
+:bitmap/matt/05 - Winter/09c:                             86        66
+:bitmap/matt/05 - Winter/09c:                            123        61
+:bitmap/matt/steel/32x32.S:                              103        64
+:bitmap/matt/05 - Winter/09c:                             97        57
+:bitmap/matt/05 - Winter/09c:                            131        51
+:bitmap/matt/05 - Winter/04:                             373        33
+:bitmap/matt/05 - Winter/10:                             249       -78
+:bitmap/matt/05 - Winter/10:                             353       -21
+:bitmap/matt/05 - Winter/10:                             500       -67
+:bitmap/matt/05 - Winter/10:                             592       -73     r
+:bitmap/matt/05 - Winter/09c:                            584       364
+:bitmap/matt/05 - Winter/09c:                            590       356
+:bitmap/matt/05 - Winter/09c:                            574       373
+:bitmap/matt/05 - Winter/09c:                            580       357
+:bitmap/matt/05 - Winter/09c:                            593       346
+:bitmap/matt/05 - Winter/09c:                            603       336
+:bitmap/matt/05 - Winter/09c:                            586       346
+:bitmap/matt/05 - Winter/09c:                            586       372
+:bitmap/matt/05 - Winter/09c:                            569       366
+:bitmap/matt/05 - Winter/09c:                            573       355
+:bitmap/matt/05 - Winter/09b:                            598       372
+:bitmap/matt/05 - Winter/09b:                            617       351
+:bitmap/matt/05 - Winter/09b:                            600       345
+:bitmap/matt/05 - Winter/09c:                             94        75
+:bitmap/matt/05 - Winter/13:                             378       215
+:bitmap/matt/05 - Winter/01:                             548       135
+:bitmap/matt/05 - Winter/13:                             486       220
+:bitmap/matt/05 - Winter/10:                             -82       262

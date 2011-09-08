@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-21 10:45:40
+$BUILT                                             2011-09-04 19:27:18
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                    Red light, Green light(2p)
@@ -34,8 +34,8 @@ $ENGLISH                                    Red light, Green light(2p)
 :bitmap/matt/03 - Carnival/Hatch.H:                     1342       -28     r
 :bitmap/matt/03 - Carnival/Hatch.H:                     1406       -28
 
-:bitmap/matt/03 - Carnival/Goal.G:                      2758       152
-:bitmap/matt/03 - Carnival/Goal.G:                         0       152
+:bitmap/matt/03 - Carnival/Goal.G:                      2752       148
+:bitmap/matt/03 - Carnival/Goal.G:                         0       148
 
 :bitmap/matt/water.W:                                    880       352
 :bitmap/matt/water.W:                                    912       352

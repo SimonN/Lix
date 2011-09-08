@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 11:48:15
+$BUILT                                             2011-09-04 22:52:14
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                              You are all coming with me!!(3p)
@@ -31,9 +31,9 @@ $ENGLISH                              You are all coming with me!!(3p)
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   210       596
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   466       596
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   722       596
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   208       580
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   464       580
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   720       580
 :bitmap/matt/02 - Gold Mine/mine cart.D:                  76       148
 :bitmap/matt/02 - Gold Mine/mine cart.D:                 423       116
 :bitmap/matt/02 - Gold Mine/shovel.D:                     97       141
@@ -43,9 +43,9 @@ $ENGLISH                              You are all coming with me!!(3p)
 :bitmap/matt/02 - Gold Mine/Hatch.H:                     736       116
 :bitmap/matt/02 - Gold Mine/Hatch.H:                     224       116
 
-:bitmap/matt/02 - Gold Mine/Goal.G:                      470       636
-:bitmap/matt/02 - Gold Mine/Goal.G:                      724       636
-:bitmap/matt/02 - Gold Mine/Goal.G:                      212       636
+:bitmap/matt/02 - Gold Mine/Goal.G:                      464       628
+:bitmap/matt/02 - Gold Mine/Goal.G:                      720       628
+:bitmap/matt/02 - Gold Mine/Goal.G:                      208       628
 
 :bitmap/matt/02 - Gold Mine/07:                           96       676
 :bitmap/matt/02 - Gold Mine/07:                          224       676

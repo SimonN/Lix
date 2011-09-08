@@ -1,0 +1,104 @@
+$BUILT                                             2011-09-05 14:26:10
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                    World 2-19
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            560
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           240
+#INITIAL                                                            75
+#REQUIRED                                                           74
+#RATE                                                               40
+
+#CLIMBER                                                             1
+#FLOATER                                                             1
+#WALKER                                                              3
+#BLOCKER                                                             1
+#BUILDER                                                             2
+#PLATFORMER                                                          3
+#MINER                                                               1
+#BASHER                                                              1
+#DIGGER                                                              1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/08 - Bricks/Hatch.H:                          0       448
+
+:bitmap/matt/08 - Bricks/Goal.G:                         576        80
+
+:bitmap/matt/08 - Bricks/02b:                            320       464     r
+:bitmap/matt/08 - Bricks/02b:                            192       464     r
+:bitmap/matt/08 - Bricks/03b:                              0         0
+:bitmap/matt/08 - Bricks/03b:                             64         0
+:bitmap/matt/08 - Bricks/03b:                            128         0
+:bitmap/matt/08 - Bricks/03b:                            192         0
+:bitmap/matt/08 - Bricks/03b:                            256         0
+:bitmap/matt/08 - Bricks/03b:                            320         0
+:bitmap/matt/08 - Bricks/03b:                            384         0
+:bitmap/matt/08 - Bricks/03b:                            448         0
+:bitmap/matt/08 - Bricks/03b:                            512         0
+:bitmap/matt/08 - Bricks/03b:                            576         0
+:bitmap/matt/08 - Bricks/03b:                              0       368
+:bitmap/matt/08 - Bricks/03b:                             80       256
+:bitmap/matt/08 - Bricks/03b:                            128       256
+:bitmap/matt/08 - Bricks/03b:                            192       256
+:bitmap/matt/08 - Bricks/03b:                            256       256
+:bitmap/matt/08 - Bricks/03b:                            320       256
+:bitmap/matt/08 - Bricks/03b:                            384       256
+:bitmap/matt/08 - Bricks/03b:                            448       256
+:bitmap/matt/08 - Bricks/03b:                            512       256
+:bitmap/matt/08 - Bricks/03b:                            576       368
+:bitmap/matt/08 - Bricks/03b:                              0        80
+:bitmap/matt/08 - Bricks/03b:                              0       128
+:bitmap/matt/08 - Bricks/03b:                              0       192
+:bitmap/matt/08 - Bricks/03b:                              0       256
+:bitmap/matt/08 - Bricks/03b:                              0       320
+:bitmap/matt/08 - Bricks/03b:                            576       128
+:bitmap/matt/08 - Bricks/03b:                            576       192
+:bitmap/matt/08 - Bricks/03b:                            576       256
+:bitmap/matt/08 - Bricks/03b:                            576       320
+:bitmap/matt/08 - Bricks/03b:                             64       496
+:bitmap/matt/08 - Bricks/03b:                            128       496
+:bitmap/matt/08 - Bricks/03b:                            192       496
+:bitmap/matt/08 - Bricks/03b:                            256       496
+:bitmap/matt/08 - Bricks/03b:                            320       496
+:bitmap/matt/08 - Bricks/03b:                            384       496
+:bitmap/matt/08 - Bricks/03b:                            448       496
+:bitmap/matt/08 - Bricks/03b:                            512       496
+:bitmap/matt/08 - Bricks/03b:                              0       496
+:bitmap/matt/08 - Bricks/03b:                            576       432
+:bitmap/matt/08 - Bricks/03b:                            576       496
+:bitmap/matt/08 - Bricks/03b:                            512       384
+:bitmap/matt/08 - Bricks/07b:                            448       384
+:bitmap/matt/08 - Bricks/07b:                            400       432
+:bitmap/matt/08 - Bricks/03b:                            464       432
+:bitmap/matt/08 - Bricks/03b:                            512       432
+:bitmap/matt/08 - Bricks/02b:                            128       432     r
+:bitmap/matt/08 - Bricks/02b:                            128       368     r
+:bitmap/matt/08 - Bricks/02b:                            192       400     r
+:bitmap/matt/08 - Bricks/02b:                            256       432     r
+:bitmap/matt/08 - Bricks/17:                             446       334     frr
+:bitmap/matt/08 - Bricks/07b:                            512       128
+:bitmap/matt/08 - Bricks/07b:                            448       192
+:bitmap/matt/08 - Bricks/03b:                            512       192
+:bitmap/matt/08 - Bricks/12b:                            320       224
+:bitmap/matt/08 - Bricks/06b:                            320        64
+:bitmap/matt/08 - Bricks/03b:                            256        64
+:bitmap/matt/08 - Bricks/02b:                            256       128
+:bitmap/matt/08 - Bricks/03b:                            256       160
+:bitmap/matt/08 - Bricks/05b:                            192       160
+:bitmap/matt/08 - Bricks/03b:                            192        64
+:bitmap/matt/08 - Bricks/02b:                            192       128
+:bitmap/matt/08 - Bricks/05b:                            128        96
+:bitmap/matt/08 - Bricks/03b:                            128        32
+:bitmap/matt/08 - Bricks/05b:                             64        32
+:bitmap/matt/08 - Bricks/08b:                            320       192

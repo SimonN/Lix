@@ -1,0 +1,333 @@
+$BUILT                                             2011-09-05 10:54:40
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                        Depths of the ice cave
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            880
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           270
+#INITIAL                                                            60
+#REQUIRED                                                           60
+#RATE                                                               50
+
+#CLIMBER                                                             1
+#FLOATER                                                             1
+#EXPLODER                                                            0
+#BLOCKER                                                             0
+#BUILDER                                                             1
+#PLATFORMER                                                          3
+#BASHER                                                              3
+#MINER                                                               3
+#DIGGER                                                              3
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/05 - Winter/Hatch.H:                        112       100
+
+:bitmap/matt/05 - Winter/Goal.G:                         528       768
+
+:bitmap/matt/05 - Winter/06:                             400       592
+:bitmap/matt/05 - Winter/06:                             368        96     r
+:bitmap/matt/05 - Winter/06:                             368       112     r
+:bitmap/matt/05 - Winter/06:                              48        16
+:bitmap/matt/05 - Winter/06:                              48        80
+:bitmap/matt/05 - Winter/06:                              64        16
+:bitmap/matt/05 - Winter/06:                              64        80
+:bitmap/matt/05 - Winter/06:                              80        16
+:bitmap/matt/05 - Winter/06:                              80        80
+:bitmap/matt/05 - Winter/06:                              96        16
+:bitmap/matt/05 - Winter/06:                              96        80
+:bitmap/matt/05 - Winter/06:                             112        16     r
+:bitmap/matt/05 - Winter/06:                             176        16     r
+:bitmap/matt/05 - Winter/06:                             112        32     r
+:bitmap/matt/05 - Winter/06:                             176        32     r
+:bitmap/matt/05 - Winter/06:                             112        48     r
+:bitmap/matt/05 - Winter/06:                             176        48     r
+:bitmap/matt/05 - Winter/06:                             112       148     r
+:bitmap/matt/05 - Winter/06:                             176       148     r
+:bitmap/matt/05 - Winter/06:                             112       164     r
+:bitmap/matt/05 - Winter/06:                             176       164     r
+:bitmap/matt/05 - Winter/06:                             112       180     r
+:bitmap/matt/05 - Winter/06:                             176       180     r
+:bitmap/matt/05 - Winter/06:                             240       160
+:bitmap/matt/05 - Winter/06:                             256       160
+:bitmap/matt/05 - Winter/06:                             272       160
+:bitmap/matt/05 - Winter/06:                             288       160
+:bitmap/matt/05 - Winter/06:                             240       224
+:bitmap/matt/05 - Winter/06:                             240       288
+:bitmap/matt/05 - Winter/06:                             256       224
+:bitmap/matt/05 - Winter/06:                             256       288
+:bitmap/matt/05 - Winter/06:                             272       224
+:bitmap/matt/05 - Winter/06:                             272       288
+:bitmap/matt/05 - Winter/06:                             288       224
+:bitmap/matt/05 - Winter/06:                             288       288
+:bitmap/matt/05 - Winter/06:                             240        16     r
+:bitmap/matt/05 - Winter/06:                             304        16     r
+:bitmap/matt/05 - Winter/06:                             240        32     r
+:bitmap/matt/05 - Winter/06:                             304        32     r
+:bitmap/matt/05 - Winter/06:                             240        48     r
+:bitmap/matt/05 - Winter/06:                             304        48     r
+:bitmap/matt/05 - Winter/06:                             144       352     r
+:bitmap/matt/05 - Winter/06:                             208       352     r
+:bitmap/matt/05 - Winter/06:                             144       368     r
+:bitmap/matt/05 - Winter/06:                             208       368     r
+:bitmap/matt/05 - Winter/06:                             144       384     r
+:bitmap/matt/05 - Winter/06:                             208       384     r
+:bitmap/matt/05 - Winter/06:                             272       352     r
+:bitmap/matt/05 - Winter/06:                             336       352     r
+:bitmap/matt/05 - Winter/06:                             272       368     r
+:bitmap/matt/05 - Winter/06:                             336       368     r
+:bitmap/matt/05 - Winter/06:                             272       384     r
+:bitmap/matt/05 - Winter/06:                             336       384     r
+:bitmap/matt/05 - Winter/07:                             240        75
+:bitmap/matt/05 - Winter/07:                             256        75
+:bitmap/matt/05 - Winter/07:                             272        75
+:bitmap/matt/05 - Winter/07:                             288        75
+:bitmap/matt/05 - Winter/06:                             368        16
+:bitmap/matt/05 - Winter/06:                             368       128     r
+:bitmap/matt/05 - Winter/06:                             368        80
+:bitmap/matt/05 - Winter/06:                             384        16
+:bitmap/matt/05 - Winter/06:                             384        80
+:bitmap/matt/05 - Winter/06:                             400        16
+:bitmap/matt/05 - Winter/06:                             416        16
+:bitmap/matt/05 - Winter/06:                             400        80
+:bitmap/matt/05 - Winter/06:                             416        80
+:bitmap/matt/05 - Winter/06:                             368       144
+:bitmap/matt/05 - Winter/06:                             368       208
+:bitmap/matt/05 - Winter/06:                             384       144
+:bitmap/matt/05 - Winter/06:                             384       208
+:bitmap/matt/05 - Winter/06:                             400       144
+:bitmap/matt/05 - Winter/06:                             400       208
+:bitmap/matt/05 - Winter/06:                             416       144
+:bitmap/matt/05 - Winter/06:                             416       208
+:bitmap/matt/05 - Winter/06:                             528       352
+:bitmap/matt/05 - Winter/06:                             528       416
+:bitmap/matt/05 - Winter/06:                             544       352
+:bitmap/matt/05 - Winter/06:                             544       416
+:bitmap/matt/05 - Winter/06:                             560       352
+:bitmap/matt/05 - Winter/06:                             560       416
+:bitmap/matt/05 - Winter/06:                             576       352
+:bitmap/matt/05 - Winter/06:                             576       416
+:bitmap/matt/05 - Winter/06:                             528       480
+:bitmap/matt/05 - Winter/06:                             528       544
+:bitmap/matt/05 - Winter/06:                             544       480
+:bitmap/matt/05 - Winter/06:                             544       544
+:bitmap/matt/05 - Winter/06:                             560       480
+:bitmap/matt/05 - Winter/06:                             560       544
+:bitmap/matt/05 - Winter/06:                             576       480
+:bitmap/matt/05 - Winter/06:                             576       544
+:bitmap/matt/05 - Winter/06:                             400       352     r
+:bitmap/matt/05 - Winter/06:                             464       352     r
+:bitmap/matt/05 - Winter/06:                             400       368     r
+:bitmap/matt/05 - Winter/06:                             464       368     r
+:bitmap/matt/05 - Winter/06:                             400       384     r
+:bitmap/matt/05 - Winter/06:                             464       384     r
+:bitmap/matt/05 - Winter/06:                              80       416
+:bitmap/matt/05 - Winter/06:                              80       480
+:bitmap/matt/05 - Winter/06:                              96       416
+:bitmap/matt/05 - Winter/06:                              96       480
+:bitmap/matt/05 - Winter/06:                             112       416
+:bitmap/matt/05 - Winter/06:                             112       480
+:bitmap/matt/05 - Winter/06:                             128       416
+:bitmap/matt/05 - Winter/06:                             128       480
+:bitmap/matt/05 - Winter/06:                              80       544     r
+:bitmap/matt/05 - Winter/06:                              80       560     r
+:bitmap/matt/05 - Winter/06:                             338       590     r
+:bitmap/matt/05 - Winter/06:                             338       606     r
+:bitmap/matt/05 - Winter/06:                              80       576     r
+:bitmap/matt/05 - Winter/06:                             128       544
+:bitmap/matt/05 - Winter/06:                             338       622     r
+:bitmap/matt/05 - Winter/06:                             528        96
+:bitmap/matt/05 - Winter/06:                             528       160
+:bitmap/matt/05 - Winter/06:                             544        96
+:bitmap/matt/05 - Winter/06:                             544       160
+:bitmap/matt/05 - Winter/06:                             560        96
+:bitmap/matt/05 - Winter/06:                             560       160
+:bitmap/matt/05 - Winter/06:                             576        96
+:bitmap/matt/05 - Winter/06:                             576       160
+:bitmap/matt/05 - Winter/06:                             528       224
+:bitmap/matt/05 - Winter/06:                             528       288
+:bitmap/matt/05 - Winter/06:                             544       224
+:bitmap/matt/05 - Winter/06:                             544       288
+:bitmap/matt/05 - Winter/06:                             560       224
+:bitmap/matt/05 - Winter/06:                             560       288
+:bitmap/matt/05 - Winter/06:                             576       224
+:bitmap/matt/05 - Winter/06:                             576       288
+:bitmap/matt/05 - Winter/06:                             432        96     r
+:bitmap/matt/05 - Winter/06:                             496        96     r
+:bitmap/matt/05 - Winter/06:                             432       112     r
+:bitmap/matt/05 - Winter/06:                             496       112     r
+:bitmap/matt/05 - Winter/06:                             432       128     r
+:bitmap/matt/05 - Winter/06:                             496       128     r
+:bitmap/matt/05 - Winter/06:                             528        96     r
+:bitmap/matt/05 - Winter/06:                             528       112     r
+:bitmap/matt/05 - Winter/06:                             528       128     r
+:bitmap/matt/05 - Winter/06:                             464       672     r
+:bitmap/matt/05 - Winter/06:                             464       704     r
+:bitmap/matt/05 - Winter/06:                             528       672     r
+:bitmap/matt/05 - Winter/06:                             528       688     r
+:bitmap/matt/05 - Winter/06:                             464       688     r
+:bitmap/matt/05 - Winter/06:                             528       704     r
+:bitmap/matt/05 - Winter/06:                             528       608
+:bitmap/matt/05 - Winter/06:                             544       608
+:bitmap/matt/05 - Winter/06:                             560       608
+:bitmap/matt/05 - Winter/06:                             576       608
+:bitmap/matt/05 - Winter/06:                             400       528
+:bitmap/matt/05 - Winter/06:                             416       528
+:bitmap/matt/05 - Winter/06:                             416       592
+:bitmap/matt/05 - Winter/06:                             432       528
+:bitmap/matt/05 - Winter/06:                             432       592
+:bitmap/matt/05 - Winter/06:                             448       528
+:bitmap/matt/05 - Winter/06:                             448       592
+:bitmap/matt/05 - Winter/06:                             400       656
+:bitmap/matt/05 - Winter/06:                             416       656
+:bitmap/matt/05 - Winter/06:                             432       656
+:bitmap/matt/05 - Winter/06:                             448       656
+:bitmap/matt/05 - Winter/06:                             128       672     r
+:bitmap/matt/05 - Winter/06:                             128       688     r
+:bitmap/matt/05 - Winter/06:                             128       704     r
+:bitmap/matt/05 - Winter/06:                             128       656
+:bitmap/matt/05 - Winter/06:                             144       656
+:bitmap/matt/05 - Winter/06:                             160       656
+:bitmap/matt/05 - Winter/06:                             176       656
+:bitmap/matt/05 - Winter/06:                             128       720
+:bitmap/matt/05 - Winter/06:                             144       720
+:bitmap/matt/05 - Winter/06:                             160       720
+:bitmap/matt/05 - Winter/06:                             176       720
+:bitmap/matt/05 - Winter/06:                             288       672
+:bitmap/matt/05 - Winter/06:                             288       736
+:bitmap/matt/05 - Winter/06:                             304       672
+:bitmap/matt/05 - Winter/06:                             304       736
+:bitmap/matt/05 - Winter/06:                             320       672
+:bitmap/matt/05 - Winter/06:                             320       736
+:bitmap/matt/05 - Winter/06:                             336       672
+:bitmap/matt/05 - Winter/06:                             336       736
+:bitmap/matt/05 - Winter/06:                             288       800
+:bitmap/matt/05 - Winter/06:                             288       864
+:bitmap/matt/05 - Winter/06:                             304       800
+:bitmap/matt/05 - Winter/06:                             304       864
+:bitmap/matt/05 - Winter/06:                             320       800
+:bitmap/matt/05 - Winter/06:                             320       864
+:bitmap/matt/05 - Winter/06:                             336       800
+:bitmap/matt/05 - Winter/06:                             336       864
+:bitmap/matt/05 - Winter/06:                             192       672     r
+:bitmap/matt/05 - Winter/06:                             256       672     r
+:bitmap/matt/05 - Winter/06:                             192       688     r
+:bitmap/matt/05 - Winter/06:                             256       688     r
+:bitmap/matt/05 - Winter/06:                             192       704     r
+:bitmap/matt/05 - Winter/06:                             256       704     r
+:bitmap/matt/05 - Winter/06:                             288       672     r
+:bitmap/matt/05 - Winter/06:                             288       688     r
+:bitmap/matt/05 - Winter/06:                             288       704     r
+:bitmap/matt/05 - Winter/06:                             128       608
+:bitmap/matt/05 - Winter/06:                             144       544
+:bitmap/matt/05 - Winter/06:                             144       608
+:bitmap/matt/05 - Winter/06:                             160       544
+:bitmap/matt/05 - Winter/06:                             160       608
+:bitmap/matt/05 - Winter/06:                             176       544
+:bitmap/matt/05 - Winter/06:                             176       608
+:bitmap/matt/05 - Winter/06:                             384       832
+:bitmap/matt/05 - Winter/06:                             400       832
+:bitmap/matt/05 - Winter/06:                             416       832
+:bitmap/matt/05 - Winter/06:                             288       832     r
+:bitmap/matt/05 - Winter/06:                             352       832     r
+:bitmap/matt/05 - Winter/06:                             288       848     r
+:bitmap/matt/05 - Winter/06:                             352       848     r
+:bitmap/matt/05 - Winter/06:                             288       864     r
+:bitmap/matt/05 - Winter/06:                             352       864     r
+:bitmap/matt/05 - Winter/06:                             384       832     r
+:bitmap/matt/05 - Winter/06:                             384       848     r
+:bitmap/matt/05 - Winter/06:                             384       864     r
+:bitmap/matt/05 - Winter/06:                             544       832
+:bitmap/matt/05 - Winter/06:                             560       832
+:bitmap/matt/05 - Winter/06:                             576       832
+:bitmap/matt/05 - Winter/06:                             448       832     r
+:bitmap/matt/05 - Winter/06:                             512       832     r
+:bitmap/matt/05 - Winter/06:                             448       848     r
+:bitmap/matt/05 - Winter/06:                             512       848     r
+:bitmap/matt/05 - Winter/06:                             448       864     r
+:bitmap/matt/05 - Winter/06:                             512       864     r
+:bitmap/matt/05 - Winter/06:                             544       832     r
+:bitmap/matt/05 - Winter/06:                             544       848     r
+:bitmap/matt/05 - Winter/06:                             544       864     r
+:bitmap/matt/05 - Winter/06:                             401       590     r
+:bitmap/matt/05 - Winter/06:                             401       606     r
+:bitmap/matt/05 - Winter/06:                             401       622     r
+:bitmap/matt/steel/32x32.S:                              432       640
+:bitmap/matt/steel/32x32.S:                              432       672
+:bitmap/matt/steel/32x32.S:                              464       672
+:bitmap/matt/steel/32x32.S:                              496       672
+:bitmap/matt/steel/32x32.S:                              528       672
+:bitmap/matt/steel/32x32.S:                              528       640
+:bitmap/matt/steel/32x32.S:                              528       608
+:bitmap/matt/steel/32x32.S:                              560       576
+:bitmap/matt/steel/32x32.S:                              400       608
+:bitmap/matt/05 - Winter/06:                             240       138
+:bitmap/matt/05 - Winter/06:                             256       138
+:bitmap/matt/05 - Winter/06:                             272       138
+:bitmap/matt/05 - Winter/06:                             288       138
+:bitmap/matt/05 - Winter/07:                              80       336
+:bitmap/matt/05 - Winter/07:                              96       336
+:bitmap/matt/05 - Winter/07:                             112       336
+:bitmap/matt/05 - Winter/07:                             128       336
+:bitmap/matt/05 - Winter/07:                             368       272     f
+:bitmap/matt/05 - Winter/07:                             384       272     f
+:bitmap/matt/05 - Winter/07:                             400       272     f
+:bitmap/matt/05 - Winter/07:                             416       272     f
+:bitmap/matt/05 - Winter/07:                             400       464
+:bitmap/matt/05 - Winter/07:                             416       464
+:bitmap/matt/05 - Winter/07:                             432       464
+:bitmap/matt/05 - Winter/07:                             448       464
+:bitmap/matt/05 - Winter/07:                             128       768     f
+:bitmap/matt/05 - Winter/07:                             144       768     f
+:bitmap/matt/05 - Winter/07:                             160       768     f
+:bitmap/matt/05 - Winter/07:                             176       768     f
+:bitmap/matt/05 - Winter/07:                             144       480
+:bitmap/matt/05 - Winter/07:                             160       480
+:bitmap/matt/05 - Winter/07:                             176       480
+:bitmap/matt/05 - Winter/07:                              48       176     f
+:bitmap/matt/05 - Winter/07:                              64       176     f
+:bitmap/matt/05 - Winter/07:                              80       176     f
+:bitmap/matt/05 - Winter/07:                              96       176     f
+:bitmap/matt/05 - Winter/06:                              48       112
+:bitmap/matt/05 - Winter/06:                              64       112
+:bitmap/matt/05 - Winter/06:                              80       112
+:bitmap/matt/05 - Winter/06:                              96       112
+:bitmap/matt/05 - Winter/06:                              80       400
+:bitmap/matt/05 - Winter/06:                              96       400
+:bitmap/matt/05 - Winter/06:                             112       400
+:bitmap/matt/05 - Winter/06:                             128       400
+:bitmap/matt/05 - Winter/07:                             272       590     fr
+:bitmap/matt/05 - Winter/07:                             272       606     fr
+:bitmap/matt/05 - Winter/07:                             272       622     fr
+:bitmap/matt/05 - Winter/06:                             334       590     r
+:bitmap/matt/05 - Winter/06:                             334       606     r
+:bitmap/matt/05 - Winter/06:                             334       622     r
+:bitmap/matt/05 - Winter/07:                             592        94     frrr
+:bitmap/matt/05 - Winter/07:                             592       110     frrr
+:bitmap/matt/05 - Winter/07:                             592       126     frrr
+:bitmap/matt/05 - Winter/07:                             590       672     frrr
+:bitmap/matt/05 - Winter/07:                             590       688     frrr
+:bitmap/matt/05 - Winter/07:                             590       704     frrr
+:bitmap/matt/05 - Winter/07:                             400       720     f
+:bitmap/matt/05 - Winter/07:                             416       720     f
+:bitmap/matt/05 - Winter/07:                             432       720     f
+:bitmap/matt/05 - Winter/07:                             448       720     f
+:bitmap/matt/05 - Winter/07:                             454       590     frrr
+:bitmap/matt/05 - Winter/07:                             454       606     frrr
+:bitmap/matt/05 - Winter/07:                             454       622     frrr
+:bitmap/matt/05 - Winter/07:                             224       832     fr
+:bitmap/matt/05 - Winter/07:                             224       848     fr
+:bitmap/matt/05 - Winter/07:                             224       864     fr
+:bitmap/matt/05 - Winter/07:                             608       832     frrr
+:bitmap/matt/05 - Winter/07:                             608       848     frrr
+:bitmap/matt/05 - Winter/07:                             608       864     frrr

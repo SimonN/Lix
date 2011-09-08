@@ -1,0 +1,174 @@
+$BUILT                                             2011-09-05 15:01:06
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                    Bridge over troubled water
+
+#SIZE_X                                                           1850
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                           480
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           390
+#INITIAL                                                            40
+#REQUIRED                                                           39
+#RATE                                                                1
+
+#CLIMBER                                                             1
+#JUMPER                                                              2
+#PLATFORMER                                                          5
+#BUILDER                                                             2
+#BASHER                                                              2
+#CUBER                                                               1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/06 - Oriental/Hatch.H:                      618       274
+
+:bitmap/matt/06 - Oriental/Goal.G:                      1232       258
+
+:bitmap/matt/water.W:                                   1104       384
+:bitmap/matt/water.W:                                   1136       384
+:bitmap/matt/water.W:                                   1168       384
+:bitmap/matt/water.W:                                   1200       384
+:bitmap/matt/water.W:                                    752       384
+:bitmap/matt/water.W:                                    784       384
+:bitmap/matt/water.W:                                    816       384
+:bitmap/matt/water.W:                                    848       384
+:bitmap/matt/water.W:                                    880       384
+:bitmap/matt/water.W:                                    912       384
+:bitmap/matt/water.W:                                    944       384
+:bitmap/matt/water.W:                                    976       384
+:bitmap/matt/water.W:                                   1008       384
+:bitmap/matt/water.W:                                   1040       384
+:bitmap/matt/water.W:                                   1072       384
+:bitmap/matt/water.W:                                   1472       384
+:bitmap/matt/water.W:                                   1504       384
+:bitmap/matt/water.W:                                   1536       384
+:bitmap/matt/water.W:                                   1568       384
+:bitmap/matt/water.W:                                   1600       384
+:bitmap/matt/water.W:                                   1632       384
+:bitmap/matt/water.W:                                   1664       384
+:bitmap/matt/water.W:                                   1696       384
+:bitmap/matt/water.W:                                   1728       384
+:bitmap/matt/water.W:                                     32       384
+:bitmap/matt/water.W:                                     64       384
+:bitmap/matt/water.W:                                     96       384
+:bitmap/matt/water.W:                                    128       384
+:bitmap/matt/water.W:                                    160       384
+:bitmap/matt/water.W:                                    192       384
+:bitmap/matt/water.W:                                    224       384
+:bitmap/matt/water.W:                                    256       384
+:bitmap/matt/water.W:                                    288       384
+:bitmap/matt/water.W:                                    320       384
+
+:bitmap/matt/02 - Gold Mine/plank:                      1024        64     r
+:bitmap/matt/06 - Oriental/04:                          1216        48
+:bitmap/matt/02 - Gold Mine/plank:                      1120        64     r
+:bitmap/matt/02 - Gold Mine/plank:                      1024       128     r
+:bitmap/matt/02 - Gold Mine/plank:                       832        48     r
+:bitmap/matt/06 - Oriental/08:                           480       112
+:bitmap/matt/06 - Oriental/08:                           480       176
+:bitmap/matt/06 - Oriental/08:                           480       240
+:bitmap/matt/06 - Oriental/08:                           480       304
+:bitmap/matt/06 - Oriental/08:                           480       368
+:bitmap/matt/06 - Oriental/08:                           544       112
+:bitmap/matt/06 - Oriental/08:                           544       176
+:bitmap/matt/06 - Oriental/08:                           544       240
+:bitmap/matt/06 - Oriental/08:                           544       304
+:bitmap/matt/06 - Oriental/08:                           544       368
+:bitmap/matt/06 - Oriental/08:                           480        48
+:bitmap/matt/06 - Oriental/08:                           544        48
+:bitmap/matt/06 - Oriental/bridge_straight:              618        46     rd
+:bitmap/matt/06 - Oriental/bridge_straight:              618       142     rd
+:bitmap/matt/06 - Oriental/bridge_straight:              618       238     rd
+:bitmap/matt/06 - Oriental/bridge_straight:              618       334     rd
+:bitmap/matt/06 - Oriental/08:                           614       336
+:bitmap/matt/06 - Oriental/08:                           686       336
+:bitmap/matt/02 - Gold Mine/plank:                       832       304     r
+:bitmap/matt/02 - Gold Mine/plank:                       928       240     r
+:bitmap/matt/02 - Gold Mine/plank:                      1024       304     r
+:bitmap/matt/02 - Gold Mine/plank:                      1120       336     r
+:bitmap/matt/06 - Oriental/08:                          1216       336
+:bitmap/matt/06 - Oriental/08:                          1286        82
+:bitmap/matt/06 - Oriental/08:                          1286       146
+:bitmap/matt/06 - Oriental/08:                          1286       210
+:bitmap/matt/06 - Oriental/08:                          1286       274
+:bitmap/matt/06 - Oriental/08:                          1286       338
+:bitmap/matt/06 - Oriental/08:                          1350        82
+:bitmap/matt/06 - Oriental/08:                          1350       146
+:bitmap/matt/06 - Oriental/08:                          1350       210
+:bitmap/matt/06 - Oriental/08:                          1350       274
+:bitmap/matt/06 - Oriental/08:                          1350       338
+:bitmap/matt/06 - Oriental/08:                          1286        18
+:bitmap/matt/06 - Oriental/08:                          1350        18
+:bitmap/matt/06 - Oriental/04:                          1184        48
+:bitmap/matt/06 - Oriental/04:                          1152        48
+:bitmap/matt/06 - Oriental/04:                          1120        48
+:bitmap/matt/06 - Oriental/04:                          1088        48
+:bitmap/matt/06 - Oriental/04:                          1056        48
+:bitmap/matt/06 - Oriental/04:                          1024        48
+:bitmap/matt/06 - Oriental/04:                           992        48
+:bitmap/matt/06 - Oriental/04:                           960        48
+:bitmap/matt/06 - Oriental/04:                           928        48
+:bitmap/matt/06 - Oriental/04:                           896        48
+:bitmap/matt/06 - Oriental/04:                           864        48
+:bitmap/matt/06 - Oriental/04:                           832        48
+:bitmap/matt/06 - Oriental/04:                           800        48
+:bitmap/matt/06 - Oriental/04:                           768        48
+:bitmap/matt/06 - Oriental/04:                           736        48
+:bitmap/matt/06 - Oriental/04:                           704        48
+:bitmap/matt/06 - Oriental/04:                           672        48
+:bitmap/matt/02 - Gold Mine/plank:                       928       144     r
+:bitmap/matt/06 - Oriental/10:                           448        48     rrr
+:bitmap/matt/06 - Oriental/10:                           416        80     rrr
+:bitmap/matt/06 - Oriental/10:                           384       112     rrr
+:bitmap/matt/06 - Oriental/10:                           352       144     rrr
+:bitmap/matt/06 - Oriental/10:                           320       176     rrr
+:bitmap/matt/06 - Oriental/10:                           288       208     rrr
+:bitmap/matt/06 - Oriental/10:                           256       240     rrr
+:bitmap/matt/06 - Oriental/10:                           224       272     rrr
+:bitmap/matt/06 - Oriental/08:                           408       336
+:bitmap/matt/06 - Oriental/08:                           334       336
+:bitmap/matt/06 - Oriental/bonsai tree:                  -23       210
+:bitmap/matt/06 - Oriental/03:                            64       384
+:bitmap/matt/06 - Oriental/03:                            32       384
+:bitmap/matt/06 - Oriental/03:                             0       384
+:bitmap/matt/06 - Oriental/10:                          1424        16
+:bitmap/matt/06 - Oriental/10:                          1456        48
+:bitmap/matt/06 - Oriental/10:                          1488        80
+:bitmap/matt/06 - Oriental/10:                          1520       112
+:bitmap/matt/06 - Oriental/10:                          1552       144
+:bitmap/matt/06 - Oriental/10:                          1584       176
+:bitmap/matt/06 - Oriental/10:                          1616       208
+:bitmap/matt/06 - Oriental/10:                          1648       240
+:bitmap/matt/06 - Oriental/08:                          1420       340
+:bitmap/matt/06 - Oriental/08:                          1490       342
+:bitmap/matt/06 - Oriental/bonsai tree:                 1695       192
+:bitmap/matt/06 - Oriental/03:                          1807       384
+:bitmap/matt/06 - Oriental/03:                          1775       384
+:bitmap/matt/06 - Oriental/03:                          1743       384
+:bitmap/matt/06 - Oriental/10:                           256       272     r
+:bitmap/matt/06 - Oriental/10:                           288       240     r
+:bitmap/matt/06 - Oriental/10:                           320       208     r
+:bitmap/matt/06 - Oriental/10:                           352       176     r
+:bitmap/matt/06 - Oriental/10:                           384       144     r
+:bitmap/matt/06 - Oriental/10:                           416       112     r
+:bitmap/matt/06 - Oriental/10:                           448        80     r
+:bitmap/matt/06 - Oriental/10:                          1424        48     rr
+:bitmap/matt/06 - Oriental/10:                          1456        80     rr
+:bitmap/matt/06 - Oriental/10:                          1488       112     rr
+:bitmap/matt/06 - Oriental/10:                          1520       144     rr
+:bitmap/matt/06 - Oriental/10:                          1552       176     rr
+:bitmap/matt/06 - Oriental/10:                          1584       208     rr
+:bitmap/matt/06 - Oriental/10:                          1616       240     rr
+:bitmap/matt/02 - Gold Mine/plank:                       928       352     r
+:bitmap/matt/02 - Gold Mine/plank:                      1120       176     r

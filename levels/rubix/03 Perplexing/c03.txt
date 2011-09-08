@@ -1,0 +1,127 @@
+$BUILT                                             2011-09-05 16:29:29
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                      Please send down a rope?
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            920
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                           260
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           360
+#INITIAL                                                            20
+#REQUIRED                                                           13
+#RATE                                                               10
+
+#WALKER                                                             30
+#FLOATER                                                             0
+#EXPLODER                                                            0
+#BLOCKER                                                             0
+#BUILDER                                                            25
+#BASHER                                                              0
+#MINER                                                               0
+#DIGGER                                                              0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/02 - Gold Mine/shovel.D:                    489       681
+:bitmap/matt/02 - Gold Mine/mine cart.D:                 453       687
+:bitmap/matt/02 - Gold Mine/pickaxe.D:                   124       646
+:bitmap/matt/02 - Gold Mine/shovel.D:                    260       168
+:bitmap/matt/02 - Gold Mine/Explosives.D:                 43       148
+:bitmap/matt/04 - Sandy Beach/Sand Decor/sun.D:          499        -2
+
+:bitmap/matt/02 - Gold Mine/Hatch.H:                     280       604
+
+:bitmap/matt/01 - Earth/Goal.G:                          544        96
+
+:bitmap/matt/01 - Earth/07:                              -14       116
+:bitmap/matt/01 - Earth/06:                              212       170
+:bitmap/matt/01 - Earth/06:                              343       171
+:bitmap/matt/01 - Earth/06:                               97       176
+:bitmap/matt/01 - Earth/07:                               21        -8
+:bitmap/matt/01 - Earth/09:                              141       179
+:bitmap/matt/02 - Gold Mine/06:                           90       658
+:bitmap/matt/02 - Gold Mine/07:                          -48       632
+:bitmap/matt/02 - Gold Mine/01:                          176       648
+:bitmap/matt/02 - Gold Mine/07:                          224       648
+:bitmap/matt/02 - Gold Mine/07:                          175       667
+:bitmap/matt/02 - Gold Mine/07:                          602       627
+:bitmap/matt/02 - Gold Mine/04:                           96       648
+:bitmap/matt/02 - Gold Mine/plank support:               -48       616
+:bitmap/matt/02 - Gold Mine/plank support:               560       616
+:bitmap/matt/02 - Gold Mine/plank:                        80       616
+:bitmap/matt/02 - Gold Mine/plank:                       432       616
+:bitmap/matt/01 - Earth/16:                              166       242     fr
+:bitmap/matt/01 - Earth/16:                              348       230     r
+:bitmap/matt/02 - Gold Mine/plank support:               344       232     rrr
+:bitmap/matt/02 - Gold Mine/plank:                        32       292
+:bitmap/matt/02 - Gold Mine/plank:                       472       292
+:bitmap/matt/02 - Gold Mine/plank:                       -96       292
+:bitmap/matt/02 - Gold Mine/plank:                       600       292
+:bitmap/matt/02 - Gold Mine/06:                          -13       275
+:bitmap/matt/01 - Earth/10:                              -56       198
+:bitmap/matt/01 - Earth/09:                               45       205
+:bitmap/matt/01 - Earth/09:                              168       188
+:bitmap/matt/01 - Earth/10:                               73       180
+:bitmap/matt/01 - Earth/03:                              345       263
+:bitmap/matt/01 - Earth/07:                              380       172
+:bitmap/matt/01 - Earth/09:                              406       187
+:bitmap/matt/01 - Earth/09:                              443       197
+:bitmap/matt/01 - Earth/10:                              342       190
+:bitmap/matt/01 - Earth/10:                              507       187
+:bitmap/matt/02 - Gold Mine/plank support:               160       232     r
+:bitmap/matt/01 - Earth/04:                               52       197     fr
+:bitmap/matt/01 - Earth/16:                              133       190
+:bitmap/matt/01 - Earth/10:                               37       215     frr
+:bitmap/matt/01 - Earth/10:                              450       216     frr
+:bitmap/matt/01 - Earth/00:                              208       178
+:bitmap/matt/02 - Gold Mine/plank:                       280       192     r
+:bitmap/matt/01 - Earth/00:                              344       178     frr
+:bitmap/matt/02 - Gold Mine/plank:                       344       192     r
+:bitmap/matt/01 - Earth/06:                              484       174
+:bitmap/matt/01 - Earth/10:                              486       158
+:bitmap/matt/01 - Earth/10:                              584        54     r
+:bitmap/matt/01 - Earth/06:                              578        54
+:bitmap/matt/01 - Earth/06:                              614        36
+:bitmap/matt/02 - Gold Mine/07:                          -22       701
+:bitmap/matt/02 - Gold Mine/07:                          156       682
+:bitmap/matt/02 - Gold Mine/07:                          318       696
+:bitmap/matt/02 - Gold Mine/07:                          594       691
+:bitmap/matt/02 - Gold Mine/07:                          223       723
+:bitmap/matt/02 - Gold Mine/07:                          174       742
+:bitmap/matt/02 - Gold Mine/04:                           95       723
+:bitmap/matt/02 - Gold Mine/07:                          -23       776
+:bitmap/matt/02 - Gold Mine/07:                          155       757
+:bitmap/matt/02 - Gold Mine/06:                          499       754
+:bitmap/matt/02 - Gold Mine/07:                          433       734     fr
+:bitmap/matt/02 - Gold Mine/07:                          285       769
+:bitmap/matt/02 - Gold Mine/07:                          236       788
+:bitmap/matt/02 - Gold Mine/04:                          157       769
+:bitmap/matt/02 - Gold Mine/07:                           39       822
+:bitmap/matt/02 - Gold Mine/07:                          217       803
+:bitmap/matt/02 - Gold Mine/07:                          266       843     frr
+:bitmap/matt/02 - Gold Mine/07:                           96       876     frr
+:bitmap/matt/02 - Gold Mine/07:                          -88       848     frr
+:bitmap/matt/02 - Gold Mine/07:                          596       757     r
+:bitmap/matt/01 - Earth/10:                              -52       136     r
+:bitmap/matt/01 - Earth/10:                              -68       -26     r
+:bitmap/matt/01 - Earth/06:                              143       -21     frrr
+:bitmap/matt/01 - Earth/10:                              -36       -76     rr
+:bitmap/matt/01 - Earth/10:                               70       -97     rr
+:bitmap/matt/02 - Gold Mine/07:                          392       846     frr
+:bitmap/matt/02 - Gold Mine/07:                          550       760     frr
+:bitmap/matt/01 - Earth/09:                               65        26
+:bitmap/matt/01 - Earth/07:                               -8       -13
+:bitmap/matt/01 - Earth/09:                              130       171
+:bitmap/matt/01 - Earth/26:                              182        12
+:bitmap/matt/01 - Earth/01:                               -7       235
+:bitmap/matt/01 - Earth/01:                              514       252
+:bitmap/matt/01 - Earth/00:                              156       195

@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-20 11:58:12
+$BUILT                                             2011-09-04 19:24:44
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                 The first to finish!(2p race)
@@ -34,8 +34,8 @@ $ENGLISH                                 The first to finish!(2p race)
 :bitmap/matt/03 - Carnival/Hatch.H:                       96        44
 :bitmap/matt/03 - Carnival/Hatch.H:                       96       416
 
-:bitmap/matt/03 - Carnival/Goal.G:                      1292       276
-:bitmap/matt/03 - Carnival/Goal.G:                      1292       648
+:bitmap/matt/03 - Carnival/Goal.G:                      1290       272
+:bitmap/matt/03 - Carnival/Goal.G:                      1290       644
 
 :bitmap/matt/03 - Carnival/09:                           112       108
 :bitmap/matt/03 - Carnival/10:                           144       108     r

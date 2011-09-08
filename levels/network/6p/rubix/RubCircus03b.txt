@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 11:40:02
+$BUILT                                             2011-09-04 23:26:01
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                     Too late: Check mate!(6p)
@@ -38,12 +38,12 @@ $ENGLISH                                     Too late: Check mate!(6p)
 :bitmap/matt/03 - Carnival/Hatch.H:                     1328        16
 :bitmap/matt/03 - Carnival/Hatch.H:                      816        16
 
-:bitmap/matt/03 - Carnival/Goal.G:                       618       292
-:bitmap/matt/03 - Carnival/Goal.G:                      1130       292
-:bitmap/matt/03 - Carnival/Goal.G:                       106       292
-:bitmap/matt/03 - Carnival/Goal.G:                       874       292
-:bitmap/matt/03 - Carnival/Goal.G:                       362       292
-:bitmap/matt/03 - Carnival/Goal.G:                      1386       292
+:bitmap/matt/03 - Carnival/Goal.G:                       608       288
+:bitmap/matt/03 - Carnival/Goal.G:                      1120       288
+:bitmap/matt/03 - Carnival/Goal.G:                        96       288
+:bitmap/matt/03 - Carnival/Goal.G:                       864       288
+:bitmap/matt/03 - Carnival/Goal.G:                       352       288
+:bitmap/matt/03 - Carnival/Goal.G:                      1376       288
 
 :bitmap/matt/03 - Carnival/56:                           832       528
 :bitmap/matt/03 - Carnival/57:                          1088       528

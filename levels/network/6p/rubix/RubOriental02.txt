@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 11:10:21
+$BUILT                                             2011-09-05 23:55:06
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                                 Tree Life(6p)
@@ -13,7 +13,7 @@ $ENGLISH                                                 Tree Life(6p)
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                            50
+#SECONDS                                                            80
 #INITIAL                                                            75
 #REQUIRED                                                           20
 #RATE                                                               35
@@ -38,12 +38,12 @@ $ENGLISH                                                 Tree Life(6p)
 :bitmap/matt/01 - Earth/Hatch.H:                        1504        32
 :bitmap/matt/01 - Earth/Hatch.H:                        1248        32
 
-:bitmap/matt/06 - Oriental/Goal.G:                       191       938
-:bitmap/matt/06 - Oriental/Goal.G:                       704       938
-:bitmap/matt/06 - Oriental/Goal.G:                       447       938
-:bitmap/matt/06 - Oriental/Goal.G:                       959       938
-:bitmap/matt/06 - Oriental/Goal.G:                      1472       939
-:bitmap/matt/06 - Oriental/Goal.G:                      1215       938
+:bitmap/matt/06 - Oriental/Goal.G:                       192       928
+:bitmap/matt/06 - Oriental/Goal.G:                       704       928
+:bitmap/matt/06 - Oriental/Goal.G:                       448       928
+:bitmap/matt/06 - Oriental/Goal.G:                       960       928
+:bitmap/matt/06 - Oriental/Goal.G:                      1472       928
+:bitmap/matt/06 - Oriental/Goal.G:                      1216       928
 
 :bitmap/matt/water.W:                                    256      1008
 :bitmap/matt/water.W:                                    288      1008

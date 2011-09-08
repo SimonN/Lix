@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-20 17:31:39
+$BUILT                                             2011-09-04 22:25:35
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                       In the heat of play(2p)
@@ -31,12 +31,13 @@ $ENGLISH                                       In the heat of play(2p)
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/07 - Underworld/hatch.H:                    702       128     r
-:bitmap/matt/07 - Underworld/hatch.H:                    782       128
+:bitmap/matt/07 - Underworld/Hatch.H:                    704       144
+:bitmap/matt/07 - Underworld/Hatch.H:                    768       144     r
 
 :bitmap/matt/07 - Underworld/Goal.G:                    1470        80
 :bitmap/matt/07 - Underworld/Goal.G:                       2        78
 
+:bitmap/matt/07 - Underworld/01:                         736       112
 :bitmap/matt/07 - Underworld/01:                         780        96
 :bitmap/matt/07 - Underworld/01:                         696        96
 :bitmap/matt/07 - Underworld/09a:                        866        48
@@ -53,7 +54,7 @@ $ENGLISH                                       In the heat of play(2p)
 :bitmap/matt/07 - Underworld/09a:                       1384         8     frr
 :bitmap/matt/07 - Underworld/09a:                       1204        30     frr
 :bitmap/matt/07 - Underworld/09a:                       1046        26     frr
-:bitmap/matt/07 - Underworld/09a:                        590        44     frr
+:bitmap/matt/07 - Underworld/09a:                        592        32     frr
 :bitmap/matt/07 - Underworld/09a:                       1214       172
 :bitmap/matt/07 - Underworld/09a:                        184       140
 :bitmap/matt/07 - Underworld/09a:                        126       140
@@ -253,7 +254,7 @@ $ENGLISH                                       In the heat of play(2p)
 :bitmap/matt/07 - Underworld/05:                        1170       -28
 :bitmap/matt/07 - Underworld/08:                        1248       -64     frr
 :bitmap/matt/07 - Underworld/05:                        1376       -30
-:bitmap/matt/07 - Underworld/07:                         646         2     r
+:bitmap/matt/07 - Underworld/07:                         656         0     r
 :bitmap/matt/07 - Underworld/07:                         722        28     r
 :bitmap/matt/07 - Underworld/07:                         782        -4     r
 :bitmap/matt/07 - Underworld/09a:                        510       236     frr

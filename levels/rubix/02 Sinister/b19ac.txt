@@ -1,0 +1,68 @@
+$BUILT                                             2011-09-05 15:06:04
+$AUTHOR                                                          rubix
+$GERMAN                                                               
+$ENGLISH                                           Scaling the heights
+
+#SIZE_X                                                            944
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                           304
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           120
+#INITIAL                                                            99
+#REQUIRED                                                           55
+#RATE                                                               99
+
+#CLIMBER                                                            99
+#BATTER                                                             -1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/geoo/construction/Hatch.H:                       416       288
+
+:bitmap/geoo/construction/Goal2.G:                       112       304
+
+:bitmap/geoo/construction/concrete/128:                  288       272
+:bitmap/geoo/construction/concrete/128:                  624       288
+:bitmap/geoo/construction/concrete/128:                  288       144
+:bitmap/geoo/construction/concrete/128:                  624       160
+:bitmap/geoo/construction/concrete/128:                  288        16
+:bitmap/geoo/construction/concrete/128:                  624        32
+:bitmap/geoo/construction/concrete/032hb:                528       304     frr
+:bitmap/geoo/construction/concrete/podium_32:            592       288     rrr
+:bitmap/geoo/construction/concrete/032hb:                528       176     frr
+:bitmap/geoo/construction/concrete/podium_32:            592       160     rrr
+:bitmap/geoo/construction/concrete/podium_32:            416       224     r
+:bitmap/geoo/construction/concrete/podium_32:            416        96     r
+:bitmap/geoo/construction/concrete/032hb:                448       112
+:bitmap/geoo/construction/concrete/032hb:                448       240
+:bitmap/geoo/construction/concrete/032hb:                192       272     frr
+:bitmap/geoo/construction/concrete/podium_32:            256       256     rrr
+:bitmap/geoo/construction/concrete/podium_32:            256       160     rrr
+:bitmap/geoo/construction/concrete/podium_32:            752       224     r
+:bitmap/geoo/construction/concrete/podium_32:            752        96     r
+:bitmap/geoo/construction/concrete/032hb:                784       112
+:bitmap/geoo/construction/concrete/032hb:                784       240
+:bitmap/geoo/construction/concrete/podium_32:            560       368
+:bitmap/geoo/construction/concrete/podium_32:            496       368
+:bitmap/geoo/construction/concrete/podium_32:            432       368
+:bitmap/geoo/construction/concrete/podium_16:            416       384
+:bitmap/geoo/construction/concrete/podium_16:            480       384
+:bitmap/geoo/construction/concrete/podium_16:            544       384
+:bitmap/geoo/construction/concrete/032h:                 112       368
+:bitmap/geoo/construction/concrete/032h:                 176       368
+:bitmap/geoo/construction/concrete/032a:                 256        80
+:bitmap/geoo/construction/concrete/podium_16:            240       176     fr

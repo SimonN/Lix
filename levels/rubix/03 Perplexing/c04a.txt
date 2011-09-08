@@ -1,0 +1,152 @@
+$BUILT                                             2011-09-05 16:42:18
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                The candy shop
+
+#SIZE_X                                                            622
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                           604
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           120
+#INITIAL                                                            40
+#REQUIRED                                                           38
+#RATE                                                               80
+
+#WALKER                                                              1
+#FLOATER                                                             2
+#BLOCKER                                                             1
+#BUILDER                                                             6
+#BASHER                                                              1
+#MINER                                                               1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/09 - Marble/Hatch.H:                        246       -16     r
+:bitmap/matt/09 - Marble/Hatch.H:                        310       -16
+
+:bitmap/matt/09 - Marble/Goal.G:                         496       164
+
+:bitmap/matt/water.W:                                    112       352
+:bitmap/matt/water.W:                                    144       352
+:bitmap/matt/water.W:                                    176       352
+:bitmap/matt/water.W:                                    208       352
+:bitmap/matt/water.W:                                    240       352
+:bitmap/matt/water.W:                                    272       352
+:bitmap/matt/water.W:                                    112       368
+:bitmap/matt/water.W:                                    144       368
+:bitmap/matt/water.W:                                    176       368
+:bitmap/matt/water.W:                                    208       368
+:bitmap/matt/water.W:                                    240       368
+:bitmap/matt/water.W:                                    272       368
+:bitmap/matt/water.W:                                    384       352
+:bitmap/matt/water.W:                                    416       352
+:bitmap/matt/water.W:                                    448       352
+:bitmap/matt/water.W:                                    480       352
+:bitmap/matt/water.W:                                    384       368
+:bitmap/matt/water.W:                                    416       368
+:bitmap/matt/water.W:                                    448       368
+:bitmap/matt/water.W:                                    480       368
+
+:bitmap/matt/09 - Marble/06:                               0       176
+:bitmap/matt/09 - Marble/03a:                            304        84
+:bitmap/matt/09 - Marble/03b:                            320        84
+:bitmap/matt/09 - Marble/03b:                            288        84
+:bitmap/matt/09 - Marble/03a:                            272        84
+:bitmap/matt/09 - Marble/03b:                            288        84
+:bitmap/matt/09 - Marble/03b:                            256        68
+:bitmap/matt/09 - Marble/03a:                            240       100
+:bitmap/matt/09 - Marble/14:                             208       100
+:bitmap/matt/09 - Marble/08:                             176       228
+:bitmap/matt/09 - Marble/09d:                            336       244
+:bitmap/matt/09 - Marble/08:                             288       356
+:bitmap/matt/09 - Marble/08:                             352       356
+:bitmap/matt/09 - Marble/08:                             112       228
+:bitmap/matt/09 - Marble/08:                              64       196
+:bitmap/matt/09 - Marble/08:                             432       212
+:bitmap/matt/09 - Marble/08:                             496       212
+:bitmap/matt/09 - Marble/03a:                            304       100     d
+:bitmap/matt/09 - Marble/03b:                            320       100     d
+:bitmap/matt/09 - Marble/03b:                            288       100     d
+:bitmap/matt/09 - Marble/03a:                            272       100     d
+:bitmap/matt/09 - Marble/03b:                            288       100     d
+:bitmap/matt/09 - Marble/03a:                            336       100     d
+:bitmap/matt/09 - Marble/03b:                            256        36
+:bitmap/matt/09 - Marble/03b:                            256         4
+:bitmap/matt/09 - Marble/08:                             176       244     d
+:bitmap/matt/09 - Marble/08:                             112       244     d
+:bitmap/matt/09 - Marble/09a:                            288       380
+:bitmap/matt/09 - Marble/09a:                            352       380
+:bitmap/matt/09 - Marble/08:                               0       304
+:bitmap/matt/09 - Marble/08:                              64       304
+:bitmap/matt/09 - Marble/09a:                              0       336
+:bitmap/matt/09 - Marble/09a:                             64       336
+:bitmap/matt/09 - Marble/08:                             496       304
+:bitmap/matt/09 - Marble/08:                             560       304
+:bitmap/matt/09 - Marble/09a:                            496       336
+:bitmap/matt/09 - Marble/09a:                            560       336
+:bitmap/matt/09 - Marble/08:                             496       224     d
+:bitmap/matt/09 - Marble/08:                             432       224     d
+:bitmap/matt/09 - Marble/06:                             592       240
+:bitmap/matt/09 - Marble/06:                               0       240
+:bitmap/matt/09 - Marble/06:                             592       176
+:bitmap/matt/09 - Marble/05b:                             64         0
+:bitmap/matt/09 - Marble/05b:                             32         0
+:bitmap/matt/09 - Marble/05b:                              0         0
+:bitmap/matt/09 - Marble/05b:                            592         0
+:bitmap/matt/09 - Marble/05b:                            560         0
+:bitmap/matt/09 - Marble/05b:                            528         0
+:bitmap/matt/09 - Marble/15b:                            160         0
+:bitmap/matt/09 - Marble/05b:                            400         0
+:bitmap/matt/09 - Marble/05b:                            368         0
+:bitmap/matt/09 - Marble/15b:                              0        32
+:bitmap/matt/09 - Marble/15b:                            592        32     frr
+:bitmap/matt/09 - Marble/22a:                              0        16
+:bitmap/matt/09 - Marble/22a:                            576        16     frr
+:bitmap/matt/09 - Marble/22a:                            -48        64
+:bitmap/matt/09 - Marble/22a:                            592        32     frr
+:bitmap/matt/09 - Marble/03a:                            464         0
+:bitmap/matt/09 - Marble/03b:                            480         0
+:bitmap/matt/09 - Marble/03b:                            448         0
+:bitmap/matt/09 - Marble/03a:                            432         0
+:bitmap/matt/09 - Marble/03b:                            448         0
+:bitmap/matt/09 - Marble/03a:                            496         0
+:bitmap/matt/09 - Marble/03b:                            512         0
+:bitmap/matt/09 - Marble/03a:                             96         0
+:bitmap/matt/09 - Marble/03b:                            112         0
+:bitmap/matt/09 - Marble/03a:                            128         0
+:bitmap/matt/09 - Marble/03b:                            144         0
+:bitmap/matt/09 - Marble/05b:                            368        32
+:bitmap/matt/09 - Marble/03a:                            352        32
+:bitmap/matt/09 - Marble/03b:                            336        32
+:bitmap/matt/09 - Marble/03a:                            320        32
+:bitmap/matt/09 - Marble/03b:                            336        32
+:bitmap/matt/09 - Marble/03b:                            304        32
+:bitmap/matt/09 - Marble/03a:                            288        32
+:bitmap/matt/steel/32x64.S:                              272       164
+:bitmap/matt/steel/32x64.S:                              272       100
+:bitmap/matt/steel/32x16.S:                              304        90
+:bitmap/matt/steel/32x16.S:                              272        90
+:bitmap/matt/09 - Marble/03a:                            256       100
+:bitmap/matt/09 - Marble/05b:                            240       107     d
+:bitmap/matt/steel/32x16.S:                              368        48
+:bitmap/matt/steel/32x16.S:                              336        48
+:bitmap/matt/steel/32x16.S:                              304        48
+:bitmap/matt/steel/32x16.S:                              368        32
+:bitmap/matt/steel/32x16.S:                              368        16
+:bitmap/matt/steel/32x16.S:                              400        16
+:bitmap/matt/steel/32x16.S:                              432        16
+:bitmap/matt/steel/32x16.S:                              464        16
+:bitmap/matt/steel/32x16.S:                              496        16
+:bitmap/matt/steel/32x16.S:                              528        16
+:bitmap/matt/steel/32x16.S:                              560        16
+:bitmap/matt/steel/32x32.S:                              272       224

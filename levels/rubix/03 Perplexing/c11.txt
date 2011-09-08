@@ -1,0 +1,186 @@
+$BUILT                                             2011-09-05 17:41:02
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                   Earthcapade
+
+#SIZE_X                                                           1120
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           210
+#INITIAL                                                            40
+#REQUIRED                                                           39
+#RATE                                                                1
+
+#WALKER                                                              1
+#BLOCKER                                                             1
+#BUILDER                                                             2
+#PLATFORMER                                                          4
+#BASHER                                                              1
+#MINER                                                               1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/01 - Earth/Hatch.H:                         154        -2     r
+
+:bitmap/matt/01 - Earth/Goal.G:                         1078         6
+
+:bitmap/matt/water.W:                                    624       352
+:bitmap/matt/water.W:                                    656       352
+:bitmap/matt/water.W:                                    688       352
+:bitmap/matt/water.W:                                    720       352
+:bitmap/matt/water.W:                                    752       352
+:bitmap/matt/water.W:                                    784       352
+:bitmap/matt/water.W:                                    624       368
+:bitmap/matt/water.W:                                    656       368
+:bitmap/matt/water.W:                                    688       368
+:bitmap/matt/water.W:                                    720       368
+:bitmap/matt/water.W:                                    752       368
+:bitmap/matt/water.W:                                    784       368
+:bitmap/matt/water.W:                                    816       352
+:bitmap/matt/water.W:                                    848       352
+:bitmap/matt/water.W:                                    880       352
+:bitmap/matt/water.W:                                    912       352
+:bitmap/matt/water.W:                                    944       352
+:bitmap/matt/water.W:                                    976       352
+:bitmap/matt/water.W:                                    816       368
+:bitmap/matt/water.W:                                    848       368
+:bitmap/matt/water.W:                                    880       368
+:bitmap/matt/water.W:                                    912       368
+:bitmap/matt/water.W:                                    944       368
+:bitmap/matt/water.W:                                    976       368
+:bitmap/matt/water.W:                                   1008       352
+:bitmap/matt/water.W:                                   1040       352
+:bitmap/matt/water.W:                                   1072       352
+:bitmap/matt/water.W:                                   1104       352
+:bitmap/matt/water.W:                                   1008       368
+:bitmap/matt/water.W:                                   1040       368
+:bitmap/matt/water.W:                                   1072       368
+:bitmap/matt/water.W:                                   1104       368
+:bitmap/matt/water.W:                                    352       352
+:bitmap/matt/water.W:                                    384       352
+:bitmap/matt/water.W:                                    416       352
+:bitmap/matt/water.W:                                    448       352
+:bitmap/matt/water.W:                                    480       352
+:bitmap/matt/water.W:                                    352       368
+:bitmap/matt/water.W:                                    384       368
+:bitmap/matt/water.W:                                    416       368
+:bitmap/matt/water.W:                                    448       368
+:bitmap/matt/water.W:                                    480       368
+:bitmap/matt/water.W:                                    512       352
+:bitmap/matt/water.W:                                    544       352
+:bitmap/matt/water.W:                                    576       352
+:bitmap/matt/water.W:                                    512       368
+:bitmap/matt/water.W:                                    544       368
+:bitmap/matt/water.W:                                    576       368
+:bitmap/matt/water.W:                                    -16       352
+:bitmap/matt/water.W:                                     16       352
+:bitmap/matt/water.W:                                    -16       368
+:bitmap/matt/water.W:                                     16       368
+:bitmap/matt/water.W:                                     48       352
+:bitmap/matt/water.W:                                     80       352
+:bitmap/matt/water.W:                                    112       352
+:bitmap/matt/water.W:                                     48       368
+:bitmap/matt/water.W:                                     80       368
+:bitmap/matt/water.W:                                    112       368
+
+:bitmap/matt/01 - Earth/09:                              118       128     rr
+:bitmap/matt/01 - Earth/09:                              188       134     f
+:bitmap/matt/01 - Earth/09:                              136       121     f
+:bitmap/matt/01 - Earth/26:                              875       261
+:bitmap/matt/01 - Earth/09:                              669       137
+:bitmap/matt/01 - Earth/07:                              283       151     r
+:bitmap/matt/01 - Earth/06:                               74        29
+:bitmap/matt/01 - Earth/06:                              498       231     rr
+:bitmap/matt/01 - Earth/07:                              567       317     fr
+:bitmap/matt/01 - Earth/06:                             1000       247
+:bitmap/matt/01 - Earth/09:                              185       261     r
+:bitmap/matt/01 - Earth/07:                              286        25
+:bitmap/matt/01 - Earth/07:                              946       209
+:bitmap/matt/01 - Earth/07:                              794       134
+:bitmap/matt/01 - Earth/06:                              773       185
+:bitmap/matt/01 - Earth/06:                              396       283
+:bitmap/matt/01 - Earth/06:                              267       293
+:bitmap/matt/01 - Earth/06:                              106       224
+:bitmap/matt/01 - Earth/06:                              409       222
+:bitmap/matt/01 - Earth/06:                              569        34
+:bitmap/matt/01 - Earth/04:                              717        50
+:bitmap/matt/01 - Earth/05:                              589        65     fr
+:bitmap/matt/01 - Earth/04:                              685       -99
+:bitmap/matt/01 - Earth/04:                              277        53     r
+:bitmap/matt/01 - Earth/04:                              330       120     r
+:bitmap/matt/01 - Earth/04:                              148      -120
+:bitmap/matt/01 - Earth/04:                              277      -129
+:bitmap/matt/01 - Earth/03:                             1080        65
+:bitmap/matt/01 - Earth/02:                              549        76
+:bitmap/matt/01 - Earth/10:                               48        32
+:bitmap/matt/01 - Earth/02:                              112       160     rr
+:bitmap/matt/01 - Earth/04:                               96       208
+:bitmap/matt/01 - Earth/10:                               96       288
+:bitmap/matt/01 - Earth/17:                              254        32
+:bitmap/matt/01 - Earth/08:                              311       171
+:bitmap/matt/01 - Earth/16:                              310       116     rr
+:bitmap/matt/01 - Earth/08:                              545       265
+:bitmap/matt/01 - Earth/05:                              416       208     fr
+:bitmap/matt/01 - Earth/10:                              560       208     r
+:bitmap/matt/01 - Earth/01:                              865       169
+:bitmap/matt/01 - Earth/07:                              912       189
+:bitmap/matt/01 - Earth/10:                              774       176
+:bitmap/matt/01 - Earth/10:                              912       224     r
+:bitmap/matt/01 - Earth/04:                             1017        77
+:bitmap/matt/01 - Earth/04:                              995        94
+:bitmap/matt/01 - Earth/06:                             1032       233
+:bitmap/matt/01 - Earth/04:                             1038        97
+:bitmap/matt/01 - Earth/26:                               30       231
+:bitmap/matt/01 - Earth/16:                              -32       144     r
+:bitmap/matt/01 - Earth/04:                              171         7
+:bitmap/matt/01 - Earth/09:                              236       128     r
+:bitmap/matt/01 - Earth/04:                              254        60     r
+:bitmap/matt/01 - Earth/05:                              242       -29
+:bitmap/matt/01 - Earth/16:                              677       -46
+:bitmap/matt/01 - Earth/05:                              586        32     fr
+:bitmap/matt/01 - Earth/05:                              396       228
+:bitmap/matt/01 - Earth/04:                              259       277
+:bitmap/matt/01 - Earth/10:                              185       356     r
+:bitmap/matt/01 - Earth/10:                              145       374     r
+:bitmap/matt/01 - Earth/04:                              -94        39
+:bitmap/matt/01 - Earth/04:                             -111       -27     r
+:bitmap/matt/steel/32x64.S:                              256         0
+:bitmap/matt/01 - Earth/01:                              639        34
+:bitmap/matt/01 - Earth/05:                              573        47     fr
+:bitmap/matt/01 - Earth/01:                              576        46
+:bitmap/matt/01 - Earth/04:                              644        12
+:bitmap/matt/01 - Earth/03:                              720       160     r
+:bitmap/matt/01 - Earth/02:                              709       124
+:bitmap/matt/01 - Earth/10:                              544        36
+:bitmap/matt/01 - Earth/10:                              943       290
+:bitmap/matt/01 - Earth/04:                             1030       222
+:bitmap/matt/01 - Earth/10:                             1007       229
+:bitmap/matt/01 - Earth/09:                              339        60
+:bitmap/matt/01 - Earth/08:                              381        59
+:bitmap/matt/01 - Earth/08:                              404        84
+:bitmap/matt/01 - Earth/08:                              420       107
+:bitmap/matt/01 - Earth/08:                              439       132
+:bitmap/matt/01 - Earth/08:                              460       156
+:bitmap/matt/01 - Earth/07:                               -1       -12
+:bitmap/matt/01 - Earth/08:                                7       138
+:bitmap/matt/01 - Earth/08:                               37       163
+:bitmap/matt/01 - Earth/09:                              180       212     r
+:bitmap/matt/01 - Earth/08:                              194       277
+:bitmap/matt/01 - Earth/08:                             1058        68     r
+:bitmap/matt/01 - Earth/08:                             1032        96     r
+:bitmap/matt/01 - Earth/08:                             1004       116     r
+:bitmap/matt/01 - Earth/07:                              613       204
+:bitmap/matt/01 - Earth/09:                              446       264
+:bitmap/matt/01 - Earth/07:                              760       -15
+:bitmap/matt/01 - Earth/06:                              678       -12

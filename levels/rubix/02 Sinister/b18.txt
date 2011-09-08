@@ -1,0 +1,82 @@
+$BUILT                                             2011-09-05 14:54:40
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                 Holly Jingle?
+
+#SIZE_X                                                            624
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                           608
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                            90
+#INITIAL                                                            99
+#REQUIRED                                                           99
+#RATE                                                               25
+
+#PLATFORMER                                                          1
+#BUILDER                                                             1
+#BASHER                                                              1
+#MINER                                                               1
+#DIGGER                                                              1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/05 - Winter/Hatch.H:                        272        80
+:bitmap/matt/05 - Winter/Hatch.H:                        464        80
+
+:bitmap/matt/05 - Winter/Goal.G:                          -6       306
+
+:bitmap/matt/05 - Winter/06:                             288       376     r
+:bitmap/matt/05 - Winter/06:                             224       376     r
+:bitmap/matt/05 - Winter/06:                             160       376     r
+:bitmap/matt/05 - Winter/06:                              96       376     r
+:bitmap/matt/05 - Winter/06:                             592       128
+:bitmap/matt/05 - Winter/06:                             192       128
+:bitmap/matt/05 - Winter/06:                             208       176     r
+:bitmap/matt/05 - Winter/06:                             272       176     r
+:bitmap/matt/05 - Winter/06:                             336       176     r
+:bitmap/matt/05 - Winter/06:                             400       176     r
+:bitmap/matt/05 - Winter/06:                             464       176     r
+:bitmap/matt/05 - Winter/06:                             208       164     rd
+:bitmap/matt/05 - Winter/06:                             272       164     rd
+:bitmap/matt/05 - Winter/06:                             336       164     rd
+:bitmap/matt/05 - Winter/06:                             400       164     rd
+:bitmap/matt/05 - Winter/06:                             464       164     rd
+:bitmap/matt/05 - Winter/06:                             528       176     r
+:bitmap/matt/05 - Winter/06:                             528       164     rd
+:bitmap/matt/05 - Winter/07:                             224       368
+:bitmap/matt/05 - Winter/07:                             240       368
+:bitmap/matt/05 - Winter/07:                             256       368
+:bitmap/matt/05 - Winter/07:                             272       368
+:bitmap/matt/05 - Winter/07:                             288       368
+:bitmap/matt/05 - Winter/07:                             304       368
+:bitmap/matt/05 - Winter/07:                             320       368
+:bitmap/matt/05 - Winter/07:                             336       368
+:bitmap/matt/05 - Winter/07:                              96       368
+:bitmap/matt/05 - Winter/07:                             112       368
+:bitmap/matt/05 - Winter/07:                             128       368
+:bitmap/matt/05 - Winter/07:                             144       368
+:bitmap/matt/05 - Winter/07:                             160       368
+:bitmap/matt/05 - Winter/07:                             176       368
+:bitmap/matt/05 - Winter/07:                             192       368
+:bitmap/matt/05 - Winter/07:                             208       368
+:bitmap/matt/05 - Winter/06:                              96       384     r
+:bitmap/matt/05 - Winter/06:                             160       384     r
+:bitmap/matt/05 - Winter/06:                             224       384     r
+:bitmap/matt/05 - Winter/06:                             288       384     r
+:bitmap/matt/05 - Winter/10:                             -12       366
+:bitmap/matt/05 - Winter/04:                             -72       334     rr
+:bitmap/matt/05 - Winter/06:                             384       226     r
+:bitmap/matt/05 - Winter/06:                             384       214     rd
+:bitmap/matt/05 - Winter/06:                             424       230     rd
+:bitmap/matt/05 - Winter/06:                             192       192

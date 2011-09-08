@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 11:33:04
+$BUILT                                             2011-09-05 23:55:43
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                          10 degrees below(6p)
@@ -13,7 +13,7 @@ $ENGLISH                                          10 degrees below(6p)
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                            55
+#SECONDS                                                            75
 #INITIAL                                                            70
 #REQUIRED                                                           20
 #RATE                                                               30
@@ -26,24 +26,24 @@ $ENGLISH                                          10 degrees below(6p)
 #BLOCKER                                                             2
 #BUILDER                                                            15
 #PLATFORMER                                                         45
-#MINER                                                              35
-#BASHER                                                             15
+#MINER                                                              45
+#BASHER                                                             25
 #DIGGER                                                              5
 #RUNNER                                                             10
 
-:bitmap/matt/05 - Winter/Hatch.H:                        316        26
-:bitmap/matt/05 - Winter/Hatch.H:                        572        26
-:bitmap/matt/05 - Winter/Hatch.H:                         58        26
+:bitmap/matt/05 - Winter/Hatch.H:                        320        32
+:bitmap/matt/05 - Winter/Hatch.H:                        576        32
+:bitmap/matt/05 - Winter/Hatch.H:                         64        32
 :bitmap/matt/05 - Winter/Hatch.H:                       1088        32
 :bitmap/matt/05 - Winter/Hatch.H:                       1344        32
 :bitmap/matt/05 - Winter/Hatch.H:                        832        32
 
-:bitmap/matt/05 - Winter/Goal.G:                         742       642
-:bitmap/matt/05 - Winter/Goal.G:                         998       646
-:bitmap/matt/05 - Winter/Goal.G:                         484       644
-:bitmap/matt/05 - Winter/Goal.G:                        1508       647
-:bitmap/matt/05 - Winter/Goal.G:                         228       642
-:bitmap/matt/05 - Winter/Goal.G:                        1252       647
+:bitmap/matt/05 - Winter/Goal.G:                         738       634
+:bitmap/matt/05 - Winter/Goal.G:                         996       640
+:bitmap/matt/05 - Winter/Goal.G:                         482       636
+:bitmap/matt/05 - Winter/Goal.G:                        1508       640
+:bitmap/matt/05 - Winter/Goal.G:                         226       634
+:bitmap/matt/05 - Winter/Goal.G:                        1252       640
 
 :bitmap/matt/05 - Winter/04:                              96       624     fr
 :bitmap/matt/05 - Winter/04:                            1376       624     fr

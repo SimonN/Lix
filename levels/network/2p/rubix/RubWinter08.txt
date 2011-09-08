@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-20 17:33:05
+$BUILT                                             2011-09-04 22:33:38
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                             Mount Lixmore(2p)
@@ -31,11 +31,11 @@ $ENGLISH                                             Mount Lixmore(2p)
 #RUNNER                                                             10
 #BATTER                                                             20
 
-:bitmap/matt/05 - Winter/Hatch.H:                        -12       234
-:bitmap/matt/05 - Winter/Hatch.H:                       1868       234     r
+:bitmap/matt/05 - Winter/Hatch.H:                        -16       240
+:bitmap/matt/05 - Winter/Hatch.H:                       1872       240     r
 
-:bitmap/matt/05 - Winter/Goal.G:                        1826       378
-:bitmap/matt/05 - Winter/Goal.G:                           4       378
+:bitmap/matt/05 - Winter/Goal.G:                        1824       368
+:bitmap/matt/05 - Winter/Goal.G:                           0       368
 
 :bitmap/matt/05 - Winter/10:                             320       336
 :bitmap/matt/05 - Winter/10:                            1392       336     frr

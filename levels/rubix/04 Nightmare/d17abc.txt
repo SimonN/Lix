@@ -1,0 +1,98 @@
+$BUILT                                             2011-09-03 07:48:48
+$AUTHOR                                                          rubix
+$GERMAN                                                               
+$ENGLISH                                             Concrete solution
+
+#SIZE_X                                                           1572
+#SIZE_Y                                                            432
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                           176
+#START_Y                                                            12
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           210
+#INITIAL                                                            50
+#REQUIRED                                                           40
+#RATE                                                               20
+
+#CLIMBER                                                             3
+#FLOATER                                                             5
+#BLOCKER                                                             1
+#EXPLODER                                                            1
+#PLATFORMER                                                          3
+#BUILDER                                                             4
+#BASHER                                                              2
+#MINER                                                               2
+#BATTER                                                              1
+#CUBER                                                               9
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/geoo/construction/Hatch.H:                       192        16
+:bitmap/geoo/construction/Hatch.H:                       976        64     r
+
+:bitmap/geoo/construction/Goal2.G:                       944       304
+
+:bitmap/geoo/construction/sawblade.F:                    272       288
+:bitmap/geoo/construction/sawblade.F:                    368       320
+:bitmap/geoo/construction/sawblade.F:                    416       320
+:bitmap/geoo/construction/sawblade.F:                    288       288
+:bitmap/geoo/construction/sawblade.F:                    304       288
+:bitmap/geoo/construction/sawblade.F:                    320       288
+:bitmap/geoo/construction/sawblade.F:                    336       304
+:bitmap/geoo/construction/sawblade.F:                    352       320
+:bitmap/geoo/construction/sawblade.F:                    384       320
+:bitmap/geoo/construction/sawblade.F:                    400       320
+
+:bitmap/geoo/construction/concrete/128:                 1024       304
+:bitmap/geoo/construction/concrete/128:                 1024       176
+:bitmap/geoo/construction/concrete/032hc:                960         0
+:bitmap/geoo/construction/concrete/128:                 1024        48
+:bitmap/geoo/construction/concrete/064h:                1024       -16
+:bitmap/geoo/construction/concrete/032d:                 480       336     f
+:bitmap/geoo/construction/concrete/032:                  480       368     frr
+:bitmap/geoo/construction/concrete/064h:                 512       368
+:bitmap/geoo/construction/concrete/064h:                 640       368
+:bitmap/geoo/construction/concrete/064h:                 768       368
+:bitmap/geoo/construction/concrete/064h:                 192       368
+:bitmap/geoo/construction/concrete/064h:                 896       368
+:bitmap/geoo/construction/concrete/064h:                 896       112
+:bitmap/geoo/construction/concrete/064h:                1152       176
+:bitmap/geoo/construction/concrete/064h:                1152       320
+:bitmap/geoo/construction/concrete/032hc:               1152         0     frr
+:bitmap/geoo/construction/concrete/016v:                 464       336
+:bitmap/geoo/construction/concrete/128:                 1440       176
+:bitmap/geoo/construction/concrete/128:                 1440        48
+:bitmap/geoo/construction/concrete/128:                 1440       304
+:bitmap/geoo/construction/concrete/032hc:               1376         0
+:bitmap/geoo/construction/concrete/064h:                1440       -16
+:bitmap/geoo/construction/concrete/podium_32:           1408       176     rrr
+:bitmap/geoo/construction/concrete/podium_32:           1408       304     rrr
+:bitmap/geoo/construction/concrete/128:                   64       240
+:bitmap/geoo/construction/concrete/128:                   64       112
+:bitmap/geoo/construction/concrete/128:                   64       -16
+:bitmap/geoo/construction/concrete/064h:                 192        64
+:bitmap/geoo/construction/concrete/064h:                  64       368
+:bitmap/geoo/construction/concrete/032hc:                192         0     frr
+:bitmap/geoo/steel/64x64.S:                             1024       176
+:bitmap/geoo/steel/64x64.S:                             1088       176
+:bitmap/geoo/steel/64x64.S:                               64       176
+:bitmap/geoo/steel/64x64.S:                              128       176
+:bitmap/geoo/steel/64x64.S:                             1152       176
+:bitmap/geoo/construction/concrete/128:                  -64       240
+:bitmap/geoo/construction/concrete/064h:                 -64       368
+:bitmap/geoo/construction/concrete/128:                  -64        48
+:bitmap/geoo/construction/concrete/064h:                 -64       176
+:bitmap/geoo/construction/concrete/128:                  -64       -80
+:bitmap/geoo/steel/64x64.S:                                0       176
+:bitmap/geoo/steel/64x64.S:                              896       112
+:bitmap/geoo/steel/64x32o.S:                             960       144
+:bitmap/geoo/steel/64x64.S:                              128       112
+:bitmap/geoo/steel/32x16o.S:                             192       112
+:bitmap/geoo/steel/32x16o.S:                             224       112
+:bitmap/geoo/steel/32x16o.S:                             256       112
+:bitmap/geoo/construction/concrete/032h:                 960       272
+:bitmap/geoo/construction/concrete/032h:                 960       256     d

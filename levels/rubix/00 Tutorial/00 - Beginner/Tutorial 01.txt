@@ -1,0 +1,120 @@
+$BUILT                                             2011-09-05 00:03:48
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                       Bashing
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           120
+#INITIAL                                                            30
+#REQUIRED                                                           10
+#RATE                                                               30
+
+#CLIMBER                                                             0
+#FLOATER                                                             0
+#EXPLODER                                                            0
+#BLOCKER                                                             0
+#BUILDER                                                             0
+#BASHER                                                             10
+#MINER                                                               0
+#DIGGER                                                              0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/01 - Earth/Hatch.H:                           8       314
+
+:bitmap/matt/01 - Earth/Goal.G:                          512       320
+
+:bitmap/matt/01 - Earth/25:                              498        64
+:bitmap/matt/01 - Earth/06:                              211       206
+:bitmap/matt/01 - Earth/06:                              196       221
+:bitmap/matt/01 - Earth/07:                              329        49
+:bitmap/matt/01 - Earth/09:                              133        61     f
+:bitmap/matt/01 - Earth/15:                              192        16
+:bitmap/matt/01 - Earth/14:                              336       -14
+:bitmap/matt/01 - Earth/14:                              286        18     fr
+:bitmap/matt/01 - Earth/14:                              172         8
+:bitmap/matt/01 - Earth/11:                              592         0
+:bitmap/matt/01 - Earth/09:                              598        42
+:bitmap/matt/01 - Earth/10:                              570       198     r
+:bitmap/matt/01 - Earth/11:                              -16       352
+:bitmap/matt/01 - Earth/07:                              260       228
+:bitmap/matt/01 - Earth/10:                              200       212     r
+:bitmap/matt/01 - Earth/14:                              -16       304
+:bitmap/matt/01 - Earth/15:                              -22       229     r
+:bitmap/matt/01 - Earth/13:                              -28       261
+:bitmap/matt/01 - Earth/09:                               72       332
+:bitmap/matt/01 - Earth/10:                               16       336
+:bitmap/matt/01 - Earth/07:                              284       348
+:bitmap/matt/01 - Earth/10:                              192       352
+:bitmap/matt/01 - Earth/19:                              384       192     r
+:bitmap/matt/01 - Earth/08:                              314       362
+:bitmap/matt/01 - Earth/10:                              336       336
+:bitmap/matt/01 - Earth/10:                              528       352
+:bitmap/matt/01 - Earth/06:                              362       192
+:bitmap/matt/01 - Earth/07:                              400       192
+:bitmap/matt/01 - Earth/07:                              400       176
+:bitmap/matt/01 - Earth/06:                              360       178
+:bitmap/matt/01 - Earth/06:                              374       194
+:bitmap/matt/01 - Earth/06:                              382       176
+:bitmap/matt/01 - Earth/07:                              400       192
+:bitmap/matt/01 - Earth/07:                              396       196
+:bitmap/matt/01 - Earth/07:                              406       198
+:bitmap/matt/01 - Earth/06:                              358       200
+:bitmap/matt/01 - Earth/06:                              344       198
+:bitmap/matt/01 - Earth/07:                              426       192
+:bitmap/matt/01 - Earth/06:                              564        48
+:bitmap/matt/01 - Earth/06:                              566       198
+:bitmap/matt/01 - Earth/10:                              576        46     r
+:bitmap/matt/01 - Earth/06:                              592       154
+:bitmap/matt/01 - Earth/15:                                0         0
+:bitmap/matt/01 - Earth/15:                               64       -16
+:bitmap/matt/01 - Earth/15:                               64         0
+:bitmap/matt/01 - Earth/15:                              128       -16
+:bitmap/matt/01 - Earth/15:                               82         8
+:bitmap/matt/01 - Earth/15:                              144         0
+:bitmap/matt/01 - Earth/15:                              144        16
+:bitmap/matt/01 - Earth/26:                              128        42
+:bitmap/matt/01 - Earth/10:                              110       -42
+:bitmap/matt/01 - Earth/15:                              216       -10
+:bitmap/matt/01 - Earth/15:                              256         0
+:bitmap/matt/01 - Earth/15:                              260        22
+:bitmap/matt/01 - Earth/15:                              320         0
+:bitmap/matt/01 - Earth/15:                              352       -16
+:bitmap/matt/01 - Earth/15:                              328         4
+:bitmap/matt/01 - Earth/15:                              334         4
+:bitmap/matt/01 - Earth/15:                              416       -16
+:bitmap/matt/01 - Earth/15:                              368         0
+:bitmap/matt/01 - Earth/15:                              432       -16
+:bitmap/matt/01 - Earth/15:                              440       -20
+:bitmap/matt/01 - Earth/15:                              496       -16
+:bitmap/matt/01 - Earth/15:                              434       -14
+:bitmap/matt/01 - Earth/15:                              512         0
+:bitmap/matt/01 - Earth/10:                              468       -38
+:bitmap/matt/01 - Earth/15:                              576         0
+:bitmap/matt/01 - Earth/15:                              560       -16
+:bitmap/matt/01 - Earth/11:                              -16         0
+:bitmap/matt/01 - Earth/14:                              288       -16
+:bitmap/matt/01 - Earth/14:                              320       -32
+:bitmap/matt/01 - Earth/23:                               12       108
+:bitmap/matt/01 - Earth/04:                              -96       -48
+:bitmap/matt/01 - Earth/06:                              180       300
+:bitmap/matt/01 - Earth/06:                              148       322
+:bitmap/matt/01 - Earth/04:                              138       302
+:bitmap/matt/01 - Earth/07:                              500       366
+:bitmap/matt/01 - Earth/14:                              248       -26
+:bitmap/matt/01 - Earth/14:                               40       -30
+:bitmap/matt/01 - Earth/14:                              376        -8
+:bitmap/matt/01 - Earth/07:                              353        18
+:bitmap/matt/01 - Earth/04:                              278       -70
+:bitmap/rubix/Tutorial/Tutorial 01:                      156        95

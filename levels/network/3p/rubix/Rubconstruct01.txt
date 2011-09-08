@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-20 19:28:29
+$BUILT                                             2011-09-04 23:02:25
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                     The box office [Low] (3p)
@@ -18,10 +18,10 @@ $ENGLISH                                     The box office [Low] (3p)
 #REQUIRED                                                           20
 #RATE                                                               40
 
-#FLOATER                                                            25
+#FLOATER                                                            20
 #WALKER                                                             50
 #JUMPER                                                             60
-#EXPLODER                                                            6
+#EXPLODER2                                                           6
 #BASHER                                                             40
 #MINER                                                              40
 #PLATFORMER                                                         70

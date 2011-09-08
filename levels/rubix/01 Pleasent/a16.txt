@@ -1,0 +1,150 @@
+$BUILT                                             2011-09-05 08:20:29
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                    The garden
+
+#SIZE_X                                                           1648
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                           700
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           360
+#INITIAL                                                            80
+#REQUIRED                                                           70
+#RATE                                                               50
+
+#CLIMBER                                                             0
+#BLOCKER                                                             2
+#EXPLODER                                                            2
+#PLATFORMER                                                          8
+#BUILDER                                                             6
+#BASHER                                                              4
+#MINER                                                               1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/06 - Oriental/Hatch.H:                      -16       240
+
+:bitmap/matt/06 - Oriental/Goal.G:                      1134        28
+
+:bitmap/matt/water.W:                                   1216       368
+:bitmap/matt/water.W:                                   1248       368
+:bitmap/matt/water.W:                                   1280       368
+:bitmap/matt/water.W:                                   1312       368
+:bitmap/matt/water.W:                                   1344       368
+:bitmap/matt/water.W:                                   1376       368
+:bitmap/matt/water.W:                                   1216       384
+:bitmap/matt/water.W:                                   1248       384
+:bitmap/matt/water.W:                                   1280       384
+:bitmap/matt/water.W:                                   1312       384
+:bitmap/matt/water.W:                                   1344       384
+:bitmap/matt/water.W:                                   1376       384
+:bitmap/matt/water.W:                                    896       368
+:bitmap/matt/water.W:                                    928       368
+:bitmap/matt/water.W:                                    960       368
+:bitmap/matt/water.W:                                    992       368
+:bitmap/matt/water.W:                                   1024       368
+:bitmap/matt/water.W:                                   1056       368
+:bitmap/matt/water.W:                                    896       384
+:bitmap/matt/water.W:                                    928       384
+:bitmap/matt/water.W:                                    960       384
+:bitmap/matt/water.W:                                    992       384
+:bitmap/matt/water.W:                                   1024       384
+:bitmap/matt/water.W:                                   1056       384
+:bitmap/matt/water.W:                                    512       368
+:bitmap/matt/water.W:                                    544       368
+:bitmap/matt/water.W:                                    576       368
+:bitmap/matt/water.W:                                    608       368
+:bitmap/matt/water.W:                                    640       368
+:bitmap/matt/water.W:                                    672       368
+:bitmap/matt/water.W:                                    512       384
+:bitmap/matt/water.W:                                    544       384
+:bitmap/matt/water.W:                                    576       384
+:bitmap/matt/water.W:                                    608       384
+:bitmap/matt/water.W:                                    640       384
+:bitmap/matt/water.W:                                    672       384
+:bitmap/matt/water.W:                                    320       368
+:bitmap/matt/water.W:                                    352       368
+:bitmap/matt/water.W:                                    384       368
+:bitmap/matt/water.W:                                    416       368
+:bitmap/matt/water.W:                                    448       368
+:bitmap/matt/water.W:                                    480       368
+:bitmap/matt/water.W:                                    320       384
+:bitmap/matt/water.W:                                    352       384
+:bitmap/matt/water.W:                                    384       384
+:bitmap/matt/water.W:                                    416       384
+:bitmap/matt/water.W:                                    448       384
+:bitmap/matt/water.W:                                    480       384
+:bitmap/matt/water.W:                                    128       368
+:bitmap/matt/water.W:                                    160       368
+:bitmap/matt/water.W:                                    192       368
+:bitmap/matt/water.W:                                    224       368
+:bitmap/matt/water.W:                                    256       368
+:bitmap/matt/water.W:                                    288       368
+:bitmap/matt/water.W:                                    128       384
+:bitmap/matt/water.W:                                    160       384
+:bitmap/matt/water.W:                                    192       384
+:bitmap/matt/water.W:                                    224       384
+:bitmap/matt/water.W:                                    256       384
+:bitmap/matt/water.W:                                    288       384
+:bitmap/matt/water.W:                                   1392       368
+:bitmap/matt/water.W:                                   1392       384
+
+:bitmap/matt/06 - Oriental/06:                            28       352
+:bitmap/matt/06 - Oriental/asian temple:                1411       191
+:bitmap/matt/06 - Oriental/bonsai tree:                 1082        45
+:bitmap/matt/06 - Oriental/bamboo pole:                 1642       210
+:bitmap/matt/06 - Oriental/asian gate:                  1260       336
+:bitmap/matt/06 - Oriental/05:                           700       368     fr
+:bitmap/matt/06 - Oriental/05:                           764       368     fr
+:bitmap/matt/06 - Oriental/05:                           828       368     fr
+:bitmap/matt/06 - Oriental/05:                          1084       368     fr
+:bitmap/matt/06 - Oriental/05:                          1148       368     fr
+:bitmap/matt/06 - Oriental/05:                          1420       368     fr
+:bitmap/matt/06 - Oriental/05:                          1484       368     fr
+:bitmap/matt/06 - Oriental/05:                          1548       368     fr
+:bitmap/matt/06 - Oriental/05:                          1612       368     fr
+:bitmap/matt/06 - Oriental/asian gate:                   940       336
+:bitmap/matt/06 - Oriental/10:                          1612       336     frr
+:bitmap/matt/06 - Oriental/10:                          1612       308     frrr
+:bitmap/matt/06 - Oriental/10:                          1612       278     frr
+:bitmap/matt/06 - Oriental/10:                          1612       248     frrr
+:bitmap/matt/06 - Oriental/10:                          1612       218     frr
+:bitmap/matt/06 - Oriental/10:                          1612       188     frrr
+:bitmap/matt/06 - Oriental/bamboo pole:                 1642        52
+:bitmap/matt/06 - Oriental/bamboo pole:                 1641        26     d
+:bitmap/matt/06 - Oriental/10:                          1610       158     frr
+:bitmap/matt/06 - Oriental/10:                          1610       130     frrr
+:bitmap/matt/06 - Oriental/10:                          1610       104     frr
+:bitmap/matt/06 - Oriental/10:                          1610        74     frrr
+:bitmap/matt/06 - Oriental/bamboo pole:                 1606        28
+:bitmap/matt/06 - Oriental/bamboo pole:                 1641        32
+:bitmap/matt/06 - Oriental/bamboo pole:                 1639      -152     d
+:bitmap/matt/06 - Oriental/bamboo pole:                 1640      -126
+:bitmap/matt/06 - Oriental/bamboo pole:                 1647        31     d
+:bitmap/matt/06 - Oriental/bonsai tree:                 1052       171
+:bitmap/matt/06 - Oriental/bamboo pole:                 1606       182
+:bitmap/matt/06 - Oriental/03:                          1595        19     frd
+:bitmap/matt/06 - Oriental/03:                          1631        -8     frd
+:bitmap/matt/06 - Oriental/03:                          1635        26     frd
+:bitmap/matt/06 - Oriental/03:                          1598        34     frd
+:bitmap/matt/06 - Oriental/bridge_angle:                 593       308     f
+:bitmap/matt/06 - Oriental/bridge_angle:                 382       308
+:bitmap/matt/06 - Oriental/bridge_straight:              277       368
+:bitmap/matt/06 - Oriental/bridge_straight:              172       368
+:bitmap/matt/06 - Oriental/bonsai tree:                  691       189     frr
+:bitmap/matt/06 - Oriental/06:                           124       352
+:bitmap/matt/06 - Oriental/06:                            76       352
+:bitmap/matt/06 - Oriental/06:                            76       336
+:bitmap/matt/06 - Oriental/06:                            28       320
+:bitmap/matt/06 - Oriental/06:                           -20       352
+:bitmap/matt/06 - Oriental/06:                            28       320
+:bitmap/matt/06 - Oriental/06:                           -20       304

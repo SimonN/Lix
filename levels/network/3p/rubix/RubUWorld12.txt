@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-21 12:23:53
+$BUILT                                             2011-09-04 22:58:16
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                    Infernal towers [Low] (3p)
@@ -31,9 +31,9 @@ $ENGLISH                                    Infernal towers [Low] (3p)
 #CUBER                                                              20
 #RUNNER                                                             10
 
-:bitmap/matt/07 - Underworld/hatch.H:                     96       128
-:bitmap/matt/07 - Underworld/hatch.H:                    464       128
-:bitmap/matt/07 - Underworld/hatch.H:                    832       128
+:bitmap/matt/07 - Underworld/Hatch.H:                    464        80
+:bitmap/matt/07 - Underworld/Hatch.H:                    832        80
+:bitmap/matt/07 - Underworld/Hatch.H:                     96        80
 
 :bitmap/matt/07 - Underworld/Goal.G:                     787       798
 :bitmap/matt/07 - Underworld/Goal.G:                      52       798

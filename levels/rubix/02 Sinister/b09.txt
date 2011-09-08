@@ -1,0 +1,88 @@
+$BUILT                                             2011-09-05 11:39:50
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                  Safety First
+
+#SIZE_X                                                           1160
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                            40
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           165
+#INITIAL                                                            40
+#REQUIRED                                                           38
+#RATE                                                               85
+
+#CLIMBER                                                             1
+#FLOATER                                                             2
+#BASHER                                                              2
+#MINER                                                               3
+#BUILDER                                                             1
+#BATTER                                                              1
+#CUBER                                                               2
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                  1104        64
+
+:bitmap/matt/02 - Gold Mine/Hatch.H:                       8       276
+
+:bitmap/matt/02 - Gold Mine/Goal.G:                     1104       112
+
+:bitmap/matt/02 - Gold Mine/08:                          460       376     r
+:bitmap/matt/02 - Gold Mine/09:                          924        56
+:bitmap/matt/02 - Gold Mine/07:                          304       112     r
+:bitmap/matt/02 - Gold Mine/08:                          256       144
+:bitmap/matt/02 - Gold Mine/07:                          256       208     r
+:bitmap/matt/02 - Gold Mine/crate64:                     384       160
+:bitmap/matt/02 - Gold Mine/crate64:                     384       352
+:bitmap/matt/02 - Gold Mine/plank support:               490       160
+:bitmap/matt/02 - Gold Mine/plank support:               746       160
+:bitmap/matt/02 - Gold Mine/plank:                       618       160
+:bitmap/matt/02 - Gold Mine/plank:                       874       160
+:bitmap/matt/02 - Gold Mine/plank:                       550       288     rrr
+:bitmap/matt/02 - Gold Mine/plank:                       860       288     rrr
+:bitmap/matt/02 - Gold Mine/07:                          572       324
+:bitmap/matt/02 - Gold Mine/09:                          710       286
+:bitmap/matt/02 - Gold Mine/07:                          728       260
+:bitmap/matt/02 - Gold Mine/07:                          772       294     r
+:bitmap/matt/02 - Gold Mine/07:                          866       312     r
+:bitmap/matt/02 - Gold Mine/04:                          662       294
+:bitmap/matt/02 - Gold Mine/04:                          506       358
+:bitmap/matt/02 - Gold Mine/04:                          908       112
+:bitmap/matt/02 - Gold Mine/07:                          876       220     fr
+:bitmap/matt/02 - Gold Mine/07:                          938       132     fr
+:bitmap/matt/02 - Gold Mine/04:                          638       274
+:bitmap/matt/02 - Gold Mine/07:                          716       206     fr
+:bitmap/matt/02 - Gold Mine/plank support:              1002       160
+:bitmap/matt/02 - Gold Mine/plank:                       874       160
+:bitmap/matt/02 - Gold Mine/plank:                      1130       160
+:bitmap/matt/02 - Gold Mine/plank:                      1062       288     rrr
+:bitmap/matt/02 - Gold Mine/07:                          884       306
+:bitmap/matt/02 - Gold Mine/04:                          994       346
+:bitmap/matt/02 - Gold Mine/04:                         1056       296
+:bitmap/matt/02 - Gold Mine/07:                          110       338     rr
+:bitmap/matt/02 - Gold Mine/08:                          192       224
+:bitmap/matt/02 - Gold Mine/04:                          188       252
+:bitmap/matt/02 - Gold Mine/08:                          130       304
+:bitmap/matt/02 - Gold Mine/02:                          204       102
+:bitmap/matt/02 - Gold Mine/08:                          210       -10
+:bitmap/matt/02 - Gold Mine/07:                          246       -10
+:bitmap/matt/02 - Gold Mine/04:                          340      -102
+:bitmap/matt/02 - Gold Mine/07:                          406       -58
+:bitmap/matt/02 - Gold Mine/08:                          398       380
+:bitmap/matt/02 - Gold Mine/07:                          -48       320
+:bitmap/matt/02 - Gold Mine/04:                          -80       192
+:bitmap/matt/02 - Gold Mine/07:                          308       220     frrrd
+:bitmap/matt/02 - Gold Mine/crate64:                     384       224
+:bitmap/matt/02 - Gold Mine/crate64:                     384       288
+:bitmap/matt/02 - Gold Mine/07:                          272       252     frrrd
+:bitmap/matt/02 - Gold Mine/07:                          320       210     frrrd

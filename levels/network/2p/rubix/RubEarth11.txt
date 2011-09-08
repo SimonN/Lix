@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-21 12:41:27
+$BUILT                                             2011-09-05 23:54:31
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                   Middle Earth Domination(2p)
@@ -13,7 +13,7 @@ $ENGLISH                                   Middle Earth Domination(2p)
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                            30
+#SECONDS                                                            50
 #INITIAL                                                            60
 #REQUIRED                                                           20
 #RATE                                                               20
@@ -31,11 +31,11 @@ $ENGLISH                                   Middle Earth Domination(2p)
 #RUNNER                                                             10
 #BATTER                                                             10
 
-:bitmap/matt/01 - Earth/Hatch.H:                         816        10
-:bitmap/matt/01 - Earth/Hatch.H:                         736         8     r
+:bitmap/matt/01 - Earth/Hatch.H:                         800        16
+:bitmap/matt/01 - Earth/Hatch.H:                         752        16     r
 
-:bitmap/matt/01 - Earth/Goal.G:                           26       300
-:bitmap/matt/01 - Earth/Goal.G:                         1510       300
+:bitmap/matt/01 - Earth/Goal.G:                           32       288
+:bitmap/matt/01 - Earth/Goal.G:                         1504       288
 
 :bitmap/matt/water.W:                                    848       400
 :bitmap/matt/water.W:                                    880       400

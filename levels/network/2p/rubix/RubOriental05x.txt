@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-20 17:27:20
+$BUILT                                             2011-09-04 19:42:19
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                         Give me a break..(2p)
@@ -13,7 +13,7 @@ $ENGLISH                                         Give me a break..(2p)
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                            25
+#SECONDS                                                            45
 #INITIAL                                                            70
 #REQUIRED                                                           50
 #RATE                                                               20
@@ -31,11 +31,11 @@ $ENGLISH                                         Give me a break..(2p)
 #BATTER                                                             20
 #NOTHING                                                             0
 
-:bitmap/matt/06 - Oriental/hatch.H:                     1464        -8     r
-:bitmap/matt/06 - Oriental/hatch.H:                       86        -8
+:bitmap/matt/06 - Oriental/Hatch.H:                     1440       -16     r
+:bitmap/matt/06 - Oriental/Hatch.H:                      112       -16
 
-:bitmap/matt/06 - Oriental/Goal.G:                       678       286
-:bitmap/matt/06 - Oriental/Goal.G:                       870       284
+:bitmap/matt/06 - Oriental/Goal.G:                       678       274
+:bitmap/matt/06 - Oriental/Goal.G:                       870       276
 
 :bitmap/matt/water.W:                                   1024       368
 :bitmap/matt/water.W:                                   1056       368
@@ -126,8 +126,8 @@ $ENGLISH                                         Give me a break..(2p)
 :bitmap/matt/water.W:                                    912       384
 :bitmap/matt/water.W:                                    944       384
 
-:bitmap/matt/06 - Oriental/leaves3:                     1437        37
-:bitmap/matt/06 - Oriental/leaves3:                      110        36     frr
+:bitmap/matt/06 - Oriental/leaves3:                     1430        38
+:bitmap/matt/06 - Oriental/leaves3:                      120        38     frr
 :bitmap/matt/06 - Oriental/07:                          1312       374
 :bitmap/matt/06 - Oriental/02:                           -16       336
 :bitmap/matt/06 - Oriental/02:                          1596       336

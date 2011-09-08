@@ -1,0 +1,138 @@
+$BUILT                                             2011-09-05 18:25:41
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                 Tunnel vision
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            440
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                            20
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           180
+#INITIAL                                                            80
+#REQUIRED                                                           80
+#RATE                                                                1
+
+#JUMPER                                                              2
+#BUILDER                                                             4
+#BASHER                                                              2
+#DIGGER                                                              3
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/03 - Carnival/Hatch.H:                      592       -28     r
+
+:bitmap/matt/03 - Carnival/Goal.G:                         2       360
+
+:bitmap/matt/03 - Carnival/10:                           512       360     r
+:bitmap/matt/03 - Carnival/10:                           416       296     fr
+:bitmap/matt/03 - Carnival/10:                           320       264
+:bitmap/matt/03 - Carnival/10:                           352       264     r
+:bitmap/matt/03 - Carnival/10:                           384       264
+:bitmap/matt/03 - Carnival/10:                           416       264     r
+:bitmap/matt/03 - Carnival/10:                           480       264     r
+:bitmap/matt/03 - Carnival/10:                           512       264
+:bitmap/matt/03 - Carnival/10:                           544       264     r
+:bitmap/matt/03 - Carnival/10:                           576       264
+:bitmap/matt/03 - Carnival/10:                           320       232     r
+:bitmap/matt/03 - Carnival/10:                           352       232
+:bitmap/matt/03 - Carnival/10:                           384       232     r
+:bitmap/matt/03 - Carnival/10:                           416       232
+:bitmap/matt/03 - Carnival/10:                           448       232     r
+:bitmap/matt/03 - Carnival/10:                           480       232
+:bitmap/matt/03 - Carnival/10:                           512       232     r
+:bitmap/matt/03 - Carnival/10:                           544       232
+:bitmap/matt/03 - Carnival/10:                           576       232     r
+:bitmap/matt/03 - Carnival/10:                           320       328
+:bitmap/matt/03 - Carnival/10:                           352       328     r
+:bitmap/matt/03 - Carnival/10:                           384       328
+:bitmap/matt/03 - Carnival/10:                           416       328     r
+:bitmap/matt/03 - Carnival/10:                           448       328
+:bitmap/matt/03 - Carnival/10:                           480       328     r
+:bitmap/matt/03 - Carnival/10:                           512       328
+:bitmap/matt/03 - Carnival/10:                           544       328     r
+:bitmap/matt/03 - Carnival/10:                           576       328
+:bitmap/matt/03 - Carnival/10:                           320       296     r
+:bitmap/matt/03 - Carnival/10:                           352       296
+:bitmap/matt/03 - Carnival/10:                           384       296     r
+:bitmap/matt/03 - Carnival/10:                           448       296     r
+:bitmap/matt/03 - Carnival/10:                           480       296
+:bitmap/matt/03 - Carnival/10:                           512       296     r
+:bitmap/matt/03 - Carnival/10:                           544       296
+:bitmap/matt/03 - Carnival/10:                           576       296     r
+:bitmap/matt/03 - Carnival/10:                           320       360     r
+:bitmap/matt/03 - Carnival/10:                           352       360
+:bitmap/matt/03 - Carnival/10:                           384       360     r
+:bitmap/matt/03 - Carnival/10:                           416       360
+:bitmap/matt/03 - Carnival/10:                           448       360     r
+:bitmap/matt/03 - Carnival/10:                           480       360
+:bitmap/matt/03 - Carnival/10:                           544       360
+:bitmap/matt/03 - Carnival/10:                           576       360     r
+:bitmap/matt/03 - Carnival/10:                           320       392
+:bitmap/matt/03 - Carnival/10:                           352       392     r
+:bitmap/matt/03 - Carnival/10:                           384       392
+:bitmap/matt/03 - Carnival/10:                           416       392     r
+:bitmap/matt/03 - Carnival/10:                           448       392
+:bitmap/matt/03 - Carnival/10:                           480       392     r
+:bitmap/matt/03 - Carnival/10:                           512       392
+:bitmap/matt/03 - Carnival/10:                           544       392     r
+:bitmap/matt/03 - Carnival/10:                           576       392
+:bitmap/matt/03 - Carnival/06:                           626       248
+:bitmap/matt/03 - Carnival/03:                           626       312
+:bitmap/matt/03 - Carnival/03:                           626       120
+:bitmap/matt/03 - Carnival/06:                           576        40     r
+:bitmap/matt/03 - Carnival/03:                           544        40
+:bitmap/matt/03 - Carnival/03:                           512        40
+:bitmap/matt/03 - Carnival/06:                           448        40     r
+:bitmap/matt/03 - Carnival/03:                           416        40
+:bitmap/matt/03 - Carnival/03:                           384        40
+:bitmap/matt/03 - Carnival/06:                           320        40     r
+:bitmap/matt/03 - Carnival/03:                           288        40
+:bitmap/matt/03 - Carnival/06:                             0        40     r
+:bitmap/matt/03 - Carnival/03:                           608       424
+:bitmap/matt/03 - Carnival/06:                           256       424     r
+:bitmap/matt/03 - Carnival/03:                           224       424
+:bitmap/matt/03 - Carnival/06:                           160       424     r
+:bitmap/matt/03 - Carnival/03:                           128       424
+:bitmap/matt/03 - Carnival/06:                            64       424     r
+:bitmap/matt/03 - Carnival/03:                            32       424
+:bitmap/matt/03 - Carnival/06:                           -32       424     r
+:bitmap/matt/03 - Carnival/06:                           544       424     r
+:bitmap/matt/03 - Carnival/03:                           512       424
+:bitmap/matt/03 - Carnival/06:                           448       424     r
+:bitmap/matt/03 - Carnival/03:                           416       424
+:bitmap/matt/03 - Carnival/06:                           352       424     r
+:bitmap/matt/03 - Carnival/03:                           320       424
+:bitmap/matt/steel/32x32.S:                              340       296
+:bitmap/matt/steel/32x32.S:                              382       296
+:bitmap/matt/steel/32x32.S:                              400       264
+:bitmap/matt/steel/32x32.S:                              492       296
+:bitmap/matt/steel/32x32.S:                              544       264
+:bitmap/matt/03 - Carnival/10:                           448       264
+:bitmap/matt/03 - Carnival/03:                            64        40
+:bitmap/matt/03 - Carnival/36:                           192       168
+:bitmap/matt/03 - Carnival/38:                           256       200
+:bitmap/matt/03 - Carnival/36:                            64       104
+:bitmap/matt/03 - Carnival/38:                           128       136
+:bitmap/matt/03 - Carnival/38:                             0        72
+:bitmap/matt/steel/32x32.S:                              450       296
+:bitmap/matt/03 - Carnival/10:                           480       392     r
+:bitmap/matt/steel/32x32.S:                              564       296
+:bitmap/matt/03 - Carnival/06:                           626       152
+:bitmap/matt/03 - Carnival/06:                           626       344     rr
+:bitmap/matt/steel/32x32.S:                              320       264
+:bitmap/matt/steel/32x32.S:                              512       264
+:bitmap/matt/steel/32x32.S:                              432       264
+:bitmap/matt/03 - Carnival/06:                           144        40     r
+:bitmap/matt/03 - Carnival/03:                           208        40

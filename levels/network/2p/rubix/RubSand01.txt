@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 12:09:35
+$BUILT                                             2011-09-05 00:19:38
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                                     Glare(2p)
@@ -13,7 +13,7 @@ $ENGLISH                                                     Glare(2p)
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                            30
+#SECONDS                                                           150
 #INITIAL                                                            65
 #REQUIRED                                                           20
 #RATE                                                               30
@@ -31,11 +31,11 @@ $ENGLISH                                                     Glare(2p)
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/04 - Sandy Beach/hatch.H:                    10        -8
-:bitmap/matt/04 - Sandy Beach/hatch.H:                   552        -8     r
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                     0       -16
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                   544       -16     r
 
-:bitmap/matt/04 - Sandy Beach/goal.G:                    456       294
-:bitmap/matt/04 - Sandy Beach/goal.G:                     72       294
+:bitmap/matt/04 - Sandy Beach/goal.G:                    448       264
+:bitmap/matt/04 - Sandy Beach/goal.G:                     64       264
 
 :bitmap/matt/04 - Sandy Beach/Daytime Sand/15:           112        50
 :bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           -24        32

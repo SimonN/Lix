@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-21 15:06:57
+$BUILT                                             2011-09-04 22:36:24
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                       The Square 'Route' (2p)
@@ -34,17 +34,17 @@ $ENGLISH                                       The Square 'Route' (2p)
 :bitmap/matt/04 - Sandy Beach/Sand Decor/moon.D:         186       -20
 :bitmap/matt/04 - Sandy Beach/Sand Decor/bonfire.D:      304       430
 
-:bitmap/matt/04 - Sandy Beach/hatch.H:                   -16       144
-:bitmap/matt/04 - Sandy Beach/hatch.H:                   560       144     r
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                   -24       146
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                   562       144     r
 
-:bitmap/matt/04 - Sandy Beach/goal.G:                    -26       718
-:bitmap/matt/04 - Sandy Beach/goal.G:                    544       720
+:bitmap/matt/04 - Sandy Beach/goal.G:                    544       688
+:bitmap/matt/04 - Sandy Beach/goal.G:                    -16       688
 
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         -16       464
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         432       464     frr
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         -16       608
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         432       608     frr
-:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         -16       176
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         -16       178
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         432       176     frr
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         -16       320
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         432       320     frr
@@ -69,9 +69,9 @@ $ENGLISH                                       The Square 'Route' (2p)
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:          48       816
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         496       832
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         368       800
-:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         -80        96
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         -78        96
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         608       112     frr
-:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         560       176
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         560       186
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         262       200
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         294       200     frr
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         262       296     f
@@ -126,3 +126,9 @@ $ENGLISH                                       The Square 'Route' (2p)
 :bitmap/matt/04 - Sandy Beach/Sand Decor/grass07:        472       818
 :bitmap/matt/04 - Sandy Beach/woman_green:                30       620     frr
 :bitmap/matt/04 - Sandy Beach/woman_blue:                468       616
+:bitmap/matt/steel/64x32.S:                                0       816
+:bitmap/matt/steel/64x32.S:                               64       816
+:bitmap/matt/steel/64x32.S:                              512       816
+:bitmap/matt/steel/64x32.S:                              576       816
+:bitmap/matt/steel/64x32.S:                                0       192
+:bitmap/matt/steel/64x32.S:                              576       192

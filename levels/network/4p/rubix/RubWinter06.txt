@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-21 12:48:56
+$BUILT                                             2011-09-04 23:17:09
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                          10 degrees below(4p)
@@ -31,15 +31,15 @@ $ENGLISH                                          10 degrees below(4p)
 #DIGGER                                                              5
 #RUNNER                                                             10
 
-:bitmap/matt/05 - Winter/Hatch.H:                        316        26
+:bitmap/matt/05 - Winter/Hatch.H:                        320        32
 :bitmap/matt/05 - Winter/Hatch.H:                        576        32
 :bitmap/matt/05 - Winter/Hatch.H:                        832        32
 :bitmap/matt/05 - Winter/Hatch.H:                         64        32
 
-:bitmap/matt/05 - Winter/Goal.G:                         228       642
-:bitmap/matt/05 - Winter/Goal.G:                         484       644
-:bitmap/matt/05 - Winter/Goal.G:                         738       648
-:bitmap/matt/05 - Winter/Goal.G:                         992       646
+:bitmap/matt/05 - Winter/Goal.G:                         226       634
+:bitmap/matt/05 - Winter/Goal.G:                         482       636
+:bitmap/matt/05 - Winter/Goal.G:                         740       640
+:bitmap/matt/05 - Winter/Goal.G:                         996       640
 
 :bitmap/matt/05 - Winter/04:                             352       624     fr
 :bitmap/matt/05 - Winter/04:                              96       624     fr

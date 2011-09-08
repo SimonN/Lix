@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-21 10:45:08
+$BUILT                                             2011-09-04 22:17:26
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                               Game on! Choose new tactics(2p)
@@ -31,11 +31,11 @@ $ENGLISH                               Game on! Choose new tactics(2p)
 #BATTER                                                             10
 #NOTHING                                                             0
 
-:bitmap/matt/04 - Sandy Beach/hatch.H:                   458        69
-:bitmap/matt/04 - Sandy Beach/hatch.H:                  1041        70     r
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                   448        64
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                  1030        66     r
 
-:bitmap/matt/04 - Sandy Beach/goal.G:                   1360       272
-:bitmap/matt/04 - Sandy Beach/goal.G:                    112       272
+:bitmap/matt/04 - Sandy Beach/goal.G:                   1360       240
+:bitmap/matt/04 - Sandy Beach/goal.G:                     96       240
 
 :bitmap/matt/04 - Sandy Beach/Daytime Sand/03:          1354       179
 :bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           113       178

@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 11:49:04
+$BUILT                                             2011-09-04 22:52:59
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                           Golden Slumbers(3p)
@@ -19,7 +19,7 @@ $ENGLISH                                           Golden Slumbers(3p)
 #RATE                                                               20
 
 #CLIMBER                                                             5
-#FLOATER                                                             5
+#FLOATER                                                            15
 #WALKER                                                             50
 #JUMPER                                                             30
 #EXPLODER2                                                          10
@@ -31,9 +31,9 @@ $ENGLISH                                           Golden Slumbers(3p)
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   590       752
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   335       752
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                    78       752
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   592       736
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   336       736
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                    80       736
 :bitmap/matt/02 - Gold Mine/mine cart.D:                 279       784
 :bitmap/matt/02 - Gold Mine/mine cart.D:                 535       783
 :bitmap/matt/02 - Gold Mine/mine cart.D:                  23       783
@@ -42,9 +42,9 @@ $ENGLISH                                           Golden Slumbers(3p)
 :bitmap/matt/02 - Gold Mine/Hatch.H:                      64        64
 :bitmap/matt/02 - Gold Mine/Hatch.H:                     320        64
 
-:bitmap/matt/02 - Gold Mine/Goal.G:                      592       792
-:bitmap/matt/02 - Gold Mine/Goal.G:                       80       792
-:bitmap/matt/02 - Gold Mine/Goal.G:                      337       792
+:bitmap/matt/02 - Gold Mine/Goal.G:                      592       784
+:bitmap/matt/02 - Gold Mine/Goal.G:                       80       784
+:bitmap/matt/02 - Gold Mine/Goal.G:                      336       784
 
 :bitmap/matt/02 - Gold Mine/07:                          464       784     r
 :bitmap/matt/02 - Gold Mine/07:                          720       784     r

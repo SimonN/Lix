@@ -1,0 +1,78 @@
+$BUILT                                             2011-09-05 00:07:32
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                               Direction Force
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                            90
+#INITIAL                                                            99
+#REQUIRED                                                           99
+#RATE                                                               99
+
+#BASHER                                                              2
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/01 - Earth/Hatch.H:                         -26       232
+:bitmap/matt/01 - Earth/Hatch.H:                         582       222     r
+
+:bitmap/matt/01 - Earth/Goal.G:                          310       328
+
+:bitmap/matt/01 - Earth/06:                              506       267
+:bitmap/matt/01 - Earth/07:                               81       266
+:bitmap/matt/01 - Earth/01:                              432       288
+:bitmap/matt/01 - Earth/02:                              177       261
+:bitmap/matt/01 - Earth/02:                              302       388
+:bitmap/matt/01 - Earth/02:                              492       320
+:bitmap/matt/01 - Earth/04:                             -128       328     r
+:bitmap/matt/01 - Earth/04:                             -109       223
+:bitmap/matt/01 - Earth/04:                               31       277
+:bitmap/matt/01 - Earth/04:                               29       350
+:bitmap/matt/01 - Earth/04:                               87       274
+:bitmap/matt/01 - Earth/04:                              141       279
+:bitmap/matt/01 - Earth/04:                              203       288
+:bitmap/matt/01 - Earth/04:                              211       314
+:bitmap/matt/01 - Earth/04:                              353       291
+:bitmap/matt/01 - Earth/04:                              355       288
+:bitmap/matt/01 - Earth/04:                              368       304
+:bitmap/matt/01 - Earth/04:                              419       303
+:bitmap/matt/01 - Earth/06:                              384       352
+:bitmap/matt/01 - Earth/04:                              382       329
+:bitmap/matt/01 - Earth/04:                              482       331
+:bitmap/matt/01 - Earth/08:                              609       249     r
+:bitmap/matt/01 - Earth/04:                              570       250
+:bitmap/matt/01 - Earth/06:                              597       337
+:bitmap/matt/01 - Earth/04:                              565       332
+:bitmap/matt/01 - Earth/04:                              -67       291
+:bitmap/matt/01 - Earth/07:                              143       257
+:bitmap/matt/01 - Earth/00:                              101       260
+:bitmap/matt/01 - Earth/07:                              257       265
+:bitmap/matt/01 - Earth/00:                              224       272
+:bitmap/matt/01 - Earth/04:                              474       265
+:bitmap/matt/01 - Earth/03:                              589       263
+:bitmap/matt/01 - Earth/03:                             -121       272
+:bitmap/matt/01 - Earth/02:                               -1       368
+:bitmap/matt/01 - Earth/28:                               -7       279
+:bitmap/matt/01 - Earth/05:                               41       224     f
+:bitmap/rubix/Tutorial/Tricks 001a:                        0         0
+:bitmap/rubix/Tutorial/Tricks 001c:                      440         0
+:bitmap/rubix/Tutorial/Tricks00b:                        222         0
+:bitmap/matt/01 - Earth/06:                              621       300

@@ -1,0 +1,131 @@
+$BUILT                                             2011-09-05 00:43:29
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                Broken bridges
+
+#SIZE_X                                                           1000
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           210
+#INITIAL                                                            40
+#REQUIRED                                                           15
+#RATE                                                                1
+
+#BUILDER                                                             1
+#PLATFORMER                                                          2
+#BASHER                                                              5
+#DIGGER                                                              1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/03 - Carnival/Hatch.H:                      -16        48
+
+:bitmap/matt/03 - Carnival/Goal.G:                       928       272
+
+:bitmap/matt/water.W:                                    160       352
+:bitmap/matt/water.W:                                    192       352
+:bitmap/matt/water.W:                                    224       352
+:bitmap/matt/water.W:                                     64       352
+:bitmap/matt/water.W:                                     96       352
+:bitmap/matt/water.W:                                    128       352
+:bitmap/matt/water.W:                                    160       368
+:bitmap/matt/water.W:                                    192       368
+:bitmap/matt/water.W:                                    224       368
+:bitmap/matt/water.W:                                     64       368
+:bitmap/matt/water.W:                                     96       368
+:bitmap/matt/water.W:                                    128       368
+:bitmap/matt/water.W:                                    416       352
+:bitmap/matt/water.W:                                    448       352
+:bitmap/matt/water.W:                                    480       352
+:bitmap/matt/water.W:                                    320       352
+:bitmap/matt/water.W:                                    352       352
+:bitmap/matt/water.W:                                    384       352
+:bitmap/matt/water.W:                                    416       368
+:bitmap/matt/water.W:                                    448       368
+:bitmap/matt/water.W:                                    480       368
+:bitmap/matt/water.W:                                    320       368
+:bitmap/matt/water.W:                                    352       368
+:bitmap/matt/water.W:                                    384       368
+:bitmap/matt/water.W:                                    656       352
+:bitmap/matt/water.W:                                    688       352
+:bitmap/matt/water.W:                                    720       352
+:bitmap/matt/water.W:                                    560       352
+:bitmap/matt/water.W:                                    592       352
+:bitmap/matt/water.W:                                    624       352
+:bitmap/matt/water.W:                                    656       368
+:bitmap/matt/water.W:                                    688       368
+:bitmap/matt/water.W:                                    720       368
+:bitmap/matt/water.W:                                    560       368
+:bitmap/matt/water.W:                                    592       368
+:bitmap/matt/water.W:                                    624       368
+
+:bitmap/matt/03 - Carnival/31:                           395        96     fr
+:bitmap/matt/03 - Carnival/31:                           170        97     fr
+:bitmap/matt/03 - Carnival/00:                            96       144
+:bitmap/matt/03 - Carnival/02:                           128       144
+:bitmap/matt/03 - Carnival/01:                            64       144
+:bitmap/matt/03 - Carnival/03:                           160       144
+:bitmap/matt/03 - Carnival/00:                           288       144
+:bitmap/matt/03 - Carnival/02:                           256       144
+:bitmap/matt/03 - Carnival/01:                           320       144
+:bitmap/matt/03 - Carnival/03:                           224       144
+:bitmap/matt/03 - Carnival/24:                             0       208
+:bitmap/matt/03 - Carnival/26:                             0       272
+:bitmap/matt/03 - Carnival/25:                           256       176
+:bitmap/matt/03 - Carnival/25:                             0       144
+:bitmap/matt/03 - Carnival/25:                           800       208
+:bitmap/matt/03 - Carnival/25:                           736       254
+:bitmap/matt/03 - Carnival/03:                           384       144
+:bitmap/matt/03 - Carnival/24:                           256       240
+:bitmap/matt/03 - Carnival/26:                           256       304
+:bitmap/matt/03 - Carnival/25:                             0       336
+:bitmap/matt/03 - Carnival/25:                           256       368
+:bitmap/matt/03 - Carnival/00:                           352       144
+:bitmap/matt/03 - Carnival/25:                           512       176
+:bitmap/matt/03 - Carnival/24:                           512       240
+:bitmap/matt/03 - Carnival/26:                           512       304
+:bitmap/matt/03 - Carnival/25:                           512       368
+:bitmap/matt/03 - Carnival/31:                           620        96     fr
+:bitmap/matt/03 - Carnival/00:                           512       144
+:bitmap/matt/03 - Carnival/02:                           480       144
+:bitmap/matt/03 - Carnival/01:                           544       144
+:bitmap/matt/03 - Carnival/03:                           448       144
+:bitmap/matt/03 - Carnival/03:                           608       144
+:bitmap/matt/03 - Carnival/00:                           576       144
+:bitmap/matt/03 - Carnival/00:                           736       144
+:bitmap/matt/03 - Carnival/02:                           704       144
+:bitmap/matt/03 - Carnival/01:                           768       144
+:bitmap/matt/03 - Carnival/03:                           672       144
+:bitmap/matt/03 - Carnival/24:                           736       208
+:bitmap/matt/03 - Carnival/26:                           736       272
+:bitmap/matt/03 - Carnival/25:                           736       144
+:bitmap/matt/03 - Carnival/25:                           736       336
+:bitmap/matt/03 - Carnival/26:                           800       272
+:bitmap/matt/03 - Carnival/25:                           800       336
+:bitmap/matt/03 - Carnival/25:                           864       336
+:bitmap/matt/03 - Carnival/25:                           928       336
+:bitmap/matt/03 - Carnival/05:                           864       208     r
+:bitmap/matt/03 - Carnival/05:                           928       208     r
+:bitmap/matt/03 - Carnival/25:                           864       272
+:bitmap/matt/03 - Carnival/03:                             0       112
+:bitmap/matt/03 - Carnival/58:                           -16         0
+:bitmap/matt/03 - Carnival/58:                           240        32
+:bitmap/matt/03 - Carnival/58:                           496         0
+:bitmap/matt/03 - Carnival/58:                           752        32
+:bitmap/matt/03 - Carnival/57:                           752         0
+:bitmap/matt/03 - Carnival/57:                           496        32
+:bitmap/matt/03 - Carnival/57:                           240         0
+:bitmap/matt/03 - Carnival/57:                           -16        32

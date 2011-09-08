@@ -1,0 +1,155 @@
+$BUILT                                             2011-09-05 21:52:33
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                   Wicked Game
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           105
+#INITIAL                                                            16
+#REQUIRED                                                           11
+#RATE                                                               99
+
+#CLIMBER                                                             1
+#WALKER                                                              4
+#EXPLODER                                                            4
+#EXPLODER2                                                           1
+#BLOCKER                                                             9
+#BUILDER                                                             2
+#PLATFORMER                                                          2
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/08 - Bricks/Hatch.H:                         14        48
+:bitmap/matt/08 - Bricks/Hatch.H:                         16       246
+:bitmap/matt/08 - Bricks/Hatch.H:                        560       240     r
+
+:bitmap/matt/08 - Bricks/Goal.G:                         340       288
+
+:bitmap/matt/water.W:                                    416       352
+:bitmap/matt/water.W:                                    448       352
+:bitmap/matt/water.W:                                    480       352
+:bitmap/matt/water.W:                                    512       352
+:bitmap/matt/water.W:                                    544       352
+:bitmap/matt/water.W:                                    576       352
+:bitmap/matt/water.W:                                    416       368
+:bitmap/matt/water.W:                                    448       368
+:bitmap/matt/water.W:                                    480       368
+:bitmap/matt/water.W:                                    512       368
+:bitmap/matt/water.W:                                    544       368
+:bitmap/matt/water.W:                                    576       368
+:bitmap/matt/water.W:                                    608       352
+:bitmap/matt/water.W:                                    608       368
+:bitmap/matt/water.W:                                      0       352
+:bitmap/matt/water.W:                                     32       352
+:bitmap/matt/water.W:                                     64       352
+:bitmap/matt/water.W:                                     96       352
+:bitmap/matt/water.W:                                    128       352
+:bitmap/matt/water.W:                                    160       352
+:bitmap/matt/water.W:                                    192       352
+:bitmap/matt/water.W:                                    224       352
+:bitmap/matt/water.W:                                      0       368
+:bitmap/matt/water.W:                                     32       368
+:bitmap/matt/water.W:                                     64       368
+:bitmap/matt/water.W:                                     96       368
+:bitmap/matt/water.W:                                    128       368
+:bitmap/matt/water.W:                                    160       368
+:bitmap/matt/water.W:                                    192       368
+:bitmap/matt/water.W:                                    224       368
+:bitmap/matt/water.W:                                    256       352
+:bitmap/matt/water.W:                                    288       352
+:bitmap/matt/water.W:                                    256       368
+:bitmap/matt/water.W:                                    288       368
+
+:bitmap/matt/08 - Bricks/18:                               0       352
+:bitmap/matt/08 - Bricks/18:                               0       272
+:bitmap/matt/08 - Bricks/03:                               0        96
+:bitmap/matt/08 - Bricks/03:                              64        96
+:bitmap/matt/08 - Bricks/03:                             128        96
+:bitmap/matt/08 - Bricks/03:                               0       293
+:bitmap/matt/08 - Bricks/03:                              64       293
+:bitmap/matt/08 - Bricks/03:                             128       293
+:bitmap/matt/08 - Bricks/18:                               0       160
+:bitmap/matt/08 - Bricks/18:                               0       192
+:bitmap/matt/08 - Bricks/18:                               0       224
+:bitmap/matt/08 - Bricks/18:                               0       256
+:bitmap/matt/08 - Bricks/18:                               0         0
+:bitmap/matt/08 - Bricks/18:                               0        32
+:bitmap/matt/08 - Bricks/18:                               0        64
+:bitmap/matt/08 - Bricks/18:                               0       384
+:bitmap/matt/08 - Bricks/03b:                            304       336
+:bitmap/matt/08 - Bricks/03b:                            368       336
+:bitmap/matt/08 - Bricks/01b:                            288       176     r
+:bitmap/matt/08 - Bricks/01b:                            288       208     r
+:bitmap/matt/08 - Bricks/01b:                            288       240     r
+:bitmap/matt/08 - Bricks/01b:                            288       272     r
+:bitmap/matt/08 - Bricks/01b:                            288       304     r
+:bitmap/matt/08 - Bricks/01b:                            288       336     r
+:bitmap/matt/08 - Bricks/01b:                            288       368     r
+:bitmap/matt/08 - Bricks/18:                              16         0     r
+:bitmap/matt/08 - Bricks/18:                              48         0     r
+:bitmap/matt/08 - Bricks/18:                              80         0     r
+:bitmap/matt/08 - Bricks/18:                             112         0     r
+:bitmap/matt/08 - Bricks/18:                             144         0     r
+:bitmap/matt/08 - Bricks/18:                             176         0     r
+:bitmap/matt/08 - Bricks/18:                             208         0     r
+:bitmap/matt/08 - Bricks/18:                             240         0     r
+:bitmap/matt/08 - Bricks/18:                             272         0     r
+:bitmap/matt/08 - Bricks/18:                             304         0     r
+:bitmap/matt/08 - Bricks/18:                             336         0     r
+:bitmap/matt/08 - Bricks/18:                             368         0     r
+:bitmap/matt/08 - Bricks/18:                             400         0     r
+:bitmap/matt/08 - Bricks/18:                             432         0     r
+:bitmap/matt/08 - Bricks/18:                             464         0     r
+:bitmap/matt/08 - Bricks/18:                             496         0     r
+:bitmap/matt/08 - Bricks/18:                             528         0     r
+:bitmap/matt/08 - Bricks/18:                             560         0     r
+:bitmap/matt/08 - Bricks/18:                             592         0     r
+:bitmap/matt/08 - Bricks/03:                             512        96
+:bitmap/matt/08 - Bricks/03:                             576        96
+:bitmap/matt/08 - Bricks/18:                             624         0
+:bitmap/matt/08 - Bricks/18:                             624        32
+:bitmap/matt/08 - Bricks/18:                             624       160
+:bitmap/matt/08 - Bricks/18:                             624       192
+:bitmap/matt/08 - Bricks/18:                             624       352
+:bitmap/matt/08 - Bricks/18:                             624       384
+:bitmap/matt/08 - Bricks/18:                             624       224
+:bitmap/matt/08 - Bricks/18:                             624       256
+:bitmap/matt/08 - Bricks/18:                             624        64
+:bitmap/matt/08 - Bricks/03:                             448        96
+:bitmap/matt/08 - Bricks/09:                             592        16
+:bitmap/matt/08 - Bricks/11:                              16        16
+:bitmap/matt/08 - Bricks/03:                              16       100     d
+:bitmap/matt/08 - Bricks/03:                              80       100     d
+:bitmap/matt/08 - Bricks/03:                             144       100     d
+:bitmap/matt/08 - Bricks/02:                               0       112     d
+:bitmap/matt/08 - Bricks/02:                               0       128     d
+:bitmap/matt/08 - Bricks/18:                               0       128
+:bitmap/matt/08 - Bricks/18:                               0       112
+:bitmap/matt/08 - Bricks/03:                             448       288
+:bitmap/matt/08 - Bricks/03:                             512       288
+:bitmap/matt/08 - Bricks/03:                             576       288
+:bitmap/matt/08 - Bricks/02:                             448       292     d
+:bitmap/matt/08 - Bricks/02:                             512       292     d
+:bitmap/matt/08 - Bricks/02:                             576       292     d
+:bitmap/matt/08 - Bricks/02:                             576       320     d
+:bitmap/matt/08 - Bricks/02:                             512       320     d
+:bitmap/matt/08 - Bricks/02:                             448       320     d
+:bitmap/matt/08 - Bricks/18:                             624       304
+:bitmap/matt/08 - Bricks/18:                             624       336
+:bitmap/matt/08 - Bricks/03:                              -2       100     d
+:bitmap/matt/08 - Bricks/18:                               0       144
+:bitmap/matt/08 - Bricks/18:                               0       128
+:bitmap/matt/08 - Bricks/18:                               0       100
+:bitmap/matt/08 - Bricks/18:                             624       292

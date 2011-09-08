@@ -1,0 +1,229 @@
+$BUILT                                             2011-09-05 01:08:00
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                     Getting ahead of the game
+
+#SIZE_X                                                           2820
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                          1600
+#START_Y                                                           220
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           150
+#INITIAL                                                            99
+#REQUIRED                                                           89
+#RATE                                                               99
+
+#JUMPER                                                             40
+#FLOATER                                                             1
+#BUILDER                                                             4
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/04 - Sandy Beach/Sand Decor/sun.D:         2579        18
+
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                    64        86
+
+:bitmap/matt/04 - Sandy Beach/goal.G:                   2712       156
+
+:bitmap/matt/water.W:                                   2448       352
+:bitmap/matt/water.W:                                   2480       352
+:bitmap/matt/water.W:                                   2512       352
+:bitmap/matt/water.W:                                   2544       352
+:bitmap/matt/water.W:                                   2576       352
+:bitmap/matt/water.W:                                   2448       368
+:bitmap/matt/water.W:                                   2480       368
+:bitmap/matt/water.W:                                   2512       368
+:bitmap/matt/water.W:                                   2544       368
+:bitmap/matt/water.W:                                   2576       368
+
+:bitmap/matt/04 - Sandy Beach/Sand Decor/palm tree:       63        37
+:bitmap/matt/04 - Sandy Beach/Sand Decor/pail:          2078       231
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1914       169     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1911        92     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1887       127     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1845       165     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1930       132     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1928       168     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1984       205     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1945       271     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1736       158     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1961       163     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1882       160     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1929       149     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1935       208     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1934       121     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1937       213     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1892       159     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1815       176     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1946       281     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1951       314     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1906       260     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1830       279     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1880       305     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1835       251     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1838       343     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          2165       241     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          2032       274     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1992       265     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1916       284     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          2010       277     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1921       256     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1968       315     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          2021       350     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1767       272     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1643       220     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1699       290     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1588       248     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1534       337     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          2123       275     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          2201       279     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          2279       272     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          2336       224     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          2368       288     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:          2586       313     fr
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:          2608       281     fr
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:          2698       313     fr
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:          2650       281
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:          2666       281
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:          2634       279
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:          1862        44
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1820       181     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:          1877        82
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:          2249       146
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          2261       185     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          2205       194
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/01:          1825       106
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1789       109
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          2276       166     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          2288       184     fr
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1543       271     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1478       310     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1534       380     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1423       338     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:          1276       271
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1288       310     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1232       319
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1303       291     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1248       294
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1315       261     fr
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:          1164       307
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1176       346     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1120       355
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1191       327     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1136       330
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1037       315
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:           953       342
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           899       281
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           925       329
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           975       330
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          1689       190     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/01:          1393       295
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:          1387       246
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:          1440       212
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:          1472       196     fr
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:          1544       177     fr
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:          1648       180     fr
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:          1838        65
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:          1820        81
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          2066       299     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           784       276
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           784       292     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           720       308
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           784       276     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           736       276
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           832       260     fr
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           656       292
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           672       324     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           608       340
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           672       308     r
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           624       308
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           528       292
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:           448       324
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           384       260
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           416       308
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           464       308
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           880       228
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           384       260
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           336       308
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           352       276
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           256       260
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:           176       292
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           128       244
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           144       276
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           192       276
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           214       326
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           464       324
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:            80       260
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:            16       196
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:            48       244
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:            96       324
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:            32       260
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:            64       308
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:            32       324
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           -32       260
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:             0       308
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:             0       212
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           -64       148
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           -32       196
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:          2712       274     fr
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           450       198
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           450       198
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           402       246
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           430       238
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           322       198
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:           242       230
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           194       182
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           210       214
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           258       214
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           280       264
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:           146       198
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:            82       134
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           114       182
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:           162       262
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:            98       198
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           130       246
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:            98       262
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:            34       198
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:            66       246
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:            66       150
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           -42        18
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:            22       132
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:            -8        76
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass11:       1921       150
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass10:       1547       229
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass09:       2001       311
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass09:       2309       169
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass07:       2215       269
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass07:       2767       337
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass06:       2651       303
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass04:       1950        70
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass07:       1090       335
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass10:        903       251
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass06:       1700       314
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass11:       2338       341
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass05:       1882       339
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass09:       1424       326
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass11:       1655       182
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass10:       1067       335
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass10:        497       227
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass09:        726       338
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass08:        245       230
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass11:         88       233
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass09:         11        40
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass03:        428       339
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass09:        714       336
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass09:        719       349
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass11:       1550       371
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass03:       1330       265

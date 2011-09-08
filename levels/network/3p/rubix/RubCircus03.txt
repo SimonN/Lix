@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 11:37:04
+$BUILT                                             2011-09-04 22:46:14
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                            Circus Freaks!(3p)
@@ -35,9 +35,9 @@ $ENGLISH                                            Circus Freaks!(3p)
 :bitmap/matt/03 - Carnival/Hatch.H:                      653       312
 :bitmap/matt/03 - Carnival/Hatch.H:                      143       313
 
-:bitmap/matt/03 - Carnival/Goal.G:                       662        32
-:bitmap/matt/03 - Carnival/Goal.G:                       150        32
-:bitmap/matt/03 - Carnival/Goal.G:                       405        32
+:bitmap/matt/03 - Carnival/Goal.G:                       656        28
+:bitmap/matt/03 - Carnival/Goal.G:                       144        28
+:bitmap/matt/03 - Carnival/Goal.G:                       400        28
 
 :bitmap/matt/03 - Carnival/57:                            32       428
 :bitmap/matt/03 - Carnival/58:                           544       428

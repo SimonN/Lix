@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-20 17:29:06
+$BUILT                                             2011-09-04 19:27:44
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                              Passing Predicament (2p or Team)
@@ -34,8 +34,8 @@ $ENGLISH                              Passing Predicament (2p or Team)
 :bitmap/matt/03 - Carnival/Hatch.H:                       75        69     r
 :bitmap/matt/03 - Carnival/Hatch.H:                     1147        69
 
-:bitmap/matt/03 - Carnival/Goal.G:                       900       132
-:bitmap/matt/03 - Carnival/Goal.G:                       342       132
+:bitmap/matt/03 - Carnival/Goal.G:                       896       128
+:bitmap/matt/03 - Carnival/Goal.G:                       336       128
 
 :bitmap/matt/water.W:                                    576       336
 :bitmap/matt/water.W:                                    608       336

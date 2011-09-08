@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 11:57:55
+$BUILT                                             2011-09-04 23:06:08
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                    Give me a break..(4p team)
@@ -31,13 +31,13 @@ $ENGLISH                                    Give me a break..(4p team)
 #BATTER                                                             40
 #NOTHING                                                             0
 
-:bitmap/matt/06 - Oriental/hatch.H:                     1464        -8     r
-:bitmap/matt/06 - Oriental/hatch.H:                       86        -8
-:bitmap/matt/06 - Oriental/hatch.H:                     1500       218
-:bitmap/matt/06 - Oriental/hatch.H:                       46       222     r
+:bitmap/matt/06 - Oriental/Hatch.H:                     1440       -18     r
+:bitmap/matt/06 - Oriental/Hatch.H:                       96       -18
+:bitmap/matt/06 - Oriental/Hatch.H:                     1484       206
+:bitmap/matt/06 - Oriental/Hatch.H:                       52       212     r
 
-:bitmap/matt/06 - Oriental/Goal.G:                       678       286
-:bitmap/matt/06 - Oriental/Goal.G:                       870       284
+:bitmap/matt/06 - Oriental/Goal.G:                       678       274
+:bitmap/matt/06 - Oriental/Goal.G:                       870       274
 
 :bitmap/matt/water.W:                                    928       368
 :bitmap/matt/water.W:                                    960       368

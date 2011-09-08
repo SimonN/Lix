@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-21 12:43:35
+$BUILT                                             2011-09-04 22:55:30
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                           Firestorm Chasm(3p)
@@ -31,9 +31,9 @@ $ENGLISH                                           Firestorm Chasm(3p)
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/07 - Underworld/hatch.H:                   1088        -4
-:bitmap/matt/07 - Underworld/hatch.H:                    576        -4
-:bitmap/matt/07 - Underworld/hatch.H:                     64        -4
+:bitmap/matt/07 - Underworld/Hatch.H:                   1088         0
+:bitmap/matt/07 - Underworld/Hatch.H:                    576         0
+:bitmap/matt/07 - Underworld/Hatch.H:                     64         0
 
 :bitmap/matt/07 - Underworld/Goal.G:                     576       316
 :bitmap/matt/07 - Underworld/Goal.G:                      64       316

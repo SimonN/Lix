@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 11:43:33
+$BUILT                                             2011-09-04 22:46:57
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                                  Seizure!(3p)
@@ -35,9 +35,9 @@ $ENGLISH                                                  Seizure!(3p)
 :bitmap/matt/03 - Carnival/Hatch.H:                      833       316
 :bitmap/matt/03 - Carnival/Hatch.H:                     1345       571
 
-:bitmap/matt/03 - Carnival/Goal.G:                       709       484
-:bitmap/matt/03 - Carnival/Goal.G:                      1223       740
-:bitmap/matt/03 - Carnival/Goal.G:                       197       228
+:bitmap/matt/03 - Carnival/Goal.G:                       704       480
+:bitmap/matt/03 - Carnival/Goal.G:                      1216       736
+:bitmap/matt/03 - Carnival/Goal.G:                       192       224
 
 :bitmap/matt/03 - Carnival/01:                           512       624
 :bitmap/matt/03 - Carnival/00:                           512       592

@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-21 10:46:22
+$BUILT                                             2011-09-04 23:47:54
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                          Dueling tradeoff(8p)
@@ -40,14 +40,14 @@ $ENGLISH                                          Dueling tradeoff(8p)
 :bitmap/matt/03 - Carnival/Hatch.H:                     1904         0
 :bitmap/matt/03 - Carnival/Hatch.H:                     2512         0     r
 
-:bitmap/matt/03 - Carnival/Goal.G:                       586       324
-:bitmap/matt/03 - Carnival/Goal.G:                         0       324
-:bitmap/matt/03 - Carnival/Goal.G:                      1224       324
-:bitmap/matt/03 - Carnival/Goal.G:                       642       324
-:bitmap/matt/03 - Carnival/Goal.G:                      1864       324
-:bitmap/matt/03 - Carnival/Goal.G:                      1280       324
-:bitmap/matt/03 - Carnival/Goal.G:                      2506       324
-:bitmap/matt/03 - Carnival/Goal.G:                      1920       324
+:bitmap/matt/03 - Carnival/Goal.G:                       576       320
+:bitmap/matt/03 - Carnival/Goal.G:                         0       320
+:bitmap/matt/03 - Carnival/Goal.G:                      1216       320
+:bitmap/matt/03 - Carnival/Goal.G:                       640       320
+:bitmap/matt/03 - Carnival/Goal.G:                      1856       320
+:bitmap/matt/03 - Carnival/Goal.G:                      1280       320
+:bitmap/matt/03 - Carnival/Goal.G:                      2496       320
+:bitmap/matt/03 - Carnival/Goal.G:                      1920       320
 
 :bitmap/matt/03 - Carnival/10:                           576        80
 :bitmap/matt/03 - Carnival/10:                           544        80     rr

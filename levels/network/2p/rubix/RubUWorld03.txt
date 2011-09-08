@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 12:11:21
+$BUILT                                             2011-09-04 23:59:21
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                                   Vicious(2p)
@@ -22,7 +22,7 @@ $ENGLISH                                                   Vicious(2p)
 #FLOATER                                                             5
 #WALKER                                                             50
 #JUMPER                                                             30
-#EXPLODER                                                            8
+#EXPLODER2                                                           8
 #BLOCKER                                                             2
 #BUILDER                                                            70
 #PLATFORMER                                                         35
@@ -31,8 +31,8 @@ $ENGLISH                                                   Vicious(2p)
 #DIGGER                                                              8
 #CUBER                                                              20
 
-:bitmap/matt/07 - Underworld/hatch.H:                    416         0     r
-:bitmap/matt/07 - Underworld/hatch.H:                    160         0
+:bitmap/matt/07 - Underworld/Hatch.H:                    416         0     r
+:bitmap/matt/07 - Underworld/Hatch.H:                    160         0
 
 :bitmap/matt/07 - Underworld/Goal.G:                     160       448
 :bitmap/matt/07 - Underworld/Goal.G:                     416       448

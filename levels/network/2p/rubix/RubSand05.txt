@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 18:45:33
+$BUILT                                             2011-09-04 22:20:50
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                        King of the castle(2p)
@@ -31,11 +31,11 @@ $ENGLISH                                        King of the castle(2p)
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/04 - Sandy Beach/hatch.H:                  1928       226     r
-:bitmap/matt/04 - Sandy Beach/hatch.H:                    -4       226
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                   -16       224
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                  1920       224     r
 
-:bitmap/matt/04 - Sandy Beach/goal.G:                    744         2
-:bitmap/matt/04 - Sandy Beach/goal.G:                   1116         2
+:bitmap/matt/04 - Sandy Beach/goal.G:                   1136       -32
+:bitmap/matt/04 - Sandy Beach/goal.G:                    720       -32
 
 :bitmap/matt/water.W:                                   1056       368
 :bitmap/matt/water.W:                                   1088       368
@@ -56,8 +56,10 @@ $ENGLISH                                        King of the castle(2p)
 :bitmap/matt/water.W:                                    896       384
 :bitmap/matt/water.W:                                    912       368
 
-:bitmap/matt/04 - Sandy Beach/Sand Decor/umbrella_blue: 1227         6     frr
-:bitmap/matt/04 - Sandy Beach/Sand Decor/umbrella_red:   647         6
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         720        96
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         688        96
+:bitmap/matt/04 - Sandy Beach/Sand Decor/umbrella_blue: 1216         0     frr
+:bitmap/matt/04 - Sandy Beach/Sand Decor/umbrella_red:   672         0
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/15:         802       344     r
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/15:         778       283
 :bitmap/matt/04 - Sandy Beach/Sand Decor/palm tree:      -43       178     frr
@@ -136,8 +138,8 @@ $ENGLISH                                        King of the castle(2p)
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:        1120        96     f
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         640        80     f
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:        1120        80     rr
-:bitmap/matt/steel/32x32.S:                             1136        96
-:bitmap/matt/steel/32x32.S:                             1168        96
+:bitmap/matt/steel/32x32.S:                             1152        96
+:bitmap/matt/steel/32x32.S:                             1184        96
 :bitmap/matt/steel/32x32.S:                              768        96
 :bitmap/matt/steel/32x32.S:                              800        96
 :bitmap/matt/04 - Sandy Beach/Nighttime Sand/05:        1424        32

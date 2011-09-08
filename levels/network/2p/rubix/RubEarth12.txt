@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-21 12:42:17
+$BUILT                                             2011-09-04 19:33:56
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                            Mythical lands(2p)
@@ -31,11 +31,11 @@ $ENGLISH                                            Mythical lands(2p)
 #BATTER                                                             20
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                          -1        60
-:bitmap/matt/01 - Earth/Hatch.H:                        2904        58     r
+:bitmap/matt/01 - Earth/Hatch.H:                           0        64
+:bitmap/matt/01 - Earth/Hatch.H:                        2912        64     r
 
-:bitmap/matt/01 - Earth/Goal.G:                         2384       128
-:bitmap/matt/01 - Earth/Goal.G:                          496       128
+:bitmap/matt/01 - Earth/Goal.G:                         2386       116
+:bitmap/matt/01 - Earth/Goal.G:                          496       114
 
 :bitmap/matt/water.W:                                    400       352
 :bitmap/matt/water.W:                                    432       352

@@ -1,0 +1,116 @@
+$BUILT                                             2011-09-05 23:45:27
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                            Building a mystery
+
+#SIZE_X                                                            800
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           300
+#INITIAL                                                            40
+#REQUIRED                                                           40
+#RATE                                                               50
+
+#CLIMBER                                                             1
+#FLOATER                                                             1
+#WALKER                                                              1
+#JUMPER                                                              2
+#MINER                                                               2
+#BUILDER                                                             4
+#PLATFORMER                                                          2
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/08 - Bricks/Hatch.H:                        192       224
+
+:bitmap/matt/08 - Bricks/Goal.G:                          64        32
+
+:bitmap/matt/water.W:                                     80       368
+:bitmap/matt/water.W:                                    112       368
+:bitmap/matt/water.W:                                    144       368
+:bitmap/matt/water.W:                                    704       368
+:bitmap/matt/water.W:                                    736       368
+:bitmap/matt/water.W:                                    768       368
+:bitmap/matt/water.W:                                     80       384
+:bitmap/matt/water.W:                                    112       384
+:bitmap/matt/water.W:                                    144       384
+:bitmap/matt/water.W:                                    704       384
+:bitmap/matt/water.W:                                    736       384
+:bitmap/matt/water.W:                                    768       384
+:bitmap/matt/water.W:                                    448       368
+:bitmap/matt/water.W:                                    480       368
+:bitmap/matt/water.W:                                    512       368
+:bitmap/matt/water.W:                                    544       368
+:bitmap/matt/water.W:                                    576       368
+:bitmap/matt/water.W:                                    608       368
+:bitmap/matt/water.W:                                    640       368
+:bitmap/matt/water.W:                                    672       368
+:bitmap/matt/water.W:                                    448       384
+:bitmap/matt/water.W:                                    480       384
+:bitmap/matt/water.W:                                    512       384
+:bitmap/matt/water.W:                                    544       384
+:bitmap/matt/water.W:                                    576       384
+:bitmap/matt/water.W:                                    608       384
+:bitmap/matt/water.W:                                    640       384
+:bitmap/matt/water.W:                                    672       384
+
+:bitmap/matt/08 - Bricks/03:                             384       336
+:bitmap/matt/08 - Bricks/03:                             432       272
+:bitmap/matt/08 - Bricks/03:                             480       208
+:bitmap/matt/08 - Bricks/03:                             320       336
+:bitmap/matt/08 - Bricks/03:                             256       336
+:bitmap/matt/08 - Bricks/03:                             192       336
+:bitmap/matt/08 - Bricks/03:                             192       272
+:bitmap/matt/08 - Bricks/03:                             736       208
+:bitmap/matt/08 - Bricks/03:                             672       208
+:bitmap/matt/08 - Bricks/03:                             608       208
+:bitmap/matt/08 - Bricks/03:                             544       208
+:bitmap/matt/08 - Bricks/03:                             736       144
+:bitmap/matt/08 - Bricks/03:                             336       208
+:bitmap/matt/08 - Bricks/03:                             288       144
+:bitmap/matt/08 - Bricks/03:                             176        80
+:bitmap/matt/08 - Bricks/03:                             240        80
+:bitmap/matt/08 - Bricks/03:                             -16        80
+:bitmap/matt/08 - Bricks/03:                             112        80
+:bitmap/matt/08 - Bricks/03:                              48        80
+:bitmap/matt/08 - Bricks/04:                               0        16
+:bitmap/matt/08 - Bricks/07:                               0         0     rr
+:bitmap/matt/08 - Bricks/05:                             672        80
+:bitmap/matt/08 - Bricks/05:                             624        32
+:bitmap/matt/08 - Bricks/05:                             576       -16
+:bitmap/matt/08 - Bricks/03:                             736        80
+:bitmap/matt/08 - Bricks/03:                             752        96
+:bitmap/matt/08 - Bricks/03:                             688        16
+:bitmap/matt/08 - Bricks/03:                             640       -32
+:bitmap/matt/08 - Bricks/03:                             752        16
+:bitmap/matt/08 - Bricks/03:                             704       -32
+:bitmap/matt/08 - Bricks/03:                             736       -16
+:bitmap/matt/08 - Bricks/03:                               0       144
+:bitmap/matt/08 - Bricks/03:                               0       208
+:bitmap/matt/08 - Bricks/03:                               0       272
+:bitmap/matt/08 - Bricks/03:                               0       336
+:bitmap/matt/08 - Bricks/01:                             160       384
+:bitmap/matt/08 - Bricks/01:                              64       384
+:bitmap/matt/08 - Bricks/01:                              80       368
+:bitmap/matt/08 - Bricks/01:                             144       368
+:bitmap/matt/08 - Bricks/06:                             432       336
+:bitmap/matt/08 - Bricks/05:                             736       368
+:bitmap/matt/08 - Bricks/05:                             688       320
+:bitmap/matt/08 - Bricks/05:                             640       272
+:bitmap/matt/08 - Bricks/03:                             752       304
+:bitmap/matt/08 - Bricks/03:                             704       256
+:bitmap/matt/08 - Bricks/03:                             768       256
+:bitmap/matt/08 - Bricks/18:                             592       272
+:bitmap/matt/08 - Bricks/18:                             592       304
+:bitmap/matt/08 - Bricks/18:                             592       336
+:bitmap/matt/08 - Bricks/18:                             592       368

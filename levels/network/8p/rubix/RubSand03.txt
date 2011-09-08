@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 12:08:56
+$BUILT                                             2011-09-04 23:53:23
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                                     Glare(8p)
@@ -13,7 +13,7 @@ $ENGLISH                                                     Glare(8p)
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                            60
+#SECONDS                                                           120
 #INITIAL                                                            65
 #REQUIRED                                                           20
 #RATE                                                               30
@@ -31,23 +31,23 @@ $ENGLISH                                                     Glare(8p)
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/04 - Sandy Beach/hatch.H:                    10        -8
-:bitmap/matt/04 - Sandy Beach/hatch.H:                   552        -8     r
-:bitmap/matt/04 - Sandy Beach/hatch.H:                   658        -6
-:bitmap/matt/04 - Sandy Beach/hatch.H:                  1194        -8     r
-:bitmap/matt/04 - Sandy Beach/hatch.H:                  1287        -7
-:bitmap/matt/04 - Sandy Beach/hatch.H:                  1829        -7     r
-:bitmap/matt/04 - Sandy Beach/hatch.H:                  1935        -5
-:bitmap/matt/04 - Sandy Beach/hatch.H:                  2473        -7     r
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                     0       -16
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                   544       -16     r
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                   640       -16
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                  1184       -16     r
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                  1280       -16
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                  1824       -16     r
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                  1920       -16
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                  2464       -16     r
 
-:bitmap/matt/04 - Sandy Beach/goal.G:                    456       294
-:bitmap/matt/04 - Sandy Beach/goal.G:                     72       294
-:bitmap/matt/04 - Sandy Beach/goal.G:                   1100       292
-:bitmap/matt/04 - Sandy Beach/goal.G:                    720       294
-:bitmap/matt/04 - Sandy Beach/goal.G:                   1733       295
-:bitmap/matt/04 - Sandy Beach/goal.G:                   1349       295
-:bitmap/matt/04 - Sandy Beach/goal.G:                   2377       293
-:bitmap/matt/04 - Sandy Beach/goal.G:                   1997       295
+:bitmap/matt/04 - Sandy Beach/goal.G:                    448       264
+:bitmap/matt/04 - Sandy Beach/goal.G:                     64       264
+:bitmap/matt/04 - Sandy Beach/goal.G:                   1088       264
+:bitmap/matt/04 - Sandy Beach/goal.G:                    704       266
+:bitmap/matt/04 - Sandy Beach/goal.G:                   1726       264
+:bitmap/matt/04 - Sandy Beach/goal.G:                   1338       264
+:bitmap/matt/04 - Sandy Beach/goal.G:                   2366       264
+:bitmap/matt/04 - Sandy Beach/goal.G:                   1982       264
 
 :bitmap/matt/04 - Sandy Beach/Daytime Sand/15:           112        50
 :bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           -24        32

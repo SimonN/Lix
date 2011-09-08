@@ -1,0 +1,154 @@
+$BUILT                                             2011-09-03 14:35:03
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                     The Cuber
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           330
+#INITIAL                                                            99
+#REQUIRED                                                           60
+#RATE                                                                1
+
+#CLIMBER                                                            40
+#BASHER                                                             10
+#CUBER                                                              40
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/geoo/construction/Hatch.H:                       384        32     r
+:bitmap/geoo/construction/Hatch.H:                        80       208
+
+:bitmap/geoo/construction/Goal2.G:                         0       240
+
+:bitmap/matt/water.W:                                    512       320
+:bitmap/matt/water.W:                                    544       320
+:bitmap/matt/water.W:                                    576       320
+:bitmap/matt/water.W:                                    512       336
+:bitmap/matt/water.W:                                    544       336
+:bitmap/matt/water.W:                                    576       336
+:bitmap/matt/water.W:                                    512       352
+:bitmap/matt/water.W:                                    544       352
+:bitmap/matt/water.W:                                    576       352
+:bitmap/matt/water.W:                                    512       368
+:bitmap/matt/water.W:                                    544       368
+:bitmap/matt/water.W:                                    576       368
+:bitmap/matt/water.W:                                    576       320
+:bitmap/matt/water.W:                                    608       320
+:bitmap/matt/water.W:                                    576       336
+:bitmap/matt/water.W:                                    608       336
+:bitmap/matt/water.W:                                    560       352
+:bitmap/matt/water.W:                                    592       352
+:bitmap/matt/water.W:                                    624       352
+:bitmap/matt/water.W:                                    560       368
+:bitmap/matt/water.W:                                    592       368
+:bitmap/matt/water.W:                                    624       368
+
+:bitmap/geoo/construction/squarebrick_large:               0       336
+:bitmap/geoo/construction/squarebrick_large:              32       336
+:bitmap/geoo/construction/squarebrick_large:              64       336
+:bitmap/geoo/construction/squarebrick_large:              96       336
+:bitmap/geoo/construction/squarebrick_large:             128       336
+:bitmap/geoo/construction/squarebrick_large:             160       336
+:bitmap/geoo/construction/squarebrick_large:             192       336
+:bitmap/geoo/construction/squarebrick_large:             224       336
+:bitmap/geoo/construction/squarebrick_large:             256       336
+:bitmap/geoo/construction/squarebrick_large:             288       336
+:bitmap/geoo/construction/squarebrick_large:             320       336
+:bitmap/geoo/construction/squarebrick_large:             352       336
+:bitmap/geoo/construction/squarebrick_large:             384       336
+:bitmap/geoo/construction/squarebrick_large:             416       336
+:bitmap/geoo/construction/squarebrick_large:             448       336
+:bitmap/geoo/construction/squarebrick_large:             480       336
+:bitmap/geoo/construction/squarebrick_large:               0       368
+:bitmap/geoo/construction/squarebrick_large:              32       368
+:bitmap/geoo/construction/squarebrick_large:              64       368
+:bitmap/geoo/construction/squarebrick_large:              96       368
+:bitmap/geoo/construction/squarebrick_large:             128       368
+:bitmap/geoo/construction/squarebrick_large:             160       368
+:bitmap/geoo/construction/squarebrick_large:             192       368
+:bitmap/geoo/construction/squarebrick_large:             224       368
+:bitmap/geoo/construction/squarebrick_large:             256       368
+:bitmap/geoo/construction/squarebrick_large:             288       368
+:bitmap/geoo/construction/squarebrick_large:             320       368
+:bitmap/geoo/construction/squarebrick_large:             352       368
+:bitmap/geoo/construction/squarebrick_large:             384       368
+:bitmap/geoo/construction/squarebrick_large:             416       368
+:bitmap/geoo/construction/squarebrick_large:             448       368
+:bitmap/geoo/construction/squarebrick_large:             480       368
+:bitmap/geoo/construction/squarebrick_large:               0       304
+:bitmap/geoo/construction/squarebrick_large:              32       304
+:bitmap/geoo/construction/squarebrick_large:              64       304
+:bitmap/geoo/construction/squarebrick_large:              96       304
+:bitmap/geoo/construction/squarebrick_large:             128       304
+:bitmap/geoo/construction/squarebrick_large:             160       304
+:bitmap/geoo/construction/squarebrick_large:             192       304
+:bitmap/geoo/construction/squarebrick_large:             224       304
+:bitmap/geoo/construction/squarebrick_large:             256       304
+:bitmap/geoo/construction/squarebrick_large:             288       304
+:bitmap/geoo/construction/squarebrick_large:             320       304
+:bitmap/geoo/construction/squarebrick_large:             352       304
+:bitmap/geoo/construction/squarebrick_large:             384       304
+:bitmap/geoo/construction/squarebrick_large:             416       304
+:bitmap/geoo/construction/squarebrick_large:             448       304
+:bitmap/geoo/construction/squarebrick_large:             480       304
+:bitmap/geoo/construction/wall/big_brick2:               352       208
+:bitmap/geoo/construction/wall/big_brick2:               352       240
+:bitmap/geoo/construction/wall/big_brick2:               352       272
+:bitmap/geoo/construction/wall/big_brick2:               352       112
+:bitmap/geoo/construction/wall/big_brick2:               352       144
+:bitmap/geoo/construction/wall/big_brick2:               352       176
+:bitmap/geoo/construction/wall/big_brick2:               288       272
+:bitmap/geoo/construction/wall/big_brick2:               288       144
+:bitmap/geoo/construction/wall/big_brick2:               288       176
+:bitmap/geoo/construction/wall/big_brick2:               288       208
+:bitmap/geoo/construction/wall/big_brick2:               288       240
+:bitmap/geoo/construction/wall/big_brick2:               288       112
+:bitmap/geoo/construction/pillar_32:                     256       272
+:bitmap/geoo/construction/pillar_32:                     256       240
+:bitmap/geoo/construction/pillar_32:                     256       208
+:bitmap/geoo/construction/pillar_32:                     256       176
+:bitmap/geoo/construction/pillar_32:                     256       144
+:bitmap/geoo/construction/pillar_32:                     256       112
+:bitmap/geoo/construction/pillar_top_shaded:             256       112
+:bitmap/geoo/construction/pillar_32:                     416       272
+:bitmap/geoo/construction/pillar_32:                     416       240
+:bitmap/geoo/construction/pillar_32:                     416       208
+:bitmap/geoo/construction/pillar_32:                     416       176
+:bitmap/geoo/construction/pillar_32:                     416       144
+:bitmap/geoo/construction/pillar_32:                     416       112
+:bitmap/geoo/construction/pillar_top_shaded:             416       112
+:bitmap/geoo/construction/fence_rust_64x64:                0         0
+:bitmap/geoo/construction/fence_rust_64x64:               64         0
+:bitmap/geoo/construction/fence_rust_64x64:              128         0
+:bitmap/geoo/construction/fence_rust_64x64:              192         0
+:bitmap/geoo/construction/fence_rust_64x64:              512         0
+:bitmap/geoo/construction/fence_rust_64x64:              576         0
+:bitmap/geoo/construction/fence_rust_64x64:              576        64
+:bitmap/geoo/construction/fence_rust_32x32:               64        64
+:bitmap/geoo/construction/fence_rust_32x32:              544        64
+:bitmap/geoo/construction/fence_rust_32x32:              256         0
+:bitmap/geoo/construction/fence_rust_32x32:              288         0
+:bitmap/geoo/construction/fence_rust_32x32:              320         0
+:bitmap/geoo/construction/fence_rust_32x32:              352         0
+:bitmap/geoo/construction/fence_rust_32x32:              384         0
+:bitmap/geoo/construction/fence_rust_32x32:              416         0
+:bitmap/geoo/construction/fence_rust_32x32:              448         0
+:bitmap/geoo/construction/fence_rust_32x32:              480         0
+:bitmap/rubix/Tutorial/Tutorial-cubera:                   22         8
+:bitmap/rubix/Tutorial/Tutorial-cuberb:                   58       312

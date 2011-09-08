@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-21 13:01:16
+$BUILT                                             2011-09-05 00:22:48
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                            I want to punch your face in! (4p)
@@ -254,3 +254,7 @@ $ENGLISH                            I want to punch your face in! (4p)
 :bitmap/geoo/construction/wall/small_brick3:            1888        32
 :bitmap/geoo/construction/wall/big_brickdiag_tu:        1440       304
 :bitmap/geoo/construction/wall/big_brickdiag_tu:        2336       304     frr
+:bitmap/geoo/construction/wall/big_square:              1248       208
+:bitmap/geoo/construction/wall/big_square:              1280       208
+:bitmap/geoo/construction/wall/big_square:              2528       208
+:bitmap/geoo/construction/wall/big_square:                 0       208

@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 11:09:29
+$BUILT                                             2011-09-05 23:54:40
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                                 Tree Life(2p)
@@ -13,7 +13,7 @@ $ENGLISH                                                 Tree Life(2p)
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                            35
+#SECONDS                                                            45
 #INITIAL                                                            75
 #REQUIRED                                                           20
 #RATE                                                               35
@@ -31,13 +31,13 @@ $ENGLISH                                                 Tree Life(2p)
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/06 - Oriental/hatch.H:                       32        32
-:bitmap/matt/06 - Oriental/hatch.H:                      416        32
-:bitmap/matt/06 - Oriental/hatch.H:                      704        32     r
-:bitmap/matt/06 - Oriental/hatch.H:                      320        32     r
+:bitmap/matt/06 - Oriental/Hatch.H:                      416        16
+:bitmap/matt/06 - Oriental/Hatch.H:                      704        16     r
+:bitmap/matt/06 - Oriental/Hatch.H:                      320        16     r
+:bitmap/matt/06 - Oriental/Hatch.H:                       32        16
 
-:bitmap/matt/06 - Oriental/Goal.G:                       576       939
-:bitmap/matt/06 - Oriental/Goal.G:                       193       938
+:bitmap/matt/06 - Oriental/Goal.G:                       576       928
+:bitmap/matt/06 - Oriental/Goal.G:                       192       928
 
 :bitmap/matt/water.W:                                    208      1008
 :bitmap/matt/water.W:                                    240      1008

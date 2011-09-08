@@ -1,0 +1,87 @@
+$BUILT                                             2011-09-05 16:51:01
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                     Goodbye yellow brick road
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                           360
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           180
+#INITIAL                                                            99
+#REQUIRED                                                           98
+#RATE                                                                1
+
+#JUMPER                                                              2
+#FLOATER                                                             1
+#BLOCKER                                                             1
+#BUILDER                                                            17
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/08 - Bricks/Hatch.H:                        288        16
+:bitmap/matt/08 - Bricks/Hatch.H:                        288        16     r
+
+:bitmap/matt/08 - Bricks/Goal.G:                         288       320
+
+:bitmap/matt/water.W:                                    480       368
+:bitmap/matt/water.W:                                    512       368
+:bitmap/matt/water.W:                                    544       368
+:bitmap/matt/water.W:                                    576       368
+:bitmap/matt/water.W:                                     32       368
+:bitmap/matt/water.W:                                     64       368
+:bitmap/matt/water.W:                                     96       368
+:bitmap/matt/water.W:                                    128       368
+
+:bitmap/matt/08 - Bricks/02a:                            128        64
+:bitmap/matt/08 - Bricks/02a:                            192        64
+:bitmap/matt/08 - Bricks/02a:                            256        64
+:bitmap/matt/08 - Bricks/02a:                            320        64
+:bitmap/matt/08 - Bricks/02a:                            128       224
+:bitmap/matt/08 - Bricks/02a:                            192       224
+:bitmap/matt/08 - Bricks/02a:                            256       224
+:bitmap/matt/08 - Bricks/02a:                            320       224
+:bitmap/matt/08 - Bricks/02a:                            128       368
+:bitmap/matt/08 - Bricks/02a:                            192       368
+:bitmap/matt/08 - Bricks/02a:                            256       368
+:bitmap/matt/08 - Bricks/02a:                            320       368
+:bitmap/matt/08 - Bricks/03a:                            576       352
+:bitmap/matt/08 - Bricks/03a:                            608       288
+:bitmap/matt/08 - Bricks/03a:                            576       224
+:bitmap/matt/08 - Bricks/03a:                            576       160
+:bitmap/matt/08 - Bricks/03a:                            576        32
+:bitmap/matt/08 - Bricks/03a:                              0       352
+:bitmap/matt/08 - Bricks/03a:                            -32       288
+:bitmap/matt/08 - Bricks/03a:                              0       224
+:bitmap/matt/08 - Bricks/03a:                              0       160
+:bitmap/matt/08 - Bricks/03a:                              0        32
+:bitmap/matt/08 - Bricks/02a:                            384        64
+:bitmap/matt/08 - Bricks/02a:                            448        64
+:bitmap/matt/08 - Bricks/02a:                            384       224
+:bitmap/matt/08 - Bricks/02a:                            448       224
+:bitmap/matt/08 - Bricks/02a:                            384       368
+:bitmap/matt/08 - Bricks/02a:                            448       368
+:bitmap/matt/08 - Bricks/03a:                            608        96
+:bitmap/matt/08 - Bricks/03a:                            -32        96
+:bitmap/matt/08 - Bricks/06a:                            352        96
+:bitmap/matt/08 - Bricks/03a:                            288        96
+:bitmap/matt/08 - Bricks/06a:                            352       256
+:bitmap/matt/08 - Bricks/03a:                            288       256
+:bitmap/matt/08 - Bricks/08a:                            288       160     rr
+:bitmap/matt/08 - Bricks/03a:                              0       384
+:bitmap/matt/08 - Bricks/03a:                            576       384
+:bitmap/matt/08 - Bricks/05a:                            224        96
+:bitmap/matt/08 - Bricks/05a:                            224       256
+:bitmap/matt/08 - Bricks/11a:                            320       160

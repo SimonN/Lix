@@ -1,0 +1,144 @@
+$BUILT                                             2011-09-05 16:55:44
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                               The clairvoyant
+
+#SIZE_X                                                           1020
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           165
+#INITIAL                                                            99
+#REQUIRED                                                           98
+#RATE                                                               99
+
+#WALKER                                                              1
+#JUMPER                                                              1
+#EXPLODER2                                                           1
+#PLATFORMER                                                          6
+#BASHER                                                              7
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/06 - Oriental/Hatch.H:                      524       305     r
+
+:bitmap/matt/06 - Oriental/Goal.G:                       979         2
+
+:bitmap/matt/water.W:                                    576       368
+:bitmap/matt/water.W:                                    608       368
+:bitmap/matt/water.W:                                    848       368
+:bitmap/matt/water.W:                                    880       368
+
+:bitmap/matt/06 - Oriental/bamboo pole:                  569        14
+:bitmap/matt/06 - Oriental/bamboo pole:                  569        42
+:bitmap/matt/06 - Oriental/10:                           540        20
+:bitmap/matt/06 - Oriental/bamboo pole:                  258       247
+:bitmap/matt/06 - Oriental/bamboo pole:                  285       156     r
+:bitmap/matt/06 - Oriental/08:                           912       336
+:bitmap/matt/06 - Oriental/asian temple:                  94       193
+:bitmap/matt/06 - Oriental/bonsai tree:                  366        74
+:bitmap/matt/06 - Oriental/bonsai tree:                  338       188
+:bitmap/matt/06 - Oriental/05:                           384       368     r
+:bitmap/matt/06 - Oriental/07:                           320       368
+:bitmap/matt/06 - Oriental/07:                           256       368
+:bitmap/matt/06 - Oriental/07:                           192       368
+:bitmap/matt/06 - Oriental/07:                           128       368
+:bitmap/matt/06 - Oriental/07:                            64       368
+:bitmap/matt/06 - Oriental/07:                             0       368
+:bitmap/matt/06 - Oriental/bamboo pole:                   32       192     r
+:bitmap/matt/06 - Oriental/bamboo pole:                  912        80     r
+:bitmap/matt/06 - Oriental/bamboo pole:                  287        69
+:bitmap/matt/06 - Oriental/06:                           240       192
+:bitmap/matt/06 - Oriental/06:                           288       192
+:bitmap/matt/06 - Oriental/bamboo pole:                 1013        84
+:bitmap/matt/06 - Oriental/06:                           336       192
+:bitmap/matt/06 - Oriental/bamboo pole:                  571        13     r
+:bitmap/matt/06 - Oriental/asian gate:                   624       224
+:bitmap/matt/06 - Oriental/04:                           720       288
+:bitmap/matt/06 - Oriental/04:                           688       288
+:bitmap/matt/06 - Oriental/04:                           656       288
+:bitmap/matt/06 - Oriental/04:                           624       288
+:bitmap/matt/06 - Oriental/07:                           624       320
+:bitmap/matt/06 - Oriental/07:                           608       352
+:bitmap/matt/06 - Oriental/07:                           608       384
+:bitmap/matt/06 - Oriental/07:                           688       320
+:bitmap/matt/06 - Oriental/07:                           672       352
+:bitmap/matt/06 - Oriental/07:                           672       384
+:bitmap/matt/06 - Oriental/07:                           736       352
+:bitmap/matt/06 - Oriental/07:                           736       384
+:bitmap/matt/06 - Oriental/07:                           800       352
+:bitmap/matt/06 - Oriental/07:                           800       384
+:bitmap/matt/06 - Oriental/07:                           448       368
+:bitmap/matt/06 - Oriental/07:                           512       368
+:bitmap/matt/06 - Oriental/bamboo pole:                   30       192
+:bitmap/matt/06 - Oriental/08:                           912        80     r
+:bitmap/matt/06 - Oriental/08:                           912       144     r
+:bitmap/matt/06 - Oriental/08:                           912       208
+:bitmap/matt/06 - Oriental/08:                           912       272     r
+:bitmap/matt/06 - Oriental/bamboo pole:                  128        40
+:bitmap/matt/06 - Oriental/07:                           231        68
+:bitmap/matt/06 - Oriental/07:                           112        32
+:bitmap/matt/06 - Oriental/07:                            48        32
+:bitmap/matt/06 - Oriental/07:                           -16        32
+:bitmap/matt/06 - Oriental/04:                           187        67
+:bitmap/matt/06 - Oriental/bamboo pole:                  134       132     r
+:bitmap/matt/06 - Oriental/bamboo pole:                  -22        96     r
+:bitmap/matt/06 - Oriental/bonsai tree:                  901       227
+:bitmap/matt/06 - Oriental/bamboo pole:                 1013       241
+:bitmap/matt/06 - Oriental/03:                           712       165     r
+:bitmap/matt/06 - Oriental/bamboo pole:                  534      -112
+:bitmap/matt/06 - Oriental/05:                           652       -23     rd
+:bitmap/matt/06 - Oriental/01:                           180       170     rd
+:bitmap/matt/06 - Oriental/bamboo pole:                  756        22     r
+:bitmap/matt/06 - Oriental/05:                           842       -12     rd
+:bitmap/matt/06 - Oriental/05:                           775         8     rd
+:bitmap/matt/06 - Oriental/10:                             0       336
+:bitmap/matt/06 - Oriental/10:                             0       308     frr
+:bitmap/matt/06 - Oriental/10:                             0       278
+:bitmap/matt/06 - Oriental/10:                             0       250     frr
+:bitmap/matt/06 - Oriental/10:                             0       222
+:bitmap/matt/06 - Oriental/10:                             0       194     frr
+:bitmap/matt/06 - Oriental/bamboo pole:                   -4       190
+:bitmap/matt/06 - Oriental/10:                           538       158     frr
+:bitmap/matt/06 - Oriental/10:                           538       128
+:bitmap/matt/06 - Oriental/10:                           538       102     frr
+:bitmap/matt/06 - Oriental/10:                           538        72
+:bitmap/matt/06 - Oriental/10:                           538        46     frr
+:bitmap/matt/06 - Oriental/bamboo pole:                  534        19
+:bitmap/matt/06 - Oriental/bamboo pole:                  569        25
+:bitmap/matt/06 - Oriental/10:                           540        -6     frr
+:bitmap/matt/06 - Oriental/05:                           551       -32     rd
+:bitmap/matt/06 - Oriental/bamboo pole:                  813       206
+:bitmap/matt/06 - Oriental/10:                           784       186
+:bitmap/matt/06 - Oriental/10:                           783       322     frr
+:bitmap/matt/06 - Oriental/10:                           783       292
+:bitmap/matt/06 - Oriental/10:                           784       266     frr
+:bitmap/matt/06 - Oriental/10:                           784       240
+:bitmap/matt/06 - Oriental/10:                           784       212     frr
+:bitmap/matt/06 - Oriental/bamboo pole:                  779       189
+:bitmap/matt/06 - Oriental/03:                           740       182
+:bitmap/matt/06 - Oriental/bamboo pole:                  813        49
+:bitmap/matt/06 - Oriental/05:                           795        46     d
+:bitmap/matt/06 - Oriental/05:                           796       104     d
+:bitmap/matt/06 - Oriental/bamboo pole:                  770         9
+:bitmap/matt/06 - Oriental/10:                           740       151
+:bitmap/matt/06 - Oriental/10:                           740       123     frr
+:bitmap/matt/06 - Oriental/10:                           740        93
+:bitmap/matt/06 - Oriental/10:                           740        65     frr
+:bitmap/matt/06 - Oriental/10:                           740        37
+:bitmap/matt/06 - Oriental/10:                           740         9     frr
+:bitmap/matt/06 - Oriental/bamboo pole:                  736         5
+:bitmap/matt/06 - Oriental/05:                           668        -7     rd
+:bitmap/matt/06 - Oriental/leaves5:                      776       323     frd
+:bitmap/matt/06 - Oriental/04:                           569        13

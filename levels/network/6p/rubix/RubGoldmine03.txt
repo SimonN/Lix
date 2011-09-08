@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 11:48:30
+$BUILT                                             2011-09-04 23:32:42
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                              You are all coming with me!!(6p)
@@ -31,16 +31,16 @@ $ENGLISH                              You are all coming with me!!(6p)
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   210       596
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   466       596
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   722       596
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   212       580
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   468       580
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   722       580
 :bitmap/matt/02 - Gold Mine/mine cart.D:                  76       148
 :bitmap/matt/02 - Gold Mine/mine cart.D:                 423       116
 :bitmap/matt/02 - Gold Mine/shovel.D:                     97       141
 :bitmap/matt/02 - Gold Mine/pickaxe.D:                   443       108
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   978       596
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                  1234       596
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                  1490       596
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   978       580
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                  1234       580
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                  1490       580
 :bitmap/matt/02 - Gold Mine/mine cart.D:                 844       148
 :bitmap/matt/02 - Gold Mine/mine cart.D:                1192       116
 :bitmap/matt/02 - Gold Mine/shovel.D:                    866       142
@@ -53,12 +53,12 @@ $ENGLISH                              You are all coming with me!!(6p)
 :bitmap/matt/02 - Gold Mine/Hatch.H:                    1504       116
 :bitmap/matt/02 - Gold Mine/Hatch.H:                     992       116
 
-:bitmap/matt/02 - Gold Mine/Goal.G:                      470       636
-:bitmap/matt/02 - Gold Mine/Goal.G:                      724       636
-:bitmap/matt/02 - Gold Mine/Goal.G:                      212       636
-:bitmap/matt/02 - Gold Mine/Goal.G:                     1238       636
-:bitmap/matt/02 - Gold Mine/Goal.G:                     1492       636
-:bitmap/matt/02 - Gold Mine/Goal.G:                      980       636
+:bitmap/matt/02 - Gold Mine/Goal.G:                      468       628
+:bitmap/matt/02 - Gold Mine/Goal.G:                      722       628
+:bitmap/matt/02 - Gold Mine/Goal.G:                      212       628
+:bitmap/matt/02 - Gold Mine/Goal.G:                     1234       628
+:bitmap/matt/02 - Gold Mine/Goal.G:                     1490       628
+:bitmap/matt/02 - Gold Mine/Goal.G:                      978       628
 
 :bitmap/matt/02 - Gold Mine/07:                          608       676
 :bitmap/matt/02 - Gold Mine/07:                          736       676

@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-21 12:46:13
+$BUILT                                             2011-09-05 23:28:44
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                           The undergrowth(5p)
@@ -13,7 +13,7 @@ $ENGLISH                                           The undergrowth(5p)
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                            50
+#SECONDS                                                            80
 #INITIAL                                                            60
 #REQUIRED                                                           20
 #RATE                                                               20
@@ -31,17 +31,17 @@ $ENGLISH                                           The undergrowth(5p)
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                          32        88
-:bitmap/matt/01 - Earth/Hatch.H:                         288        88
-:bitmap/matt/01 - Earth/Hatch.H:                         544        88
-:bitmap/matt/01 - Earth/Hatch.H:                         800        88
-:bitmap/matt/01 - Earth/Hatch.H:                        1056        88
+:bitmap/matt/01 - Earth/Hatch.H:                          42        90
+:bitmap/matt/01 - Earth/Hatch.H:                         298        92
+:bitmap/matt/01 - Earth/Hatch.H:                         554        92
+:bitmap/matt/01 - Earth/Hatch.H:                         810        92
+:bitmap/matt/01 - Earth/Hatch.H:                        1066        90
 
-:bitmap/matt/01 - Earth/Goal.G:                          432       539
-:bitmap/matt/01 - Earth/Goal.G:                          689       540
-:bitmap/matt/01 - Earth/Goal.G:                          945       539
-:bitmap/matt/01 - Earth/Goal.G:                         1200       539
-:bitmap/matt/01 - Earth/Goal.G:                          176       539
+:bitmap/matt/01 - Earth/Goal.G:                          432       528
+:bitmap/matt/01 - Earth/Goal.G:                          688       528
+:bitmap/matt/01 - Earth/Goal.G:                          944       528
+:bitmap/matt/01 - Earth/Goal.G:                         1200       528
+:bitmap/matt/01 - Earth/Goal.G:                          176       528
 
 :bitmap/matt/01 - Earth/09:                              608       224
 :bitmap/matt/01 - Earth/09:                              352       224
@@ -154,6 +154,7 @@ $ENGLISH                                           The undergrowth(5p)
 :bitmap/matt/01 - Earth/10:                              704       304
 :bitmap/matt/01 - Earth/10:                              736       304
 :bitmap/matt/01 - Earth/10:                              768       304
+:bitmap/matt/01 - Earth/10:                              630       296
 :bitmap/matt/01 - Earth/10:                              800       304
 :bitmap/matt/01 - Earth/10:                              832       304
 :bitmap/matt/01 - Earth/10:                              864       304
@@ -353,3 +354,11 @@ $ENGLISH                                           The undergrowth(5p)
 :bitmap/matt/01 - Earth/09:                              524        74
 :bitmap/matt/01 - Earth/09:                              780        74
 :bitmap/matt/01 - Earth/09:                             1036        74
+:bitmap/matt/01 - Earth/04:                              764       288     frrr
+:bitmap/matt/01 - Earth/10:                              894       306
+:bitmap/matt/01 - Earth/04:                             1016       280     frrr
+:bitmap/matt/01 - Earth/10:                             1140       304
+:bitmap/matt/01 - Earth/10:                               54       302
+:bitmap/matt/01 - Earth/04:                             1260       278     frrr
+:bitmap/matt/01 - Earth/10:                              466       292     f
+:bitmap/matt/01 - Earth/10:                              346       302

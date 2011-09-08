@@ -1,0 +1,132 @@
+$BUILT                                             2011-09-01 22:06:53
+$AUTHOR                                                          rubix
+$GERMAN                                                               
+$ENGLISH                                                A Soft Landing
+
+#SIZE_X                                                            880
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                           112
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           165
+#INITIAL                                                            40
+#REQUIRED                                                           28
+#RATE                                                               50
+
+#CLIMBER                                                            40
+#FLOATER                                                            12
+#CUBER                                                              12
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/geoo/construction/Hatch.H:                        32         0
+
+:bitmap/geoo/construction/Goal2.G:                       816       176
+
+:bitmap/geoo/construction/Laser_hz_64.F:                 384       128
+:bitmap/geoo/construction/Laser_hz_64.F:                 432       128
+:bitmap/geoo/construction/Laser_hz_64.F:                 528       128
+:bitmap/geoo/construction/Laser_hz_64.F:                 576       128
+:bitmap/geoo/construction/Laser_hz_64.F:                 672       128
+:bitmap/geoo/construction/Laser_hz_64.F:                 720       128
+:bitmap/geoo/construction/Laser_hz_64.F:                 240       128
+:bitmap/geoo/construction/Laser_hz_64.F:                 288       128
+:bitmap/matt/water.W:                                    592       352
+:bitmap/matt/water.W:                                    624       352
+:bitmap/matt/water.W:                                    656       352
+:bitmap/matt/water.W:                                    688       352
+:bitmap/matt/water.W:                                    720       352
+:bitmap/matt/water.W:                                    752       352
+:bitmap/matt/water.W:                                    784       352
+:bitmap/matt/water.W:                                    816       352
+:bitmap/matt/water.W:                                    592       368
+:bitmap/matt/water.W:                                    624       368
+:bitmap/matt/water.W:                                    656       368
+:bitmap/matt/water.W:                                    688       368
+:bitmap/matt/water.W:                                    720       368
+:bitmap/matt/water.W:                                    752       368
+:bitmap/matt/water.W:                                    784       368
+:bitmap/matt/water.W:                                    816       368
+:bitmap/matt/water.W:                                     32       352
+:bitmap/matt/water.W:                                     64       352
+:bitmap/matt/water.W:                                     96       352
+:bitmap/matt/water.W:                                    128       352
+:bitmap/matt/water.W:                                     32       368
+:bitmap/matt/water.W:                                     64       368
+:bitmap/matt/water.W:                                     96       368
+:bitmap/matt/water.W:                                    128       368
+:bitmap/matt/water.W:                                      0       352
+:bitmap/matt/water.W:                                      0       368
+
+:bitmap/geoo/sandstone/64x32:                            224       368
+:bitmap/geoo/sandstone/64x64:                            288       336
+:bitmap/geoo/sandstone/64x32:                            352       368
+:bitmap/geoo/sandstone/64x32:                            416       368
+:bitmap/geoo/sandstone/64x64:                            288       272
+:bitmap/geoo/sandstone/64x32:                            160       368
+:bitmap/geoo/sandstone/64x64:                            288       208
+:bitmap/geoo/sandstone/64x32:                            480       368
+:bitmap/geoo/sandstone/64x32:                            544       368
+:bitmap/geoo/sandstone/64x32:                            160       336
+:bitmap/geoo/sandstone/64x32:                             96       336
+:bitmap/geoo/sandstone/64x32:                             96       304
+:bitmap/geoo/sandstone/64x32:                             32       304
+:bitmap/geoo/sandstone/64x32:                             32       272
+:bitmap/geoo/sandstone/64x32:                             32       208     rrr
+:bitmap/geoo/sandstone/64x32:                            416       336
+:bitmap/geoo/sandstone/64x32:                            480       336
+:bitmap/geoo/sandstone/64x32:                            544       336
+:bitmap/geoo/sandstone/64x32:                            608       336
+:bitmap/geoo/sandstone/64x32:                            496       304
+:bitmap/geoo/sandstone/64x32:                            560       304
+:bitmap/geoo/sandstone/64x32:                            624       304
+:bitmap/geoo/sandstone/64x32:                            688       304
+:bitmap/geoo/sandstone/64x32:                            560       272
+:bitmap/geoo/sandstone/64x32:                            624       272
+:bitmap/geoo/sandstone/64x32:                            688       272
+:bitmap/geoo/sandstone/64x32:                            752       272
+:bitmap/geoo/sandstone/64x32:                            624       240
+:bitmap/geoo/sandstone/64x32:                            688       240
+:bitmap/geoo/sandstone/64x32:                            752       240
+:bitmap/geoo/sandstone/64x32:                            816       240
+:bitmap/geoo/sandstone/64x64:                            816       272
+:bitmap/geoo/sandstone/64x64:                            816       336
+:bitmap/geoo/sandstone/32x32:                            464         0
+:bitmap/geoo/sandstone/32x32:                            448        32
+:bitmap/geoo/sandstone/32x32:                            464        64
+:bitmap/geoo/sandstone/32x32:                            480        96
+:bitmap/geoo/sandstone/32x32:                            496       128
+:bitmap/geoo/sandstone/32x32:                            608         0
+:bitmap/geoo/sandstone/32x32:                            592        32
+:bitmap/geoo/sandstone/32x32:                            608        64
+:bitmap/geoo/sandstone/32x32:                            624        96
+:bitmap/geoo/sandstone/32x32:                            640       128
+:bitmap/geoo/sandstone/32x32:                            752         0
+:bitmap/geoo/sandstone/32x32:                            736        32
+:bitmap/geoo/sandstone/32x32:                            752        64
+:bitmap/geoo/sandstone/32x32:                            768        96
+:bitmap/geoo/sandstone/32x32:                            784       128
+:bitmap/geoo/sandstone/32x32:                            176         0
+:bitmap/geoo/sandstone/32x32:                            160        32
+:bitmap/geoo/sandstone/32x32:                            176        64
+:bitmap/geoo/sandstone/32x32:                            192        96
+:bitmap/geoo/sandstone/32x32:                            208       128
+:bitmap/geoo/sandstone/32x32:                            320         0
+:bitmap/geoo/sandstone/32x32:                            304        32
+:bitmap/geoo/sandstone/32x32:                            320        64
+:bitmap/geoo/sandstone/32x32:                            336        96
+:bitmap/geoo/sandstone/32x32:                            352       128
+:bitmap/geoo/sandstone/32x64:                             32       144
+:bitmap/geoo/sandstone/32x64:                             32        80

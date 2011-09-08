@@ -1,0 +1,144 @@
+$BUILT                                             2011-09-05 14:14:45
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                           7up
+
+#SIZE_X                                                           1440
+#SIZE_Y                                                            500
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                            80
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           345
+#INITIAL                                                             7
+#REQUIRED                                                            7
+#RATE                                                                7
+
+#BUILDER                                                            17
+#BASHER                                                              2
+#MINER                                                               1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/06 - Oriental/Hatch.H:                      954       332     r
+
+:bitmap/matt/06 - Oriental/Goal.G:                       -14       -28
+
+:bitmap/matt/water.W:                                      0       464
+:bitmap/matt/water.W:                                     32       464
+:bitmap/matt/water.W:                                     64       464
+:bitmap/matt/water.W:                                     96       464
+:bitmap/matt/water.W:                                    128       464
+:bitmap/matt/water.W:                                      0       480
+:bitmap/matt/water.W:                                     32       480
+:bitmap/matt/water.W:                                     64       480
+:bitmap/matt/water.W:                                     96       480
+:bitmap/matt/water.W:                                    128       480
+:bitmap/matt/water.W:                                    816       464
+:bitmap/matt/water.W:                                    848       464
+:bitmap/matt/water.W:                                    880       464
+:bitmap/matt/water.W:                                    912       464
+:bitmap/matt/water.W:                                    944       464
+:bitmap/matt/water.W:                                    976       464
+:bitmap/matt/water.W:                                   1008       464
+:bitmap/matt/water.W:                                   1040       464
+:bitmap/matt/water.W:                                    816       480
+:bitmap/matt/water.W:                                    848       480
+:bitmap/matt/water.W:                                    880       480
+:bitmap/matt/water.W:                                    912       480
+:bitmap/matt/water.W:                                    944       480
+:bitmap/matt/water.W:                                    976       480
+:bitmap/matt/water.W:                                   1008       480
+:bitmap/matt/water.W:                                   1040       480
+:bitmap/matt/water.W:                                   1072       464
+:bitmap/matt/water.W:                                   1104       464
+:bitmap/matt/water.W:                                   1136       464
+:bitmap/matt/water.W:                                   1072       480
+:bitmap/matt/water.W:                                   1104       480
+:bitmap/matt/water.W:                                   1136       480
+:bitmap/matt/water.W:                                    160       464
+:bitmap/matt/water.W:                                    192       464
+:bitmap/matt/water.W:                                    224       464
+:bitmap/matt/water.W:                                    256       464
+:bitmap/matt/water.W:                                    288       464
+:bitmap/matt/water.W:                                    320       464
+:bitmap/matt/water.W:                                    352       464
+:bitmap/matt/water.W:                                    384       464
+:bitmap/matt/water.W:                                    160       480
+:bitmap/matt/water.W:                                    192       480
+:bitmap/matt/water.W:                                    224       480
+:bitmap/matt/water.W:                                    256       480
+:bitmap/matt/water.W:                                    288       480
+:bitmap/matt/water.W:                                    320       480
+:bitmap/matt/water.W:                                    352       480
+:bitmap/matt/water.W:                                    384       480
+
+:bitmap/matt/06 - Oriental/leaves3:                     1396       376
+:bitmap/matt/06 - Oriental/leaves3:                     1366       363
+:bitmap/matt/06 - Oriental/10:                            64       176
+:bitmap/matt/06 - Oriental/bonsai tree:                 1277       345
+:bitmap/matt/06 - Oriental/bonsai tree:                 1133       287
+:bitmap/matt/06 - Oriental/asian temple:                 296       174
+:bitmap/matt/06 - Oriental/07:                           344       350
+:bitmap/matt/06 - Oriental/bonsai tree:                   42       136
+:bitmap/matt/06 - Oriental/bonsai tree:                    6       316
+:bitmap/matt/06 - Oriental/bonsai tree:                  621       272
+:bitmap/matt/06 - Oriental/asian temple:                 896        92
+:bitmap/matt/06 - Oriental/bamboo pole:                   -6       496     r
+:bitmap/matt/06 - Oriental/bamboo pole:                  896       264     r
+:bitmap/matt/06 - Oriental/bamboo pole:                  538       496     r
+:bitmap/matt/06 - Oriental/bamboo pole:                  -94        50     r
+:bitmap/matt/06 - Oriental/bamboo pole:                  896       270     r
+:bitmap/matt/06 - Oriental/bamboo pole:                  898       276     r
+:bitmap/matt/06 - Oriental/05:                           302       350
+:bitmap/matt/06 - Oriental/05:                           414       350
+:bitmap/matt/06 - Oriental/07:                           532       458
+:bitmap/matt/06 - Oriental/07:                           606       458
+:bitmap/matt/06 - Oriental/07:                           458       458
+:bitmap/matt/06 - Oriental/07:                           678       458
+:bitmap/matt/06 - Oriental/07:                           752       458
+:bitmap/matt/06 - Oriental/bridge_angle:                 827       397
+:bitmap/matt/06 - Oriental/bridge_straight:              934       396
+:bitmap/matt/06 - Oriental/bridge_angle:                1038       395     frr
+:bitmap/matt/06 - Oriental/07:                          1144       459
+:bitmap/matt/06 - Oriental/07:                          1218       459
+:bitmap/matt/06 - Oriental/07:                          1289       459
+:bitmap/matt/06 - Oriental/07:                          1363       459
+:bitmap/matt/06 - Oriental/bamboo pole:                  898       281     r
+:bitmap/matt/06 - Oriental/bamboo pole:                 1053       264     r
+:bitmap/matt/06 - Oriental/bamboo pole:                 1053       270     r
+:bitmap/matt/06 - Oriental/bamboo pole:                 1055       276     r
+:bitmap/matt/06 - Oriental/bamboo pole:                 1055       281     r
+:bitmap/matt/06 - Oriental/bamboo pole:                 1103       266     r
+:bitmap/matt/06 - Oriental/bamboo pole:                 1108       271     r
+:bitmap/matt/06 - Oriental/bamboo pole:                 1110       276     r
+:bitmap/matt/06 - Oriental/bamboo pole:                 1115       282     r
+:bitmap/matt/06 - Oriental/bamboo pole:                  684       265     r
+:bitmap/matt/06 - Oriental/bamboo pole:                  676       271     r
+:bitmap/matt/06 - Oriental/bamboo pole:                  668       277     r
+:bitmap/matt/06 - Oriental/bamboo pole:                  800       265     r
+:bitmap/matt/06 - Oriental/bamboo pole:                  800       271     r
+:bitmap/matt/06 - Oriental/bamboo pole:                  802       277     r
+:bitmap/matt/06 - Oriental/asian gate:                   483       396
+:bitmap/matt/06 - Oriental/05:                           302       427
+:bitmap/matt/06 - Oriental/05:                           414       425
+:bitmap/matt/06 - Oriental/05:                          1411       309
+:bitmap/matt/06 - Oriental/05:                          1412       383
+:bitmap/matt/06 - Oriental/10:                            64       146     frr
+:bitmap/matt/06 - Oriental/10:                            64       116
+:bitmap/matt/06 - Oriental/10:                            64        86     frr
+:bitmap/matt/06 - Oriental/10:                            64        56
+:bitmap/matt/06 - Oriental/bamboo pole:                   94        32
+:bitmap/matt/06 - Oriental/bamboo pole:                   58        50
+:bitmap/matt/06 - Oriental/01:                            92        32     d

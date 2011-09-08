@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 12:05:23
+$BUILT                                             2011-09-04 23:29:42
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                         Intuitive Control(6p)
@@ -13,7 +13,7 @@ $ENGLISH                                         Intuitive Control(6p)
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                            45
+#SECONDS                                                            60
 #INITIAL                                                            50
 #REQUIRED                                                           20
 #RATE                                                               25
@@ -31,19 +31,19 @@ $ENGLISH                                         Intuitive Control(6p)
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                         501         5
-:bitmap/matt/01 - Earth/Hatch.H:                          71         4
+:bitmap/matt/01 - Earth/Hatch.H:                         502         8
+:bitmap/matt/01 - Earth/Hatch.H:                          70         8
 :bitmap/matt/01 - Earth/Hatch.H:                         284         5
 :bitmap/matt/01 - Earth/Hatch.H:                        1138         6
-:bitmap/matt/01 - Earth/Hatch.H:                         708         4
-:bitmap/matt/01 - Earth/Hatch.H:                         920         6
+:bitmap/matt/01 - Earth/Hatch.H:                         708         6
+:bitmap/matt/01 - Earth/Hatch.H:                         922         6
 
-:bitmap/matt/01 - Earth/Goal.G:                          640       318
-:bitmap/matt/01 - Earth/Goal.G:                          212       318
-:bitmap/matt/01 - Earth/Goal.G:                          430       318
-:bitmap/matt/01 - Earth/Goal.G:                            4       318
-:bitmap/matt/01 - Earth/Goal.G:                          848       318
-:bitmap/matt/01 - Earth/Goal.G:                         1066       318
+:bitmap/matt/01 - Earth/Goal.G:                          648       304
+:bitmap/matt/01 - Earth/Goal.G:                          222       304
+:bitmap/matt/01 - Earth/Goal.G:                          434       304
+:bitmap/matt/01 - Earth/Goal.G:                           12       304
+:bitmap/matt/01 - Earth/Goal.G:                          858       304
+:bitmap/matt/01 - Earth/Goal.G:                         1072       304
 
 :bitmap/matt/01 - Earth/20:                              466       370
 :bitmap/matt/01 - Earth/20:                              206       370

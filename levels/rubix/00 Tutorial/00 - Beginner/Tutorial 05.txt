@@ -1,0 +1,344 @@
+$BUILT                                             2011-09-03 14:53:30
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                    The Batter
+
+#SIZE_X                                                            800
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                           160
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                            90
+#INITIAL                                                            70
+#REQUIRED                                                           40
+#RATE                                                               99
+
+#BATTER                                                             -1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/simon/hatch001.H:                                288        32
+:bitmap/simon/hatch001.H:                                288        32
+:bitmap/simon/hatch001.H:                                288        32
+:bitmap/simon/hatch001.H:                                288        32
+:bitmap/simon/hatch001.H:                                288        32
+:bitmap/simon/hatch001.H:                                288        32
+:bitmap/simon/hatch001.H:                                288        32
+:bitmap/simon/hatch001.H:                                288        32
+:bitmap/simon/hatch001.H:                                288        32
+:bitmap/simon/hatch001.H:                                288        32
+:bitmap/simon/hatch001.H:                                288        32
+:bitmap/simon/hatch001.H:                                288        32
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                624       272     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+:bitmap/simon/hatch001.H:                                656       144     r
+
+:bitmap/simon/tapir/goal.G:                               48        96
+
+:bitmap/matt/water.W:                                    368       320
+:bitmap/matt/water.W:                                    400       320
+:bitmap/matt/water.W:                                    432       320
+:bitmap/matt/water.W:                                    464       320
+:bitmap/matt/water.W:                                    368       336
+:bitmap/matt/water.W:                                    400       336
+:bitmap/matt/water.W:                                    432       336
+:bitmap/matt/water.W:                                    464       336
+:bitmap/matt/water.W:                                    368       352
+:bitmap/matt/water.W:                                    400       352
+:bitmap/matt/water.W:                                    432       352
+:bitmap/matt/water.W:                                    464       352
+:bitmap/matt/water.W:                                    368       368
+:bitmap/matt/water.W:                                    400       368
+:bitmap/matt/water.W:                                    432       368
+:bitmap/matt/water.W:                                    464       368
+:bitmap/matt/water.W:                                    496       320
+:bitmap/matt/water.W:                                    528       320
+:bitmap/matt/water.W:                                    560       320
+:bitmap/matt/water.W:                                    496       336
+:bitmap/matt/water.W:                                    528       336
+:bitmap/matt/water.W:                                    560       336
+:bitmap/matt/water.W:                                    496       352
+:bitmap/matt/water.W:                                    528       352
+:bitmap/matt/water.W:                                    560       352
+:bitmap/matt/water.W:                                    528       368
+:bitmap/matt/water.W:                                    240       320
+:bitmap/matt/water.W:                                    272       320
+:bitmap/matt/water.W:                                    304       320
+:bitmap/matt/water.W:                                    336       320
+:bitmap/matt/water.W:                                    240       336
+:bitmap/matt/water.W:                                    272       336
+:bitmap/matt/water.W:                                    304       336
+:bitmap/matt/water.W:                                    336       336
+:bitmap/matt/water.W:                                    240       352
+:bitmap/matt/water.W:                                    272       352
+:bitmap/matt/water.W:                                    304       352
+:bitmap/matt/water.W:                                    336       352
+:bitmap/matt/water.W:                                    240       368
+:bitmap/matt/water.W:                                    272       368
+:bitmap/matt/water.W:                                    304       368
+:bitmap/matt/water.W:                                    336       368
+:bitmap/geoo/construction/sawblade.F:                    608        96
+:bitmap/geoo/construction/sawblade.F:                    624        80
+:bitmap/geoo/construction/sawblade.F:                    640        64
+:bitmap/geoo/construction/sawblade.F:                    656        80
+:bitmap/geoo/construction/sawblade.F:                    672        96
+:bitmap/geoo/construction/sawblade.F:                    688        80
+:bitmap/geoo/construction/sawblade.F:                    704        64
+:bitmap/geoo/construction/sawblade.F:                    592        80
+:bitmap/geoo/construction/sawblade.F:                    576        80
+:bitmap/geoo/construction/sawblade.F:                    560        96
+:bitmap/geoo/construction/sawblade.F:                    368       128
+:bitmap/geoo/construction/sawblade.F:                    384       144
+:bitmap/geoo/construction/sawblade.F:                    688       256
+:bitmap/geoo/construction/sawblade.F:                    704       256
+:bitmap/geoo/construction/sawblade.F:                    688       272
+:bitmap/geoo/construction/sawblade.F:                    704       272
+:bitmap/geoo/construction/sawblade.F:                    688       288
+:bitmap/geoo/construction/sawblade.F:                    704       288
+:bitmap/geoo/construction/sawblade.F:                    688       304
+:bitmap/geoo/construction/sawblade.F:                    704       304
+:bitmap/matt/water.W:                                    496       368
+:bitmap/matt/water.W:                                    560       368
+
+:bitmap/simon/tapir/032v:                                192       336
+:bitmap/simon/tapir/032v:                                224       336
+:bitmap/simon/tapir/032v:                                192       272
+:bitmap/simon/tapir/032v:                                224       272
+:bitmap/simon/tapir/032v:                                320       336
+:bitmap/simon/tapir/032v:                                352       336
+:bitmap/simon/tapir/032v:                                192       208
+:bitmap/simon/tapir/032v:                                224       208
+:bitmap/simon/tapir/032v:                                160       336
+:bitmap/simon/tapir/032v:                                160       272
+:bitmap/simon/tapir/032v:                                160       208
+:bitmap/simon/tapir/032v:                                160       144
+:bitmap/simon/tapir/032v:                                416       336
+:bitmap/simon/tapir/032v:                                416       272
+:bitmap/simon/tapir/032v:                                448       336
+:bitmap/simon/tapir/032v:                                448       272
+:bitmap/simon/tapir/032v:                                448       144
+:bitmap/simon/tapir/032:                                 544       176
+:bitmap/simon/tapir/032hb:                               512       144
+:bitmap/simon/tapir/032hb:                               576       176
+:bitmap/simon/tapir/032hb:                               640       208
+:bitmap/simon/tapir/032:                                 608       208
+:bitmap/simon/tapir/128:                                 592       336
+:bitmap/simon/tapir/016h:                                608       256
+:bitmap/simon/tapir/016h:                                608       240
+:bitmap/simon/tapir/016h:                                640       256
+:bitmap/simon/tapir/016h:                                640       240
+:bitmap/simon/tapir/016h:                                672       256
+:bitmap/simon/tapir/016h:                                672       240
+:bitmap/simon/tapir/016h:                                416       144
+:bitmap/simon/tapir/064v:                                736       272
+:bitmap/simon/tapir/064v:                                736       144
+:bitmap/simon/tapir/064v:                                736        16
+:bitmap/simon/tapir/016h:                                480       144
+:bitmap/simon/tapir/016h:                                704       256
+:bitmap/simon/tapir/016h:                                224        48
+:bitmap/simon/tapir/016h:                                256        32
+:bitmap/simon/tapir/016h:                                288        32
+:bitmap/simon/tapir/016h:                                320        32
+:bitmap/simon/tapir/016h:                                352        32
+:bitmap/simon/tapir/016h:                                352        48
+:bitmap/simon/tapir/016h:                                640        48
+:bitmap/simon/tapir/016h:                                672        48
+:bitmap/simon/tapir/032ha:                               512        48
+:bitmap/simon/tapir/032ha:                               480        64
+:bitmap/simon/tapir/032ha:                               448        80
+:bitmap/simon/tapir/032:                                 320       240
+:bitmap/simon/tapir/032hb:                               352       240
+:bitmap/simon/tapir/032b:                                192       144
+:bitmap/simon/tapir/032:                                 192       176
+:bitmap/simon/tapir/032b:                                224       176
+:bitmap/simon/tapir/016h:                                352       128
+:bitmap/simon/tapir/016h:                                320       124
+:bitmap/simon/tapir/032v:                                320       272
+:bitmap/simon/tapir/032v:                                352       272
+:bitmap/simon/tapir/032:                                 512       304
+:bitmap/simon/tapir/032hb:                               480       272
+:bitmap/simon/tapir/032hb:                               544       304
+:bitmap/simon/tapir/016h:                                720       336     rrr
+:bitmap/simon/tapir/016h:                                720       368     rrr
+:bitmap/simon/tapir/032hb:                               384        32
+:bitmap/simon/tapir/032v:                                624       288     d
+:bitmap/simon/tapir/032v:                                656       288     d
+:bitmap/simon/tapir/016h:                                192        64
+:bitmap/simon/tapir/032:                                 704        32
+:bitmap/rubix/Tutorial/Tutorialbatter:                     8       214
+:bitmap/simon/tapir/032v:                                 96       144
+:bitmap/simon/tapir/032v:                                128       144
+:bitmap/simon/tapir/032v:                                 32       144
+:bitmap/simon/tapir/032v:                                 64       144
+:bitmap/simon/tapir/032v:                                  0       144

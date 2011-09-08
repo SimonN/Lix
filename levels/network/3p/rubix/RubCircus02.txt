@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-20 12:01:04
+$BUILT                                             2011-09-04 22:45:27
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                                Dependancy(3p)
@@ -31,13 +31,13 @@ $ENGLISH                                                Dependancy(3p)
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/03 - Carnival/Hatch.H:                      320       304     r
-:bitmap/matt/03 - Carnival/Hatch.H:                       64       304     r
-:bitmap/matt/03 - Carnival/Hatch.H:                      576       304     r
+:bitmap/matt/03 - Carnival/Hatch.H:                      320       240     r
+:bitmap/matt/03 - Carnival/Hatch.H:                       64       240     r
+:bitmap/matt/03 - Carnival/Hatch.H:                      576       240     r
 
-:bitmap/matt/03 - Carnival/Goal.G:                       650       308
-:bitmap/matt/03 - Carnival/Goal.G:                       394       308
-:bitmap/matt/03 - Carnival/Goal.G:                       138       308
+:bitmap/matt/03 - Carnival/Goal.G:                       656       304
+:bitmap/matt/03 - Carnival/Goal.G:                       400       304
+:bitmap/matt/03 - Carnival/Goal.G:                       144       304
 
 :bitmap/matt/03 - Carnival/26:                           336       366
 :bitmap/matt/03 - Carnival/03:                           400       430

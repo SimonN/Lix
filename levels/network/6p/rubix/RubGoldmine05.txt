@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 11:49:19
+$BUILT                                             2011-09-04 23:33:41
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                           Golden Slumbers(6p)
@@ -31,12 +31,12 @@ $ENGLISH                                           Golden Slumbers(6p)
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   590       754
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   334       752
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                    78       752
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                  1356       752
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                  1102       752
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   846       752
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   592       736
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   336       736
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                    80       736
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                  1360       736
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                  1104       736
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   848       736
 :bitmap/matt/02 - Gold Mine/mine cart.D:                 792       784
 :bitmap/matt/02 - Gold Mine/mine cart.D:                1048       784
 :bitmap/matt/02 - Gold Mine/mine cart.D:                1304       784
@@ -51,12 +51,12 @@ $ENGLISH                                           Golden Slumbers(6p)
 :bitmap/matt/02 - Gold Mine/Hatch.H:                     832        64
 :bitmap/matt/02 - Gold Mine/Hatch.H:                    1088        64
 
-:bitmap/matt/02 - Gold Mine/Goal.G:                      592       794
-:bitmap/matt/02 - Gold Mine/Goal.G:                       80       792
-:bitmap/matt/02 - Gold Mine/Goal.G:                      336       792
-:bitmap/matt/02 - Gold Mine/Goal.G:                     1360       792
-:bitmap/matt/02 - Gold Mine/Goal.G:                      848       792
-:bitmap/matt/02 - Gold Mine/Goal.G:                     1104       792
+:bitmap/matt/02 - Gold Mine/Goal.G:                      592       784
+:bitmap/matt/02 - Gold Mine/Goal.G:                       80       784
+:bitmap/matt/02 - Gold Mine/Goal.G:                      336       784
+:bitmap/matt/02 - Gold Mine/Goal.G:                     1360       784
+:bitmap/matt/02 - Gold Mine/Goal.G:                      848       784
+:bitmap/matt/02 - Gold Mine/Goal.G:                     1104       784
 
 :bitmap/matt/02 - Gold Mine/07:                         1488       832
 :bitmap/matt/02 - Gold Mine/07:                          464       784     r

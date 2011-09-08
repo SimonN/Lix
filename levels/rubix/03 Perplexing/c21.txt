@@ -1,0 +1,82 @@
+$BUILT                                             2011-09-05 19:09:02
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                 Justification
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           120
+#INITIAL                                                            75
+#REQUIRED                                                           75
+#RATE                                                                1
+
+#WALKER                                                              1
+#CLIMBER                                                            11
+#BUILDER                                                             2
+#MINER                                                               1
+#BASHER                                                              2
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/03 - Carnival/Hatch.H:                      594       148     r
+
+:bitmap/matt/03 - Carnival/Goal.G:                       592       304
+
+:bitmap/matt/03 - Carnival/54:                           480       208
+:bitmap/matt/03 - Carnival/51:                           544       208
+:bitmap/matt/03 - Carnival/51:                           448       112     r
+:bitmap/matt/03 - Carnival/54:                           416       304     rrr
+:bitmap/matt/03 - Carnival/51:                           448       176     r
+:bitmap/matt/03 - Carnival/54:                           416       272
+:bitmap/matt/03 - Carnival/54:                           576       240
+:bitmap/matt/03 - Carnival/51:                           512       240
+:bitmap/matt/03 - Carnival/54:                           480       272
+:bitmap/matt/03 - Carnival/51:                           544       272
+:bitmap/matt/03 - Carnival/54:                           448       240
+:bitmap/matt/03 - Carnival/54:                           608       208
+:bitmap/matt/03 - Carnival/54:                           608       272
+:bitmap/matt/03 - Carnival/51:                           416        80
+:bitmap/matt/03 - Carnival/54:                           416       368
+:bitmap/matt/03 - Carnival/54:                           480       368
+:bitmap/matt/03 - Carnival/51:                           544       368
+:bitmap/matt/03 - Carnival/54:                           608       368
+:bitmap/matt/03 - Carnival/51:                           352        80
+:bitmap/matt/03 - Carnival/51:                           288        80
+:bitmap/matt/03 - Carnival/51:                           192       176
+:bitmap/matt/03 - Carnival/51:                           256       112
+:bitmap/matt/03 - Carnival/51:                           224       144
+:bitmap/matt/03 - Carnival/51:                           112       208     r
+:bitmap/matt/03 - Carnival/51:                           112       144     r
+:bitmap/matt/03 - Carnival/54:                           240       304
+:bitmap/matt/03 - Carnival/54:                           304       304
+:bitmap/matt/03 - Carnival/54:                           336       336     frrr
+:bitmap/matt/03 - Carnival/54:                           112       304
+:bitmap/matt/03 - Carnival/54:                           176       304
+:bitmap/matt/03 - Carnival/54:                            48       240     rrr
+:bitmap/matt/03 - Carnival/54:                            48       208
+:bitmap/matt/03 - Carnival/54:                            48       304
+:bitmap/matt/03 - Carnival/51:                           160       208
+:bitmap/matt/03 - Carnival/51:                           112       112
+:bitmap/matt/03 - Carnival/46:                             0         0     r
+:bitmap/matt/03 - Carnival/28:                            32         0     rr
+:bitmap/matt/03 - Carnival/28:                             0        32     r
+:bitmap/matt/03 - Carnival/29:                            32       384
+:bitmap/matt/03 - Carnival/29:                             0       304     r
+:bitmap/matt/03 - Carnival/50:                             0       368
+:bitmap/matt/03 - Carnival/58:                           448         0
+:bitmap/matt/03 - Carnival/51:                           512         0     r
+:bitmap/matt/03 - Carnival/51:                           608         0     r
+:bitmap/matt/03 - Carnival/51:                           608        64     r

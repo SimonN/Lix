@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 11:43:05
+$BUILT                                             2011-09-04 23:27:19
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                                  Seizure!(6p)
@@ -31,19 +31,19 @@ $ENGLISH                                                  Seizure!(6p)
 #RUNNER                                                             10
 #CUBER                                                              10
 
-:bitmap/matt/03 - Carnival/Hatch.H:                      575       343
-:bitmap/matt/03 - Carnival/Hatch.H:                      833       343
-:bitmap/matt/03 - Carnival/Hatch.H:                     1090       344
-:bitmap/matt/03 - Carnival/Hatch.H:                     1347       343
-:bitmap/matt/03 - Carnival/Hatch.H:                       65       345
-:bitmap/matt/03 - Carnival/Hatch.H:                      320       344
+:bitmap/matt/03 - Carnival/Hatch.H:                      576       320
+:bitmap/matt/03 - Carnival/Hatch.H:                      832       320
+:bitmap/matt/03 - Carnival/Hatch.H:                     1088       320
+:bitmap/matt/03 - Carnival/Hatch.H:                     1344       320
+:bitmap/matt/03 - Carnival/Hatch.H:                       64       320
+:bitmap/matt/03 - Carnival/Hatch.H:                      320       320
 
-:bitmap/matt/03 - Carnival/Goal.G:                      1094        84
-:bitmap/matt/03 - Carnival/Goal.G:                      1352        84
-:bitmap/matt/03 - Carnival/Goal.G:                        70        84
-:bitmap/matt/03 - Carnival/Goal.G:                       326        84
-:bitmap/matt/03 - Carnival/Goal.G:                       582        84
-:bitmap/matt/03 - Carnival/Goal.G:                       838        84
+:bitmap/matt/03 - Carnival/Goal.G:                      1088        80
+:bitmap/matt/03 - Carnival/Goal.G:                      1344        80
+:bitmap/matt/03 - Carnival/Goal.G:                        64        80
+:bitmap/matt/03 - Carnival/Goal.G:                       320        80
+:bitmap/matt/03 - Carnival/Goal.G:                       576        80
+:bitmap/matt/03 - Carnival/Goal.G:                       832        80
 
 :bitmap/matt/03 - Carnival/01:                           512       624
 :bitmap/matt/03 - Carnival/00:                           512       592

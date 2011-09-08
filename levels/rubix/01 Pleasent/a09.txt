@@ -1,0 +1,114 @@
+$BUILT                                             2011-09-05 01:04:24
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                             The Interactive Rodent Simulation
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           360
+#INITIAL                                                            50
+#REQUIRED                                                           40
+#RATE                                                                1
+
+#NOTHING                                                             0
+#FLOATER                                                             1
+#EXPLODER                                                            2
+#BLOCKER                                                             2
+#BUILDER                                                            12
+#PLATFORMER                                                          3
+#MINER                                                              10
+#DIGGER                                                             10
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/07 - Underworld/Hatch.H:                     32        16
+
+:bitmap/matt/07 - Underworld/Goal.G:                     562        14
+
+:bitmap/matt/07 - Underworld/09a:                        291        -2
+:bitmap/matt/07 - Underworld/09a:                         32       286     frr
+:bitmap/matt/07 - Underworld/09c:                        354        88
+:bitmap/matt/07 - Underworld/09a:                         90       268
+:bitmap/matt/07 - Underworld/09a:                        259       108
+:bitmap/matt/07 - Underworld/09b:                        390       224
+:bitmap/matt/07 - Underworld/09c:                        510       190
+:bitmap/matt/07 - Underworld/09b:                        349       261
+:bitmap/matt/07 - Underworld/09b:                        611       368
+:bitmap/matt/07 - Underworld/09b:                         18       342
+:bitmap/matt/07 - Underworld/09c:                        110       343
+:bitmap/matt/07 - Underworld/09c:                        555       362
+:bitmap/matt/07 - Underworld/09a:                        378       343
+:bitmap/matt/07 - Underworld/09a:                        167       383
+:bitmap/matt/07 - Underworld/09b:                        326       349
+:bitmap/matt/07 - Underworld/01:                         128       272
+:bitmap/matt/07 - Underworld/03:                         250        46
+:bitmap/matt/07 - Underworld/09a:                         30        76
+:bitmap/matt/07 - Underworld/02:                          32        80
+:bitmap/matt/07 - Underworld/02:                          32       176
+:bitmap/matt/07 - Underworld/01:                          32       272
+:bitmap/matt/07 - Underworld/01:                          96       272
+:bitmap/matt/07 - Underworld/01:                         256       240     r
+:bitmap/matt/07 - Underworld/01:                         256       176     r
+:bitmap/matt/07 - Underworld/01:                         256       112     r
+:bitmap/matt/07 - Underworld/00:                         368       272
+:bitmap/matt/07 - Underworld/00:                         352       288
+:bitmap/matt/07 - Underworld/00:                         384       256
+:bitmap/matt/07 - Underworld/00:                         400       240
+:bitmap/matt/07 - Underworld/00:                         432       208
+:bitmap/matt/07 - Underworld/00:                         416       224
+:bitmap/matt/07 - Underworld/00:                         456       192
+:bitmap/matt/07 - Underworld/00:                         456       176
+:bitmap/matt/07 - Underworld/09b:                        328       344
+:bitmap/matt/07 - Underworld/00:                         496       144
+:bitmap/matt/07 - Underworld/00:                         480       160
+:bitmap/matt/07 - Underworld/00:                         512       128
+:bitmap/matt/07 - Underworld/00:                         528       112
+:bitmap/matt/07 - Underworld/00:                         544        96
+:bitmap/matt/07 - Underworld/00:                         560        80
+:bitmap/matt/07 - Underworld/00:                         352        80
+:bitmap/matt/07 - Underworld/00:                         368        96
+:bitmap/matt/07 - Underworld/00:                         384       112
+:bitmap/matt/07 - Underworld/00:                         400       128
+:bitmap/matt/07 - Underworld/00:                         416       144
+:bitmap/matt/07 - Underworld/00:                         432       160
+:bitmap/matt/07 - Underworld/00:                         480       208
+:bitmap/matt/07 - Underworld/00:                         496       224
+:bitmap/matt/07 - Underworld/00:                         512       240
+:bitmap/matt/07 - Underworld/00:                         528       256
+:bitmap/matt/07 - Underworld/00:                         544       272
+:bitmap/matt/07 - Underworld/00:                         560       288
+:bitmap/matt/07 - Underworld/04:                         -30       365
+:bitmap/matt/07 - Underworld/08:                          15       327
+:bitmap/matt/07 - Underworld/08:                          89       367
+:bitmap/matt/07 - Underworld/05:                         182       377
+:bitmap/matt/07 - Underworld/08:                         314       337
+:bitmap/matt/07 - Underworld/08:                         386       347     f
+:bitmap/matt/07 - Underworld/09c:                        487       349
+:bitmap/matt/07 - Underworld/06:                         482       362
+:bitmap/matt/07 - Underworld/05:                         518       372
+:bitmap/matt/07 - Underworld/09a:                        262       374
+:bitmap/matt/07 - Underworld/01:                         288        96     rd
+:bitmap/matt/07 - Underworld/01:                         304        96     rd
+:bitmap/matt/07 - Underworld/09a:                        130       268     frr
+:bitmap/matt/07 - Underworld/00:                           0         0
+:bitmap/matt/07 - Underworld/00:                          64         0
+:bitmap/matt/07 - Underworld/00:                         128         0
+:bitmap/matt/07 - Underworld/00:                         192         0
+:bitmap/matt/07 - Underworld/00:                         256         0
+:bitmap/matt/07 - Underworld/00:                         320         0
+:bitmap/matt/07 - Underworld/00:                         384         0
+:bitmap/matt/07 - Underworld/00:                         448         0
+:bitmap/matt/07 - Underworld/00:                         512         0
+:bitmap/matt/07 - Underworld/00:                         576         0
+:bitmap/matt/07 - Underworld/09a:                        166        -3
+:bitmap/matt/07 - Underworld/09a:                        226       -25     rr

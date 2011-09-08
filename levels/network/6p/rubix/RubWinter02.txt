@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 11:51:28
+$BUILT                                             2011-09-05 23:55:15
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                              Come on down(6p)
@@ -13,7 +13,7 @@ $ENGLISH                                              Come on down(6p)
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                            45
+#SECONDS                                                            65
 #INITIAL                                                            70
 #REQUIRED                                                           20
 #RATE                                                               25
@@ -31,19 +31,19 @@ $ENGLISH                                              Come on down(6p)
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/05 - Winter/Hatch.H:                        300       570     r
-:bitmap/matt/05 - Winter/Hatch.H:                        300       698     r
-:bitmap/matt/05 - Winter/Hatch.H:                        302       442     r
+:bitmap/matt/05 - Winter/Hatch.H:                        304       576     r
+:bitmap/matt/05 - Winter/Hatch.H:                        304       704     r
+:bitmap/matt/05 - Winter/Hatch.H:                        304       448     r
 :bitmap/matt/05 - Winter/Hatch.H:                        304       194     r
 :bitmap/matt/05 - Winter/Hatch.H:                        304       322     r
 :bitmap/matt/05 - Winter/Hatch.H:                        304        66     r
 
-:bitmap/matt/05 - Winter/Goal.G:                         358        60
-:bitmap/matt/05 - Winter/Goal.G:                         358       188
-:bitmap/matt/05 - Winter/Goal.G:                         356       698
-:bitmap/matt/05 - Winter/Goal.G:                         356       442
-:bitmap/matt/05 - Winter/Goal.G:                         358       570
-:bitmap/matt/05 - Winter/Goal.G:                         356       316
+:bitmap/matt/05 - Winter/Goal.G:                         352        50
+:bitmap/matt/05 - Winter/Goal.G:                         352       178
+:bitmap/matt/05 - Winter/Goal.G:                         352       688
+:bitmap/matt/05 - Winter/Goal.G:                         352       432
+:bitmap/matt/05 - Winter/Goal.G:                         352       560
+:bitmap/matt/05 - Winter/Goal.G:                         352       306
 
 :bitmap/matt/05 - Winter/06:                             288         0     r
 :bitmap/matt/05 - Winter/06:                             352         0     r

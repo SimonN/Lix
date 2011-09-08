@@ -1,0 +1,103 @@
+$BUILT                                             2011-09-05 00:09:23
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                 Distance Leap
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           150
+#INITIAL                                                            10
+#REQUIRED                                                            4
+#RATE                                                                1
+
+#CLIMBER                                                            10
+#JUMPER                                                             10
+#FLOATER                                                            10
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/03 - Carnival/Hatch.H:                      178        18
+
+:bitmap/matt/03 - Carnival/Goal.G:                       496       320
+
+:bitmap/matt/03 - Carnival/Balloons:                      69        11
+:bitmap/matt/03 - Carnival/13:                           208        96
+:bitmap/matt/03 - Carnival/14:                           224        96
+:bitmap/matt/03 - Carnival/15:                           240        96
+:bitmap/matt/03 - Carnival/12:                           256        96
+:bitmap/matt/03 - Carnival/12:                           192        96
+:bitmap/matt/03 - Carnival/37:                           608       192     fr
+:bitmap/matt/03 - Carnival/34:                           608       192     fr
+:bitmap/matt/03 - Carnival/38:                           608       256     r
+:bitmap/matt/03 - Carnival/33:                           608       256     r
+:bitmap/rubix/Tutorial/Tricks05a:                         35       125
+:bitmap/rubix/Tutorial/Tricks05b:                        191       166
+:bitmap/matt/03 - Carnival/12:                           272        80
+:bitmap/matt/03 - Carnival/13:                           240        80
+:bitmap/matt/03 - Carnival/14:                           256        80
+:bitmap/matt/03 - Carnival/12:                           480       384
+:bitmap/matt/03 - Carnival/13:                           448       384
+:bitmap/matt/03 - Carnival/14:                           464       384
+:bitmap/matt/03 - Carnival/15:                           432       384
+:bitmap/rubix/Tutorial/Tricks05-pic1:                     57       315
+:bitmap/matt/03 - Carnival/15:                           496       384
+:bitmap/matt/03 - Carnival/38:                           608         0     r
+:bitmap/matt/03 - Carnival/33:                           608         0     r
+:bitmap/matt/03 - Carnival/37:                           608        64     fr
+:bitmap/matt/03 - Carnival/34:                           608        64     fr
+:bitmap/matt/03 - Carnival/38:                           608       128     r
+:bitmap/matt/03 - Carnival/33:                           608       128     r
+:bitmap/matt/03 - Carnival/37:                           608       320     fr
+:bitmap/matt/03 - Carnival/34:                           608       320     fr
+:bitmap/matt/03 - Carnival/38:                           608       384     r
+:bitmap/matt/03 - Carnival/33:                           608       384     r
+:bitmap/matt/03 - Carnival/13:                           528       384
+:bitmap/matt/03 - Carnival/14:                           544       384
+:bitmap/matt/03 - Carnival/12:                           544       384
+:bitmap/matt/03 - Carnival/13:                           560       384
+:bitmap/matt/03 - Carnival/14:                           576       384
+:bitmap/matt/03 - Carnival/15:                           592       384
+:bitmap/matt/03 - Carnival/14:                           512       384
+:bitmap/matt/03 - Carnival/10:                           352         0
+:bitmap/matt/03 - Carnival/09:                           384         0
+:bitmap/matt/03 - Carnival/10:                           416         0
+:bitmap/matt/03 - Carnival/09:                           448         0
+:bitmap/matt/03 - Carnival/10:                           480         0
+:bitmap/matt/03 - Carnival/09:                           512         0
+:bitmap/matt/03 - Carnival/10:                           544         0
+:bitmap/matt/03 - Carnival/09:                           576         0
+:bitmap/matt/03 - Carnival/10:                           192         0
+:bitmap/matt/03 - Carnival/09:                           224         0
+:bitmap/matt/03 - Carnival/10:                           256         0
+:bitmap/matt/03 - Carnival/09:                           288         0
+:bitmap/matt/03 - Carnival/10:                           320         0
+:bitmap/matt/03 - Carnival/37:                           160       192     fr
+:bitmap/matt/03 - Carnival/34:                           160       192     fr
+:bitmap/matt/03 - Carnival/38:                           160         0     r
+:bitmap/matt/03 - Carnival/33:                           160         0     r
+:bitmap/matt/03 - Carnival/37:                           160        64     fr
+:bitmap/matt/03 - Carnival/34:                           160        64     fr
+:bitmap/matt/03 - Carnival/38:                           160       128     r
+:bitmap/matt/03 - Carnival/33:                           160       128     r
+:bitmap/matt/03 - Carnival/37:                           160       320     fr
+:bitmap/matt/03 - Carnival/34:                           160       320     fr
+:bitmap/matt/03 - Carnival/38:                           160       256     r
+:bitmap/matt/03 - Carnival/33:                           160       256     r
+:bitmap/matt/03 - Carnival/38:                           160       384     r
+:bitmap/matt/03 - Carnival/33:                           160       384     r
+:bitmap/matt/03 - Carnival/15:                           288        80

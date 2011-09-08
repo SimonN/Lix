@@ -1,0 +1,103 @@
+$BUILT                                             2011-09-05 09:25:46
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                                Late flotation
+
+#SIZE_X                                                           1600
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                           800
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           300
+#INITIAL                                                            40
+#REQUIRED                                                           39
+#RATE                                                               75
+
+#WALKER                                                              1
+#JUMPER                                                              1
+#FLOATER                                                             1
+#BUILDER                                                             8
+#BASHER                                                              1
+#MINER                                                               1
+#CUBER                                                               1
+#RUNNER                                                              1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                  1530       271
+:bitmap/matt/02 - Gold Mine/mine cart.D:                1578       316
+
+:bitmap/matt/02 - Gold Mine/Hatch.H:                      46       276
+
+:bitmap/matt/02 - Gold Mine/Goal.G:                     1530       319
+
+:bitmap/geoo/construction/sawblade.F:                   1354       168
+
+:bitmap/matt/02 - Gold Mine/08:                          334       217
+:bitmap/matt/02 - Gold Mine/09:                          360       314     frr
+:bitmap/matt/02 - Gold Mine/04:                         1394       132
+:bitmap/matt/02 - Gold Mine/08:                         1384       200
+:bitmap/matt/02 - Gold Mine/04:                          772       201
+:bitmap/matt/02 - Gold Mine/04:                          782       230
+:bitmap/matt/02 - Gold Mine/08:                          860       254
+:bitmap/matt/02 - Gold Mine/04:                          704       210     f
+:bitmap/matt/02 - Gold Mine/04:                          690       268
+:bitmap/matt/02 - Gold Mine/09:                          786       334
+:bitmap/matt/02 - Gold Mine/09:                          770       254
+:bitmap/matt/02 - Gold Mine/09:                          720       208
+:bitmap/matt/02 - Gold Mine/09:                          720       192
+:bitmap/matt/02 - Gold Mine/08:                          350       208
+:bitmap/matt/02 - Gold Mine/09:                          385       208     frr
+:bitmap/matt/02 - Gold Mine/09:                          368       288     frr
+:bitmap/matt/02 - Gold Mine/crate64:                     960       336
+:bitmap/matt/02 - Gold Mine/crate64:                     960       272
+:bitmap/matt/02 - Gold Mine/09:                          944       288
+:bitmap/matt/02 - Gold Mine/crate64:                     960       208
+:bitmap/matt/02 - Gold Mine/09:                          928       208
+:bitmap/matt/02 - Gold Mine/crate64:                     960       144
+:bitmap/matt/02 - Gold Mine/09:                          914       144
+:bitmap/matt/02 - Gold Mine/09:                          736       208     frr
+:bitmap/matt/02 - Gold Mine/09:                          720       288     frr
+:bitmap/matt/02 - Gold Mine/07:                         1214       324
+:bitmap/matt/02 - Gold Mine/09:                         1460       292
+:bitmap/matt/02 - Gold Mine/crate64:                    1459        88
+:bitmap/matt/02 - Gold Mine/09:                         1416        86
+:bitmap/matt/02 - Gold Mine/crate64:                    1459       216
+:bitmap/matt/02 - Gold Mine/crate64:                    1459       152
+:bitmap/matt/02 - Gold Mine/07:                         1390       146     r
+:bitmap/matt/02 - Gold Mine/09:                         1444       212
+:bitmap/matt/02 - Gold Mine/09:                         1428       132
+:bitmap/matt/02 - Gold Mine/08:                          418       204     f
+:bitmap/matt/02 - Gold Mine/07:                          626       382
+:bitmap/matt/02 - Gold Mine/07:                          784       336
+:bitmap/matt/02 - Gold Mine/07:                          288       352
+:bitmap/matt/02 - Gold Mine/08:                          208       320     r
+:bitmap/matt/02 - Gold Mine/04:                          128       288
+:bitmap/matt/02 - Gold Mine/07:                            0       320
+:bitmap/matt/02 - Gold Mine/07:                          -64       320
+:bitmap/matt/02 - Gold Mine/07:                          -40       240     r
+:bitmap/matt/02 - Gold Mine/09:                         1522       363     r
+:bitmap/matt/02 - Gold Mine/08:                          293       284
+:bitmap/matt/02 - Gold Mine/08:                          720       176
+:bitmap/matt/02 - Gold Mine/08:                         1240       220
+:bitmap/matt/02 - Gold Mine/09:                         1266       318     frr
+:bitmap/matt/02 - Gold Mine/08:                         1282       150
+:bitmap/matt/02 - Gold Mine/09:                         1290       212     frr
+:bitmap/matt/02 - Gold Mine/09:                         1274       292     frr
+:bitmap/matt/02 - Gold Mine/08:                         1184       320
+:bitmap/matt/02 - Gold Mine/08:                         1298       246
+:bitmap/matt/02 - Gold Mine/08:                         1366       322     r
+:bitmap/matt/02 - Gold Mine/08:                         1386       304     rr
+:bitmap/matt/02 - Gold Mine/08:                          452       208
+:bitmap/matt/02 - Gold Mine/08:                          848       174
+:bitmap/matt/02 - Gold Mine/08:                          852       222     f
+:bitmap/matt/02 - Gold Mine/08:                         1201       286
+:bitmap/matt/02 - Gold Mine/09:                         1353       181
+:bitmap/matt/02 - Gold Mine/09:                         1441       273     f

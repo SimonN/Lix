@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-20 17:27:35
+$BUILT                                             2011-09-04 19:39:16
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                          Keep a close eye(2p)
@@ -31,13 +31,13 @@ $ENGLISH                                          Keep a close eye(2p)
 #BATTER                                                             15
 #NOTHING                                                             0
 
-:bitmap/matt/06 - Oriental/hatch.H:                      866       331
-:bitmap/matt/06 - Oriental/hatch.H:                      657       331     r
-:bitmap/matt/06 - Oriental/hatch.H:                      991        75     r
-:bitmap/matt/06 - Oriental/hatch.H:                      530        75
+:bitmap/matt/06 - Oriental/Hatch.H:                      656       320     r
+:bitmap/matt/06 - Oriental/Hatch.H:                      864       320
+:bitmap/matt/06 - Oriental/Hatch.H:                      688        64     r
+:bitmap/matt/06 - Oriental/Hatch.H:                      832        64
 
-:bitmap/matt/06 - Oriental/Goal.G:                      1528       170
-:bitmap/matt/06 - Oriental/Goal.G:                       -10       170
+:bitmap/matt/06 - Oriental/Goal.G:                      1530       160
+:bitmap/matt/06 - Oriental/Goal.G:                       -16       160
 
 :bitmap/matt/water.W:                                    720       400
 :bitmap/matt/water.W:                                    752       400

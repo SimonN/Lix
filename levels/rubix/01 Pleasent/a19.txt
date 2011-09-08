@@ -1,0 +1,152 @@
+$BUILT                                             2011-09-05 09:38:57
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                  Consecutive skill time trial
+
+#SIZE_X                                                           1120
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           140
+#INITIAL                                                             1
+#REQUIRED                                                            1
+#RATE                                                                1
+
+#JUMPER                                                              1
+#CLIMBER                                                             1
+#FLOATER                                                             1
+#WALKER                                                              1
+#BUILDER                                                             1
+#PLATFORMER                                                          1
+#BASHER                                                              1
+#MINER                                                               1
+#DIGGER                                                              1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/04 - Sandy Beach/Sand Decor/bonfire.D:     1006       345
+:bitmap/matt/04 - Sandy Beach/Sand Decor/moon.D:         370         8
+
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                   -28       330
+
+:bitmap/matt/04 - Sandy Beach/goal.G:                   1016       252
+
+:bitmap/matt/04 - Sandy Beach/Sand Decor/shovel:         111        41     rr
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass08:        792       -39
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass08:        704       -38
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass02:        831       343     f
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass02:        604       213     f
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass02:        521       382     f
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass02:         44       367     f
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass02:        292       326
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass02:         70       365     f
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass11:        696       300     f
+:bitmap/matt/04 - Sandy Beach/Sand Decor/umbrella_blue:  937        35
+:bitmap/matt/04 - Sandy Beach/Sand Decor/pail:           758       177
+:bitmap/matt/04 - Sandy Beach/Sand Decor/beach ball:    1039        92
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         481        75     rd
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         974       378
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:        1024       376
+:bitmap/matt/steel/32x32.S:                              480       368
+:bitmap/matt/steel/32x32.S:                              480       336
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/04:         400       352
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         -16       368
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass02:        132       346     f
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/01:          96       352
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         123       320
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/05:         304       316
+:bitmap/matt/steel/32x32.S:                              480       304
+:bitmap/matt/steel/32x32.S:                              480       272
+:bitmap/matt/steel/32x32.S:                              480       240
+:bitmap/matt/steel/32x32.S:                              480       208
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         496       368     rr
+:bitmap/matt/steel/32x32.S:                              592       256
+:bitmap/matt/steel/32x32.S:                              624       256
+:bitmap/matt/steel/32x32.S:                              656       160
+:bitmap/matt/steel/32x32.S:                              688       160
+:bitmap/matt/steel/32x32.S:                              688       128
+:bitmap/matt/steel/32x32.S:                              688        96
+:bitmap/matt/steel/32x32.S:                              720        96
+:bitmap/matt/steel/32x32.S:                              720        64
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         496       268     r
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         498       208     r
+:bitmap/matt/steel/32x32.S:                              752        64
+:bitmap/matt/steel/32x32.S:                              752        32
+:bitmap/matt/steel/32x32.S:                              784        32
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         704       -80
+:bitmap/matt/steel/32x32.S:                              784         0
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         592       -96
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         512       -80
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         208       -96
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass08:        146        -3
+:bitmap/matt/04 - Sandy Beach/Sand Decor/pail:             7        24     f
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:          48       -48
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         -32       -32
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass11:        665       311     f
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/04:         548       209
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         780       240
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         778       336     f
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         624       208
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         638       186
+:bitmap/matt/steel/32x32.S:                              624       224
+:bitmap/matt/steel/32x32.S:                              656       224
+:bitmap/matt/steel/32x32.S:                              624       256
+:bitmap/matt/steel/32x32.S:                              624       288
+:bitmap/matt/steel/32x32.S:                              592       288
+:bitmap/matt/steel/32x32.S:                              656       192
+:bitmap/matt/steel/32x32.S:                              896       368
+:bitmap/matt/steel/32x32.S:                              896       336
+:bitmap/matt/steel/32x32.S:                              896       304
+:bitmap/matt/steel/32x32.S:                              896       272
+:bitmap/matt/steel/32x32.S:                              896       240
+:bitmap/matt/steel/32x32.S:                              896       208
+:bitmap/matt/steel/32x32.S:                              896       144
+:bitmap/matt/steel/32x32.S:                              896       176
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/02:         844       345
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         970       318     rd
+:bitmap/matt/steel/32x32.S:                             1008       384
+:bitmap/matt/steel/32x32.S:                             1040       384
+:bitmap/matt/steel/32x32.S:                             1072       384
+:bitmap/matt/steel/32x32.S:                             1104       384
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         890        88
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         938       146     rr
+:bitmap/matt/steel/32x32.S:                              480        16
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         496        64     rd
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         512        64     rd
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         528        64     rd
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         544        64     rd
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         560        80     rd
+:bitmap/matt/steel/32x32.S:                              480        80
+:bitmap/matt/steel/32x32.S:                              480       112
+:bitmap/matt/steel/32x32.S:                              480       144
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/02:         508       135
+:bitmap/matt/steel/32x32.S:                              480        48
+:bitmap/matt/steel/32x32.S:                              480       176
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/01:         536       118
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/01:         531       145
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/01:         517       171
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/04:         816        16     d
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:        1026       191     rr
+:bitmap/matt/04 - Sandy Beach/Sand Decor/palm tree:      -42       285
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass03:       1087       126
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass03:        967        73
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass03:        706       161
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass03:        188       317
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass03:        124       355
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass03:        417       363
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass03:        545       113
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass03:       1017       162
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass03:        804       306
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass10:        947       129
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass10:        734       226
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass10:        839       351
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass07:        232       360
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass07:        479       375
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         224       330

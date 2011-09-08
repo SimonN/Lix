@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 11:46:17
+$BUILT                                             2011-09-04 23:31:18
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                           Manic Mineshaft(6p)
@@ -38,12 +38,12 @@ $ENGLISH                                           Manic Mineshaft(6p)
 :bitmap/matt/01 - Earth/Hatch.H:                         576        16
 :bitmap/matt/01 - Earth/Hatch.H:                         736        16
 
-:bitmap/matt/01 - Earth/Goal.G:                          710       812
-:bitmap/matt/01 - Earth/Goal.G:                          388       811
-:bitmap/matt/01 - Earth/Goal.G:                          548       812
-:bitmap/matt/01 - Earth/Goal.G:                          230       812
-:bitmap/matt/01 - Earth/Goal.G:                          868       812
-:bitmap/matt/01 - Earth/Goal.G:                           68       812
+:bitmap/matt/01 - Earth/Goal.G:                          704       800
+:bitmap/matt/01 - Earth/Goal.G:                          384       800
+:bitmap/matt/01 - Earth/Goal.G:                          544       800
+:bitmap/matt/01 - Earth/Goal.G:                          224       800
+:bitmap/matt/01 - Earth/Goal.G:                          864       800
+:bitmap/matt/01 - Earth/Goal.G:                           64       800
 
 :bitmap/matt/01 - Earth/09:                              494       316
 :bitmap/matt/01 - Earth/03:                               31       863

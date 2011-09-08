@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-21 12:37:51
+$BUILT                                             2011-09-04 19:35:33
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                                   Carnage(2p)
@@ -31,16 +31,16 @@ $ENGLISH                                                   Carnage(2p)
 #CUBER                                                              20
 #NOTHING                                                             0
 
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                     0       416
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   962       416
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                     0       400
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   960       400
 :bitmap/matt/02 - Gold Mine/pickaxe.D:                   330       330
 :bitmap/matt/02 - Gold Mine/shovel.D:                    680       336
 
-:bitmap/matt/02 - Gold Mine/Hatch.H:                     -10        59
-:bitmap/matt/02 - Gold Mine/Hatch.H:                     970        58     r
+:bitmap/matt/02 - Gold Mine/Hatch.H:                     -16        64
+:bitmap/matt/02 - Gold Mine/Hatch.H:                     976        64     r
 
-:bitmap/matt/02 - Gold Mine/Goal.G:                      964       456
-:bitmap/matt/02 - Gold Mine/Goal.G:                        2       456
+:bitmap/matt/02 - Gold Mine/Goal.G:                      960       448
+:bitmap/matt/02 - Gold Mine/Goal.G:                        0       448
 
 :bitmap/matt/02 - Gold Mine/plank:                       658       432     r
 :bitmap/matt/02 - Gold Mine/plank:                       658       304     r

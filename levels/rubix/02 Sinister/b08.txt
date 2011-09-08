@@ -1,0 +1,178 @@
+$BUILT                                             2011-09-05 11:12:34
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                 I'm holding out for a hero...
+
+#SIZE_X                                                           1120
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                           480
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           165
+#INITIAL                                                            50
+#REQUIRED                                                           50
+#RATE                                                               30
+
+#JUMPER                                                              6
+#WALKER                                                              1
+#BUILDER                                                             1
+#BASHER                                                              2
+#MINER                                                               1
+#DIGGER                                                              1
+#RUNNER                                                              1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/04 - Sandy Beach/Sand Decor/bonfire.D:     1093       348
+:bitmap/matt/04 - Sandy Beach/Sand Decor/bonfire.D:      214       334
+:bitmap/matt/04 - Sandy Beach/Sand Decor/moon.D:         512       -16
+
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                  1024         0     r
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                    16       144
+
+:bitmap/matt/04 - Sandy Beach/goal.G:                    996       268
+:bitmap/matt/04 - Sandy Beach/goal.G:                     86       252
+
+:bitmap/matt/water.W:                                    256       384
+:bitmap/matt/water.W:                                    288       384
+:bitmap/matt/water.W:                                    320       384
+:bitmap/matt/water.W:                                    688       384
+:bitmap/matt/water.W:                                    720       384
+:bitmap/matt/water.W:                                    784       368
+:bitmap/matt/water.W:                                    752       384
+:bitmap/matt/water.W:                                    784       384
+
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass08:       1052        84
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass08:        957       296
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass08:        862       210
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass08:        885       181
+:bitmap/matt/04 - Sandy Beach/Sand Decor/umbrella_red:   171        32
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:          66        96
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         256       160     f
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/14:         400       224
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         144       160
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         112       160
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:          84        96
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass08:        223       200
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         207       128
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:          80       112
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:        1053        41
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         863       351
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         977       192
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:        1005       137
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         781       306     fr
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         496       336
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass11:        513       305
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         400       304
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         896       224
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         882       169
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         958       178
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         927       330
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         880       288
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         775       339
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         896       256
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         816       256
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         800       304
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         821       218
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         864       165
+:bitmap/matt/04 - Sandy Beach/Sand Decor/shovel:         886       255
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/01:         859       312
+:bitmap/matt/steel/32x32.S:                              832       176
+:bitmap/matt/steel/32x32.S:                             1024       240
+:bitmap/matt/steel/32x32.S:                             1024       208
+:bitmap/matt/steel/32x32.S:                             1024       176
+:bitmap/matt/steel/32x32.S:                             1024       144
+:bitmap/matt/steel/32x32.S:                             1024       112
+:bitmap/matt/steel/32x32.S:                             1024        80
+:bitmap/matt/steel/32x32.S:                             1024        48
+:bitmap/matt/steel/32x32.S:                             1056        48
+:bitmap/matt/steel/32x32.S:                             1088        48
+:bitmap/matt/steel/32x32.S:                              928       112
+:bitmap/matt/steel/32x32.S:                              928       144
+:bitmap/matt/steel/32x32.S:                              928       176
+:bitmap/matt/steel/32x32.S:                              928       208
+:bitmap/matt/steel/32x32.S:                              928       240
+:bitmap/matt/steel/32x32.S:                              928       272
+:bitmap/matt/steel/32x32.S:                              928       368
+:bitmap/matt/steel/32x32.S:                              928       304
+:bitmap/matt/steel/32x32.S:                              928       336
+:bitmap/matt/steel/32x32.S:                              832       208
+:bitmap/matt/steel/32x32.S:                              832       240
+:bitmap/matt/steel/32x32.S:                              832       272
+:bitmap/matt/steel/32x32.S:                              832       368
+:bitmap/matt/steel/32x32.S:                              832       304
+:bitmap/matt/steel/32x32.S:                              832       336
+:bitmap/matt/steel/32x32.S:                              736       240
+:bitmap/matt/steel/32x32.S:                              736       272
+:bitmap/matt/steel/32x32.S:                              736       304
+:bitmap/matt/steel/32x32.S:                              736       336
+:bitmap/matt/steel/32x32.S:                              736       368
+:bitmap/matt/steel/32x32.S:                              640       304
+:bitmap/matt/steel/32x32.S:                              640       336
+:bitmap/matt/steel/32x32.S:                              640       368
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:        1047       385
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         312       352
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:          80        96
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         -46       335
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:          64       144
+:bitmap/matt/04 - Sandy Beach/Sand Decor/beach ball:     297       153
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         103       113
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:          32       160
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:          18       314
+:bitmap/matt/steel/32x32.S:                              128       128
+:bitmap/matt/steel/32x32.S:                               64       192
+:bitmap/matt/steel/32x32.S:                               96       192
+:bitmap/matt/steel/32x32.S:                              128       192
+:bitmap/matt/steel/32x32.S:                              128        96
+:bitmap/matt/steel/32x32.S:                              128        64
+:bitmap/matt/steel/32x32.S:                               64        32
+:bitmap/matt/steel/32x32.S:                               96        32
+:bitmap/matt/steel/32x32.S:                              128        32
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/03:         132       370
+:bitmap/matt/steel/32x32.S:                              160       192
+:bitmap/matt/steel/32x32.S:                              192       192
+:bitmap/matt/steel/32x32.S:                              243       161
+:bitmap/matt/steel/32x32.S:                              224       192
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/13:         -16       256
+:bitmap/matt/steel/32x32.S:                               32       192
+:bitmap/matt/steel/32x32.S:                                0        64
+:bitmap/matt/steel/32x32.S:                                0        32
+:bitmap/matt/steel/32x32.S:                               32        32
+:bitmap/matt/steel/32x32.S:                                0        96
+:bitmap/matt/steel/32x32.S:                                0       128
+:bitmap/matt/steel/32x32.S:                                0       160
+:bitmap/matt/steel/32x32.S:                                0       192
+:bitmap/matt/steel/32x32.S:                              271       129
+:bitmap/matt/steel/32x32.S:                                0       256
+:bitmap/matt/steel/32x32.S:                                0       224
+:bitmap/matt/steel/32x32.S:                                0       288
+:bitmap/matt/steel/32x32.S:                                0       320
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass08:        -14       361
+:bitmap/matt/steel/32x32.S:                                0       352
+:bitmap/matt/steel/32x32.S:                                0       384
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         400       208     fr
+:bitmap/matt/steel/32x32.S:                              544       272
+:bitmap/matt/steel/32x32.S:                              544       304
+:bitmap/matt/steel/32x32.S:                              544       336
+:bitmap/matt/steel/32x32.S:                              544       368
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/06:         415       228     fr
+:bitmap/matt/04 - Sandy Beach/Sand Decor/pail:           416       298
+:bitmap/matt/04 - Sandy Beach/Nighttime Sand/04:         423       344
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass11:        319       145
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass11:        669       369
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass03:        398       196
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass03:         46       330
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass03:       1064       149
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass10:        874       340
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass10:        493       349
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass10:        182       123
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass04:        994       218
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass09:        965       240

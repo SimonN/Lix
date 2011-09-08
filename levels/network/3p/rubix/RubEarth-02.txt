@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-19 11:45:55
+$BUILT                                             2011-09-04 22:49:57
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                           Manic Mineshaft(3p)
@@ -13,7 +13,7 @@ $ENGLISH                                           Manic Mineshaft(3p)
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                            40
+#SECONDS                                                            45
 #INITIAL                                                            70
 #REQUIRED                                                           20
 #RATE                                                               35
@@ -35,9 +35,9 @@ $ENGLISH                                           Manic Mineshaft(3p)
 :bitmap/matt/01 - Earth/Hatch.H:                          96        16
 :bitmap/matt/01 - Earth/Hatch.H:                         256        16
 
-:bitmap/matt/01 - Earth/Goal.G:                          232       811
-:bitmap/matt/01 - Earth/Goal.G:                          388       811
-:bitmap/matt/01 - Earth/Goal.G:                           71       811
+:bitmap/matt/01 - Earth/Goal.G:                          224       800
+:bitmap/matt/01 - Earth/Goal.G:                          384       800
+:bitmap/matt/01 - Earth/Goal.G:                           64       800
 
 :bitmap/matt/01 - Earth/06:                              112       784     r
 :bitmap/matt/01 - Earth/06:                              432       784     r

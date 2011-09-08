@@ -1,0 +1,78 @@
+$BUILT                                             2011-09-03 17:31:30
+$AUTHOR                                                          Rubix
+$GERMAN                                                               
+$ENGLISH                                            Leader of the pack
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           150
+#INITIAL                                                            35
+#REQUIRED                                                           33
+#RATE                                                                1
+
+#FLOATER                                                             1
+#EXPLODER                                                            4
+#BLOCKER                                                             4
+#PLATFORMER                                                          1
+#BASHER                                                              1
+#MINER                                                               1
+#DIGGER                                                              1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/08 - Bricks/Hatch.H:                          0        32
+
+:bitmap/matt/08 - Bricks/Goal.G:                         576       288
+
+:bitmap/matt/water.W:                                    144       368
+:bitmap/matt/water.W:                                    176       368
+:bitmap/matt/water.W:                                    208       368
+:bitmap/matt/water.W:                                    400       368
+:bitmap/matt/water.W:                                    432       368
+:bitmap/matt/water.W:                                    464       368
+:bitmap/matt/water.W:                                    288       368
+:bitmap/matt/water.W:                                    320       368
+:bitmap/matt/water.W:                                    352       368
+
+:bitmap/matt/08 - Bricks/17:                             160       336
+:bitmap/matt/08 - Bricks/17:                             208       288
+:bitmap/matt/08 - Bricks/17:                             256       240
+:bitmap/matt/08 - Bricks/17:                             304       192
+:bitmap/matt/08 - Bricks/17:                             352       144
+:bitmap/matt/08 - Bricks/17:                             400        96
+:bitmap/matt/08 - Bricks/03:                             352       208
+:bitmap/matt/08 - Bricks/03:                             352       272
+:bitmap/matt/08 - Bricks/03:                             480        80
+:bitmap/matt/08 - Bricks/03:                             480       144
+:bitmap/matt/08 - Bricks/03:                             480       208
+:bitmap/matt/08 - Bricks/03:                             480       272
+:bitmap/matt/08 - Bricks/03:                             224       336
+:bitmap/matt/08 - Bricks/03:                             352       336
+:bitmap/matt/08 - Bricks/03:                             480       336
+:bitmap/matt/08 - Bricks/17:                             448        48
+:bitmap/matt/08 - Bricks/03:                             544       336
+:bitmap/matt/08 - Bricks/03:                             592       336
+:bitmap/matt/08 - Bricks/02:                             112       368
+:bitmap/matt/08 - Bricks/02:                              48       368
+:bitmap/matt/08 - Bricks/02:                             -16       368
+:bitmap/matt/08 - Bricks/02:                             112       288
+:bitmap/matt/08 - Bricks/02:                              48       288
+:bitmap/matt/08 - Bricks/02:                              64       208
+:bitmap/matt/08 - Bricks/02:                               0       208
+:bitmap/matt/08 - Bricks/02:                             112       144
+:bitmap/matt/08 - Bricks/02:                              48       144
+:bitmap/matt/08 - Bricks/02:                              64        80
+:bitmap/matt/08 - Bricks/02:                               0        80
+:bitmap/matt/08 - Bricks/02:                             176       144
+:bitmap/matt/08 - Bricks/04:                             512       272
