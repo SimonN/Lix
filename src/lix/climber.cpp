@@ -23,6 +23,11 @@ void assclk_climber(Lixxie& l)
 
 void become_climber(Lixxie& l)
 {
+    // this is a backup for not becoming a climber after all
+    int walker_frame_backup = -999;
+    if (l.get_ac() == LixEn::WALKER
+     || l.get_ac() == LixEn::RUNNER) walker_frame_backup = l.get_frame();
+
     l.become_default(LixEn::CLIMBER);
     l.set_frame(3); // so this is the default for walkers -> climbers.
 
@@ -45,9 +50,25 @@ void become_climber(Lixxie& l)
         l.set_special_x(1);
     }
 
-    // Und prüfen, ob er eventuell nicht sofort Ascender werden muss!
+    // Und prüfen, ob sie eventuell sofort Ascender werden muss!
     for (int i = 8; i < 18; ++i) {
-        if (!l.is_solid(2, -i)) {
+        // copied this also from update_climber() to remedy climbers
+        // passing through platforms on cubes due to immediately ascending
+        const bool diff       = l.get_special_x();
+        const bool solid_here = l.is_solid_single(0, -i);
+        const bool solid_diff = l.is_solid_single(1, -i);
+        if ((l.get_dir() > 0 && (solid_here || (solid_diff && !diff)) )
+         || (l.get_dir() < 0 && (solid_here || (solid_diff &&  diff)) ) ) {
+            l.turn();
+            if (l.is_solid(0, 2)) {
+                l.become(LixEn::WALKER);
+                if (walker_frame_backup >= 0) l.set_frame(walker_frame_backup);
+            }
+            else l.become(LixEn::FALLER);
+            break;
+        }
+        // end of "copied this also from update_climber()
+        else if (!l.is_solid(2, -i)) {
             l.move_ahead();
             // Nochmal vorwärts, wenn es keine schroffe Klippe ist
             if (!l.is_solid(2, -i-2)) l.move_ahead();
