@@ -5,6 +5,8 @@
 
 #include "ac.h"
 
+#include "../other/help.h" // /2*2
+
 void assclk_floater(Lixxie& l)
 {
     l.set_floater();
@@ -31,13 +33,13 @@ void update_floater(Lixxie& l, const UpdateArgs& ua)
 
     // Horizontale Bewegung auf Dauer zum Stillstand kommen lassen,
     // die for-Schleife hier kontrolliert auf sehr schnellen Stillstand
-    for (int i = 2; i < l.get_special_x(); ++i)
+    for (int i = 2; i < l.get_special_x(); i += 2)
      if (l.is_solid(i, 0)) {
         l.set_special_x(i-2);
         break;
     }
     if (l.get_special_x() > 0 && l.get_frame() > 0)
-     l.set_special_x(l.get_special_x() - 2);
+     l.set_special_x(Help::even(l.get_special_x() - 2));
 
     // Auf Boden prüfen,
     // dabei wird diagonal nach unten geschritten und davon ausgegangen,
