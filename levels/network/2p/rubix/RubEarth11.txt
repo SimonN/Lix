@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 23:54:31
+$BUILT                                             2011-09-11 17:30:39
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                   Middle Earth Domination(2p)
@@ -31,8 +31,8 @@ $ENGLISH                                   Middle Earth Domination(2p)
 #RUNNER                                                             10
 #BATTER                                                             10
 
-:bitmap/matt/01 - Earth/Hatch.H:                         800        16
-:bitmap/matt/01 - Earth/Hatch.H:                         752        16     r
+:bitmap/matt/01 - Earth/Hatch.H:                         800        18
+:bitmap/matt/01 - Earth/Hatch.H:                         752        18     r
 
 :bitmap/matt/01 - Earth/Goal.G:                           32       288
 :bitmap/matt/01 - Earth/Goal.G:                         1504       288

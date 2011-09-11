@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 17:05:44
+$BUILT                                             2011-09-11 17:21:58
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                 From all corners of the earth
@@ -31,10 +31,10 @@ $ENGLISH                                 From all corners of the earth
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                         588       341     r
-:bitmap/matt/01 - Earth/Hatch.H:                         -25       211
-:bitmap/matt/01 - Earth/Hatch.H:                         581        76     r
-:bitmap/matt/01 - Earth/Hatch.H:                         -16       -12
+:bitmap/matt/01 - Earth/Hatch.H:                         588       343     r
+:bitmap/matt/01 - Earth/Hatch.H:                         -25       213
+:bitmap/matt/01 - Earth/Hatch.H:                         581        78     r
+:bitmap/matt/01 - Earth/Hatch.H:                         -16       -10
 
 :bitmap/matt/01 - Earth/Goal.G:                          526       188
 

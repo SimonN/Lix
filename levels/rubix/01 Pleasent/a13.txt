@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 01:17:59
+$BUILT                                             2011-09-11 17:17:03
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                    Rock you like a hurricane.
@@ -31,7 +31,7 @@ $ENGLISH                                    Rock you like a hurricane.
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                          16        96
+:bitmap/matt/01 - Earth/Hatch.H:                          22        98
 
 :bitmap/matt/01 - Earth/Goal.G:                         1040       240
 

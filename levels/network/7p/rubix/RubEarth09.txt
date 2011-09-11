@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-04 23:45:15
+$BUILT                                             2011-09-11 17:29:05
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                           The undergrowth(7p)
@@ -31,13 +31,13 @@ $ENGLISH                                           The undergrowth(7p)
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                          32        88
-:bitmap/matt/01 - Earth/Hatch.H:                         288        88
-:bitmap/matt/01 - Earth/Hatch.H:                         544        88
-:bitmap/matt/01 - Earth/Hatch.H:                         800        88
-:bitmap/matt/01 - Earth/Hatch.H:                        1056        88
-:bitmap/matt/01 - Earth/Hatch.H:                        1312        88
-:bitmap/matt/01 - Earth/Hatch.H:                        1568        88
+:bitmap/matt/01 - Earth/Hatch.H:                          42        94
+:bitmap/matt/01 - Earth/Hatch.H:                         298        94
+:bitmap/matt/01 - Earth/Hatch.H:                         554        94
+:bitmap/matt/01 - Earth/Hatch.H:                         810        94
+:bitmap/matt/01 - Earth/Hatch.H:                        1066        94
+:bitmap/matt/01 - Earth/Hatch.H:                        1322        94
+:bitmap/matt/01 - Earth/Hatch.H:                        1578        94
 
 :bitmap/matt/01 - Earth/Goal.G:                          432       528
 :bitmap/matt/01 - Earth/Goal.G:                          688       528

@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 09:36:38
+$BUILT                                             2011-09-11 17:17:33
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                      Are you gonna go my way?
@@ -31,7 +31,7 @@ $ENGLISH                                      Are you gonna go my way?
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                          78       299
+:bitmap/matt/01 - Earth/Hatch.H:                          78       303
 
 :bitmap/matt/01 - Earth/Goal.G:                          256        32
 

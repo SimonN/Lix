@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 14:09:46
+$BUILT                                             2011-09-11 17:23:44
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                            Roots of the route
@@ -31,7 +31,7 @@ $ENGLISH                                            Roots of the route
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                          -9        41
+:bitmap/matt/01 - Earth/Hatch.H:                          -1        47
 
 :bitmap/matt/01 - Earth/Goal.G:                          544       624
 

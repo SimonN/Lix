@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 00:45:42
+$BUILT                                             2011-09-11 17:16:16
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                             Earth exploration
@@ -31,7 +31,7 @@ $ENGLISH                                             Earth exploration
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                         562       138     r
+:bitmap/matt/01 - Earth/Hatch.H:                         558       140     r
 
 :bitmap/matt/01 - Earth/Goal.G:                          414        56
 

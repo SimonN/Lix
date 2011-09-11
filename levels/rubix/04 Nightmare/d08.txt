@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 21:32:45
+$BUILT                                             2011-09-11 17:20:26
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                    It Doe___sn't seem to fit!
@@ -7,8 +7,8 @@ $ENGLISH                                    It Doe___sn't seem to fit!
 #SIZE_Y                                                            400
 #TORUS_X                                                             0
 #TORUS_Y                                                             0
-#START_X                                                            20
-#START_Y                                                           380
+#START_X                                                             0
+#START_Y                                                             0
 #BACKGROUND_RED                                                      0
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
@@ -31,7 +31,7 @@ $ENGLISH                                    It Doe___sn't seem to fit!
 #DIGGER                                                              1
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                           5        41
+:bitmap/matt/01 - Earth/Hatch.H:                          -6        44
 
 :bitmap/matt/01 - Earth/Goal.G:                          611       246
 
@@ -67,7 +67,6 @@ $ENGLISH                                    It Doe___sn't seem to fit!
 :bitmap/matt/01 - Earth/18:                              945       158
 :bitmap/matt/01 - Earth/03:                              784        65
 :bitmap/matt/01 - Earth/04:                              540       235
-:bitmap/matt/01 - Earth/17:                              -33        75     frr
 :bitmap/matt/01 - Earth/02:                                2       131     frrr
 :bitmap/matt/01 - Earth/14:                              873       373
 :bitmap/matt/01 - Earth/12:                              912       312     r
@@ -88,7 +87,7 @@ $ENGLISH                                    It Doe___sn't seem to fit!
 :bitmap/matt/01 - Earth/12:                              920       276     r
 :bitmap/matt/01 - Earth/10:                              682       -50     frr
 :bitmap/matt/01 - Earth/06:                               16       168
-:bitmap/matt/01 - Earth/10:                             -151        78     rr
+:bitmap/matt/01 - Earth/10:                             -145        90     rr
 :bitmap/matt/01 - Earth/10:                              568       310
 :bitmap/matt/01 - Earth/13:                              904       326
 :bitmap/matt/01 - Earth/10:                              898       308     fr
@@ -123,7 +122,7 @@ $ENGLISH                                    It Doe___sn't seem to fit!
 :bitmap/matt/steel/32x64.S:                              352       128
 :bitmap/matt/01 - Earth/10:                              518       304     fr
 :bitmap/matt/01 - Earth/05:                              978       -61
-:bitmap/matt/01 - Earth/07:                               27        86
+:bitmap/matt/01 - Earth/07:                               27        88
 :bitmap/matt/01 - Earth/17:                               -9       101     frrr
 :bitmap/matt/01 - Earth/01:                              845        30
 :bitmap/matt/01 - Earth/10:                              729       -32     frr

@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-04 23:31:18
+$BUILT                                             2011-09-11 17:27:45
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                           Manic Mineshaft(6p)
@@ -31,12 +31,12 @@ $ENGLISH                                           Manic Mineshaft(6p)
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                         416        16
-:bitmap/matt/01 - Earth/Hatch.H:                          96        16
-:bitmap/matt/01 - Earth/Hatch.H:                         256        16
-:bitmap/matt/01 - Earth/Hatch.H:                         896        16
-:bitmap/matt/01 - Earth/Hatch.H:                         576        16
-:bitmap/matt/01 - Earth/Hatch.H:                         736        16
+:bitmap/matt/01 - Earth/Hatch.H:                         416        18
+:bitmap/matt/01 - Earth/Hatch.H:                          96        18
+:bitmap/matt/01 - Earth/Hatch.H:                         256        18
+:bitmap/matt/01 - Earth/Hatch.H:                         896        18
+:bitmap/matt/01 - Earth/Hatch.H:                         576        18
+:bitmap/matt/01 - Earth/Hatch.H:                         736        18
 
 :bitmap/matt/01 - Earth/Goal.G:                          704       800
 :bitmap/matt/01 - Earth/Goal.G:                          384       800
@@ -61,8 +61,11 @@ $ENGLISH                                           Manic Mineshaft(6p)
 :bitmap/matt/01 - Earth/09:                              414       478
 :bitmap/matt/01 - Earth/15:                              416       481
 :bitmap/matt/01 - Earth/15:                              256       482
+:bitmap/matt/01 - Earth/15:                              400        64
 :bitmap/matt/01 - Earth/15:                              400         0     r
+:bitmap/matt/01 - Earth/15:                               80        64
 :bitmap/matt/01 - Earth/15:                               80         0     r
+:bitmap/matt/01 - Earth/15:                              240        64
 :bitmap/matt/01 - Earth/15:                              240         0     r
 :bitmap/matt/01 - Earth/23:                              116       222
 :bitmap/matt/01 - Earth/23:                              278       220
@@ -206,8 +209,11 @@ $ENGLISH                                           Manic Mineshaft(6p)
 :bitmap/matt/01 - Earth/09:                              894       478
 :bitmap/matt/01 - Earth/15:                              896       482
 :bitmap/matt/01 - Earth/15:                              736       482
+:bitmap/matt/01 - Earth/15:                              880        64
 :bitmap/matt/01 - Earth/15:                              880         0     r
+:bitmap/matt/01 - Earth/15:                              560        64
 :bitmap/matt/01 - Earth/15:                              560         0     r
+:bitmap/matt/01 - Earth/15:                              720        64
 :bitmap/matt/01 - Earth/15:                              720         0     r
 :bitmap/matt/01 - Earth/23:                              596       222
 :bitmap/matt/01 - Earth/23:                              758       220

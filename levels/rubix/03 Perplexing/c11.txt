@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 17:41:02
+$BUILT                                             2011-09-11 17:22:11
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                                   Earthcapade
@@ -31,7 +31,7 @@ $ENGLISH                                                   Earthcapade
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                         154        -2     r
+:bitmap/matt/01 - Earth/Hatch.H:                         154         2     r
 
 :bitmap/matt/01 - Earth/Goal.G:                         1078         6
 

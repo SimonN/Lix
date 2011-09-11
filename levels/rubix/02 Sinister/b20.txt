@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 15:25:32
+$BUILT                                             2011-09-11 17:24:25
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                          Are we learning yet?
@@ -31,7 +31,7 @@ $ENGLISH                                          Are we learning yet?
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                         950       274     r
+:bitmap/matt/01 - Earth/Hatch.H:                         954       278     r
 
 :bitmap/matt/01 - Earth/Goal.G:                          768       488
 

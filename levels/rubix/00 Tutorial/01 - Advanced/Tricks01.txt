@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 00:07:32
+$BUILT                                             2011-09-11 17:13:00
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                               Direction Force
@@ -31,8 +31,8 @@ $ENGLISH                                               Direction Force
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                         -26       232
-:bitmap/matt/01 - Earth/Hatch.H:                         582       222     r
+:bitmap/matt/01 - Earth/Hatch.H:                         -26       236
+:bitmap/matt/01 - Earth/Hatch.H:                         582       226     r
 
 :bitmap/matt/01 - Earth/Goal.G:                          310       328
 

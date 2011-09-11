@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 19:04:12
+$BUILT                                             2011-09-11 17:22:51
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                        Somewhere only we know
@@ -31,8 +31,8 @@ $ENGLISH                                        Somewhere only we know
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                         738        -2     r
-:bitmap/matt/01 - Earth/Hatch.H:                          -6       231
+:bitmap/matt/01 - Earth/Hatch.H:                         738         2     r
+:bitmap/matt/01 - Earth/Hatch.H:                           2       232
 
 :bitmap/matt/01 - Earth/Goal.G:                          704       326
 
@@ -72,7 +72,7 @@ $ENGLISH                                        Somewhere only we know
 :bitmap/matt/01 - Earth/06:                              787       209
 :bitmap/matt/01 - Earth/06:                              440       230
 :bitmap/matt/01 - Earth/06:                              437       251
-:bitmap/matt/01 - Earth/09:                                1       187     r
+:bitmap/matt/01 - Earth/09:                                3       187     r
 :bitmap/matt/01 - Earth/09:                               64       272
 :bitmap/matt/01 - Earth/09:                               25       467     r
 :bitmap/matt/01 - Earth/09:                               26       423     r
@@ -111,7 +111,7 @@ $ENGLISH                                        Somewhere only we know
 :bitmap/matt/01 - Earth/05:                              592       384     fr
 :bitmap/matt/01 - Earth/05:                              496       384     r
 :bitmap/matt/01 - Earth/05:                              -32       336     frr
-:bitmap/matt/01 - Earth/05:                              -55       125     frr
+:bitmap/matt/01 - Earth/05:                              -53       125     frr
 :bitmap/matt/01 - Earth/05:                              560       432     fr
 :bitmap/matt/01 - Earth/05:                              592       480     fr
 :bitmap/matt/01 - Earth/05:                              513       466     rn

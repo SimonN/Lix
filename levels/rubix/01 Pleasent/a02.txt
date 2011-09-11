@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 00:42:50
+$BUILT                                             2011-09-11 17:15:01
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                                       Dignity
@@ -31,7 +31,7 @@ $ENGLISH                                                       Dignity
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                         -14        14
+:bitmap/matt/01 - Earth/Hatch.H:                         -14        12
 
 :bitmap/matt/01 - Earth/Goal.G:                          576       256
 
@@ -115,3 +115,4 @@ $ENGLISH                                                       Dignity
 :bitmap/matt/01 - Earth/09:                              501       312
 :bitmap/matt/01 - Earth/28:                              596       163
 :bitmap/matt/01 - Earth/10:                              131       327     r
+:bitmap/matt/01 - Earth/16:                              -70        46

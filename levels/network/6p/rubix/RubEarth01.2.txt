@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-04 23:29:42
+$BUILT                                             2011-09-11 17:26:35
 $AUTHOR                                                          RubiX
 $GERMAN                                                               
 $ENGLISH                                         Intuitive Control(6p)
@@ -33,10 +33,10 @@ $ENGLISH                                         Intuitive Control(6p)
 
 :bitmap/matt/01 - Earth/Hatch.H:                         502         8
 :bitmap/matt/01 - Earth/Hatch.H:                          70         8
-:bitmap/matt/01 - Earth/Hatch.H:                         284         5
-:bitmap/matt/01 - Earth/Hatch.H:                        1138         6
-:bitmap/matt/01 - Earth/Hatch.H:                         708         6
-:bitmap/matt/01 - Earth/Hatch.H:                         922         6
+:bitmap/matt/01 - Earth/Hatch.H:                         284         9
+:bitmap/matt/01 - Earth/Hatch.H:                        1138         8
+:bitmap/matt/01 - Earth/Hatch.H:                         708         8
+:bitmap/matt/01 - Earth/Hatch.H:                         922         8
 
 :bitmap/matt/01 - Earth/Goal.G:                          648       304
 :bitmap/matt/01 - Earth/Goal.G:                          222       304
