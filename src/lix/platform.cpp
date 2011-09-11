@@ -15,13 +15,31 @@ void assclk_platformer(Lixxie& l)
 
 
 
+static const int platformer_standing_up_frame = 9;
+
 void become_platformer(Lixxie& l)
 {
     const bool continue_on_same_height
-        = (l.get_ac() == LixEn::SHRUGGER2 && l.get_frame() < 11);
+        = (l.get_ac() == LixEn::SHRUGGER2
+        && l.get_frame() < platformer_standing_up_frame);
     l.become_default(LixEn::PLATFORMER);
     l.set_special_x(12);
     l.set_frame(continue_on_same_height ? 16 : 0);
+}
+
+
+
+static bool platformer_is_solid(Lixxie& l, int x, int y)
+{
+    // If the pixel is solid, return false nontheless if there is free air
+    // over the pixel
+    bool b = l.is_solid(x, y);
+    if (b && l.is_solid(x + 2, y) && l.is_solid(x + 4, y)) return true;
+    for (int i = -1; i > -4; --i)
+        b = b && (l.is_solid(x+2, y-2)
+               || l.is_solid(x, y-2)
+               || l.is_solid(x-2, y-2));
+    return b;
 }
 
 
@@ -48,21 +66,18 @@ void update_platformer(Lixxie& l, const UpdateArgs& ua)
 
     case  4:
         // Sinnvolle Steinverlegung wie bei Frame 25 pruefen:
-        // Kompletten naechsen Stein vorausplanen, bei Kollision allerdings
-        // anders als in Frame 25 umdrehen. Man kann also direkt vor eine
-        // Wand bauen, um umzudrehen.
-        if (l.is_solid(6, 0) && l.is_solid(8, 0) && l.is_solid(10, 0)) {
+        // Kompletten naechsen Stein vorausplanen, bei Kollision NICHT drehen.
+        if (platformer_is_solid(l, 6, -2)
+         && platformer_is_solid(l, 8, -2) && platformer_is_solid(l, 10, -2)) {
             l.become(LixEn::WALKER);
-            l.turn();
         }
         break;
 
     case  6:
-        if (!l.is_solid(0, -2)) l.move_up();
+        if (! l.is_solid(0, -2)) l.move_up();
         else {
             l.become(LixEn::SHRUGGER2);
-            l.set_frame(8);
-            l.turn();
+            l.set_frame(platformer_standing_up_frame);
         }
         // faellt durch
 
@@ -72,10 +87,10 @@ void update_platformer(Lixxie& l, const UpdateArgs& ua)
     case 23:
         // 2, 1 statt 2, 0, weil wir direkt ueber dem Boden pruefen wollen,
         // ob da ein Pixel ist. Sonst laufen die Walker durch.
-        if (!l.is_solid(2, 1)) l.move_ahead();
+        if (! platformer_is_solid(l, 2, 1)) l.move_ahead();
         else {
             l.become(LixEn::SHRUGGER2);
-            l.set_frame(9);
+            l.set_frame(platformer_standing_up_frame);
         }
         break;
 
@@ -85,14 +100,11 @@ void update_platformer(Lixxie& l, const UpdateArgs& ua)
             l.become(LixEn::SHRUGGER2);
             l.set_special_y(2); // Bei Klick 2 tiefer anfng. = weiterbauen
         }
-        else if (l.is_solid(2, 2)
-         &&      l.is_solid(4, 2)
-         &&      l.is_solid(6, 2)) {
-            // In die aktuelle Richtung weiterlaufen! Dies unterscheidet
-            // sich von der Vorausplanung nach dem allerersten Stein, dort
-            // wird gedreht.
+        else if (platformer_is_solid(l, 2, 0)
+         &&      platformer_is_solid(l, 4, 0)
+         &&      platformer_is_solid(l, 6, 0)) {
             l.become(LixEn::SHRUGGER2);
-            l.set_frame(9);
+            l.set_frame(platformer_standing_up_frame);
         }
         break;
     }
