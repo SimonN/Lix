@@ -6,8 +6,9 @@
  */
 
 #include "map.h"
-#include "../other/user.h"
 #include "../graphic/glob_gfx.h"
+#include "../other/user.h"
+#include "../other/help.h" // torus modulo
 
 void Map::draw(Torbit& target)
 {
@@ -19,8 +20,8 @@ void Map::draw(Torbit& target)
     if (!get_torus_y() && get_yl() * (z+1) < screen_yl)
      less_y = screen_yl - get_yl() * (z+1);
 
-    for     (int x = less_x/2; x < screen_xl; x += get_xl() * (z+1)) {
-        for (int y = less_y;   y < screen_yl; y += get_yl() * (z+1)) {
+    for     (int x = less_x/2; x < screen_xl-less_x/2; x += get_xl()*(z+1)) {
+        for (int y = less_y;   y < screen_yl;          y += get_yl()*(z+1)) {
             draw_at(target, x, y);
             if (less_y != 0) break;
         }
@@ -43,91 +44,114 @@ void Map::draw(Torbit& target)
 
 
 
+static inline void blit_double(
+    BITMAP* src,
+    BITMAP* dest,
+    int     sx, // source x, y
+    int     sy,
+    int     sxl, // length on the source
+    int     syl,
+    int     tx, // start of the target
+    int     ty
+) {
+    // The safety things are commented out for speed. Since I fixed the torus
+    // drawing on 2011-09-13, we're called with safe parameters already.
+    //    // The +1 or -1 are just to round towards safety when dividing.
+    //    if (!src || !dest) return;
+    //    if (sx < 0) { sxl += sx; tx -= 2 * sx; sx = 0; }
+    //    if (sy < 0) { syl += sy; ty -= 2 * sy; sy = 0; }
+    //    if (tx < 0) { sxl += (tx - 1)/2; sx -= (tx - 1)/2; tx = 0; }
+    //    if (ty < 0) { syl += (ty - 1)/2; sy -= (ty - 1)/2; ty = 0; }
+    //    if (sx >= src->w  || sy >= src->h ) return;
+    //    if (tx >= dest->w || sy >= dest->h) return;
+    //    if (sx + sxl > src->w) sxl = src->w - sx;
+    //    if (sy + syl > src->h) syl = src->h - sy;
+    //    if (tx + 2 * sxl > dest->w) sxl = (dest->w - tx + 1) / 2;
+    //    if (ty + 2 * syl > dest->w) syl = (dest->h - ty + 1) / 2;
+    //    if (sxl <= 0 || syl <= 0) return;
+    masked_stretch_blit(src, dest, sx, sy, sxl, syl, tx, ty, 2*sxl, 2*syl);
+}
+
+
+
 void Map::draw_at(
     Torbit&   target,
     const int offx, // start this much away from the screen's upper left edge
     const int offy
 ) {
-    const bool z = zoom;
-    const int& mapx = get_xl();
-    const int& mapy = get_yl();
-    const int  scrx = !z ? screen_x : screen_x + screen_xl/4;
-    const int  scry = !z ? screen_y : screen_y + screen_yl/4;
-    const int  lx = !z ? screen_xl : screen_xl / 2;
-    const int  ly = !z ? screen_yl : screen_yl / 2;
-    const bool short_x = scrx + lx > mapx;
-    const bool short_y = scry + ly > mapy;
+    const int& mapxl = get_xl();
+    const int& mapyl = get_yl();
+    const int  scrx = !zoom ? screen_x: Help::mod(screen_x+screen_xl/4, mapxl);
+    const int  scry = !zoom ? screen_y: Help::mod(screen_y+screen_yl/4, mapyl);
+    const int  lx = std::min(!zoom ? screen_xl : screen_xl / 2, mapxl);
+    const int  ly = std::min(!zoom ? screen_yl : screen_yl / 2, mapyl);
+    const bool short_x = scrx + lx > mapxl;
+    const bool short_y = scry + ly > mapyl;
+    const int  shoby_x = short_x ? scrx + lx - mapxl : 0;
+    const int  shoby_y = short_y ? scry + ly - mapyl : 0;
 
     if (! zoom) {
         masked_blit(get_al_bitmap(), target.get_al_bitmap(),
          scrx, scry, // source x/y start
          offx, offy, // target x/y start
-         short_x ? mapx - scrx : lx, // x-length and y-length of area to copy
-         short_y ? mapy - scry : ly);
+         short_x ? mapxl - scrx : lx, // x-length and y-length of area to copy
+         short_y ? mapyl - scry : ly);
         if (short_x && get_torus_x()) {
             masked_blit(get_al_bitmap(), target.get_al_bitmap(),
              0, scry,
-             offx + mapx - scrx,
+             offx + mapxl - scrx,
              offy,
-             scrx + lx - mapx,
-             short_y ? mapy - scry : ly);
+             scrx + lx - mapxl,
+             short_y ? mapyl - scry : ly);
         }
         if (short_y && get_torus_y()) {
             masked_blit(get_al_bitmap(), target.get_al_bitmap(),
              scrx, 0,
              offx,
-             offy + mapy - scry,
-             short_x ? mapx - scrx : lx,
-             scry + ly - mapy);
+             offy + mapyl - scry,
+             short_x ? mapxl - scrx : lx,
+             scry + ly - mapyl);
         }
         if (short_x && short_y && get_torus_x() && get_torus_y()) {
             masked_blit(get_al_bitmap(), target.get_al_bitmap(),
              0, 0,
-             offx + mapx - scrx,
-             offy + mapy - scry,
-             scrx + lx - mapx,
-             scry + ly - mapy);
+             offx + mapxl - scrx,
+             offy + mapyl - scry,
+             scrx + lx - mapxl,
+             scry + ly - mapyl);
         }
     }
     else {
         // This is the above code copied, but with zoom things hacked in
-        masked_stretch_blit(get_al_bitmap(), target.get_al_bitmap(),
+        blit_double(get_al_bitmap(), target.get_al_bitmap(),
          scrx, scry, // source x/y start
-         short_x ? mapx - scrx : lx, // x-length and y-length of the source
-         short_y ? mapy - scry : ly,
+         short_x ? mapxl - scrx : lx, // x-length and y-length of the source
+         short_y ? mapyl - scry : ly,
          offx, // target x/y start
-         offy,
-         short_x ? 2 * (mapx - scrx) : 2 * lx, // x/y-length of the target,
-         short_y ? 2 * (mapy - scry) : 2 * ly); // exactly 2 * source
+         offy);
         if (short_x && get_torus_x()) {
-            masked_stretch_blit(get_al_bitmap(), target.get_al_bitmap(),
+            blit_double(get_al_bitmap(), target.get_al_bitmap(),
              0, scry,
-             scrx + lx - mapx,
-             short_y ? mapy - scry : ly,
-             offx + 2 * (mapx - scrx),
-             offy,
-             2 * (scrx + lx - mapx),
-             short_y ? 2 * (mapy - scry) : 2 * ly);
+             shoby_x,
+             short_y ? mapyl - scry : ly,
+             offx + 2 * (mapxl - scrx),
+             offy);
         }
         if (short_y && get_torus_y()) {
-            masked_stretch_blit(get_al_bitmap(), target.get_al_bitmap(),
+            blit_double(get_al_bitmap(), target.get_al_bitmap(),
              scrx, 0,
-             short_x ? mapx - scrx : lx,
-             scry + ly - mapy,
+             short_x ? mapxl - scrx : lx,
+             shoby_y,
              offx,
-             offy + 2 * (mapy - scry),
-             short_x ? 2 * (mapx - scrx) : 2 * lx,
-             2 * (scry + ly - mapy));
+             offy + 2 * (mapyl - scry));
         }
         if (short_x && short_y && get_torus_x() && get_torus_y()) {
-            masked_stretch_blit(get_al_bitmap(), target.get_al_bitmap(),
+            blit_double(get_al_bitmap(), target.get_al_bitmap(),
              0, 0,
-             scrx + lx - mapx,
-             scry + ly - mapy,
-             offx + 2 * (mapx - scrx),
-             offy + 2 * (mapy - scry),
-             2 * (scrx + lx - mapx),
-             2 * (scry + ly - mapy));
+             shoby_x,
+             shoby_y,
+             offx + 2 * (mapxl - scrx),
+             offy + 2 * (mapyl - scry));
         }
     }
     // end if/else zoom
