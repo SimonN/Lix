@@ -8,7 +8,10 @@
 void become_cuber(Lixxie& l)
 {
     l.become_default(LixEn::CUBER);
-    l.set_dir(1);
+    if (l.get_dir() < 0) {
+        l.turn();       // move_ahead() makes the two directions balanced,
+        l.move_ahead(); // just as the hatch spawn positions' move_ahead()
+    }
 }
 
 void update_cuber(Lixxie& l, const UpdateArgs& ua)

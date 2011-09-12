@@ -206,12 +206,17 @@ void Gameplay::update_cs_once()
             ++t->lix_out;
 
             // Lixes start walking to the left instead of right?
-            if (h.get_rotation()) newlix.turn();
+            bool turn_new_lix = false;
+            if (h.get_rotation()) turn_new_lix = true;
             // This extra turning solution here is necessary to make
             // some L1 and ONML two-player levels better playable.
             if (hatches.size() < cs.tribes.size()
-             && (position / hatches.size()) % 2 == 1)
-             newlix.turn();
+             && (position / hatches.size()) % 2 == 1) turn_new_lix = true;
+
+            if (turn_new_lix) {
+                newlix.turn();
+                newlix.move_ahead();
+            }
 
             // It's the next hatches turn
             t->hatch_next += cs.tribes.size();

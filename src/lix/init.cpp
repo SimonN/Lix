@@ -70,7 +70,8 @@ void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
     ac_func     [LixEn::ASCENDER]  .blockable =
     ac_func     [LixEn::BLOCKER]   .blockable =
     ac_func     [LixEn::EXPLODER]  .blockable =
-    ac_func     [LixEn::BATTER]    .blockable = false;
+    ac_func     [LixEn::BATTER]    .blockable =
+    ac_func     [LixEn::CUBER]     .blockable = false;
 
     ac_func     [LixEn::NOTHING]   .leaving =
     ac_func     [LixEn::SPLATTER]  .leaving =
