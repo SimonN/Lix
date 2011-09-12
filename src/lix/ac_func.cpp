@@ -13,13 +13,13 @@
 Lixxie::AcFunc::AcFunc()
 :
     pass_top (false),
-    blockable(true),
     leaving  (false),
+    blockable(true),
     aiming   (false),
     returns_x(0),
-    assclk_sound(Sound::ASSIGN),
-    become_sound(Sound::NOTHING),
-    aim_sound   (Sound::NOTHING),
+    sound_assign(Sound::ASSIGN),
+    sound_become(Sound::NOTHING),
+    sound_aim   (Sound::NOTHING),
     assclk(0),
     become(0),
     update(0)

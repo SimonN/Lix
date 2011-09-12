@@ -84,6 +84,10 @@ void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
     ac_func     [LixEn::PLATFORMER].returns_x = 12;
 
     ac_func     [LixEn::ROPER]     .aiming    = true;
-    ac_func     [LixEn::ROPER]     .aim_sound = Sound::ROPER;
+    ac_func     [LixEn::ROPER]     .sound_aim = Sound::ROPER;
+
+    ac_func     [LixEn::SPLATTER]  .sound_become = Sound::SPLAT;
+    ac_func     [LixEn::BURNER]    .sound_become = Sound::FIRE;
+    ac_func     [LixEn::DROWNER]   .sound_become = Sound::WATER;
 }
 

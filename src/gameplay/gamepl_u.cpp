@@ -234,11 +234,9 @@ void Gameplay::update_cs_once()
     ua.aim_c = false;
 
     // Erster Durchlauf: Nur die Arbeitstiere bearbeiten und markieren!
-    // Blockers are updated last.
     for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
         for (LixIt i = --t->lixvec.end(); i != --t->lixvec.begin(); --i) {
-            if (i->get_ac() > LixEn::WALKER
-             && i->get_ac() != LixEn::BLOCKER) {
+            if (i->get_ac() > LixEn::WALKER) {
                 ua.id = i - t->lixvec.begin();
                 i->mark();
                 update_lix(*i, ua);
@@ -250,8 +248,7 @@ void Gameplay::update_cs_once()
     // Zweiter Durchlauf: Unmarkierte bearbeiten
     for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
         for (LixIt i = --t->lixvec.end(); i != --t->lixvec.begin(); --i) {
-            if (!i->get_mark()
-             && i->get_ac() != LixEn::BLOCKER) {
+            if (!i->get_mark()) {
                 ua.id = i - t->lixvec.begin();
                 i->mark();
                 update_lix(*i, ua);
@@ -260,12 +257,6 @@ void Gameplay::update_cs_once()
     }
     // Third pass: Blockers and nuke
     for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
-        for (LixIt i = --t->lixvec.end(); i != --t->lixvec.begin(); --i) {
-            if (!i->get_mark()) {
-                ua.id = i - t->lixvec.begin();
-                update_lix(*i, ua);
-            }
-        }
         // Assign exploders in case of nuke
         if (t->nuke == true)
          for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
@@ -368,10 +359,11 @@ void Gameplay::update_cs_one_data(Tribe& t, Tribe::Master* m, Replay::It i)
                      psk.ac, upd, i->what);
                     effect.add_arrow(upd, t, i->what, arr);
                 }
+                Sound::Id snd = Lixxie::get_ac_func(psk.ac).sound_assign;
                 if (m == malo)
-                 effect.add_sound      (upd, t, i->what, Sound::ASSIGN);
+                    effect.add_sound      (upd, t, i->what, snd);
                 else if (&t == trlo)
-                 effect.add_sound_quiet(upd, t, i->what, Sound::ASSIGN);
+                    effect.add_sound_quiet(upd, t, i->what, snd);
             }
         }
         if (m && &t == trlo) {
@@ -392,7 +384,7 @@ void Gameplay::update_cs_one_data(Tribe& t, Tribe::Master* m, Replay::It i)
             ua.aim_y = i->what / (map.get_xl() * level.initial);
             ua.aim_c = true;
             lix.update(ua);
-            effect.add_sound(upd, t, lem_id, lix.get_aim_sound());
+            effect.add_sound(upd, t, lem_id, lix.get_sound_aim());
         }
     }
     // end of AIM

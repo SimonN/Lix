@@ -159,8 +159,10 @@ void Gameplay::calc_active()
             // Sound in der Effektliste speichern, damit er nicht beim Update
             // nochmal ertoent, und zusatzlich wird er hier nochmals gespielt,
             // damit wir sicher gehen, dass er auf jeden Fall beim Klick kommt.
-            effect.add_sound(cs.update + 1, *trlo, lem_id, Sound::ASSIGN);
-            Sound::play_loud(Sound::ASSIGN);
+            Sound::Id snd = Lixxie::get_ac_func(pan.skill[skill_visible]
+                            .get_skill()).sound_assign;
+            effect.add_sound(cs.update + 1, *trlo, lem_id, snd);
+            Sound::play_loud(snd);
         }
 
     }
@@ -190,9 +192,9 @@ void Gameplay::calc_active()
             // Sound in der Effektliste speichern, damit er nicht beim Update
             // nochmal ertoent, und zusatzlich wird er hier nochmals gespielt,
             // damit wir sicher gehen, dass er auf jeden Fall beim Klick kommt.
-            Sound::play_loud(lem->get_aim_sound());
+            Sound::play_loud(lem->get_sound_aim());
             effect.add_sound(cs.update + 1, *trlo, lem - trlo->lixvec.begin(),
-                                                   lem->get_aim_sound());
+                                                   lem->get_sound_aim());
             break;
         }
     }

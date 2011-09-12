@@ -195,6 +195,24 @@ class Goal;
 
 class Lixxie : public Graphic {
 
+public:
+
+    struct AcFunc {
+        bool      pass_top;
+        bool      leaving;
+        bool      blockable;
+        bool      aiming;
+        int       returns_x;
+        Sound::Id sound_assign;
+        Sound::Id sound_become;
+        Sound::Id sound_aim;
+        void (*assclk)(Lixxie&);
+        void (*become)(Lixxie&);
+        void (*update)(Lixxie&, const UpdateArgs&);
+        AcFunc();
+        ~AcFunc();
+    };
+
 private:
 
     static std::map    <LixEn::Ac,    std::string> ac_string;
@@ -206,21 +224,6 @@ private:
     static Map*           ground_map;
     static EffectManager* effect;
 
-    struct AcFunc {
-        bool      pass_top;
-        bool      leaving;
-        bool      blockable;
-        bool      aiming;
-        int       returns_x;
-        Sound::Id assclk_sound;
-        Sound::Id become_sound;
-        Sound::Id aim_sound;
-        void (*assclk)(Lixxie&);
-        void (*become)(Lixxie&);
-        void (*update)(Lixxie&, const UpdateArgs&);
-        AcFunc();
-        ~AcFunc();
-    };
     static std::vector <AcFunc> ac_func;
 
     Tribe* tribe;
@@ -294,9 +297,11 @@ public:
     inline bool      get_blockable() const { return ac_func[ac].blockable; }
     inline bool      get_aiming   () const { return ac_func[ac].aiming
                                                     && special_x == 0;     }
-    inline Sound::Id get_assclk_sound() const { return ac_func[ac].aim_sound; }
-    inline Sound::Id get_become_sound() const { return ac_func[ac].aim_sound; }
-    inline Sound::Id get_aim_sound   () const { return ac_func[ac].aim_sound; }
+    inline Sound::Id get_sound_assign() const{return ac_func[ac].sound_assign;}
+    inline Sound::Id get_sound_become() const{return ac_func[ac].sound_become;}
+    inline Sound::Id get_sound_aim   () const{return ac_func[ac].sound_aim;   }
+
+    inline static const AcFunc& get_ac_func(LixEn::Ac a) { return ac_func[a]; }
 
     void        evaluate_click(const LixEn::Ac);
     unsigned    get_priority  (const LixEn::Ac, const unsigned,
