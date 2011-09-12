@@ -134,7 +134,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
 
 
     // Flinging
-    if (l.get_nukable())
+    if (! l.get_leaving())
      for (IacIt i = cs.fling.begin(); i != cs.fling.end(); ++i)
      if (l.get_in_trigger_area(*i)) {
         int sub = i->get_object()->subtype;
@@ -172,15 +172,12 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
 
 
 
-
-
 void Gameplay::update_lix_blocker(Lixxie& l)
 {
     for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t)
      for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
         int distance_side = i->get_ac() == LixEn::MINER ? block_m : block_s;
-        if (i->get_ac() != LixEn::BLOCKER &&
-            i->get_ac() != LixEn::EXPLODER) {
+        if (! i->get_leaving() && i->get_blockable()) {
             const int dx = map.distance_x(i->get_ex(), l.get_ex());
             const int dy = map.distance_x(i->get_ey(), l.get_ey());
             if (dx > - distance_side && dx < distance_side
@@ -189,17 +186,10 @@ void Gameplay::update_lix_blocker(Lixxie& l)
                  || (i->get_dir() < 0 && dx < 0))
                 {
                     i->turn();
-                    // Since blockers are updated last, the other lixes will
-                    // have moved into the blocker field during this frame.
-                    // It's nicer to see lixes _not_ move on an update they
-                    // turn on, so do this to move them back in most cases.
-                    // This will alter how builder stair look, but that is
-                    // welcomed anyway.
-                    i->move_ahead();
                     // Platformer drehten sonst um, hoeren auf, drehen erneut
                     if (i->get_ac() == LixEn::PLATFORMER) {
-                        i->become(LixEn::WALKER); // = mit kurzem Aufstehen
-                        i->set_frame(i->get_frame() - 1);
+                        i->become(LixEn::SHRUGGER2);
+                        i->set_frame(9);
 }   }   }   }   }   }
 
 
@@ -250,7 +240,7 @@ void Gameplay::make_knockback_explosion(
     for (Tribe::It titr = cs.tribes.begin(); titr != cs.tribes.end(); ++titr)
      for (LixIt i = titr->lixvec.begin(); i != titr->lixvec.end(); ++i) {
         // Ausnahme:
-        if (!i->get_nukable()) continue;
+        if (i->get_leaving()) continue;
         // Mehr lustiges Hochfliegen durch die 10 tiefere Explosion!
         const int dx = map.distance_x(x,      i->get_ex());
         const int dy = map.distance_y(y + 10, i->get_ey());

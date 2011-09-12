@@ -269,7 +269,7 @@ void Gameplay::update_cs_once()
         // Assign exploders in case of nuke
         if (t->nuke == true)
          for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
-            if (i->get_updates_since_bomb() == 0 && i->get_nukable()) {
+            if (i->get_updates_since_bomb() == 0 && ! i->get_leaving()) {
                 i->inc_updates_since_bomb();
                 // Which exploder shall be assigned?
                 if (cs.tribes.size() > 1) i->set_exploder_knockback();

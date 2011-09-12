@@ -64,16 +64,21 @@ void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
 
     ac_func     [LixEn::FALLER]    .pass_top =
     ac_func     [LixEn::TUMBLER]   .pass_top =
-    // ac_func     [LixEn::JUMPER]    .pass_top =
     ac_func     [LixEn::FLOATER]   .pass_top = true;
 
-    ac_func     [LixEn::NOTHING]   .nukable =
-    ac_func     [LixEn::SPLATTER]  .nukable =
-    ac_func     [LixEn::BURNER]    .nukable =
-    ac_func     [LixEn::DROWNER]   .nukable =
-    ac_func     [LixEn::EXITER]    .nukable =
-    ac_func     [LixEn::EXPLODER]  .nukable =
-    ac_func     [LixEn::CUBER]     .nukable = false;
+    ac_func     [LixEn::CLIMBER]   .blockable =
+    ac_func     [LixEn::ASCENDER]  .blockable =
+    ac_func     [LixEn::BLOCKER]   .blockable =
+    ac_func     [LixEn::EXPLODER]  .blockable =
+    ac_func     [LixEn::BATTER]    .blockable = false;
+
+    ac_func     [LixEn::NOTHING]   .leaving =
+    ac_func     [LixEn::SPLATTER]  .leaving =
+    ac_func     [LixEn::BURNER]    .leaving =
+    ac_func     [LixEn::DROWNER]   .leaving =
+    ac_func     [LixEn::EXITER]    .leaving =
+    ac_func     [LixEn::EXPLODER]  .leaving =
+    ac_func     [LixEn::CUBER]     .leaving = true;
 
     ac_func     [LixEn::BUILDER]   .returns_x =
     ac_func     [LixEn::PLATFORMER].returns_x = 12;

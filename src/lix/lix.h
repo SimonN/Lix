@@ -208,9 +208,12 @@ private:
 
     struct AcFunc {
         bool      pass_top;
-        bool      nukable;
+        bool      leaving;
+        bool      blockable;
         bool      aiming;
         int       returns_x;
+        Sound::Id assclk_sound;
+        Sound::Id become_sound;
         Sound::Id aim_sound;
         void (*assclk)(Lixxie&);
         void (*become)(Lixxie&);
@@ -287,10 +290,13 @@ public:
     inline void    set_ac(const LixEn::Ac new_ac) { ac = new_ac; }
 
     inline bool      get_pass_top () const { return ac_func[ac].pass_top;  }
-    inline bool      get_nukable  () const { return ac_func[ac].nukable;   }
-    inline Sound::Id get_aim_sound() const { return ac_func[ac].aim_sound; }
+    inline bool      get_leaving  () const { return ac_func[ac].leaving;   }
+    inline bool      get_blockable() const { return ac_func[ac].blockable; }
     inline bool      get_aiming   () const { return ac_func[ac].aiming
                                                     && special_x == 0;     }
+    inline Sound::Id get_assclk_sound() const { return ac_func[ac].aim_sound; }
+    inline Sound::Id get_become_sound() const { return ac_func[ac].aim_sound; }
+    inline Sound::Id get_aim_sound   () const { return ac_func[ac].aim_sound; }
 
     void        evaluate_click(const LixEn::Ac);
     unsigned    get_priority  (const LixEn::Ac, const unsigned,

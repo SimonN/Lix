@@ -16,7 +16,7 @@ bool fling_all_in_rectangle(
         for (Tribe::LixIt i = titr->lixvec.begin();
         i != titr->lixvec.end(); ++i)
     {
-        if (!i->get_nukable()) continue;
+        if (i->get_leaving()) continue;
         // Fling others in this rectangle.
         const bool blo = (i->get_ac() == LixEn::BLOCKER);
         const int ch = (blo ? cx + blockexc * self.get_dir() : cx);

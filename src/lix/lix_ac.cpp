@@ -24,7 +24,7 @@ unsigned Lixxie::get_priority(LixEn::Ac                   new_ac,
     unsigned p = 0;
 
     // Nothing allowed at all, don't even open the cursor
-    if (ac == LixEn::NOTHING || ! ac_func[ac].nukable) return 0;
+    if (ac == LixEn::NOTHING || ac_func[ac].leaving) return 0;
 
     // Permanent skills
     if ((new_ac == LixEn::EXPLODER  && updates_since_bomb > 0)
