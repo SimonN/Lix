@@ -167,7 +167,7 @@ OptionMenu::OptionMenu()
     ed_add_goal           (key_b3, 240, key_xl),
     ed_add_deco           (key_b3, 260, key_xl),
     ed_add_hazard         (key_b3, 280, key_xl),
-    ed_grid_custom        (key_b1, 320, button_xl, 2, 1, 40),
+    ed_grid_custom        (key_b1, 320, button_xl, 2, 1, 64),
     desc_ed_left          (key_t1, 100, Language::option_ed_left),
     desc_ed_right         (key_t1, 120, Language::option_ed_right),
     desc_ed_up            (key_t1, 140, Language::option_ed_up),
