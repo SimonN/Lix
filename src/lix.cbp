@@ -293,6 +293,7 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="lix/walker.cpp" />
 		<Unit filename="menu/brow_big.cpp" />
 		<Unit filename="menu/brow_big.h" />
+		<Unit filename="menu/brow_net.cpp" />
 		<Unit filename="menu/brow_rep.cpp" />
 		<Unit filename="menu/brow_sin.cpp" />
 		<Unit filename="menu/browsers.h" />

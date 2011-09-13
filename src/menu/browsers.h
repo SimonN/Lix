@@ -21,10 +21,15 @@ class SingleBrowser : public BrowserBig {
 private:
 
     TextButton button_edit;
+    TextButton button_export;
+    TextButton button_delete;
 
-    LabelTwo info_initial,  info_required, info_clock;
+    LabelTwo info_initial,  info_clock;
     LabelTwo rec_saved,     rec_skills,    rec_updates;
     Label    rec_altered_1, rec_altered_2;
+
+    SaveBrowser* browser_save;
+    BoxMessage*  box_delete;
 
     SingleBrowser   (const SingleBrowser&);
     void operator = (const SingleBrowser&);

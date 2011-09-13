@@ -34,7 +34,7 @@ WindowVariables::WindowVariables(Level& l)
     desc_author  (20, author.get_y(), Language::win_var_author),
     desc_german  (20, name_german.get_y(), Language::win_var_name_german),
     desc_english (20, name_english.get_y(), Language::win_var_name_english),
-    desc_initial (20, initial.get_y(), Language::win_var_lems),
+    desc_initial (20, initial.get_y(), Language::win_var_initial),
     desc_required(20, required.get_y(), Language::win_var_required),
     desc_spawnint(20, spawnint.get_y(), Language::win_var_spawnint),
     desc_clock   (20, seconds.get_y(), Language::win_var_clock)

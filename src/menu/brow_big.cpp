@@ -117,5 +117,13 @@ void BrowserBig::reload_dir()
     lev_list.load_dir(lev_list.get_current_dir());
 }
 
+
+
+void BrowserBig::highlight_nothing()
+{
+    lev_list.highlight_file(dir_list.get_current_dir());
+    on_file_highlight      (lev_list.get_current_file());
+}
+
 }
 // Ende des Namensraumes Api

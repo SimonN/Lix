@@ -135,5 +135,15 @@ void Manager::draw_to_pre_screen()
     torbit->draw(*pre_screen);
 }
 
+
+
+void Manager::force_redraw()
+{
+    for (std::set <Element*> ::iterator itr = elders.begin();
+     itr != elders.end(); ++itr) (**itr).set_draw_required();
+    for (std::list <Element*> ::iterator itr = focus.begin();
+     itr != focus.end(); ++itr) (**itr).set_draw_required();
+}
+
 }
 // end of namespace

@@ -145,8 +145,8 @@ void ReplayBrowser::calc_self()
                 std::string s2 = Language::editor_level_name
                                + ' ' + Level::get_name(r.get_level_filename());
                 box_delete = new Api::BoxMessage(500, 3,
-                                          Language::browser_box_delete_title);
-                box_delete->add_text(Language::browser_box_delete_question);
+                                       Language::browser_box_delete_tit_rep);
+                box_delete->add_text(Language::browser_box_delete_que_rep);
                 box_delete->add_text(s1);
                 box_delete->add_text(s2);
                 box_delete->add_button(Language::yes, useR->key_me_okay);

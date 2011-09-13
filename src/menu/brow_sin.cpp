@@ -3,8 +3,11 @@
  *
  */
 
+#include <sstream>
+
 #include "browsers.h"
 
+#include "../api/manager.h"
 #include "../level/crunch.h"
 #include "../other/user.h"
 
@@ -17,20 +20,23 @@ SingleBrowser::SingleBrowser()
                         useR->single_last_level,
                         true, false), // Checkmark-Stil, aber kein Replay-Stil
 
-    button_edit(but_x, 40 + (but_yl + but_y_spacing) * 1,
-                but_xl, but_yl),
-    info_initial (but_x, 260, but_xl),
-    info_required(but_x, 280, but_xl),
-    info_clock   (but_x, 300, but_xl),
-    rec_saved    (but_x, 340, but_xl),
-    rec_skills   (but_x, 360, but_xl),
-    rec_updates  (but_x, 380, but_xl),
-    rec_altered_1(but_x, 360, Language::browser_info_result_old_1),
-    rec_altered_2(but_x, 380, Language::browser_info_result_old_2)
+    button_edit  (but_x, 40+but_yl, but_xl, but_yl),
+    button_export(but_x, 360, but_xl),
+    button_delete(but_x, 380, but_xl),
+    info_initial (but_x, 220, but_xl),
+    info_clock   (but_x, 240, but_xl),
+    rec_saved    (but_x, 280, but_xl),
+    rec_skills   (but_x, 300, but_xl),
+    rec_updates  (but_x, 320, but_xl),
+    rec_altered_1(but_x, 300, Language::browser_info_result_old_1),
+    rec_altered_2(but_x, 320, Language::browser_info_result_old_2),
+    browser_save(0),
+    box_delete  (0)
 {
     add_child(button_edit);
+    add_child(button_export);
+    add_child(button_delete);
     add_child(info_initial);
-    add_child(info_required);
     add_child(info_clock);
     add_child(rec_saved);
     add_child(rec_skills);
@@ -38,24 +44,27 @@ SingleBrowser::SingleBrowser()
     add_child(rec_altered_1);
     add_child(rec_altered_2);
 
-    info_initial .set_desc(Language::browser_info_lems);
-    info_required.set_desc(Language::browser_info_required);
+    info_initial .set_desc(Language::browser_info_initgoal);
     info_clock   .set_desc(Language::browser_info_clock_1);
     rec_saved    .set_desc(Language::browser_info_result_saved);
     rec_skills   .set_desc(Language::browser_info_result_skills);
     rec_updates  .set_desc(Language::browser_info_result_time);
     info_initial .set_undraw_color(color[COL_API_M]);
-    info_required.set_undraw_color(color[COL_API_M]);
     info_clock   .set_undraw_color(color[COL_API_M]);
     rec_saved    .set_undraw_color(color[COL_API_M]);
     rec_skills   .set_undraw_color(color[COL_API_M]);
     rec_updates  .set_undraw_color(color[COL_API_M]);
 
-    set_button_play_text(Language::browser_play);
-    button_edit.set_text(Language::browser_edit);
-    button_edit.set_hotkey(useR->key_me_edit);
+    set_button_play_text    (Language::browser_play);
+    button_edit  .set_text  (Language::browser_edit);
+    button_edit  .set_hotkey(useR->key_me_edit);
+    button_export.set_text  (Language::browser_export_image);
+    button_export.set_hotkey(useR->key_me_export);
+    button_delete.set_text  (Language::browser_delete);
+    button_delete.set_hotkey(useR->key_me_delete);
 
-    set_preview_y(40 + (but_yl + but_y_spacing) * 2);
+    set_preview_y (40 + but_yl * 2 + but_y_spacing);
+    set_preview_yl(60);
 
     on_file_highlight(get_current_file());
 }
@@ -70,9 +79,52 @@ void SingleBrowser::calc_self()
 {
     BrowserBig::calc_self();
 
-    if (button_edit.get_clicked()) {
-        on_file_select(get_current_file());
+    if (box_delete) {
+        box_delete->set_draw_required(); // Damit Buttons eingedrueckt werd.
+        switch (box_delete->get_button_clicked()) {
+        case 1:
+            ::delete_file(get_current_file().get_rootful().c_str());
+            reload_dir();
+            highlight_nothing();
+            // falls through
+        case 2:
+            delete box_delete;
+            box_delete = 0;
+            set_draw_required();
+            break;
+        default: ;
+        }
     }
+    else {
+        // No additional windows open
+        if (button_edit.get_clicked()) {
+            on_file_select(get_current_file());
+        }
+        else if (button_export.get_clicked()) {
+            Level l(get_current_file());
+            std::string s = get_current_file().get_rootless();
+            for (size_t i = 0; i < s.size(); ++i) if (s[i] == '/') s[i] = '-';
+            s += ".bmp";
+            l.export_image(Filename(s));
+        }
+        else if (button_delete.get_clicked()) {
+            if (exists(get_current_file().get_rootful().c_str())) {
+                std::string s1 = Language::editor_file_name
+                               + ' ' + get_current_file().get_rootless();
+                std::string s2 = Language::editor_level_name
+                               + ' ' + Level::get_name(get_current_file());
+                box_delete = new Api::BoxMessage(500, 3,
+                                       Language::browser_box_delete_tit_lev);
+                box_delete->add_text(Language::browser_box_delete_que_lev);
+                box_delete->add_text(s1);
+                box_delete->add_text(s2);
+                box_delete->add_button(Language::yes, KEY_ENTER);
+                box_delete->add_button(Language::no,  KEY_ESC);
+                Manager::add_focus(box_delete);
+            }
+        }
+    }
+    // end of windows open/not open
 }
 
 
@@ -82,7 +134,6 @@ void SingleBrowser::on_file_highlight(const Filename& filename)
     std::string cl;
 
     info_initial .hide();
-    info_required.hide();
     info_clock   .hide();
 
     rec_saved    .hide();
@@ -101,11 +152,12 @@ void SingleBrowser::on_file_highlight(const Filename& filename)
     // Allgemeine Leveldaten anzeigen //
     ////////////////////////////////////
 
+    std::ostringstream initgoalval;
+    initgoalval << l.required << "/" << l.initial;
+
     info_initial .show();
-    info_required.show();
     info_clock   .show();
-    info_initial .set_value(l.initial);
-    info_required.set_value(l.required);
+    info_initial .set_value(initgoalval.str());
     info_clock   .set_value_seconds_as_time(l.seconds);
 
     //////////////////////////////////////
@@ -148,111 +200,6 @@ void SingleBrowser::on_file_select(const Filename& filename)
             useR->single_last_level = get_current_file();
         }
     }
-}
-
-
-
-
-
-
-
-
-
-
-NetworkBrowser::NetworkBrowser()
-:
-    BrowserBig(Language::browser_network_title,
-                        gloB->dir_levels,
-                        useR->network_last_level),
-    info_hatches(but_x, get_info_y(),       but_xl),
-    info_goals  (but_x, get_info_y() +  20, but_xl),
-    info_initial(but_x, get_info_y() +  40, but_xl),
-    info_skills (but_x, get_info_y() +  60, but_xl),
-    info_clock  (but_x, get_info_y() + 100, but_xl)
-{
-    add_child(info_hatches);
-    add_child(info_goals);
-    add_child(info_initial);
-    add_child(info_skills);
-    add_child(info_clock);
-    info_hatches.set_desc(Language::browser_info_hatches);
-    info_goals  .set_desc(Language::browser_info_goals);
-    info_initial.set_desc(Language::browser_info_lems);
-    info_skills .set_desc(Language::browser_info_skills);
-    info_clock  .set_desc(Language::browser_info_clock_2);
-    info_hatches.set_undraw_color(color[COL_API_M]);
-    info_goals  .set_undraw_color(color[COL_API_M]);
-    info_initial.set_undraw_color(color[COL_API_M]);
-    info_skills .set_undraw_color(color[COL_API_M]);
-    info_clock  .set_undraw_color(color[COL_API_M]);
-
-    set_button_play_text(Language::ok);
-    on_file_highlight(get_current_file());
-}
-
-
-
-NetworkBrowser::~NetworkBrowser()
-{
-}
-
-
-
-void NetworkBrowser::calc_self()
-{
-    BrowserBig::calc_self();
-
-    if (hardware.get_mr() && get_exit_with() == EXIT_WITH_NOTHING)
-        set_exit_with(EXIT_WITH_EXIT);
-
-    if (get_exit_with() == EXIT_WITH_OKAY
-     || get_exit_with() == EXIT_WITH_EXIT)
-        useR->network_last_level = get_current_file();
-}
-
-
-
-void NetworkBrowser::on_file_highlight(const Filename& filename)
-{
-    Level l(filename);
-    info_hatches.hide();
-    info_goals  .hide();
-    info_initial.hide();
-    info_skills .hide();
-    info_clock  .hide();
-
-    // Wir gucken dies hier nach und nicht in BrowserBig, weil dort nicht
-    // sicher ist, ob ein Level da sein soll oder ein Replay, etwa. Nur auf
-    // beliebige Dateien koennen wir nicht kotnrollieren, weil sonst auch
-    // das Basisverzeichnis eine gueltige Datei ist.
-    if (l.get_status() == Level::BAD_FILE_NOT_FOUND) clear_preview();
-    else set_preview(l);
-
-    if (!l.get_good()) return;
-
-    int hatches = l.pos[Object::HATCH].size();
-    int goals   = l.pos[Object::GOAL] .size();
-    int skills  = 0;
-    for (unsigned i = 0; i != 8; ++i) skills += l.skill[i].nr;
-
-    info_hatches.show();
-    info_goals  .show();
-    info_initial.show();
-    info_skills .show();
-    info_clock  .show();
-    info_hatches.set_value(hatches);
-    info_goals  .set_value(goals);
-    info_initial.set_value(l.initial);
-    info_skills .set_value(skills);
-    info_clock  .set_value_seconds_as_time(l.seconds);
-}
-
-
-
-void NetworkBrowser::on_file_select(const Filename& filename)
-{
-    Level l(filename);
-    if (l.get_status() == Level::GOOD) set_exit_with(EXIT_WITH_OKAY);
 }
 
 } // Ende Namensraum Api

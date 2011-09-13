@@ -9,7 +9,14 @@
 #include "obj_lib.h"
 
 #include "../gameplay/lookup.h"
-#include "../graphic/graphic.h" // to access rotated pixel functions
+#include "../graphic/graphic.h"    // to access rotated pixel functions
+
+#include "../api/button/b_skill.h" // to export it as an image
+#include "../api/labeltwo.h"       // to export it as an image
+#include "../api/manager.h"        // getting access to where buttons are drawn
+#include "../other/language.h"     // export
+#include "../graphic/gra_lib.h"
+
 #include "../other/help.h"
 
 void Level::draw_to(Torbit& ground, Lookup* lookup) const
@@ -76,7 +83,7 @@ void Level::drit(PosIt itr, Torbit& ground, Lookup* lookup) const
 
 
 
-Torbit Level::create_preview(unsigned w, unsigned h, int c) const
+Torbit Level::create_preview(int w, int h, int c) const
 {
     Torbit b(w, h);
     b.clear_to_color(c);
@@ -85,7 +92,7 @@ Torbit Level::create_preview(unsigned w, unsigned h, int c) const
 
     // Sonst hier mit dem Malen beginnen
     Torbit temp_ter(size_x, size_y);
-    Torbit temp_obj(size_x, size_y);
+    Torbit temp_obj(size_x, size_y); // may be returned later
     temp_ter.clear_to_color(color[COL_PINK]);
     temp_obj.clear_to_color(color[COL_PINK]);
     temp_ter.set_torus_xy(torus_x, torus_y);
@@ -105,15 +112,71 @@ Torbit Level::create_preview(unsigned w, unsigned h, int c) const
     double                          factor = (double) w/size_x;
     if (factor > (double) h/size_y) factor = (double) h/size_y;
 
-    stretch_blit(temp_obj.get_al_bitmap(),
-                 b   .get_al_bitmap(), 0, 0,
-                 temp_obj.get_xl(), temp_obj.get_yl(),
-                 (int) (w/2 - size_x*factor/2),
-                 (int) (h/2 - size_y*factor/2),
-                 // Jetzt wieder Rundung, aber dass es dann in seltenen Faellen
-                 // immer noch nicht passt bzw. um einen Pixel nicht, habe
-                 // ich immer noch nicht verstanden.
-                 (int) (size_x*factor + 0.5),
-                 (int) (size_y*factor + 0.5));
-    return b;
+    if (w != size_x || h != size_y) {
+        stretch_blit(temp_obj.get_al_bitmap(),
+            b   .get_al_bitmap(), 0, 0,
+            temp_obj.get_xl(), temp_obj.get_yl(),
+            (int) (w/2 - size_x*factor/2),
+            (int) (h/2 - size_y*factor/2),
+            // Jetzt wieder Rundung, aber dass es dann in seltenen Faellen
+            // immer noch nicht passt bzw. um einen Pixel nicht, habe
+            // ich immer noch nicht verstanden.
+            (int) (size_x*factor + 0.5),
+            (int) (size_y*factor + 0.5));
+        return b;
+    }
+    else return temp_obj;
+}
+
+
+
+void Level::export_image(const Filename& filename) const
+{
+    const int min_export_xl = LEMSCR_X;
+
+    Torbit small = create_preview(
+        size_x > min_export_xl ? size_x : min_export_xl,
+        size_y, color[COL_API_M]);
+
+    Torbit canvas(small.get_xl(), small.get_yl() + 60);
+    canvas.clear_to_color(color[COL_API_M]);
+    small.draw(canvas);
+
+    Api::SkillButton skill_button(0, 0);
+    Torbit& osd = Api::Manager::get_torbit();
+    osd.clear_to_color(color[COL_PINK]);
+
+    for (int i = 0; i < gloB->skill_max; ++i) {
+       skill_button.set_skill (skill[i].ac);
+       skill_button.set_number(skill[i].nr);
+       skill_button.draw();
+       osd.draw(canvas, skill_button.get_xl() * i, size_y);
+    }
+
+    osd.clear_to_color(color[COL_PINK]);
+
+    Api::LabelTwo info_initial (10,  3, 140);
+    Api::LabelTwo info_spawnint(10, 20, 140);
+    Api::LabelTwo info_clock   (10, 37, 140);
+    info_initial .set_desc(Language::browser_info_initial);
+    info_spawnint.set_desc(Language::win_var_spawnint + ":");
+    info_clock   .set_desc(Language::browser_info_clock_2);
+    info_initial .set_value(initial);
+    info_spawnint.set_value(spawnint);
+    info_clock   .set_value_seconds_as_time(seconds);
+    info_initial .draw();
+    info_spawnint.draw();
+    info_clock   .draw();
+    osd.draw(canvas, skill_button.get_xl() * gloB->skill_max, size_y);
+
+    // Draw torus information, copied from menu/preview.cpp
+    Graphic icon_torus(GraLib::get(gloB->file_bitmap_preview_icon), canvas);
+    icon_torus.set_x_frame(torus_x + 2 * torus_y);
+    icon_torus.set_y_frame(1);
+    icon_torus.draw();
+
+    save_bmp(filename.get_rootful().c_str(), canvas.get_al_bitmap(), 0);
+
+    // Cleanup what we have done, redraw the browser that's open
+    Api::Manager::force_redraw();
 }

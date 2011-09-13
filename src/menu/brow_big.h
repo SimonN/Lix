@@ -83,20 +83,24 @@ public:
     virtual ~BrowserBig();
 
     inline void         set_button_play_text(const std::string& s)
-                                           { button_play.set_text(s); }
+                                            { button_play.set_text(s); }
 
            void         set_exit_with(ExitWith e);
-    inline ExitWith     get_exit_with()             { return exit_with;     }
+    inline ExitWith     get_exit_with() { return exit_with;     }
 
-    inline const Filename& get_base_dir()     { return dir_list.get_base_dir(); }
-    inline const Filename& get_current_file() { return lev_list.get_current_file(); }
-           void            set_current_dir_to_parent_dir();
+    inline const Filename& get_base_dir()
+                                        { return dir_list.get_base_dir(); }
+    inline const Filename& get_current_file()
+                                        { return lev_list.get_current_file(); }
+           void         set_current_dir_to_parent_dir();
 
            void         reload_dir();
+           void         highlight_nothing();
 
-    inline void         set_preview_y(int y)        { preview.set_y(y);     }
-    inline void         set_preview  (const Level&l){ preview.set_level(l); }
-    inline void         clear_preview()             { preview.clear();      }
+    inline void         set_preview_y (int y)         { preview.set_y(y);     }
+    inline void         set_preview_yl(int yl)        { preview.set_yl(yl);   }
+    inline void         set_preview   (const Level&l) { preview.set_level(l); }
+    inline void         clear_preview ()              { preview.clear();      }
 
     inline unsigned     get_info_y   () const       { return info_y;        }
     inline void         set_info_y   (const int i)  { info_y = i;           }

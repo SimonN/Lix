@@ -50,6 +50,9 @@ public:
            static void draw();
            static void draw_to_pre_screen(); // after mouse etc. has been done
 
+           static void force_redraw(); // This is only used after the level
+                                       // image exporter, who snags the Manager
+                                       // and have it perform unexpected things
 private:
 
     Manager();

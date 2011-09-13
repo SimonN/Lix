@@ -104,7 +104,7 @@ WindowGameplay::WindowGameplay(
     else if (lix_saved >  0)            c = Language::win_game_comment_less;
 
     labels.push_back(Label(get_xl()/2, top_item,
-     Language::win_game_lems_saved, Label::CENTERED));
+     Language::win_game_amount_saved, Label::CENTERED));
     labels.push_back(Label(get_xl()/2, y_comment, c,
      Label::CENTERED));
     labels.back().set_color(col_b);

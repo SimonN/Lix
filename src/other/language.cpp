@@ -55,9 +55,10 @@ browser_edit,
 browser_replay,
 browser_delete,
 browser_extract,
+browser_export_image,
 
-browser_info_lems,
-browser_info_required,
+browser_info_initial,
+browser_info_initgoal,
 browser_info_clock_1,
 browser_info_hatches,
 browser_info_goals,
@@ -79,8 +80,10 @@ browser_info_same,
 browser_info_old,
 browser_info_holds_level,
 
-browser_box_delete_title,
-browser_box_delete_question,
+browser_box_delete_tit_rep,
+browser_box_delete_que_rep,
+browser_box_delete_tit_lev,
+browser_box_delete_que_lev,
 
 // Lobby
 win_lobby_title,
@@ -103,7 +106,7 @@ win_lobby_room_leave,
 // Spielfenster
 win_game_title,
 win_game_result,
-win_game_lems_saved,
+win_game_amount_saved,
 win_game_resume,
 win_game_restart,
 win_game_save_replay,
@@ -182,7 +185,7 @@ win_var_title,
 win_var_author,
 win_var_name_german,
 win_var_name_english,
-win_var_lems,
+win_var_initial,
 win_var_required,
 win_var_spawnint,
 win_var_clock,
@@ -444,9 +447,10 @@ void Language::set(const Language lang)
         browser_replay                = "Replay";
         browser_delete                = "Delete";
         browser_extract               = "Extract level";
+        browser_export_image          = "Export image";
 
-        browser_info_lems             = "Lix:";
-        browser_info_required         = "To save:";
+        browser_info_initial          = "Lix:";
+        browser_info_initgoal         = "Save:";
         browser_info_clock_1          = "Time:";
         browser_info_hatches          = "Hatches:";
         browser_info_goals            = "Goals:";
@@ -468,8 +472,12 @@ void Language::set(const Language lang)
         browser_info_old              = "is too old";
         browser_info_holds_level      = "contained";
 
-        browser_box_delete_title      = "Delete replay?";
-        browser_box_delete_question   = "Do you really want to delete this replay?";
+        browser_box_delete_tit_rep    = "Delete replay?";
+        browser_box_delete_que_rep    = "Do you really want to delete "
+                                        "this replay?";
+        browser_box_delete_tit_lev    = "Delete level?";
+        browser_box_delete_que_lev    = "Do you really want to delete "
+                                        "this level?";
 
         // Lobby
         win_lobby_title               = "Network Game";
@@ -493,7 +501,7 @@ void Language::set(const Language lang)
         // Spielfenster
         win_game_title                = "Game Menu";
         win_game_result               = "Result";
-        win_game_lems_saved           = "Lix saved:";
+        win_game_amount_saved         = "Lix saved:";
         win_game_resume               = "Continue";
         win_game_restart              = "Restart level";
         win_game_save_replay          = "Save replay";
@@ -573,7 +581,7 @@ void Language::set(const Language lang)
         win_var_author                = "Author";
         win_var_name_german           = "German title";
         win_var_name_english          = "English title";
-        win_var_lems                  = "Number of lix";
+        win_var_initial               = "No. of lix";
         win_var_required              = "Lix to save";
         win_var_spawnint              = "Spawn interval";
         win_var_clock                 = "Time/overtime";
@@ -885,9 +893,10 @@ eb[Editor::ADD_HAZARD]
         browser_replay                = "Abspielen";
         browser_delete                = "Loeschen";
         browser_extract               = "Level extrah.";
+        browser_export_image          = "Bild export.";
 
-        browser_info_lems             = "Anzahl Lix:";
-        browser_info_required         = "Zu retten:";
+        browser_info_initial          = "Anzahl Lix:";
+        browser_info_initgoal         = "Rette:";
         browser_info_clock_1          = "Zeit:";
         browser_info_hatches          = "Klappen:";
         browser_info_goals            = "Ausgaenge:";
@@ -909,8 +918,12 @@ eb[Editor::ADD_HAZARD]
         browser_info_old              = "ist zu alt";
         browser_info_holds_level      = "enthalten";
 
-        browser_box_delete_title      = "Replay loeschen?";
-        browser_box_delete_question   = "Soll dieses Replay wirklich geloescht werden?";
+        browser_box_delete_tit_rep    = "Replay loeschen?";
+        browser_box_delete_que_rep    = "Soll dieses Replay wirklich "
+                                        "geloescht werden?";
+        browser_box_delete_tit_lev    = "Level loeschen?";
+        browser_box_delete_que_lev    = "Soll dieser Level wirklich "
+                                        "geloescht werden?";
 
         // Lobby
         win_lobby_title               = "Netzwerkspiel";
@@ -934,7 +947,7 @@ eb[Editor::ADD_HAZARD]
         // Spielfenster
         win_game_title                = "Spielmenue";
         win_game_result               = "Ergebnis";
-        win_game_lems_saved           = "Lix gerettet:";
+        win_game_amount_saved         = "Lix gerettet:";
         win_game_resume               = "Weiterspielen";
         win_game_restart              = "Level neustarten";
         win_game_save_replay          = "Replay speichern";
@@ -1014,7 +1027,7 @@ eb[Editor::ADD_HAZARD]
         win_var_author                = "Autor";
         win_var_name_german           = "Deutscher Titel";
         win_var_name_english          = "Englischer Titel";
-        win_var_lems                  = "Anzahl Lix";
+        win_var_initial               = "Anzahl Lix";
         win_var_required              = "Lix zu retten";
         win_var_spawnint              = "Fall-Intervall";
         win_var_clock                 = "Zeit/Nachspielz.";

@@ -96,6 +96,7 @@
 #include "../other/file/date.h"
 #include "../other/globals.h"    // empty_string
 #include "../other/file/io.h"
+#include "../other/types.h" // AlCol
 
 class Lookup;
 
@@ -183,12 +184,13 @@ struct Level {
     inline       bool   get_good()   const { return status == GOOD; }
     const std::string&  get_name()   const;
 
-    void    draw_to       (Torbit&, Lookup* = 0   ) const;
-    Torbit  create_preview(unsigned, unsigned, int) const;
+    void    draw_to       (Torbit&, Lookup* = 0) const;
+    Torbit  create_preview(int, int, AlCol) const;
 
     void load_from_stream(std::istream&);
     void load_from_file  (const Filename&);
     void save_to_file    (const Filename&) const;
+    void export_image    (const Filename&) const;
     void clear();
 
     // Statische Funktionen ausser == und !=
