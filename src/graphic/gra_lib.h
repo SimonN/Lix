@@ -24,6 +24,7 @@
 
 #include "../lix/lix_enum.h"
 #include "../other/filename.h"
+#include "../other/types.h"
 
 class GraLib {
 
@@ -31,17 +32,23 @@ private:
 
     static GraLib* singleton;
 
-    std::map    <std::string, std::string>  replace_exact;
-    std::map    <std::string, std::string>  replace_substr;
+    std::map    <std::string, std::string> replace_exact;
+    std::map    <std::string, std::string> replace_substr;
 
-    std::map    <std::string, const Cutbit> internal;
-    std::vector <Cutbit>                    style;
-    std::vector <Cutbit>                    icons;
+    std::map    <std::string, Cutbit>      internal;
+    std::vector <Cutbit>                   style;
+    std::vector <Cutbit>                   icons;
 
     static void sort_string_into_cutbitfile(const Filename&, void*);
     static void sort_string_into_internal  (const Filename&, void*);
 
-           void recolor_into_vector(const Cutbit&, std::vector <Cutbit>&);
+
+    // The int variables should be != 0 for the character spreadsheet and
+    // similar things that require both a GUI and a player color recoloring.
+           void eidrecol_api       (const Filename&);
+           void eidrecol_api       (Cutbit&, int = 0);
+           void recolor_into_vector(const Cutbit&, std::vector <Cutbit>&,
+                                    int = 0);
            void add_replace        (const std::string&, const std::string&);
            void add_substr_replace (const std::string&, const std::string&);
 

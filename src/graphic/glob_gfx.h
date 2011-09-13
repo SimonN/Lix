@@ -56,9 +56,19 @@ enum Color {
     COL_API_ON_M,
     COL_API_ON_L,
 
+    COL_API_FILE_SHADOW,
+    COL_API_FILE_D,
+    COL_API_FILE_M,
+    COL_API_FILE_L,
+    COL_API_PIC_D,
+    COL_API_PIC_M,
+    COL_API_PIC_L,
+    COL_API_PIC_ON_D,
+    COL_API_PIC_ON_M,
+    COL_API_PIC_ON_L,
+
     COL_TEXT,
     COL_TEXT_ON,
-    COL_TEXT_OFF,
     COL_TEXT_GREEN,
 
     COL_LIXFILE_EYE,

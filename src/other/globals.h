@@ -303,7 +303,6 @@ public:
         file_bitmap_edit_flip,
         file_bitmap_edit_hatch,
         file_bitmap_edit_panel,
-        file_bitmap_edit_big,
         file_bitmap_explosion,
         file_bitmap_fuse_flame,
         file_bitmap_game_arrow,

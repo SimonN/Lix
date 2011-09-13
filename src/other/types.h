@@ -14,3 +14,5 @@ typedef unsigned char Byte;
 
 typedef unsigned      Uint;
 typedef unsigned long Ulng;
+
+typedef int           AlCol; // allegro color
