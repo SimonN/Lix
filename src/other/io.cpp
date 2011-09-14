@@ -268,25 +268,25 @@ bool fill_vector_from_file(std::vector <Line>& v, const std::string& filename)
 
 bool fill_vector_from_stream(std::vector <Line>& v, std::istream& in)
 {
-    if (!in.good()) return false;
-    while (in.good()) {
-        std::string s;
-        // Gute Zeichen in den String lesen
-        while (in.good()) {
-            char c = in.get();
-            if (c != '\n' && c != '\r') s += c;
-            else break;
+    bool        something_was_read = false;
+    std::string s;
+    char        c;
+    // Don't use in >> c since we want unformatted input to process newlines
+    while (in.get(c)) {
+        // Read characters into string until CR or LF are encountered
+        if (c != '\n' && c != '\r') s += c;
+        else if (! s.empty()) {
+            v.push_back(Line(s));
+            s.clear();
+            something_was_read = true;
         }
-        // Weitere Zeilenumbruchszeichen entfernen... L++ spielt dos2unix
-        while (in.good()) {
-            char c = in.peek();
-            if (c == '\n' || c == '\r') in.get();
-            else break;
-        }
-        // String uebergeben und naechste Zeile einlesen
-        v.push_back(Line(s));
     }
-    return true;
+    // No newline at end of file shall not matter
+    if (! s.empty()) {
+        v.push_back(Line(s));
+        something_was_read = true;
+    }
+    return something_was_read;
 }
 
 }
