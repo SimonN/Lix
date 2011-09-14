@@ -307,10 +307,10 @@ Globals::Globals()
     file_bitmap_mouse            (dir_data_bitmap.get_dir_rootless() + "mouse.I"),
     file_bitmap_preview_icon     (dir_data_bitmap.get_dir_rootless() + "prev_ico.I"),
 
-    file_bitmap_font_big         (dir_data_bitmap.get_dir_rootless() + "font_big.I.bmp"),
-    file_bitmap_font_nar         (dir_data_bitmap.get_dir_rootless() + "font_nar.I.bmp"),
-    file_bitmap_font_med         (dir_data_bitmap.get_dir_rootless() + "font_med.I.bmp"),
-    file_bitmap_font_sml         (dir_data_bitmap.get_dir_rootless() + "font_sml.I.bmp"),
+    file_bitmap_font_big         (dir_data_bitmap.get_dir_rootless() + "font_big.I.tga"),
+    file_bitmap_font_nar         (dir_data_bitmap.get_dir_rootless() + "font_nar.I.tga"),
+    file_bitmap_font_med         (dir_data_bitmap.get_dir_rootless() + "font_med.I.tga"),
+    file_bitmap_font_sml         (dir_data_bitmap.get_dir_rootless() + "font_sml.I.tga"),
 
     file_replay_auto_single      (dir_replay_auto.get_dir_rootless() + "s"),
     file_replay_auto_multi       (dir_replay_auto.get_dir_rootless() + "m")
