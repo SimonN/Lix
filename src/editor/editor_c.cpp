@@ -106,12 +106,11 @@ void Editor::calc_self()
     // Es gibt bloede Ueberschneidungen mit dem Druecken und Loslassen von
     // Shift waehrend einer Mauszieh-Aktion, daher beheben wir das hier
     // von vornherein und nicht unten im Maus-Code.
-    if (!hardware.get_mlh()) {
-        if (hardware.key_hold(useR->key_ed_sel_frame))
-         panel[SELECT_FRAME].set_on();
-        if (hardware.key_release(useR->key_ed_sel_frame))
-         panel[SELECT_FRAME].set_off();
-    }
+    if (hardware.key_hold(useR->key_ed_sel_frame) && ! hardware.get_mlh())
+     panel[SELECT_FRAME].set_on();
+    if (hardware.key_release(useR->key_ed_sel_frame) && ! hardware.get_mlh())
+     panel[SELECT_FRAME].set_off();
+
     if (hardware.key_hold(useR->key_ed_sel_add))
      panel[SELECT_ADD].set_on();
     if (hardware.key_release(useR->key_ed_sel_add))

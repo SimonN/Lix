@@ -112,7 +112,8 @@ public:
     inline int  get_key_ascii() { return key_from_buffer_ascii; }
 
     inline bool key_once   (int i)   { return key_from_buffer == i;  }
-           bool key_release(int);
+           bool key_release(int); // Important: key_release must be called in
+                                  // every logic update to work as expected!
 
            bool key_enter_once();    // Special because Alt+Enter shall not
            bool key_enter_release(); // trigger it, and both Enters shall work
