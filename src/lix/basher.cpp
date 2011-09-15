@@ -10,26 +10,25 @@
  * special_x
  *
  *   Misst, wie weit eine Lix hinuntergestiegen ist beim Bohren. Wenn das
- *   zu viel war, hoert sie auf Siehe ausfuehrlichen Kommentar unten.
+ *   zu viel war, hoert sie auf. Siehe ausfuehrlichen Kommentar unten.
  *
  *   The basher will go up again if he's walked through a very small pit while
  *   bashing, to counter Horus' bug.
  *
  * special_y
  *
- *  DEBUGGING: is just 0 or 1.
- *
- *   This takes three values, 0, 1, and 2.
+ *   This takes the values 0 or 1.
  *
  *   0: This is 0 until the lix has completed half of its first swing.
  *   While it's 0, steel doesn't cancel the basher.
  *
  *   1: This is 1 during the second half of the first swing, until the check
- *   to continue bashing has been completed. While it's 1, less pixels are
- *   required to continue. The idea is that a bridge should be destroyable
- *   by a single basher, no matter where on the bridge it starts bashing.
+ *   to continue bashing has been completed.
  *
- *   2: This is the regular value.
+ *   The idea was originally to make another value for this, 2, after the
+ *   first check for enough earth to continue bashing. We want bridges to be
+ *   destroyed by bashers, but currently, the regular earth check will ensure
+ *   bridges get destroyed anyway.
  *
  */
 
