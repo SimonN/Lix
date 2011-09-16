@@ -5,6 +5,10 @@
 
 #include "ac.h"
 
+static const int tumbler_max_special_y = 18; // Ab hier wird er zum Splatter
+
+
+
 void update_jumper (Lixxie& l, const UpdateArgs& ua);
 void update_tumbler(Lixxie& l, const UpdateArgs& ua)
 {
@@ -13,27 +17,72 @@ void update_tumbler(Lixxie& l, const UpdateArgs& ua)
 
 
 
-void tumbler_to_splatter(Lixxie& l)
+void tumbler_unglitch_out_of_wall(Lixxie& l)
 {
-    const int frame_to_get_second_splatter = 9;
-    const int second_splatter_frame = 10;
+    // We can be either a stunner or still a jumper/tumbler here.
+    // In the current implementation, we're always a stunner.
+    if (! l.is_solid(0, 1)) return;
 
-    bool second_splatter = (l.get_ac() == LixEn::TUMBLER
-                         && l.get_frame() >= frame_to_get_second_splatter);
-    l.become(LixEn::SPLATTER);
-    if (second_splatter) l.set_frame(second_splatter_frame);
+    // If we are in some stupid wall, do this loop.
+    for (int dist = 1; ; ++dist) {
+        if (!l.is_solid(dist/2*2, 1)) {
+            l.move_ahead(dist/2*2);
+            break;
+        }
+        else if (!l.is_solid(-(dist/2*2), 1)) {
+            l.turn();
+            l.move_ahead(dist/2*2);
+            break;
+        }
+        else if (l.get_special_y() <= 0 && !l.is_solid(0,  dist + 1)) {
+            l.move_down(dist);
+            l.set_special_y(-l.get_special_y());
+            break;
+        }
+        else if (l.get_special_y() >= 0 && !l.is_solid(0, -dist)) {
+            // Die + 1 in der Bedingung stehen dort, weil Fuss der
+            // Lix immer noch einen freien Pixel drunter hat.
+            l.move_up(dist);
+            l.become(LixEn::STUNNER);
+            break;
+        }
+    }
 }
 
 
 
-void tumbler_unglitch_out_of_wall(Lixxie& l);
+static void tumbler_land(Lixxie& l)
+{
+    if (l.get_special_y() > tumbler_max_special_y) {
+        const int frame_to_get_second_splatter = 9;
+        const int second_splatter_frame = 10;
+
+        bool second_splatter = (l.get_ac() == LixEn::TUMBLER
+                             && l.get_frame() >= frame_to_get_second_splatter);
+        l.become(LixEn::SPLATTER);
+        if (second_splatter) l.set_frame(second_splatter_frame);
+    }
+    // become a lander or stunner
+    else {
+        bool short_anim = (l.get_special_y() < 12);
+        if (l.get_ac() == LixEn::JUMPER) {
+            l.become(LixEn::LANDER);
+            if (short_anim) l.next_frame();
+        }
+        else {
+            l.become(LixEn::STUNNER);
+            tumbler_unglitch_out_of_wall(l);
+        }
+    }
+}
+
+
 
 // Prueft Boden, Decken und Waende nach jedem einzelnen vorgerueckten Pixel.
 // Liefert genau dann wahr, wenn es eine Kollision gab, damit das Vorruecken
 // update_jumper/update_tumbler abgebrochen werden kann.
 bool jumper_and_tumbler_collision(Lixxie& l)
 {
-    const int max_special_y = 18; // Ab hier wird er zum Splatter
     const int swh           = l.solid_wall_height();
 
     // Das Vorruecken zum jeweiligen Pixel ist bereits gemacht.
@@ -73,14 +122,14 @@ bool jumper_and_tumbler_collision(Lixxie& l)
         }
         else if (l.is_solid(0, 2) && ! l.is_solid(0, 0)) {
             // Don't turn if batted onto a 45 degree slope.
-            l.become(LixEn::STUNNER);
             while (l.is_solid(0, 1)) l.move_up(1);
+            tumbler_land(l);
         }
         else if (l.is_solid(-2, 2) && ! l.is_solid(-2, 0)) {
             // Don't turn if batted onto a 45 degree slope, part 2
             l.move_ahead(-2);
-            l.become(LixEn::STUNNER);
             while (l.is_solid(0, 1)) l.move_up(1);
+            tumbler_land(l);
         }
         else {
             // Move out of wall we seem to be in.
@@ -105,29 +154,18 @@ bool jumper_and_tumbler_collision(Lixxie& l)
      && (l.is_solid(0, 1) || l.is_solid(0, 2)))
     {
         while (l.is_solid(0, 1)) l.move_up(1);
-        if (l.get_special_y() > max_special_y) {
-            tumbler_to_splatter(l);
-        }
-        else {
-            bool short_anim = (l.get_special_y() < 12);
-            if (l.get_ac() == LixEn::JUMPER) {
-                l.become(LixEn::LANDER);
-                if (short_anim) l.next_frame();
-            }
-            else {
-                l.become(LixEn::STUNNER);
-                tumbler_unglitch_out_of_wall(l);
-            }
-        }
+        tumbler_land(l);
         return true;
     }
 
     // Wenn Jumper, nicht Tumbler:
     // Wand nicht ganz so hoch, man kann sich festhalten oben dran.
     else if (swh > 0) {
-        if (l.get_special_y() > max_special_y) {
+        if (l.get_special_y() > tumbler_max_special_y) {
+            // this shouldn't ever get used, a jumper shouldn't fall with
+            // deadly speed, she should always turn into a tumbler
             l.move_up(swh);
-            tumbler_to_splatter(l);
+            tumbler_land(l); // this will always kill her since spec_y is high
         }
         else {
             l.become(LixEn::ASCENDER);
@@ -183,38 +221,4 @@ void tumbler_frame_selection(Lixxie& l)
     if (tf == l.get_frame() && anim) ++tf;
 
     l.set_frame(tf);
-}
-
-
-
-void tumbler_unglitch_out_of_wall(Lixxie& l)
-{
-    // We can be either a stunner or still a jumper/tumbler here.
-    // In the current implementation, we're always a stunner.
-    if (! l.is_solid(0, 1)) return;
-
-    // If we are in some stupid wall, do this loop.
-    for (int dist = 1; ; ++dist) {
-        if (!l.is_solid(dist/2*2, 1)) {
-            l.move_ahead(dist/2*2);
-            break;
-        }
-        else if (!l.is_solid(-(dist/2*2), 1)) {
-            l.turn();
-            l.move_ahead(dist/2*2);
-            break;
-        }
-        else if (l.get_special_y() <= 0 && !l.is_solid(0,  dist + 1)) {
-            l.move_down(dist);
-            l.set_special_y(-l.get_special_y());
-            break;
-        }
-        else if (l.get_special_y() >= 0 && !l.is_solid(0, -dist)) {
-            // Die + 1 in der Bedingung stehen dort, weil Fuss der
-            // Lix immer noch einen freien Pixel drunter hat.
-            l.move_up(dist);
-            l.become(LixEn::STUNNER);
-            break;
-        }
-    }
 }
