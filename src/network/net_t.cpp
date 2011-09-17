@@ -105,7 +105,7 @@ PlayerData::PlayerData(const char nr, const char* na, const char st)
 
 
 
-bool PlayerData::operator < (const PlayerData& rhs)
+bool PlayerData::operator < (const PlayerData& rhs) const
 {
     // Numbers should be different, as the server gives them out
     return number < rhs.number;
@@ -113,7 +113,7 @@ bool PlayerData::operator < (const PlayerData& rhs)
 
 
 
-bool PlayerData::operator == (const PlayerData& rhs)
+bool PlayerData::operator == (const PlayerData& rhs) const
 {
     return number == rhs.number
      &&    room   == rhs.room
@@ -125,7 +125,7 @@ bool PlayerData::operator == (const PlayerData& rhs)
 
 
 
-bool PlayerData::operator != (const PlayerData& rhs)
+bool PlayerData::operator != (const PlayerData& rhs) const
 {
     return ! (*this == rhs);
 }
@@ -180,6 +180,23 @@ ReplayData::ReplayData(const char a)
     update(0),
     what  (0)
 {
+}
+
+
+
+bool ReplayData::operator == (const ReplayData& rhs) const
+{
+    return player == rhs.player
+     &&    action == rhs.action
+     &&    update == rhs.update
+     &&    what   == rhs.what;
+}
+
+
+
+bool ReplayData::operator != (const ReplayData& rhs) const
+{
+    return ! (*this == rhs);
 }
 
 

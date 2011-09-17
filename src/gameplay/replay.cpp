@@ -62,6 +62,26 @@ void Replay::add_player(Uint nr, LixEn::Style s, const std::string& name)
 
 
 
+bool Replay::equal_before(const Replay& rhs, const Ulng before_update) const
+{
+    // We don't check whether the metadata/general data is the same.
+    // We assume the gameplay class only uses for replays of the same level
+    // with the same players.
+    ConstIt lit = data.begin();
+    ConstIt rit = rhs.data.begin();
+    while (true) {
+        if      (lit == data.end() || rit == rhs.data.end()) return true;
+        else if (lit->update >= before_update
+              && rit->update >= before_update) return true;
+        else if (*lit != *rit) return false;
+        // Still equal? Increment and repeat.
+        ++lit;
+        ++rit;
+    }
+}
+
+
+
 void Replay::erase_data_after_update(const unsigned long i)
 {
     max_updates = 0;

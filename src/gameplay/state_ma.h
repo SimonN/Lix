@@ -7,6 +7,11 @@
  * In diesen Faellen wird bei verspaetet eintreffenden Paketen ab einem
  * geeingeten Spielstand neu gerechnet.
  *
+ * For the user-triggered save, it also remembers the replay that was active
+ * then. This is important since the user could otherwise restart, do something
+ * deviating, and then load the user state that supposes the old, differing
+ * replay.
+ *
  * void calc_save_auto(unsigned long, std::vector <Player>&, BITMAP*)
  *
  *   Schaut sich die uebergebene Update-Zahl an und entscheidet, wie mit den
@@ -41,6 +46,7 @@
 #pragma once
 
 #include "state.h"
+#include "replay.h"
 
 class StateManager {
 
@@ -56,14 +62,19 @@ private:
         med_1, med_2,
         big_1, big_2;
 
+    Replay userrep;
+
 public:
 
-    inline void             save_zero(const GameState& s) { zero = s;    }
-    inline void             save_user(const GameState& s) { user = s;    }
-    inline const GameState& load_zero()                   { return zero; }
-    inline const GameState& load_user()                   { return user; }
+    inline void  save_zero(const GameState& s) { zero = s; }
+    inline void  save_user(const GameState& s,
+                           const Replay& r)    { user = s; userrep = r; }
 
-    const        GameState& load_auto(Ulng);
+    inline const GameState& get_zero()        { return zero;    }
+    inline const GameState& get_user()        { return user;    }
+    inline const Replay&    get_user_replay() { return userrep; }
+
+    const        GameState& get_auto(Ulng);
     void                    calc_save_auto(const GameState&);
 
 };

@@ -55,7 +55,7 @@ void Gameplay::calc_window()
 
         case Api::WindowGameplay::RESTART:
             save_result();
-            load_state(state_manager.load_zero());
+            load_state(state_manager.get_zero());
             pan.pause      .set_off();
             pan.speed_slow .set_off();
             pan.speed_fast .set_off();
@@ -174,12 +174,23 @@ void Gameplay::calc_self()
     if (!chat.get_type_on()) {
         // Speichern
         if (pan.state_save.get_clicked()) {
-            state_manager.save_user(cs);
+            state_manager.save_user(cs, replay);
         }
 
         // Laden
         if (pan.state_load.get_clicked()) {
-            load_state(state_manager.load_user());
+            const GameState& sta = state_manager.get_user();
+            if (sta) {
+                // If saved replay extends current one,  pick saved one.
+                // If saved replay doesn't compare,      pick saved one.
+                // If equal, for performance,            pick ours.
+                // If saved replay is shorter than ours, pick ours.
+                const Replay& userrep = state_manager.get_user_replay();
+                if (! replay.equal_before(userrep, sta.update)) {
+                    replay = userrep;
+                }
+                load_state(sta);
+            }
         }
 
         // Pause
@@ -211,7 +222,7 @@ void Gameplay::calc_self()
         }
         // Neustart
         if (pan.restart.get_clicked()) {
-            load_state(state_manager.load_zero());
+            load_state(state_manager.get_zero());
         }
 
         // Switch the spectator's panel to a different tribe's skillset
@@ -344,6 +355,8 @@ void Gameplay::load_state(const GameState& state)
         if (trlo) pan.set_like_tribe(trlo, malo);
         // Sauberputzen
         effect.delete_after(cs.update);
+        for (HatchIt i = hatches.begin(); i != hatches.end(); ++i)
+         i->animate(effect, cs.update);
     }
 }
 

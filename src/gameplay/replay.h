@@ -129,6 +129,8 @@ public:
     inline bool get_file_not_found () const        { return file_not_found;  }
     inline bool get_holds_level    () const        { return holds_level;     }
 
+    bool        equal_before                   (const Replay&, Ulng) const;
+
     void        clear                          ();
     void        erase_data_after_update        (const Ulng);
     bool        get_on_update_lix_clicked      (const Ulng, const Uint);
@@ -142,5 +144,6 @@ public:
     void        save_to_file                   (const Filename&,
                                                 const Level* const = 0);
     void        load_from_file                 (const Filename&);
+
 
 };

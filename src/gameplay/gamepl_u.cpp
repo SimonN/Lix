@@ -46,7 +46,7 @@ void Gameplay::update()
 
     // Updaten, entweder mehrmals oder nur einmal
     if (replay_recalc_need) {
-        GameState state = state_manager.load_auto(replay_recalc_from);
+        GameState state = state_manager.get_auto(replay_recalc_from);
         if (state) {
             // Wir nutzen nicht load_state(), weil dies kein manuelles Laden
             // ist. Dies sollte das einizge nicht-manuelle Laden sein.

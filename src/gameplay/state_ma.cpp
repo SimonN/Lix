@@ -9,7 +9,7 @@ const unsigned StateManager::updates_sml( 10);
 const unsigned StateManager::updates_med( 50);
 const unsigned StateManager::updates_big(200);
 
-const GameState& StateManager::load_auto(Ulng u)
+const GameState& StateManager::get_auto(Ulng u)
 {
     GameState*                          s = &zero;
     if      (sml_1 && sml_1.update < u) s = &sml_1;

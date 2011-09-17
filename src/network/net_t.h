@@ -107,9 +107,9 @@ struct PlayerData {
     inline bool get_spec()       { return spec == 1; }
     inline void set_spec(bool b) { spec = b ? 1 : 0; }
 
-    bool operator <  (const PlayerData&); // for storage using std::set
-    bool operator == (const PlayerData&);
-    bool operator != (const PlayerData&);
+    bool operator <  (const PlayerData&) const; // for storage using std::set
+    bool operator == (const PlayerData&) const;
+    bool operator != (const PlayerData&) const;
 
     // Serialization
     ENetPacket* create_packet() const;
@@ -127,6 +127,9 @@ struct ReplayData {
     Uint32 what;
 
     ReplayData(const char = 0); // value for action
+
+    bool operator == (const ReplayData&) const;
+    bool operator != (const ReplayData&) const;
 
     // Serialization
     ENetPacket* create_packet() const;
