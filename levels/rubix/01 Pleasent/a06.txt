@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-11 17:16:16
+$BUILT                                             2011-09-18 03:54:44
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                             Earth exploration
@@ -60,6 +60,7 @@ $ENGLISH                                             Earth exploration
 :bitmap/matt/01 - Earth/06:                              430       235
 :bitmap/matt/01 - Earth/10:                              -57       210
 :bitmap/matt/01 - Earth/10:                               -1       -83     r
+:bitmap/matt/01 - Earth/22:                              440       224     d
 :bitmap/matt/01 - Earth/05:                              378       137     f
 :bitmap/matt/01 - Earth/06:                              278       364
 :bitmap/matt/01 - Earth/10:                              298       328
@@ -121,3 +122,4 @@ $ENGLISH                                             Earth exploration
 :bitmap/matt/01 - Earth/05:                              379       298     fr
 :bitmap/matt/01 - Earth/05:                              348       306     rr
 :bitmap/matt/01 - Earth/05:                              418       337     rr
+:bitmap/matt/01 - Earth/22:                              446       216     d

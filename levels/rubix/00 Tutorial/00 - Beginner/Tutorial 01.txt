@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-11 17:11:51
+$BUILT                                             2011-09-19 18:13:08
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                                       Bashing
@@ -13,7 +13,7 @@ $ENGLISH                                                       Bashing
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                           120
+#SECONDS                                                           600
 #INITIAL                                                            30
 #REQUIRED                                                           10
 #RATE                                                               30

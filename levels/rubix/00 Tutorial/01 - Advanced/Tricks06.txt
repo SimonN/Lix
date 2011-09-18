@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 00:38:42
+$BUILT                                             2011-09-19 18:12:59
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                                     Flinging!
@@ -13,7 +13,7 @@ $ENGLISH                                                     Flinging!
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                           240
+#SECONDS                                                           300
 #INITIAL                                                            99
 #REQUIRED                                                           39
 #RATE                                                               99

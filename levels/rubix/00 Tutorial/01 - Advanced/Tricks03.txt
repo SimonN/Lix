@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 00:36:00
+$BUILT                                             2011-09-19 18:12:36
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                             Free the blockers
@@ -13,7 +13,7 @@ $ENGLISH                                             Free the blockers
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                           120
+#SECONDS                                                           300
 #INITIAL                                                            30
 #REQUIRED                                                           30
 #RATE                                                               70

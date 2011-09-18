@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 09:47:04
+$BUILT                                             2011-09-19 20:12:40
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                              Chiller Thriller
@@ -7,7 +7,7 @@ $ENGLISH                                              Chiller Thriller
 #SIZE_Y                                                            400
 #TORUS_X                                                             0
 #TORUS_Y                                                             0
-#START_X                                                             0
+#START_X                                                           480
 #START_Y                                                           380
 #BACKGROUND_RED                                                      0
 #BACKGROUND_GREEN                                                    0

@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 01:37:57
+$BUILT                                             2011-09-19 20:11:25
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                             Might aswell jump
@@ -8,7 +8,7 @@ $ENGLISH                                             Might aswell jump
 #TORUS_X                                                             0
 #TORUS_Y                                                             0
 #START_X                                                             0
-#START_Y                                                             0
+#START_Y                                                           140
 #BACKGROUND_RED                                                      0
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
@@ -57,8 +57,8 @@ $ENGLISH                                             Might aswell jump
 :bitmap/matt/08 - Bricks/03:                               0       304
 :bitmap/matt/08 - Bricks/03:                               0       368
 :bitmap/matt/08 - Bricks/03:                             -32       112
-:bitmap/matt/08 - Bricks/03:                               0        48
-:bitmap/matt/08 - Bricks/03:                               0       -16
+:bitmap/matt/08 - Bricks/03:                             -32        48
+:bitmap/matt/08 - Bricks/03:                               0         0
 :bitmap/matt/08 - Bricks/03:                             128       496
 :bitmap/matt/08 - Bricks/03:                             704       496
 :bitmap/matt/08 - Bricks/03:                             752       496
@@ -122,10 +122,10 @@ $ENGLISH                                             Might aswell jump
 :bitmap/matt/08 - Bricks/06:                             432       368     r
 :bitmap/matt/08 - Bricks/06:                             496       432     r
 :bitmap/matt/08 - Bricks/03:                             784       128
-:bitmap/matt/08 - Bricks/03:                             784        64
 :bitmap/matt/08 - Bricks/01:                             784        64
 :bitmap/matt/08 - Bricks/01:                             784        80
 :bitmap/matt/08 - Bricks/01:                             784        96
+:bitmap/matt/08 - Bricks/03:                             784        64
 :bitmap/matt/08 - Bricks/03:                             880       448
 :bitmap/matt/08 - Bricks/13:                             816       496     rr
 :bitmap/matt/08 - Bricks/15:                             864       -16     r

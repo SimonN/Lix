@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-11 17:13:00
+$BUILT                                             2011-09-19 18:12:27
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                               Direction Force
@@ -13,7 +13,7 @@ $ENGLISH                                               Direction Force
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                            90
+#SECONDS                                                           180
 #INITIAL                                                            99
 #REQUIRED                                                           99
 #RATE                                                               99
@@ -41,11 +41,13 @@ $ENGLISH                                               Direction Force
 :bitmap/matt/01 - Earth/01:                              432       288
 :bitmap/matt/01 - Earth/02:                              177       261
 :bitmap/matt/01 - Earth/02:                              302       388
+:bitmap/matt/01 - Earth/00:                              514       352     f
 :bitmap/matt/01 - Earth/02:                              492       320
 :bitmap/matt/01 - Earth/04:                             -128       328     r
 :bitmap/matt/01 - Earth/04:                             -109       223
 :bitmap/matt/01 - Earth/04:                               31       277
 :bitmap/matt/01 - Earth/04:                               29       350
+:bitmap/matt/01 - Earth/00:                               42       328     f
 :bitmap/matt/01 - Earth/04:                               87       274
 :bitmap/matt/01 - Earth/04:                              141       279
 :bitmap/matt/01 - Earth/04:                              203       288
@@ -73,6 +75,6 @@ $ENGLISH                                               Direction Force
 :bitmap/matt/01 - Earth/28:                               -7       279
 :bitmap/matt/01 - Earth/05:                               41       224     f
 :bitmap/rubix/Tutorial/Tricks 001a:                        0         0
-:bitmap/rubix/Tutorial/Tricks 001c:                      440         0
-:bitmap/rubix/Tutorial/Tricks00b:                        222         0
+:bitmap/rubix/Tutorial/Tricks 001c:                      440         1
+:bitmap/rubix/Tutorial/Tricks00b:                        222         4
 :bitmap/matt/01 - Earth/06:                              621       300

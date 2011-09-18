@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 09:26:23
+$BUILT                                             2011-09-19 20:12:04
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                                  Heat treated
@@ -7,7 +7,7 @@ $ENGLISH                                                  Heat treated
 #SIZE_Y                                                            400
 #TORUS_X                                                             0
 #TORUS_Y                                                             0
-#START_X                                                           480
+#START_X                                                             0
 #START_Y                                                           380
 #BACKGROUND_RED                                                      0
 #BACKGROUND_GREEN                                                    0

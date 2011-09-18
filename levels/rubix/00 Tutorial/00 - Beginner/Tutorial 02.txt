@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 00:04:02
+$BUILT                                             2011-09-19 18:13:26
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                         Climbing and floating
@@ -13,7 +13,7 @@ $ENGLISH                                         Climbing and floating
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                           120
+#SECONDS                                                           300
 #INITIAL                                                            20
 #REQUIRED                                                           10
 #RATE                                                               50

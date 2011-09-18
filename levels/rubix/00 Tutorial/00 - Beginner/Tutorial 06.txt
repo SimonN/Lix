@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 00:05:22
+$BUILT                                             2011-09-19 20:05:39
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                         Bridges and platforms
@@ -13,7 +13,7 @@ $ENGLISH                                         Bridges and platforms
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                           180
+#SECONDS                                                           300
 #INITIAL                                                            30
 #REQUIRED                                                           10
 #RATE                                                                1
@@ -54,14 +54,15 @@ $ENGLISH                                         Bridges and platforms
 :bitmap/matt/02 - Gold Mine/05:                           32       368
 :bitmap/matt/02 - Gold Mine/09:                          448       368
 :bitmap/matt/02 - Gold Mine/02:                          486       368
-:bitmap/matt/02 - Gold Mine/plank support:                 0       -32     rr
+:bitmap/matt/02 - Gold Mine/plank support:               -32       -32     rr
 :bitmap/matt/02 - Gold Mine/plank support:               128       -32     rr
-:bitmap/matt/02 - Gold Mine/plank support:               256       -32     rr
 :bitmap/matt/02 - Gold Mine/plank support:               384       -32     rr
-:bitmap/matt/02 - Gold Mine/plank support:               512       -32     rr
 :bitmap/matt/02 - Gold Mine/06:                          436       380
 :bitmap/matt/02 - Gold Mine/04:                          -82       150
 :bitmap/matt/02 - Gold Mine/02:                          -38        90
 :bitmap/matt/02 - Gold Mine/02:                          622       214
 :bitmap/rubix/Tutorial/Tutorial 03:                       91        -4
 :bitmap/rubix/Tutorial/Tutorial03binfo:                  333        -7
+:bitmap/matt/02 - Gold Mine/plank support:               544       -16     rr
+:bitmap/matt/02 - Gold Mine/plank:                       289       -85     frrr
+:bitmap/matt/02 - Gold Mine/plank support:               229        39     rr

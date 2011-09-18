@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 00:06:55
+$BUILT                                             2011-09-19 20:08:38
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                                  The solution
@@ -7,16 +7,16 @@ $ENGLISH                                                  The solution
 #SIZE_Y                                                            400
 #TORUS_X                                                             0
 #TORUS_Y                                                             0
-#START_X                                                           320
+#START_X                                                             0
 #START_Y                                                           380
 #BACKGROUND_RED                                                      0
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                           360
+#SECONDS                                                           600
 #INITIAL                                                            60
 #REQUIRED                                                           58
-#RATE                                                                1
+#RATE                                                               50
 
 #CLIMBER                                                             1
 #WALKER                                                              1
@@ -100,4 +100,4 @@ $ENGLISH                                                  The solution
 :bitmap/rubix/Tutorial/8sole:                            217       198
 :bitmap/rubix/Tutorial/8solf:                            332       190
 :bitmap/rubix/Tutorial/8solfg:                            67         9
-:bitmap/matt/05 - Winter/15:                             596       192     f
+:bitmap/matt/05 - Winter/15:                             594       190     rr

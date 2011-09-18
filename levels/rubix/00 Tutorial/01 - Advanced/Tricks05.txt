@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-05 00:09:23
+$BUILT                                             2011-09-19 18:12:16
 $AUTHOR                                                          Rubix
 $GERMAN                                                               
 $ENGLISH                                                 Distance Leap
@@ -13,13 +13,13 @@ $ENGLISH                                                 Distance Leap
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                           150
+#SECONDS                                                           300
 #INITIAL                                                            10
 #REQUIRED                                                            4
 #RATE                                                                1
 
 #CLIMBER                                                            10
-#JUMPER                                                             10
+#JUMPER                                                             20
 #FLOATER                                                            10
 #NOTHING                                                             0
 #NOTHING                                                             0
@@ -35,7 +35,7 @@ $ENGLISH                                                 Distance Leap
 
 :bitmap/matt/03 - Carnival/Goal.G:                       496       320
 
-:bitmap/matt/03 - Carnival/Balloons:                      69        11
+:bitmap/matt/03 - Carnival/Balloons:                     560        46
 :bitmap/matt/03 - Carnival/13:                           208        96
 :bitmap/matt/03 - Carnival/14:                           224        96
 :bitmap/matt/03 - Carnival/15:                           240        96
@@ -45,8 +45,8 @@ $ENGLISH                                                 Distance Leap
 :bitmap/matt/03 - Carnival/34:                           608       192     fr
 :bitmap/matt/03 - Carnival/38:                           608       256     r
 :bitmap/matt/03 - Carnival/33:                           608       256     r
-:bitmap/rubix/Tutorial/Tricks05a:                         35       125
-:bitmap/rubix/Tutorial/Tricks05b:                        191       166
+:bitmap/rubix/Tutorial/Tricks05a:                         32        16
+:bitmap/rubix/Tutorial/Tricks05b:                        196       166
 :bitmap/matt/03 - Carnival/12:                           272        80
 :bitmap/matt/03 - Carnival/13:                           240        80
 :bitmap/matt/03 - Carnival/14:                           256        80
@@ -54,7 +54,7 @@ $ENGLISH                                                 Distance Leap
 :bitmap/matt/03 - Carnival/13:                           448       384
 :bitmap/matt/03 - Carnival/14:                           464       384
 :bitmap/matt/03 - Carnival/15:                           432       384
-:bitmap/rubix/Tutorial/Tricks05-pic1:                     57       315
+:bitmap/rubix/Tutorial/Tricks05-pic1:                     28       224
 :bitmap/matt/03 - Carnival/15:                           496       384
 :bitmap/matt/03 - Carnival/38:                           608         0     r
 :bitmap/matt/03 - Carnival/33:                           608         0     r
@@ -101,3 +101,5 @@ $ENGLISH                                                 Distance Leap
 :bitmap/matt/03 - Carnival/38:                           160       384     r
 :bitmap/matt/03 - Carnival/33:                           160       384     r
 :bitmap/matt/03 - Carnival/15:                           288        80
+:bitmap/matt/03 - Carnival/14:                           576       160
+:bitmap/matt/03 - Carnival/15:                           592       160
