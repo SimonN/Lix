@@ -259,16 +259,16 @@ bool fill_vector_from_file(std::vector <Line>& v, const std::string& filename)
 {
     if ( ! ::exists(filename.c_str())) return false;
     std::ifstream file(filename.c_str());
-    const bool b = fill_vector_from_stream(v, file);
+    fill_vector_from_stream(v, file);
     file.close();
-    return b;
+    return true; // even if empty file
 }
 
 
 
 bool fill_vector_from_stream(std::vector <Line>& v, std::istream& in)
 {
-    bool        something_was_read = false;
+    if (! in.good()) return false;
     std::string s;
     char        c;
     // Don't use in >> c since we want unformatted input to process newlines
@@ -278,15 +278,12 @@ bool fill_vector_from_stream(std::vector <Line>& v, std::istream& in)
         else if (! s.empty()) {
             v.push_back(Line(s));
             s.clear();
-            something_was_read = true;
         }
     }
     // No newline at end of file shall not matter
-    if (! s.empty()) {
-        v.push_back(Line(s));
-        something_was_read = true;
-    }
-    return something_was_read;
+    if (! s.empty()) v.push_back(Line(s));
+    // Return true even if empty, but if the stream was good to begin with
+    return true;
 }
 
 }
