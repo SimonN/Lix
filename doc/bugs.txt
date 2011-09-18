@@ -13,11 +13,36 @@ General
         take a look at Phil's Mac port of the game, although that is currently
         out of date.
 
+    Directory structure
+        To suit Linux package managers better, the game should read levels
+        from a global unmodifiable directory as well as from a user directory.
+        Inside the game, these directories should be merged. Same goes for
+        terrain graphics and config files. All of this should be optional,
+        i.e. one could also fare well with the current everything-in-one-dir
+        structure.
+
 
 
 Menu
 
-    --
+    Highscores of aging levels
+        If a highscore sees that (its level file) is older than (the same
+        level's version (the highscore was done for)), we shall generate the
+        same error as for (when the level is too new).
+
+    GUI color
+        The color of the GUI elements should be choosable by editing the config
+        file. I don't know whether it should be a hidden option (like setting
+        the UDP port to something else) or not, i.e. whether it's offered in
+        the options menu.
+
+    Hotkeys
+        The menu should be fully keyboard-controllable.
+
+    Replay default name
+        When saving a replay file, guess a good default name, e.g. the same
+        as the level file or level title. In each save browser, focus the
+        text entry on startup.
 
 
 
@@ -28,19 +53,16 @@ Editor
         copying everything does not guarantee correct z-order of the newly
         copied parts.
 
-    [Shift]
-        Don't hold shift, start dragging a frame with the mouse. While doing
-        that, press and release shift. The selection will be cancelled in some
-        way. It shouldn't happen, since shift shall only trigger the frame-
-        -dragging when on too much terrain.
+    Mirroring interactives
+        This moves the elements sometimes, even if it doesn't rotate them.
+
+    Pulling out of top left
+        Set the grid to 1. With the mouse, grab a piece and pull it out of the
+        top left of a non-torus map. It will move too fast.
 
 
 
 Gameplay physics
-
-    Doors too tall
-        Lixes won't enter some exits. Also, some exits aren't sized at
-        multiples of 16 in both dimensions.
 
     Exploder flinging
         I tested it in Lix. What happens is actually the opposite of what you
@@ -50,12 +72,12 @@ Gameplay physics
 
         Also, test assignment priority for stacked lixes. Inconsistent results?
 
+    Ascender should appear at 6 hi-res
+        The lixes should ascend more in general.
+
 
 
 Gameplay non-physics
-
-    RR buttons
-        Their numbers aren't redrawn correctly everytime.
 
     Multiple Hatches screen start
         In multiplayer, if the player will have multiple hatches, the screen
@@ -68,17 +90,31 @@ Gameplay non-physics
         the on/off graphic effect of a button during the draw step instead of
         instantly.
 
-    Small torus maps and zoom
-        If a very small torus map is displayed (vertically smaller than one
-        screen) and zoom is switched on, the game may crash. It works for
-        horizontally small maps. Thus, don't use the zoom on small torus maps.
-
     Two sounds from one lix at same time
         Due to the implementation of the effect manager, the same lix may
         only issue one sound to be played per update. If you jump into a trap
         that kills the lix on the exact frame after the jumper assignment,
         the trap/burn/kill sound won't play.
-        
+
+    Disrupt replay with skill key
+        Clicking on a skill button aborts an action replay. Pressing their
+        hotkeys should do the same.
+
+    Extra hatch sound
+        When restarting the level, the hatches make a sound immediately
+        at the beginning, and then one more when they're actually opening.
+
+
+
+Data/Images
+
+    Ice hatch
+        The ice hatch in Matt's winter set has a nonconstant pixel on its
+        border, which shouldn't animate.
+
+    Sound replacements
+        The sounds aren't fully replaced yet. See doc/sound.txt for details.
+
 
 
 Network game
