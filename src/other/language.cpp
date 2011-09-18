@@ -87,6 +87,7 @@ win_lobby_title,
 win_lobby_title_lobby,
 win_lobby_title_room,
 win_lobby_exit,
+win_lobby_unstable_central,
 win_lobby_start_central,
 win_lobby_start_server,
 win_lobby_start_client,
@@ -196,6 +197,8 @@ win_skill_all_to,
 // Netzwerk-Chatnachrichten
 net_chat_welcome_1,
 net_chat_welcome_2,
+net_chat_unstable_1,
+net_chat_unstable_2,
 net_chat_start_server,
 net_chat_start_client,
 net_chat_start_cancel,
@@ -459,6 +462,8 @@ void Language::set(const Language lang)
         win_lobby_title_lobby         = "Lobby";
         win_lobby_title_room          = "Room #";
         win_lobby_exit                = "Leave network";
+        win_lobby_unstable_central    = "(Experimental version. Please don't "
+                                        "use central server.)";
         win_lobby_start_central       = "Connect to central server";
         win_lobby_start_server        = "Host a game yourself";
         win_lobby_start_client        = "Connect to:";
@@ -568,9 +573,13 @@ void Language::set(const Language lang)
 
         // Netzwerk-Chatnachrichten
         net_chat_welcome_1            = "You can join the central server, "
-                                        "host a game by yourself,";
+                                        "host a game yourself,";
         net_chat_welcome_2            = "or enter an IP address/a host name "
-                                        "and click \"" + win_lobby_start_client + "\".";
+                                        "and click \"" + win_lobby_start_client
+                                         + "\".";
+        net_chat_unstable_1           = "This is an experimental version. "
+                                        "Host a game yourself";
+        net_chat_unstable_2           = net_chat_welcome_2;
         net_chat_start_server         = "You are the server. Other "
                                         "players can connect to you now.";
         net_chat_start_client         = "Searching a server at";
@@ -879,6 +888,8 @@ eb[Editor::ADD_HAZARD]
         win_lobby_title_lobby         = "Lobby";
         win_lobby_title_room          = "Raum Nr. ";
         win_lobby_exit                = "Netz verlassen";
+        win_lobby_unstable_central    = "(Experimentelle Version, bitte nicht "
+                                        "zentralen Server nutzen.)";
         win_lobby_start_central       = "Verbinden zu zentralem Server";
         win_lobby_start_server        = "Selbst ein Spiel hosten";
         win_lobby_start_client        = "Verbinden zu:";
@@ -989,8 +1000,12 @@ eb[Editor::ADD_HAZARD]
         // Netzwerk-Chatnachrichten
         net_chat_welcome_1            = "Verbinde zum Zentralserver, eroeffne "
                                         "selbst ein Spiel oder gib";
-        net_chat_welcome_2            = "eine IP-Adresse/einen Rechnernamen ein und waehle"
-                                        " \"" + win_lobby_start_client + "\".";
+        net_chat_welcome_2            = "eine IP-Adresse/einen Rechnernamen "
+                                        "ein und waehle \""
+                                        + win_lobby_start_client + "\".";
+        net_chat_unstable_1           = "Diese Version ist experimentell. "
+                                        "Eroeffne selbst ein Spiel oder gib";
+        net_chat_unstable_2           = net_chat_welcome_2;
         net_chat_start_server         = "Du bist der Server. Andere Spieler "
                                         "koennen zu dir verbinden.";
         net_chat_start_client         = "Suche Server unter";

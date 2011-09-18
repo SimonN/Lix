@@ -54,6 +54,8 @@ Lobby::Lobby()
                                medium_row_y,   button_xl),
     button_exit (LEMSCR_X - 20 - button_xl,
                                chat_type_y,    button_xl),
+    unstable_central(get_xl() / 2, start_but_y,
+                 Language::win_lobby_unstable_central, Api::Label::CENTERED),
     start_central(start_but_x, start_but_y,                  start_but_xl),
     start_server(start_but_x, start_but_y + 1*start_but_ys, start_but_xl),
     start_client(start_but_x, start_but_y + 2*start_but_ys, start_but_xl/2),
@@ -82,6 +84,7 @@ Lobby::Lobby()
     add_child(button_level);
     add_child(button_ready);
     add_child(button_exit);
+    add_child(unstable_central);
     add_child(start_central);
     add_child(start_server);
     add_child(start_client);
@@ -138,8 +141,14 @@ Lobby::Lobby()
     else {
         set_mode(NOT_CONNECTED);
         Console::clear();
-        Console::push_back(Language::net_chat_welcome_1);
-        Console::push_back(Language::net_chat_welcome_2);
+        if (gloB->version_stable) {
+            Console::push_back(Language::net_chat_welcome_1);
+            Console::push_back(Language::net_chat_welcome_2);
+        }
+        else {
+            Console::push_back(Language::net_chat_unstable_1);
+            Console::push_back(Language::net_chat_unstable_2);
+        }
     }
 }
 
@@ -172,7 +181,8 @@ void Lobby::set_mode(const Mode& mo)
     button_exit.set_text(Language::cancel);
 
     if (mo == NOT_CONNECTED) {
-        start_central.show();
+        if (gloB->version_stable) start_central.show();
+        else                      unstable_central.show();
         start_server.show();
         start_client.show();
         start_ip.show();

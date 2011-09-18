@@ -46,6 +46,7 @@ private:
 
     TextButton  button_exit;
 
+    Label       unstable_central;
     TextButton  start_central;
     TextButton  start_server;
     TextButton  start_client;
