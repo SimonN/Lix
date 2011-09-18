@@ -116,15 +116,15 @@ int Graphic::get_pixel(int x, int y) const
     // If the rotation is a multiple of a quarter turn, rotate the values
     // with the Graphic object. If the rotation is a fraction, return
     // the value from the original bitmap (treated as unrotated).
-    // L++ terrain can only be rotated in quarter turns.
+    // Lix terrain can only be rotated in quarter turns.
     int rotation_integer = (int) rotation;
     if (rotation_integer - rotation != 0) rotation_integer = 0;
 
     switch (rotation_integer) {
-        case 0: use_x = x;      use_y = !mirror ? y      : yl - y; break;
-        case 1: use_x = y;      use_y = !mirror ? yl - x : x;      break;
-        case 2: use_x = xl - x; use_y = !mirror ? yl - y : y;      break;
-        case 3: use_x = xl - y; use_y = !mirror ? x      : yl - x; break;
+        case 0: use_x = x;      use_y = !mirror ? y      : yl-y-1; break;
+        case 1: use_x = y;      use_y = !mirror ? yl-x-1 : x;      break;
+        case 2: use_x = xl-x-1; use_y = !mirror ? yl-y-1 : y;      break;
+        case 3: use_x = xl-y-1; use_y = !mirror ? x      : yl-x-1; break;
     }
     return cutbit->get_pixel(x_frame, y_frame, use_x, use_y);
 }
