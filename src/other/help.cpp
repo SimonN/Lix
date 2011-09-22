@@ -260,7 +260,7 @@ bool dir_exists(const Filename& fn)
     std::string dir = fn.get_dir_rootful();
     if (dir.size() > 0 && dir[dir.size() - 1] == '/')
         dir.erase(--dir.end());
-    return file_exists(dir.c_str(), FA_DIREC, 0);
+    return file_exists(dir.c_str(), FA_DIREC | FA_RDONLY, 0);
 }
 
 }
