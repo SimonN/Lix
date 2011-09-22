@@ -8,6 +8,7 @@
 #include "options.h"
 
 #include "../api/manager.h"
+#include "../graphic/gra_lib.h" // destroy and reload everything in case
 #include "../other/help.h"
 #include "../other/language.h"
 #include "../other/user.h"
@@ -202,23 +203,30 @@ OptionMenu::OptionMenu()
     screen_windowed_x     (other_x, 130, button_xl/2),
     screen_windowed_y     (370,     130, button_xl/2),
     screen_windowed       (check_x, 130),
-    screen_scaling        (other_x, 190, button_xl),
-    screen_border_colored (check_x, 190),
+    screen_scaling        (other_x, 160, button_xl),
+    screen_border_colored (check_x, 160),
     screen_vsync          (check_x, 100),
-    arrows_replay         (check_x, 250),
-    arrows_network        (check_x, 280),
-    debris_amount         (other_x, 250, button_xl),
-    debris_type           (other_x, 280, button_xl),
+    arrows_replay         (check_x, 220),
+    arrows_network        (check_x, 250),
+    debris_amount         (other_x, 220, button_xl),
+    debris_type           (other_x, 250, button_xl),
+    gui_color_red         (other_x - 40, 280, button_xl + 40),
+    gui_color_green       (other_x - 40, 310, button_xl + 40),
+    gui_color_blue        (other_x - 40, 340, button_xl + 40),
     desc_screen_resolution(other_nx, 100, Language::option_screen_resolution),
     desc_screen_windowed_res(other_nx,130, Language::option_screen_windowed_res),
     desc_screen_windowed  (check_nx, 130, Language::option_screen_windowed),
-    desc_screen_scaling   (other_nx, 190, Language::option_screen_scaling),
-    desc_screen_border_colored(check_nx,190,Language::option_screen_border_colored),
+    desc_screen_scaling   (other_nx, 160, Language::option_screen_scaling),
+    desc_screen_border_colored(check_nx,160,Language::option_screen_border_colored),
     desc_screen_vsync     (check_nx, 100, Language::option_screen_vsync),
-    desc_arrows_replay    (check_nx, 250, Language::option_arrows_replay),
-    desc_arrows_network   (check_nx, 280, Language::option_arrows_network),
-    desc_debris_amount    (other_nx, 250, Language::option_debris_amount),
-    desc_debris_type      (other_nx, 280, Language::option_debris_type),
+    desc_arrows_replay    (check_nx, 220, Language::option_arrows_replay),
+    desc_arrows_network   (check_nx, 250, Language::option_arrows_network),
+    desc_debris_amount    (other_nx, 220, Language::option_debris_amount),
+    desc_debris_type      (other_nx, 250, Language::option_debris_type),
+    desc_gui_color_red    (other_nx, 280, Language::option_gui_color_red),
+    desc_gui_color_green  (other_nx, 310, Language::option_gui_color_green),
+    desc_gui_color_blue   (other_nx, 340, Language::option_gui_color_blue),
+
     desc_option_gfx_zero  (20,       380, Language::option_gfx_zero),
     desc_option_gfx_info  (20,       400, Language::option_info),
 
@@ -242,6 +250,10 @@ OptionMenu::OptionMenu()
 
     replay_auto_max       .set_step_sml( 5);
     replay_auto_max       .set_step_med(50);
+
+    gui_color_red         .set_macro_color();
+    gui_color_green       .set_macro_color();
+    gui_color_blue        .set_macro_color();
 
     pointers[GROUP_GENERAL ].push_back(&user_name);
     pointers[GROUP_GENERAL ].push_back(&user_name_ask);
@@ -413,6 +425,9 @@ OptionMenu::OptionMenu()
     pointers[GROUP_GRAPHICS].push_back(&arrows_network);
     pointers[GROUP_GRAPHICS].push_back(&debris_amount);
     pointers[GROUP_GRAPHICS].push_back(&debris_type);
+    pointers[GROUP_GRAPHICS].push_back(&gui_color_red);
+    pointers[GROUP_GRAPHICS].push_back(&gui_color_green);
+    pointers[GROUP_GRAPHICS].push_back(&gui_color_blue);
     pointers[GROUP_GRAPHICS].push_back(&desc_screen_resolution);
     pointers[GROUP_GRAPHICS].push_back(&desc_screen_windowed_res);
     pointers[GROUP_GRAPHICS].push_back(&desc_screen_windowed);
@@ -423,6 +438,9 @@ OptionMenu::OptionMenu()
     pointers[GROUP_GRAPHICS].push_back(&desc_arrows_network);
     pointers[GROUP_GRAPHICS].push_back(&desc_debris_amount);
     pointers[GROUP_GRAPHICS].push_back(&desc_debris_type);
+    pointers[GROUP_GRAPHICS].push_back(&desc_gui_color_red);
+    pointers[GROUP_GRAPHICS].push_back(&desc_gui_color_green);
+    pointers[GROUP_GRAPHICS].push_back(&desc_gui_color_blue);
     pointers[GROUP_GRAPHICS].push_back(&desc_option_gfx_zero);
     pointers[GROUP_GRAPHICS].push_back(&desc_option_gfx_info);
 
@@ -550,6 +568,9 @@ void OptionMenu::reset_elements()
     arrows_network       .set_checked(useR->arrows_network);
     debris_amount        .set_number (useR->debris_amount);
     debris_type          .set_number (useR->debris_type);
+    gui_color_red        .set_number (useR->gui_color_red);
+    gui_color_green      .set_number (useR->gui_color_green);
+    gui_color_blue       .set_number (useR->gui_color_blue);
 
     sound_load_driver    .set_checked(gloB->sound_load_driver);
     sound_volume         .set_number (useR->sound_volume);
@@ -616,6 +637,11 @@ void OptionMenu::calc_self()
          ||(  full && gloB->screen_resolution_y != res_fy)
          ||(! full && gloB->screen_windowed_x   != res_wx)
          ||(! full && gloB->screen_windowed_y   != res_wy)) call_ssm = true;
+
+        bool reload_gralib = (
+            useR->gui_color_red   != gui_color_red  .get_number()
+         || useR->gui_color_green != gui_color_green.get_number()
+         || useR->gui_color_blue  != gui_color_blue .get_number() );
 
         // Die Werte aller Checkboxen und Buttons in die Optionen schreiben
         // Die Konfigurationsdatei wird gegen eventuelle Abstuerze oder
@@ -699,6 +725,9 @@ void OptionMenu::calc_self()
         useR->arrows_network        = arrows_network       .get_checked();
         useR->debris_amount         = debris_amount        .get_number();
         useR->debris_type           = debris_type          .get_number();
+        useR->gui_color_red         = gui_color_red        .get_number();
+        useR->gui_color_green       = gui_color_green      .get_number();
+        useR->gui_color_blue        = gui_color_blue       .get_number();
 
         gloB->screen_resolution_x = atoi(screen_resolution_x.get_text().c_str());
         gloB->screen_resolution_y = atoi(screen_resolution_y.get_text().c_str());
@@ -711,6 +740,12 @@ void OptionMenu::calc_self()
 
         // Use new resolution that's already written to globals
         if (call_ssm) set_screen_mode(gloB->screen_fullscreen_now);
+        if (reload_gralib) {
+            make_all_colors();
+            GraLib::deinitialize();
+            GraLib::initialize();
+            // the mouse cursor must be recerated by the Menu class
+        }
 
         gloB->save();
         useR->save();

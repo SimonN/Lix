@@ -18,7 +18,7 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2011, 09, 18, 00)),
+    version              (CONCAT(2011, 09, 23, 00)),
     version_min          (CONCAT(2011, 09, 18, 00)),
     version_stable       (true),
 
@@ -200,6 +200,9 @@ Globals::Globals()
     user_arrows_network          ("ARROWS_NETWORK"),
     user_debris_amount           ("DEBRIS_AMOUNT"),
     user_debris_type             ("DEBRIS_TYPE"),
+    user_gui_color_red           ("GUI_COLOR_RED"),
+    user_gui_color_green         ("GUI_COLOR_GREEN"),
+    user_gui_color_blue          ("GUI_COLOR_BLUE"),
 
     user_sound_volume            ("SOUND_VOLUME"),
 

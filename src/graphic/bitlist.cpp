@@ -8,14 +8,18 @@
 #include "glob_gfx.h"
 
 #include "../lix/lix_enum.h"
+#include "../other/user.h"
 
-static int make_sepia(const double light)
+AlCol make_sepia(const double light)
 {
     if      (light <= 0)      return makecol(0,    0,    0   );
     else if (light >= 0x1000) return makecol(0xFF, 0xFF, 0xFF);
-    int r = 0xA0;
-    int g = 0x94;
-    int b = 0x68;
+    int& r = useR->gui_color_red;
+    int& g = useR->gui_color_green;
+    int& b = useR->gui_color_blue;
+    r = (r > 0xFF ? 0xFF : r < 0 ? 0 : r);
+    g = (g > 0xFF ? 0xFF : g < 0 ? 0 : g);
+    b = (b > 0xFF ? 0xFF : b < 0 ? 0 : b);
     if      (light == 0x800) return makecol (r, g, b);
     else if (light <  0x800) return makecol (r * light / 0x800,
                                              g * light / 0x800,
@@ -41,7 +45,7 @@ void make_all_colors()
     color[COL_YELLOW         ] = makecol(255, 255,   0); // Gelb
     color[COL_STEEL_MASK     ] = color[COL_YELLOW     ]; // nicht pink
 
-    color[COL_SCREEN_BORDER  ] = makecol(0x20, 0x1C, 0x14); // Wenn Option gew.
+    color[COL_SCREEN_BORDER  ] = make_sepia(0x200);
     color[COL_EDITOR_DARK    ] = makecol(0x20, 0x20, 0x20); // Loeschobjekte
     color[COL_API_SHADOW     ] = make_sepia(0x300);
     color[COL_API_D          ] = make_sepia(0x7C0 / 1.2);

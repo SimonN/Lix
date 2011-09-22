@@ -16,8 +16,8 @@ class Number : public Element {
 
 private:
 
-    const unsigned digits;
-    const bool     six_buttons;
+    int      digits;
+    bool     six_buttons;
 
     int      number;
 
@@ -28,6 +28,7 @@ private:
     unsigned step_big;
     bool     white_zero;
     bool     format_time;
+    bool     format_hex;
     bool     show_sign;
     char     minus_one_char;
 
@@ -50,21 +51,23 @@ public:
 
            void set_minimum (const int);
            void set_maximum (const int);
-    inline int  get_minimum ()                 { return minimum;  }
-    inline int  get_maximum ()                 { return maximum;  }
+    inline int  get_minimum () const           { return minimum;  }
+    inline int  get_maximum () const           { return maximum;  }
     inline void set_step_sml(const unsigned i) { step_sml = i;    }
     inline void set_step_med(const unsigned i) { step_med = i;    }
     inline void set_step_big(const unsigned i) { step_big = i;    }
+           void set_six_buttons(bool);
+
+    inline int  get_number() const             { return number;   }
+           void set_number(const int);
 
     inline void set_show_sign(bool b = true)   { show_sign = b;   }
     inline void set_minus_one_char(char c)     { minus_one_char = c; }
-    inline bool get_show_sign()                { return show_sign; }
-    inline char get_minus_one_char()           { return minus_one_char; }
-
-    inline int  get_number()                   { return number;   }
-           void set_number(const int);
     inline void set_white_zero (bool b = true) { white_zero  = b; }
     inline void set_format_time(bool b = true) { format_time = b; }
+    inline void set_format_hex (bool b = true) { format_hex  = b; }
+
+           void set_macro_color(int = 0); // initial value
 
 protected:
 

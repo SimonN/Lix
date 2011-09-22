@@ -89,6 +89,9 @@ public:
     bool arrows_network;
     int  debris_amount;
     int  debris_type;
+    int  gui_color_red;
+    int  gui_color_green;
+    int  gui_color_blue;
 
     int  sound_volume;
 

@@ -228,6 +228,9 @@ private:
     Checkbox   arrows_network;
     EnumButton debris_amount;
     EnumButton debris_type;
+    Number     gui_color_red;
+    Number     gui_color_green;
+    Number     gui_color_blue;
     Label      desc_screen_resolution,
                desc_screen_windowed_res,
                desc_screen_windowed,
@@ -238,6 +241,9 @@ private:
                desc_arrows_network,
                desc_debris_amount,
                desc_debris_type,
+               desc_gui_color_red,
+               desc_gui_color_green,
+               desc_gui_color_blue,
                desc_option_gfx_zero,
                desc_option_gfx_info;
 

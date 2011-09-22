@@ -19,7 +19,7 @@
 Torbit *pre_screen;
 
 // Farben
-std::vector <int> color(COL_MAX);
+std::vector <AlCol> color(COL_MAX);
 
 // Schriftarten
 FONT* font_sml;
@@ -28,7 +28,6 @@ FONT* font_nar;
 FONT* font_big;
 
 // Diese werden in load_all_bitmaps() aufgerufen
-void make_all_colors();
 void make_all_bitmap_replacements();
 void make_all_lix_colors();
 void make_lix_color(const LixEn::Style, const int = 0, const int = 0,

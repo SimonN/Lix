@@ -33,9 +33,9 @@ WindowScroll::WindowScroll(Level& l, Map& m)
      level.start_y, true),
     jump   (20,              120, rgxl),
     current(this_xl-20-nrxl, 120, nrxl),
-    bg_r(this_xl-20-nrxl, 160, nrxl, 3, 0, 255, level.bg_red,   true),
-    bg_g(this_xl-20-nrxl, 180, nrxl, 3, 0, 255, level.bg_green, true),
-    bg_b(this_xl-20-nrxl, 200, nrxl, 3, 0, 255, level.bg_blue,  true),
+    bg_r(this_xl-20-nrxl, 160, nrxl),
+    bg_g(this_xl-20-nrxl, 180, nrxl),
+    bg_b(this_xl-20-nrxl, 200, nrxl),
     desc_win_scroll_x(20,  60, Language::win_scroll_x),
     desc_win_scroll_y(20,  80, Language::win_scroll_y),
     desc_win_scroll_r(20, 160, Language::win_scroll_r),
@@ -68,9 +68,9 @@ WindowScroll::WindowScroll(Level& l, Map& m)
     y.set_step_big  (m.get_screen_yl());
     x.set_white_zero();
     y.set_white_zero();
-    bg_r.set_step_med(16); bg_r.set_step_big(64);
-    bg_g.set_step_med(16); bg_g.set_step_big(64);
-    bg_b.set_step_med(16); bg_b.set_step_big(64);
+    bg_r.set_macro_color(level.bg_red);
+    bg_g.set_macro_color(level.bg_green);
+    bg_b.set_macro_color(level.bg_blue);
     jump   .set_text(Language::win_scroll_jump   );
     current.set_text(Language::win_scroll_current);
     ok     .set_text(Language::ok                );

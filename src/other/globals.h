@@ -212,6 +212,9 @@ public:
         user_arrows_network,
         user_debris_amount,
         user_debris_type,
+        user_gui_color_red,
+        user_gui_color_green,
+        user_gui_color_blue,
 
         user_sound_volume,
 

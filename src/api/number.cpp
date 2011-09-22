@@ -15,7 +15,7 @@ Number::Number(int nx, int ny, const unsigned xl,
     Element(nx, ny, xl, 20),
 
     digits     (new_digits),
-    six_buttons(new_six_buttons),
+    six_buttons(true), // will be amended later in constructor
 
     number    (nval),
     step_sml  (  1),
@@ -33,6 +33,7 @@ Number::Number(int nx, int ny, const unsigned xl,
     maximum        = nmax;
     white_zero     = false;
     format_time    = false;
+    format_hex     = false;
     show_sign      = false;
     minus_one_char = 0;
 
@@ -49,15 +50,7 @@ Number::Number(int nx, int ny, const unsigned xl,
     add_child(up_med);
     add_child(up_sml);
 
-    // Aeussere Buttons nicht anzeigen?
-    if (!six_buttons) {
-        down_sml.set_x(down_sml.get_x() - 20);
-        down_med.set_x(down_med.get_x() - 20);
-        up_med  .set_x(up_med  .get_x() + 20);
-        up_sml  .set_x(up_sml  .get_x() + 20);
-        remove_child(down_big);
-        remove_child(up_big);
-    }
+    set_six_buttons(new_six_buttons);
 }
 
 
@@ -99,6 +92,44 @@ void Number::set_number(const int nval)
     else if (number < minimum) number = minimum;
     set_draw_required();
 }
+
+void Number::set_six_buttons(const bool b)
+{
+    if (! six_buttons && b) {
+        down_sml.set_x(down_sml.get_x() + 20);
+        down_med.set_x(down_med.get_x() + 20);
+        up_med  .set_x(up_med  .get_x() - 20);
+        up_sml  .set_x(up_sml  .get_x() - 20);
+        add_child(down_big);
+        add_child(up_big);
+    }
+    else if (six_buttons && ! b) {
+        down_sml.set_x(down_sml.get_x() - 20);
+        down_med.set_x(down_med.get_x() - 20);
+        up_med  .set_x(up_med  .get_x() + 20);
+        up_sml  .set_x(up_sml  .get_x() + 20);
+        remove_child(down_big);
+        remove_child(up_big);
+    }
+    six_buttons = b;
+}
+
+
+void Number::set_macro_color(const int init)
+{
+    digits  = 4;
+    set_six_buttons(true);
+    minimum = 0;
+    maximum = 0xFF;
+    set_number(init);
+    step_sml =    1;
+    step_med = 0x10;
+    step_big = 0x40;
+    set_format_time(false);
+    set_format_hex(true);
+}
+
+
 
 
 
@@ -205,10 +236,20 @@ void Number::draw_self()
     }
     // Normale Zahlen, also keine Zeiten
     else if (!format_time) {
-        for (int i = digits - 1; i >= 0; --i) {
-            digit[i] = '0' + posval%10;
+        const int base = format_hex ? 0x10 : 10;
+        const int leftmost = (format_hex && digits > 2 ? 2 : 0);
+        if (leftmost == 2) {
+            digit[0] = '0';
+            digit[1] = 'x';
+        }
+        for (int i = digits - 1; i >= leftmost; --i) {
+            const int upcoming_digit = posval % base;
+            if (format_hex && upcoming_digit >= 0xA)
+                 digit[i] = 'A' + upcoming_digit - 0xA;
+            else digit[i] = '0' + upcoming_digit;
+
             if (posval > 0) digit_color[i] = color[COL_TEXT_ON];
-            posval /= 10;
+            posval /= base;
             if (show_sign && posval == 0 && i > 0) {
                 digit[0] = negative ? '-' : '+';
                 if (number != 0) digit_color[0] = color[COL_TEXT_ON];
@@ -221,8 +262,10 @@ void Number::draw_self()
         std::ostringstream digitstream;
         digitstream << posval / 60 << ':' << (posval % 60) / 10 << posval % 10;
         digit = digitstream.str();
-        while (digit.length() > digits - negative) digit.erase(digit.begin());
-        while (digit.length() < digits - negative) digit = '0' + digit;
+        while ((int) digit.length() > digits - negative)
+            digit.erase(digit.begin());
+        while ((int) digit.length() < digits - negative)
+            digit = '0' + digit;
         if (negative) {
             digit = '-' + digit;
             digit_color[0] = color[COL_TEXT_ON];
@@ -237,19 +280,8 @@ void Number::draw_self()
     }
 
     // Ziffern malen
-    for (unsigned i = 0; i < digits; ++i) {
-        std::string substring(digit, i, 1); // 1 Buchstaben lang
-        // Zeichenmethode fuer - anders waehlen
-//        if (substring[0] == '-' || substring[0] == '+') {
-//            Help::draw_shadow_centered_text(get_ground(), font_med,
-//             substring.c_str(), get_x() + get_xl()/2 - digits*5 +5+i*10,
-//             get_y(), digit_color[i], color[COL_API_SHADOW]);
-//        }
-//        else {
-//            Help::draw_shadow_text(get_ground(), font_med,
-//             substring.c_str(), get_x() + get_xl()/2 - digits*5 + i*10,
-//             get_y(), digit_color[i], color[COL_API_SHADOW]);
-//        }
+    for (int i = 0; i < digits; ++i) {
+        std::string substring(digit, i, 1);
         Help::draw_shadow_fixed_text(get_ground(), font_med,
          substring.c_str(), get_x_here() + get_xl()/2 - digits*5 + i*10,
          get_y_here(), digit_color[i]);

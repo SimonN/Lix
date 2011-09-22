@@ -122,6 +122,9 @@ User::User()
     arrows_network         (true),
     debris_amount          (2),
     debris_type            (1),
+    gui_color_red          (0x70),
+    gui_color_green        (0x80),
+    gui_color_blue         (0xA0),
 
     sound_volume           (10),
 
@@ -284,6 +287,9 @@ void User::load()
         else if (i->text1 == gloB->user_arrows_network         ) arrows_network         = i->nr1;
         else if (i->text1 == gloB->user_debris_amount          ) debris_amount          = i->nr1;
         else if (i->text1 == gloB->user_debris_type            ) debris_type            = i->nr1;
+        else if (i->text1 == gloB->user_gui_color_red          ) gui_color_red          = i->nr1;
+        else if (i->text1 == gloB->user_gui_color_green        ) gui_color_green        = i->nr1;
+        else if (i->text1 == gloB->user_gui_color_blue         ) gui_color_blue         = i->nr1;
 
         else if (i->text1 == gloB->user_sound_volume           ) sound_volume           = i->nr1;
 
@@ -394,6 +400,9 @@ void User::save() const
      << IO::LineHash  (gloB->user_arrows_network,          arrows_network)
      << IO::LineHash  (gloB->user_debris_amount,           debris_amount)
      << IO::LineHash  (gloB->user_debris_type,             debris_type)
+     << IO::LineHash  (gloB->user_gui_color_red,           gui_color_red)
+     << IO::LineHash  (gloB->user_gui_color_green,         gui_color_green)
+     << IO::LineHash  (gloB->user_gui_color_blue,          gui_color_blue)
      << std::endl
 
      << IO::LineHash  (gloB->user_sound_volume,            sound_volume)

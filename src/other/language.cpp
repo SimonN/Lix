@@ -277,6 +277,9 @@ option_debris_amount_all,
 option_debris_type,
 option_debris_type_stars,
 option_debris_type_pixels,
+option_gui_color_red,
+option_gui_color_green,
+option_gui_color_blue,
 option_info,
 option_gfx_zero,
 option_sound_load_driver,
@@ -674,6 +677,9 @@ void Language::set(const Language lang)
         option_debris_type            = "Debris type";
         option_debris_type_stars      = "Stars, clouds";
         option_debris_type_pixels     = "Pixels";
+        option_gui_color_red          = "Menu color red";
+        option_gui_color_green        = "Menu color green";
+        option_gui_color_blue         = "Menu color blue";
         option_info                   = "*) Hit [Alt] + [Enter] to toggle full"
                                         "screen/windowed mode at any time.";
         option_gfx_zero               = "**) Enter 0 in both fields to use "
@@ -1106,6 +1112,9 @@ eb[Editor::ADD_HAZARD]
         option_debris_type            = "Truemmer-Aussehen";
         option_debris_type_stars      = "Sterne, Wolken";
         option_debris_type_pixels     = "Pixel";
+        option_gui_color_red          = "Menuefarbe Rot";
+        option_gui_color_green        = "Menuefarbe Gruen";
+        option_gui_color_blue         = "Menuefarbe Blau";
         option_info                   = "*) [Alt] + [Enter] wechselt jederzeit"
                                        " zwischen Fenster- und Vollbildmodus.";
         option_gfx_zero               = "**) Setze beides auf 0, um deine norm"

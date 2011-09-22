@@ -153,6 +153,10 @@ void Menu::calc()
         if (options->get_exit()) {
             delete options;
             options = 0;
+            // Since the complete GraLib might be destroyed and reinitialized
+            // due to color change, do this
+            mouse_cursor = GraphicBG(GraLib::get(gloB->file_bitmap_mouse),
+                                     Api::Manager::get_torbit());
             main = new MainMenu();
         }
     }

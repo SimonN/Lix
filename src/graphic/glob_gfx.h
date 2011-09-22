@@ -24,6 +24,7 @@
 
 #include "cutbit.h"
 #include "torbit.h"
+#include "../other/types.h"
 
 extern Torbit *pre_screen;
 
@@ -76,7 +77,8 @@ enum Color {
     COL_MAX
 };
 
-extern std::vector <int> color;
+extern std::vector <AlCol> color;
+AlCol color_make_sepia(double);
 
 // Schriftarten
 extern FONT *font_sml;
@@ -85,6 +87,7 @@ extern FONT *font_nar;
 extern FONT *font_big;
 
 // Und die Funktionen
+void make_all_colors();
 void load_all_bitmaps();
 void destroy_all_bitmaps();
 
