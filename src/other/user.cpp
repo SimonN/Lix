@@ -122,7 +122,7 @@ User::User()
     arrows_network         (true),
     debris_amount          (2),
     debris_type            (1),
-    gui_color_red          (0x70),
+    gui_color_red          (0x8C),
     gui_color_green        (0x80),
     gui_color_blue         (0xA0),
 

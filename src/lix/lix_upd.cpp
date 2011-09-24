@@ -187,7 +187,7 @@ void Gameplay::update_lix_blocker(Lixxie& l)
         int distance_side = i->get_ac() == LixEn::MINER ? block_m : block_s;
         if (! i->get_leaving() && i->get_blockable()) {
             const int dx = map.distance_x(i->get_ex(), l.get_ex());
-            const int dy = map.distance_x(i->get_ey(), l.get_ey());
+            const int dy = map.distance_y(i->get_ey(), l.get_ey());
             if (dx > - distance_side && dx < distance_side
              && dy > - block_d       && dy < block_u) {
                 if ((i->get_dir() > 0 && dx > 0)
