@@ -9,6 +9,15 @@
 #include "../api/manager.h"
 #include "../graphic/sound.h"
 
+static bool lmain_exit_window_button_pressed = false;
+
+static void lmain_on_exit_handler()
+{
+    lmain_exit_window_button_pressed = true;
+}
+
+
+
 LMain::LMain()
 :
     exit    (false),
@@ -23,6 +32,7 @@ LMain::LMain()
     editor  (0),
     gameplay(0)
 {
+    ::set_close_button_callback(&lmain_on_exit_handler);
 }
 
 LMain::~LMain()
@@ -151,7 +161,9 @@ void LMain::calc()
 
     // Hotkey combination to terminate the program instantly from
     // everywhere. This doesn't bug the user about unsaved data.
-    if (key[KEY_ESC] && key[KEY_LSHIFT]) {
+    // Same goes for clicking the [x] button of the Allegro window.
+    if ((key[KEY_ESC] && key[KEY_LSHIFT])
+     || lmain_exit_window_button_pressed) {
         exit = true;
     }
     // Hotkey combination for fullscreen
