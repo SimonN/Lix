@@ -588,13 +588,13 @@ void Language::set(const Language lang)
         net_chat_start_client         = "Searching a server at";
         net_chat_start_cancel         = "Connection attempt cancelled.";
         net_chat_disconnection        = " has quit the network.";
-        net_chat_we_too_old           = "You have too old an Lix version "
+        net_chat_we_too_old           = "You have too old a Lix version "
                                         "to connect to the server.";
-        net_chat_we_too_new           = "You have too new an Lix version. "
+        net_chat_we_too_new           = "You have too new a Lix version. "
                                         "The server should upgrade.";
-        net_chat_someone_old          = "Someone with too old an Lix version "
+        net_chat_someone_old          = "Someone with too old a Lix version "
                                         "tried to connect.";
-        net_chat_someone_new          = "Someone with too new an Lix version "
+        net_chat_someone_new          = "Someone with too new a Lix version "
                                         "tried to connect.";
         net_chat_named_guy_old        = " must update his Lix version to "
                                         "continue.";
