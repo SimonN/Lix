@@ -191,7 +191,7 @@ void Editor::calc_self()
         case SELECT_COPY:
             for (SelIt i = selection.begin(); i != selection.end(); ++i) {
                 int offset = grid;
-                while (offset < 10) offset *= 2;
+                while (offset < 8) offset *= 2;
                 i->l->push_back(*i->o); // An einem Listenende anhaengen
                 i->o = --i->l->end();   // Neue Position fuer den Auswahliter.
                 i->o->set_x(i->o->get_x() + offset);

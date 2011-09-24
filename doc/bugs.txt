@@ -31,10 +31,8 @@ Menu
         same error as for (when the level is too new).
 
     GUI color
-        The color of the GUI elements should be choosable by editing the config
-        file. I don't know whether it should be a hidden option (like setting
-        the UDP port to something else) or not, i.e. whether it's offered in
-        the options menu.
+        Switching a user in the options doesn't recolor the GUI to the new
+        user's settings.
 
     Hotkeys
         The menu should be fully keyboard-controllable.
@@ -56,10 +54,6 @@ Editor
     Mirroring interactives
         This moves the elements sometimes, even if it doesn't rotate them.
 
-    Pulling out of top left
-        Set the grid to 1. With the mouse, grab a piece and pull it out of the
-        top left of a non-torus map. It will move too fast.
-
 
 
 Gameplay physics
@@ -74,6 +68,10 @@ Gameplay physics
 
     Ascender should appear at 6 hi-res
         The lixes should ascend more in general.
+
+    Tumbler physics
+        The tumbler teleports through walls in some cases. It might be best
+        to not put it into walls in the first place.
 
 
 

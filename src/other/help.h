@@ -39,8 +39,8 @@ namespace Help {
     inline int mod(int base, int modulo)
     {
         if (modulo < 0) modulo *= -1;
-        if (base >= 0) return base % modulo;
-        else           return base % modulo + modulo;
+        const int intermediate = base % modulo;
+        return intermediate < 0 ? intermediate + modulo : intermediate;
     }
     inline int even(const int x) {
         return (int) (((unsigned int) x) / 2 * 2);
