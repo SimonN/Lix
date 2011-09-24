@@ -283,27 +283,20 @@ void Gameplay::prepare_level()
     if (trlo) pan.stats.set_tribe_local(trlo);
 
     // Bildschirm-Start-Koordinaten festlegen fuer den lokalen Spieler, wenn
-    // wir nicht alleine sind: In die Mitte aller eigenen Klappen
-    // Debugging: Eventuell Antipode auf dem Torus nehmen, wenn die naeher
-    // an allen liegt als das Ergebnis hier.
+    // wir nicht alleine sind: In die Mitte aller eigenen Klappen, oder
+    // auf die Antipode des Torus oder sowas, falls das mehr Sinn macht.
     // Also, these hatches will be marked to blink with the player's icon.
     if (multiplayer) {
-        unsigned sum_h = 0;
-        int sum_x = 0;
-        int sum_y = 0;
         int h = trlo->hatch_next;
+        std::vector <GameHatch*> ownhatches;
         do {
             hatches[h].set_style(trlo->style);
-            sum_x+=hatches[h].get_x()+hatches[h].get_object()->get_trigger_x();
-            sum_y+=hatches[h].get_y()+hatches[h].get_object()->get_trigger_y();
-            ++sum_h;
-            // Die nächste Klappe kommt an die Reihe
+            ownhatches.push_back(&hatches[h]);
+            // the next hatch shall be analyzed
             h += cs.tribes.size();
             h %= hatches.size();
         } while (h != trlo->hatch_next);
-
-        map.set_screen_x(sum_x / sum_h -  LEMSCR_X / 2);
-        map.set_screen_y(sum_y / sum_h - (LEMSCR_Y-gloB->panel_gameplay_yl)/3);
+        determine_screen_start_from_hatches(ownhatches);
     }
     else {
         // In singleplayer, start at the given coordinates.
@@ -340,6 +333,58 @@ void Gameplay::prepare_panel()
         if (spectating) pan.set_gapamode(GM_REPLAY_MULTI);
         else            pan.set_gapamode(GM_PLAY_SINGLE);
     }
+}
+
+
+
+double Gameplay::distance_to_hatches(
+    int x, int y, const std::vector <GameHatch*>& vec
+) {
+    typedef std::vector <GameHatch*> ::const_iterator Chit;
+    double ret = 0;
+    for (Chit itr = vec.begin(); itr != vec.end(); ++itr) {
+        ret += Help::hypot(0, 0, map.distance_x(x,
+            (**itr).get_x() + (**itr).get_object()->get_trigger_x()),
+                                 map.distance_y(y,
+            (**itr).get_y() + (**itr).get_object()->get_trigger_y()));
+    }
+    return ret;
+}
+
+
+
+void Gameplay::determine_screen_start_from_hatches(
+    const std::vector <GameHatch*>& vec
+) {
+    if (vec.empty()) return;
+    // first, calculate the average without torus
+    typedef std::vector <GameHatch*> ::const_iterator Chit;
+    int sum_x = 0;
+    int sum_y = 0;
+    for (Chit itr = vec.begin(); itr != vec.end(); ++itr) {
+        sum_x += (**itr).get_x() + (**itr).get_object()->get_trigger_x();
+        sum_y += (**itr).get_y() + (**itr).get_object()->get_trigger_y();
+    }
+    sum_x /= vec.size();
+    sum_y /= vec.size();
+    const int more_x = sum_x + map.get_xl() / 2;
+    const int more_y = sum_y + map.get_yl() / 2;
+    double dist = distance_to_hatches(sum_x, sum_y, vec);
+    double dist_x = dist, dist_y = dist, dist_xy = dist;
+    if (map.get_torus_x())
+        dist_x = distance_to_hatches(more_x, sum_y, vec);
+    if (map.get_torus_y())
+        dist_y = distance_to_hatches(sum_x, more_y, vec);
+    if (map.get_torus_x() && map.get_torus_y())
+        dist_xy = distance_to_hatches(more_x, more_y, vec);
+
+                          map.set_screen_center(sum_x,  sum_y);
+    if (dist_x  < dist)   map.set_screen_center(more_x, sum_y);
+    if (dist_y  < dist
+     && dist_y  < dist_x) map.set_screen_center(sum_x,  more_y);
+    if (dist_xy < dist
+     && dist_xy < dist_x
+     && dist_xy < dist_y) map.set_screen_center(more_x, more_y);
 }
 
 

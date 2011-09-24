@@ -135,15 +135,16 @@ public:
            bool get_scrollable_left();
            bool get_scrollable_down();
 
-    inline int  get_screen_xl()                   { return screen_xl; }
-    inline int  get_screen_yl()                   { return screen_yl; }
+    inline int  get_screen_xl()             { return screen_xl; }
+    inline int  get_screen_yl()             { return screen_yl; }
 
-    inline int  get_screen_x()                    { return screen_x;  }
-    inline int  get_screen_y()                    { return screen_y;  }
-           void set_screen_x(const int);
-           void set_screen_y(const int);
+    inline int  get_screen_x()              { return screen_x;  }
+    inline int  get_screen_y()              { return screen_y;  }
+           void set_screen_x(int);
+           void set_screen_y(int);
+           void set_screen_center(int, int);
 
-    inline bool get_zoom()                        { return zoom;      }
+    inline bool get_zoom()                  { return zoom;      }
            void set_zoom(const bool = true);
 
            int  get_mouse_x();

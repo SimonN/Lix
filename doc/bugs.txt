@@ -72,11 +72,6 @@ Gameplay physics
 
 Gameplay non-physics
 
-    Multiple Hatches screen start
-        In multiplayer, if the player will have multiple hatches, the screen
-        start coordinates aren't calculated properly if the best point is
-        a torus-seam-using combination of the hatch coordinations.
-
     Buttons and hotkeys
         During intense networking action, when a player selects skills with
         the keyboard hotkeys, the buttons may flicker. To remedy this, select

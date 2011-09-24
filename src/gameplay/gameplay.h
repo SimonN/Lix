@@ -115,6 +115,9 @@ private:
     void prepare_panel  ();
     void save_result    ();
 
+    double distance_to_hatches(int, int, const std::vector <GameHatch*>&);
+    void determine_screen_start_from_hatches(const std::vector <GameHatch*>&);
+
     // Calculate-Subroutinen
     void calc_window(); // Fuers Unterfenster, ansonsten:
     void calc_self  (); // Wird sonst in jedem Tick ausgeführt

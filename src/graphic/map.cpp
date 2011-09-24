@@ -136,6 +136,12 @@ void Map::set_screen_y(const int y)
     }
 }
 
+void Map::set_screen_center(const int x, const int y)
+{
+    set_screen_x(x - screen_xl / 2);
+    set_screen_y(y - screen_yl / 2);
+}
+
 
 
 void Map::set_zoom(const bool b)
