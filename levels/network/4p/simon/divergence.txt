@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-04 15:37:33
+$BUILT                                             2011-09-27 01:54:59
 $AUTHOR                                                          Simon
 $GERMAN                                                               
 $ENGLISH                                                    Divergence
@@ -21,7 +21,7 @@ $ENGLISH                                                    Divergence
 #WALKER                                                             30
 #JUMPER                                                             30
 #RUNNER                                                             30
-#FLOATER                                                            10
+#CLIMBER                                                            30
 #EXPLODER2                                                          30
 #CUBER                                                              30
 #BATTER                                                             20

@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-18 17:23:06
+$BUILT                                             2011-09-24 23:51:17
 $AUTHOR                                                          Simon
 $GERMAN                                                               
 $ENGLISH                                             Last Man Standing
@@ -13,7 +13,7 @@ $ENGLISH                                             Last Man Standing
 #BACKGROUND_GREEN                                                    0
 #BACKGROUND_BLUE                                                     0
 
-#SECONDS                                                             1
+#SECONDS                                                            61
 #INITIAL                                                            50
 #REQUIRED                                                           20
 #RATE                                                               90
@@ -36,10 +36,10 @@ $ENGLISH                                             Last Man Standing
 :bitmap/simon/hatch001.H:                                320       160     r
 :bitmap/simon/hatch001.H:                                256       160
 
-:bitmap/matt/09 - Marble/Goal.G:                         568       160
-:bitmap/matt/09 - Marble/Goal.G:                           8       160
+:bitmap/matt/09 - Marble/Goal.G:                         568       224
+:bitmap/matt/09 - Marble/Goal.G:                           8       224
 
-:bitmap/geoo/construction/sawblade_small.F:              104       176
+:bitmap/geoo/construction/sawblade_small.F:              104       160
 :bitmap/geoo/construction/Laser_vr_64.F:                 168        40
 :bitmap/geoo/construction/Laser_hz_16.F:                 176        32
 :bitmap/geoo/construction/Laser_hz_16.F:                 176        64
@@ -99,13 +99,21 @@ $ENGLISH                                             Last Man Standing
 :bitmap/geoo/construction/Laser_vr_16.F:                 460        88
 :bitmap/geoo/construction/Laser_vr_16.F:                 464        88
 :bitmap/geoo/construction/Laser_vr_16.F:                 468        88
-:bitmap/geoo/construction/sawblade_small.F:              520       176
-:bitmap/geoo/construction/sawblade_small.F:               88       176
-:bitmap/geoo/construction/sawblade_small.F:              504       176
-:bitmap/geoo/construction/sawblade_small.F:              120       184
-:bitmap/geoo/construction/sawblade_small.F:              488       184
-:bitmap/geoo/construction/sawblade_small.F:               72       176
-:bitmap/geoo/construction/sawblade_small.F:              536       176
+:bitmap/geoo/construction/sawblade_small.F:              520       152
+:bitmap/geoo/construction/sawblade_small.F:               88       152
+:bitmap/geoo/construction/sawblade_small.F:              504       160
+:bitmap/geoo/construction/sawblade_small.F:              120       168
+:bitmap/geoo/construction/sawblade_small.F:              488       168
+:bitmap/geoo/construction/sawblade_small.F:              528       168
+:bitmap/geoo/construction/sawblade_small.F:               80       168
+:bitmap/geoo/construction/sawblade_small.F:               72       184
+:bitmap/geoo/construction/sawblade_small.F:              536       184
+:bitmap/geoo/construction/sawblade_small.F:              472       176
+:bitmap/geoo/construction/sawblade_small.F:              136       176
+:bitmap/geoo/construction/sawblade_small.F:              152       184
+:bitmap/geoo/construction/sawblade_small.F:              456       184
+:bitmap/geoo/construction/sawblade_small.F:               64       200
+:bitmap/geoo/construction/sawblade_small.F:              544       200
 
 :bitmap/matt/09 - Marble/23e:                            192       264
 :bitmap/matt/09 - Marble/23e:                            224       264
@@ -149,10 +157,8 @@ $ENGLISH                                             Last Man Standing
 :bitmap/matt/09 - Marble/23e:                            416       360
 :bitmap/simon/tapir/064h:                                584       336
 :bitmap/simon/tapir/064h:                                552       272
-:bitmap/simon/tapir/064h:                                520       208
 :bitmap/simon/tapir/064h:                                -72       336
 :bitmap/simon/tapir/064h:                                -40       272
-:bitmap/simon/tapir/064h:                                 -8       208
 :bitmap/simon/tapir/032vc:                               520       272
 :bitmap/simon/tapir/032vc:                               552       336
 :bitmap/simon/tapir/032vd:                                88       272
@@ -167,3 +173,5 @@ $ENGLISH                                             Last Man Standing
 :bitmap/matt/09 - Marble/23e:                            416       392
 :bitmap/geoo/steel/dark_32x64o.S:                        416       336
 :bitmap/geoo/steel/dark_32x64o.S:                        192       336
+:bitmap/simon/tapir/032vb:                               520       208
+:bitmap/simon/tapir/032va:                                88       208

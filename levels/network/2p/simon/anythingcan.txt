@@ -1,0 +1,123 @@
+$BUILT                                             2011-09-25 00:07:57
+$AUTHOR                                                          Simon
+$GERMAN                                                               
+$ENGLISH                                             Anything can work
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             1
+#START_X                                                             0
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                            60
+#INITIAL                                                            80
+#REQUIRED                                                           20
+#RATE                                                               60
+
+#WALKER                                                             30
+#JUMPER                                                             30
+#CLIMBER                                                            30
+#RUNNER                                                             30
+#EXPLODER2                                                          30
+#BATTER                                                             60
+#CUBER                                                              30
+#BUILDER                                                            60
+#PLATFORMER                                                         30
+#BASHER                                                             30
+#MINER                                                              30
+#DIGGER                                                             15
+
+:bitmap/geoo/construction/Hatch.H:                        32       240
+:bitmap/geoo/construction/Hatch.H:                       576       240     r
+
+:bitmap/simon/tapir/goal.G:                              574       160
+:bitmap/simon/tapir/goal.G:                                2       160
+
+:bitmap/geoo/construction/sawblade_small.F:               80       176
+:bitmap/geoo/construction/sawblade_small.F:              528       176
+
+:bitmap/geoo/steel/32x32o.S:                               0       240
+:bitmap/geoo/steel/32x32o.S:                             608       240
+:bitmap/geoo/construction/wall/big_128x128:                0       272
+:bitmap/geoo/construction/wall/big_128x128:              128       272
+:bitmap/geoo/construction/wall/big_128x128:              256       272
+:bitmap/geoo/construction/wall/big_128x128:              384       272
+:bitmap/geoo/construction/wall/big_128x128:              512       272
+:bitmap/geoo/construction/fence_rust_64x64:              256       208
+:bitmap/geoo/construction/fence_rust_64x64:              192       144
+:bitmap/geoo/construction/pillar_32:                     256       112
+:bitmap/geoo/construction/fence_rust_64x64:              256       144
+:bitmap/geoo/construction/pillar_32:                     352       112
+:bitmap/geoo/construction/fence_rust_64x64:              320       144
+:bitmap/geoo/construction/concrete/032v:                 256       144
+:bitmap/geoo/construction/concrete/032v:                 352       144
+:bitmap/geoo/construction/fence_rust_64x64:              384       144
+:bitmap/geoo/construction/pillar_32:                     256        80
+:bitmap/geoo/construction/concrete/032hb:                224       112
+:bitmap/geoo/construction/pillar_32:                     352        80
+:bitmap/geoo/construction/concrete/032ha:                352       112
+:bitmap/geoo/construction/fence_rust_64x64:              160       112
+:bitmap/geoo/construction/fence_rust_64x64:              416       112
+:bitmap/geoo/construction/concrete/032hc:                160       112
+:bitmap/geoo/construction/concrete/032hd:                416       112
+:bitmap/geoo/steel/64x32o.S:                               0       208
+:bitmap/geoo/steel/64x32o.S:                             576       208
+:bitmap/geoo/steel/dark_64x32o.S:                         32       304
+:bitmap/geoo/steel/dark_64x32o.S:                        544       304
+:bitmap/geoo/construction/rod_steel/straight32.S:         -2       176     frrr
+:bitmap/geoo/construction/concrete/016vd:                 64       208
+:bitmap/geoo/construction/concrete/016:                   64       192
+:bitmap/geoo/construction/concrete/016:                  560       192
+:bitmap/geoo/construction/concrete/016vc:                560       208
+:bitmap/geoo/construction/pillar_32:                     192        80
+:bitmap/geoo/construction/pillar_32:                     416        80
+:bitmap/geoo/construction/pillar_32:                     192        48
+:bitmap/geoo/construction/pillar_32:                     416        48
+:bitmap/geoo/construction/pillar_top_shaded:             192        32
+:bitmap/geoo/construction/pillar_top_shaded:             416        32
+:bitmap/geoo/construction/fence_rust_64x64:              288        64
+:bitmap/geoo/construction/fence_rust_64x64:              288        80
+:bitmap/geoo/construction/fence_rust_64x64:              320       208
+:bitmap/geoo/steel/dark_64x32o.S:                        128         0
+:bitmap/geoo/construction/wall/big_brick1:                 0         0
+:bitmap/geoo/construction/wall/big_brick3:                64         0
+:bitmap/geoo/construction/wall/big_brick1:               512         0
+:bitmap/geoo/construction/wall/big_brick3:               576         0
+:bitmap/geoo/steel/dark_64x32o.S:                        192         0
+:bitmap/geoo/steel/dark_64x32o.S:                        256         0
+:bitmap/geoo/steel/dark_64x32o.S:                        320         0
+:bitmap/geoo/steel/dark_64x32o.S:                        384         0
+:bitmap/geoo/steel/dark_64x32o.S:                        448         0
+:bitmap/geoo/steel/dark_64x32o.S:                         64         0
+:bitmap/geoo/steel/dark_64x32o.S:                        512         0
+:bitmap/geoo/construction/rod_steel/straight32.S:         -2       384     frrr
+:bitmap/geoo/steel/dark_32x32o.S:                          0       368
+:bitmap/geoo/construction/rod_steel/straight32.S:        634       384     fr
+:bitmap/geoo/steel/dark_32x32o.S:                        608       368
+:bitmap/geoo/steel/16x16o.S:                             240       208
+:bitmap/geoo/steel/16x16o.S:                             384       208
+:bitmap/geoo/construction/concrete/016hc:                224       144
+:bitmap/geoo/construction/concrete/016hd:                384       144
+:bitmap/geoo/construction/concrete/016hd:                256       208
+:bitmap/geoo/construction/concrete/016hc:                352       208
+:bitmap/geoo/construction/pillar_32:                     256        48
+:bitmap/geoo/construction/pillar_32:                     352        48
+:bitmap/geoo/construction/pillar_top_shaded:             256        32
+:bitmap/geoo/construction/pillar_top_shaded:             352        32
+:bitmap/geoo/construction/rod_steel/straight32.S:         -2       144     frrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        634       144     fr
+:bitmap/geoo/construction/rod_steel/straight32.S:        634       176     fr
+:bitmap/geoo/construction/concrete/podium_32:            112       240
+:bitmap/geoo/construction/concrete/podium_32:            464       240
+:bitmap/geoo/construction/rod_steel/straight32.S:         -2       112     frrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         -2        80     frrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         -2        48     frrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         -2        16     frrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        634        80     fr
+:bitmap/geoo/construction/rod_steel/straight32.S:        634       112     fr
+:bitmap/geoo/construction/rod_steel/straight32.S:        634        16     fr
+:bitmap/geoo/construction/rod_steel/straight32.S:        634        48     fr

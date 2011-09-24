@@ -9,9 +9,6 @@
 		<Option show_notes="0">
 			<notes>
 				<![CDATA[// debugging fuer allgemeine Hinweise
-// lemdebug fuer Umarbeiten Lemming -> Lix
-
-Basher soll im 1. Stroke weniger Erde zum Weitermachen verlangen, oder immer durch eine Treppe bohren.
 
 Absturz bei Shift+Esc aus Spielraum, nicht Lobby
 
