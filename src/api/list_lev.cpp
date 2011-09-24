@@ -69,8 +69,8 @@ void ListLevel::add_file_button(const int nr, const int which_from_file)
     if (checkmark_style) {
         const Result* result = useR->get_level_result(f);
         if (result)
-         // >= wird auch in menu/brow_sin.cpp verwendet
-         t->set_check_frame(result->built >= Level::get_built(f) ? 1 : 2);
+         // == wird auch in menu/brow_sin.cpp verwendet
+         t->set_check_frame(result->built == Level::get_built(f) ? 1 : 2);
     }
     button_push_back(t);
 }

@@ -25,11 +25,6 @@ General
 
 Menu
 
-    Highscores of aging levels
-        If a highscore sees that (its level file) is older than (the same
-        level's version (the highscore was done for)), we shall generate the
-        same error as for (when the level is too new).
-
     GUI color
         Switching a user in the options doesn't recolor the GUI to the new
         user's settings.

@@ -116,8 +116,8 @@ void SingleBrowser::on_file_highlight(const Filename& filename)
     if (result && result->lix_saved >= l.required) {
         rec_saved    .show();
         rec_saved    .set_value(result->lix_saved);
-        // >= wird auch in api/list_lev.cpp verwendet fuer Haken-Darstellung
-        if (result->built >= l.built) {
+        // == wird auch in api/list_lev.cpp verwendet fuer Haken-Darstellung
+        if (result->built == l.built) {
             rec_skills   .show();
             rec_updates  .show();
             rec_skills   .set_value(result->skills_used);
