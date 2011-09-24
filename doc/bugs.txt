@@ -89,9 +89,6 @@ Gameplay non-physics
         When restarting the level, the hatches make a sound immediately
         at the beginning, and then one more when they're actually opening.
 
-    Show lixes in hatch
-        This count must be shown at least in singleplayer.
-
 
 
 Data/Images

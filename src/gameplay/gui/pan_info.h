@@ -60,6 +60,7 @@ private:
 
         static const int frame_outopp;
         static const int frame_out;
+        static const int frame_hatch;
         static const int frame_in;
         static const int frame_clock;
         static const int frame_cup;

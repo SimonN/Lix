@@ -11,13 +11,14 @@
 #include "../../other/language.h"
 #include "../../other/help.h"
 
-const int GameplayStats::PanelTribe::frame_outopp = 0;
-const int GameplayStats::PanelTribe::frame_out    = 1;
-const int GameplayStats::PanelTribe::frame_in     = 2;
-const int GameplayStats::PanelTribe::frame_clock  = 3;
-const int GameplayStats::PanelTribe::frame_cup    = 4;
-const int GameplayStats::PanelTribe::frame_cupall = 5;
-const int GameplayStats::PanelTribe::frame_target = 6;
+const int GameplayStats::PanelTribe::frame_outopp = 2;
+const int GameplayStats::PanelTribe::frame_out    = 3;
+const int GameplayStats::PanelTribe::frame_hatch  = 4;
+const int GameplayStats::PanelTribe::frame_in     = 5;
+const int GameplayStats::PanelTribe::frame_clock  = 6;
+const int GameplayStats::PanelTribe::frame_cup    = 7;
+const int GameplayStats::PanelTribe::frame_cupall = 8;
+const int GameplayStats::PanelTribe::frame_target = 9;
 
 const int GameplayStats::PanelTribe::frame_color  = 0;
 const int GameplayStats::PanelTribe::frame_gray   = 1;
@@ -63,41 +64,58 @@ void GameplayStats::PanelTribe::draw_local(
     if (!tr) return;
 
     int x_out_icon   = x +   0;
-    int x_out        = x +  25;
-    int x_in_icon    = x +  80;
-    int x_in         = x + 105;
-    int x_cup_icon   = x + 160; // is the target save count
-    int x_cup        = x + 185;
-    int x_cupall_icon= x + 160; // doesn't appear in singleplayer
-    int x_cupall     = x + 185;
+    int x_out        = x +   0 + 25;
+    int x_hatch_icon = x +  70; // not used in singleplayer
+    int x_hatch      = x +  70 + 25;
+    int x_in_icon    = x +  70;
+    int x_in         = x +  70 + 25;
+    int x_cup_icon   = x + 140; // is the target save count
+    int x_cup        = x + 140 + 25;
+    int x_cupall_icon= x + 140; // doesn't appear in singleplayer
+    int x_cupall     = x + 140 + 25;
     int x_clock_icon = x + 240;
-    int x_clock      = x + 265;
+    int x_clock      = x + 240 + 25;
     int x_tarinf     = x + 320;
     int xl_tarinf    = 12 * 40 - x_tarinf;
     if (multi) {
+        x_hatch_icon = x +  70;
+        x_hatch      = x +  70 + 25;
         x_in_icon    = x +  70;
-        x_in         = x +  95;
+        x_in         = x +  70 + 25;
         x_cup_icon   = x + 140;
-        x_cup        = x + 165;
+        x_cup        = x + 140 + 25;
         x_cupall_icon= x + 210;
-        x_cupall     = x + 235;
+        x_cupall     = x + 210 + 25;
         x_clock_icon = x + 280;
-        x_clock      = x + 305;
+        x_clock      = x + 280 + 25;
         x_tarinf     = x + 350;
         xl_tarinf    = 12 * 40 - x_tarinf;
     }
 
     const int  in    = tr->lix_saved;
-    const int  out   = tr->get_lix_out() + tr->lix_hatch;
+    const int  out   = tr->get_lix_out();
     const bool green = multi ? tr->lix_saved >= oppo_saved
                              : tr->required && in >= tr->required;
 
+    // draw out count
     GraLib::get_icon(tr->style).draw(*ground, x_out_icon, y, frame_out,
      out == 0 ? frame_gray :                       frame_color);
-    GraLib::get_icon(tr->style).draw(*ground, x_in_icon,  y, frame_in,
-     in  == 0 ? frame_gray : green ? frame_green : frame_color);
     draw_nr_sml(out, x_out, y);
-    draw_nr_sml(in,  x_in, y, green);
+
+    if (multi && tr->lix_hatch > 0) {
+        // draw content of hatch
+        GraLib::get_icon(tr->style).draw(*ground, x_hatch_icon, y, frame_hatch,
+         frame_gray);
+        // i.e. always draw a grey frame, don't do something like this:
+        // tr->lix_hatch == 0 ? frame_gray : frame_color
+        draw_nr_sml(tr->lix_hatch, x_hatch, y);
+    }
+    else {
+        // out count
+        GraLib::get_icon(tr->style).draw(*ground, x_in_icon,  y, frame_in,
+         in  == 0 ? frame_gray : green ? frame_green : frame_color);
+        draw_nr_sml(in, x_in, y, green);
+    }
 
     if (clock) {
         GraLib::get_icon(tr->style).draw(*ground, x_clock_icon, y, frame_clock,
@@ -119,16 +137,17 @@ void GameplayStats::PanelTribe::draw_local(
     if (multi) {
         GraLib::get_icon(cup_style).draw(*ground, x_cup_icon, y, frame_cup,
          cup_colored ? frame_color : frame_gray);
-        if (in >= oppo_saved) {
-            if (in > oppo_saved) str << '+';
-            if (in > 0)          green_cup = true;
+        if (in > oppo_saved) {
+            str << '+';
+            green_cup = true;
         }
         str << in - oppo_saved;
     }
     else {
+        // draw the required count
         GraLib::get_icon(cup_style).draw(*ground, x_cup_icon, y, frame_target,
          frame_gray);
-        str << tr->required;
+        str << tr->required << "/" << tr->initial;
     }
     Help::draw_shadow_text(*ground, font_med, str.str().c_str(),
      x_cup, y, green_cup ? color[COL_TEXT_GREEN] : color[COL_TEXT]);
