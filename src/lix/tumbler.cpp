@@ -170,7 +170,7 @@ bool jumper_and_tumbler_collision(Lixxie& l)
         else {
             l.become(LixEn::ASCENDER);
             l.set_frame(5-swh/2 < 0 ? 0 : 5-swh/2);
-            l.move_down(1 + !(swh%2));
+            l.move_down(-1 + !(swh%2));
             // Zeile aus lemupd.cpp kopiert, vom Climber:
             // Ist's eine schroffe Klippe? Sonst noch einen nach vorne.
             if (!l.is_solid(2, -18)) l.move_ahead();

@@ -21,7 +21,8 @@ void assclk_walker(Lixxie& l)
         if (l.get_ac() == LixEn::WALKER) l.set_frame(-1);
         if (l.get_ac() == LixEn::RUNNER) l.set_frame(-1);
     }
-    else if (l.get_ac() == LixEn::STUNNER) {
+    else if (l.get_ac() == LixEn::STUNNER
+          || l.get_ac() == LixEn::ASCENDER) {
         // lix_ac.cpp only allows to get here when the frame is high enough
         l.become(LixEn::WALKER);
         l.turn();
@@ -97,15 +98,15 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
         // ...sonst sich nach oben bewegen...
         else {
             l.move_up(up_by);
-            // ...und ggf. kurz anhalten, um Höhen ab 7 Pixeln zu klettern
-            if (up_by > 6) {
+            // ...und ggf. kurz anhalten, um Höhen ab 6 Pixeln zu klettern
+            if (up_by >= 6) {
                 l.become(LixEn::ASCENDER);
                 // Frame wählen und hinunter bewegen, denn der Ascender
                 // hängt ja zunächst in der Wand
-                l.set_frame(12 - up_by);
+                l.set_frame(up_by >= 10 ? 12 - up_by : 11 - up_by);
                 if (!l.is_solid(2, -2)) l.move_ahead();
                 // Höhe dem Frame angleichen
-                l.move_down(2 * up_by - 12);
+                l.move_down(10 - 2 * l.get_frame());
             }
             // Ende vom eventuellen Ascender
         }
@@ -125,9 +126,15 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
         }
         if (l.is_solid()) {
             // Bei zu starker Steigung umdrehen
-            if (// l.solid_wall_height(-1) == 11 || // wtf why -1?
-                l.solid_wall_height( 0) == 11) {
+            if (l.solid_wall_height(0) == 11) {
                 turn_after_all = true;
+            }
+            // Don't move that far back up as the check about 10 lines further
+            // down that reads very similar in its block
+            else if (moved_down_by > 6) {
+                l.move_up(4);
+                l.become(LixEn::FALLER);
+                l.set_special_x(moved_down_by - 4);
             }
         }
         else {

@@ -50,8 +50,15 @@ unsigned Lixxie::get_priority(
 
         // Stunners may be turned in their later frames, but otherwise act just
         // like regular mostly unassignable-to acitivities (case falls through)
+        // Ascender will do the same on its last frame
         case LixEn::STUNNER:
             if (get_frame() >= 16) {
+                p = 3000;
+                break;
+            }
+            // falls through if frame is less
+        case LixEn::ASCENDER:
+            if (get_ac() == LixEn::ASCENDER && get_frame() >= 5) {
                 p = 3000;
                 break;
             }
@@ -62,8 +69,6 @@ unsigned Lixxie::get_priority(
         // Bleibende Fähigkeiten und Exploder sind immer erlaubt
         case LixEn::FALLER:
         case LixEn::TUMBLER:
-
-        case LixEn::ASCENDER:
         case LixEn::CLIMBER:
         case LixEn::FLOATER:
         case LixEn::JUMPER:

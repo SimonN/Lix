@@ -54,15 +54,12 @@ Editor
 Gameplay physics
 
     Exploder flinging
-        I tested it in Lix. What happens is actually the opposite of what you
-        said should happen:
+        Clam tested it in Lix. What happens is actually the opposite of what
+        I said should happen:
         -   If the second one bombs, it flings the first straight up
         -   If the first one bombs, it flings the second one forward
 
         Also, test assignment priority for stacked lixes. Inconsistent results?
-
-    Ascender should appear at 6 hi-res
-        The lixes should ascend more in general.
 
     Tumbler physics
         The tumbler teleports through walls in some cases. It might be best
@@ -92,6 +89,9 @@ Gameplay non-physics
         When restarting the level, the hatches make a sound immediately
         at the beginning, and then one more when they're actually opening.
 
+    Show lixes in hatch
+        This count must be shown at least in singleplayer.
+
 
 
 Data/Images
@@ -99,6 +99,9 @@ Data/Images
     Ice hatch
         The ice hatch in Matt's winter set has a nonconstant pixel on its
         border, which shouldn't animate.
+
+    Ingame icon replacements
+        The shadow of several small panel icons is still yellow.
 
     Sound replacements
         The sounds aren't fully replaced yet. See doc/sound.txt for details.
