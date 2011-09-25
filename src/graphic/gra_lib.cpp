@@ -156,20 +156,27 @@ void GraLib::eidrecol_api(Cutbit& cutbit, int magicnr)
                           color[COL_API_PIC_L]);
         }
     }
-    else if (magicnr == magicnr_icons)
-     for (int y = cutbit.get_yl() + 1; y < 2 * (cutbit.get_yl() + 1); ++y) {
-        for (int x = 0; x < bitmap->w; ++x) {
+    else if (magicnr == magicnr_icons) {
+        // Recolor the API things (except shadow, which will be done in
+        // an upcoming loop) in the second row.
+        for (int y = cutbit.get_yl() + 1; y < 2 * (cutbit.get_yl() + 1); ++y)
+         for (int x = 0; x < bitmap->w; ++x) {
             const AlCol c = ::getpixel(bitmap, x, y);
             if      (c == color[COL_BLACK]) putpixel(bitmap, x, y,
                           color[COL_PINK]);
-            else if (c == color[COL_API_FILE_SHADOW]) putpixel(bitmap, x, y,
-                          color[COL_API_SHADOW]);
             else if (c == color[COL_API_FILE_D]) putpixel(bitmap, x, y,
                           color[COL_API_PIC_D]);
             else if (c == color[COL_API_FILE_M]) putpixel(bitmap, x, y,
                           color[COL_API_PIC_M]);
             else if (c == color[COL_API_FILE_L]) putpixel(bitmap, x, y,
                           color[COL_API_PIC_L]);
+        }
+        // Recolor the shadow of all frames
+        for (int y = 0; y < bitmap->h; ++y)
+         for (int x = 0; x < bitmap->w; ++x) {
+            const AlCol c = ::getpixel(bitmap, x, y);
+            if (c == color[COL_API_FILE_SHADOW]) putpixel(bitmap, x, y,
+                          color[COL_API_SHADOW]);
         }
     }
 }
