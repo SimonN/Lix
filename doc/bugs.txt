@@ -85,10 +85,6 @@ Gameplay non-physics
         Clicking on a skill button aborts an action replay. Pressing their
         hotkeys should do the same.
 
-    Extra hatch sound
-        When restarting the level, the hatches make a sound immediately
-        at the beginning, and then one more when they're actually opening.
-
 
 
 Data/Images

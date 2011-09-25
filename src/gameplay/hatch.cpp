@@ -30,7 +30,7 @@ GameHatch::~GameHatch()
 
 
 
-void GameHatch::animate(EffectManager& effect, unsigned long u)
+void GameHatch::animate(EffectManager& effect, const unsigned long u)
 {
     if (u < update_open) {
         set_y_frame(0);
@@ -40,21 +40,22 @@ void GameHatch::animate(EffectManager& effect, unsigned long u)
         set_y_frame(1);
         set_x_frame(u - update_close < static_cast <unsigned long>
          (x_frames_close) ? u - update_close : x_frames_close - 1);
+        if (u == update_close)
+            effect.add_sound_general(u, Sound::HATCH_CLOSE);
     }
     else {
         // open or just opening
         set_y_frame(0);
-        set_x_frame(u - update_open < static_cast <unsigned long>
-         (x_frames_open) ? u - update_open
+        set_x_frame(u - update_open + 1 < static_cast <unsigned long>
+         (x_frames_open) ? u - update_open + 1
          : x_frames_open - 1);
+        if (u == update_open) effect.add_sound_general(u, Sound::HATCH_OPEN);
     }
     if (u < update_blink_stop) blink_now
      = (u % (updates_blink_on + updates_blink_off) < updates_blink_on);
     else blink_now = false;
 
     if (u == update_lets_go) effect.add_sound_general(u, Sound::LETS_GO);
-    if (u == update_open)    effect.add_sound_general(u, Sound::HATCH_OPEN);
-    if (u == update_close)   effect.add_sound_general(u, Sound::HATCH_CLOSE);
 }
 
 
