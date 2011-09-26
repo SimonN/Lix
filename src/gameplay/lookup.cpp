@@ -7,6 +7,22 @@
 
 typedef Lookup::LoNr LoNr;
 
+const LoNr Lookup::bit_terrain   (0x0001);
+const LoNr Lookup::bit_steel     (0x0002);
+const LoNr Lookup::bit_ow_left   (0x0004);
+const LoNr Lookup::bit_ow_right  (0x0008);
+
+const LoNr Lookup::bit_goal      (0x0010);
+const LoNr Lookup::bit_goal_prox (0x0020);
+const LoNr Lookup::bit_fire      (0x0040);
+const LoNr Lookup::bit_water     (0x0080);
+
+const LoNr Lookup::bit_trap      (0x0100);
+const LoNr Lookup::bit_fling     (0x0200);
+const LoNr Lookup::bit_trampoline(0x0400);
+
+
+
 Lookup::Lookup(int nxl, int nyl, bool ntorus_x, bool ntorus_y)
 :
     xl     (nxl > 1 ? nxl : 1),
