@@ -85,17 +85,22 @@ void Lixxie::set_static_maps(Torbit& l, Lookup& lo, Map& g)
 
 
 
+inline static int frame_to_x_frame(int frame) { return frame + 2; }
+inline static int ac_to_y_frame   (int ac)    { return ac - 1;    }
+
 // These are used for encounters and to draw the fuse
-static inline int get_fuse_x(const Lixxie& l)
+inline static int get_fuse_x(const Lixxie& l)
 {
-    int ret = Lixxie::countdown[l.get_x_frame()][l.get_y_frame()].x;
+    int ret = Lixxie::countdown[frame_to_x_frame(l.get_frame())]
+                               [ac_to_y_frame   (l.get_ac())   ].x;
     if (l.get_dir() < 0) ret = GraLib::get_lix(l.get_style()).get_xl() - ret;
     ret += l.get_x();
     return ret;
 }
-static inline int get_fuse_y(const Lixxie& l)
+inline static int get_fuse_y(const Lixxie& l)
 {
-    int ret = Lixxie::countdown[l.get_x_frame()][l.get_y_frame()].y;
+    int ret = Lixxie::countdown[frame_to_x_frame(l.get_frame())]
+                               [ac_to_y_frame   (l.get_ac())   ].y;
     ret += l.get_y();
     return ret;
 }
@@ -392,12 +397,14 @@ void Lixxie::next_frame(int loop)
 
 
 
+
+
 void Lixxie::draw()
 {
     if (ac == LixEn::NOTHING) return;
 
-    set_x_frame(frame + 2);
-    set_y_frame(ac - 1);
+    set_x_frame(frame_to_x_frame(frame));
+    set_y_frame(ac_to_y_frame(ac));
 
     // Wenn ein Zählwerk erforderlich ist...
     if (updates_since_bomb > 0) {

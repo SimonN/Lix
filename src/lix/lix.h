@@ -351,7 +351,7 @@ public:
            void play_sound        (const UpdateArgs&, Sound::Id);
            void play_sound_if_trlo(const UpdateArgs&, Sound::Id);//see effect.h
 
-    inline int  get_frame()            { return frame; }
+    inline int  get_frame() const      { return frame; }
     inline void set_frame(const int i) { frame = i;    }
 
            bool is_last_frame();
