@@ -93,9 +93,6 @@ Data/Images
         The ice hatch in Matt's winter set has a nonconstant pixel on its
         border, which shouldn't animate.
 
-    Ingame icon replacements
-        The shadow of several small panel icons is still yellow.
-
     Sound replacements
         The sounds aren't fully replaced yet. See doc/sound.txt for details.
 

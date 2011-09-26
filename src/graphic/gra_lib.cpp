@@ -68,7 +68,7 @@ GraLib::GraLib()
     // Prepare Lix sprites in multiple colors
     recolor_into_vector(cb, style, magicnr_sheet);
     recolor_into_vector(internal[gloB->file_bitmap_game_icon.
-                                 get_rootless_no_extension()], icons, magicnr_icons);
+                        get_rootless_no_extension()], icons, magicnr_icons);
 
     // Make GUI elements have the correct colors
     eidrecol_api(gloB->file_bitmap_api_number);

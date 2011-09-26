@@ -22,7 +22,7 @@ LobbyList::LobbyDataButton::LobbyDataButton(const int x, const int y)
     ready (false),
     name  (),
     style (LixEn::GARDEN),
-    cutbit(&GraLib::get_lix(LixEn::GARDEN)),
+    cutbit(&GraLib::get_icon(LixEn::GARDEN)),
     cutchk(&GraLib::get(gloB->file_bitmap_checkbox))
 {
     set_undraw_color(color[COL_API_M]);
@@ -39,7 +39,7 @@ void LobbyList::LobbyDataButton::read_from_pldatcit(
     spec   = itr->spec;
     ready  = itr->ready;
     style  = static_cast <const LixEn::Style> (itr->style);
-    cutbit = &GraLib::get_lix(style);
+    cutbit = &GraLib::get_icon(style);
     name   = itr->name;
     while ((unsigned) text_length(font_med, name.c_str()) > text_xl)
      name.erase(--name.end());
@@ -49,8 +49,7 @@ void LobbyList::LobbyDataButton::read_from_pldatcit(
 void LobbyList::LobbyDataButton::draw_self()
 {
     Button::draw_self();
-    if (!spec) cutbit->draw(get_ground(), get_x_here(), get_y_here(),
-     18, LixEn::WALKER-1);
+    if (!spec) cutbit->draw(get_ground(), get_x_here(), get_y_here(), 0, 0);
     Help::draw_shadow_centered_text(get_ground(), font_med, name.c_str(),
      get_x_here() + this_xl/2, get_y_here(), color[COL_TEXT]);
     cutchk->draw(get_ground(), get_x_here()+get_xl()-20, get_y_here(),ready,0);
@@ -114,9 +113,8 @@ LobbyColorButton::LobbyColorButton(
     const LixEn::Style st)
 :
     Button(nx, ny, this_xl, this_yl),
-    icon  (GraLib::get_lix(st), get_ground(), get_x() - 7, get_y() - 3)
+    icon  (GraLib::get_icon(st), get_ground(), get_x(), get_y() + 6)
 {
-    icon.set_y_frame(LixEn::WALKER - 1);
     set_undraw_color(color[COL_API_M]);
 }
 
@@ -127,7 +125,8 @@ LobbyColorButton::~LobbyColorButton()
 void LobbyColorButton::draw_self()
 {
     Button::draw_self();
-    icon.set_x_frame(19);
+    icon.set_x_frame(1);
+    icon.set_y_frame(0);
     icon.draw();
 }
 
