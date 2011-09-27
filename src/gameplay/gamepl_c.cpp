@@ -137,24 +137,30 @@ void Gameplay::calc_self()
 
 
 
+    pan.calc();
 
-    // Replay oder normales Spiel: Hauptsaechlichkeiten abarbeiten
-    // Wenn ein Geschwindigkeitsbutton angeklickt oder per Hotkey aktiviert
-    // wurde, dann ueberspringen wir den Replay-Abbruch doch noch.
-    if (replaying && ! multiplayer && (hardware.get_ml()
-     || cs.update >= replay.get_max_updates()
-     || replay.get_max_updates() == 0)) {
-        bool b = true; // Replay abbrechen?
+    // Abort a singleplayer action replay?
+    if (replaying && ! multiplayer) {
+        bool abort_replay = false;
+        if (cs.update >= replay.get_max_updates()
+         || replay.get_max_updates() == 0) abort_replay = true;
         if (hardware.get_ml() &&
-           (pan.state_save .is_mouse_here()
+         ! (pan.state_save .is_mouse_here()
          || pan.state_load .is_mouse_here()
          || pan.pause      .is_mouse_here()
          || pan.zoom       .is_mouse_here()
          || pan.speed_slow .is_mouse_here()
          || pan.speed_fast .is_mouse_here()
          || pan.speed_turbo.is_mouse_here()
-         || pan.restart    .is_mouse_here())) b = false;
-        if (b) {
+         || pan.restart    .is_mouse_here())) abort_replay = true;
+        for (size_t i = 0; i < pan.skill.size(); ++i)
+         if (pan.skill[i].get_clicked()) abort_replay = true;
+        if (pan.rate_minus.get_clicked()
+         || pan.rate_plus .get_clicked()
+         || hardware.key_hold(useR->key_rate_minus)
+         || hardware.key_hold(useR->key_rate_plus)) abort_replay = true;
+        // see comment in gamepl_a.cpp for why the rate doesn't have hotkeys.
+        if (abort_replay) {
             replaying = false;
             replay.erase_data_after_update(cs.update);
             pan.speed_fast .set_off();
@@ -162,7 +168,6 @@ void Gameplay::calc_self()
         }
     }
 
-    pan.calc();
     chat.calc();
 
     // Konsole deaktiviert, normale Buttons ansehen und,

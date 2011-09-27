@@ -281,7 +281,8 @@ void Gameplay::calc_active()
         // hotkey is already selected. If the if wasn't there, sometimes the
         // first hit of a new skillkey would select a different than the
         // leftmost occurence, based on where the skills are.
-        if (!pan.skill[current_button].get_clicked()) current_button = 7;
+        if (!pan.skill[current_button].get_clicked())
+            current_button = gloB->skill_max - 1;
 
         for (size_t j = 0; j < pan.skill.size(); ++j) {
             size_t i = (current_button + j + 1) % pan.skill.size();

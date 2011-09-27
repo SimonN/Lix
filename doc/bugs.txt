@@ -77,10 +77,6 @@ Gameplay non-physics
         that kills the lix on the exact frame after the jumper assignment,
         the trap/burn/kill sound won't play.
 
-    Disrupt replay with skill key
-        Clicking on a skill button aborts an action replay. Pressing their
-        hotkeys should do the same.
-
 
 
 Data/Images
