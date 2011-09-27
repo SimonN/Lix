@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-18 18:38:09
+$BUILT                                             2011-09-26 09:39:38
 $AUTHOR                                                           geoo
 $GERMAN                                                               
 $ENGLISH                                            Downward Reduction
@@ -20,7 +20,7 @@ $ENGLISH                                            Downward Reduction
 
 #WALKER                                                             20
 #JUMPER                                                             10
-#EXPLODER2                                                          10
+#EXPLODER2                                                           0
 #PLATFORMER                                                         30
 #BUILDER                                                            10
 #BASHER                                                             40

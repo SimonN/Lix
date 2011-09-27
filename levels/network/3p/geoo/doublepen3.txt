@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-02 21:54:20
+$BUILT                                             2011-09-26 10:12:59
 $AUTHOR                                                           geoo
 $GERMAN                                                               
 $ENGLISH                                            Double Penetration
@@ -81,10 +81,6 @@ $ENGLISH                                            Double Penetration
 :bitmap/geoo/construction/sawblade.F:                    436       452
 :bitmap/geoo/construction/sawblade.F:                    496       188
 :bitmap/geoo/construction/sawblade.F:                    496       508
-:bitmap/geoo/construction/sawblade.F:                    264       252
-:bitmap/geoo/construction/sawblade.F:                    336       252
-:bitmap/geoo/construction/sawblade.F:                    264       572
-:bitmap/geoo/construction/sawblade.F:                    336       572
 :bitmap/geoo/construction/sawblade.F:                    408       452
 :bitmap/geoo/construction/sawblade.F:                    464       452
 :bitmap/geoo/construction/sawblade.F:                    136       452
@@ -103,8 +99,6 @@ $ENGLISH                                            Double Penetration
 :bitmap/geoo/construction/sawblade.F:                    490       748
 :bitmap/geoo/construction/sawblade.F:                    436       772
 :bitmap/geoo/construction/sawblade.F:                    496       828
-:bitmap/geoo/construction/sawblade.F:                    264       892
-:bitmap/geoo/construction/sawblade.F:                    336       892
 :bitmap/geoo/construction/sawblade.F:                    408       772
 :bitmap/geoo/construction/sawblade.F:                    464       772
 :bitmap/geoo/construction/sawblade.F:                    136       772
@@ -115,6 +109,12 @@ $ENGLISH                                            Double Penetration
 :bitmap/geoo/construction/sawblade.F:                    364       928
 :bitmap/geoo/construction/sawblade.F:                    236       608
 :bitmap/geoo/construction/sawblade.F:                    364       608
+:bitmap/geoo/construction/sawblade_small.F:              262       252
+:bitmap/geoo/construction/sawblade_small.F:              346       252
+:bitmap/geoo/construction/sawblade_small.F:              346       572
+:bitmap/geoo/construction/sawblade_small.F:              262       572
+:bitmap/geoo/construction/sawblade_small.F:              346       892
+:bitmap/geoo/construction/sawblade_small.F:              262       892
 
 :bitmap/geoo/steel/32x64o.S:                             304        32
 :bitmap/geoo/steel/64x32o.S:                             336        64

@@ -1,0 +1,113 @@
+$BUILT                                             2011-09-04 15:41:15
+$AUTHOR                                                           geoo
+$GERMAN                                                               
+$ENGLISH                                                     Honeypots
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            384
+#TORUS_X                                                             0
+#TORUS_Y                                                             1
+#START_X                                                             0
+#START_Y                                                           268
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                            60
+#INITIAL                                                           150
+#REQUIRED                                                           20
+#RATE                                                               90
+
+#WALKER                                                             40
+#JUMPER                                                             40
+#CLIMBER                                                            20
+#RUNNER                                                             20
+#EXPLODER2                                                          20
+#BATTER                                                              1
+#CUBER                                                               0
+#BUILDER                                                            90
+#PLATFORMER                                                         70
+#BASHER                                                             40
+#MINER                                                              40
+#DIGGER                                                             10
+
+:bitmap/geoo/construction/Hatch.H:                        64       160
+:bitmap/geoo/construction/Hatch.H:                       224       256
+:bitmap/geoo/construction/Hatch.H:                       384       256     r
+:bitmap/geoo/construction/Hatch.H:                       544       160     r
+:bitmap/geoo/construction/Hatch.H:                       384        64     r
+:bitmap/geoo/construction/Hatch.H:                       544       352     r
+:bitmap/geoo/construction/Hatch.H:                        64       352
+:bitmap/geoo/construction/Hatch.H:                       224        64
+
+:bitmap/matt/09 - Marble/Goal.G:                         480       288
+:bitmap/matt/09 - Marble/Goal.G:                          96        96
+:bitmap/matt/09 - Marble/Goal.G:                         480        96
+:bitmap/matt/09 - Marble/Goal.G:                          96       288
+
+:bitmap/matt/09 - Marble/10c:                            576       208
+:bitmap/matt/09 - Marble/12c:                            528       208
+:bitmap/matt/09 - Marble/11c:                            592       224
+:bitmap/matt/09 - Marble/13c:                            512       224
+:bitmap/matt/09 - Marble/13b:                            512        32
+:bitmap/matt/09 - Marble/13a:                             32       224
+:bitmap/matt/09 - Marble/12a:                             48       208
+:bitmap/matt/09 - Marble/12b:                            528        16
+:bitmap/matt/09 - Marble/10a:                             96       208
+:bitmap/matt/09 - Marble/10b:                            576        16
+:bitmap/matt/09 - Marble/11a:                            112       224
+:bitmap/matt/09 - Marble/11b:                            592        32
+:bitmap/matt/09 - Marble/12:                              48        16
+:bitmap/matt/09 - Marble/10:                              96        16
+:bitmap/matt/09 - Marble/05:                              16         0
+:bitmap/matt/09 - Marble/05:                             112         0
+:bitmap/matt/09 - Marble/11:                             112        32
+:bitmap/matt/09 - Marble/13:                              32        32
+:bitmap/matt/09 - Marble/05c:                            592       192
+:bitmap/matt/09 - Marble/05c:                            496       192
+:bitmap/matt/09 - Marble/05b:                            592         0
+:bitmap/matt/09 - Marble/05b:                            496         0
+:bitmap/matt/09 - Marble/05a:                            112       192
+:bitmap/matt/09 - Marble/05a:                             16       192
+:bitmap/matt/09 - Marble/12:                             368       304
+:bitmap/matt/09 - Marble/10:                             416       304
+:bitmap/matt/09 - Marble/05:                             336       288
+:bitmap/matt/09 - Marble/05:                             432       288
+:bitmap/matt/09 - Marble/11:                             432       320
+:bitmap/matt/09 - Marble/13:                             352       320
+:bitmap/matt/09 - Marble/13a:                            352       128
+:bitmap/matt/09 - Marble/12a:                            368       112
+:bitmap/matt/09 - Marble/10a:                            416       112
+:bitmap/matt/09 - Marble/11a:                            432       128
+:bitmap/matt/09 - Marble/05a:                            432        96
+:bitmap/matt/09 - Marble/05a:                            336        96
+:bitmap/matt/09 - Marble/10c:                            256       112
+:bitmap/matt/09 - Marble/12c:                            208       112
+:bitmap/matt/09 - Marble/11c:                            272       128
+:bitmap/matt/09 - Marble/13c:                            192       128
+:bitmap/matt/09 - Marble/13b:                            192       320
+:bitmap/matt/09 - Marble/12b:                            208       304
+:bitmap/matt/09 - Marble/10b:                            256       304
+:bitmap/matt/09 - Marble/11b:                            272       320
+:bitmap/matt/09 - Marble/05c:                            272        96
+:bitmap/matt/09 - Marble/05c:                            176        96
+:bitmap/matt/09 - Marble/05b:                            272       288
+:bitmap/matt/09 - Marble/05b:                            176       288
+:bitmap/geoo/steel/64x32o.S:                             368       320
+:bitmap/geoo/steel/64x32o.S:                             208       320
+:bitmap/geoo/steel/64x32o.S:                             208       128
+:bitmap/geoo/steel/64x32o.S:                             368       128
+:bitmap/geoo/steel/64x32o.S:                             480       336
+:bitmap/geoo/steel/64x32o.S:                              96       144
+:bitmap/geoo/steel/64x32o.S:                             480       144
+:bitmap/geoo/steel/64x32o.S:                              96       336
+:bitmap/geoo/steel/32x32o.S:                             304       256
+:bitmap/geoo/steel/32x32o.S:                             304        64
+:bitmap/geoo/steel/64x32o.S:                             528        32
+:bitmap/geoo/steel/64x32o.S:                             528       224
+:bitmap/geoo/steel/64x32o.S:                              48        32
+:bitmap/geoo/steel/64x32o.S:                              48       224
+:bitmap/matt/09 - Marble/13b:                            288       256
+:bitmap/matt/09 - Marble/11:                             336       256
+:bitmap/matt/09 - Marble/13c:                            288        64
+:bitmap/matt/09 - Marble/11a:                            336        64
