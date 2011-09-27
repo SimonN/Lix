@@ -1,6 +1,6 @@
 /*
  * lix/stunner.cpp
- *
+ *z
  */
 
 #include "ac.h"

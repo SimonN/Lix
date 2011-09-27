@@ -6,7 +6,7 @@
 #include "ac.h"
 
 // will be defined in tumbler.cpp
-bool jumper_and_tumbler_collision(Lixxie&);
+int  jumper_and_tumbler_collision(Lixxie&);
 void tumbler_frame_selection     (Lixxie&);
 
 
@@ -45,26 +45,20 @@ void update_jumper(Lixxie& l, const UpdateArgs& ua)
     // nix, weil in dem Fall null Schleifendurchlaeufe passieren oder
     // mit null multipliziert wird.
 
-    // do this before the for loop as well, to not glitch into terrain.
-    // Unlike then, don't do anything here if it doesn't have ground.
-    if (jumper_and_tumbler_collision(l)) {
-        if (l.is_solid()) switch (l.get_ac()) {
-            case LixEn::STUNNER:  l.play_sound(ua, Sound::OUCH);    break;
-            case LixEn::SPLATTER: l.play_sound(ua, Sound::SPLAT);   break;
-            case LixEn::CLIMBER:  l.play_sound(ua, Sound::CLIMBER); break;
-            default: break;
-        }
-    }
-
     // Schrittweise schraeg vorruecken und jedes Mal auf
     // Kollision mit der Landschaft testen.
     // Die groessere Laenge wird pixelweise abgearbeitet.
-    else for (unsigned i = 0; i < (abs >= spe ? abs : spe); ++i) {
+    for (unsigned i = 0; i < (abs >= spe ? abs : spe); ++i) {
         // 2 * (... / 2) sorgt fuer das Einhalten der geraden X-Zahlen.
         // Es wird jeweils geguckt, ob der Zaehler i weit genug vor-
         // geschritten ist, damit in die kurze Richtung ein
         // Schritt stattfinden kann - wenn nicht, ist das Argument
         // von move_ahead stets 0. In die lange Richtung geht's immer.
+        const int old_ex = l.get_ex();
+        const int old_ey = l.get_ey();
+        const Lookup::LoNr old_enc_foot = l.get_foot_encounters();
+        const Lookup::LoNr old_enc_body = l.get_body_encounters();
+
         if (abs >= spe) {
             l.move_ahead(2 * ((i+1)*spe/2 / abs - i*spe/2 / abs));
             l.move_down(sgn);
@@ -74,16 +68,34 @@ void update_jumper(Lixxie& l, const UpdateArgs& ua)
             l.move_ahead(i%2 * 2);
         }
 
-        if (jumper_and_tumbler_collision(l)) {
-            switch (l.get_ac()) {
-                case LixEn::STUNNER:  l.play_sound(ua, Sound::OUCH);  break;
-                case LixEn::SPLATTER: l.play_sound(ua, Sound::SPLAT); break;
-                case LixEn::CLIMBER:  l.play_sound(ua, Sound::CLIMBER); break;
-                default: break;
-            }
+        int coll = jumper_and_tumbler_collision(l);
+        if (coll == 0) {
+            // nothing hit, proceed with next step for this frame
+        }
+        else if (coll == 1) {
+            // we hit something, but don't have to reset anything. Stop motion.
             break;
         }
+        else if (coll == 2) {
+            // We hit something, reset encounters and check again at position.
+            l.set_foot_encounters(old_enc_foot);
+            l.set_body_encounters(old_enc_body);
+            l.set_ey(l.get_ey()); // re-check encounters at current position
+            break;
+        }
+        else if (coll == 3) {
+            // Like coll == 2, but also reset position.
+            l.set_foot_encounters(old_enc_foot);
+            l.set_body_encounters(old_enc_body);
+            l.set_ex(old_ex);
+            l.set_ey(old_ey);
+            // Do this for completely immobilizied tumblers
+            if (l.is_solid(0, 0)) l.become(LixEn::STUNNER);
+            break;
+        }
+        // end checking return val of collision
     }
+    // end of motion
 
     // Wenn nicht beim Bewegen irgendwo angestossen...
     if (l.get_ac() == LixEn::JUMPER
@@ -110,6 +122,13 @@ void update_jumper(Lixxie& l, const UpdateArgs& ua)
         else if (l.get_ac() == LixEn::TUMBLER) tumbler_frame_selection(l);
         else if (l.is_last_frame()) l.set_frame(l.get_frame() - 1);
         else l.next_frame();
+    }
+
+    switch (l.get_ac()) {
+        case LixEn::STUNNER:  l.play_sound(ua, Sound::OUCH);  break;
+        case LixEn::SPLATTER: l.play_sound(ua, Sound::SPLAT); break;
+        case LixEn::CLIMBER:  l.play_sound(ua, Sound::CLIMBER); break;
+        default: break;
     }
 }
 

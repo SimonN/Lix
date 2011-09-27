@@ -24,6 +24,7 @@ void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
     ac_func     [LixEn::PLATFORMER].assclk = assclk_platformer;
 
     ac_func     [LixEn::FALLER]    .become = become_faller;
+    ac_func     [LixEn::TUMBLER]   .become = become_tumbler;
     ac_func     [LixEn::DROWNER]   .become = become_drowner;
     ac_func     [LixEn::EXITER]    .become = become_exiter;
     ac_func     [LixEn::WALKER]    .become = become_walker;

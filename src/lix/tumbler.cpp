@@ -5,8 +5,39 @@
 
 #include "ac.h"
 
-static const int tumbler_max_special_y = 18; // Ab hier wird er zum Splatter
-
+void become_tumbler(Lixxie& l)
+{
+    if (l.is_solid(0, 0)) {
+        if (l.get_ac() == LixEn::ASCENDER) {
+            // unglitch out of wall, but only back and up
+            for (int dist = 1; dist <= 12; ++dist) {
+                if (!l.is_solid(0, -dist)) {
+                    l.move_up(dist);
+                    break;
+                }
+                else if (!l.is_solid(- Help::even(dist), 0)) {
+                    l.move_ahead(- Help::even(dist));
+                    break;
+                }
+            }
+            if (l.is_solid(0, 0)) {
+                // Don't comment this out because others will happily make
+                // this a tumbler, then set special_x/y, and those have
+                // different meanings for a stunner. See whether this yields
+                // any bugs first.
+                // l.become(LixEn::STUNNER);
+                // return;
+            }
+        }
+        else {
+            // Not ascender? Don't tumble at all
+            // See comment above
+            // l.become(LixEn::STUNNER);
+            // return;
+        }
+    }
+    l.become_default(LixEn::TUMBLER);
+}
 
 
 void update_jumper (Lixxie& l, const UpdateArgs& ua);
@@ -17,39 +48,9 @@ void update_tumbler(Lixxie& l, const UpdateArgs& ua)
 
 
 
-void tumbler_unglitch_out_of_wall(Lixxie& l)
-{
-    // We can be either a stunner or still a jumper/tumbler here.
-    // In the current implementation, we're always a stunner.
-    if (! l.is_solid(0, 1)) return;
-
-    // If we are in some stupid wall, do this loop.
-    for (int dist = 1; ; ++dist) {
-        if (!l.is_solid(dist/2*2, 1)) {
-            l.move_ahead(dist/2*2);
-            break;
-        }
-        else if (!l.is_solid(-(dist/2*2), 1)) {
-            l.turn();
-            l.move_ahead(dist/2*2);
-            break;
-        }
-        else if (l.get_special_y() <= 0 && !l.is_solid(0,  dist + 1)) {
-            l.move_down(dist);
-            l.set_special_y(-l.get_special_y());
-            break;
-        }
-        else if (l.get_special_y() >= 0 && !l.is_solid(0, -dist)) {
-            // Die + 1 in der Bedingung stehen dort, weil Fuss der
-            // Lix immer noch einen freien Pixel drunter hat.
-            l.move_up(dist);
-            l.become(LixEn::STUNNER);
-            break;
-        }
-    }
-}
 
 
+static const int tumbler_max_special_y = 18; // Ab hier wird er zum Splatter
 
 static void tumbler_land(Lixxie& l)
 {
@@ -57,10 +58,14 @@ static void tumbler_land(Lixxie& l)
         const int frame_to_get_second_splatter = 9;
         const int second_splatter_frame = 10;
 
-        bool second_splatter = (l.get_ac() == LixEn::TUMBLER
-                             && l.get_frame() >= frame_to_get_second_splatter);
-        l.become(LixEn::SPLATTER);
-        if (second_splatter) l.set_frame(second_splatter_frame);
+        // This floater check is just to catch last-moment assignments
+        if (l.get_floater()) l.become(LixEn::LANDER);
+        else {
+            bool second_splatter = (l.get_ac() == LixEn::TUMBLER
+                && l.get_frame() >= frame_to_get_second_splatter);
+            l.become(LixEn::SPLATTER);
+            if ( second_splatter) l.set_frame(second_splatter_frame);
+        }
     }
     // become a lander or stunner
     else {
@@ -71,7 +76,6 @@ static void tumbler_land(Lixxie& l)
         }
         else {
             l.become(LixEn::STUNNER);
-            tumbler_unglitch_out_of_wall(l);
         }
     }
 }
@@ -81,13 +85,28 @@ static void tumbler_land(Lixxie& l)
 // Prueft Boden, Decken und Waende nach jedem einzelnen vorgerueckten Pixel.
 // Liefert genau dann wahr, wenn es eine Kollision gab, damit das Vorruecken
 // update_jumper/update_tumbler abgebrochen werden kann.
-bool jumper_and_tumbler_collision(Lixxie& l)
+
+// return values:
+//   0 = Wothing hit, keep moving during the same frame if necessary.
+//   1 = We hit something and have to stop moving, but we like to remain where
+//       we are. Don't rollback the position or encounters.
+//   2 = We hit something, but we've already handled positioning out of a
+//       wall in this function already. Only reset encounters, then check
+//       for new encounters at the position we are.
+//   3 = We hit something, we didn't handle the position ourselves. The
+//       caller should move back one step to get into air again, and reset
+//       encounters.
+int jumper_and_tumbler_collision(Lixxie& l)
 {
     const int swh           = l.solid_wall_height();
 
     // Das Vorruecken zum jeweiligen Pixel ist bereits gemacht.
 
+    // Bump head into the ceiling or a corner of the ceiling
     // Kopfhoehe wird als etwas niedriger angesehen als beim Builder
+    // There is another check for ceiling bumping at the very end of this
+    // function, to catch getting nuked straight up to the ceiling by several
+    // explosions.
     if ((l.get_ac() == LixEn::TUMBLER
         && l.is_solid(-2, -12) && !l.is_solid(-2, -6)
         && l.get_special_y() < 4)
@@ -102,11 +121,8 @@ bool jumper_and_tumbler_collision(Lixxie& l)
         l.set_special_x(l.get_special_x() / 4);
         l.set_special_x(l.get_special_x() * 2);
 
-        return true;
-        // Es kann sein, dass sich die Lix in eine Wand hineinbewegt, wenn
-        // nur oder obere Teil von der Lix vor der Wand ist, nicht der untere.
-        // Das macht hoffentlich nichts, denn einzig der Lauf-Pixel soll
-        // wandfrei sein, und sowas wird kontrolliert bei "if (swh > 6 ..."
+        if (l.is_solid(0, 0)) return 3;
+        else                  return 1;
     }
     // Vor eine Wand springen: Muss vor die Bodenkollision, damit wir somit
     // den Hochteleportier-Bug bekaempfen
@@ -117,34 +133,26 @@ bool jumper_and_tumbler_collision(Lixxie& l)
             l.move_ahead(-2);
             l.become(LixEn::CLIMBER);
             l.set_frame(0);
-
-            return true; // Do not tumbler_unglitch_out_of_wall near "Zuckeln"
+            return 1;
         }
         else if (l.is_solid(0, 2) && ! l.is_solid(0, 0)) {
             // Don't turn if batted onto a 45 degree slope.
             while (l.is_solid(0, 1)) l.move_up(1);
             tumbler_land(l);
+            return 2;
         }
         else if (l.is_solid(-2, 2) && ! l.is_solid(-2, 0)) {
             // Don't turn if batted onto a 45 degree slope, part 2
             l.move_ahead(-2);
             while (l.is_solid(0, 1)) l.move_up(1);
             tumbler_land(l);
+            return 2;
         }
         else {
             // Move out of wall we seem to be in.
             l.turn();
-            l.move_ahead();
+            return 3;
         }
-        // Dies behebt das Zuckeln in der Wand, was auftrat, als wir den
-        // Hochteleportations-Bug entfernten: Hochbewegen oder hinunterbewegen
-        // nach dem Umdrehen, je nach Y-Geschwindigkeit.
-        // Dabei wird untersucht, wo der naechste freie Raum ist, und entweder
-        // vor, zurueck oder entgegen der Y-Richtung vertikal bewegt.
-        if (l.is_solid(0, 1)) {
-            tumbler_unglitch_out_of_wall(l);
-        }
-        return true;
     }
 
     // Boden-Kollision
@@ -155,7 +163,7 @@ bool jumper_and_tumbler_collision(Lixxie& l)
     {
         while (l.is_solid(0, 1)) l.move_up(1);
         tumbler_land(l);
-        return true;
+        return 2;
     }
 
     // Wenn Jumper, nicht Tumbler:
@@ -175,10 +183,22 @@ bool jumper_and_tumbler_collision(Lixxie& l)
             // Ist's eine schroffe Klippe? Sonst noch einen nach vorne.
             if (!l.is_solid(2, -18)) l.move_ahead();
         }
-        return true;
+        return 2;
     }
-    // Keine Kollision an diesem Pixel
-    return false;
+
+    // No collisions found at this pixel. We should continue with the remaining
+    // motion during this frame, and thus return 0. To remedy glitching into
+    // walls though, we return the suggestion to move back if we're stuck in
+    // the terrain.
+    if (l.is_solid(0, 0)) {
+        // The second check for bumping the head, see comment near beginning
+        // function.
+        if (! l.is_solid(0, 2)) {
+            if (l.get_special_y() < 4) l.set_special_y(4);
+        }
+        return 3;
+    }
+    else return 0;
 }
 
 

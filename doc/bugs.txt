@@ -61,10 +61,6 @@ Gameplay physics
 
         Also, test assignment priority for stacked lixes. Inconsistent results?
 
-    Tumbler physics
-        The tumbler teleports through walls in some cases. It might be best
-        to not put it into walls in the first place.
-
 
 
 Gameplay non-physics
