@@ -3,7 +3,7 @@
  *
  */
 
-#include "myalleg.h" // exists
+#include "../myalleg.h" // exists
 #include <sstream>
 
 #include "io.h"

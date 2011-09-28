@@ -5,8 +5,8 @@
 
 #include "hardware.h"
 #include "help.h" // Timer fuer Doppelklick-Geschw.
-#include "log.h"
 #include "user.h"
+#include "./file/log.h"
 
 const unsigned int Hardware::doubleclick_speed(Help::timer_ticks_per_second/3);
 const unsigned int Hardware::doubleclick_for60(20);

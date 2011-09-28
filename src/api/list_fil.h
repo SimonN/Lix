@@ -51,8 +51,8 @@
 #include "button/button.h"
 #include "frame.h"
 
-#include "../other/log.h"
-#include "../other/filename.h"
+#include "../other/file/log.h"
+#include "../other/file/filename.h"
 
 namespace Api {
 class ListFile : public Frame {

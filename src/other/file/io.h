@@ -1,5 +1,5 @@
 /*
- * other/io.h
+ * other/file/io.h
  *
  * Einlesen und Ausgeben von Textdateien, etwa Konfigurationsdateien, Levels
  * oder Replays.
@@ -38,7 +38,6 @@
 #include <vector>
 
 #include "date.h"
-#include "globals.h"
 
 namespace IO {
 
@@ -52,7 +51,7 @@ struct Line {
     long nr3;
 
     // Eingabe: Der eingelesene String hat keinen Zeilenumbruch am Ende.
-    Line(const std::string& = gloB->empty_string);
+    Line(const std::string& = "");
 
     Line(const char,
          const std::string&, const std::string&, const std::string&,
@@ -67,29 +66,29 @@ private:
 // Ausgabe: Generiere eine Zeile aus uebergebenen Programmdaten.
 // Diese Dinger sehen genauso aus wie Konstruktoren, das ist gewollt.
 // LineDollar kann auch mit einer Kalenderzeit gebastelt werden.
-Line LineHash  (const std::string& = gloB->empty_string,
+Line LineHash  (const std::string& = "",
                 const long         = 0);
-Line LineColon (const std::string& = gloB->empty_string,
+Line LineColon (const std::string& = "",
                 const long         = 0,
                 const long         = 0,
-                const std::string& = gloB->empty_string);
-Line LineDollar(const std::string& = gloB->empty_string,
-                const std::string& = gloB->empty_string);
+                const std::string& = "");
+Line LineDollar(const std::string& = "",
+                const std::string& = "");
 Line LineDollar(const std::string&,
                 const Date&);
-Line LinePlus  (const std::string& = gloB->empty_string,
+Line LinePlus  (const std::string& = "",
                 const long         = 0,
-                const std::string& = gloB->empty_string,
-                const std::string& = gloB->empty_string);
+                const std::string& = "",
+                const std::string& = "");
 Line LineBang  (const long         = 0,
                 const long         = 0,
-                const std::string& = gloB->empty_string,
+                const std::string& = "",
                 const long         = 0);
-Line LineAngle (const std::string& = gloB->empty_string,
+Line LineAngle (const std::string& = "",
                 const long         = 0,
                 const long         = 0,
                 const long         = 0,
-                const std::string& = gloB->empty_string);
+                const std::string& = "");
 
 // Verarbeiten von Line-Objekten
 std::ostream& operator << (std::ostream&, const Line&);

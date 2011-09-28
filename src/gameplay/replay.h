@@ -47,8 +47,8 @@
 #include "../lix/lix_enum.h"
 #include "../network/net_t.h" // work with struct ReplayData
 #include "../network/permu.h"
-#include "../other/date.h"
-#include "../other/filename.h"
+#include "../other/file/date.h"
+#include "../other/file/filename.h"
 #include "../other/types.h"
 
 class Level;

@@ -14,7 +14,7 @@
 #include "../level/obj_lib.h"
 #include "../other/hardware.h"
 #include "../other/help.h"
-#include "../other/log.h"
+#include "../other/file/log.h"
 #include "../other/user.h"
 
 Editor::Editor()

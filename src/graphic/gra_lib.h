@@ -23,7 +23,7 @@
 #include "cutbit.h"
 
 #include "../lix/lix_enum.h"
-#include "../other/filename.h"
+#include "../other/file/filename.h"
 #include "../other/types.h"
 
 class GraLib {

@@ -5,7 +5,8 @@
 
 #include "object.h"
 #include "../graphic/glob_gfx.h" // colors for the selbox determination
-#include "../other/io.h"
+#include "../other/file/io.h"
+#include "../other/globals.h"
 
 Object::Object(const Cutbit& c, Type t, int st)
 :

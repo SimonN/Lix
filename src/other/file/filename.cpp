@@ -1,5 +1,5 @@
 #include "filename.h"
-#include "globals.h"
+#include "../globals.h"
 
 std::string Filename::root;
 

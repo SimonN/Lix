@@ -7,7 +7,8 @@
 
 #include <fstream>
 
-#include "io.h"
+#include "globals.h"
+#include "file/io.h"
 #include "../network/net_t.h" // for updates_per_second and default port
 
 #define CONCAT(a, b, c, d) (a ## b ## c ## d)

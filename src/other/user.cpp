@@ -6,8 +6,8 @@
 #include "myalleg.h" // KEY_*
 #include "user.h"
 #include "language.h"
-#include "io.h"
 #include "help.h"
+#include "./file/io.h"
 
 #include "../lix/lix_enum.h" // LixEn::AC_MAX
 #include "../network/net_t.h" // PlayerData::name_max_length

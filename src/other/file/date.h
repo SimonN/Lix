@@ -1,5 +1,5 @@
 /*
- * other/date.h
+ * other/file/date.h
  *
  * Kalenderzeiten als Info, wann ein Level oder ein Replay entstanden ist.
  * Kann zur Ueberpruefung, ob das Replay ggf. nicht mehr dem Level ent-

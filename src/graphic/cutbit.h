@@ -37,7 +37,7 @@
 #include <vector>
 
 #include "torbit.h"
-#include "../other/filename.h"
+#include "../other/file/filename.h"
 
 class Cutbit {
 

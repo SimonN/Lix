@@ -13,7 +13,7 @@
 
 #pragma once
 
-#include "filename.h"
+#include "./file/filename.h"
 
 // At the end of this file, a pointer to a Globals called gloB
 // and a pointer to the User called useR will be declared externally.

@@ -3,10 +3,10 @@
  *
  */
 
-#include "help.h"     // timer_ticks
 #include "log.h"
-#include "globals.h"
-#include "language.h" // Error and Info text
+#include "../help.h"     // timer_ticks
+#include "../globals.h"
+#include "../language.h" // Error and Info text
 
 #include <cstdio>     // sprintf
 

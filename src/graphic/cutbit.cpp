@@ -9,7 +9,7 @@
 
 #include "../other/help.h" // Fehlertext beim Blitten nicht vorhandener Frames
 #include "../other/language.h"
-#include "../other/log.h"
+#include "../other/file/log.h"
 
 Cutbit::Cutbit()
 :

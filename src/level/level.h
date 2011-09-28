@@ -93,9 +93,9 @@
 
 #include "../lix/lix_enum.h" // Skill::ac
 
-#include "../other/date.h"
+#include "../other/file/date.h"
 #include "../other/globals.h"    // empty_string
-#include "../other/io.h"
+#include "../other/file/io.h"
 
 class Lookup;
 

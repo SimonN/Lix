@@ -10,9 +10,9 @@
 
 #include "../level/level.h"
 
-#include "../other/io.h"
+#include "../other/file/io.h"
 #include "../other/language.h"
-#include "../other/log.h"     // Datei nicht gefunden
+#include "../other/file/log.h"     // Datei nicht gefunden
 
 Replay::Replay()
 :

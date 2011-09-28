@@ -323,26 +323,27 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="network/server_c.cpp" />
 		<Unit filename="other/console.cpp" />
 		<Unit filename="other/console.h" />
-		<Unit filename="other/date.cpp" />
-		<Unit filename="other/date.h" />
-		<Unit filename="other/filename.cpp" />
-		<Unit filename="other/filename.h" />
+		<Unit filename="other/file/date.cpp" />
+		<Unit filename="other/file/date.h" />
+		<Unit filename="other/file/filename.cpp" />
+		<Unit filename="other/file/filename.h" />
+		<Unit filename="other/file/io.cpp" />
+		<Unit filename="other/file/io.h" />
+		<Unit filename="other/file/log.cpp" />
+		<Unit filename="other/file/log.h" />
+		<Unit filename="other/file/vfs.h" />
 		<Unit filename="other/globals.cpp" />
 		<Unit filename="other/globals.h" />
 		<Unit filename="other/hardware.cpp" />
 		<Unit filename="other/hardware.h" />
 		<Unit filename="other/help.cpp" />
 		<Unit filename="other/help.h" />
-		<Unit filename="other/io.cpp" />
-		<Unit filename="other/io.h" />
 		<Unit filename="other/language.cpp" />
 		<Unit filename="other/language.h" />
 		<Unit filename="other/lmain.cpp">
 			<Option weight="60" />
 		</Unit>
 		<Unit filename="other/lmain.h" />
-		<Unit filename="other/log.cpp" />
-		<Unit filename="other/log.h" />
 		<Unit filename="other/main.cpp">
 			<Option weight="65" />
 		</Unit>

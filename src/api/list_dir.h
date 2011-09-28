@@ -22,7 +22,7 @@
 #include "button/b_text.h"
 #include "frame.h"
 
-#include "../other/filename.h"
+#include "../other/file/filename.h"
 
 namespace Api {
 class DirList : public Frame {

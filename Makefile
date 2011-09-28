@@ -23,9 +23,13 @@ CLIENT_SRCS := $(wildcard src/api/*.cpp) \
                $(wildcard src/editor/*.cpp) \
                $(wildcard src/gameplay/gui/*.cpp) \
                $(wildcard src/gameplay/*.cpp) \
-               $(wildcard src/graphic/*.cpp) $(wildcard src/lix/*.cpp) \
-               $(wildcard src/level/*.cpp)   $(wildcard src/menu/*.cpp) \
-               $(wildcard src/network/*.cpp) $(wildcard src/other/*.cpp)
+               $(wildcard src/graphic/*.cpp) \
+               $(wildcard src/lix/*.cpp) \
+               $(wildcard src/level/*.cpp) \
+               $(wildcard src/menu/*.cpp) \
+               $(wildcard src/network/*.cpp) \
+               $(wildcard src/other/*.cpp) \
+               $(wildcard src/other/file/*.cpp)
 CLIENT_OBJS := $(subst $(SRCDIR)/,$(OBJDIR)/,$(CLIENT_SRCS:%.cpp=%.o))
 CLIENT_DEPS := $(subst $(SRCDIR)/,$(DEPDIR)/,$(CLIENT_SRCS:%.cpp=%.d))
 

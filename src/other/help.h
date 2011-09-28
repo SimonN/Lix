@@ -17,7 +17,7 @@
 #include <vector>
 
 #include "globals.h"
-#include "filename.h"
+#include "./file/filename.h"
 #include "../network/net_t.h"    // Uint32
 
 #include "../graphic/glob_gfx.h" // Standardfarbe fuer Schattentext

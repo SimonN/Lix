@@ -13,7 +13,7 @@
 #include "../other/globals.h"
 #include "../other/help.h" // Dateisuche
 #include "../other/language.h"
-#include "../other/log.h"
+#include "../other/file/log.h"
 #include "../other/user.h"
 
 Torbit *pre_screen;
