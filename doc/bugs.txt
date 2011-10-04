@@ -21,6 +21,11 @@ General
         i.e. one could also fare well with the current everything-in-one-dir
         structure.
 
+    Win 7 crash
+        The current workaround is to run the game in administrator mode.
+        Might be remedied by checking for existence of the interesting files
+        in ./data/something before ../data/something.
+
 
 
 Menu
@@ -41,6 +46,10 @@ Menu
 
 Editor
 
+    Icons
+        The skills panel icon and the hatch icon are to be redrawn, probably
+        also the goal icon.
+
     Multiple selection and copying
         Selecting multiple parts (with [Ctrl] or the set hotkey) and then
         copying everything does not guarantee correct z-order of the newly
@@ -52,6 +61,21 @@ Editor
 
 
 Gameplay physics
+
+    Climber->Ascender
+        This transistion is inside the wall currently. Move it up.
+
+    Jumper onto ">" shaped cliffs
+        Have the jumper get up more cliffs.
+
+    Tumbler in infinite loop
+        This occurs in small, tight pits. Might be remedied by putting the
+        floor check before the wall check.
+
+    First player advantage
+        Add all fling acceleration in the same logic update, but still always
+        overwrite any older acceleration. Have traps eat one lix of each
+        tribe if several enter it at once.
 
     Exploder flinging
         Clam tested it in Lix. What happens is actually the opposite of what
@@ -87,6 +111,10 @@ Data/Images
 
 
 Network game
+
+    All are ready, but game dosen't start
+        This happens if someone selects the same color as he has already been
+        before, probably also when a spectator selects spectator mode again.
 
     [Esc] pressed during game
         It runs on properly, but cursor still opens over lixes.
