@@ -72,9 +72,9 @@ Lobby::Lobby()
     // Don't show the GARDEN style by placing it off the screen
     for (unsigned i = LixEn::GARDEN; i < LixEn::STYLE_MAX; ++i) {
         button_color.push_back(LobbyColorButton(
-         (i <= LixEn::GARDEN ? 10000 :
-         180 + (i-1) % 2 * LobbyColorButton::this_xl),
-          40 + (i-1) / 2 * LobbyColorButton::this_yl,
+         (i < LixEn::RED ? 10000 :
+         180 + (i-2) % 2 * LobbyColorButton::this_xl),
+          40 + (i-2) / 2 * LobbyColorButton::this_yl,
          static_cast <LixEn::Style> (i)));
     }
 

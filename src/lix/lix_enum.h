@@ -55,11 +55,12 @@ namespace LixEn {
 
     enum Style {
         GARDEN,
+        NEUTRAL,
         RED,
+        ORANGE,
         YELLOW,
         GREEN,
         BLUE,
-        CYAN,
         PURPLE,
         GREY,
         BLACK,

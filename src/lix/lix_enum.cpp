@@ -52,11 +52,12 @@ void initialize()
     ac_string   [AC_MAX]            = "AC_MAX";
 
     style_string[GARDEN]            = "Garden";
+    style_string[NEUTRAL]           = "Neutral";
     style_string[RED]               = "Red";
+    style_string[ORANGE]            = "Orange";
     style_string[YELLOW]            = "Yellow";
     style_string[GREEN]             = "Green";
     style_string[BLUE]              = "Blue";
-    style_string[CYAN]              = "Cyan";
     style_string[PURPLE]            = "Purple";
     style_string[GREY]              = "Grey";
     style_string[BLACK]             = "Black";
