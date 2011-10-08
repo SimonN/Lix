@@ -290,10 +290,10 @@ void Level::load_from_binary(const Filename& filename)
      for (std::list <Pos> ::iterator
      itr = pos[type].begin(); itr != pos[type].end(); ++itr) {
         if (itr->dark) continue;
-        if (itr->x < min_x) min_x = itr->x;
-        if (itr->x + itr->ob->cb.get_xl() > max_x) {
-            max_x = itr->x + itr->ob->cb.get_xl();
-        }
+        const int ix  = itr->x + itr->ob->selbox_x;
+        const int ix2 = itr->x + itr->ob->selbox_x + itr->ob->selbox_xl;
+        if (ix  < min_x) min_x = ix;
+        if (ix2 > max_x) max_x = ix2;
     }
     if (min_x < 0)      min_x = 0;
     if (max_x > size_x) max_x = size_x;

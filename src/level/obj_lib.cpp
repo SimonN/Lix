@@ -209,7 +209,7 @@ void ObjLib::load_vgaspec(const int id)
     if (crunchfile && crunchfile->size() == 1) {
         BITMAP* spec_bitmap
          = GraphicSetL1::new_read_spec_bitmap((*crunchfile)[0]);
-        vgaspec[id] = new Object(Cutbit(spec_bitmap, false));
+        vgaspec[id] = new Object(Cutbit(spec_bitmap, Object::TERRAIN));
     }
 }
 
