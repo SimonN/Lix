@@ -10,6 +10,7 @@
 
 #include "client.h"
 
+#include "../graphic/sound.h" // joiner sound
 #include "../other/console.h"
 #include "../other/language.h"
 #include "../other/user.h"
@@ -211,6 +212,7 @@ void NetClient::calc()
                         message << Language::net_chat_player_in_room_2;
                     }
                     Console::push_back(message.str());
+                    Sound::play_loud(Sound::JOIN);
                 }
             }
             else {

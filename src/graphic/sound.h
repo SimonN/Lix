@@ -56,6 +56,7 @@ public:
     enum Id {
         NOTHING,
         SAVE,        // File gets saved. Not used right now.
+        JOIN,        // Someone joins the network
 
         PANEL,       // Choice of skill on the panel
         ASSIGN,      // Assignment of a skill to a lix
@@ -78,6 +79,7 @@ public:
         POP,         // L1-/L2-Exploder explodes
         BRICK,       // Builder/Platformer lays down his last three bricks
         STEEL,       // Ground remover hits steel and stops
+        JUMPER,      // Jumper assignment
         CLIMBER,     // Jumper sticks against the wall and starts to climb
         ROPER,       // Roper shoots
         ROPER_HIT,   // Roper hook hits terrain

@@ -125,6 +125,7 @@ Sound::Sound()
     const std::string dds = gloB->dir_data_sound.get_rootful();
 
     sample[SAVE]        = Sample(dds + "save.wav");
+    sample[JOIN]        = Sample(dds + "join.wav");
 
     sample[PANEL]       = Sample(dds + "panel.wav");
     sample[ASSIGN]      = Sample(dds + "assign.wav");
@@ -148,6 +149,7 @@ Sound::Sound()
     sample[BRICK]       = Sample(dds + "brick.wav");
     sample[ROPER]       = Sample(dds + "roper.wav");
     sample[STEEL]       = Sample(dds + "steel.wav");
+    sample[JUMPER]      = Sample(dds + "jumper.wav");
     sample[CLIMBER]     = Sample(dds + "climber.wav");
     sample[BATTER_MISS] = Sample(dds + "bat_miss.wav");
     sample[BATTER_HIT]  = Sample(dds + "bat_hit.wav");
