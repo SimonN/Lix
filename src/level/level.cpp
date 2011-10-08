@@ -13,6 +13,10 @@ const int Level::min_xl (160);
 const int Level::min_yl (160);
 const int Level::max_xl (3200);
 const int Level::max_yl (2000);
+const int Level::spawnint_min( 1);
+const int Level::spawnint_max(96);
+
+
 
 Level::Level(const Filename& filename)
 :
@@ -46,7 +50,7 @@ void Level::clear()
     seconds      = 0;
     initial      = 30;
     required     = 20;
-    rate         = 50;
+    spawnint     = 32;
 
     nuke_delayed = false;
     nuke_skill   = LixEn::NOTHING;
@@ -85,7 +89,7 @@ bool Level::operator == (const Level& l) const
      || this->seconds      != l.seconds
      || this->initial      != l.initial
      || this->required     != l.required
-     || this->rate         != l.rate
+     || this->spawnint     != l.spawnint
 
      || this->nuke_delayed != l.nuke_delayed
      || this->nuke_skill   != l.nuke_skill

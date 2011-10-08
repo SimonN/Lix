@@ -184,7 +184,7 @@ win_var_name_german,
 win_var_name_english,
 win_var_lems,
 win_var_required,
-win_var_rate,
+win_var_spawnint,
 win_var_clock,
 
 // Faehigkeits-Fenster
@@ -560,12 +560,12 @@ void Language::set(const Language lang)
         // Variablenfenster
         win_var_title                 = "General Level Settings";
         win_var_author                = "Author";
-        win_var_name_german           = "German";
-        win_var_name_english          = "English";
-        win_var_lems                  = "No. of lix";
-        win_var_required              = "To save";
-        win_var_rate                  = "Release rate";
-        win_var_clock                 = "Time";
+        win_var_name_german           = "German title";
+        win_var_name_english          = "English title";
+        win_var_lems                  = "Number of lix";
+        win_var_required              = "Lix to save";
+        win_var_spawnint              = "Spawn interval";
+        win_var_clock                 = "Time/overtime";
 
         // Faehigkeits-Fenster
         win_skill_title               = "Skill Settings";
@@ -989,12 +989,12 @@ eb[Editor::ADD_HAZARD]
         // Variablenfenster
         win_var_title                 = "Allgemeine Leveleinstellungen";
         win_var_author                = "Autor";
-        win_var_name_german           = "Deutsch";
-        win_var_name_english          = "Englisch";
+        win_var_name_german           = "Deutscher Titel";
+        win_var_name_english          = "Englischer Titel";
         win_var_lems                  = "Anzahl Lix";
-        win_var_required              = "Zu retten";
-        win_var_rate                  = "Fallrate";
-        win_var_clock                 = "Zeit";
+        win_var_required              = "Lix zu retten";
+        win_var_spawnint              = "Fall-Intervall";
+        win_var_clock                 = "Zeit/Nachspielz.";
 
         // Faehigkeits-Fenster
         win_skill_title               = "Faehigkeits-Einstellungen";

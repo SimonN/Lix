@@ -263,11 +263,12 @@ void Gameplay::prepare_level()
         // Couldn't have resized the vector earlier because the map must exist.
         t.lixvec          . resize(lv.initial);
         t.hatch_next      = i_permuted % hatches.size();
+        // t.update_hatch = - lv.spawnint;
         t.initial         = lv.initial;
         t.lix_hatch       = lv.initial;
         t.required        = lv.required;
-        t.rate_min        = lv.rate;
-        t.rate            = lv.rate;
+        t.spawnint_base   = lv.spawnint;
+        t.spawnint        = lv.spawnint;
         for (int a = 0; a < gloB->skill_max; ++a) {
             t.skill[a].ac = lv.skill[a].ac;
             t.skill[a].nr = lv.skill[a].nr;

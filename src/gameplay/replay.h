@@ -61,7 +61,7 @@ public:
 
     enum Action {
         NOTHING,
-        RATE,
+        SPAWNINT,
         SKILL,
         ASSIGN,
         AIM,

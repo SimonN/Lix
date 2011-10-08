@@ -21,7 +21,7 @@ Globals::Globals()
 :
     version              (CONCAT(2011, 10, 14, 02)),
     version_min          (CONCAT(2011, 09, 26, 00)),
-    version_stable       (true),
+    version_stable       (false),
 
     updates_per_second   (globals_updates_per_second),
     skill_max            (12),
@@ -131,7 +131,8 @@ Globals::Globals()
     level_initial                ("INITIAL"),
     level_initial_legacy         ("LEMMINGS"), // backwards compatibility
     level_required               ("REQUIRED"),
-    level_rate                   ("RATE"),
+    level_spawnint               ("SPAWN_INTERVAL"),
+    level_rate                   ("RATE"), // backwards compatibility
     level_count_neutrals_only    ("COUNT_NEUTRALS_ONLY"),
     level_transfer_skills        ("TRANSFER_SKILLS"),
 
@@ -170,7 +171,7 @@ Globals::Globals()
     replay_player                ("PLAYER"),
     replay_permu                 ("PERMUTATION"),
     replay_update                ("UPDATE"),
-    replay_rate                  ("RATE"),
+    replay_spawnint              ("SPAWNINT"),
     replay_skill                 ("SKILL"),
     replay_aim                   ("AIM"),
     replay_nuke                  ("NUKE"),

@@ -134,6 +134,8 @@ struct Level {
     static const int min_yl;
     static const int max_xl;
     static const int max_yl;
+    static const int spawnint_min;
+    static const int spawnint_max;
 
     Date        built;
 
@@ -155,7 +157,7 @@ struct Level {
     int  seconds;
     int  initial;
     int  required;
-    int  rate;
+    int  spawnint;
 
     bool      nuke_delayed; // true == nuke button triggers overtime if any
     LixEn::Ac nuke_skill;   // NOTHING == use most appropriate exploder

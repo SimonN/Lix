@@ -198,7 +198,7 @@ win_var_name_german,
 win_var_name_english,
 win_var_lems,
 win_var_required,
-win_var_rate,
+win_var_spawnint,
 win_var_clock,
 
 // Faehigkeits-Fenster

@@ -260,12 +260,12 @@ void Replay::save_to_file(const Filename& s, const Level* const lev)
     // Die einzelnen Aktionen schreiben
     for (It itr = data.begin(); itr != data.end(); ++itr) {
         file << IO::LineBang(itr->update, itr->player,
-           itr->action == Replay::RATE   ? gloB->replay_rate
-         : itr->action == Replay::SKILL  ? gloB->replay_skill
-         : itr->action == Replay::ASSIGN ? gloB->replay_assign
-         : itr->action == Replay::AIM    ? gloB->replay_aim
-         : itr->action == Replay::NUKE   ? gloB->replay_nuke
-                                         : Language::cancel,
+           itr->action == Replay::SPAWNINT ? gloB->replay_spawnint
+         : itr->action == Replay::SKILL    ? gloB->replay_skill
+         : itr->action == Replay::ASSIGN   ? gloB->replay_assign
+         : itr->action == Replay::AIM      ? gloB->replay_aim
+         : itr->action == Replay::NUKE     ? gloB->replay_nuke
+                                           : Language::cancel,
          itr->what);
     }
 
@@ -317,7 +317,7 @@ void Replay::load_from_file(const Filename& fn)
         d.update = i->nr1; // d.player ist zwar ein char, aber wir lesen ja
         d.player = i->nr2; // nicht aktiv longs ein, sondern weisen nur zu.
         d.what   = i->nr3;
-        if      (i->text1 == gloB->replay_rate         ) d.action = RATE;
+        if      (i->text1 == gloB->replay_spawnint     ) d.action = SPAWNINT;
         else if (i->text1 == gloB->replay_skill        ) d.action = SKILL;
         else if (i->text1 == gloB->replay_assign       ) d.action = ASSIGN;
         else if (i->text1 == gloB->replay_assign_legacy) d.action = ASSIGN;

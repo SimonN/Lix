@@ -50,9 +50,10 @@ void Level::load_from_binary(const Filename& filename)
 
     // BYTES 0x0000 to 0x0001
     // Release Rate	: 0x0000 is slowest, 0x00FA is fastest
-    // 0x00FA ist 250 im Dezimalsystem. 99 ist die hoechste Rate. Korrigiert
-    // wird die Rate, falls sie unter 1 liegt, noch in load_from().
-    rate = read_two_bytes_levelbi(file);
+    // 0x00FA ist 250 im Dezimalsystem. 99 ist die hoechste Rate. If the value
+    // is abstruse, it'll be corrected to > 1 and < some upper bound
+    // later in load_from().
+    spawnint = 4 + Help::even(99 - read_two_bytes_levelbi(file)) / 2;
 
     // BYTES 0x0002 to 0x0003
     // Num of lemmings	: maximum 0x0072.  0x0010 would be 16 lemmings.

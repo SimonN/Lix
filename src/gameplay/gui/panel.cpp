@@ -156,8 +156,8 @@ void GameplayPanel::set_like_tribe(const Tribe* tr, const Tribe::Master* ma)
 
     stats.set_tribe_local(tr);
 
-    rate_min   .set_number(tr->rate_min);
-    rate       .set_number(tr->rate);
+    rate_min   .set_number(tr->spawnint_base);
+    rate       .set_number(tr->spawnint);
     nuke_single.set_on    (tr->nuke);
     nuke_multi .set_on    (tr->nuke);
     spec_tribe .set_text  (tr->get_name());
