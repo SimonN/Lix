@@ -29,28 +29,5 @@ bitmap/orig/L2/*/*
 levels/orig/*
 levels/network/*oldgfx/*
 
-# exclude non-free sounds. Make an exception for finished replacements,
-data/sound/*
-!data/sound/assign.wav
-!data/sound/award*.wav
-!data/sound/bat_hit.wav
-!data/sound/bat_miss.wav
-!data/sound/brick.wav
-!data/sound/climber.wav
-!data/sound/clock.wav
-!data/sound/fire.wav
-!data/sound/goal.wav
-!data/sound/goal_bad.wav
-!data/sound/hatch.wav
-!data/sound/lets_go.wav
-!data/sound/ouch.wav
-!data/sound/overtime.wav
-!data/sound/panel.wav
-!data/sound/pop.wav
-!data/sound/steel.wav
-!data/sound/water.wav
-
-# exclude test levels, and Rubix's Tutorials.
-bitmap/Tutorial Files/*
-levels/Tutorial/*
+# exclude test levels
 levels/test/*
