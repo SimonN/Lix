@@ -48,6 +48,9 @@ void Level::clear()
     required     = 20;
     rate         = 50;
 
+    nuke_delayed = false;
+    nuke_skill   = LixEn::NOTHING;
+
     count_neutrals_only = false;
     transfer_skills     = false;
 
@@ -83,6 +86,9 @@ bool Level::operator == (const Level& l) const
      || this->initial      != l.initial
      || this->required     != l.required
      || this->rate         != l.rate
+
+     || this->nuke_delayed != l.nuke_delayed
+     || this->nuke_skill   != l.nuke_skill
 
      || this->count_neutrals_only != l.count_neutrals_only
      || this->transfer_skills     != l.transfer_skills    ) return false;

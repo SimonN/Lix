@@ -143,6 +143,8 @@ public:
         level_initial_legacy,
         level_required,
         level_rate,
+        level_nuke_forbidden,
+        level_nuke_skill,
         level_count_neutrals_only,
         level_transfer_skills,
 

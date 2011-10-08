@@ -157,6 +157,9 @@ struct Level {
     int  required;
     int  rate;
 
+    bool      nuke_delayed; // true == nuke button triggers overtime if any
+    LixEn::Ac nuke_skill;   // NOTHING == use most appropriate exploder
+
     bool count_neutrals_only;
     bool transfer_skills;
 
