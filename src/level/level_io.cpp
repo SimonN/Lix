@@ -197,8 +197,8 @@ void Level::load_finalize()
     if (bg_green < 0) bg_green = 0; if (bg_green > 255) bg_green = 255;
     if (bg_blue  < 0) bg_blue  = 0; if (bg_blue  > 255) bg_blue  = 255;
 
-    start_x = Help::mod(start_x, size_x);
-    start_y = Help::mod(start_y, size_y);
+    if (torus_x) start_x = Help::mod(start_x, size_x);
+    if (torus_y) start_y = Help::mod(start_y, size_y);
 
     // Einige Fehler setzen
     // FNF wurde oben schon mit Abbrechen der Funktion gesetzt

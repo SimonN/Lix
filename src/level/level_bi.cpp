@@ -294,6 +294,8 @@ void Level::load_from_binary(const Filename& filename)
             max_x = itr->x + itr->ob->cb.get_xl();
         }
     }
+    if (min_x < 0)      min_x = 0;
+    if (max_x > size_x) max_x = size_x;
     // Nun alles entsprechend verschieben
     size_x  = max_x - min_x;
     start_x -= min_x;
