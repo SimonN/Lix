@@ -327,8 +327,8 @@ void Gameplay::calc_active()
                 data.action       = Replay::NUKE;
                 replay.add(data);
                 Network::send_replay_data(data);
-                effect.add_sound(cs.update + 1, *trlo, 0, Sound::OHNO);
-                Sound::play_loud(Sound::OHNO);
+                effect.add_sound(cs.update + 1, *trlo, 0, Sound::NUKE);
+                Sound::play_loud(Sound::NUKE);
             }
             else timer_tick_last_F12 = Help::timer_ticks;
         }

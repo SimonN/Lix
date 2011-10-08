@@ -71,11 +71,12 @@ public:
         GOAL,        // Any lix enters the player's own goal
         GOAL_BAD,    // Own lix enters an opponent's goal
         YIPPIE,      // Single player: Enough lixes saved
+        NUKE,        // Nuke triggered
         OVERTIME,    // Beginning of overtime. DING!
 
         OUCH,        // Tumbler hits the ground and becomes a stunner
         SPLAT,       // Lix splats because of high drop distance
-        OHNO,        // Nuke, or L1-style exploder begins oh-no animation
+        OHNO,        // L1-style exploder begins oh-no animation
         POP,         // L1-/L2-Exploder explodes
         BRICK,       // Builder/Platformer lays down his last three bricks
         STEEL,       // Ground remover hits steel and stops

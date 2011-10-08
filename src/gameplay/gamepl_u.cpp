@@ -336,12 +336,12 @@ void Gameplay::update_cs_one_data(Tribe& t, Tribe::Master* m, Replay::It i)
     else if (i->action == Replay::NUKE) {
         if (!t.nuke) {
             t.lix_hatch = 0;
-            t.nuke           = true;
+            t.nuke      = true;
             if (&t == trlo) {
                 pan.nuke_single.set_on();
                 pan.nuke_multi .set_on();
             }
-            effect.add_sound(upd, t, 0, Sound::OHNO);
+            effect.add_sound(upd, t, 0, Sound::NUKE);
         }
     }
     else if (i->action == Replay::ASSIGN) {

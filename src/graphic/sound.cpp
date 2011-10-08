@@ -140,6 +140,7 @@ Sound::Sound()
     sample[GOAL]        = Sample(dds + "goal.wav");
     sample[GOAL_BAD]    = Sample(dds + "goal_bad.wav");
     sample[YIPPIE]      = Sample(dds + "yippie.wav");
+    sample[NUKE]        = Sample(dds + "nuke.wav");
     sample[OVERTIME]    = Sample(dds + "overtime.wav");
 
     sample[OUCH]        = Sample(dds + "ouch.wav");
