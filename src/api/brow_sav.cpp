@@ -75,9 +75,13 @@ SaveBrowser::SaveBrowser(const Filename&    bdir,
     cancel.set_text  (Language::cancel);
     // cancel.set_hotkey(KEY_ESC); // Wird nicht gemacht, weil es manuell
     // kontrolliert wird. Beim Texteintippen soll ESC nur das Eintippen abbr.
+    // I think that the commented thing's been obsolete since the GUI rewrite.
 
     file_name.set_text(filename.get_file_no_ext_no_pre_ext());
     file_name.set_scroll();
+
+    // Immediately start typing
+    file_name.set_on();
 }
 
 SaveBrowser::~SaveBrowser()
