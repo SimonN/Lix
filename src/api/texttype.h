@@ -51,8 +51,7 @@ private:
 
 public:
 
-    Texttype(const int, const int, const int);
-    Texttype(const int, const int, const int, std::string&);
+    Texttype(const int, const int, const int, const std::string& = "");
     Texttype(Texttype&);
     virtual ~Texttype();
 

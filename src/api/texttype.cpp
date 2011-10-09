@@ -5,26 +5,16 @@
 
 namespace Api {
 
-Texttype::Texttype(const int x,  const int y, const int xl)
+Texttype::Texttype(const int x,  const int y,
+                   const int xl, const std::string& t)
 :
     Button(x, y, xl, 20), // 20 ist generell bei Textelementen richtig
     invisible    (false),
     scroll       (false),
     on_enter_void(0),
-    on_enter     (0)
-{
-}
-
-
-
-Texttype::Texttype(const int x,  const int y,
-                   const int xl, std::string& t)
-:
-    Button(x, y, xl, 20),
-    invisible    (false),
-    scroll       (false),
-    on_enter_void(0),
-    on_enter     (0)
+    on_esc_void  (0),
+    on_enter     (0),
+    on_esc       (0)
 {
     set_text(t);
 }
