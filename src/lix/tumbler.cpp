@@ -123,7 +123,6 @@ int jumper_and_tumbler_collision(Lixxie& l)
         l.set_special_x(l.get_special_x() / 4);
         l.set_special_x(l.get_special_x() * 2);
 
-        std::cout << "bump head" << std::endl;
         if (l.is_solid(0, 0)) return 3;
         else                  return 1;
     }
@@ -136,15 +135,12 @@ int jumper_and_tumbler_collision(Lixxie& l)
     {
         while (l.is_solid(0, 1)) l.move_up(1);
         tumbler_land(l);
-        std::cout << "floor" << std::endl;
         return 2;
     }
 
     // Vor eine Wand springen
     else if ((swh > 9  && l.get_ac() == LixEn::JUMPER)
      ||      (swh > 0  && l.get_ac() == LixEn::TUMBLER)) {
-        std::cout << "against wall" << std::endl;
-
         // Stick to the surface of the wall which we're inside right now
         if (l.get_ac() == LixEn::JUMPER && l.get_climber()) {
             l.move_ahead(-2);
@@ -183,14 +179,7 @@ int jumper_and_tumbler_collision(Lixxie& l)
         }
         else {
             l.become(LixEn::ASCENDER);
-            l.set_frame(5-swh/2 < 0 ? 0 : 5-swh/2);
-            l.move_down(-1 + !(swh%2));
-            // Zeile aus lemupd.cpp kopiert, vom Climber:
-            // Ist's eine schroffe Klippe? Sonst noch einen nach vorne.
-            if (!l.is_solid(2, -18)) l.move_ahead();
         }
-        std::cout << "hold on wall" << std::endl;
-
         return 2;
     }
 
@@ -199,8 +188,6 @@ int jumper_and_tumbler_collision(Lixxie& l)
     // walls though, we return the suggestion to move back if we're stuck in
     // the terrain.
     if (l.is_solid(0, 0)) {
-        std::cout << "final head bump" << std::endl;
-
         // The second check for bumping the head, see comment near beginning
         // function.
         if (! l.is_solid(0, 2)) {

@@ -74,6 +74,10 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
 {
     ua.suppress_unused_variable_warning();
 
+    bool turn_after_all   = false;
+    int  old_ex           = l.get_ex();
+    int  old_ey           = l.get_ey();
+
     // Das erste Frame dient zur kurzen Pause, die die Lix vor dem
     // Weiterlaufen machen soll, wenn die Walker-Faehigkeit vom Benutzer
     // explizit zugewiesen wird. Dieses Frame darf im normalen Walker-
@@ -81,36 +85,16 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
     // Also true for runners.
     if (l.get_frame() != 0) l.move_ahead();
 
-    bool turn_after_all   = false;
-    int  old_ex           = l.get_ex();
-    int  old_ey           = l.get_ey();
-
     // Pruefung auf Boden unter der neuen Position
     // Falls da nichts ist, gucken wir etwas darüber nach - vielleicht
     // handelt es sich um eine sehr dünne Aufwärts-Brücke, durch die
     // wir nicht hindurchfallen wollen?
     if (l.is_solid() || l.is_solid(0, 1)) {
-        // Bei zu starker Steigung umdrehen...
+        // do the wall check to turn or ascend
         int up_by = l.solid_wall_height(0);
-        if (up_by == 13) {
-            turn_after_all = true;
-        }
-        // ...sonst sich nach oben bewegen...
-        else {
-            l.move_up(up_by);
-            // ...und ggf. kurz anhalten, um Höhen ab 6 Pixeln zu klettern
-            if (up_by >= 6) {
-                l.become(LixEn::ASCENDER);
-                // Frame wählen und hinunter bewegen, denn der Ascender
-                // hängt ja zunächst in der Wand
-                l.set_frame(up_by >= 10 ? 12 - up_by : 11 - up_by);
-                if (!l.is_solid(2, -2)) l.move_ahead();
-                // Höhe dem Frame angleichen
-                l.move_down(10 - 2 * l.get_frame());
-            }
-            // Ende vom eventuellen Ascender
-        }
-        // Ende von Bewegung nach oben
+        if      (up_by == 13) turn_after_all = true;
+        else if (up_by >=  6) l.become(LixEn::ASCENDER);
+        else                  l.move_up(up_by);
     }
     // Ende von "Boden unter den Füßen"
 
@@ -146,7 +130,7 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
     }
 
     // Wenn die Lix umdrehen soll, beginnt sie entweder zu klettern
-    // oder dreht um, beides auf seiner alten Stelle
+    // oder dreht um, beides auf ihrer alten Stelle
     if (turn_after_all) {
         l.set_ex(old_ex);
         l.set_ey(old_ey);
@@ -168,7 +152,6 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
         }
         if (! climbed_after_all) {
             l.turn();
-            l.move_ahead();
         }
     }
     // Ende der Umdrehen-Kontrolle

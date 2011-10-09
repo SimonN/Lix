@@ -31,15 +31,6 @@ void become_climber(Lixxie& l)
     l.become_default(LixEn::CLIMBER);
     l.set_frame(3); // so this is the default for walkers -> climbers.
 
-    // Verhindern, dass er in der Wand zu klettern beginnt
-    // Y = -10 [Edit im August 09: -12],
-    // denn sonst überklettert er einen sehr niedrigen
-    // Rand und setzt von Neuem zum Klettern an
-    // before 2010-03-10 this had "&& l.is_solid(1, -12)" in the while
-    // condition, this lead to a bug visible in Rubix' video of
-    // "Still everything to play for" (L1 2-player level number 2)
-    while (l.is_solid(0, -12)) l.move_ahead(-2);
-
     // Korrektur der Anzeige, damit der Climber nicht mit einer Pixelreihe im
     // Felsen sitzt: In diesem Fall wird special_x = 1 gesetzt. Wenn diese
     // Korrektur beim Climber-Update stattfinden muss, wird man Faller!
@@ -70,9 +61,6 @@ void become_climber(Lixxie& l)
         // end of "copied this also from update_climber()
         else if (!l.is_solid(2, -i)) {
             l.move_ahead();
-            // Nochmal vorwärts, wenn es keine schroffe Klippe ist
-            if (!l.is_solid(2, -i-2)) l.move_ahead();
-            l.move_down(11-i);
             l.become(LixEn::ASCENDER);
             break;
         }
@@ -114,11 +102,8 @@ void update_climber(Lixxie& l, const UpdateArgs& ua)
         }
         // Ist der obere Rand erreicht zum Ascender-Werden?
         else if (!l.is_solid(2, -16)) {
-            l.become(LixEn::ASCENDER);
             l.move_ahead();
-            l.move_up(5);
-            // Ist's eine schroffe Klippe? Sonst noch einen nach vorne.
-            if (!l.is_solid(2, -18)) l.move_ahead();
+            l.become(LixEn::ASCENDER);
             break;
         }
     }
@@ -135,17 +120,4 @@ void update_climber(Lixxie& l, const UpdateArgs& ua)
          || (l.get_dir() < 0 && !l.is_solid_single(1, -6)) )
             l.set_x(l.get_x() - 1);
     }
-}
-
-
-
-void update_ascender(Lixxie& l, const UpdateArgs& ua)
-{
-    ua.suppress_unused_variable_warning();
-
-    // normally, move up once, but not on the last frame
-    if (l.get_frame() != 5) l.move_up();
-
-    if (l.is_last_frame()) l.become(LixEn::WALKER);
-    else l.next_frame();
 }
