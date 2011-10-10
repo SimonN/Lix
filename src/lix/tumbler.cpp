@@ -5,6 +5,8 @@
 
 #include "ac.h"
 
+#include <iostream> // debugging
+
 void become_tumbler(Lixxie& l)
 {
     if (l.is_solid(0, 0)) {
@@ -98,7 +100,7 @@ static void tumbler_land(Lixxie& l)
 //       encounters.
 int jumper_and_tumbler_collision(Lixxie& l)
 {
-    const int swh           = l.solid_wall_height();
+    const int swh = l.solid_wall_height();
 
     // Das Vorruecken zum jeweiligen Pixel ist bereits gemacht.
 
@@ -121,38 +123,9 @@ int jumper_and_tumbler_collision(Lixxie& l)
         l.set_special_x(l.get_special_x() / 4);
         l.set_special_x(l.get_special_x() * 2);
 
+        std::cout << "bump head" << std::endl;
         if (l.is_solid(0, 0)) return 3;
         else                  return 1;
-    }
-    // Vor eine Wand springen: Muss vor die Bodenkollision, damit wir somit
-    // den Hochteleportier-Bug bekaempfen
-    else if ((swh > 9  && l.get_ac() == LixEn::JUMPER)
-     ||      (swh > 0  && l.get_ac() == LixEn::TUMBLER)) {
-        // Stick to the surface of the wall which we're inside right now
-        if (l.get_ac() == LixEn::JUMPER && l.get_climber()) {
-            l.move_ahead(-2);
-            l.become(LixEn::CLIMBER);
-            l.set_frame(0);
-            return 1;
-        }
-        else if (l.is_solid(0, 2) && ! l.is_solid(0, 0)) {
-            // Don't turn if batted onto a 45 degree slope.
-            while (l.is_solid(0, 1)) l.move_up(1);
-            tumbler_land(l);
-            return 2;
-        }
-        else if (l.is_solid(-2, 2) && ! l.is_solid(-2, 0)) {
-            // Don't turn if batted onto a 45 degree slope, part 2
-            l.move_ahead(-2);
-            while (l.is_solid(0, 1)) l.move_up(1);
-            tumbler_land(l);
-            return 2;
-        }
-        else {
-            // Move out of wall we seem to be in.
-            l.turn();
-            return 3;
-        }
     }
 
     // Boden-Kollision
@@ -163,12 +136,45 @@ int jumper_and_tumbler_collision(Lixxie& l)
     {
         while (l.is_solid(0, 1)) l.move_up(1);
         tumbler_land(l);
+        std::cout << "floor" << std::endl;
         return 2;
+    }
+
+    // Vor eine Wand springen
+    else if ((swh > 9  && l.get_ac() == LixEn::JUMPER)
+     ||      (swh > 0  && l.get_ac() == LixEn::TUMBLER)) {
+        std::cout << "against wall" << std::endl;
+
+        // Stick to the surface of the wall which we're inside right now
+        if (l.get_ac() == LixEn::JUMPER && l.get_climber()) {
+            l.move_ahead(-2);
+            l.become(LixEn::CLIMBER);
+            l.set_frame(0);
+            return 1;
+        }
+//        else if (l.is_solid(0, 2) && ! l.is_solid(0, 0)) {
+//            // Don't turn if batted onto a 45 degree slope.
+//            while (l.is_solid(0, 1)) l.move_up(1);
+//            tumbler_land(l);
+//            return 2;
+//        }
+//        else if (l.is_solid(-2, 2) && ! l.is_solid(-2, 0)) {
+//            // Don't turn if batted onto a 45 degree slope, part 2
+//            l.move_ahead(-2);
+//            while (l.is_solid(0, 1)) l.move_up(1);
+//            tumbler_land(l);
+//            return 2;
+//        }
+        else {
+            // Move out of wall we seem to be in.
+            l.turn();
+            return 3;
+        }
     }
 
     // Wenn Jumper, nicht Tumbler:
     // Wand nicht ganz so hoch, man kann sich festhalten oben dran.
-    else if (swh > 0) {
+    else if (swh > 0 || (l.is_solid(0, 0) && l.get_ac() == LixEn::JUMPER)) {
         if (l.get_special_y() > tumbler_max_special_y) {
             // this shouldn't ever get used, a jumper shouldn't fall with
             // deadly speed, she should always turn into a tumbler
@@ -183,6 +189,8 @@ int jumper_and_tumbler_collision(Lixxie& l)
             // Ist's eine schroffe Klippe? Sonst noch einen nach vorne.
             if (!l.is_solid(2, -18)) l.move_ahead();
         }
+        std::cout << "hold on wall" << std::endl;
+
         return 2;
     }
 
@@ -191,6 +199,8 @@ int jumper_and_tumbler_collision(Lixxie& l)
     // walls though, we return the suggestion to move back if we're stuck in
     // the terrain.
     if (l.is_solid(0, 0)) {
+        std::cout << "final head bump" << std::endl;
+
         // The second check for bumping the head, see comment near beginning
         // function.
         if (! l.is_solid(0, 2)) {
