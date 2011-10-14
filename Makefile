@@ -5,7 +5,7 @@ CXXFLAGS := -s -O2
 
 LD       := libtool --mode=link g++
 LDDIRS   := -L/usr/local/lib
-LDALLEG  := $(shell allegro-config --libs --static)
+LDALLEG  := $(shell allegro-config --libs)
 LDENET   := -lenet
 
 STRIP    := strip
