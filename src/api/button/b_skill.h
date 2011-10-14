@@ -17,10 +17,11 @@ class SkillButton : public Button {
 
 private:
 
-    int       number;
-    LixEn::Ac skill;
+    int         number;
+    LixEn::Ac   skill;
 
-    Graphic   icon;
+    Graphic     icon;
+    std::string hotkey_label;
 
 public:
 
@@ -33,9 +34,10 @@ public:
     inline LixEn::Ac  get_skill()  const { return skill;  }
     inline int        get_number() const { return number; }
 
-           void       set_skill (const LixEn::Ac a);
-           void       set_number(const int);
-           void       set_style (const LixEn::Style);
+           void set_skill       (const LixEn::Ac a);
+           void set_number      (const int);
+           void set_style       (const LixEn::Style);
+           void set_hotkey_label(const std::string& s);
 
 protected:
 

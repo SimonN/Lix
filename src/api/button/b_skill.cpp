@@ -57,6 +57,19 @@ void SkillButton::set_style(const LixEn::Style st)
 
 
 
+void SkillButton::set_hotkey_label(const std::string& s)
+{
+    hotkey_label = s;
+    if (hotkey_label.size() > 3) hotkey_label.resize(3);
+    if (hotkey_label.size() > 0) {
+        int c = hotkey_label[0];
+        if (c >= 'a' && c <= 'z') hotkey_label[0] = c + 'A' - 'a';
+    }
+    set_draw_required();
+}
+
+
+
 void SkillButton::draw_self()
 {
     Button::draw_self();
@@ -65,6 +78,7 @@ void SkillButton::draw_self()
         icon.set_y(get_y_here() + 23);
         icon.draw();
 
+        // draw the number
         std::ostringstream s;
         if      (number == LixEn::infinity) s << "*";
         else if (number == 0); // write nothing
@@ -78,6 +92,16 @@ void SkillButton::draw_self()
          s.str().c_str(), get_x_here() + 20 + (s.str().size() > 2 ? -1 : 0),
          get_y_here() + 4,
          color[COL_TEXT_ON], color[COL_API_SHADOW]);
+
+        // draw the hotkey
+        if (! hotkey_label.empty() && ! s.str().empty()) {
+            Help::draw_shadow_text(get_ground(), font_sml,
+                hotkey_label.c_str(), get_x_here() + get_xl() - 3
+                    - ::text_length(font_sml, hotkey_label.c_str()),
+                get_y_here() + get_yl() - 15,
+                color[COL_TEXT], color[COL_API_SHADOW]
+            );
+        }
     }
 }
 
