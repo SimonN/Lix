@@ -1,0 +1,99 @@
+ _____________________________________________________________________________
+/                                                                             \
+|   Lix                                Release notes for Linux/Unix machines  |
+\_____________________________________________________________________________/
+
+
+
+If you've downloaded a binary package from the Lix website, read the first
+chapter of this file.
+
+If you've obtained the Lix source and wish to build the game yourself, read
+the remaining chapters.
+
+
+
+USING THE BINARY PACKAGE
+------------------------
+
+If you've downloaded a binary release from the Lix website, run the game
+like this:
+
+    ./bin/lix
+
+You might get an error about a missing library, liballeg.so. In this case,
+install the Allegro 4.2 or 4.4 runtime libraries. You can probably do so via
+your favorite package manager.
+
+I had problems getting the sound to work when linking Allegro statically into
+the executable, so I fell back to dynamic linking for now.
+
+The rest of this document describes how to build the game from source. If you
+can run the game from the binary package, skip the rest.
+
+
+
+NECESSARY LIBRARIES TO BUILD THE GAME
+-------------------------------------
+
+Lix uses these libraries:
+
+    Allegro 4.2 (or 4.4) - graphics/game routines library
+    enet 1.3.x           - networking library using UDP
+
+You want developer libs for these. Allegro 4.x should be easily installable
+via your favorite package manager. Alternatively, get its source from this
+site, but make sure you get version 4.2 or 4.4; do not get 5.0.x:
+
+    http://www.allegro.cc/files/?v=4.4
+
+enet can be obtained from this site:
+
+    http://enet.bespin.org
+
+Read their documentation about how to install them. If you get stuck, feel
+free to ask me for help, I've gone through the install process several times.
+See readme.txt about how to contact me.
+
+By default, the libs will be built dynamically. If you prefer static linking,
+use this command line for Allegro 4 instead of the normal cmake invocation:
+
+    cmake -DSHARED=0 -DSTATIC=1 <directory>
+
+If you want enet to be built statically, use these ./configure options:
+
+    ./configure --enable-static=yes --enable-shared=no
+
+If you have root access to your machine, you can install the libraries on
+your system via make install. If you put them somewhere else, you will have
+to edit the Lix makefile later.
+
+
+
+BUILDING LIX
+------------
+
+If you did not install the libraries to /usr/somewhere, you have to tweak the
+Lix makefile. In this case, alter the definition of the variable CXXFLAGS to:
+
+    CXXFLAGS := -s -O2 -I/path/to/allegroincludes -I/path/to/enetincludes
+
+Furthermore, alter the lines containing the linker arguments:
+
+    LDDIRS   := -L/usr/local/lib -L/path/to/alleglibs -L/path/to/enetlibs
+
+Finally, whether or not you had to change the makefile, invoke make from the
+Lix root dir. It should build two binaries, ./bin/lix and ./bin/lixd. The first
+binary is the game executable, it should be run from the game's root directory
+or from ./bin/.
+
+I didn't intend the game to be installed further in any way. All files reside
+in a single directory somewhere under the user's home directory. Uninstall
+the game by deleting that directory. Fitting the game into the regular unix
+filesystem hierarchy standard is a long-term goal, this would allow
+distribution e.g. via Linux package managers.
+
+lixd is a standalone server daemon, it doesn't depend on any working directory.
+Run it without command line arguments to get invocation info.
+
+If you get problems, feel free to contact me. :-) See readme.txt for details.

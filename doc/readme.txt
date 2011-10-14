@@ -8,6 +8,8 @@
 This file contains lots of general information about the game. There are other
 files about special topics in this directory.
 
+If you're looking for info about compiling the game, see linux.txt.
+
 
 
 TABLE OF CONTENTS
