@@ -3,10 +3,12 @@
 CXX      := g++
 CXXFLAGS := -s -O2
 
-LD       := g++
+LD       := libtool --mode=link g++
 LDDIRS   := -L/usr/local/lib
-LDALLEG  := $(shell allegro-config --libs)
+LDALLEG  := $(shell allegro-config --libs --static)
 LDENET   := -lenet
+
+STRIP    := strip
 
 DEPGEN   := g++ -MM
 RM       := rm -rf
@@ -56,15 +58,19 @@ clean:
 
 $(CLIENT_BIN): $(CLIENT_OBJS)
 	@$(MKDIR) $(BINDIR)
-	@echo Linking the game binary \`$(CLIENT_BIN)\'.
-	@echo Linker flags: $(LDDIRS) $(LDALLEG) $(LDENET)
-	@$(LD) $(LDDIRS) $(LDALLEG) $(LDENET) $(CLIENT_OBJS) -o $(CLIENT_BIN)
+	@echo Linking the game \`$(CLIENT_BIN)\' with \
+		$(LDDIRS) $(LDALLEG) $(LDENET)
+	@$(LD) $(LDDIRS) $(LDALLEG) $(LDENET) $(CLIENT_OBJS) -o $(CLIENT_BIN) \
+		> /dev/null
+	@$(STRIP) $(CLIENT_BIN)
 
 $(SERVER_BIN): $(SERVER_OBJS)
 	@$(MKDIR) $(BINDIR)
-	@echo Linking the server daemon \`$(SERVER_BIN)\'.
-	@echo Linker flags: $(LDDIRS) $(LDENET)
-	@$(LD) $(LDDIRS) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN)
+	@echo Linking the server daemon \`$(SERVER_BIN)\' with \
+		$(LDDIRS) $(LDENET)
+	@$(LD) $(LDDIRS) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN) \
+		> /dev/null
+	@$(STRIP) $(SERVER_BIN)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@$(MKDIR) `dirname $@` `dirname $(DEPDIR)/$*.d`
