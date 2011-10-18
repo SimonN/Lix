@@ -1,12 +1,6 @@
 /*
  * lix/basher.cpp
  *
- * The basher will bash away the lowest rectangle of most frames again during
- * the next frame. This is to prevent the horizontal lines when he's bashing
- * inside a digger's pit. These lines will be commented with "re-bash".
- *
- * DEBUGGING: implement re-bashing for the Lix again.
- *
  * special_x
  *
  *   Misst, wie weit eine Lix hinuntergestiegen ist beim Bohren. Wenn das
@@ -123,7 +117,7 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
             bool stop_bashing = true;
             // Tills Bohr-Problem: Nochmal auf hauchduenne Waende pruefen
             for (int x = 12; x <= 23; x += 2)
-                if (l.solid_wall_height(x) > 8) stop_bashing = false;
+                if (l.is_solid(x, -12)) stop_bashing = false;
             if (stop_bashing) l.become(LixEn::WALKER);
         }
         break;
