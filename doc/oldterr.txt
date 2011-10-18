@@ -23,67 +23,77 @@ From DOS Lemmings 1, take VGAGRx.DAT (with x being any one-digit number) and
 GROUNDxO.DAT, optionally also VGASPECx.DAT, and put them into the following
 dir structure: (you have to create the directory `./bitmap/orig/' and its
 subdirectories first:)
-./bitmap/orig/L1/0. Dirt/GROUND0O.DAT
-./bitmap/orig/L1/0. Dirt/VGAGR0.DAT
-./bitmap/orig/L1/1. Hell/GROUND1O.DAT
-./bitmap/orig/L1/1. Hell/VGAGR1.DAT
-./bitmap/orig/L1/2. Pastel/GROUND2O.DAT
-./bitmap/orig/L1/2. Pastel/VGAGR2.DAT
-./bitmap/orig/L1/3. Pillar/GROUND3O.DAT
-./bitmap/orig/L1/3. Pillar/VGAGR3.DAT
-./bitmap/orig/L1/4. Pillar/GROUND4O.DAT
-./bitmap/orig/L1/4. Pillar/VGAGR4.DAT
-./bitmap/orig/L1/VGASPEC0.DAT
-./bitmap/orig/L1/VGASPEC1.DAT
-./bitmap/orig/L1/VGASPEC2.DAT
-./bitmap/orig/L1/VGASPEC3.DAT
+
+    ./bitmap/orig/L1/0. Dirt/GROUND0O.DAT
+    ./bitmap/orig/L1/0. Dirt/VGAGR0.DAT
+    ./bitmap/orig/L1/1. Hell/GROUND1O.DAT
+    ./bitmap/orig/L1/1. Hell/VGAGR1.DAT
+    ./bitmap/orig/L1/2. Pastel/GROUND2O.DAT
+    ./bitmap/orig/L1/2. Pastel/VGAGR2.DAT
+    ./bitmap/orig/L1/3. Pillar/GROUND3O.DAT
+    ./bitmap/orig/L1/3. Pillar/VGAGR3.DAT
+    ./bitmap/orig/L1/4. Crystal/GROUND4O.DAT
+    ./bitmap/orig/L1/4. Crystal/VGAGR4.DAT
+    ./bitmap/orig/L1/VGASPEC0.DAT
+    ./bitmap/orig/L1/VGASPEC1.DAT
+    ./bitmap/orig/L1/VGASPEC2.DAT
+    ./bitmap/orig/L1/VGASPEC3.DAT
 
 If you have Oh no more Lemmings, you can take the same files (except
 VGASPECx.DAT, it doesn't have any), but you must add 5 to the single digit in
 each file's name by renaming it:
-./bitmap/orig/L1/5. Brick/GROUND5O.DAT
-./bitmap/orig/L1/5. Brick/VGAGR5.DAT
-./bitmap/orig/L1/6. Rock/GROUND6O.DAT
-./bitmap/orig/L1/6. Rock/VGAGR6.DAT
-./bitmap/orig/L1/7. Snow/GROUND7O.DAT
-./bitmap/orig/L1/7. Snow/VGAGR7.DAT
-./bitmap/orig/L1/8. Bubble/GROUND8O.DAT
-./bitmap/orig/L1/8. Bubble/VGAGR8.DAT
+
+    ./bitmap/orig/L1/5. Brick/GROUND5O.DAT
+    ./bitmap/orig/L1/5. Brick/VGAGR5.DAT
+    ./bitmap/orig/L1/6. Rock/GROUND6O.DAT
+    ./bitmap/orig/L1/6. Rock/VGAGR6.DAT
+    ./bitmap/orig/L1/7. Snow/GROUND7O.DAT
+    ./bitmap/orig/L1/7. Snow/VGAGR7.DAT
+    ./bitmap/orig/L1/8. Bubble/GROUND8O.DAT
+    ./bitmap/orig/L1/8. Bubble/VGAGR8.DAT
 
 If you have Holiday Lemmings 1993 or 1994 (I think 1992 does as well), you can
 also take the holiday terrain and change the 0 to a 9:
-./bitmap/orig/L1/9. Holiday/GROUND9O.DAT
-./bitmap/orig/L1/9. Holiday/VGAGR9.DAT
+
+    ./bitmap/orig/L1/9. Holiday/GROUND9O.DAT
+    ./bitmap/orig/L1/9. Holiday/VGAGR9.DAT
 
 If you have Lemmings 2, you can take the 12 files from its STYLES/ directory.
 Because all of these files except for CAVEMAN.DAT are compressed, you need
-to decompress them using Mindless' lem2zip.
-You can obtain lem2zip here: http://code.google.com/p/lemmings-tools/
+to decompress them using Mindless' lem2zip. You can obtain lem2zip here:
+
+    http://code.google.com/p/lemmings-tools/
+
 Windows users can simply use the executable from the Downloads section,
 users of other platforms will have to compile lem2zip on their own.
 To decompress files, run "lem2zip -d [filenames]" from the commandline.
 For each tribe, make a directory as following, and put the corresponding file
 in there. Rename the L2 style files so that only the first letter is capital,
 all else is small case (including the extension).
-./bitmap/orig/L2/Beach/Beach.dat
-./bitmap/orig/L2/Cavelems/Cavelems.dat
-./bitmap/orig/L2/Circus/Circus.dat
-... a total of 12 of these ...
-./bitmap/orig/L2/Sports/Sports.dat
+
+    ./bitmap/orig/L2/Beach/Beach.dat
+    ./bitmap/orig/L2/Cavelems/Cavelems.dat
+    ./bitmap/orig/L2/Circus/Circus.dat
+    ... a total of 12 of these ...
+    ./bitmap/orig/L2/Sports/Sports.dat
+
 Note that for CAVEMAN.DAT, this file must be named Cavelems.dat
-(not Caveman.dat) and its directory must also be called Cavelems.dat.
+(not Caveman.dat) and its directory must also be called Cavelems.
+
 Windows users can also run the following batch script which produces the L2
 folder with the required content instead to ease the process (create a file
 decompress.bat in your Lemmings 2 folder with the following content):
-	cp -r Styles L2
+
+	copy -r Styles L2
 	for %%b in (Classic Beach Circus Egyptian
 	Highland Medieval Outdoor Polar Shadow Space Sports) do (
 		md L2\%%b
 		lem2zip-0.2.0.exe -d L2\%%b.dat
-		mv L2\%%b.dat L2\%%b\%%b.dat
+		move L2\%%b.dat L2\%%b\%%b.dat
 	)
 	md L2\Cavelems
-	mv L2\Caveman.dat L2\Cavelems\Cavelems.dat
+	move L2\Caveman.dat L2\Cavelems\Cavelems.dat
+
 Linux users probably know how to setup a shell script to do the work.
 
 Note that if you're going to include content from those Lemmings games,
@@ -134,7 +144,7 @@ graphics set based on the subdirectory structure you put the files in:
     add the number 5 to the graphics set information from the file before it
     determines which graphics set to use. This is the desired behavior for
     levels taken directly from Oh no more Lemmings.
-    
+
     However, custom-built levels in ONML-styles have the 5 already added in the
     .LVL file and thus shouldn't be added in a directory reading "ONML"/"onml".
     In any way, Lix treats the set numbers in these subdirectories as follows:
