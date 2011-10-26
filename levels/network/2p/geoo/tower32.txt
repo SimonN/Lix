@@ -1,4 +1,4 @@
-$BUILT                                             2011-09-26 09:44:31
+$BUILT                                             2011-10-15 20:13:47
 $AUTHOR                                                           geoo
 $GERMAN                                                               
 $ENGLISH                                        Tower Defense (Part 3)
@@ -34,8 +34,8 @@ $ENGLISH                                        Tower Defense (Part 3)
 :bitmap/geoo/construction/Hatch.H:                       512        64     r
 :bitmap/geoo/construction/Hatch.H:                        96        64
 
-:bitmap/geoo/construction/Goal2.G:                        40       320
 :bitmap/geoo/construction/Goal2.G:                       536       320
+:bitmap/geoo/construction/Goal2.G:                        40       320
 
 :bitmap/geoo/construction/sawblade.F:                    442       364
 :bitmap/geoo/construction/sawblade.F:                    468       364

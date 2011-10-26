@@ -1,4 +1,4 @@
-$BUILT                                             2011-08-17 17:19:12
+$BUILT                                             2011-10-15 20:13:24
 $AUTHOR                                                           geoo
 $GERMAN                                                               
 $ENGLISH                                                      Intruder
@@ -42,14 +42,14 @@ $ENGLISH                                                      Intruder
 :bitmap/geoo/construction/squisher.T:                    368       256
 :bitmap/geoo/construction/squisher.T:                    368        64
 
-:bitmap/geoo/construction/sawblade.F:                     44       188
-:bitmap/geoo/construction/sawblade.F:                     44       164
-:bitmap/geoo/construction/sawblade.F:                     44       140
-:bitmap/geoo/construction/sawblade.F:                     46       380
-:bitmap/geoo/construction/sawblade.F:                     46       356
-:bitmap/geoo/construction/sawblade.F:                     46       332
-:bitmap/geoo/construction/sawblade.F:                     44       116
-:bitmap/geoo/construction/sawblade.F:                     46       308
+:bitmap/geoo/construction/sawblade.F:                     52       188
+:bitmap/geoo/construction/sawblade.F:                     52       164
+:bitmap/geoo/construction/sawblade.F:                     52       140
+:bitmap/geoo/construction/sawblade.F:                     52       380
+:bitmap/geoo/construction/sawblade.F:                     52       356
+:bitmap/geoo/construction/sawblade.F:                     52       332
+:bitmap/geoo/construction/sawblade.F:                     52       116
+:bitmap/geoo/construction/sawblade.F:                     52       308
 :bitmap/geoo/construction/sawblade.F:                    156       268
 :bitmap/geoo/construction/sawblade.F:                    348       204
 :bitmap/geoo/construction/sawblade.F:                    220       300
