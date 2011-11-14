@@ -19,8 +19,8 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2011, 10, 14, 02)),
-    version_min          (CONCAT(2011, 09, 26, 00)),
+    version              (CONCAT(2011, 11, 11, 00)),
+    version_min          (CONCAT(2011, 11, 11, 00)),
     version_stable       (false),
 
     updates_per_second   (globals_updates_per_second),
@@ -331,8 +331,10 @@ void Globals::initialize()
     std::string testdir = "./data/bitmap";
     std::string rootdir = "?????";
     if (file_exists(testdir.c_str(), FA_DIREC, 0)) rootdir = "./";
-    testdir = '.' + testdir;
-    if (file_exists(testdir.c_str(), FA_DIREC, 0)) rootdir = "../";
+    else {
+        testdir = '.' + testdir;
+        if (file_exists(testdir.c_str(), FA_DIREC, 0)) rootdir = "../";
+    }
 
     Filename::set_root_dir(rootdir);
 
