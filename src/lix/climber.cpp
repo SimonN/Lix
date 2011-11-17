@@ -21,6 +21,14 @@ void assclk_climber(Lixxie& l)
 
 
 
+static bool odd_wall_x(Lixxie& l)
+{
+    return (l.get_dir() > 0 && !l.is_solid_single(2, -6))
+        || (l.get_dir() < 0 && !l.is_solid_single(1, -6));
+}
+
+
+
 void become_climber(Lixxie& l)
 {
     // this is a backup for not becoming a climber after all
@@ -31,13 +39,9 @@ void become_climber(Lixxie& l)
     l.become_default(LixEn::CLIMBER);
     l.set_frame(3); // so this is the default for walkers -> climbers.
 
-    // Korrektur der Anzeige, damit der Climber nicht mit einer Pixelreihe im
-    // Felsen sitzt: In diesem Fall wird special_x = 1 gesetzt. Wenn diese
-    // Korrektur beim Climber-Update stattfinden muss, wird man Faller!
-    l.set_ex(l.get_ex());
-    if ((l.get_dir() > 0 &&  l.is_solid_single(1, -6))
-     || (l.get_dir() < 0 && !l.is_solid_single(1, -6)) ) {
-        l.set_x(l.get_x() - 1);
+    // Move further into the wall if that has an odd x coordinate.
+    if (odd_wall_x(l)) {
+        l.set_x(l.get_x() + l.get_dir());
         l.set_special_x(1);
     }
 
@@ -116,8 +120,8 @@ void update_climber(Lixxie& l, const UpdateArgs& ua)
         // Korrektur der Anzeige, damit der Climber nicht mit einer Pixel-
         // reihe im Felsen sitzt
         l.set_ex(l.get_ex());
-        if ((l.get_dir() > 0 &&  l.is_solid_single(1, -6))
-         || (l.get_dir() < 0 && !l.is_solid_single(1, -6)) )
-            l.set_x(l.get_x() - 1);
+        if (odd_wall_x(l)) {
+            l.set_x(l.get_x() + l.get_dir());
+        }
     }
 }
