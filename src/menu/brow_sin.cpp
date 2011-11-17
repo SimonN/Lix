@@ -53,6 +53,7 @@ SingleBrowser::SingleBrowser()
 
     set_button_play_text(Language::browser_play);
     button_edit.set_text(Language::browser_edit);
+    button_edit.set_hotkey(useR->key_me_edit);
 
     set_preview_y(40 + (but_yl + but_y_spacing) * 2);
 

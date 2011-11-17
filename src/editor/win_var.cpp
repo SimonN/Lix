@@ -6,6 +6,7 @@
 #include "win_var.h"
 
 #include "../other/language.h"
+#include "../other/user.h"
 
 namespace Api{
 
@@ -40,8 +41,8 @@ WindowVariables::WindowVariables(Level& l)
 {
     level = &l;
 
-    ok     .set_hotkey(KEY_ENTER);
-    cancel .set_hotkey(KEY_ESC);
+    ok     .set_hotkey(useR->key_me_okay);
+    cancel .set_hotkey(useR->key_me_exit);
     ok     .set_text  (Language::ok);
     cancel .set_text  (Language::cancel);
 

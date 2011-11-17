@@ -13,7 +13,7 @@ namespace Language {
 
 // Geheime Variable
 std::vector <std::string> language_name( 4);
-std::vector <std::string> option_group ( 6);
+std::vector <std::string> option_group ( 7);
 std::vector <std::string> editor_button(Editor::MAX);
 std::vector <std::string>& eb = editor_button; // nur intern in language.cpp
 
@@ -305,6 +305,17 @@ option_key_nuke,
 option_key_info_1,
 option_key_info_2,
 option_key_info_3,
+
+option_key_me_okay,
+option_key_me_edit,
+option_key_me_export,
+option_key_me_delete,
+option_key_me_up_dir,
+option_key_me_up_1,
+option_key_me_up_5,
+option_key_me_down_1,
+option_key_me_down_5,
+option_key_me_exit,
 
 option_ed_left,
 option_ed_right,
@@ -635,8 +646,9 @@ void Language::set(const Language lang)
         option_group[1]               = "Controls";
         option_group[2]               = "Hotkeys";
         option_group[3]               = "Editor";
-        option_group[4]               = "Graphics";
-        option_group[5]               = "Sound";
+        option_group[4]               = "Menu";
+        option_group[5]               = "Graphics";
+        option_group[6]               = "Sound";
         option_user_name              = "Player name";
         option_user_name_ask          = "Ask for name on startup";
         option_language               = "Language";
@@ -708,6 +720,17 @@ void Language::set(const Language lang)
         option_key_info_1             = "A hotkey assigned to";
         option_key_info_2             = "multiple skills will";
         option_key_info_3             = "alternate between them.";
+
+        option_key_me_okay            = "Okay/yes";
+        option_key_me_edit            = "Edit";
+        option_key_me_export          = "Export";
+        option_key_me_delete          = "Delete/no";
+        option_key_me_up_dir          = "Parent dir";
+        option_key_me_up_1            = "Up by 1";
+        option_key_me_up_5            = "Up by 5";
+        option_key_me_down_1          = "Down by 1";
+        option_key_me_down_5          = "Down by 5";
+        option_key_me_exit            = "Back/cancel";
 
         option_ed_left                = "Move left";
         option_ed_right               = "Move right";
@@ -1071,8 +1094,9 @@ eb[Editor::ADD_HAZARD]
         option_group[1]               = "Steuerung";
         option_group[2]               = "Hotkeys";
         option_group[3]               = "Editor";
-        option_group[4]               = "Grafik";
-        option_group[5]               = "Audio";
+        option_group[4]               = "Menue";
+        option_group[5]               = "Grafik";
+        option_group[6]               = "Audio";
         option_user_name              = "Spielername";
         option_user_name_ask          = "Namensfrage bei Start";
         option_replay_auto_max        = "Max. Auto-Replays";
@@ -1144,6 +1168,17 @@ eb[Editor::ADD_HAZARD]
         option_key_info_1             = "Ein mehrfach zugewiesener";
         option_key_info_2             = "Hotkey alterniert zwischen";
         option_key_info_3             = "seinen Faehigkeiten.";
+
+        option_key_me_okay            = "Okay/ja";
+        option_key_me_edit            = "Editieren";
+        option_key_me_export          = "Exportieren";
+        option_key_me_delete          = "Loeschen/nein";
+        option_key_me_up_dir          = "Ordner ..";
+        option_key_me_up_1            = "Rauf um 1";
+        option_key_me_up_5            = "Rauf um 5";
+        option_key_me_down_1          = "Runter um 1";
+        option_key_me_down_5          = "Runter um 5";
+        option_key_me_exit            = "Zurueck/abbr.";
 
         option_ed_left                = "Nach links";
         option_ed_right               = "Nach rechts";

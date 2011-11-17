@@ -110,8 +110,8 @@ Lobby::Lobby()
     start_server .set_text(Language::win_lobby_start_server);
     start_client .set_text(Language::win_lobby_start_client);
 
-    button_ready .set_hotkey(KEY_SPACE);
-    button_exit  .set_hotkey(KEY_ESC);
+    button_ready .set_hotkey(useR->key_me_okay);
+    button_exit  .set_hotkey(useR->key_me_exit);
     chat_type    .set_hotkey(useR->key_chat);
     chat_type    .set_on_enter(this, chat_on_enter_callback);
     start_ip     .set_scroll();

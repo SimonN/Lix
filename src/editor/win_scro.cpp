@@ -7,6 +7,7 @@
 
 #include "../other/help.h"
 #include "../other/language.h"
+#include "../other/user.h"
 
 namespace Api {
 
@@ -75,8 +76,8 @@ WindowScroll::WindowScroll(Level& l, Map& m)
     current.set_text(Language::win_scroll_current);
     ok     .set_text(Language::ok                );
     cancel .set_text(Language::cancel            );
-    ok     .set_hotkey(KEY_ENTER);
-    cancel .set_hotkey(KEY_ESC);
+    ok     .set_hotkey(useR->key_me_okay);
+    cancel .set_hotkey(useR->key_me_exit);
 }
 
 WindowScroll::~WindowScroll()

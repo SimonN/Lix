@@ -179,6 +179,22 @@ User::User()
     key_nuke                   = KEY_F12;
     key_spec_tribe             = KEY_TAB;
     key_chat                   = KEY_ENTER;
+    key_ga_exit                = KEY_ESC;
+
+    key_me_okay                = KEY_SPACE;
+    key_me_edit                = KEY_F;
+    key_me_export              = KEY_R;
+    key_me_delete              = KEY_G;
+    key_me_up_dir              = KEY_A;
+    key_me_up_1                = KEY_S;
+    key_me_up_5                = KEY_W;
+    key_me_down_1              = KEY_D;
+    key_me_down_5              = KEY_E;
+    key_me_exit                = KEY_ESC;
+    key_me_main_single         = KEY_F;
+    key_me_main_network        = KEY_D;
+    key_me_main_replay         = KEY_S;
+    key_me_main_options        = KEY_A;
 
     key_ed_left                = KEY_S;
     key_ed_right               = KEY_F;
@@ -207,6 +223,7 @@ User::User()
     key_ed_add_goal            = KEY_2;
     key_ed_add_deco            = KEY_3;
     key_ed_add_hazard          = KEY_4;
+    key_ed_exit                = KEY_ESC;
 }
 
 
@@ -314,6 +331,22 @@ void User::load()
         else if (i->text1 == gloB->user_key_nuke               ) key_nuke               = i->nr1;
         else if (i->text1 == gloB->user_key_spec_tribe         ) key_spec_tribe         = i->nr1;
         else if (i->text1 == gloB->user_key_chat               ) key_chat               = i->nr1;
+        else if (i->text1 == gloB->user_key_ga_exit            ) key_ga_exit            = i->nr1;
+
+        else if (i->text1 == gloB->user_key_me_okay            ) key_me_okay            = i->nr1;
+        else if (i->text1 == gloB->user_key_me_edit            ) key_me_edit            = i->nr1;
+        else if (i->text1 == gloB->user_key_me_export          ) key_me_export          = i->nr1;
+        else if (i->text1 == gloB->user_key_me_delete          ) key_me_delete          = i->nr1;
+        else if (i->text1 == gloB->user_key_me_up_dir          ) key_me_up_dir          = i->nr1;
+        else if (i->text1 == gloB->user_key_me_up_1            ) key_me_up_1            = i->nr1;
+        else if (i->text1 == gloB->user_key_me_up_5            ) key_me_up_5            = i->nr1;
+        else if (i->text1 == gloB->user_key_me_down_1          ) key_me_down_1          = i->nr1;
+        else if (i->text1 == gloB->user_key_me_down_5          ) key_me_down_5          = i->nr1;
+        else if (i->text1 == gloB->user_key_me_exit            ) key_me_exit            = i->nr1;
+        else if (i->text1 == gloB->user_key_me_main_single     ) key_me_main_single     = i->nr1;
+        else if (i->text1 == gloB->user_key_me_main_network    ) key_me_main_network    = i->nr1;
+        else if (i->text1 == gloB->user_key_me_main_replay     ) key_me_main_replay     = i->nr1;
+        else if (i->text1 == gloB->user_key_me_main_options    ) key_me_main_options    = i->nr1;
 
         else if (i->text1 == gloB->user_key_ed_left            ) key_ed_left            = i->nr1;
         else if (i->text1 == gloB->user_key_ed_right           ) key_ed_right           = i->nr1;
@@ -342,6 +375,7 @@ void User::load()
         else if (i->text1 == gloB->user_key_ed_add_goal        ) key_ed_add_goal        = i->nr1;
         else if (i->text1 == gloB->user_key_ed_add_deco        ) key_ed_add_deco        = i->nr1;
         else if (i->text1 == gloB->user_key_ed_add_hazard      ) key_ed_add_hazard      = i->nr1;
+        else if (i->text1 == gloB->user_key_ed_exit            ) key_ed_exit            = i->nr1;
 
         else {
             LixEn::Ac ac = LixEn::string_to_ac(i->text1);
@@ -441,13 +475,30 @@ void User::save() const
      << IO::LineHash  (gloB->user_key_zoom,        key_zoom)
      << IO::LineHash  (gloB->user_key_nuke,        key_nuke)
      << IO::LineHash  (gloB->user_key_spec_tribe,  key_spec_tribe)
-     << IO::LineHash  (gloB->user_key_chat,        key_chat);
+     << IO::LineHash  (gloB->user_key_chat,        key_chat)
+     << IO::LineHash  (gloB->user_key_ga_exit,     key_ga_exit);
     for (size_t i = 0; i < key_skill.size(); ++i)
      if (key_skill[i] != 0) file << IO::LineHash(
      LixEn::ac_to_string(static_cast <LixEn::Ac> (i)), key_skill[i]);
 
     file
      << std::endl
+     << IO::LineHash  (gloB->user_key_me_okay,          key_me_okay)
+     << IO::LineHash  (gloB->user_key_me_edit,          key_me_edit)
+     << IO::LineHash  (gloB->user_key_me_export,        key_me_export)
+     << IO::LineHash  (gloB->user_key_me_delete,        key_me_delete)
+     << IO::LineHash  (gloB->user_key_me_up_dir,        key_me_up_dir)
+     << IO::LineHash  (gloB->user_key_me_up_1,          key_me_up_1)
+     << IO::LineHash  (gloB->user_key_me_up_5,          key_me_up_5)
+     << IO::LineHash  (gloB->user_key_me_down_1,        key_me_down_1)
+     << IO::LineHash  (gloB->user_key_me_down_5,        key_me_down_5)
+     << IO::LineHash  (gloB->user_key_me_exit,          key_me_exit)
+     << IO::LineHash  (gloB->user_key_me_main_single,   key_me_main_single)
+     << IO::LineHash  (gloB->user_key_me_main_network,  key_me_main_network)
+     << IO::LineHash  (gloB->user_key_me_main_replay,   key_me_main_replay)
+     << IO::LineHash  (gloB->user_key_me_main_options,  key_me_main_options)
+     << std::endl
+
      << IO::LineHash  (gloB->user_key_ed_left,        key_ed_left)
      << IO::LineHash  (gloB->user_key_ed_right,       key_ed_right)
      << IO::LineHash  (gloB->user_key_ed_up,          key_ed_up)
@@ -474,7 +525,8 @@ void User::save() const
      << IO::LineHash  (gloB->user_key_ed_add_hatch,   key_ed_add_hatch)
      << IO::LineHash  (gloB->user_key_ed_add_goal,    key_ed_add_goal)
      << IO::LineHash  (gloB->user_key_ed_add_deco,    key_ed_add_deco)
-     << IO::LineHash  (gloB->user_key_ed_add_hazard,  key_ed_add_hazard);
+     << IO::LineHash  (gloB->user_key_ed_add_hazard,  key_ed_add_hazard)
+     << IO::LineHash  (gloB->user_key_ed_exit,        key_ed_exit);
 
     if (!result.empty()) file << std::endl;
 

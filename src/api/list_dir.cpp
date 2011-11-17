@@ -5,6 +5,7 @@
 #include "../other/help.h"
 #include "../other/globals.h"
 #include "../other/language.h"
+#include "../other/user.h" // hotkey for ..
 
 namespace Api {
 
@@ -92,6 +93,7 @@ void DirList::load_current_dir() {
     // Hochwechsler
     if (current_dir.get_rootful().size() > base_dir.get_rootful().size()) {
         add_button(0, Language::dir_parent);
+        (**--buttons.end()).set_hotkey(useR->key_me_up_dir);
     }
     // Verzeichnisbuttons erstellen
     unsigned int next_from_dir_list = page * real_buttons_per_page;

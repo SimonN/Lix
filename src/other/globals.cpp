@@ -239,6 +239,22 @@ Globals::Globals()
     user_key_nuke                ("KEY_NUKE"),
     user_key_spec_tribe          ("KEY_SPECTATE_NEXT_PLAYER"),
     user_key_chat                ("KEY_CHAT"),
+    user_key_ga_exit             ("KEY_GAME_EXIT"),
+
+    user_key_me_okay             ("KEY_MENU_OKAY"),
+    user_key_me_edit             ("KEY_MENU_EDIT"),
+    user_key_me_export           ("KEY_MENU_EXPORT"),
+    user_key_me_delete           ("KEY_MENU_DELETE"),
+    user_key_me_up_dir           ("KEY_MENU_UP_DIR"),
+    user_key_me_up_1             ("KEY_MENU_UP_1"),
+    user_key_me_up_5             ("KEY_MENU_UP_5"),
+    user_key_me_down_1           ("KEY_MENU_DOWN_1"),
+    user_key_me_down_5           ("KEY_MENU_DOWN_5"),
+    user_key_me_exit             ("KEY_MENU_EXIT"),
+    user_key_me_main_single      ("KEY_MENU_MAIN_SINGLE"),
+    user_key_me_main_network     ("KEY_MENU_MAIN_NETWORK"),
+    user_key_me_main_replay      ("KEY_MENU_MAIN_REPLAY"),
+    user_key_me_main_options     ("KEY_MENU_MAIN_OPTIONS"),
 
     user_key_ed_left             ("KEY_EDITOR_LEFT"),
     user_key_ed_right            ("KEY_EDITOR_RIGHT"),
@@ -267,6 +283,7 @@ Globals::Globals()
     user_key_ed_add_goal         ("KEY_EDITOR_ADD_GOAL"),
     user_key_ed_add_deco         ("KEY_EDITOR_ADD_DECO"),
     user_key_ed_add_hazard       ("KEY_EDITOR_ADD_HAZARD"),
+    user_key_ed_exit             ("KEY_EDITOR_EXIT"),
 
 
 

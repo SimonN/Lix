@@ -68,6 +68,7 @@ private:
         GROUP_CONTROLS,
         GROUP_HOTKEYS,
         GROUP_EDITOR,
+        GROUP_MENU,
         GROUP_GRAPHICS,
         GROUP_SOUND,
         GROUP_MAX
@@ -138,6 +139,7 @@ private:
     KeyButton  key_chat;
     KeyButton  key_spec_tribe;
     KeyButton  key_nuke;
+    KeyButton  key_ga_exit;
     std::vector <KeyButton> key_skill;
     std::vector <Label>     desc_key_skill;
     Label      desc_key_force_left,
@@ -155,6 +157,7 @@ private:
                desc_key_chat,
                desc_key_spec_tribe,
                desc_key_nuke,
+               desc_key_ga_exit,
                desc_key_info_1,
                desc_key_info_2,
                desc_key_info_3;
@@ -186,6 +189,7 @@ private:
     KeyButton  ed_add_goal;
     KeyButton  ed_add_deco;
     KeyButton  ed_add_hazard;
+    KeyButton  ed_exit;
     Number     ed_grid_custom;
     Label      desc_ed_left,
                desc_ed_right,
@@ -214,7 +218,37 @@ private:
                desc_ed_add_goal,
                desc_ed_add_deco,
                desc_ed_add_hazard,
+               desc_ed_exit,
                desc_ed_grid_custom;
+
+    KeyButton  me_okay;
+    KeyButton  me_edit;
+    KeyButton  me_export;
+    KeyButton  me_delete;
+    KeyButton  me_up_dir;
+    KeyButton  me_up_1;
+    KeyButton  me_up_5;
+    KeyButton  me_down_1;
+    KeyButton  me_down_5;
+    KeyButton  me_exit;
+    KeyButton  me_main_single;
+    KeyButton  me_main_network;
+    KeyButton  me_main_replay;
+    KeyButton  me_main_options;
+    Label      desc_me_okay,
+               desc_me_edit,
+               desc_me_export,
+               desc_me_delete,
+               desc_me_up_dir,
+               desc_me_up_1,
+               desc_me_up_5,
+               desc_me_down_1,
+               desc_me_down_5,
+               desc_me_exit,
+               desc_me_main_single,
+               desc_me_main_network,
+               desc_me_main_replay,
+               desc_me_main_options;
 
     Texttype   screen_resolution_x;
     Texttype   screen_resolution_y;

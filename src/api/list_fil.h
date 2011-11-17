@@ -66,6 +66,7 @@ public:
 
     void load_dir            (const Filename&, const int which_page = 0);
     void highlight_file      (const Filename&);
+    void highlight_move      (const int);
 
     inline void set_search_criterion(SearchCrit sc=0){ search_criterion = sc; }
     inline SearchCrit get_search_criterion()         { return search_criterion;}
@@ -119,6 +120,8 @@ private:
 
     void load_current_dir();
     static void static_put_to_file(const Filename&, void*);
+
+    void highlight_iterator(const std::vector <Filename> ::iterator&);
 
     // Kopierverbot
     ListFile        (const ListFile&);

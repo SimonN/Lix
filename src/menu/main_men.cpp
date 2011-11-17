@@ -9,7 +9,7 @@
 #include "../graphic/gra_lib.h"
 #include "../other/help.h"
 #include "../other/language.h"
-
+#include "../other/user.h" // hotkeys for the buttons
 
 
 MainMenu::MainMenu()
@@ -73,7 +73,12 @@ MainMenuWindow::MainMenuWindow()
     add_child(version);
     add_child(website);
 
-    exit.set_hotkey(KEY_ESC);
+    single .set_hotkey(useR->key_me_main_single);
+    network.set_hotkey(useR->key_me_main_network);
+    replay .set_hotkey(useR->key_me_main_replay);
+    options.set_hotkey(useR->key_me_main_options);
+    exit   .set_hotkey(useR->key_me_exit);
+
     const std::string  v = Language::main_version + " "
                          + Help::version_to_string(gloB->version);
     version.set_text(v);

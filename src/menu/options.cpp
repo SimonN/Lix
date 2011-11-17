@@ -119,6 +119,7 @@ OptionMenu::OptionMenu()
     key_chat              (key_b1,  380, key_xl),
     key_spec_tribe        (key_b1,  400, key_xl),
     key_nuke              (key_b3,  220, key_xl),
+    key_ga_exit           (key_b3,  250, key_xl),
     // Some of the following buttons will be moved again.
     key_skill             (LixEn::AC_MAX, KeyButton(9999, 9999, key_xl)),
     desc_key_skill        (LixEn::AC_MAX, Label    (9999, 9999)),
@@ -137,6 +138,7 @@ OptionMenu::OptionMenu()
     desc_key_chat         (key_t1, 380, Language::option_key_chat),
     desc_key_spec_tribe   (key_t1, 400, Language::option_key_spec_tribe),
     desc_key_nuke         (key_t3, 220, Language::option_key_nuke),
+    desc_key_ga_exit      (key_t3, 250, Language::win_game_title),
     desc_key_info_1       (key_b3, 330, Language::option_key_info_1),
     desc_key_info_2       (key_b3, 350, Language::option_key_info_2),
     desc_key_info_3       (key_b3, 370, Language::option_key_info_3),
@@ -168,6 +170,7 @@ OptionMenu::OptionMenu()
     ed_add_goal           (key_b3, 240, key_xl),
     ed_add_deco           (key_b3, 260, key_xl),
     ed_add_hazard         (key_b3, 280, key_xl),
+    ed_exit               (key_b3, 320, key_xl),
     ed_grid_custom        (key_b1, 320, button_xl, 2, 1, 64),
     desc_ed_left          (key_t1, 100, Language::option_ed_left),
     desc_ed_right         (key_t1, 120, Language::option_ed_right),
@@ -196,7 +199,37 @@ OptionMenu::OptionMenu()
     desc_ed_add_goal      (key_t3, 240, Language::option_ed_add_goal),
     desc_ed_add_deco      (key_t3, 260, Language::option_ed_add_deco),
     desc_ed_add_hazard    (key_t3, 280, Language::option_ed_add_hazard),
+    desc_ed_exit          (key_t3, 320, Language::exit),
     desc_ed_grid_custom   (key_b1 + button_xl + 20, 320, Language::option_ed_grid_custom),
+
+    me_okay               (key_b1, 100, key_xl),
+    me_edit               (key_b1, 130, key_xl),
+    me_export             (key_b1, 160, key_xl),
+    me_delete             (key_b1, 190, key_xl),
+    me_up_dir             (key_b1, 220, key_xl),
+    me_up_1               (key_b1, 250, key_xl),
+    me_up_5               (key_b1, 280, key_xl),
+    me_down_1             (key_b1, 310, key_xl),
+    me_down_5             (key_b1, 340, key_xl),
+    me_exit               (key_b1, 370, key_xl),
+    me_main_single        (key_b2, 100, key_xl),
+    me_main_network       (key_b2, 130, key_xl),
+    me_main_replay        (key_b2, 160, key_xl),
+    me_main_options       (key_b2, 190, key_xl),
+    desc_me_okay          (key_t1, 100, Language::option_key_me_okay),
+    desc_me_edit          (key_t1, 130, Language::option_key_me_edit),
+    desc_me_export        (key_t1, 160, Language::option_key_me_export),
+    desc_me_delete        (key_t1, 190, Language::option_key_me_delete),
+    desc_me_up_dir        (key_t1, 220, Language::option_key_me_up_dir),
+    desc_me_up_1          (key_t1, 250, Language::option_key_me_up_1),
+    desc_me_up_5          (key_t1, 280, Language::option_key_me_up_5),
+    desc_me_down_1        (key_t1, 310, Language::option_key_me_down_1),
+    desc_me_down_5        (key_t1, 340, Language::option_key_me_down_5),
+    desc_me_exit          (key_t1, 370, Language::option_key_me_exit),
+    desc_me_main_single   (key_t2, 100, Language::browser_single_title),
+    desc_me_main_network  (key_t2, 130, Language::win_lobby_title),
+    desc_me_main_replay   (key_t2, 160, Language::browser_replay_title),
+    desc_me_main_options  (key_t2, 190, Language::option_title),
 
     screen_resolution_x   (other_x, 100, button_xl/2),
     screen_resolution_y   (370,     100, button_xl/2),
@@ -239,11 +272,11 @@ OptionMenu::OptionMenu()
     // Standardwerte fuer alle Checkboxes und Buttons
     button_okay           .set_text(Language::ok);
     button_cancel         .set_text(Language::cancel);
-    button_okay           .set_hotkey(KEY_ENTER);
-    button_cancel         .set_hotkey(KEY_ESC);
+    button_okay           .set_hotkey(useR->key_me_okay);
+    button_cancel         .set_hotkey(useR->key_me_exit);
 
     for (size_t i = 0; i < GROUP_MAX; ++i) {
-        TextButton temp(i*100 + 20, 40, 100);
+        TextButton temp(i*80 + 40, 40, 80);
         temp.set_text(Language::option_group[i]);
         button_group.push_back(temp);
     }
@@ -314,6 +347,7 @@ OptionMenu::OptionMenu()
     pointers[GROUP_HOTKEYS ].push_back(&key_chat);
     pointers[GROUP_HOTKEYS ].push_back(&key_spec_tribe);
     pointers[GROUP_HOTKEYS ].push_back(&key_nuke);
+    pointers[GROUP_HOTKEYS ].push_back(&key_ga_exit);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_force_left);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_force_right);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_rate_minus);
@@ -329,6 +363,7 @@ OptionMenu::OptionMenu()
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_chat);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_spec_tribe);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_nuke);
+    pointers[GROUP_HOTKEYS ].push_back(&desc_key_ga_exit);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_1);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_2);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_3);
@@ -375,6 +410,7 @@ OptionMenu::OptionMenu()
     pointers[GROUP_EDITOR  ].push_back(&ed_add_goal);
     pointers[GROUP_EDITOR  ].push_back(&ed_add_deco);
     pointers[GROUP_EDITOR  ].push_back(&ed_add_hazard);
+    pointers[GROUP_EDITOR  ].push_back(&ed_exit);
     pointers[GROUP_EDITOR  ].push_back(&ed_grid_custom);
     pointers[GROUP_EDITOR  ].push_back(&desc_ed_left);
     pointers[GROUP_EDITOR  ].push_back(&desc_ed_right);
@@ -403,7 +439,37 @@ OptionMenu::OptionMenu()
     pointers[GROUP_EDITOR  ].push_back(&desc_ed_add_goal);
     pointers[GROUP_EDITOR  ].push_back(&desc_ed_add_deco);
     pointers[GROUP_EDITOR  ].push_back(&desc_ed_add_hazard);
+    pointers[GROUP_EDITOR  ].push_back(&desc_ed_exit);
     pointers[GROUP_EDITOR  ].push_back(&desc_ed_grid_custom);
+
+    pointers[GROUP_MENU    ].push_back(&me_okay);
+    pointers[GROUP_MENU    ].push_back(&me_edit);
+    pointers[GROUP_MENU    ].push_back(&me_export);
+    pointers[GROUP_MENU    ].push_back(&me_delete);
+    pointers[GROUP_MENU    ].push_back(&me_up_dir);
+    pointers[GROUP_MENU    ].push_back(&me_up_1);
+    pointers[GROUP_MENU    ].push_back(&me_up_5);
+    pointers[GROUP_MENU    ].push_back(&me_down_1);
+    pointers[GROUP_MENU    ].push_back(&me_down_5);
+    pointers[GROUP_MENU    ].push_back(&me_exit);
+    pointers[GROUP_MENU    ].push_back(&me_main_single);
+    pointers[GROUP_MENU    ].push_back(&me_main_network);
+    pointers[GROUP_MENU    ].push_back(&me_main_replay);
+    pointers[GROUP_MENU    ].push_back(&me_main_options);
+    pointers[GROUP_MENU    ].push_back(&desc_me_okay);
+    pointers[GROUP_MENU    ].push_back(&desc_me_edit);
+    pointers[GROUP_MENU    ].push_back(&desc_me_export);
+    pointers[GROUP_MENU    ].push_back(&desc_me_delete);
+    pointers[GROUP_MENU    ].push_back(&desc_me_up_dir);
+    pointers[GROUP_MENU    ].push_back(&desc_me_up_1);
+    pointers[GROUP_MENU    ].push_back(&desc_me_up_5);
+    pointers[GROUP_MENU    ].push_back(&desc_me_down_1);
+    pointers[GROUP_MENU    ].push_back(&desc_me_down_5);
+    pointers[GROUP_MENU    ].push_back(&desc_me_exit);
+    pointers[GROUP_MENU    ].push_back(&desc_me_main_single);
+    pointers[GROUP_MENU    ].push_back(&desc_me_main_network);
+    pointers[GROUP_MENU    ].push_back(&desc_me_main_replay);
+    pointers[GROUP_MENU    ].push_back(&desc_me_main_options);
 
     screen_scaling          .add_text (Language::option_screen_scaling_stretch);
     screen_scaling          .add_text (Language::option_screen_scaling_aspect);
@@ -519,6 +585,7 @@ void OptionMenu::reset_elements()
     key_nuke             .set_scancode(useR->key_nuke);
     key_spec_tribe       .set_scancode(useR->key_spec_tribe);
     key_chat             .set_scancode(useR->key_chat);
+    key_ga_exit          .set_scancode(useR->key_ga_exit);
     for (size_t i = 0; i < key_skill.size(); ++i)
      key_skill[i]        .set_scancode(useR->key_skill[i]);
 
@@ -549,7 +616,23 @@ void OptionMenu::reset_elements()
     ed_add_goal          .set_scancode(useR->key_ed_add_goal);
     ed_add_deco          .set_scancode(useR->key_ed_add_deco);
     ed_add_hazard        .set_scancode(useR->key_ed_add_hazard);
+    ed_exit              .set_scancode(useR->key_ed_exit);
     ed_grid_custom       .set_number  (useR->editor_grid_custom);
+
+    me_okay              .set_scancode(useR->key_me_okay);
+    me_edit              .set_scancode(useR->key_me_edit);
+    me_export            .set_scancode(useR->key_me_export);
+    me_delete            .set_scancode(useR->key_me_delete);
+    me_up_dir            .set_scancode(useR->key_me_up_dir);
+    me_up_1              .set_scancode(useR->key_me_up_1);
+    me_up_5              .set_scancode(useR->key_me_up_5);
+    me_down_1            .set_scancode(useR->key_me_down_1);
+    me_down_5            .set_scancode(useR->key_me_down_5);
+    me_exit              .set_scancode(useR->key_me_exit);
+    me_main_single       .set_scancode(useR->key_me_main_single);
+    me_main_network      .set_scancode(useR->key_me_main_network);
+    me_main_replay       .set_scancode(useR->key_me_main_replay);
+    me_main_options      .set_scancode(useR->key_me_main_options);
 
     std::ostringstream s1; s1 << gloB->screen_resolution_x;
     std::ostringstream s2; s2 << gloB->screen_resolution_y;
@@ -682,6 +765,7 @@ void OptionMenu::calc_self()
         useR->key_chat        = key_chat       .get_scancode();
         useR->key_spec_tribe  = key_spec_tribe .get_scancode();
         useR->key_nuke        = key_nuke       .get_scancode();
+        useR->key_ga_exit     = key_ga_exit    .get_scancode();
         for (size_t i = 0; i < key_skill.size(); ++i)
          useR->key_skill[i]   = key_skill[i]   .get_scancode();
         // There's only the Exploder hotkey in the options menu, but
@@ -716,7 +800,23 @@ void OptionMenu::calc_self()
         useR->key_ed_add_goal    = ed_add_goal   .get_scancode();
         useR->key_ed_add_deco    = ed_add_deco   .get_scancode();
         useR->key_ed_add_hazard  = ed_add_hazard .get_scancode();
+        useR->key_ed_exit        = ed_exit       .get_scancode();
         useR->editor_grid_custom = ed_grid_custom.get_number();
+
+        useR->key_me_okay           = me_okay              .get_scancode();
+        useR->key_me_edit           = me_edit              .get_scancode();
+        useR->key_me_export         = me_export            .get_scancode();
+        useR->key_me_delete         = me_delete            .get_scancode();
+        useR->key_me_up_dir         = me_up_dir            .get_scancode();
+        useR->key_me_up_1           = me_up_1              .get_scancode();
+        useR->key_me_up_5           = me_up_5              .get_scancode();
+        useR->key_me_down_1         = me_down_1            .get_scancode();
+        useR->key_me_down_5         = me_down_5            .get_scancode();
+        useR->key_me_exit           = me_exit              .get_scancode();
+        useR->key_me_main_single    = me_main_single       .get_scancode();
+        useR->key_me_main_network   = me_main_network      .get_scancode();
+        useR->key_me_main_replay    = me_main_replay       .get_scancode();
+        useR->key_me_main_options   = me_main_options      .get_scancode();
 
         useR->screen_windowed       = screen_windowed      .get_checked();
         useR->screen_scaling        = screen_scaling       .get_number();

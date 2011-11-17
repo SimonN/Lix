@@ -56,9 +56,9 @@ WindowGameplay::WindowGameplay(Replay* rep, const Level* const lev)
     if (game_net) {
         save_replay.set_y(top_item + 30);
         menu       .set_y(top_item + 60);
-        resume .set_hotkey(KEY_ESC);
+        resume .set_hotkey(useR->key_ga_exit);
         restart.set_hotkey();
-        menu   .set_hotkey(KEY_F1);
+        menu   .set_hotkey(useR->key_me_delete);
     }
 }
 
@@ -125,6 +125,8 @@ WindowGameplay::WindowGameplay(
                      timestr.str(), Label::BLOCKY));
 
     common_constructor();
+
+    menu.set_hotkey(useR->key_me_okay);
 }
 
 
@@ -229,6 +231,9 @@ WindowGameplay::WindowGameplay(
     else if (! spec) Sound::play_loud(Sound::AWARD_4);
 
     common_constructor();
+
+    menu.set_hotkey(useR->key_me_okay);
+    menu.set_text  (Language::ok);
 }
 
 
@@ -253,9 +258,9 @@ void WindowGameplay::common_constructor()
     restart    .set_text(Language::win_game_restart);
     save_replay.set_text(Language::win_game_save_replay);
     menu       .set_text(Language::win_game_menu);
-    restart    .set_hotkey(KEY_F1);
-    save_replay.set_hotkey(KEY_F2);
-    menu       .set_hotkey(KEY_ESC); // also triggered by space
+    restart    .set_hotkey(useR->key_restart);
+    save_replay.set_hotkey(useR->key_me_export);
+    menu       .set_hotkey(useR->key_ga_exit); // network: also space
 }
 
 
@@ -291,7 +296,7 @@ void WindowGameplay::calc_self()
             exit_with = RESTART;
             Manager::remove_focus(this);
         }
-        if (menu.get_clicked() || hardware.key_once(KEY_SPACE)) {
+        if (menu.get_clicked()) {
             exit_with = MENU;
             Manager::remove_focus(this);
         }
@@ -331,8 +336,8 @@ Api::BoxMessage* WindowGameplay::new_box_overwrite(const Filename& file)
     box_overwrite->add_text(Language::win_game_overwrite_question);
     box_overwrite->add_text(s1);
     box_overwrite->add_text(s2);
-    box_overwrite->add_button(Language::yes, KEY_ENTER);
-    box_overwrite->add_button(Language::no,  KEY_ESC);
+    box_overwrite->add_button(Language::yes, useR->key_me_okay);
+    box_overwrite->add_button(Language::no,  useR->key_me_exit);
     return box_overwrite;
 }
 

@@ -116,6 +116,22 @@ public:
     int  key_nuke;
     int  key_spec_tribe;
     int  key_chat;
+    int  key_ga_exit; // game exit menu
+
+    int  key_me_okay; // start levels, answer with yes
+    int  key_me_edit;
+    int  key_me_export;
+    int  key_me_delete; // delete files from browsers, lose data in editor
+    int  key_me_up_dir;
+    int  key_me_up_1;
+    int  key_me_up_5;
+    int  key_me_down_1;
+    int  key_me_down_5;
+    int  key_me_exit; // answer cancel to questions
+    int  key_me_main_single;
+    int  key_me_main_network;
+    int  key_me_main_replay;
+    int  key_me_main_options;
 
     int  key_ed_left;
     int  key_ed_right;
@@ -144,6 +160,7 @@ public:
     int  key_ed_add_goal;
     int  key_ed_add_deco;
     int  key_ed_add_hazard;
+    int  key_ed_exit;
 
     Filename single_last_level;
     Filename network_last_level;

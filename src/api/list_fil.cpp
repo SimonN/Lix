@@ -4,6 +4,7 @@
 
 #include "../other/help.h"
 #include "../other/language.h"
+#include "../other/user.h" // hotkeys for movement in the list
 
 namespace Api {
 
@@ -133,44 +134,96 @@ void ListFile::load_current_dir()
 
 
 
-void ListFile::highlight_file(const Filename& filename)
+void ListFile::highlight_iterator(const std::vector <Filename> ::iterator& itr)
 {
-    std::vector <Filename> ::iterator itr;
-    unsigned                          itr_number = 0;
-
-    // Suchen, ob diese Datei wirklich im Verzeichnis ist, sonst passiert nix
-    for (itr = file.begin(); itr != file.end(); ++itr, ++itr_number) {
-        if (*itr == filename) break;
-    }
     if (itr != file.end()) {
-        // Die Datei ist tatsaechlich unter den derzeit gelisteten
-        unsigned page_new = 0;
-        if (bottom_button_flips_page) page_new = itr_number / bottom_button;
-
-        if (page != page_new) {
-            page = page_new;
-            load_current_dir();
+        // If not on the current page, swap the page
+        if (bottom_button_flips_page) {
+            if (itr - file.begin() <  file_number_at_top
+             || itr - file.begin() >= file_number_at_top + bottom_button) {
+                page = (itr - file.begin()) / bottom_button;
+                load_current_dir();
+            }
         }
-        current_file = filename;
+        current_file = *itr;
 
         // Highlight-Button anklicken und Zeiger darauf setzen
-        for (unsigned i = 0; i < button.size(); ++i) {
-            if (i != bottom_button || !bottom_button_flips_page) {
-                if (current_file == file[file_number_at_top + i]) {
-                    button_last_clicked = button[i];
-                    button_last_clicked->set_on();
-        }   }   }
+        Button* but = button[itr - file.begin() - file_number_at_top];
+        if (activate_clicked_button) {
+            if (button_last_clicked == but) {
+                but->set_on(!but->get_on());
+            }
+            else if (button_last_clicked) {
+                button_last_clicked->set_off();
+                but->set_on();
+            }
+            else {
+                but->set_on();
+            }
+        }
+        button_last_clicked = but;
     }
     else {
         // file to be highlighted is not in the directory
         current_file = current_dir;
+        button_last_clicked = 0;
     }
+}
+
+
+
+void ListFile::highlight_file(const Filename& filename)
+{
+    std::vector <Filename> ::iterator itr;
+
+    // Suchen, ob diese Datei wirklich im Verzeichnis ist, sonst passiert nix
+    for (itr = file.begin(); itr != file.end(); ++itr) {
+        if (*itr == filename) break;
+    }
+    highlight_iterator(itr);
+}
+
+
+
+void ListFile::highlight_move(const int by)
+{
+    if (by == 0) return;
+    if (file.empty()) return;
+
+    // Do we have a valid highlight right now?
+    std::vector <Filename> ::iterator itr = file.begin();
+    while (itr != file.end() && *itr != current_file) ++itr;
+
+    if (itr != file.end()) {
+        // if first file and by < 0, select last one.
+        // if last file  and by > 0, select first one.
+        if      (itr == file.begin() && by < 0) itr = --file.end();
+        else if (itr == --file.end() && by > 0) itr = file.begin();
+        else {
+            // If not first or last file, move by the given number of steps,
+            // but stop on the first/last entries.
+            int by_left = by;
+            do {
+                if (by > 0) { ++itr; --by_left; }
+                else        { --itr; ++by_left; }
+            } while (by_left != 0
+                  && itr != file.begin() && itr !=--file.end());
+        }
+    }
+    // If none of the files were highlighted, start on the bottom or top.
+    // Do not move yet.
+    else {
+        if (by < 0) itr = --file.end();
+        else        itr = file.begin();
+    }
+    highlight_iterator(itr);
 }
 
 
 
 void ListFile::calc_self()
 {
+    clicked = false;
     for (unsigned int i = 0; i < button.size(); ++i) {
         if (button[i]->get_clicked()) {
             // Seitenwechsel-Button angeklickt?
@@ -179,30 +232,26 @@ void ListFile::calc_self()
                 if (page * bottom_button >= file.size()) page = 0;
                 load_current_dir();
                 clicked = false;
-                return;
+                break;
             }
             // Ansonsten den Dateinamen nach aussen hin kenntlich machen
             else {
-                current_file = file[file_number_at_top + i];
-                if (activate_clicked_button) {
-                    if (button_last_clicked == button[i]) {
-                        button[i]->set_on(!button[i]->get_on());
-                    }
-                    else if (button_last_clicked) {
-                        button_last_clicked->set_off();
-                        button[i]->set_on();
-                    }
-                    else {
-                        button[i]->set_on();
-                    }
-                }
-                button_last_clicked = button[i];
+                highlight_iterator(file.begin() + file_number_at_top + i);
                 clicked = true;
-                return;
+                break;
             }
         } // Ende von Button angeklickt
     } // Ende der For-Schleife, die alle Buttons durchlaeuft
-    clicked = false;
+
+    if (activate_clicked_button && ! button.empty()) {
+        bool any_movement_with_keys = true;
+        if      (hardware.key_once(useR->key_me_up_1))   highlight_move(-1);
+        else if (hardware.key_once(useR->key_me_up_5))   highlight_move(-5);
+        else if (hardware.key_once(useR->key_me_down_1)) highlight_move(1);
+        else if (hardware.key_once(useR->key_me_down_5)) highlight_move(5);
+        else any_movement_with_keys = false;
+        if (any_movement_with_keys) clicked = true;
+    }
 }
 
 

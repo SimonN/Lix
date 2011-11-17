@@ -252,6 +252,22 @@ public:
         user_key_nuke,
         user_key_spec_tribe,
         user_key_chat,
+        user_key_ga_exit,
+
+        user_key_me_okay,
+        user_key_me_edit,
+        user_key_me_export,
+        user_key_me_delete,
+        user_key_me_up_dir,
+        user_key_me_up_1,
+        user_key_me_up_5,
+        user_key_me_down_1,
+        user_key_me_down_5,
+        user_key_me_exit,
+        user_key_me_main_single,
+        user_key_me_main_network,
+        user_key_me_main_replay,
+        user_key_me_main_options,
 
         user_key_ed_left,
         user_key_ed_right,
@@ -279,7 +295,8 @@ public:
         user_key_ed_add_hatch,
         user_key_ed_add_goal,
         user_key_ed_add_deco,
-        user_key_ed_add_hazard;
+        user_key_ed_add_hazard,
+        user_key_ed_exit;
 
     const Filename
 

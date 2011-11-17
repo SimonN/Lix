@@ -55,9 +55,11 @@ ReplayBrowser::ReplayBrowser()
 
     set_button_play_text(Language::browser_replay);
     button_extract.set_text(Language::browser_extract);
+    button_extract.set_hotkey(useR->key_me_export);
     button_extract.set_undraw_color(color[COL_API_M]);
     button_extract.hide();
     button_delete .set_text(Language::browser_delete);
+    button_delete .set_hotkey(useR->key_me_delete);
     button_delete .set_undraw_color(color[COL_API_M]);
     button_delete .hide();
 
@@ -147,8 +149,8 @@ void ReplayBrowser::calc_self()
                 box_delete->add_text(Language::browser_box_delete_question);
                 box_delete->add_text(s1);
                 box_delete->add_text(s2);
-                box_delete->add_button(Language::yes, KEY_ENTER);
-                box_delete->add_button(Language::no,  KEY_ESC);
+                box_delete->add_button(Language::yes, useR->key_me_okay);
+                box_delete->add_button(Language::no,  useR->key_me_delete);
                 Manager::add_focus(box_delete);
             }
         }

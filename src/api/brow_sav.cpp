@@ -3,6 +3,7 @@
 
 #include "../level/level.h" // fuer die haeufig benutzte/beispielhafte Box
 #include "../other/help.h"
+#include "../other/user.h"
 
 namespace Api {
 
@@ -70,7 +71,8 @@ SaveBrowser::SaveBrowser(const Filename&    bdir,
     level_list.load_dir(filename);
     set_subtitle(filename.get_rootless());
 
-    ok    .set_hotkey(KEY_ENTER);
+    ok    .set_hotkey(useR->key_me_okay);
+    cancel.set_hotkey(useR->key_me_exit);
     ok    .set_text  (Language::ok);
     cancel.set_text  (Language::cancel);
     // cancel.set_hotkey(KEY_ESC); // Wird nicht gemacht, weil es manuell
@@ -224,8 +226,8 @@ BoxMessage* SaveBrowser::new_box_overwrite_level(const Filename &filename)
     box_overwrite->add_text(Language::save_box_overwrite_question);
     box_overwrite->add_text(s1);
     box_overwrite->add_text(s2);
-    box_overwrite->add_button(Language::yes, KEY_ENTER);
-    box_overwrite->add_button(Language::no,  KEY_ESC);
+    box_overwrite->add_button(Language::yes, useR->key_me_okay);
+    box_overwrite->add_button(Language::no,  useR->key_me_exit);
 
     return box_overwrite;
 }

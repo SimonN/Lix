@@ -9,6 +9,7 @@
 #include "../level/level.h"
 #include "../other/language.h"
 #include "../other/help.h" // remove root dir in window title
+#include "../other/user.h" // exit button hotkey
 
 namespace Api {
 
@@ -49,8 +50,11 @@ BrowserBig::BrowserBig(const std::string& wintitle,
     // on_level_highlight() muss von der abgeleiteten Klasse aufgerufen
     // werden, weil diese zu diesem Konstruktoraufruf-Zeitpunkt noch
     // nicht konstruiert ist.
+
+    button_play.set_hotkey(useR->key_me_okay);
+
     button_exit.set_text(Language::back);
-    button_exit.set_hotkey(KEY_ESC);
+    button_exit.set_hotkey(useR->key_me_exit);
 }
 
 

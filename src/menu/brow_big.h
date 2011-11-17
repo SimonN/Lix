@@ -83,7 +83,7 @@ public:
     virtual ~BrowserBig();
 
     inline void         set_button_play_text(const std::string& s)
-                                                    { button_play.set_text(s); }
+                                           { button_play.set_text(s); }
 
            void         set_exit_with(ExitWith e);
     inline ExitWith     get_exit_with()             { return exit_with;     }
