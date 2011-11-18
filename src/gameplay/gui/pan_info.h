@@ -62,7 +62,8 @@ private:
         static const int frame_out;
         static const int frame_hatch;
         static const int frame_in;
-        static const int frame_clock;
+        static const int frame_countd;
+        static const int frame_stopw;
         static const int frame_cup;
         static const int frame_cupall;
         static const int frame_target;
@@ -86,7 +87,8 @@ private:
         // Die der draw_*()-Funktion uebergebene X-Koordinate gibt das Zentrum
         // der PanelTribe-Zeichenausgabe an, nicht den linken Rand!
         void draw_local(int, int, bool,
-           const int*, const Lixxie*, int,
+           const int*, const int*,
+           const Lixxie*, int,
            const LixEn::Style, const bool, const int,
            const LixEn::Style, const bool, const int) const;
         void draw_med(int, int, int = 0) const;
@@ -106,11 +108,12 @@ private:
 
     std::vector <PanelTribe> tribes;
     GapaMode gapamode;   // show the multiplayer stats
-    bool show_clock;     // Wenn unbefristet, ist die Uhr unnoetig.
+    bool show_countd;    // Wenn unbefristet, zeige Stoppuhr
 
     int           tarcnt; // Gesamtzahl der Lixxies unterm Cursor
     const Lixxie* tarinf;
-    int           clock;
+    int           countd;
+    int           stopw;
 
     void          draw_button_connection(); // for multiplayer eye candy
 
@@ -128,11 +131,12 @@ public:
 
     inline void set_gapamode   (GapaMode gm)         { gapamode = gm;        }
     inline void sdr()                                { set_draw_required();  }
-           void set_tribe_local(const Tribe*);
-    inline void set_show_clock (const bool b = true) { show_clock = b; sdr();}
-    inline void set_tarinf     (const Lixxie*     l) { tarinf     = l; sdr();}
-    inline void set_tarcnt     (const int u)         { tarcnt     = u; sdr();}
-    inline void set_clock      (const int u)         { clock      = u; sdr();}
+           void set_tribe_local  (const Tribe*);
+    inline void set_use_countdown(const bool b=true) { show_countd= b; sdr();}
+    inline void set_tarinf       (const Lixxie*   l) { tarinf     = l; sdr();}
+    inline void set_tarcnt       (const int u)       { tarcnt     = u; sdr();}
+    inline void set_countdown    (const int u)       { countd     = u; sdr();}
+    inline void set_stopwatch    (const int u)       { stopw      = u; sdr();}
 
 protected:
 

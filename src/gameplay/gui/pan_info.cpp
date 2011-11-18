@@ -13,10 +13,11 @@ GameplayStats::GameplayStats()
     stats_bar  (0, 0, 20, 20),
     stats_multi(0, 0, 20, 60),
     gapamode   (GM_NONE),
-    show_clock (false),
+    show_countd(false),
     tarcnt     (0),
     tarinf     (0),
-    clock      (0)
+    countd     (0),
+    stopw      (0)
 {
     add_child(stats_bar);
     add_child(stats_multi);
@@ -142,8 +143,10 @@ void GameplayStats::draw_self()
     for (std::vector <PanelTribe> ::const_iterator itr = tribes.begin();
      itr != tribes.end(); ++itr)
      if (itr->white) {
-        itr->draw_local(get_x_here(), get_y_here(),
-         cups, show_clock ? &clock : 0, tarinf, tarcnt,
+        itr->draw_local(get_x_here(), get_y_here(), cups,
+           show_countd ? &countd : 0,
+         ! show_countd ? &stopw  : 0,
+         tarinf, tarcnt,
          cup_style,    cup_colored,    oppo_saved,
          cupall_style, cupall_colored, oppo_expected);
         break;

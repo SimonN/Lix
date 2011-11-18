@@ -83,8 +83,9 @@ void Gameplay::draw() {
     }
 
     // Statusanzeige
-    if (cs.clock > 0) pan.stats.set_show_clock();
-    pan.stats.set_clock(cs.clock);
+    if (cs.clock > 0) pan.stats.set_use_countdown();
+    pan.stats.set_countdown(cs.clock);
+    pan.stats.set_stopwatch(cs.update);
     pan.draw();
 
     // Mauszeiger ganz obenauf

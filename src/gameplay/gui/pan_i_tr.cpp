@@ -11,14 +11,15 @@
 #include "../../other/language.h"
 #include "../../other/help.h"
 
-const int GameplayStats::PanelTribe::frame_outopp = 2;
-const int GameplayStats::PanelTribe::frame_out    = 3;
-const int GameplayStats::PanelTribe::frame_hatch  = 4;
-const int GameplayStats::PanelTribe::frame_in     = 5;
-const int GameplayStats::PanelTribe::frame_clock  = 6;
-const int GameplayStats::PanelTribe::frame_cup    = 7;
-const int GameplayStats::PanelTribe::frame_cupall = 8;
-const int GameplayStats::PanelTribe::frame_target = 9;
+const int GameplayStats::PanelTribe::frame_outopp =  2;
+const int GameplayStats::PanelTribe::frame_out    =  3;
+const int GameplayStats::PanelTribe::frame_hatch  =  4;
+const int GameplayStats::PanelTribe::frame_in     =  5;
+const int GameplayStats::PanelTribe::frame_countd =  6;
+const int GameplayStats::PanelTribe::frame_stopw  =  7;
+const int GameplayStats::PanelTribe::frame_cup    =  8;
+const int GameplayStats::PanelTribe::frame_cupall =  9;
+const int GameplayStats::PanelTribe::frame_target = 10;
 
 const int GameplayStats::PanelTribe::frame_color  = 0;
 const int GameplayStats::PanelTribe::frame_gray   = 1;
@@ -50,7 +51,8 @@ void GameplayStats::PanelTribe::draw_local(
     const int  x,
     const int  y,
     const bool multi,
-    const int*    clock,
+    const int*    countd,
+    const int*    stopw,
     const Lixxie* tarinf,
     const int     tarcnt,
     const LixEn::Style cup_style,
@@ -117,11 +119,13 @@ void GameplayStats::PanelTribe::draw_local(
         draw_nr_sml(in, x_in, y, green);
     }
 
-    if (clock) {
-        GraLib::get_icon(tr->style).draw(*ground, x_clock_icon, y, frame_clock,
-         frame_gray);
+    if (countd || stopw) {
+        // Showing a countdown has precedence over showing the stopwatch
+        GraLib::get_icon(tr->style).draw(*ground, x_clock_icon, y,
+         countd ? frame_countd : frame_stopw, frame_gray);
         std::ostringstream str;
-        const int  c = *clock + gloB->updates_per_second - 1;
+        const int  c = countd ? *countd + gloB->updates_per_second - 1
+                              : *stopw;
         const int& u = gloB->updates_per_second;
         str << c / (u * 60);
         str << ':';
