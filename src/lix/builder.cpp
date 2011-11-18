@@ -67,9 +67,9 @@ void update_builder(Lixxie& l, const UpdateArgs& ua)
 
         // Note that the lix has already moved up and the image has its
         // feet below the regular position, inside the newly placed brick.
-        if (((l.is_solid(6, 0) && l.is_solid(6, -2)) || l.is_solid(6, -16))
-         || ((l.is_solid(4, 0) && l.is_solid(4, -2)) || l.is_solid(4, -16))
-         ||  (l.is_solid(2, 0) && l.is_solid(2, -2))) {
+        if (((l.is_solid(6, 1) && l.is_solid(6, -2)) || l.is_solid(6, -16))
+         || ((l.is_solid(4, 1) && l.is_solid(4, -2)) || l.is_solid(4, -16))
+         ||  (l.is_solid(2, 1) && l.is_solid(2, -2))) {
             // Ueberfluessige Faehigkeitsbenutzngen an den Spieler
             // zurueckgeben, passiert nur bei Option "multiple Builders".
             // Wird von l.assign() erledigt.
