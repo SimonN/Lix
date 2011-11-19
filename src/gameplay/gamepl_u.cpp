@@ -302,6 +302,14 @@ void Gameplay::update_cs_once()
             if (i->get_x_frame() >= i->get_x_frames()) i->set_x_frame(0);
         }
     }
+    // for trampoline
+    for (IacIt i = cs.trampoline.begin(); i != cs.trampoline.end(); ++i) {
+        if ((i->get_y_frame() == 1 || i->get_x_frame() >  0)) {
+            i->set_y_frame(0);
+            i->set_x_frame(i->get_x_frame() + 1);
+            if (i->get_x_frame() >= i->get_x_frames()) i->set_x_frame(0);
+        }
+    }
 
     state_manager.calc_save_auto(cs);
 }

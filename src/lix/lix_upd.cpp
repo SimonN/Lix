@@ -164,6 +164,35 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
 
 
 
+    // Trampoline
+    if (! l.get_leaving())
+     for (IacIt i = cs.trampoline.begin(); i != cs.trampoline.end(); ++i)
+     if (l.get_in_trigger_area(*i)) {
+
+        if (!(i->get_x_frame() == 0 && i->get_y_frame() == 0))
+            continue;
+
+        int dir = l.get_dir();
+        if (l.get_ac() == LixEn::JUMPER || l.get_ac() == LixEn::TUMBLER) {
+            if (l.get_special_y() > 0) { // moving downwards
+                int spy = l.get_special_y();
+                l.set_special_y(-spy-1);
+                i->set_y_frame(1);
+                if (l.get_ac() == LixEn::JUMPER) l.set_frame(5);
+            }
+        } else if (l.get_ac() == LixEn::FALLER) {
+            int falldist = l.get_special_x();
+            l.become(LixEn::TUMBLER);
+            // x speed once a lix falls onto trampoline
+            int spx = 4 * dir;//i->get_object()->special_x;
+            l.set_special_x(std::abs(spx));
+            l.set_dir(spx);
+            l.set_special_y((int) (-1.5 - 2*std::sqrt(1+falldist)));
+            i->set_y_frame(1);
+        } // what about floaters?
+    }
+
+
     // Lixxie aus dem Bild?
     if (l.get_ey() >= map.get_yl() + 23
      ||(l.get_ey() >= map.get_yl() + 15 && l.get_ac() != LixEn::FLOATER)

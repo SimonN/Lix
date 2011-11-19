@@ -147,7 +147,8 @@ void EdGraphic::draw_with_trigger_area()
      || object->type == Object::HATCH
      || object->type == Object::TRAP
      || object->type == Object::WATER
-     || object->type == Object::FLING) {
+     || object->type == Object::FLING
+     || object->type == Object::TRAMPOLINE) {
         get_ground().draw_rectangle(
             get_x() + object->get_trigger_x(),
             get_y() + object->get_trigger_y(),

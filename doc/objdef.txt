@@ -71,7 +71,8 @@ however if FLING_NONPERMANENT is set, it can be turned into a triggerable
 object, processing one lix at a time. By default, lix will be flung depending on 
 their orientation, however FLING_IGNORE_X_ORIENTATION can be set to always fling 
 them into the same horizontal direction. If any of the parameters below is 
-encountered, the object will automatically be turned into a flinger.
+encountered, the object will automatically be turned into a flinger, unless
+overwritten by a later type setting parameter, like TRAMPOLINE.
 
  #FLING_SPEED_X 4 
 Remove the space before the # to use this command. This will happen:
@@ -99,3 +100,16 @@ The object will be turned into a flinging object (that flings lix around upon
 interaction), and the object will fling lix always with the horizontal velocity 
 as specified by FLING_SPEED_X, independent of its orientation upon entering the 
 object.
+
+
+TRAMPOLINES
+
+Trampolines launch lix that fall (fallers, jumpers, tumblers) onto them from 
+above up to approximately the same height again. Fallers will also get some 
+additional movement into horizontal direction. If the TRAMPOLINE parameter is 
+encountered, the object will automatically be turned into a flinger, unless
+overwritten by a later type setting parameter, like FLING_*.
+
+ #TRAMPOLINE
+Remove the space before the # to use this command. This will happen:
+The object will become a trampoline.

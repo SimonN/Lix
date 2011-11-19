@@ -82,6 +82,8 @@ Gameplay::Gameplay(Replay* rep)
 Gameplay::~Gameplay()
 {
     cs.trap  .clear();
+    cs.fling .clear();
+    cs.trampoline.clear();
     cs.tribes.clear();
 
     effect.clear_all_lists();
@@ -230,10 +232,13 @@ void Gameplay::prepare_level()
         cs.fling.push_back(EdGraphic(map, i->ob, i->x, i->y));
         cs.fling.back().draw_lookup(cs.lookup);
         break;
+     case Object::TRAMPOLINE:
+        cs.trampoline.push_back(EdGraphic(map, i->ob, i->x, i->y));
+        cs.trampoline.back().draw_lookup(cs.lookup);
+        break;
      case Object::DECO:
      case Object::WATER:
      case Object::ONEWAY:
-     case Object::TRAMPOLINE:
         special[type].push_back(EdGraphic(map, i->ob, i->x, i->y));
         special[type].back().draw_lookup(cs.lookup);
         break;

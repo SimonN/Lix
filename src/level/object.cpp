@@ -128,6 +128,9 @@ void Object::read_definitions_file(const Filename& filename)
             type = FLING;
             special_y = i->nr1;
         }
+        else if (i->text1 == gloB->objdef_type_trampoline) {
+            type = TRAMPOLINE;
+        }
     default:
         break;
     }

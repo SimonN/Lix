@@ -30,6 +30,7 @@ public:
     TribeVec tribes;
     EdGrVec  trap;
     EdGrVec  fling;
+    EdGrVec  trampoline;
 
     Torbit   land;
     Lookup   lookup;
