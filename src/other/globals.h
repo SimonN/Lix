@@ -155,10 +155,10 @@ public:
         objdef_ta_from_bottom_y,
         objdef_ta_xl,
         objdef_ta_yl,
-        objdef_fling_ahead,
+        objdef_fling_nonpermanent,
+        objdef_fling_ignore_orient,
         objdef_fling_x,
         objdef_fling_y,
-        objdef_cooldown,
 
         objdef_type_terrain,
         objdef_type_steel,

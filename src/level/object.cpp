@@ -112,23 +112,21 @@ void Object::read_definitions_file(const Filename& filename)
             trigger_yl = i->nr1;
             if (trigger_yl < 0) trigger_yl = 0;
         }
-        else if (i->text1 == gloB->objdef_fling_ahead) {
+        else if (i->text1 == gloB->objdef_fling_nonpermanent) {
             type = FLING;
-            subtype = (subtype > 1) ? 2 : 0; // bit 0 signifies fixed direction
-            special_x = i->nr1;
+            subtype |= 2; // bit 1 nonpermanent trap
+        }
+        else if (i->text1 == gloB->objdef_fling_ignore_orient) {
+            type = FLING;
+            subtype |= 1; // bit 0 signifies fixed direction
         }
         else if (i->text1 == gloB->objdef_fling_x) {
             type = FLING;
-            subtype = (subtype > 1) ? 3 : 1; // bit 0 signifies fixed direction
             special_x = i->nr1;
         }
         else if (i->text1 == gloB->objdef_fling_y) {
             type = FLING;
             special_y = i->nr1;
-        }
-        else if (i->text1 == gloB->objdef_cooldown) {
-            type = FLING;
-            subtype = (subtype % 1) + (i->nr1 > 0) * 2; // bit 1 means cooldown
         }
     default:
         break;
