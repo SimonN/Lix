@@ -169,8 +169,10 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
      for (IacIt i = cs.trampoline.begin(); i != cs.trampoline.end(); ++i)
      if (l.get_in_trigger_area(*i)) {
 
-        if (!(i->get_x_frame() == 0 && i->get_y_frame() == 0))
-            continue;
+        // commenting this out makes it a semi-permanent trap
+        // i.e. acts constantly, but plays anim upon interaction
+        //if (!(i->get_x_frame() == 0 && i->get_y_frame() == 0))
+        //    continue;
 
         int dir = l.get_dir();
         if (l.get_ac() == LixEn::JUMPER || l.get_ac() == LixEn::TUMBLER) {
