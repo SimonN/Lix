@@ -1,0 +1,77 @@
+$BUILT                                             2011-11-24 11:33:22
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                            Tribute to Sliding
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            10
+#REQUIRED                                                            8
+#RATE                                                               42
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#BUILDER                                                             2
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/08 - Bricks/Hatch.H:                        192       192
+
+:bitmap/matt/08 - Bricks/Goal.G:                         416        80
+
+:bitmap/matt/08 - Bricks/03:                             416       128
+:bitmap/matt/08 - Bricks/03:                             416       160
+:bitmap/matt/08 - Bricks/03:                             384       256
+:bitmap/matt/08 - Bricks/03:                             416       224
+:bitmap/matt/08 - Bricks/03:                             256       256
+:bitmap/matt/08 - Bricks/03:                             320       256
+:bitmap/matt/08 - Bricks/01:                             358       224
+:bitmap/matt/08 - Bricks/01:                             390       230
+:bitmap/matt/08 - Bricks/01:                             392       214
+:bitmap/matt/08 - Bricks/01:                             358       218
+:bitmap/matt/08 - Bricks/01:                             390       212
+:bitmap/matt/08 - Bricks/01:                             390       206
+:bitmap/matt/08 - Bricks/01:                             392       190
+:bitmap/matt/08 - Bricks/01:                             358       200
+:bitmap/matt/08 - Bricks/01:                             356       202
+:bitmap/matt/08 - Bricks/01:                             390       188
+:bitmap/matt/08 - Bricks/01:                             356       192
+:bitmap/matt/08 - Bricks/01:                             358       194
+:bitmap/matt/08 - Bricks/01:                             358       176
+:bitmap/matt/08 - Bricks/01:                             390       182
+:bitmap/matt/08 - Bricks/01:                             392       166
+:bitmap/matt/08 - Bricks/01:                             390       164
+:bitmap/matt/08 - Bricks/01:                             390       158
+:bitmap/matt/08 - Bricks/01:                             358       152
+:bitmap/matt/08 - Bricks/01:                             356       154
+:bitmap/matt/08 - Bricks/01:                             356       144
+:bitmap/matt/08 - Bricks/01:                             358       146
+:bitmap/matt/08 - Bricks/01:                             392       142
+:bitmap/matt/08 - Bricks/01:                             390       140
+:bitmap/matt/08 - Bricks/01:                             358       128
+:bitmap/matt/08 - Bricks/01:                             356       130
+:bitmap/matt/08 - Bricks/01:                             358       170
+:bitmap/matt/08 - Bricks/01:                             390       134
+:bitmap/matt/08 - Bricks/03:                             416       256
+:bitmap/matt/08 - Bricks/01:                             388       244
+:bitmap/matt/08 - Bricks/03:                             192       256
+:bitmap/matt/08 - Bricks/01:                             192       240
+:bitmap/matt/08 - Bricks/01:                             224       240
+:bitmap/matt/08 - Bricks/01:                             288       240
+:bitmap/matt/08 - Bricks/01:                             354       226

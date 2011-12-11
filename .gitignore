@@ -26,7 +26,7 @@ replay/auto/*
 bitmap/orig/L1/*
 bitmap/orig/L1/*/*
 bitmap/orig/L2/*/*
-levels/orig/*
+levels/single/orig/*
 levels/network/*oldgfx/*
 
 # exclude test levels

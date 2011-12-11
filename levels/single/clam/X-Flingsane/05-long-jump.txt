@@ -1,0 +1,55 @@
+$BUILT                                             2011-11-29 11:03:18
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                                     Long Jump
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            320
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                           220
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                   96
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                             5
+#REQUIRED                                                            1
+#RATE                                                               70
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#WALKER                                                             10
+#JUMPER                                                             10
+#EXPLODER2                                                          10
+#BLOCKER                                                            10
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/03 - Carnival/Hatch.H:                       32        48
+
+:bitmap/matt/03 - Carnival/Goal.G:                       480        96
+
+:bitmap/matt/03 - Carnival/58:                           384       160
+:bitmap/matt/03 - Carnival/56:                             0       160
+:bitmap/matt/03 - Carnival/26:                             0       192
+:bitmap/matt/03 - Carnival/26:                            64       192
+:bitmap/matt/03 - Carnival/26:                           128       192
+:bitmap/matt/03 - Carnival/26:                           192       192
+:bitmap/matt/03 - Carnival/25:                           384       192
+:bitmap/matt/03 - Carnival/25:                           448       192
+:bitmap/matt/03 - Carnival/25:                           512       192
+:bitmap/matt/03 - Carnival/25:                           576       192
+:bitmap/matt/03 - Carnival/24:                             0       256
+:bitmap/matt/03 - Carnival/24:                            64       256
+:bitmap/matt/03 - Carnival/24:                           128       256
+:bitmap/matt/03 - Carnival/24:                           192       256
+:bitmap/matt/03 - Carnival/27:                           384       256
+:bitmap/matt/03 - Carnival/27:                           448       256
+:bitmap/matt/03 - Carnival/27:                           512       256
+:bitmap/matt/03 - Carnival/27:                           576       256

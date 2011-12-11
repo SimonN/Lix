@@ -1,0 +1,456 @@
+$BUILT                                             2011-11-20 11:15:36
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                               Circuit Breaker
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                           180
+#INITIAL                                                            20
+#REQUIRED                                                           10
+#RATE                                                               96
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#EXPLODER                                                           10
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/geoo/construction/Hatch.H:                       120        16
+
+:bitmap/geoo/construction/Goal2.G:                       488       320
+
+:bitmap/geoo/construction/Laser_vr_64.F:                  52       312
+:bitmap/geoo/construction/Laser_vr_64.F:                  60       312
+:bitmap/geoo/construction/Laseremit_vrt_16.F:             60       312
+:bitmap/geoo/construction/Laseremit_vrb_16.F:             60       360
+:bitmap/geoo/construction/Laseremit_vrt_16.F:             52       312
+:bitmap/geoo/construction/Laseremit_vrb_16.F:             52       360
+
+:bitmap/geoo/construction/rod_steel/straight32.S:        200         8     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        256       264     rrr
+:bitmap/geoo/construction/rod_rust/straight32:           128        88     rrr
+:bitmap/geoo/construction/rod_rust/straight32:           138        88     rrr
+:bitmap/geoo/construction/rod_rust/straight32:           112       112
+:bitmap/geoo/construction/rod_rust/edge_lu:              138       112
+:bitmap/geoo/construction/rod_rust/edge_ru:              128       112
+:bitmap/geoo/construction/rod_rust/straight32:           136       192
+:bitmap/geoo/construction/rod_rust/straight32:           104       192
+:bitmap/geoo/construction/rod_rust/straight32:           136       200
+:bitmap/geoo/construction/rod_rust/straight32:           104       200
+:bitmap/geoo/construction/fence_32x32.S:                 216        96
+:bitmap/geoo/construction/rod_steel/straight32.S:        168       192
+:bitmap/geoo/construction/rod_steel/straight32.S:        168       200
+:bitmap/geoo/construction/rod_steel/edge_lu.S:           200       192
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           200       200
+:bitmap/geoo/construction/rod_steel/straight32.S:        200       160     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        200       128     rrr
+:bitmap/geoo/construction/fence_32x32.S:                 216       128
+:bitmap/geoo/construction/rod_rust/straight32:           136       240
+:bitmap/geoo/construction/rod_rust/straight32:           104       240
+:bitmap/geoo/construction/rod_rust/straight32:           136       248
+:bitmap/geoo/construction/rod_rust/straight32:           104       248
+:bitmap/geoo/construction/rod_steel/straight32.S:        168       240
+:bitmap/geoo/construction/rod_steel/straight32.S:        168       248
+:bitmap/geoo/construction/rod_rust/straight32:           136       288
+:bitmap/geoo/construction/rod_rust/straight32:           104       288
+:bitmap/geoo/construction/rod_rust/straight32:           136       296
+:bitmap/geoo/construction/rod_rust/straight32:           104       296
+:bitmap/geoo/construction/rod_steel/straight32.S:        168       288
+:bitmap/geoo/construction/rod_steel/straight32.S:        168       296
+:bitmap/geoo/construction/rod_steel/straight32.S:        200       208     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        200       256     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         72       192
+:bitmap/geoo/construction/rod_steel/straight32.S:         72       200
+:bitmap/geoo/construction/rod_steel/straight32.S:         72       240
+:bitmap/geoo/construction/rod_steel/straight32.S:         72       248
+:bitmap/geoo/construction/rod_steel/straight32.S:         72       288
+:bitmap/geoo/construction/rod_steel/straight32.S:         72       296
+:bitmap/geoo/construction/rod_steel/edge_ru.S:            64       192
+:bitmap/geoo/construction/rod_steel/edge_rd.S:            64       200
+:bitmap/geoo/construction/rod_steel/edge_ru.S:            64       240
+:bitmap/geoo/construction/rod_steel/edge_rd.S:            64       248
+:bitmap/geoo/construction/rod_steel/edge_ru.S:            64       288
+:bitmap/geoo/construction/rod_steel/edge_rd.S:            64       296
+:bitmap/geoo/construction/rod_steel/edge_lu.S:           200       240
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           200       248
+:bitmap/geoo/construction/rod_steel/edge_lu.S:           200       288
+:bitmap/geoo/construction/rod_steel/end_rect.S:           64       304     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         72       384
+:bitmap/geoo/construction/rod_steel/straight32.S:        104       384
+:bitmap/geoo/construction/rod_steel/straight32.S:        136       384
+:bitmap/geoo/construction/rod_steel/straight32.S:        168       384
+:bitmap/geoo/construction/rod_steel/straight32.S:        200       384
+:bitmap/geoo/construction/rod_steel/edge_lu.S:           248       384
+:bitmap/geoo/construction/rod_steel/straight32.S:        248       320     rrr
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           200       296
+:bitmap/geoo/construction/rod_steel/straight32.S:        200       304     rrr
+:bitmap/geoo/construction/fence_32x32.S:                 216       160
+:bitmap/geoo/construction/fence_32x32.S:                 216       192
+:bitmap/geoo/construction/fence_32x32.S:                 216       224
+:bitmap/geoo/construction/fence_32x32.S:                 216       256
+:bitmap/geoo/construction/fence_32x32.S:                 216       288
+:bitmap/geoo/construction/fence_32x32.S:                 216       320
+:bitmap/geoo/construction/rod_steel/straight32.S:        216       384
+:bitmap/geoo/construction/rod_steel/edge_ru.S:            64       384
+:bitmap/geoo/construction/rod_steel/straight32.S:         64       392
+:bitmap/geoo/construction/rod_steel/straight32.S:        120       392
+:bitmap/geoo/construction/rod_steel/straight32.S:        152       392
+:bitmap/geoo/construction/rod_steel/straight32.S:        184       392
+:bitmap/geoo/construction/rod_steel/straight32.S:        216       392
+:bitmap/geoo/construction/rod_steel/straight32.S:         64       256     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         64       208     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         64       160     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         64       128     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         64        96     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         64        64     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         64        32     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         64         8     rrr
+:bitmap/geoo/construction/rod_steel/edge_rd.S:            56         0
+:bitmap/geoo/construction/rod_steel/straight32.S:         64         0
+:bitmap/geoo/construction/rod_steel/straight32.S:         96         0
+:bitmap/geoo/construction/rod_steel/straight32.S:        128         0
+:bitmap/geoo/construction/rod_steel/straight32.S:        160         0
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           200         8
+:bitmap/geoo/construction/rod_steel/straight32.S:        200        96     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        200        64     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        200        32     rrr
+:bitmap/geoo/construction/rod_rust/straight32:            96       112     d
+:bitmap/geoo/construction/rod_rust/end_rect:             128        88     r
+:bitmap/geoo/construction/rod_rust/end_rect:             138        88     r
+:bitmap/geoo/construction/rod_rust/straight32:           320       304
+:bitmap/geoo/construction/rod_rust/straight32:           352       304
+:bitmap/geoo/construction/rod_rust/straight32:           288       304
+:bitmap/geoo/construction/rod_rust/straight32:           320       312
+:bitmap/geoo/construction/rod_rust/straight32:           352       312
+:bitmap/geoo/construction/rod_rust/straight32:           288       312
+:bitmap/geoo/construction/rod_rust/straight32:           448       304
+:bitmap/geoo/construction/rod_rust/straight32:           448       312
+:bitmap/geoo/construction/rod_steel/straight32.S:        256       304
+:bitmap/geoo/construction/rod_steel/straight32.S:        256       312
+:bitmap/geoo/construction/rod_steel/straight32.S:        480       304
+:bitmap/geoo/construction/rod_steel/straight32.S:        480       312
+:bitmap/geoo/construction/rod_rust/straight32:           320       256
+:bitmap/geoo/construction/rod_rust/straight32:           352       256
+:bitmap/geoo/construction/rod_rust/straight32:           288       256
+:bitmap/geoo/construction/rod_rust/straight32:           320       264
+:bitmap/geoo/construction/rod_rust/straight32:           352       264
+:bitmap/geoo/construction/rod_rust/straight32:           288       264
+:bitmap/geoo/construction/rod_rust/straight32:           448       256
+:bitmap/geoo/construction/rod_rust/straight32:           448       264
+:bitmap/geoo/construction/rod_steel/straight32.S:        256       256
+:bitmap/geoo/construction/rod_steel/straight32.S:        256       264
+:bitmap/geoo/construction/rod_steel/straight32.S:        480       256
+:bitmap/geoo/construction/rod_steel/straight32.S:        480       264
+:bitmap/geoo/construction/rod_rust/straight32:           320       208
+:bitmap/geoo/construction/rod_rust/straight32:           352       208
+:bitmap/geoo/construction/rod_rust/straight32:           288       208
+:bitmap/geoo/construction/rod_rust/straight32:           320       216
+:bitmap/geoo/construction/rod_rust/straight32:           352       216
+:bitmap/geoo/construction/rod_rust/straight32:           288       216
+:bitmap/geoo/construction/rod_rust/straight32:           448       208
+:bitmap/geoo/construction/rod_rust/straight32:           448       216
+:bitmap/geoo/construction/rod_steel/straight32.S:        256       208
+:bitmap/geoo/construction/rod_steel/straight32.S:        256       216
+:bitmap/geoo/construction/rod_steel/straight32.S:        480       208
+:bitmap/geoo/construction/rod_steel/straight32.S:        480       216
+:bitmap/geoo/construction/rod_rust/straight32:           320       160
+:bitmap/geoo/construction/rod_rust/straight32:           352       160
+:bitmap/geoo/construction/rod_rust/straight32:           288       160
+:bitmap/geoo/construction/rod_rust/straight32:           320       168
+:bitmap/geoo/construction/rod_rust/straight32:           352       168
+:bitmap/geoo/construction/rod_rust/straight32:           288       168
+:bitmap/geoo/construction/rod_rust/straight32:           448       160
+:bitmap/geoo/construction/rod_rust/straight32:           448       168
+:bitmap/geoo/construction/rod_steel/straight32.S:        256       160
+:bitmap/geoo/construction/rod_steel/straight32.S:        256       168
+:bitmap/geoo/construction/rod_steel/straight32.S:        480       160
+:bitmap/geoo/construction/rod_steel/straight32.S:        480       168
+:bitmap/geoo/construction/rod_rust/straight32:           320       112
+:bitmap/geoo/construction/rod_rust/straight32:           352       112
+:bitmap/geoo/construction/rod_rust/straight32:           288       112
+:bitmap/geoo/construction/rod_rust/straight32:           320       120
+:bitmap/geoo/construction/rod_rust/straight32:           352       120
+:bitmap/geoo/construction/rod_rust/straight32:           288       120
+:bitmap/geoo/construction/rod_rust/straight32:           448       112
+:bitmap/geoo/construction/rod_rust/straight32:           448       120
+:bitmap/geoo/construction/rod_steel/straight32.S:        256       112
+:bitmap/geoo/construction/rod_steel/straight32.S:        256       120
+:bitmap/geoo/construction/rod_steel/straight32.S:        480       112
+:bitmap/geoo/construction/rod_steel/straight32.S:        480       120
+:bitmap/geoo/construction/rod_rust/straight32:           320        64
+:bitmap/geoo/construction/rod_rust/straight32:           352        64
+:bitmap/geoo/construction/rod_rust/straight32:           288        64
+:bitmap/geoo/construction/rod_rust/straight32:           320        72
+:bitmap/geoo/construction/rod_rust/straight32:           352        72
+:bitmap/geoo/construction/rod_rust/straight32:           288        72
+:bitmap/geoo/construction/rod_rust/straight32:           448        64
+:bitmap/geoo/construction/rod_rust/straight32:           448        72
+:bitmap/geoo/construction/rod_steel/straight32.S:        256        64
+:bitmap/geoo/construction/rod_steel/straight32.S:        256        72
+:bitmap/geoo/construction/rod_steel/straight32.S:        480        64
+:bitmap/geoo/construction/rod_steel/straight32.S:        480        72
+:bitmap/geoo/construction/rod_steel/straight32.S:        248       392
+:bitmap/geoo/construction/rod_steel/straight32.S:        280       392
+:bitmap/geoo/construction/rod_steel/straight32.S:        312       392
+:bitmap/geoo/construction/rod_steel/straight32.S:        344       392
+:bitmap/geoo/construction/rod_steel/straight32.S:        440       392
+:bitmap/geoo/construction/rod_steel/straight32.S:        472       392
+:bitmap/geoo/construction/rod_steel/straight32.S:        504       392
+:bitmap/geoo/construction/rod_steel/straight32.S:        536       392
+:bitmap/geoo/construction/rod_steel/straight32.S:        248       304     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        248       256     rrr
+:bitmap/geoo/construction/fence_32x32.S:                 216        64
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      226       248     d
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      226       242     fd
+:bitmap/geoo/construction/rod_rust/straight8:            240       252     d
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      226       296     d
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      226       290     fd
+:bitmap/geoo/construction/rod_rust/straight8:            240       300     d
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      226       200     d
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      226       194     fd
+:bitmap/geoo/construction/rod_rust/straight8:            240       204     d
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      226       152     d
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      226       146     fd
+:bitmap/geoo/construction/rod_rust/straight8:            240       156     d
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      226       104     d
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      226        98     fd
+:bitmap/geoo/construction/rod_rust/straight8:            240       108     d
+:bitmap/geoo/construction/fence_32x32.S:                 528        64
+:bitmap/geoo/construction/fence_32x32.S:                 528        96
+:bitmap/geoo/construction/fence_32x32.S:                 528       128
+:bitmap/geoo/construction/fence_32x32.S:                 528       160
+:bitmap/geoo/construction/fence_32x32.S:                 528       192
+:bitmap/geoo/construction/fence_32x32.S:                 528       224
+:bitmap/geoo/construction/rod_steel/straight32.S:        256       384
+:bitmap/geoo/construction/rod_steel/straight32.S:        248       208     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        248       160     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        248       112     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        248        64     rrr
+:bitmap/geoo/construction/fence_32x32.S:                 528       256
+:bitmap/geoo/construction/fence_32x32.S:                 528       272
+:bitmap/geoo/construction/rod_steel/end_rect.S:          248       288     rrr
+:bitmap/geoo/construction/rod_steel/end_rect.S:          248       240     rrr
+:bitmap/geoo/construction/rod_steel/end_rect.S:          248       192     rrr
+:bitmap/geoo/construction/rod_steel/end_rect.S:          248       144     rrr
+:bitmap/geoo/construction/rod_steel/end_rect.S:          248        96     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        288       384
+:bitmap/geoo/construction/rod_steel/straight32.S:        320       384
+:bitmap/geoo/construction/rod_steel/straight32.S:        352       384
+:bitmap/geoo/construction/rod_steel/straight32.S:        448       384
+:bitmap/geoo/construction/rod_steel/straight32.S:        480       384
+:bitmap/geoo/construction/rod_steel/straight32.S:        512       384
+:bitmap/geoo/construction/rod_steel/straight32.S:        528       384
+:bitmap/geoo/construction/rod_steel/edge_lu.S:           568       392
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           568       320
+:bitmap/geoo/construction/rod_steel/edge_ru.S:           256       384
+:bitmap/geoo/construction/rod_steel/edge_rd.S:           256       312
+:bitmap/geoo/construction/rod_steel/straight32.S:        536       312
+:bitmap/geoo/construction/rod_steel/edge_lu.S:           568       312
+:bitmap/geoo/construction/rod_steel/straight32.S:        256       320     rrr
+:bitmap/geoo/construction/rod_steel/edge_lu.S:           560       304
+:bitmap/geoo/construction/rod_steel/straight32.S:        512       304
+:bitmap/geoo/construction/rod_steel/edge_ru.S:           256       304
+:bitmap/geoo/construction/rod_steel/straight32.S:        512       312
+:bitmap/geoo/construction/rod_steel/straight32.S:        528       304
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      527       243     rrd
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      527       248     frrd
+:bitmap/geoo/construction/rod_rust/straight8:            528       253     rrd
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      527       195     rrd
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      527       200     frrd
+:bitmap/geoo/construction/rod_rust/straight8:            528       205     rrd
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      527       147     rrd
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      527       152     frrd
+:bitmap/geoo/construction/rod_rust/straight8:            528       157     rrd
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      527        99     rrd
+:bitmap/geoo/construction/rod_rust/straight_diagu8:      527       104     frrd
+:bitmap/geoo/construction/rod_rust/straight8:            528       109     rrd
+:bitmap/geoo/construction/rod_steel/edge_ru.S:           200       336
+:bitmap/geoo/construction/rod_steel/edge_lu.S:           208       336
+:bitmap/geoo/construction/rod_steel/straight32.S:        208       304     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        208       272     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        208       240     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        208       208     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        208       176     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        208       144     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        208       112     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        208        80     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        208        48     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        208        16     rrr
+:bitmap/geoo/construction/rod_steel/edge_rd.S:           208         8
+:bitmap/geoo/construction/rod_steel/straight32.S:        192         0
+:bitmap/geoo/construction/rod_steel/straight32.S:        224         0
+:bitmap/geoo/construction/rod_steel/straight32.S:        256         0
+:bitmap/geoo/construction/rod_steel/straight32.S:        288         0
+:bitmap/geoo/construction/rod_steel/straight32.S:        320         0
+:bitmap/geoo/construction/rod_steel/straight32.S:        352         0
+:bitmap/geoo/construction/rod_steel/straight32.S:        448         0
+:bitmap/geoo/construction/rod_steel/straight32.S:        480         0
+:bitmap/geoo/construction/rod_steel/straight32.S:        512         0
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           568         0
+:bitmap/geoo/construction/rod_steel/straight32.S:        568         8     rrr
+:bitmap/geoo/construction/rod_steel/end_rect.S:           64       376     fr
+:bitmap/geoo/construction/rod_steel/edge_lu.S:           520       288
+:bitmap/geoo/construction/rod_steel/straight32.S:        520       256     rrr
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           520       256
+:bitmap/geoo/construction/rod_steel/edge_lu.S:           520       240
+:bitmap/geoo/construction/rod_steel/straight32.S:        520       208     rrr
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           520       208
+:bitmap/geoo/construction/rod_steel/edge_lu.S:           520       192
+:bitmap/geoo/construction/rod_steel/straight32.S:        520       160     rrr
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           520       160
+:bitmap/geoo/construction/rod_steel/edge_lu.S:           520       144
+:bitmap/geoo/construction/rod_steel/straight32.S:        520       112     rrr
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           520       112
+:bitmap/geoo/construction/rod_steel/edge_lu.S:           520        96
+:bitmap/geoo/construction/rod_steel/straight32.S:        520        64     rrr
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           520        64
+:bitmap/geoo/construction/rod_steel/edge_rd.S:           256       264
+:bitmap/geoo/construction/rod_steel/end_rect.S:          256       288     rrr
+:bitmap/geoo/construction/rod_steel/edge_rd.S:           248        64
+:bitmap/geoo/construction/rod_steel/straight32.S:        256       216     rrr
+:bitmap/geoo/construction/rod_steel/edge_rd.S:           256       216
+:bitmap/geoo/construction/rod_steel/end_rect.S:          256       240     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        256       168     rrr
+:bitmap/geoo/construction/rod_steel/edge_rd.S:           256       168
+:bitmap/geoo/construction/rod_steel/end_rect.S:          256       192     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        256       120     rrr
+:bitmap/geoo/construction/rod_steel/edge_rd.S:           256       120
+:bitmap/geoo/construction/rod_steel/end_rect.S:          256       144     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        256        72     rrr
+:bitmap/geoo/construction/rod_steel/edge_rd.S:           256        72
+:bitmap/geoo/construction/rod_steel/end_rect.S:          256        96     rrr
+:bitmap/geoo/construction/rod_steel/edge_ru.S:           256       256
+:bitmap/geoo/construction/rod_steel/edge_ru.S:           256       208
+:bitmap/geoo/construction/rod_steel/edge_ru.S:           256       160
+:bitmap/geoo/construction/rod_steel/edge_ru.S:           256       112
+:bitmap/geoo/construction/rod_steel/straight32.S:        216         8
+:bitmap/geoo/construction/rod_steel/straight32.S:        248         8
+:bitmap/geoo/construction/rod_steel/straight32.S:        280         8
+:bitmap/geoo/construction/rod_steel/straight32.S:        312         8
+:bitmap/geoo/construction/rod_steel/straight32.S:        344         8
+:bitmap/geoo/construction/rod_steel/straight32.S:        440         8
+:bitmap/geoo/construction/rod_steel/straight32.S:        472         8
+:bitmap/geoo/construction/rod_steel/straight32.S:        504         8
+:bitmap/geoo/construction/rod_steel/straight32.S:        528         8
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           560         8
+:bitmap/geoo/construction/rod_steel/straight32.S:         56       384     rrr
+:bitmap/geoo/construction/rod_steel/edge_ru.S:            56       392
+:bitmap/geoo/construction/rod_steel/straight32.S:         88       392
+:bitmap/geoo/construction/rod_steel/straight32.S:         56       168     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         56       136     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         56       104     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         56        72     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         56        40     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         56         8     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         56       280     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         56       264     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         56       232     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         56       200     rrr
+:bitmap/geoo/construction/rod_steel/edge_rd.S:            64         8
+:bitmap/geoo/construction/rod_steel/straight32.S:         72         8
+:bitmap/geoo/construction/rod_steel/straight32.S:        104         8
+:bitmap/geoo/construction/rod_steel/straight32.S:        136         8
+:bitmap/geoo/construction/rod_steel/straight32.S:        168         8
+:bitmap/geoo/construction/rod_steel/straight32.S:        536         0
+:bitmap/geoo/construction/rod_steel/end_rect.S:          248       112     fr
+:bitmap/geoo/construction/rod_steel/end_rect.S:          248       160     fr
+:bitmap/geoo/construction/rod_steel/end_rect.S:          248       208     fr
+:bitmap/geoo/construction/rod_steel/end_rect.S:          248       256     fr
+:bitmap/geoo/construction/rod_steel/end_rect.S:          248       304     fr
+:bitmap/geoo/construction/rod_steel/end_rect.S:           56       376     fr
+:bitmap/geoo/construction/rod_steel/straight32.S:        512        72     rrr
+:bitmap/geoo/construction/rod_steel/edge_ru.S:           512        96
+:bitmap/geoo/construction/rod_steel/straight32.S:        512       120     rrr
+:bitmap/geoo/construction/rod_steel/edge_ru.S:           512       144
+:bitmap/geoo/construction/rod_steel/straight32.S:        512       168     rrr
+:bitmap/geoo/construction/rod_steel/edge_ru.S:           512       192
+:bitmap/geoo/construction/rod_steel/straight32.S:        512       216     rrr
+:bitmap/geoo/construction/rod_steel/edge_ru.S:           512       240
+:bitmap/geoo/construction/rod_steel/straight32.S:        512       264     rrr
+:bitmap/geoo/construction/rod_steel/edge_ru.S:           512       288
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           512        72
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           512       120
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           512       168
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           512       216
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           512       264
+:bitmap/geoo/construction/rod_steel/straight32.S:        488        64
+:bitmap/geoo/construction/rod_steel/straight32.S:        488       112
+:bitmap/geoo/construction/rod_steel/straight32.S:        488       160
+:bitmap/geoo/construction/rod_steel/straight32.S:        488       208
+:bitmap/geoo/construction/rod_steel/straight32.S:        488       256
+:bitmap/geoo/construction/fence_32x32.S:                 216       352
+:bitmap/geoo/construction/rod_steel/straight32.S:        248       352     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        256       352     rrr
+:bitmap/geoo/construction/rod_steel/edge_rd.S:           560       320
+:bitmap/geoo/construction/rod_steel/edge_lu.S:           560       384
+:bitmap/geoo/construction/rod_steel/straight32.S:        568       328     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        568       360     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        560       328     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        560       352     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        560        16     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        568        40     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        560        48     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        568        72     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        560        80     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        568       104     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        560       112     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        568       136     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        560       144     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        568       168     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        560       176     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        568       200     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        560       208     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        568       232     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        560       240     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        568       264     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        560       272     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        568       280     rrr
+:bitmap/geoo/construction/rod_steel/end_rect.S:           56       304     rrr
+:bitmap/geoo/construction/rod_rust/straight32:           384       304
+:bitmap/geoo/construction/rod_rust/straight32:           416       304
+:bitmap/geoo/construction/rod_rust/straight32:           384       312
+:bitmap/geoo/construction/rod_rust/straight32:           416       312
+:bitmap/geoo/construction/rod_rust/straight32:           384       256
+:bitmap/geoo/construction/rod_rust/straight32:           416       256
+:bitmap/geoo/construction/rod_rust/straight32:           384       264
+:bitmap/geoo/construction/rod_rust/straight32:           416       264
+:bitmap/geoo/construction/rod_rust/straight32:           384       208
+:bitmap/geoo/construction/rod_rust/straight32:           416       208
+:bitmap/geoo/construction/rod_rust/straight32:           384       216
+:bitmap/geoo/construction/rod_rust/straight32:           416       216
+:bitmap/geoo/construction/rod_rust/straight32:           384       160
+:bitmap/geoo/construction/rod_rust/straight32:           416       160
+:bitmap/geoo/construction/rod_rust/straight32:           384       168
+:bitmap/geoo/construction/rod_rust/straight32:           416       168
+:bitmap/geoo/construction/rod_rust/straight32:           384       112
+:bitmap/geoo/construction/rod_rust/straight32:           416       112
+:bitmap/geoo/construction/rod_rust/straight32:           384       120
+:bitmap/geoo/construction/rod_rust/straight32:           416       120
+:bitmap/geoo/construction/rod_rust/straight32:           384        64
+:bitmap/geoo/construction/rod_rust/straight32:           416        64
+:bitmap/geoo/construction/rod_rust/straight32:           384        72
+:bitmap/geoo/construction/rod_rust/straight32:           416        72
+:bitmap/geoo/construction/rod_steel/straight32.S:        376       392
+:bitmap/geoo/construction/rod_steel/straight32.S:        408       392
+:bitmap/geoo/construction/rod_steel/straight32.S:        384       384
+:bitmap/geoo/construction/rod_steel/straight32.S:        416       384
+:bitmap/geoo/construction/rod_steel/straight32.S:        384         0
+:bitmap/geoo/construction/rod_steel/straight32.S:        416         0
+:bitmap/geoo/construction/rod_steel/straight32.S:        376         8
+:bitmap/geoo/construction/rod_steel/straight32.S:        408         8

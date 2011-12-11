@@ -1,0 +1,117 @@
+$BUILT                                             2011-11-20 11:22:36
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                   Compression Method Infinity
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            256
+#TORUS_X                                                             0
+#TORUS_Y                                                             1
+#START_X                                                             0
+#START_Y                                                           160
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            50
+#REQUIRED                                                           30
+#RATE                                                               99
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#BATTER                                                             10
+#BASHER                                                             10
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/09 - Marble/Hatch.H:                        400       240
+:bitmap/matt/09 - Marble/Hatch.H:                        296       240
+:bitmap/matt/09 - Marble/Hatch.H:                        192       240
+:bitmap/matt/09 - Marble/Hatch.H:                         88       240
+
+:bitmap/matt/09 - Marble/Goal.G:                         480       112
+
+:bitmap/geoo/construction/squisher.T:                    156        96
+:bitmap/geoo/construction/squisher.T:                    260        96
+:bitmap/geoo/construction/squisher.T:                    364        96
+:bitmap/geoo/construction/squisher.T:                    468        96
+
+:bitmap/geoo/construction/Laseremit_hzl_16.F:            544        92
+:bitmap/geoo/construction/Laser_hz_64.F:                 560        92
+
+:bitmap/matt/09 - Marble/04d:                            136        80
+:bitmap/matt/09 - Marble/20d:                            164         0
+:bitmap/matt/09 - Marble/20d:                            268         0
+:bitmap/matt/09 - Marble/04d:                            260        64
+:bitmap/matt/09 - Marble/20d:                            372         0
+:bitmap/matt/09 - Marble/04d:                            364        64
+:bitmap/matt/09 - Marble/20d:                            476         0
+:bitmap/matt/09 - Marble/04d:                            468        64
+:bitmap/matt/09 - Marble/04d:                            240        80
+:bitmap/matt/09 - Marble/04d:                            344        80
+:bitmap/matt/09 - Marble/04d:                            488        80
+:bitmap/matt/09 - Marble/04d:                            448        80
+:bitmap/matt/09 - Marble/04d:                            156        64
+:bitmap/matt/09 - Marble/20d:                              0        96
+:bitmap/matt/09 - Marble/08d:                             96       160
+:bitmap/matt/09 - Marble/08d:                            160       160
+:bitmap/matt/09 - Marble/08d:                            224       160
+:bitmap/matt/09 - Marble/08d:                            288       160
+:bitmap/matt/09 - Marble/08d:                            352       160
+:bitmap/matt/09 - Marble/08d:                            416       160
+:bitmap/matt/09 - Marble/20d:                              0       160
+:bitmap/matt/09 - Marble/20d:                              0        32
+:bitmap/matt/09 - Marble/20d:                              0       224
+:bitmap/matt/09 - Marble/04d:                            176        80
+:bitmap/matt/09 - Marble/04d:                            280        80
+:bitmap/matt/09 - Marble/04d:                            384        80
+:bitmap/matt/09 - Marble/08d:                            480       160
+:bitmap/matt/09 - Marble/001d:                           168        80
+:bitmap/matt/09 - Marble/001d:                           272        80
+:bitmap/matt/09 - Marble/001d:                           376        80
+:bitmap/matt/09 - Marble/001d:                           480        80
+:bitmap/matt/09 - Marble/01d:                             96        96
+:bitmap/matt/09 - Marble/01d:                            112        96
+:bitmap/matt/09 - Marble/01d:                            128        96
+:bitmap/matt/09 - Marble/01d:                            144        96
+:bitmap/matt/09 - Marble/01d:                            160        96
+:bitmap/matt/09 - Marble/01d:                            176        96
+:bitmap/matt/09 - Marble/01d:                            192        96
+:bitmap/matt/09 - Marble/01d:                            208        96
+:bitmap/matt/09 - Marble/01d:                            224        96
+:bitmap/matt/09 - Marble/01d:                            240        96
+:bitmap/matt/09 - Marble/01d:                            256        96
+:bitmap/matt/09 - Marble/01d:                            272        96
+:bitmap/matt/09 - Marble/01d:                            288        96
+:bitmap/matt/09 - Marble/01d:                            304        96
+:bitmap/matt/09 - Marble/01d:                            320        96
+:bitmap/matt/09 - Marble/01d:                            336        96
+:bitmap/matt/09 - Marble/01d:                            352        96
+:bitmap/matt/09 - Marble/01d:                            368        96
+:bitmap/matt/09 - Marble/01d:                            384        96
+:bitmap/matt/09 - Marble/01d:                            400        96
+:bitmap/matt/09 - Marble/01d:                            416        96
+:bitmap/matt/09 - Marble/01d:                            432        96
+:bitmap/matt/09 - Marble/01d:                            448        96
+:bitmap/matt/09 - Marble/01d:                            464        96
+:bitmap/matt/09 - Marble/01d:                            480        96
+:bitmap/matt/09 - Marble/01d:                            496        96
+:bitmap/matt/09 - Marble/01d:                            512        96
+:bitmap/matt/09 - Marble/01d:                            528        96
+:bitmap/matt/09 - Marble/20d:                            624        96
+:bitmap/matt/09 - Marble/20d:                            624       160
+:bitmap/matt/09 - Marble/20d:                            624        32
+:bitmap/matt/09 - Marble/20d:                            624       224
+:bitmap/matt/09 - Marble/20d:                            164       192
+:bitmap/matt/09 - Marble/20d:                            268       192
+:bitmap/matt/09 - Marble/20d:                            372       192
+:bitmap/matt/09 - Marble/20d:                            476       192
+:bitmap/matt/09 - Marble/14d:                             96       128
+:bitmap/matt/09 - Marble/16d:                            128       128

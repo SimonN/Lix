@@ -1,0 +1,114 @@
+$BUILT                                             2011-11-20 13:33:34
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                                      Fling Me
+
+#SIZE_X                                                           1280
+#SIZE_Y                                                            420
+#TORUS_X                                                             0
+#TORUS_Y                                                             1
+#START_X                                                           640
+#START_Y                                                           286
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            20
+#REQUIRED                                                           10
+#RATE                                                               50
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#WALKER                                                              2
+#JUMPER                                                              4
+#EXPLODER2                                                           6
+#BLOCKER                                                             4
+#PLATFORMER                                                          2
+#DIGGER                                                              2
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   176       160
+
+:bitmap/matt/02 - Gold Mine/Hatch.H:                     896       192
+
+:bitmap/matt/02 - Gold Mine/Goal.G:                      176       208
+
+:bitmap/matt/water.W:                                    304       248
+:bitmap/matt/water.W:                                    336       248
+:bitmap/matt/water.W:                                    368       248
+:bitmap/matt/water.W:                                     80       248
+:bitmap/matt/water.W:                                     48       248
+:bitmap/matt/water.W:                                     16       248
+:bitmap/matt/water.W:                                      0       248
+:bitmap/geoo/construction/Laser_vr_64.F:                 872       160
+:bitmap/geoo/construction/Laseremit_vrb_16.F:            872       224
+:bitmap/geoo/construction/Laseremit_vrt_16.F:            872        96
+:bitmap/geoo/construction/Laser_vr_64.F:                 872       112
+
+:bitmap/matt/02 - Gold Mine/07:                          904       240
+:bitmap/matt/02 - Gold Mine/09:                          864       252     f
+:bitmap/matt/02 - Gold Mine/03:                          -40       278
+:bitmap/matt/02 - Gold Mine/03:                            8       276
+:bitmap/matt/02 - Gold Mine/03:                          -22       280
+:bitmap/matt/02 - Gold Mine/03:                          -74       278
+:bitmap/matt/02 - Gold Mine/09:                          300       264     rrr
+:bitmap/matt/02 - Gold Mine/07:                          -50       288
+:bitmap/matt/02 - Gold Mine/08:                           73       283     f
+:bitmap/matt/02 - Gold Mine/03:                          235       279
+:bitmap/matt/02 - Gold Mine/09:                          167       283     r
+:bitmap/matt/steel/64x32.S:                              240        64
+:bitmap/matt/steel/64x32.S:                              176        64
+:bitmap/matt/steel/64x32.S:                              112        64
+:bitmap/matt/steel/64x32.S:                              224       160
+:bitmap/matt/steel/64x32.S:                              160       160
+:bitmap/matt/steel/64x32.S:                               96       160
+:bitmap/matt/steel/64x32.S:                              240       256
+:bitmap/matt/steel/64x32.S:                              176       256
+:bitmap/matt/steel/64x32.S:                              112       256
+:bitmap/matt/steel/64x32.S:                              304        64
+:bitmap/matt/steel/64x32.S:                              368        64
+:bitmap/matt/02 - Gold Mine/08:                          396        64     frr
+:bitmap/matt/02 - Gold Mine/08:                          438       128     frr
+:bitmap/matt/02 - Gold Mine/09:                          396       146
+:bitmap/matt/02 - Gold Mine/09:                          576       208
+:bitmap/matt/02 - Gold Mine/09:                          576       -32     f
+:bitmap/matt/02 - Gold Mine/02:                          576        48
+:bitmap/matt/steel/64x32.S:                              864        64
+:bitmap/matt/steel/64x32.S:                              800        64
+:bitmap/matt/steel/64x32.S:                              736        64
+:bitmap/matt/steel/64x32.S:                              928        64
+:bitmap/matt/02 - Gold Mine/08:                          368       208
+:bitmap/matt/02 - Gold Mine/09:                          448       224     f
+:bitmap/matt/steel/64x32.S:                              992        64
+:bitmap/matt/steel/64x32.S:                             1056        64
+:bitmap/matt/02 - Gold Mine/07:                          303       285
+:bitmap/matt/02 - Gold Mine/05:                          596       348
+:bitmap/matt/02 - Gold Mine/05:                          593       308
+:bitmap/matt/02 - Gold Mine/09:                          566       288
+:bitmap/matt/02 - Gold Mine/09:                          240       304     rrr
+:bitmap/matt/02 - Gold Mine/09:                          153       323     r
+:bitmap/matt/02 - Gold Mine/07:                           36       310
+:bitmap/matt/02 - Gold Mine/09:                          -36       329     rrr
+:bitmap/matt/02 - Gold Mine/09:                         1236       222
+:bitmap/matt/02 - Gold Mine/09:                         1234       296
+:bitmap/matt/02 - Gold Mine/09:                         1226       382
+:bitmap/matt/02 - Gold Mine/09:                         1236        48
+:bitmap/matt/02 - Gold Mine/09:                         1236       140
+:bitmap/matt/02 - Gold Mine/10:                         1258       196
+:bitmap/matt/02 - Gold Mine/10:                         1242       280
+:bitmap/matt/03 - Carnival/24:                           579       168     d
+:bitmap/matt/02 - Gold Mine/08:                          479       193     frr
+:bitmap/matt/02 - Gold Mine/09:                          545       213
+:bitmap/matt/03 - Carnival/24:                           553       168     d
+:bitmap/matt/02 - Gold Mine/07:                          907       300     f
+:bitmap/matt/02 - Gold Mine/crate64:                    1083       317     d
+:bitmap/matt/02 - Gold Mine/crate64:                    1083       281     d
+:bitmap/matt/02 - Gold Mine/02:                         1056       263
+:bitmap/matt/steel/64x32.S:                             1056       240
+:bitmap/matt/steel/64x32.S:                              864       240
+:bitmap/matt/steel/64x32.S:                              928       240
+:bitmap/matt/steel/64x32.S:                              992       240

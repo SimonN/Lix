@@ -1,0 +1,60 @@
+$BUILT                                             2011-11-20 10:07:29
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                               A step too far?
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            50
+#REQUIRED                                                           40
+#RATE                                                               50
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#CLIMBER                                                            10
+#BLOCKER                                                             5
+#BUILDER                                                             5
+#BASHER                                                             10
+#DIGGER                                                             10
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/geoo/sandstone/Hatch.H:                          112       280
+
+:bitmap/geoo/sandstone/Goal.G:                           448       176
+
+:bitmap/matt/water.W:                                      0       368
+:bitmap/matt/water.W:                                     32       368
+:bitmap/matt/water.W:                                     64       368
+:bitmap/matt/water.W:                                     96       368
+:bitmap/matt/water.W:                                    448       368
+:bitmap/matt/water.W:                                    480       368
+:bitmap/matt/water.W:                                    512       368
+:bitmap/matt/water.W:                                    544       368
+:bitmap/matt/water.W:                                    576       368
+:bitmap/matt/water.W:                                    608       368
+:bitmap/matt/water.W:                                    384       368
+:bitmap/matt/water.W:                                    416       368
+
+:bitmap/geoo/sandstone/64x64:                            256       240
+:bitmap/geoo/sandstone/64x64:                            256       304
+:bitmap/geoo/sandstone/64x64:                            320       240
+:bitmap/geoo/sandstone/64x64:                            320       304
+:bitmap/geoo/sandstone/64x32:                            192       368
+:bitmap/geoo/sandstone/64x32:                            128       368
+:bitmap/geoo/sandstone/64x32:                            320       368
+:bitmap/geoo/sandstone/64x32:                            256       368
+:bitmap/geoo/sandstone/64x32:                            384       240
+:bitmap/geoo/sandstone/64x32:                            448       240

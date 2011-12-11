@@ -1,0 +1,103 @@
+$BUILT                                             2011-11-20 12:53:59
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                            Turning the Screws
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                     32
+#BACKGROUND_GREEN                                                   32
+#BACKGROUND_BLUE                                                    32
+
+#SECONDS                                                             0
+#INITIAL                                                            40
+#REQUIRED                                                           20
+#RATE                                                               40
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#EXPLODER                                                            4
+#BLOCKER                                                             7
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   368       296
+
+:bitmap/matt/02 - Gold Mine/Hatch.H:                     488         8
+:bitmap/matt/02 - Gold Mine/Hatch.H:                     296        -8
+:bitmap/matt/02 - Gold Mine/Hatch.H:                      88       104
+:bitmap/matt/02 - Gold Mine/Hatch.H:                     296        -8
+
+:bitmap/matt/02 - Gold Mine/Goal.G:                      368       344
+
+:bitmap/geoo/construction/sawblade_medium.F:             306       124
+:bitmap/geoo/construction/sawblade_medium.F:             268       220
+:bitmap/geoo/construction/sawblade_medium.F:             306       316
+
+:bitmap/matt/02 - Gold Mine/plank:                       182       352
+:bitmap/matt/02 - Gold Mine/plank:                       182       360
+:bitmap/matt/02 - Gold Mine/plank:                        54       152
+:bitmap/matt/02 - Gold Mine/plank:                       458        56
+:bitmap/matt/02 - Gold Mine/plank:                       330        40     rrr
+:bitmap/matt/02 - Gold Mine/plank:                       330        56     rrrd
+:bitmap/matt/02 - Gold Mine/plank:                       330       -48     rrrn
+:bitmap/matt/02 - Gold Mine/plank:                       330       -88     rrrd
+:bitmap/matt/02 - Gold Mine/plank:                       330        56
+:bitmap/matt/02 - Gold Mine/plank:                       458       152
+:bitmap/matt/02 - Gold Mine/plank:                       302       136     rrr
+:bitmap/matt/02 - Gold Mine/plank:                       302       152     rrrd
+:bitmap/matt/02 - Gold Mine/plank:                       302        48     rrrn
+:bitmap/matt/02 - Gold Mine/plank:                       302         8     rrrd
+:bitmap/matt/02 - Gold Mine/plank:                        54       248
+:bitmap/matt/02 - Gold Mine/plank:                       458       248
+:bitmap/matt/02 - Gold Mine/plank:                       330       232     rrr
+:bitmap/matt/02 - Gold Mine/plank:                       330       248     rrrd
+:bitmap/matt/02 - Gold Mine/plank:                       330       144     rrrn
+:bitmap/matt/02 - Gold Mine/plank:                       330       104     rrrd
+:bitmap/matt/02 - Gold Mine/plank:                       330       248
+:bitmap/matt/02 - Gold Mine/plank:                       312       296
+:bitmap/matt/02 - Gold Mine/plank:                       312       104
+:bitmap/matt/02 - Gold Mine/plank:                        54       344
+:bitmap/matt/02 - Gold Mine/plank:                       302       328     rrr
+:bitmap/matt/02 - Gold Mine/plank:                       302       344     rrrd
+:bitmap/matt/02 - Gold Mine/plank:                       302       240     rrrn
+:bitmap/matt/02 - Gold Mine/plank:                       302       200     rrrd
+:bitmap/matt/02 - Gold Mine/plank:                       200       200
+:bitmap/matt/02 - Gold Mine/plank:                       310       392
+:bitmap/matt/02 - Gold Mine/plank:                       182       152
+:bitmap/matt/02 - Gold Mine/plank:                       182       344
+:bitmap/matt/02 - Gold Mine/plank:                       458       344
+:bitmap/matt/02 - Gold Mine/plank:                       438       392
+:bitmap/matt/02 - Gold Mine/plank:                       632         0     rrr
+:bitmap/matt/02 - Gold Mine/plank:                       632       112     rrrd
+:bitmap/matt/02 - Gold Mine/plank:                       632        96     rrrn
+:bitmap/matt/02 - Gold Mine/plank:                       632       208     rrrd
+:bitmap/matt/02 - Gold Mine/plank:                       632       192     rrrn
+:bitmap/matt/02 - Gold Mine/plank:                       632       304     rrrd
+:bitmap/matt/02 - Gold Mine/plank:                       632       272     rrrn
+:bitmap/matt/02 - Gold Mine/plank:                         0         0     rrr
+:bitmap/matt/02 - Gold Mine/plank:                         0       112     rrrd
+:bitmap/matt/02 - Gold Mine/plank:                         0        96     rrrn
+:bitmap/matt/02 - Gold Mine/plank:                         0       208     rrrd
+:bitmap/matt/02 - Gold Mine/plank:                         0       192     rrrn
+:bitmap/matt/02 - Gold Mine/plank:                         0       304     rrrd
+:bitmap/matt/02 - Gold Mine/plank:                         0       272     rrrn
+:bitmap/matt/02 - Gold Mine/plank:                       322       104     d
+:bitmap/matt/02 - Gold Mine/plank:                       190       200     d
+:bitmap/matt/02 - Gold Mine/plank:                       322       296     d
+:bitmap/matt/02 - Gold Mine/plank:                       202       104     n
+:bitmap/matt/02 - Gold Mine/plank:                       202       296     n
+:bitmap/matt/02 - Gold Mine/plank:                       184       104     d
+:bitmap/matt/02 - Gold Mine/plank:                       184       296     d
+:bitmap/matt/02 - Gold Mine/plank:                       310       200     n
+:bitmap/matt/02 - Gold Mine/plank:                       328       200     d

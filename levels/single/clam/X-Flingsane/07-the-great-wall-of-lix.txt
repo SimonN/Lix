@@ -1,0 +1,97 @@
+$BUILT                                             2011-11-20 13:39:57
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                         The Great Wall of Lix
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            320
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                           220
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            10
+#REQUIRED                                                            3
+#RATE                                                               99
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#EXPLODER2                                                           1
+#BLOCKER                                                             7
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/06 - Oriental/Hatch.H:                      180         6
+:bitmap/matt/06 - Oriental/Hatch.H:                      552        56     r
+
+:bitmap/matt/06 - Oriental/Goal.G:                       456       136
+
+:bitmap/matt/06 - Oriental/bamboo pole:                  209        74
+:bitmap/matt/06 - Oriental/bamboo pole:                  288        92     f
+:bitmap/matt/06 - Oriental/bamboo pole:                  289        92     f
+:bitmap/matt/03 - Carnival/13:                           289        92     d
+:bitmap/matt/03 - Carnival/13:                           288        93     d
+:bitmap/matt/03 - Carnival/13:                           291       109     d
+:bitmap/matt/03 - Carnival/13:                           288       110     d
+:bitmap/matt/03 - Carnival/13:                           274       108     d
+:bitmap/matt/03 - Carnival/13:                           293       126     d
+:bitmap/matt/03 - Carnival/13:                           276       126     d
+:bitmap/matt/03 - Carnival/13:                           277       127     d
+:bitmap/matt/03 - Carnival/13:                           278       142     d
+:bitmap/matt/03 - Carnival/13:                           295       142     d
+:bitmap/matt/03 - Carnival/13:                           279       143     d
+:bitmap/matt/03 - Carnival/13:                           280       158     d
+:bitmap/matt/03 - Carnival/13:                           296       159     d
+:bitmap/matt/06 - Oriental/bamboo pole:                  129        68     fr
+:bitmap/matt/06 - Oriental/08:                            -7       244
+:bitmap/matt/06 - Oriental/08:                            61       244
+:bitmap/matt/06 - Oriental/08:                           129       244
+:bitmap/matt/06 - Oriental/08:                           197       244
+:bitmap/matt/01 - Earth/15:                              280       172     rd
+:bitmap/matt/06 - Oriental/08:                            -7       176
+:bitmap/matt/06 - Oriental/08:                            61       176
+:bitmap/matt/06 - Oriental/08:                           129       176
+:bitmap/matt/06 - Oriental/08:                           197       176
+:bitmap/matt/06 - Oriental/01:                           199       154
+:bitmap/matt/06 - Oriental/01:                           131       154
+:bitmap/matt/06 - Oriental/01:                            63       154
+:bitmap/matt/06 - Oriental/01:                            -3       154
+:bitmap/matt/steel/16x8.S:                               360       120
+:bitmap/matt/steel/16x8.S:                               376       120
+:bitmap/matt/steel/16x8.S:                               392       120
+:bitmap/matt/steel/16x8.S:                               408       120
+:bitmap/matt/steel/16x8.S:                               424       120
+:bitmap/matt/steel/16x8.S:                               440       120
+:bitmap/matt/steel/16x8.S:                               456       120
+:bitmap/matt/steel/16x8.S:                               472       120
+:bitmap/matt/steel/16x8.S:                               488       120
+:bitmap/matt/steel/16x8.S:                               504       120
+:bitmap/matt/steel/16x8.S:                               520       120
+:bitmap/matt/steel/16x8.S:                               536       120
+:bitmap/matt/steel/16x8.S:                               552       120
+:bitmap/matt/steel/16x8.S:                               568       120
+:bitmap/matt/steel/16x8.S:                               584       120
+:bitmap/matt/steel/16x8.S:                               600       120
+:bitmap/matt/steel/16x8.S:                               616       120
+:bitmap/matt/steel/16x8.S:                               632       120
+:bitmap/matt/steel/64x64.S:                              360       216
+:bitmap/matt/steel/64x64.S:                              424       216
+:bitmap/matt/steel/64x64.S:                              488       216
+:bitmap/matt/steel/64x64.S:                              552       216
+:bitmap/matt/steel/64x64.S:                              360       280
+:bitmap/matt/steel/64x64.S:                              424       280
+:bitmap/matt/steel/64x64.S:                              488       280
+:bitmap/matt/steel/64x64.S:                              552       280
+:bitmap/matt/steel/32x64.S:                              616       128
+:bitmap/matt/steel/32x64.S:                              616       192
+:bitmap/matt/steel/32x64.S:                              616       256

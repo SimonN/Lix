@@ -1,0 +1,93 @@
+$BUILT                                             2011-11-29 11:04:28
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                                     Polar Pop
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            320
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                           220
+#BACKGROUND_RED                                                    128
+#BACKGROUND_GREEN                                                  128
+#BACKGROUND_BLUE                                                   255
+
+#SECONDS                                                             0
+#INITIAL                                                            20
+#REQUIRED                                                           15
+#RATE                                                               70
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#CLIMBER                                                            20
+#EXPLODER2                                                           5
+#BLOCKER                                                             4
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/05 - Winter/Hatch.H:                         96       208
+:bitmap/matt/05 - Winter/Hatch.H:                        480       208     r
+
+:bitmap/matt/05 - Winter/Goal.G:                          72       104
+:bitmap/matt/05 - Winter/Goal.G:                         472       104
+
+:bitmap/matt/05 - Winter/06:                             312         0
+:bitmap/matt/05 - Winter/15:                             190        25
+:bitmap/matt/05 - Winter/06:                             480       256     r
+:bitmap/matt/05 - Winter/15:                             483       262     f
+:bitmap/matt/05 - Winter/06:                              32       192
+:bitmap/matt/05 - Winter/15:                             346       256     f
+:bitmap/matt/05 - Winter/15:                             176       176
+:bitmap/matt/05 - Winter/15:                             144       176
+:bitmap/matt/05 - Winter/15:                             128       176
+:bitmap/matt/05 - Winter/15:                              96       176
+:bitmap/matt/05 - Winter/15:                              68       176
+:bitmap/matt/05 - Winter/15:                              32       176
+:bitmap/matt/05 - Winter/15:                             506       174
+:bitmap/matt/05 - Winter/15:                             474       174
+:bitmap/matt/05 - Winter/15:                             458       174
+:bitmap/matt/05 - Winter/15:                             426       174
+:bitmap/matt/05 - Winter/15:                             398       174
+:bitmap/matt/05 - Winter/15:                             384       174     f
+:bitmap/matt/05 - Winter/06:                             312       128
+:bitmap/matt/05 - Winter/06:                             312       192
+:bitmap/matt/05 - Winter/06:                             592       192
+:bitmap/matt/05 - Winter/06:                             592       128
+:bitmap/matt/05 - Winter/06:                             592        64
+:bitmap/matt/05 - Winter/06:                              32       128
+:bitmap/matt/05 - Winter/06:                              32        64
+:bitmap/matt/05 - Winter/06:                              96       256     r
+:bitmap/matt/05 - Winter/10:                             240       255
+:bitmap/matt/05 - Winter/10:                             372       253
+:bitmap/matt/05 - Winter/10:                             520       255
+:bitmap/matt/05 - Winter/10:                              88       256
+:bitmap/matt/05 - Winter/10:                             -12       253
+:bitmap/matt/05 - Winter/17:                             -23       197
+:bitmap/matt/05 - Winter/17:                             -39       120     rr
+:bitmap/matt/05 - Winter/17:                             -41        38     rr
+:bitmap/matt/05 - Winter/15:                             507       256     f
+:bitmap/matt/05 - Winter/15:                             208       260     f
+:bitmap/matt/05 - Winter/10:                             -26       -44
+:bitmap/matt/05 - Winter/10:                             427       -51
+:bitmap/matt/05 - Winter/10:                             586       -16
+:bitmap/matt/05 - Winter/10:                             116       -49
+:bitmap/matt/05 - Winter/03:                             388       163
+:bitmap/matt/05 - Winter/15:                             532       174
+:bitmap/matt/05 - Winter/03:                             480       158
+:bitmap/matt/05 - Winter/17:                             599       153
+:bitmap/matt/05 - Winter/17:                             595        63
+:bitmap/matt/05 - Winter/03:                              90       160
+:bitmap/matt/05 - Winter/03:                              -4       160
+:bitmap/matt/05 - Winter/03:                             394       160
+:bitmap/matt/05 - Winter/00:                             312       -20
+:bitmap/matt/05 - Winter/00:                             248       -20     frr
+:bitmap/matt/05 - Winter/10:                             348       -46
+:bitmap/matt/05 - Winter/10:                             237        15     d
+:bitmap/matt/05 - Winter/06:                             312        64
+:bitmap/matt/05 - Winter/06:                             312        15

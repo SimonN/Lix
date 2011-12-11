@@ -1,0 +1,99 @@
+$BUILT                                             2011-11-29 22:13:48
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                I've got the world on a string
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            10
+#REQUIRED                                                           10
+#RATE                                                               50
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#CLIMBER                                                             3
+#WALKER                                                              1
+#PLATFORMER                                                         12
+#BASHER                                                              1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/01 - Earth/Hatch.H:                          58       210
+
+:bitmap/matt/01 - Earth/Goal.G:                          496       192
+
+:bitmap/matt/water.W:                                     32       368
+:bitmap/matt/water.W:                                     64       368
+:bitmap/matt/water.W:                                     96       368
+:bitmap/matt/water.W:                                    128       368
+:bitmap/matt/water.W:                                    208       368
+:bitmap/matt/water.W:                                    240       368
+:bitmap/matt/water.W:                                    272       368
+:bitmap/matt/water.W:                                    304       368
+:bitmap/matt/water.W:                                    336       368
+:bitmap/matt/water.W:                                    368       368
+
+:bitmap/matt/01 - Earth/27:                              522        72
+:bitmap/matt/01 - Earth/28:                              431        49
+:bitmap/matt/01 - Earth/27:                              212        41
+:bitmap/matt/01 - Earth/28:                              173        53
+:bitmap/matt/01 - Earth/28:                              135        52     frr
+:bitmap/matt/01 - Earth/10:                               96       -48
+:bitmap/matt/01 - Earth/20:                              -30       254
+:bitmap/matt/01 - Earth/20:                               66       254
+:bitmap/matt/01 - Earth/05:                              592       -16     f
+:bitmap/matt/01 - Earth/05:                              142       182
+:bitmap/matt/01 - Earth/10:                              404       272
+:bitmap/matt/01 - Earth/10:                              442       322
+:bitmap/matt/01 - Earth/10:                              494       272
+:bitmap/matt/01 - Earth/03:                              496       258
+:bitmap/matt/01 - Earth/03:                              432       258
+:bitmap/matt/01 - Earth/05:                              387       192
+:bitmap/matt/01 - Earth/05:                              -32       192
+:bitmap/geoo/steel/16x32o.S:                             200       194     d
+:bitmap/geoo/steel/16x32o.S:                             197       186     d
+:bitmap/geoo/steel/16x32o.S:                             198       188     d
+:bitmap/geoo/steel/16x32o.S:                             199       191     d
+:bitmap/matt/01 - Earth/05:                              272         0     f
+:bitmap/matt/01 - Earth/05:                              272       -16     f
+:bitmap/geoo/steel/16x32o.S:                             140       222     d
+:bitmap/matt/01 - Earth/29:                               -1        70     frr
+:bitmap/matt/01 - Earth/27:                                6        73     frr
+:bitmap/matt/01 - Earth/10:                              -32       -32
+:bitmap/matt/01 - Earth/05:                               64       -32     f
+:bitmap/matt/01 - Earth/28:                              396        51
+:bitmap/matt/01 - Earth/29:                              340        74     frr
+:bitmap/matt/01 - Earth/29:                              478        58     frr
+:bitmap/matt/01 - Earth/10:                              304       -32
+:bitmap/matt/01 - Earth/10:                              432       -48
+:bitmap/matt/01 - Earth/10:                              480       -16     frr
+:bitmap/matt/01 - Earth/05:                              608       192     f
+:bitmap/matt/01 - Earth/09:                              448       257
+:bitmap/matt/01 - Earth/09:                              480       255
+:bitmap/matt/01 - Earth/09:                              512       255
+:bitmap/matt/01 - Earth/09:                              544       255
+:bitmap/matt/01 - Earth/09:                              558       255
+:bitmap/geoo/steel/16x32o.S:                             387       222     d
+:bitmap/geoo/steel/16x32o.S:                             387       223     d
+:bitmap/matt/01 - Earth/29:                              508        73
+:bitmap/matt/01 - Earth/30:                              154       256
+:bitmap/matt/01 - Earth/30:                              106       304
+:bitmap/matt/01 - Earth/30:                               58       352
+:bitmap/matt/01 - Earth/30:                              248       160     rr
+:bitmap/matt/01 - Earth/30:                              296       112     rr
+:bitmap/matt/01 - Earth/30:                              344        64     rr
+:bitmap/matt/01 - Earth/30:                              392        16     rr
+:bitmap/matt/01 - Earth/30:                              440       -32     rr
