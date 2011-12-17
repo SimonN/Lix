@@ -177,8 +177,20 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
         int dir = l.get_dir();
         if (l.get_ac() == LixEn::JUMPER || l.get_ac() == LixEn::TUMBLER) {
             if (l.get_special_y() > 0) { // moving downwards
-                int spy = l.get_special_y();
-                l.set_special_y(-spy-1);
+                if (l.get_special_y() <= 12) {
+                    int spy = l.get_special_y();
+                    l.set_special_y(-spy-1);
+                } else {
+                    int spy = l.get_special_y();
+                    // original calculation:
+                    // falldist = y(y+1)/2 - 12*13/2 + 2*(6*7)/2
+                    // has been amended through experimentation to:
+                    double falldist = std::floor(0.5*(spy-2)*(spy-1) - 37);
+                    if (falldist < 0) falldist = 0;
+                    l.set_special_y((int) std::floor(0.5 - 2*std::sqrt(1+falldist)));
+                }
+                if (std::abs(l.get_special_x()) < 4)
+                    l.set_special_x(std::abs(4*dir));
                 i->set_y_frame(1);
                 if (l.get_ac() == LixEn::JUMPER) l.set_frame(5);
             }
@@ -189,7 +201,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
             int spx = 4 * dir;//i->get_object()->special_x;
             l.set_special_x(std::abs(spx));
             l.set_dir(spx);
-            l.set_special_y((int) (-1.5 - 2*std::sqrt(1+falldist)));
+            l.set_special_y((int) std::floor(-0.5 - 2*std::sqrt(1+falldist)));
             i->set_y_frame(1);
         } // what about floaters?
     }
