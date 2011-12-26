@@ -94,6 +94,8 @@ public:
            void  clear_children();
            void  hide_all_children(bool = true);
 
+    inline Element* get_parent() const { return parent; }
+
     // You will be killed if you override these methods!
     // Override calc_self() etc. instead.
     // draw() undraws *this and children if drawn && hidden.

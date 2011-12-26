@@ -136,17 +136,10 @@ void SaveBrowser::calc_self()
             }
         }
 
-        // Etwas aus editor/bit_brow.cpp kopierter Code
         if (hardware.get_mr()
          &&  (dir_list.is_mouse_here()
          || level_list.is_mouse_here())) {
-            if (dir_list.get_current_dir() == dir_list.get_base_dir()) {
-                if (!typing) set_exit();
-            }
-            else {
-                dir_list  .set_current_dir_to_parent_dir();
-                level_list.load_dir(dir_list.get_current_dir());
-            }
+            if (!typing) set_exit();
         }
         else if (ok.get_clicked()) {
             if (file_name.get_text().empty()) return; // Nichts passiert

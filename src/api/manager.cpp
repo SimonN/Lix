@@ -46,10 +46,22 @@ void Manager::remove_elder(Element* e)
 
 void Manager::add_focus(Element* e)
 {
-    // Erase all instances (should be at most one) of &e in the queue
+    std::vector <Element*> ::iterator insert_here = focus.end();
+
     for (std::vector <Element*> ::iterator itr = focus.begin();
-     itr != focus.end(); ++itr) if (*itr == e) focus.erase(itr--);
-    focus.push_back(e);
+     itr != focus.end(); ++itr) {
+        // Erase all instances (should be at most one) of e in the queue,
+        // we're going to add it to the end later.
+        if (*itr == e) focus.erase(itr--);
+        // Do not add a parent as a more important focus than its child.
+        // This may happen: A parent's constructor may add the child as
+        // focus immediately, but the parent creating code will then add
+        // the parent as focus, overriding the child.
+        if ((**itr).get_parent() == e && insert_here == focus.end()) {
+            insert_here = itr;
+        }
+    }
+    focus.insert(insert_here, e);
 }
 
 
