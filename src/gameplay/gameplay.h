@@ -134,6 +134,7 @@ private:
     void update_lix_goals    (Lixxie&, const UpdateArgs&);
     void make_knockback_explosion(const unsigned long, const Tribe&,
                                   const unsigned,      const int, const int);
+    void finally_fling       (Lixxie&);
 
 public:
 

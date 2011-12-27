@@ -19,6 +19,8 @@ Lookup*        Lixxie::lookup     = 0;
 Map*           Lixxie::ground_map = 0;
 EffectManager* Lixxie::effect     = 0;
 
+bool           Lixxie::any_new_flingers = false;
+
 const int Lixxie::distance_safe_fall   = 126;
 const int Lixxie::distance_float       =  60;
 const int Lixxie::updates_for_bomb     =  75;
@@ -45,6 +47,10 @@ Lixxie::Lixxie(
     dir               (1),
     special_x         (0),
     special_y         (0),
+
+    fling_x           (0),
+    fling_y           (0),
+    fling_new         (false),
 
     frame             (0),
     updates_since_bomb(0),
@@ -163,6 +169,24 @@ bool Lixxie::get_in_trigger_area(const EdGraphic& gr) const
     if (dx < 0) dx *= -1;
     if (dy < 0) dy *= -1;
     return dx <= ob.trigger_xl/2 && dy <= ob.trigger_yl/2;
+}
+
+
+
+void Lixxie::add_fling(const int px, const int py)
+{
+    any_new_flingers = true;
+    fling_new = true;
+    fling_x   += px;
+    fling_y   += py;
+}
+
+void Lixxie::reset_fling_new()
+{
+    any_new_flingers = false;
+    fling_new = false;
+    fling_x   = 0;
+    fling_y   = 0;
 }
 
 

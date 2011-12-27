@@ -153,13 +153,9 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
              i->set_y_frame(1);
             else continue;
         }
-        int dir = l.get_dir();
-        l.become(LixEn::TUMBLER);
         int special_x = i->get_object()->special_x;
-        if (!(sub & 1)) special_x *= dir;
-        l.set_special_x(std::abs(special_x));
-        l.set_special_y(i->get_object()->special_y);
-        l.set_dir(special_x);
+        if (!(sub & 1)) special_x *= l.get_dir();
+        l.add_fling(special_x, i->get_object()->special_y);
     }
 
 
@@ -187,7 +183,8 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
                     // has been amended through experimentation to:
                     double falldist = std::floor(0.5*(spy-2)*(spy-1) - 37);
                     if (falldist < 0) falldist = 0;
-                    l.set_special_y((int) std::floor(0.5 - 2*std::sqrt(1+falldist)));
+                    l.set_special_y(
+                        (int) std::floor(0.5 - 2*std::sqrt(1+falldist)));
                 }
                 if (std::abs(l.get_special_x()) < 4)
                     l.set_special_x(std::abs(4*dir));
@@ -300,11 +297,26 @@ void Gameplay::make_knockback_explosion(
         if (distance <= range) {
             const int sx = (int) (dx * strength_x * (1 - distance / range));
             const int sy = (int) (dy * strength_y * (1 - distance / range));
-            i->become       (LixEn::TUMBLER);
-            i->set_dir      (dx);
-            i->set_special_x(sx/i->get_dir());
-            i->set_special_y(sy - 6); // Mehr lustiges Hochfliegen!
+            i->add_fling(sx, sy - 6);
+            // the -6 are for even more jolly flying upwards!
         }
     }
     effect.add_explosion(upd, t, lem_id, x, y);
+}
+
+
+
+// defined in tumbler.cpp
+void tumbler_frame_selection(Lixxie& l);
+
+void Gameplay::finally_fling(Lixxie& l)
+{
+    if (! l.get_leaving()) {
+        l.become(LixEn::TUMBLER);
+        if (l.get_fling_x() != 0) l.set_dir(l.get_fling_x());
+        l.set_special_x(std::abs(l.get_fling_x()));
+        l.set_special_y(l.get_fling_y());
+        l.reset_fling_new();
+        tumbler_frame_selection(l);
+    }
 }

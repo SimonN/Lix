@@ -26,10 +26,7 @@ bool fling_all_in_rectangle(
          && dy <= wy
          && &*i != &self) {
             someone_was_hit = true;
-            i->become       (LixEn::TUMBLER);
-            i->set_dir      (self.get_dir());
-            i->set_special_x(vx);
-            i->set_special_y(vy);
+            i->add_fling(vx * self.get_dir(), vy);
         }
     }
     return someone_was_hit;

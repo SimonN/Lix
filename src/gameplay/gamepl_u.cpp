@@ -260,7 +260,15 @@ void Gameplay::update_cs_once()
             }
         }
     }
-    // Third pass: Blockers and nuke
+    // Third pass (if necessary): finally becoming flingers
+    if (Lixxie::get_any_new_flingers()) {
+        for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t)
+         for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
+            if (i->get_fling_new()) finally_fling(*i);
+        }
+    }
+
+    // Fourth pass: the nuke
     for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
         // Assign exploders in case of nuke
         if (t->nuke == true)

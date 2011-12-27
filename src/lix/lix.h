@@ -35,6 +35,15 @@
  *   Diese Variable ist 1, wenn die Lix nach rechts schaut, oder -1, falls
  *   sie nach links schaut. Is initialized with 1.
  *
+ * char fling_new
+ *
+ *   true, if the lix shall be flung somewhere at the end of this update.
+ *   The velocity to be flung is saved in fling_x, fling_y. When the lix
+ *   actually gets flung, this will be reset.
+ *
+ *   The point of this is fairness. Simultaneous batters shouldn't depend on
+ *   player order. Both batters shall hit each other.
+ *
  * bool marked
  * bool get_mark()
  * void mark()
@@ -226,6 +235,8 @@ private:
     static Map*           ground_map;
     static EffectManager* effect;
 
+    static bool any_new_flingers;
+
     static std::vector <AcFunc> ac_func;
 
     Tribe* tribe;
@@ -236,6 +247,10 @@ private:
     int  dir;
     int  special_x;
     int  special_y;
+
+    int  fling_x;
+    int  fling_y;
+    char fling_new;
 
     char frame;
     char updates_since_bomb;
@@ -269,7 +284,8 @@ public:
     static void           set_static_maps   (Torbit&, Lookup&, Map&);
     static void           set_effect_manager(EffectManager& e) { effect = &e; }
     static EffectManager* get_ef()                             {return effect;}
-    static const Torbit&  get_land() { return *land; }
+    static const Torbit&  get_land()                          { return *land; }
+    static inline bool    get_any_new_flingers() { return any_new_flingers; }
 
     inline bool get_mark() { return marked;  }
     inline void mark()     { marked = true;  }
@@ -314,6 +330,12 @@ public:
     inline int  get_special_y()      { return special_y; }
     inline void set_special_x(int n) { special_x = n;    }
     inline void set_special_y(int i) { special_y = i;    }
+
+    inline bool get_fling_new() const { return fling_new; }
+    inline int  get_fling_x()   const { return fling_x;   }
+    inline int  get_fling_y()   const { return fling_y;   }
+           void add_fling(int, int);
+           void reset_fling_new();
 
     inline int  get_updates_since_bomb()      { return updates_since_bomb; }
     inline void inc_updates_since_bomb()      { ++updates_since_bomb;      }

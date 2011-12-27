@@ -166,12 +166,13 @@ void EdGraphic::draw_lookup(Lookup& lk)
     if (!object) return;
     Lookup::LoNr nr = 0;
     switch (object->type) {
-        case Object::GOAL:  nr = Lookup::bit_goal; break;
-        case Object::TRAP:  nr = Lookup::bit_trap; break;
-        case Object::WATER: nr = object->subtype == 0
-                               ? Lookup::bit_water
-                               : Lookup::bit_fire; break;
-        case Object::FLING: nr = Lookup::bit_fling; break;
+        case Object::GOAL:       nr = Lookup::bit_goal; break;
+        case Object::TRAP:       nr = Lookup::bit_trap; break;
+        case Object::WATER:      nr = object->subtype == 0
+                                    ? Lookup::bit_water
+                                    : Lookup::bit_fire; break;
+        case Object::FLING:      nr = Lookup::bit_fling; break;
+        case Object::TRAMPOLINE: nr = Lookup::bit_trampoline; break;
         default: break;
     }
     lk.add_rectangle(get_x() + object->get_trigger_x(),
