@@ -34,9 +34,6 @@ Menu
         Switching a user in the options doesn't recolor the GUI to the new
         user's settings.
 
-    Hotkeys
-        The menu should be fully keyboard-controllable.
-
     Replay default name
         When saving a replay file, guess a good default name, e.g. the same
         as the level file or level title. In each save browser, focus the
@@ -45,10 +42,6 @@ Menu
 
 
 Editor
-
-    Icons
-        The skills panel icon and the hatch icon are to be redrawn, probably
-        also the goal icon.
 
     Multiple selection and copying
         Selecting multiple parts (with [Ctrl] or the set hotkey) and then
@@ -62,22 +55,11 @@ Editor
 
 Gameplay physics
 
-    Climber->Ascender
-        This transistion is inside the wall currently. Move it up.
-
     Jumper onto ">" shaped cliffs
         Have the jumper get up more cliffs.
 
-    Tumbler in infinite loop
-        This occurs in small, tight pits. Might be remedied by putting the
-        floor check before the wall check.
-
-    First player advantage
-        Add all fling acceleration in the same logic update, but still always
-        overwrite any older acceleration. Have traps eat one lix of each
-        tribe if several enter it at once.
-
     Exploder flinging
+        (This should be retested compeletely.)
         Clam tested it in Lix. What happens is actually the opposite of what
         I said should happen:
         -   If the second one bombs, it flings the first straight up
@@ -100,13 +82,6 @@ Gameplay non-physics
         only issue one sound to be played per update. If you jump into a trap
         that kills the lix on the exact frame after the jumper assignment,
         the trap/burn/kill sound won't play.
-
-
-
-Data/Images
-
-    Sound replacements
-        The sounds aren't fully replaced yet. See doc/sound.txt for details.
 
 
 

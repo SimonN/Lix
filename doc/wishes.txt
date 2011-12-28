@@ -7,8 +7,7 @@
 
 Generell
 
-    Automatisches Speichern von Replays
-        Hier kann man mal drüber nachdenken.
+    --
 
 
 
@@ -21,9 +20,6 @@ Menue
 
     Scrollbalken statt Weitere-Button
         Selbsterklaerend.
-
-    Navigation with cursor keys and return
-        This might be useful for the big level browsers.
 
     Replays in the single player menu
         Levels with available replays should be marked differently in the
@@ -48,13 +44,6 @@ Gameplay
         (extra keypress if you want to continue anyway).
         Possibly as an option.
 
-    Show lixes in/out of hatch
-        At the moment, you can only see the total of in-hatch and out lixes.
-        One should be able to see the number of lixes in the hatch as well.
-
-    Display hotkeys
-        Display the skill hotkeys on top of the OSD buttons.
-
     Out of Skill
         Make a special sound when you're trying to switch to a skill you're
         out of (via hotkey or clicking on it)
@@ -63,12 +52,6 @@ Gameplay
         If there's multiple pieces selected, their relative z-order should
         be maintained when changing terrain priority. Currently, they get
         messed up.
-
-    Non-permanent traps
-        If lixes of different players are under a trap, it prefers a
-        certain type of lix (i.e. from a certain player). If non-
-        permanent traps pick one lix from each player currently in the
-        trigger area, it would be balanced again
 
     Advanced trap definitions
         For traps, a lix animation to be played as well as a soundeffect
@@ -88,13 +71,6 @@ Gameplay
         Each level could have the nuke for multiplayer disabled. Players
         can still activate a nuke-like function then, but it merely takes
         away control over their tribe and starts the overtime.
-        
-    End of time
-        When the remaining time has reached zero, currently lixes are still
-        able to enter the exit as long as the nuke's exploder assignment
-        was late on them. This allows level solve times over the maximum.
-        Maybe lixes should explode immedeately instead of exiting when walking
-        into an exit with the clock being zero?
 
 
 
