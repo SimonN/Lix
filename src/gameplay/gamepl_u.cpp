@@ -71,9 +71,6 @@ void Gameplay::update()
                i != special[Object::WATER ].end(); ++i) i->animate();
     for (IacIt i =  special[Object::ONEWAY].begin();
                i != special[Object::ONEWAY].end(); ++i) i->animate();
-    for (IacIt i =  cs.fling.begin(); i != cs.fling.end(); ++i) {
-        if (!(i->get_object()->subtype & 2)) i->animate(); // it's a bitfield
-    }
     for (Goal::It i = goal.begin();    i != goal.end();    ++i) i->animate();
     for (HatchIt  i = hatches.begin(); i != hatches.end(); ++i)
      i->animate(effect, cs.update);
@@ -291,33 +288,12 @@ void Gameplay::update_cs_once()
 
     // Ende Haupt-Lix-Update-Geschichten
     // Dies ist aber ebenfalls sehr wichtig fuer jedes Update, egal ob
-    // normal oder nachberechnet:
-    for (IacIt i = cs.trap.begin(); i != cs.trap.end(); ++i) {
-        if (i->get_y_frame() == 1  // Dies benachrichtigt die Falle
-         || i->get_x_frame() >  0) {
-            i->set_y_frame(0);
-            i->set_x_frame(i->get_x_frame() + 1);
-            if (i->get_x_frame() >= i->get_x_frames()) i->set_x_frame(0);
-        }
-    }
-    // for flinging objects
-    for (IacIt i = cs.fling.begin(); i != cs.fling.end(); ++i) {
-        if ((i->get_object()->subtype & 2) // non-constant flingers
-         && (i->get_y_frame() == 1
-         || i->get_x_frame() >  0)) {
-            i->set_y_frame(0);
-            i->set_x_frame(i->get_x_frame() + 1);
-            if (i->get_x_frame() >= i->get_x_frames()) i->set_x_frame(0);
-        }
-    }
-    // for trampoline
-    for (IacIt i = cs.trampoline.begin(); i != cs.trampoline.end(); ++i) {
-        if ((i->get_y_frame() == 1 || i->get_x_frame() >  0)) {
-            i->set_y_frame(0);
-            i->set_x_frame(i->get_x_frame() + 1);
-            if (i->get_x_frame() >= i->get_x_frames()) i->set_x_frame(0);
-        }
-    }
+    // normal oder nachberechnet: Traps and flingers depend on the animation
+    // frame for their actions.
+    for (TrigIt i = cs.trap.begin(); i != cs.trap.end(); ++i) i->animate();
+    for (TrigIt i = cs.fling.begin(); i != cs.fling.end(); ++i) i->animate();
+    for (TrigIt i = cs.trampoline.begin(); i != cs.trampoline.end(); ++i)
+                                                                i->animate();
 
     state_manager.calc_save_auto(cs);
 }

@@ -225,15 +225,15 @@ void Gameplay::prepare_level()
         goal.back().draw_lookup(cs.lookup);
         break;
      case Object::TRAP:
-        cs.trap.push_back(EdGraphic(map, i->ob, i->x, i->y));
+        cs.trap.push_back(Triggerable(map, i->ob, i->x, i->y));
         cs.trap.back().draw_lookup(cs.lookup);
         break;
      case Object::FLING:
-        cs.fling.push_back(EdGraphic(map, i->ob, i->x, i->y));
+        cs.fling.push_back(Triggerable(map, i->ob, i->x, i->y));
         cs.fling.back().draw_lookup(cs.lookup);
         break;
      case Object::TRAMPOLINE:
-        cs.trampoline.push_back(EdGraphic(map, i->ob, i->x, i->y));
+        cs.trampoline.push_back(Triggerable(map, i->ob, i->x, i->y));
         cs.trampoline.back().draw_lookup(cs.lookup);
         break;
      case Object::DECO:

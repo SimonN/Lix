@@ -95,12 +95,13 @@ private:
 
     typedef std::vector <Lixxie> ::iterator            LixIt;
 
-    std::vector <std::vector <EdGraphic> >             special;
-    std::vector         <Goal>                         goal;
-    std::vector         <GameHatch>                    hatches;
-    typedef std::vector <EdGraphic> ::iterator         IacIt;
-    typedef std::vector <EdGraphic> ::reverse_iterator IacRIt;
-    typedef std::vector <GameHatch> ::iterator         HatchIt;
+    std::vector <std::vector <EdGraphic> >              special;
+    std::vector         <Goal>                          goal;
+    std::vector         <GameHatch>                     hatches;
+    typedef std::vector <EdGraphic>  ::iterator         IacIt;
+    typedef std::vector <EdGraphic>  ::reverse_iterator IacRIt;
+    typedef std::vector <GameHatch>  ::iterator         HatchIt;
+    typedef std::vector <Triggerable>::iterator         TrigIt;
 
     ////////////////
     // Funktionen //

@@ -105,9 +105,9 @@ void Gameplay::calc_self()
     // ec kurz fuer exit_count
     unsigned ec = effect.get_effects();
     for (Tribe::CIt t = cs.tribes.begin(); t != cs.tribes.end(); ++t)
-     ec += t->lix_hatch + t->get_lix_out();
-    for (IacIt i = cs.trap.begin(); i != cs.trap.end(); ++i)
-     ec += i->get_x_frame();
+        ec += t->lix_hatch + t->get_lix_out();
+    for (TrigIt i = cs.trap.begin(); i != cs.trap.end(); ++i)
+        ec += i->get_x_frame();
     // Check also for !window_gameplay, as in a networked game,
     // the action keeps running in the background
     if (ec == 0 && !window_gameplay) {

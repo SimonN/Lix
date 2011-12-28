@@ -47,9 +47,9 @@ void Gameplay::draw() {
                 i != special[Object::perm(type)].end(); ++i) i->draw();
     if (multiplayer)
      for (Goal::It i = goal.begin(); i != goal.end();     ++i) i->draw(true);
-    for (IacIt i = cs.trap.begin();  i != cs.trap.end();  ++i) i->draw();
-    for (IacIt i = cs.fling.begin(); i != cs.fling.end(); ++i) i->draw();
-    for (IacIt i = cs.trampoline.begin(); i != cs.trampoline.end(); ++i)
+    for (TrigIt i = cs.trap.begin();  i != cs.trap.end();  ++i) i->draw();
+    for (TrigIt i = cs.fling.begin(); i != cs.fling.end(); ++i) i->draw();
+    for (TrigIt i = cs.trampoline.begin(); i != cs.trampoline.end(); ++i)
         i->draw();
 
     map.load_masked_screen_rectangle(cs.land);

@@ -216,6 +216,8 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="gameplay/state_ma.h" />
 		<Unit filename="gameplay/tribe.cpp" />
 		<Unit filename="gameplay/tribe.h" />
+		<Unit filename="gameplay/trigger.cpp" />
+		<Unit filename="gameplay/trigger.h" />
 		<Unit filename="graphic/bitlist.cpp" />
 		<Unit filename="graphic/cutbit.cpp" />
 		<Unit filename="graphic/cutbit.h" />

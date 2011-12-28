@@ -10,16 +10,17 @@
 
 #include "lookup.h"
 #include "tribe.h"
+#include "trigger.h"
 
-#include "../editor/graph_ed.h"
 #include "../other/types.h"
 
 struct GameState {
 
 private:
 
-    typedef std::vector <Tribe>     TribeVec;
-    typedef std::vector <EdGraphic> EdGrVec;
+    typedef std::vector <Tribe>       TribeVec;
+    typedef std::vector <EdGraphic>   EdGrVec;
+    typedef std::vector <Triggerable> TrigVec;
 
 public:
 
@@ -28,9 +29,9 @@ public:
     bool     clock_running;
 
     TribeVec tribes;
-    EdGrVec  trap;
-    EdGrVec  fling;
-    EdGrVec  trampoline;
+    TrigVec  trap;
+    TrigVec  fling;
+    TrigVec  trampoline;
 
     Torbit   land;
     Lookup   lookup;

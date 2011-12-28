@@ -127,10 +127,11 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
         }
         // Fallen
         else if (l.get_foot_encounters() & Lookup::bit_trap) {
-            for (IacIt i = cs.trap.begin(); i != cs.trap.end(); ++i) {
+            for (TrigIt i = cs.trap.begin(); i != cs.trap.end(); ++i) {
                 if (l.get_in_trigger_area(*i)
-                 && i->get_x_frame() == 0 && i->get_y_frame() == 0) {
-                    i->set_y_frame(1);
+                 && i->get_open_for(l.get_tribe())) {
+                    i->add_tribe(l.get_tribe());
+                    i->allow_animation();
                     l.play_sound(ua, i->get_object()->sound);
                     l.set_ac(LixEn::NOTHING);
                     --l.get_tribe().lix_out;
@@ -144,25 +145,23 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
 
     // Flinging
     if (! l.get_leaving())
-     for (IacIt i = cs.fling.begin(); i != cs.fling.end(); ++i)
+     for (TrigIt i = cs.fling.begin(); i != cs.fling.end(); ++i)
      if (l.get_in_trigger_area(*i)) {
-        int sub = i->get_object()->subtype;
         // non-constant?
-        if (sub & 2) {
-            if (i->get_x_frame() == 0 && i->get_y_frame() == 0)
-             i->set_y_frame(1);
-            else continue;
+        if (i->get_open_for(l.get_tribe())) {
+            i->add_tribe(l.get_tribe());
+            i->allow_animation();
+            int specx = i->get_object()->special_x;
+            if (!(i->get_object()->subtype & 1)) specx *= l.get_dir();
+            l.add_fling(specx, i->get_object()->special_y);
         }
-        int special_x = i->get_object()->special_x;
-        if (!(sub & 1)) special_x *= l.get_dir();
-        l.add_fling(special_x, i->get_object()->special_y);
     }
 
 
 
     // Trampoline
     if (! l.get_leaving())
-     for (IacIt i = cs.trampoline.begin(); i != cs.trampoline.end(); ++i)
+     for (TrigIt i = cs.trampoline.begin(); i != cs.trampoline.end(); ++i)
      if (l.get_in_trigger_area(*i)) {
 
         // commenting this out makes it a semi-permanent trap
@@ -188,7 +187,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
                 }
                 if (std::abs(l.get_special_x()) < 4)
                     l.set_special_x(std::abs(4*dir));
-                i->set_y_frame(1);
+                i->allow_animation();
                 if (l.get_ac() == LixEn::JUMPER) l.set_frame(5);
             }
         } else if (l.get_ac() == LixEn::FALLER) {
@@ -199,7 +198,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
             l.set_special_x(std::abs(spx));
             l.set_dir(spx);
             l.set_special_y((int) std::floor(-0.5 - 2*std::sqrt(1+falldist)));
-            i->set_y_frame(1);
+            i->allow_animation();
         } // what about floaters?
     }
 
