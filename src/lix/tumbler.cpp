@@ -38,7 +38,15 @@ void become_tumbler(Lixxie& l)
             // return;
         }
     }
-    l.become_default(LixEn::TUMBLER);
+    if (l.get_ac() != LixEn::JUMPER
+     && l.get_ac() != LixEn::TUMBLER) l.become_default(LixEn::TUMBLER);
+    else {
+        const int old_spx = l.get_special_x();
+        const int old_spy = l.get_special_y();
+        l.become_default(LixEn::TUMBLER);
+        l.set_special_x(old_spx);
+        l.set_special_y(old_spy);
+    }
 }
 
 
@@ -100,47 +108,69 @@ static void tumbler_land(Lixxie& l)
 //       encounters.
 int jumper_and_tumbler_collision(Lixxie& l)
 {
-    const int swh = l.solid_wall_height();
+    std::map <int, bool> wall;
+    std::map <int, bool> behind;
+    int wall_count   = 0;
+    int wall_count_t = 0; // for turning at a wall
+    int swh          = 0;
+    int lowest_floor = 0;
+    int behind_count = 0;
+    for (int i = 1; i > -16; --i) {
+        if (l.is_solid(0, i)) {
+            wall[i] = true;
+            ++wall_count;
+            if (i > -11) ++wall_count_t;
+            // how high is a solid wall starting above (0, 2)?
+            if (wall_count == (int) wall.size()) ++swh;
+        }
+        else wall[i] = false;
+    }
+
+    for (int i = -1; i > -9; --i) {
+        behind[i] = l.is_solid(-2, i);
+        behind_count += (behind[i] = l.is_solid(-2, i) && l.is_solid(0, i));
+    }
+
+    for (int i = -1; i > -15; --i) {
+        if (! wall[i-1] && wall[i]) {
+            lowest_floor = i;
+            break;
+        }
+    }
 
     // Das Vorruecken zum jeweiligen Pixel ist bereits gemacht.
 
-    // Bump head into the ceiling or a corner of the ceiling
-    // Kopfhoehe wird als etwas niedriger angesehen als beim Builder
-    // There is another check for ceiling bumping at the very end of this
-    // function, to catch getting nuked straight up to the ceiling by several
-    // explosions.
-    if ((l.get_ac() == LixEn::TUMBLER
-        && l.is_solid(-2, -12) && !l.is_solid(-2, -6)
-        && l.get_special_y() < 4)
-         // die vorige Zeile behebt das Langsamwerden beim oo-Fall
-     || (l.get_ac() == LixEn::JUMPER
-        && l.is_solid( 0, -14) && !l.is_solid( 0, -8))
-    ) {
+    // bump head or some body part into really unreasonable ceilings
+    if ((behind_count > 0 && l.get_special_y() < 2)
+     || (wall[-12] && ! wall_count_t && l.get_special_y() <= 0)) {
         if (l.get_ac() != LixEn::TUMBLER) l.become(LixEn::TUMBLER);
-        // Halb so schnell in x-Richtung wie bisher, aber
-        // gerade Geschwindigkeitszahl beibehalten
-        if (l.get_special_y() < 4) l.set_special_y(4);
+        l.set_special_y(4);
         l.set_special_x(l.get_special_x() / 4);
         l.set_special_x(l.get_special_x() * 2);
-
         if (l.is_solid(0, 0)) return 3;
         else                  return 1;
     }
 
     // Boden-Kollision
-    // Damit sich die Lixen auch mal mehr festhalten an den Klippen,
-    // pruefen wir auf swh <= 2. Hoffentlich gibt das keine Bugs.
-    else if (l.get_special_y() >= 0 && swh <= 2
-     && (l.is_solid(0, 1) || l.is_solid(0, 2)))
+    const bool down = (l.get_special_y() > 0);
+    if ( (swh <= 2 && l.is_solid(0, 1) && (l.is_solid(2, 0) || down))
+      || (swh <= 2 && l.is_solid(0, 2) && (l.is_solid(2, 1) || down)) )
     {
         while (l.is_solid(0, 1)) l.move_up(1);
         tumbler_land(l);
         return 2;
     }
 
-    // Vor eine Wand springen
-    else if ((swh > 9  && l.get_ac() == LixEn::JUMPER)
-     ||      (swh > 0  && l.get_ac() == LixEn::TUMBLER)) {
+    // Stepping up a step we jumped onto
+    if (lowest_floor && l.get_ac() == LixEn::JUMPER) {
+        if (lowest_floor > -9 || l.get_climber()) {
+            l.become(LixEn::ASCENDER);
+            return 2;
+        }
+    }
+
+    // Jumping against a wall
+    if (wall_count_t) {
         // Stick to the surface of the wall which we're inside right now
         if (l.get_ac() == LixEn::JUMPER && l.get_climber()) {
             l.move_ahead(-2);
@@ -148,39 +178,11 @@ int jumper_and_tumbler_collision(Lixxie& l)
             l.set_frame(0);
             return 1;
         }
-//        else if (l.is_solid(0, 2) && ! l.is_solid(0, 0)) {
-//            // Don't turn if batted onto a 45 degree slope.
-//            while (l.is_solid(0, 1)) l.move_up(1);
-//            tumbler_land(l);
-//            return 2;
-//        }
-//        else if (l.is_solid(-2, 2) && ! l.is_solid(-2, 0)) {
-//            // Don't turn if batted onto a 45 degree slope, part 2
-//            l.move_ahead(-2);
-//            while (l.is_solid(0, 1)) l.move_up(1);
-//            tumbler_land(l);
-//            return 2;
-//        }
         else {
             // Move out of wall we seem to be in.
             l.turn();
             return 3;
         }
-    }
-
-    // Wenn Jumper, nicht Tumbler:
-    // Wand nicht ganz so hoch, man kann sich festhalten oben dran.
-    else if (swh > 0 || (l.is_solid(0, 0) && l.get_ac() == LixEn::JUMPER)) {
-        if (l.get_special_y() > tumbler_max_special_y) {
-            // this shouldn't ever get used, a jumper shouldn't fall with
-            // deadly speed, she should always turn into a tumbler
-            l.move_up(swh);
-            tumbler_land(l); // this will always kill her since spec_y is high
-        }
-        else {
-            l.become(LixEn::ASCENDER);
-        }
-        return 2;
     }
 
     // No collisions found at this pixel. We should continue with the remaining
@@ -195,12 +197,15 @@ int jumper_and_tumbler_collision(Lixxie& l)
         }
         return 3;
     }
-    else if (l.get_foot_encounters() & Lookup::bit_trampoline
+
+    // Trampolines stop motion, a bit kludgy, but the results should be good
+    if (l.get_foot_encounters() & Lookup::bit_trampoline
           && l.get_special_y() > 0) {
         // stop the motion here, so the trampoline can be used
         return 1;
     }
-    else return 0;
+
+    return 0;
 }
 
 
