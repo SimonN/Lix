@@ -195,6 +195,11 @@ int jumper_and_tumbler_collision(Lixxie& l)
         }
         return 3;
     }
+    else if (l.get_foot_encounters() & Lookup::bit_trampoline
+          && l.get_special_y() > 0) {
+        // stop the motion here, so the trampoline can be used
+        return 1;
+    }
     else return 0;
 }
 

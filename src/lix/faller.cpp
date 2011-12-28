@@ -31,7 +31,13 @@ void become_faller(Lixxie& l)
 void update_faller(Lixxie& l, const UpdateArgs& ua)
 {
     for (int i = 0; i <= l.get_special_y() && l.get_ac() == LixEn::FALLER;++i){
-        if (l.is_solid(0, i+2)) {
+        // a bit kludgy, we can't do such a thing for flingers etc, since
+        // they might be nonconstant.
+        if (l.get_foot_encounters() & Lookup::bit_trampoline) {
+            // stop falling, so the trampoline can be used
+            break;
+        }
+        else if (l.is_solid(0, i+2)) {
             l.move_down(i);
             l.set_special_x(l.get_special_x() + i);
 

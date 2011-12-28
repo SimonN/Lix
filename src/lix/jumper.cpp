@@ -103,7 +103,15 @@ void update_jumper(Lixxie& l, const UpdateArgs& ua)
         const int sp_y = l.get_special_y();
         if      (sp_y <= 12) l.set_special_y(sp_y + 2);
         else if (sp_y <  64) l.set_special_y(sp_y + 1);
-        if (l.get_special_y() > 14) {
+
+        if (l.get_ac() == LixEn::TUMBLER
+         && (l.get_foot_encounters() & Lookup::bit_trampoline)
+         && l.get_special_y() > 0) {
+            // don't use the tumbler frame selection that is used onwards here,
+            // but take a nicer frame
+            l.set_frame(std::max(0, l.get_frame() - 4));
+        }
+        else if (l.get_special_y() > 14) {
             if (l.get_floater()) {
                 const int sx = l.get_special_x();
                 const int sy = l.get_special_y();
@@ -119,9 +127,14 @@ void update_jumper(Lixxie& l, const UpdateArgs& ua)
                 tumbler_frame_selection(l);
             }
         }
-        else if (l.get_ac() == LixEn::TUMBLER) tumbler_frame_selection(l);
-        else if (l.is_last_frame()) l.set_frame(l.get_frame() - 1);
-        else l.next_frame();
+        else if (l.get_ac() == LixEn::TUMBLER) {
+            tumbler_frame_selection(l);
+        }
+        else {
+            // we are a jumper
+            if (l.is_last_frame()) l.set_frame(l.get_frame() - 1);
+            else l.next_frame();
+        }
     }
 
     switch (l.get_ac()) {
