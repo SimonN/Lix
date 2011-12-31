@@ -163,18 +163,16 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
     if (! l.get_leaving())
      for (TrigIt i = cs.trampoline.begin(); i != cs.trampoline.end(); ++i)
      if (l.get_in_trigger_area(*i)) {
-
-        // commenting this out makes it a semi-permanent trap
-        // i.e. acts constantly, but plays anim upon interaction
-        //if (!(i->get_x_frame() == 0 && i->get_y_frame() == 0))
-        //    continue;
+        const int min_y_accel = -6;
 
         int dir = l.get_dir();
         if (l.get_ac() == LixEn::JUMPER || l.get_ac() == LixEn::TUMBLER) {
             if (l.get_special_y() > 0) { // moving downwards
                 if (l.get_special_y() <= 12) {
                     int spy = l.get_special_y();
-                    l.set_special_y(-spy-1);
+                    // fly back up to where we came from, but
+                    // get at least a certain minimum y acceleration of -4
+                    l.set_special_y(std::min(min_y_accel, -spy-1));
                 } else {
                     int spy = l.get_special_y();
                     // original calculation:
@@ -197,7 +195,8 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
             int spx = 4 * dir;//i->get_object()->special_x;
             l.set_special_x(std::abs(spx));
             l.set_dir(spx);
-            l.set_special_y((int) std::floor(-0.5 - 2*std::sqrt(1+falldist)));
+            l.set_special_y(std::min(min_y_accel,
+                            (int) std::floor(-0.5 - 2*std::sqrt(1+falldist))));
             i->allow_animation();
         } // what about floaters?
     }
