@@ -258,7 +258,7 @@ void WindowSkill::calc_self()
         sbwb[3]->skill.set_skill(LixEn::FLOATER);
         sbwb[4]->skill.set_skill(LixEn::EXPLODER2);
         sbwb[5]->skill.set_skill(LixEn::BLOCKER);
-        sbwb[6]->skill.set_skill(LixEn::NOTHING);
+        sbwb[6]->skill.set_skill(LixEn::BATTER);
         sbwb[7]->skill.set_skill(LixEn::BUILDER);
         sbwb[8]->skill.set_skill(LixEn::PLATFORMER);
         sbwb[9]->skill.set_skill(LixEn::BASHER);
@@ -271,6 +271,7 @@ void WindowSkill::calc_self()
              || i->ac == LixEn::FLOATER
              || i->ac == LixEn::EXPLODER2
              || i->ac == LixEn::BLOCKER
+             || i->ac == LixEn::BATTER
              || i->ac == LixEn::BUILDER
              || i->ac == LixEn::PLATFORMER
              || i->ac == LixEn::BASHER
