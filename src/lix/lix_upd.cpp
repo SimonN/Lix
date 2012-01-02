@@ -295,8 +295,9 @@ void Gameplay::make_knockback_explosion(
         if (distance <= range) {
             const int sx = (int) (dx * strength_x * (1 - distance / range));
             const int sy = (int) (dy * strength_y * (1 - distance / range));
-            i->add_fling(sx, sy - 6);
-            // the -6 are for even more jolly flying upwards!
+            const bool same_tribe = (&t == &*titr);
+            // the upcoming -6 are for even more jolly flying upwards!
+            i->add_fling(sx, sy - 6, same_tribe);
         }
     }
     effect.add_explosion(upd, t, lem_id, x, y);

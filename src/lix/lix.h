@@ -251,6 +251,7 @@ private:
     int  fling_x;
     int  fling_y;
     char fling_new;
+    char fling_by_same_tribe;
 
     char frame;
     char updates_since_bomb;
@@ -334,7 +335,7 @@ public:
     inline bool get_fling_new() const { return fling_new; }
     inline int  get_fling_x()   const { return fling_x;   }
     inline int  get_fling_y()   const { return fling_y;   }
-           void add_fling(int, int);
+           void add_fling(int, int, bool = false); // from same tribe?
            void reset_fling_new();
 
     inline int  get_updates_since_bomb()      { return updates_since_bomb; }

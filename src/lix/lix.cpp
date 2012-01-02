@@ -38,31 +38,32 @@ Lixxie::Lixxie(
     int        new_ex,
     int        new_ey
 ) :
-    Graphic           (GraLib::get_lix(new_tribe ? new_tribe->style
-                       : LixEn::GARDEN), *ground_map,
-                       Help::even(new_ex) - LixEn::ex_offset,
-                       new_ey             - LixEn::ey_offset),
-    tribe             (new_tribe),
-    marked            (0),
-    dir               (1),
-    special_x         (0),
-    special_y         (0),
+    Graphic            (GraLib::get_lix(new_tribe ? new_tribe->style
+                        : LixEn::GARDEN), *ground_map,
+                        Help::even(new_ex) - LixEn::ex_offset,
+                        new_ey             - LixEn::ey_offset),
+    tribe              (new_tribe),
+    marked             (0),
+    dir                (1),
+    special_x          (0),
+    special_y          (0),
 
-    fling_x           (0),
-    fling_y           (0),
-    fling_new         (false),
+    fling_x            (0),
+    fling_y            (0),
+    fling_new          (false),
+    fling_by_same_tribe(false),
 
-    frame             (0),
-    updates_since_bomb(0),
-    exploder_knockback(false),
-    runner            (false),
-    climber           (false),
-    floater           (false),
-    enc_body          (0),
-    enc_foot          (0),
+    frame              (0),
+    updates_since_bomb (0),
+    exploder_knockback (false),
+    runner             (false),
+    climber            (false),
+    floater            (false),
+    enc_body           (0),
+    enc_foot           (0),
 
-    style             (tribe ? tribe->style : LixEn::GARDEN),
-    ac                (LixEn::NOTHING)
+    style              (tribe ? tribe->style : LixEn::GARDEN),
+    ac                 (LixEn::NOTHING)
 {
     if (tribe) {
         become(LixEn::FALLER);
@@ -173,9 +174,12 @@ bool Lixxie::get_in_trigger_area(const EdGraphic& gr) const
 
 
 
-void Lixxie::add_fling(const int px, const int py)
+void Lixxie::add_fling(const int px, const int py, const bool same_tribe)
 {
-    any_new_flingers = true;
+    if (fling_by_same_tribe && same_tribe) return;
+
+    any_new_flingers    = true;
+    fling_by_same_tribe = (fling_by_same_tribe || same_tribe);
     fling_new = true;
     fling_x   += px;
     fling_y   += py;
@@ -183,10 +187,11 @@ void Lixxie::add_fling(const int px, const int py)
 
 void Lixxie::reset_fling_new()
 {
-    any_new_flingers = false;
-    fling_new = false;
-    fling_x   = 0;
-    fling_y   = 0;
+    any_new_flingers    = false;
+    fling_new           = false;
+    fling_by_same_tribe = false;
+    fling_x             = 0;
+    fling_y             = 0;
 }
 
 
