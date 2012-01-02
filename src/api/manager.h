@@ -20,7 +20,7 @@
 #pragma once
 
 #include <set>
-#include <vector>
+#include <list>
 
 #include "../graphic/torbit.h"
 
@@ -41,10 +41,10 @@ public:
            static void add_focus   (Element*); // if already included, move to back
            static void remove_focus(Element*); // removes it from anywhere
 
-    inline static const std::set    <Element*>& get_elders() { return elders; }
-    inline static const std::vector <Element*>& get_focui () { return focus;  }
-    inline static       Torbit&                 get_torbit() { return *torbit;}
-           static const Element*                get_focus ();
+    inline static const std::set  <Element*>& get_elders() { return elders; }
+    inline static const std::list <Element*>& get_focui () { return focus;  }
+    inline static       Torbit&               get_torbit() { return *torbit;}
+           static const Element*              get_focus ();
 
            static void calc();
            static void draw();
@@ -55,11 +55,11 @@ private:
     Manager();
     void operator = (const Manager&);
 
-    static Torbit*                torbit;
-    static bool                   clear_next_draw;
+    static Torbit*              torbit;
+    static bool                 clear_next_draw;
 
-    static std::set    <Element*> elders;
-    static std::vector <Element*> focus;
+    static std::set  <Element*> elders;
+    static std::list <Element*> focus;
 
 };  // end class
 
