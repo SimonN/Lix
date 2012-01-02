@@ -17,6 +17,16 @@ bool fling_all_in_rectangle(
         i != titr->lixvec.end(); ++i)
     {
         if (i->get_leaving()) continue;
+        // do not allow the same player's batters to bat each other.
+        // This is important for singleplayer: two lixes shall not be able
+        // to travel together without any help, one shall always be left
+        // behind. Solution: If we already have a fling assignment, probably
+        // from other batters, we cannot bat batters.
+        if (self.get_fling_new()
+         &&  i->get_ac()    ==  LixEn::BATTER
+         &&  i->get_frame() ==  self.get_frame()
+         && &i->get_tribe() == &self.get_tribe()) continue;
+
         // Fling others in this rectangle.
         const bool blo = (i->get_ac() == LixEn::BLOCKER);
         const int ch = (blo ? cx + blockexc * self.get_dir() : cx);

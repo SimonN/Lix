@@ -237,7 +237,7 @@ void Gameplay::update_cs_once()
 
     // Erster Durchlauf: Nur die Arbeitstiere bearbeiten und markieren!
     for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
-        for (LixIt i = --t->lixvec.end(); i != --t->lixvec.begin(); --i) {
+        for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
             if (i->get_ac() > LixEn::WALKER) {
                 ua.id = i - t->lixvec.begin();
                 i->mark();
@@ -249,7 +249,7 @@ void Gameplay::update_cs_once()
     }
     // Zweiter Durchlauf: Unmarkierte bearbeiten
     for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
-        for (LixIt i = --t->lixvec.end(); i != --t->lixvec.begin(); --i) {
+        for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
             if (!i->get_mark()) {
                 ua.id = i - t->lixvec.begin();
                 i->mark();
