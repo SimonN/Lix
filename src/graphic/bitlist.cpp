@@ -21,12 +21,12 @@ AlCol make_sepia(const double light)
     g = (g > 0xFF ? 0xFF : g < 0 ? 0 : g);
     b = (b > 0xFF ? 0xFF : b < 0 ? 0 : b);
     if      (light == 0x800) return makecol (r, g, b);
-    else if (light <  0x800) return makecol (r * light / 0x800,
-                                             g * light / 0x800,
-                                             b * light / 0x800);
-    else return makecol(r + (255 - r) * (light - 0x800) / 0x800,
-                        g + (255 - g) * (light - 0x800) / 0x800,
-                        b + (255 - b) * (light - 0x800) / 0x800);
+    else if (light <  0x800) return makecol ((int) (r * light / 0x800),
+                                             (int) (g * light / 0x800),
+                                             (int) (b * light / 0x800));
+    else return makecol((int) (r + (255 - r) * (light - 0x800) / 0x800),
+                        (int) (g + (255 - g) * (light - 0x800) / 0x800),
+                        (int) (b + (255 - b) * (light - 0x800) / 0x800));
 }
 
 void make_all_colors()

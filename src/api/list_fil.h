@@ -100,13 +100,13 @@ protected:
 
 private:
 
-    unsigned page;
-    unsigned bottom_button;
-    unsigned file_number_at_top;
-    bool     bottom_button_flips_page;
+    int  page;
+    int  bottom_button;
+    int  file_number_at_top;
+    bool bottom_button_flips_page;
 
-    bool     activate_clicked_button;
-    bool     clicked;
+    bool activate_clicked_button;
+    bool clicked;
 
     std::vector <Filename> file;
     std::vector <Button*>  button;

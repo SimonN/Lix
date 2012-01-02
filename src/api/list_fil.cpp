@@ -98,33 +98,33 @@ void ListFile::load_current_dir()
     on_dir_load();
 
     // Verzeichnisbuttons erstellen
-    if (page * bottom_button >= file.size()) page = 0;
+    if (page * bottom_button >= (int) file.size()) page = 0;
     file_number_at_top = page * bottom_button;
     // Die folgende While-Schleife macht, dass bei mehreren Seiten immer
     // alle Seiten voll gefuellt sind. Die letzte Seite wird dann ggf. oben
     // mit Eintraegen der vorletzten Seite aufgefuellt.
-    while (page > 0 && file_number_at_top + bottom_button > file.size())
+    while (page > 0 && file_number_at_top + bottom_button > (int) file.size())
      --file_number_at_top;
 
-    unsigned int next_from_file = file_number_at_top;
-    for (unsigned int i = 0; i < bottom_button
-     && next_from_file < file.size(); ++i) {
+    int next_from_file = file_number_at_top;
+    for (int i = 0; i < bottom_button
+     && next_from_file < (int) file.size(); ++i) {
         add_file_button(i, next_from_file);
         ++next_from_file;
     }
     // Blaetter-Button anhaengen, es sei denn, es geht genau auf
-    if (next_from_file == file.size() - 1 && page == 0) {
+    if (next_from_file == (int) file.size() - 1 && page == 0) {
         add_file_button(bottom_button, next_from_file);
         ++next_from_file;
     // Das hier ist der Blaetter-Button
-    } else if (next_from_file < file.size() || page > 0) {
+    } else if (next_from_file < (int) file.size() || page > 0) {
         add_flip_button();
         bottom_button_flips_page = true;
     }
 
     // Eventuell Highlight-Button anklicken und Zeiger darauf setzen
     if (current_dir.get_dir_rootful() == current_file.get_dir_rootful())
-     for (unsigned i = 0; i < button.size(); ++i) {
+     for (int i = 0; i < (int) button.size(); ++i) {
         if (i != bottom_button || !bottom_button_flips_page) {
             if (current_file == file[file_number_at_top + i]) {
                 button_last_clicked = button[i];
@@ -224,12 +224,12 @@ void ListFile::highlight_move(const int by)
 void ListFile::calc_self()
 {
     clicked = false;
-    for (unsigned int i = 0; i < button.size(); ++i) {
+    for (int i = 0; i < (int) button.size(); ++i) {
         if (button[i]->get_clicked()) {
             // Seitenwechsel-Button angeklickt?
             if (i == bottom_button && bottom_button_flips_page){
                 ++page;
-                if (page * bottom_button >= file.size()) page = 0;
+                if (page * bottom_button >= (int) file.size()) page = 0;
                 load_current_dir();
                 clicked = false;
                 break;
