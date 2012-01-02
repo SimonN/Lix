@@ -11,8 +11,10 @@ void become_ascender(Lixxie& l)
 {
     l.become_default(LixEn::ASCENDER);
 
-    int swh = l.solid_wall_height(0, 0);
-    if (swh == 13) swh += l.solid_wall_height(0, -13);
+    // determine the height to step up. Seek a floor pixel with air above it.
+    int swh = 0;
+    while (swh < 26 && ! (l.is_solid(0, 2 - swh) && ! l.is_solid(0, 1 - swh)))
+        ++swh;
     int frame = 5; // this is the last frame
     switch (swh) {
         case 0:  case 1:
