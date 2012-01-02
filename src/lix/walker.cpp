@@ -140,7 +140,7 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
             // Auf Landschaft über der derzeitigen Position prüfen
             bool enough_space = true;
             for (int i = 1; i < 13; ++i) {
-                if (l.is_solid(-2, -i)) {
+                if (l.is_solid(0, -i)) {
                     enough_space = false;
                     break;
                 }
