@@ -7,9 +7,9 @@
 #include "../graphic/gra_lib.h"
 #include "../level/obj_lib.h"
 #include "../other/hardware.h"
-#include "../other/globals.h"
 #include "../other/help.h"
 #include "../other/language.h"
+#include "../other/user.h"
 
 namespace Api {
 
@@ -52,7 +52,7 @@ BitmapBrowser::BitmapBrowser(
     add_child(cancel);
 
     cancel.set_text  (Language::cancel);
-    cancel.set_hotkey(KEY_ESC);
+    cancel.set_hotkey(useR->key_me_exit);
 
     load_dir(cdir, initial_page);
 }

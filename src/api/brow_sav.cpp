@@ -75,9 +75,6 @@ SaveBrowser::SaveBrowser(const Filename&    bdir,
     cancel.set_hotkey(useR->key_me_exit);
     ok    .set_text  (Language::ok);
     cancel.set_text  (Language::cancel);
-    // cancel.set_hotkey(KEY_ESC); // Wird nicht gemacht, weil es manuell
-    // kontrolliert wird. Beim Texteintippen soll ESC nur das Eintippen abbr.
-    // I think that the commented thing's been obsolete since the GUI rewrite.
 
     file_name.set_text(filename.get_file_no_ext_no_pre_ext());
     file_name.set_scroll();
@@ -116,16 +113,10 @@ void SaveBrowser::calc_self()
     else {
         // Das Texteintippen vereinnahmt alle Benutzereingaben mit Ausnahme
         // der OK- und Abbrechen-Buttons, die werden dennoch ausgefuehrt.
-        bool typing = false;
-        if (file_name.get_on()) {
-            typing = true;
-        }
+        bool typing = file_name.get_on();
 
         if (!typing) {
-            if (hardware.key_once(KEY_ESC)) {
-                set_exit();
-            }
-            else if (dir_list.get_clicked()) {
+            if (dir_list.get_clicked()) {
                 level_list.load_dir(dir_list.get_current_dir());
                 set_subtitle(dir_list.get_current_dir().get_rootless());
             }
