@@ -134,13 +134,13 @@ void Level::export_image(const Filename& filename) const
 {
     const int min_export_xl = LEMSCR_X;
 
-    Torbit small = create_preview(
+    Torbit smallcanvas = create_preview(
         size_x > min_export_xl ? size_x : min_export_xl,
         size_y, color[COL_API_M]);
 
-    Torbit canvas(small.get_xl(), small.get_yl() + 60);
+    Torbit canvas(smallcanvas.get_xl(), smallcanvas.get_yl() + 60);
     canvas.clear_to_color(color[COL_API_M]);
-    small.draw(canvas);
+    smallcanvas.draw(canvas);
 
     Api::SkillButton skill_button(0, 0);
     Torbit& osd = Api::Manager::get_torbit();
