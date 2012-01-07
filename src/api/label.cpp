@@ -121,10 +121,11 @@ void Label::draw_self()
     undraw_self();
     // As said in the .h file: x is left for LEFT as usual, the center for
     // CENTERED, and the right end of the text for BLOCKY.
-    if (align == LEFT || align == CENTERED) {
+    if (align == LEFT || align == CENTERED || align == RIGHT) {
         drawn_xl     = text_length(font, text.c_str());
         drawn_x_here = get_x_here();
         if (align == CENTERED) drawn_x_here -= drawn_xl / 2;
+        if (align == RIGHT)    drawn_x_here -= drawn_xl + 1;
         Help::draw_shadow_text(get_ground(), font, text.c_str(),
          drawn_x_here, get_y_here(), color, ::color[COL_API_SHADOW]);
     }

@@ -24,7 +24,7 @@ private:
     TextButton button_export;
     TextButton button_delete;
 
-    LabelTwo info_initial,  info_clock;
+    LabelTwo info_author, info_initial;
     LabelTwo rec_saved,     rec_skills,    rec_updates;
     Label    rec_altered_1, rec_altered_2;
 

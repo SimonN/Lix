@@ -29,6 +29,7 @@ public:
     enum Align {
         LEFT,
         CENTERED,
+        RIGHT,
         BLOCKY
     };
 

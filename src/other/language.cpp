@@ -56,14 +56,16 @@ browser_replay,
 browser_delete,
 browser_extract,
 browser_export_image,
+browser_export_image_done,
 
-browser_info_initial,
+browser_info_author,
 browser_info_initgoal,
-browser_info_clock_1,
+browser_info_initial,
 browser_info_hatches,
 browser_info_goals,
 browser_info_skills,
 browser_info_clock_2,
+browser_info_author_none,
 browser_info_clock_none,
 
 browser_info_result_saved,
@@ -448,14 +450,16 @@ void Language::set(const Language lang)
         browser_delete                = "Delete";
         browser_extract               = "Extract level";
         browser_export_image          = "Export image";
+        browser_export_image_done     = "Done.";
 
-        browser_info_initial          = "Lix:";
+        browser_info_author           = "By:";
         browser_info_initgoal         = "Save:";
-        browser_info_clock_1          = "Time:";
+        browser_info_initial          = "Lix:";
         browser_info_hatches          = "Hatches:";
         browser_info_goals            = "Goals:";
         browser_info_skills           = "Skills:";
         browser_info_clock_2          = "Overtime:";
+        browser_info_author_none      = "?";
         browser_info_clock_none       = "--";
 
         browser_info_result_saved     = "Saved:";
@@ -894,14 +898,16 @@ eb[Editor::ADD_HAZARD]
         browser_delete                = "Loeschen";
         browser_extract               = "Level extrah.";
         browser_export_image          = "Bild export.";
+        browser_export_image_done     = "Fertig.";
 
-        browser_info_initial          = "Anzahl Lix:";
+        browser_info_author           = "Von:";
         browser_info_initgoal         = "Rette:";
-        browser_info_clock_1          = "Zeit:";
+        browser_info_initial          = "Anzahl Lix:";
         browser_info_hatches          = "Klappen:";
         browser_info_goals            = "Ausgaenge:";
         browser_info_skills           = "Faehigktn.:";
         browser_info_clock_2          = "Nachzeit:";
+        browser_info_author_none      = "?";
         browser_info_clock_none       = "--";
 
         browser_info_result_saved     = "Gerettet:";

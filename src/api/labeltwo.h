@@ -27,6 +27,8 @@ public:
     void set_value(const int);
     void set_value_seconds_as_time(const int);
 
+    inline void set_value_not_blocky() { value.set_align(Label::RIGHT); }
+
 private:
 
     Label desc;
