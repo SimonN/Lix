@@ -189,7 +189,8 @@ win_var_name_german,
 win_var_name_english,
 win_var_initial,
 win_var_required,
-win_var_spawnint,
+win_var_spawnint_slow,
+win_var_spawnint_fast,
 win_var_clock,
 
 // Faehigkeits-Fenster
@@ -587,7 +588,8 @@ void Language::set(const Language lang)
         win_var_name_english          = "English title";
         win_var_initial               = "No. of lix";
         win_var_required              = "Lix to save";
-        win_var_spawnint              = "Spawn interval";
+        win_var_spawnint_slow         = "Spawn interval";
+        win_var_spawnint_fast         = "Spawn int. fast";
         win_var_clock                 = "Time/overtime";
 
         // Faehigkeits-Fenster
@@ -1035,7 +1037,8 @@ eb[Editor::ADD_HAZARD]
         win_var_name_english          = "Englischer Titel";
         win_var_initial               = "Anzahl Lix";
         win_var_required              = "Lix zu retten";
-        win_var_spawnint              = "Fall-Intervall";
+        win_var_spawnint_slow         = "Fall-Intervall";
+        win_var_spawnint_fast         = "Fall-I. schnell";
         win_var_clock                 = "Zeit/Nachspielz.";
 
         // Faehigkeits-Fenster

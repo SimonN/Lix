@@ -203,7 +203,8 @@ win_var_name_german,
 win_var_name_english,
 win_var_initial,
 win_var_required,
-win_var_spawnint,
+win_var_spawnint_slow,
+win_var_spawnint_fast,
 win_var_clock,
 
 // Faehigkeits-Fenster

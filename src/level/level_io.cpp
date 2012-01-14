@@ -82,7 +82,8 @@ void Level::load_from_vector(const std::vector <IO::Line>& lines)
         else if (i->text1 == gloB->level_seconds ) seconds  = i->nr1;
         else if (i->text1 == gloB->level_initial ) initial  = i->nr1;
         else if (i->text1 == gloB->level_required) required = i->nr1;
-        else if (i->text1 == gloB->level_spawnint) spawnint = i->nr1;
+        else if (i->text1 == gloB->level_spawnint_slow) spawnint_slow = i->nr1;
+        else if (i->text1 == gloB->level_spawnint_fast) spawnint_fast = i->nr1;
 
         else if (i->text1 == gloB->level_count_neutrals_only)
                                             count_neutrals_only = i->nr1;
@@ -92,7 +93,7 @@ void Level::load_from_vector(const std::vector <IO::Line>& lines)
         // legacy support
         else if (i->text1 == gloB->level_initial_legacy) initial  = i->nr1;
         else if (i->text1 == gloB->level_rate) {
-            spawnint = 4 + (99 - i->nr1) / 2;
+            spawnint_slow = 4 + (99 - i->nr1) / 2;
         }
 
         // Auswertung der Fähigkeits-Anzahl und Erhöhung der Array-Füllzahl
@@ -195,8 +196,9 @@ void Level::load_finalize()
     if (initial  < 1)                   initial  = 1;
     if (initial  > 999)                 initial  = 999;
     if (required > initial)             required = initial;
-    if (spawnint < spawnint_min)        spawnint = spawnint_min;
-    if (spawnint > spawnint_max)        spawnint = spawnint_max;
+    if (spawnint_fast < spawnint_min)   spawnint_fast = spawnint_min;
+    if (spawnint_slow > spawnint_max)   spawnint_slow = spawnint_max;
+    if (spawnint_fast > spawnint_slow)  spawnint_fast = spawnint_slow;
 
     if (bg_red   < 0) bg_red   = 0; if (bg_red   > 255) bg_red   = 255;
     if (bg_green < 0) bg_green = 0; if (bg_green > 255) bg_green = 255;
@@ -260,10 +262,11 @@ std::ostream& operator << (std::ostream& out, const Level& l)
 
      << std::endl
 
-     << IO::LineHash  (gloB->level_seconds,      l.seconds )
-     << IO::LineHash  (gloB->level_initial,      l.initial )
-     << IO::LineHash  (gloB->level_required,     l.required)
-     << IO::LineHash  (gloB->level_spawnint,     l.spawnint)
+     << IO::LineHash  (gloB->level_seconds,       l.seconds )
+     << IO::LineHash  (gloB->level_initial,       l.initial )
+     << IO::LineHash  (gloB->level_required,      l.required)
+     << IO::LineHash  (gloB->level_spawnint_slow, l.spawnint_slow)
+     << IO::LineHash  (gloB->level_spawnint_fast, l.spawnint_fast)
 
 //   << std::endl
 //   << IO::LineHash(gloB->level_count_neutrals_only, l.count_neutrals_only)

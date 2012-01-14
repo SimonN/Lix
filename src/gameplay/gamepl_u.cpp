@@ -192,7 +192,11 @@ void Gameplay::update_cs_once()
         const int position = replay.get_permu()[t - cs.tribes.begin()];
         // Create new Lixxie if necessary
         if (t->lix_hatch != 0 && upd >= 60 &&
-         upd >= t->update_hatch + t->spawnint) {
+         (t->update_hatch == 0 || upd >= t->update_hatch + t->spawnint))
+            // sometimes, spawnint can be more than 60. In this case, it's fine
+            // to spawn earlier than usual if we haven't spawned anything at
+            // all yet, this is the first || criterion.
+        {
             t->update_hatch = upd;
             const EdGraphic& h = hatches[t->hatch_next];
             Lixxie& newlix = t->lixvec[level.initial - t->lix_hatch];

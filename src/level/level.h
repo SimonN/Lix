@@ -158,7 +158,8 @@ struct Level {
     int  seconds;
     int  initial;
     int  required;
-    int  spawnint;
+    int  spawnint_slow;
+    int  spawnint_fast;
 
     bool      nuke_delayed; // true == nuke button triggers overtime if any
     LixEn::Ac nuke_skill;   // NOTHING == use most appropriate exploder

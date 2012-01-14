@@ -131,7 +131,8 @@ Globals::Globals()
     level_initial                ("INITIAL"),
     level_initial_legacy         ("LEMMINGS"), // backwards compatibility
     level_required               ("REQUIRED"),
-    level_spawnint               ("SPAWN_INTERVAL"),
+    level_spawnint_slow          ("SPAWN_INTERVAL"),
+    level_spawnint_fast          ("SPAWN_INTERVAL_FAST"),
     level_rate                   ("RATE"), // backwards compatibility
     level_count_neutrals_only    ("COUNT_NEUTRALS_ONLY"),
     level_transfer_skills        ("TRANSFER_SKILLS"),

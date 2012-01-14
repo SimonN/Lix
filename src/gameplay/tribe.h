@@ -60,7 +60,8 @@ struct Tribe {
     int         lix_hatch;
     int         lix_saved;
     int         lix_out; // change this only when killing/generating lixes.
-    int         spawnint_base;
+    int         spawnint_slow;
+    int         spawnint_fast;
     int         spawnint;
     bool        nuke;
 
