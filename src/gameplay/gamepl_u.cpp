@@ -316,9 +316,10 @@ void Gameplay::update_cs_one_data(Tribe& t, Tribe::Master* m, Replay::It i)
     const Ulng& upd = cs.update;
 
     if (i->action == Replay::SPAWNINT) {
-        t.spawnint = i->what;
-        if (&t == trlo) {
-            pan.rate.set_number(t.spawnint);
+        const int spint = i->what;
+        if (spint >= t.spawnint_fast && spint <= t.spawnint_slow) {
+            t.spawnint = spint;
+            if (&t == trlo) pan.rate.set_number(t.spawnint);
         }
     }
     else if (i->action == Replay::SKILL) {
