@@ -221,11 +221,12 @@ void Gameplay::calc_active()
         // da alle bis auf die letzte Aenderung pro Update egal sind.
         // Modulo 2 rechnen wir bei den Help::timer_ticks, weil Frank die
         // Aenderung der Rate auch bei 60 /sec zu rasant war.
-        bool minus_clicked = pan.rate_minus.get_clicked();
-        bool plus_clicked  = pan.rate_plus .get_clicked();
-        if (hardware.key_hold(useR->key_rate_minus)) {
-            pan.rate_minus.set_down();
-        }
+        bool minus_clicked = pan.rate_minus.get_clicked()
+                          || hardware.key_release(useR->key_rate_minus);
+        bool plus_clicked  = pan.rate_plus .get_clicked()
+                          || hardware.key_release(useR->key_rate_plus);
+        if (hardware.key_hold(useR->key_rate_minus)) pan.rate_minus.set_down();
+        if (hardware.key_hold(useR->key_rate_plus))  pan.rate_plus.set_down();
         if (pan.rate_minus.get_down() || minus_clicked) {
             // Doppelklick?
             if (minus_clicked && Help::timer_ticks - timer_tick_last_F1
@@ -243,9 +244,6 @@ void Gameplay::calc_active()
             }
         }
         // Plus
-        if (hardware.key_hold(useR->key_rate_plus)) {
-            pan.rate_plus.set_down();
-        }
         if (pan.rate_plus.get_down() || plus_clicked) {
             if (plus_clicked && Help::timer_ticks - timer_tick_last_F2
              <= hardware.doubleclick_speed) {
