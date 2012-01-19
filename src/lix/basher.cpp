@@ -1,6 +1,9 @@
 /*
  * lix/basher.cpp
  *
+ * Steel more than 16 pixels over the floor is ignored for sake of
+ * basher cancelling. This allows much more nicely aligned steel.
+ *
  * special_x
  *
  *   Misst, wie weit eine Lix hinuntergestiegen ist beim Bohren. Wenn das
@@ -34,8 +37,8 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
 
     switch (l.get_frame()) {
     case 0:
-        steel_hit += l.remove_rectangle(  0, -16,   5, -16);
-        steel_hit += l.remove_rectangle(  0, -15,   4, -15);
+                     l.remove_rectangle(  0, -16,   5, -16);
+                     l.remove_rectangle(  0, -15,   4, -15);
         steel_hit += l.remove_rectangle(  0, -14,   3, -14);
         steel_hit += l.remove_rectangle(  0, -13,   2, -13);
         steel_hit += l.remove_rectangle(  0, -12,   1, -12);
@@ -43,8 +46,8 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
         break;
 
     case 1:
-        steel_hit += l.remove_rectangle(  6, -16,   9, -16);
-        steel_hit += l.remove_rectangle(  5, -15,   8, -15);
+                     l.remove_rectangle(  6, -16,   9, -16);
+                     l.remove_rectangle(  5, -15,   8, -15);
         steel_hit += l.remove_rectangle(  4, -14,   7, -14);
         steel_hit += l.remove_rectangle(  3, -13,   6, -13);
         steel_hit += l.remove_rectangle(  2, -12,   4, -12);
@@ -52,7 +55,7 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
         break;
 
     case 2:
-        steel_hit += l.remove_rectangle(  9, -15,  11, -15);
+                     l.remove_rectangle(  9, -15,  11, -15);
         steel_hit += l.remove_rectangle(  8, -14,  12, -14);
         steel_hit += l.remove_rectangle(  7, -13,  10, -13);
         steel_hit += l.remove_rectangle(  5, -12,   6, -12);
