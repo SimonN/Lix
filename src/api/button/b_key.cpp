@@ -67,8 +67,7 @@ void KeyButton::calc_self()
     // Schreibmodus
     else {
         // cancel
-        if (hardware.key_once(KEY_ESC)
-         || hardware.get_mr() || hardware.get_ml()) set_off();
+        if (hardware.get_mr() || hardware.get_ml()) set_off();
         // Oder doch noch im Schreibmodus bleiben? Dann Tastatur lesen.
         else {
             int k = hardware.get_key();
