@@ -307,6 +307,7 @@ void WindowGameplay::calc_self()
             browser_save->set_info_filename(replay->get_level_filename());
             browser_save->set_info_level_name(
              Level::get_name(replay->get_level_filename()));
+            browser_save->set_texttype(replay->get_canonical_save_filename());
             Manager::add_focus(browser_save);
         }
         else if (hardware.key_once(useR->key_me_exit)) {
