@@ -11,6 +11,7 @@ GameplayPanel::GameplayPanel()
     skill      (gloB->skill_max, Api::SkillButton()),
     rate_minus (GraLib::get(gloB->file_bitmap_game_panel_2), 40*12,  0),
     rate_plus  (GraLib::get(gloB->file_bitmap_game_panel_2), 40*13,  0),
+    rate_fixed (GraLib::get(gloB->file_bitmap_game_spi_fix), 40*12,  0),
     pause      (GraLib::get(gloB->file_bitmap_game_pause  ), 40*12, 20),
     zoom       (GraLib::get(gloB->file_bitmap_game_panel  ), 40*13, 20),
     speed_slow (GraLib::get(gloB->file_bitmap_game_panel  ), 40*13, 50),
@@ -23,13 +24,15 @@ GameplayPanel::GameplayPanel()
     nuke_multi (GraLib::get(gloB->file_bitmap_game_nuke   ), 40*12, 60),
     spec_tribe (40*12, 60, 40*4),
     stats      (),
-    rate_min   (rate_minus.get_x() + 27, rate_minus.get_y()),
-    rate       (rate_plus .get_x() + 27, rate_plus .get_y()),
+    rate_slow  (rate_minus.get_x() + 27, rate_minus.get_y()),
+    rate_cur   (rate_plus .get_x() + 27, rate_plus .get_y()),
+    rate_fast  (rate_fixed.get_x() + 57, rate_fixed.get_y()),
     gapamode   (GM_NONE)
 {
     for (SkBIt itr = skill.begin(); itr != skill.end(); ++itr) add_child(*itr);
     add_child(rate_minus);
     add_child(rate_plus);
+    add_child(rate_fixed);
     add_child(pause);
     add_child(zoom);
     add_child(speed_slow);
@@ -43,8 +46,9 @@ GameplayPanel::GameplayPanel()
     add_child(spec_tribe);
 
     add_child(stats);
-    add_child(rate_min);
-    add_child(rate);
+    add_child(rate_slow);
+    add_child(rate_cur);
+    add_child(rate_fast);
 
     for (unsigned i = 0; i < skill.size(); ++i) {
         skill[i].set_x(i * 40);
@@ -83,10 +87,12 @@ GameplayPanel::GameplayPanel()
     nuke_multi .set_hotkey(useR->key_nuke);
     spec_tribe .set_hotkey(useR->key_spec_tribe);
 
-    rate_min.set_align(Api::Label::CENTERED);
-    rate    .set_align(Api::Label::CENTERED);
-    rate_min.set_undraw_color(0);
-    rate    .set_undraw_color(0);
+    rate_slow.set_align(Api::Label::CENTERED);
+    rate_cur .set_align(Api::Label::CENTERED);
+    rate_fast.set_align(Api::Label::CENTERED);
+    rate_slow.set_undraw_color(0);
+    rate_cur .set_undraw_color(0);
+    rate_fast.set_undraw_color(0);
 }
 
 
@@ -103,12 +109,24 @@ void GameplayPanel::set_gapamode(const GapaMode m)
      || gapamode == GM_REPLAY_SINGLE) {
         nuke_multi.hide();
         spec_tribe.hide();
+        if (rate_slow.get_text() == rate_fast.get_text()) {
+            rate_minus.hide();
+            rate_plus .hide();
+            rate_slow .hide();
+            rate_cur  .hide();
+        }
+        else {
+            rate_fixed.hide();
+            rate_fast .hide();
+        }
     }
     else if (gapamode == GM_REPLAY_MULTI) {
         rate_minus.hide();
         rate_plus .hide();
-        rate_min  .hide();
-        rate      .hide();
+        rate_fixed.hide();
+        rate_slow .hide();
+        rate_cur  .hide();
+        rate_fast .hide();
         nuke_multi.hide(); // we use most of the singleplayer interface
         spec_tribe.set_x(40*12);
         spec_tribe.set_y(0);
@@ -118,8 +136,10 @@ void GameplayPanel::set_gapamode(const GapaMode m)
      ||      gapamode == GM_SPEC_MULTI) {
         rate_minus .hide();
         rate_plus  .hide();
-        rate_min   .hide();
-        rate       .hide();
+        rate_fixed .hide();
+        rate_slow  .hide();
+        rate_cur   .hide();
+        rate_fast  .hide();
         pause      .hide();
         zoom       .hide();
         speed_slow .hide();
@@ -156,8 +176,9 @@ void GameplayPanel::set_like_tribe(const Tribe* tr, const Tribe::Master* ma)
 
     stats.set_tribe_local(tr);
 
-    rate_min   .set_number(tr->spawnint_slow);
-    rate       .set_number(tr->spawnint);
+    rate_slow  .set_number(tr->spawnint_slow);
+    rate_cur   .set_number(tr->spawnint);
+    rate_fast  .set_number(tr->spawnint_fast);
     nuke_single.set_on    (tr->nuke);
     nuke_multi .set_on    (tr->nuke);
     spec_tribe .set_text  (tr->get_name());
@@ -186,10 +207,14 @@ void GameplayPanel::set_skill_on(const int which)
 
 void GameplayPanel::calc_self()
 {
+    rate_fixed.set_down(false);
+
     rate_minus.set_draw_required();
     rate_plus .set_draw_required();
-    rate_min  .set_draw_required();
-    rate      .set_draw_required();
+    rate_fixed.set_draw_required();
+    rate_slow .set_draw_required();
+    rate_cur  .set_draw_required();
+    rate_fast .set_draw_required();
 }
 
 

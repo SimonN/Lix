@@ -19,7 +19,7 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2012, 01, 14, 00)),
+    version              (CONCAT(2012, 02, 17, 00)),
     version_min          (CONCAT(2012, 01, 14, 00)),
     version_stable       (true),
 
@@ -322,6 +322,7 @@ Globals::Globals()
     file_bitmap_game_nuke        (dir_data_bitmap.get_dir_rootless() + "game_nuk.I"),
     file_bitmap_game_panel       (dir_data_bitmap.get_dir_rootless() + "game_pan.I"),
     file_bitmap_game_panel_2     (dir_data_bitmap.get_dir_rootless() + "game_pa2.I"),
+    file_bitmap_game_spi_fix     (dir_data_bitmap.get_dir_rootless() + "game_spi.I"),
     file_bitmap_game_pause       (dir_data_bitmap.get_dir_rootless() + "game_pau.I"),
     file_bitmap_game_replay      (dir_data_bitmap.get_dir_rootless() + "game_rep.I"),
     file_bitmap_lix              (dir_data_bitmap.get_dir_rootless() + "lix.I"),

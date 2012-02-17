@@ -15,8 +15,8 @@ void Gameplay::update()
 {
     // Noch schnell die Replaydaten mit der eingestellten Rate fertig machen:
     // Siehe Ratenbutton-Calculate fuer Kommentar, warum dies hier passiert.
-    if (trlo && !replaying && pan.rate.get_number() != trlo->spawnint) {
-        trlo->spawnint    = pan.rate.get_number();
+    if (trlo && !replaying && pan.rate_cur.get_number() != trlo->spawnint) {
+        trlo->spawnint    = pan.rate_cur.get_number();
         Replay::Data data = new_replay_data();
         data.action       = Replay::SPAWNINT;
         data.what         = trlo->spawnint;
@@ -319,7 +319,7 @@ void Gameplay::update_cs_one_data(Tribe& t, Tribe::Master* m, Replay::It i)
         const int spint = i->what;
         if (spint >= t.spawnint_fast && spint <= t.spawnint_slow) {
             t.spawnint = spint;
-            if (&t == trlo) pan.rate.set_number(t.spawnint);
+            if (&t == trlo) pan.rate_cur.set_number(t.spawnint);
         }
     }
     else if (i->action == Replay::SKILL) {

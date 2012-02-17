@@ -336,6 +336,7 @@ public:
         file_bitmap_game_nuke,
         file_bitmap_game_panel,
         file_bitmap_game_panel_2,
+        file_bitmap_game_spi_fix,
         file_bitmap_game_pause,
         file_bitmap_game_replay,
         file_bitmap_lix,

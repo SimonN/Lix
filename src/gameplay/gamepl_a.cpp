@@ -231,14 +231,14 @@ void Gameplay::calc_active()
             // Doppelklick?
             if (minus_clicked && Help::timer_ticks - timer_tick_last_F1
              <= hardware.doubleclick_speed) {
-                pan.rate.set_number(trlo->spawnint_slow);
+                pan.rate_cur.set_number(trlo->spawnint_slow);
             }
             else if (minus_clicked) timer_tick_last_F1 = Help::timer_ticks;
             else {
                 // Normales Halten
-                if (pan.rate.get_number() < trlo->spawnint_slow) {
+                if (pan.rate_cur.get_number() < trlo->spawnint_slow) {
                     if (Help::timer_ticks % 3 == 0)
-                     pan.rate.set_number(pan.rate.get_number() + 1);
+                     pan.rate_cur.set_number(pan.rate_cur.get_number() + 1);
                 }
                 else pan.rate_minus.set_down(false);
             }
@@ -247,13 +247,13 @@ void Gameplay::calc_active()
         if (pan.rate_plus.get_down() || plus_clicked) {
             if (plus_clicked && Help::timer_ticks - timer_tick_last_F2
              <= hardware.doubleclick_speed) {
-                pan.rate.set_number(trlo->spawnint_fast);
+                pan.rate_cur.set_number(trlo->spawnint_fast);
             }
             else if (plus_clicked) timer_tick_last_F2 = Help::timer_ticks;
             else {
-                if (pan.rate.get_number() > trlo->spawnint_fast) {
+                if (pan.rate_cur.get_number() > trlo->spawnint_fast) {
                     if (Help::timer_ticks % 3 == 0)
-                     pan.rate.set_number(pan.rate.get_number() - 1);
+                     pan.rate_cur.set_number(pan.rate_cur.get_number() - 1);
                 }
                 else pan.rate_plus.set_down(false);
             }
