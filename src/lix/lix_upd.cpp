@@ -121,7 +121,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
             l.become(LixEn::BURNER);
             l.play_sound(ua, Sound::FIRE);
         }
-        else if (l.get_body_encounters() & Lookup::bit_water) {
+        else if (l.get_foot_encounters() & Lookup::bit_water) {
             l.become(LixEn::DROWNER);
             l.play_sound(ua, Sound::WATER);
         }
