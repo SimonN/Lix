@@ -204,6 +204,8 @@ public:
         user_scroll_middle,
         user_scroll_torus_x,
         user_scroll_torus_y,
+        user_replay_cancel,
+        user_replay_cancel_at,
         user_multiple_builders,
         user_batter_priority,
         user_prioinv_middle,
@@ -240,6 +242,8 @@ public:
 
         user_key_force_left,
         user_key_force_right,
+        user_key_scroll,
+        user_key_priority,
         user_key_rate_minus,
         user_key_rate_plus,
         user_key_pause,

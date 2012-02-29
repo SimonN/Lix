@@ -91,7 +91,8 @@ void Gameplay::calc_active()
 
                 // Invert priority if a corresponding mouse button is held
                 if ((hardware.get_mrh() && useR->prioinv_right)
-                 || (hardware.get_mmh() && useR->prioinv_middle)) {
+                 || (hardware.get_mmh() && useR->prioinv_middle)
+                 ||  hardware.key_hold(useR->key_priority)) {
                     priority = 100000 - priority;
                 }
                 double hypot = map.hypot(mx, my, i->get_ex(),

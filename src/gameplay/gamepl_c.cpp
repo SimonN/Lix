@@ -94,11 +94,7 @@ void Gameplay::calc_self()
         mouse_cursor.set_x_frame(1);
         mouse_cursor.set_y_frame(2);
     }
-    else if (map.get_scrollable()
-     && ((useR->scroll_right  && hardware.get_mrh())
-      || (useR->scroll_middle && hardware.get_mmh()) ) ) {
-        mouse_cursor.set_x_frame(3);
-    }
+    else if (map.get_scrolling_now()) mouse_cursor.set_x_frame(3);
 
 
 
@@ -142,7 +138,6 @@ void Gameplay::calc_self()
     // Abort a singleplayer action replay?
     if (replaying && ! multiplayer) {
         const int& csu = cs.update;
-        const int& ups = gloB->updates_per_second;
         const int  max = replay.get_max_updates();
         const int& fff = turbo_times_faster_than_fast;
 
@@ -170,11 +165,14 @@ void Gameplay::calc_self()
             replay.erase_data_after_update(cs.update);
         }
         // abort fast-forward earlier than this
-        if (pan.speed_fast .get_on() && csu == max - 3 * ups)
-            pan.speed_fast .set_off();
-        if (pan.speed_turbo.get_on() && csu >= max - 3 * ups
-                                     && csu <  max - 3 * ups + fff)
-            pan.speed_turbo.set_off();
+        if (useR->replay_cancel) {
+            const int rcat = useR->replay_cancel_at;
+            if (pan.speed_fast .get_on() && csu == max - rcat)
+                pan.speed_fast .set_off();
+            if (pan.speed_turbo.get_on() && csu >= max - rcat
+                                         && csu <  max - rcat + fff)
+                pan.speed_turbo.set_off();
+        }
     }
 
     chat.calc();

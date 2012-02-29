@@ -21,7 +21,10 @@ Map::Map(int w, int h, int scr_xl, int scr_yl)
     scroll_speed_click(useR->scroll_speed_click),
     screen_xl   (scr_xl),
     screen_yl   (scr_yl),
-    zoom        (false)
+    zoom        (false),
+
+    scrolling_starts   (false),
+    scrolling_continues(false)
 {
     if (w < Level::min_xl) w = Level::min_xl;
     if (h < Level::min_yl) h = Level::min_yl;
@@ -208,39 +211,39 @@ void Map::calc_scrolling()
      || key[KEY_7_PAD]) set_screen_x(screen_x - scrd);
 
     // Rechtsklick-Scrolling
-    if (useR->scroll_right
-     || useR->scroll_middle) {
-        if ((hardware.get_mr() && useR->scroll_right)
-         || (hardware.get_mm() && useR->scroll_middle)) {
-            // Merken, auf welcher Hoehe die Maus war
-            scroll_click_x = hardware.get_mx();
-            scroll_click_y = hardware.get_my();
+    bool scrolling_now = (hardware.get_mrh() && useR->scroll_right)
+                      || (hardware.get_mmh() && useR->scroll_middle)
+                      ||  hardware.key_hold(useR->key_scroll);
+    scrolling_starts    = scrolling_now && ! scrolling_continues;
+    scrolling_continues = scrolling_now;
+
+    if (scrolling_starts) {
+        // Merken, auf welcher Hoehe die Maus war
+        scroll_click_x = hardware.get_mx();
+        scroll_click_y = hardware.get_my();
+    }
+    if (scrolling_continues) {
+        const bool xp = get_scrollable_right();
+        const bool xm = get_scrollable_left();
+        const bool yp = get_scrollable_down();
+        const bool ym = get_scrollable_up();
+        // Bildschirm tatsaechlich scrollen und ggf. Maus festhalten
+        if ((xm && hardware.get_mx      () <= scroll_click_x
+                && hardware.get_mickey_x() <  0)
+         || (xp && hardware.get_mx      () >= scroll_click_x
+                && hardware.get_mickey_x() >  0)) {
+            set_screen_x(screen_x
+             + hardware.get_mickey_x() * scroll_speed_click / 4);
+            hardware.freeze_mouse_x();
         }
-        if ((hardware.get_mrh() && useR->scroll_right)
-         || (hardware.get_mmh() && useR->scroll_middle)) {
-            const bool xp = get_scrollable_right();
-            const bool xm = get_scrollable_left();
-            const bool yp = get_scrollable_down();
-            const bool ym = get_scrollable_up();
-            // Bildschirm tatsaechlich scrollen und ggf. Maus festhalten
-            if ((xm && hardware.get_mx      () <= scroll_click_x
-                    && hardware.get_mickey_x() <  0)
-             || (xp && hardware.get_mx      () >= scroll_click_x
-                    && hardware.get_mickey_x() >  0)) {
-                set_screen_x(screen_x
-                 + hardware.get_mickey_x() * scroll_speed_click / 4);
-                hardware.freeze_mouse_x();
-            }
-            if ((ym && hardware.get_my      () <= scroll_click_y
-                    && hardware.get_mickey_y() <  0)
-             || (yp && hardware.get_my      () >= scroll_click_y
-                    && hardware.get_mickey_y() >  0)) {
-                set_screen_y(screen_y
-                 + hardware.get_mickey_y() * scroll_speed_click / 4);
-                hardware.freeze_mouse_y();
-            }
+        if ((ym && hardware.get_my      () <= scroll_click_y
+                && hardware.get_mickey_y() <  0)
+         || (yp && hardware.get_my      () >= scroll_click_y
+                && hardware.get_mickey_y() >  0)) {
+            set_screen_y(screen_y
+             + hardware.get_mickey_y() * scroll_speed_click / 4);
+            hardware.freeze_mouse_y();
         }
-        // Ende mrh
     }
     // Ende Rechtsklick-Scrolling
 }

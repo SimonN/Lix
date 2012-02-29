@@ -191,6 +191,8 @@ Globals::Globals()
     user_scroll_middle           ("SCROLL_MIDDLE"),
     user_scroll_torus_x          ("SCROLL_TORUS_X"),
     user_scroll_torus_y          ("SCROLL_TORUS_Y"),
+    user_replay_cancel           ("REPLAY_CANCEL"),
+    user_replay_cancel_at        ("REPLAY_CANCEL_AT"),
     user_multiple_builders       ("MULTIPLE_BUILDERS"),
     user_batter_priority         ("BATTER_PRIORITY"),
     user_prioinv_middle          ("PRIORITY_INVERT_MIDDLE"),
@@ -227,6 +229,8 @@ Globals::Globals()
 
     user_key_force_left          ("KEY_FORCE_LEFT"),
     user_key_force_right         ("KEY_FORCE_RIGHT"),
+    user_key_scroll              ("KEY_SCROLL"),
+    user_key_priority            ("KEY_PRIORITY"),
     user_key_rate_minus          ("KEY_RATE_MINUS"),
     user_key_rate_plus           ("KEY_RATE_PLUS"),
     user_key_pause               ("KEY_PAUSE"),

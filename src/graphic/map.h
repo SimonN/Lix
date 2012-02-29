@@ -114,6 +114,9 @@ private:
     int  scroll_click_x;
     int  scroll_click_y;
 
+    bool scrolling_starts;
+    bool scrolling_continues;
+
     void draw_at(Torbit&, const int, const int);
 
 public:
@@ -135,6 +138,8 @@ public:
            bool get_scrollable_left();
            bool get_scrollable_down();
 
+    inline bool get_scrolling_now()         { return get_scrollable()
+                                               && scrolling_continues; }
     inline int  get_screen_xl()             { return screen_xl; }
     inline int  get_screen_yl()             { return screen_yl; }
 

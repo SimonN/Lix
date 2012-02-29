@@ -72,6 +72,8 @@ public:
     bool scroll_edge;
     bool scroll_right;
     bool scroll_middle;
+    bool replay_cancel;
+    int  replay_cancel_at;
     int  mouse_speed;
     int  scroll_speed_edge;
     int  scroll_speed_click;
@@ -105,6 +107,8 @@ public:
     int  key_force_right;
     int  key_rate_minus;
     int  key_rate_plus;
+    int  key_scroll;
+    int  key_priority;
     int  key_pause;
     int  key_speed_slow;
     int  key_speed_fast;
