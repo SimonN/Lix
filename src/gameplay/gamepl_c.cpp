@@ -46,10 +46,16 @@ void Gameplay::calc_window()
 
         case Api::WindowGameplay::MENU:
             save_result();
-            if (multiplayer && ! replaying) write_outcome_to_console();
-            // Auto-save even if we were just watching a singleplayer replay,
-            // I can't differentiate quickly here.
-            if (! (multiplayer&&replaying)) replay.save_as_auto_replay(&level);
+            // Auto-save the replay. I can't tell whether it was just a
+            // watched singleplayer replay, so we'll save all successful
+            // plays/views in singleplayer.
+            if (multiplayer && ! replaying) {
+                write_outcome_to_console();
+                replay.save_as_auto_replay(&level);
+            }
+            if (! multiplayer && trlo->lix_saved >= trlo->required) {
+                replay.save_as_auto_replay(&level);
+            }
             exit = true;
             break;
 
