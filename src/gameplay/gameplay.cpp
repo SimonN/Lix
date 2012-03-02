@@ -322,6 +322,8 @@ void Gameplay::prepare_level()
         break;
     }
 
+    chat.set_hint(lv.get_hint());
+
     state_manager.save_zero(cs);
 }
 

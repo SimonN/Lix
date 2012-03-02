@@ -129,6 +129,8 @@ public:
         level_author,
         level_name_german,
         level_name_english,
+        level_hint_german,
+        level_hint_english,
         level_size_x,
         level_size_y,
         level_torus_x,

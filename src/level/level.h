@@ -144,6 +144,9 @@ struct Level {
     std::string name_german;
     std::string name_english;
 
+    std::string hint_german;
+    std::string hint_english;
+
     int  size_x;
     int  size_y;
     bool torus_x;
@@ -184,6 +187,7 @@ struct Level {
     inline       Status get_status() const { return status;         }
     inline       bool   get_good()   const { return status == GOOD; }
     const std::string&  get_name()   const;
+    const std::string&  get_hint()   const;
 
     void    draw_to       (Torbit&, Lookup* = 0) const;
     Torbit  create_preview(int, int, AlCol) const;

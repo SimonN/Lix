@@ -118,6 +118,8 @@ Globals::Globals()
     level_author                 ("AUTHOR"),
     level_name_german            ("GERMAN"),
     level_name_english           ("ENGLISH"),
+    level_hint_german            ("HINT_GERMAN"),
+    level_hint_english           ("HINT_ENGLISH"),
     level_size_x                 ("SIZE_X"),
     level_size_y                 ("SIZE_Y"),
     level_torus_x                ("TORUS_X"),

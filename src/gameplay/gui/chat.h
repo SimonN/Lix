@@ -3,6 +3,9 @@
  *
  * The console and chat texttype at the top of the screen
  *
+ * This also displays level hints. If a hint is set, the chat/console appears
+ * under the hint.
+ *
  */
 
 #pragma once
@@ -24,8 +27,16 @@ public:
     bool get_type_on();
     bool get_type_on_last_frame(); // a bit kludgy, but good for Gameplay
                                    // because it doesn't work with elders
+
+    void set_hint(const std::string&); // this parses the hint
+
 private:
 
+    static const int         y_msg;
+    static const int         y_hint_first;
+    static const int         y_hint_plus;
+
+    std::vector <Api::Label> hints;
     std::vector <Api::Label> msgs;
     Api::Label               name;
     Api::Texttype            type;

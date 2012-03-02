@@ -62,10 +62,12 @@ void Level::load_from_vector(const std::vector <IO::Line>& lines)
     for (IO::LineIt i = lines.begin(); i != lines.end(); ++i) switch(i->type) {
     // Strings setzen
     case '$':
-        if      (i->text1 == gloB->level_built       )built       =i->text2;
-        else if (i->text1 == gloB->level_author      )author      =i->text2;
-        else if (i->text1 == gloB->level_name_german )name_german =i->text2;
-        else if (i->text1 == gloB->level_name_english)name_english=i->text2;
+        if      (i->text1 == gloB->level_built       ) built       =i->text2;
+        else if (i->text1 == gloB->level_author      ) author      =i->text2;
+        else if (i->text1 == gloB->level_name_german ) name_german =i->text2;
+        else if (i->text1 == gloB->level_name_english) name_english=i->text2;
+        else if (i->text1 == gloB->level_hint_german ) hint_german =i->text2;
+        else if (i->text1 == gloB->level_hint_english) hint_english=i->text2;
         break;
 
     // Ganzzahlwert setzen
@@ -248,8 +250,14 @@ std::ostream& operator << (std::ostream& out, const Level& l)
      << IO::LineDollar(gloB->level_name_german,  l.name_german )
      << IO::LineDollar(gloB->level_name_english, l.name_english)
 
-     << std::endl
+     << std::endl;
 
+    if (! l.hint_german.empty() || ! l.hint_english.empty()) out
+     << IO::LineDollar(gloB->level_hint_german,  l.hint_german )
+     << IO::LineDollar(gloB->level_hint_english, l.hint_english)
+     << std::endl;
+
+    out
      << IO::LineHash  (gloB->level_size_x,       l.size_x  )
      << IO::LineHash  (gloB->level_size_y,       l.size_y  )
      << IO::LineHash  (gloB->level_torus_x,      l.torus_x )
