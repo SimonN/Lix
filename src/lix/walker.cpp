@@ -70,20 +70,19 @@ void update_walker(Lixxie& l, const UpdateArgs& ua)
 
 
 
-void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
+
+
+
+
+
+
+
+
+
+
+static bool handle_wall_or_pit_here(Lixxie& l)
 {
-    ua.suppress_unused_variable_warning();
-
-    bool turn_after_all   = false;
-    int  old_ex           = l.get_ex();
-    int  old_ey           = l.get_ey();
-
-    // Das erste Frame dient zur kurzen Pause, die die Lix vor dem
-    // Weiterlaufen machen soll, wenn die Walker-Faehigkeit vom Benutzer
-    // explizit zugewiesen wird. Dieses Frame darf im normalen Walker-
-    // Framezyklus nicht angenommen werden.
-    // Also true for runners.
-    if (l.get_frame() != 0) l.move_ahead();
+    bool turn_after_all = false;
 
     // Pruefung auf Boden unter der neuen Position
     // Falls da nichts ist, gucken wir etwas darüber nach - vielleicht
@@ -129,6 +128,38 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
         }
     }
 
+    return turn_after_all;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
+{
+    ua.suppress_unused_variable_warning();
+
+    int  old_ex           = l.get_ex();
+    int  old_ey           = l.get_ey();
+
+    // Das erste Frame dient zur kurzen Pause, die die Lix vor dem
+    // Weiterlaufen machen soll, wenn die Walker-Faehigkeit vom Benutzer
+    // explizit zugewiesen wird. Dieses Frame darf im normalen Walker-
+    // Framezyklus nicht angenommen werden.
+    // Also true for runners.
+    if (l.get_frame() != 0) l.move_ahead();
+
+    bool turn_after_all = handle_wall_or_pit_here(l);
+
     // Wenn die Lix umdrehen soll, beginnt sie entweder zu klettern
     // oder dreht um, beides auf ihrer alten Stelle
     if (turn_after_all) {
@@ -152,6 +183,9 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
         }
         if (! climbed_after_all) {
             l.turn();
+            // this new check will take care of the bugs around 2012-02,
+            // the lix didn't ascend or fall when caught in 2-pixel gaps.
+            handle_wall_or_pit_here(l);
         }
     }
     // Ende der Umdrehen-Kontrolle
