@@ -63,7 +63,13 @@ void become_climber(Lixxie& l)
             break;
         }
         // end of "copied this also from update_climber()
-        else if (!l.is_solid(2, -i)) {
+        // i > ... && ... remedies ccexplore's bug: jumping against the lower
+        // corner of a square, still high enough to stick to as a climber,
+        // but enough air at the bottom to trigger this check without, caused
+        // the climber to immediately ascend right in the midde of the wall.
+        // Of course, it looks slightly unusual to stick to a wall that's
+        // got this much air below, but we leave it like this for now.
+        else if (i > 9 && !l.is_solid(2, -i)) {
             l.move_ahead();
             l.become(LixEn::ASCENDER);
             break;
