@@ -14,7 +14,9 @@
  *
  * special_y
  *
- *   This takes the values 0 or 1.
+ *   This is a bit field.
+ *
+ * special_y & 1
  *
  *   0: This is 0 until the lix has completed half of its first swing.
  *   While it's 0, steel doesn't cancel the basher.
@@ -22,14 +24,46 @@
  *   1: This is 1 during the second half of the first swing, until the check
  *   to continue bashing has been completed.
  *
- *   The idea was originally to make another value for this, 2, after the
+ *   The idea was originally to make another value for this, after the
  *   first check for enough earth to continue bashing. We want bridges to be
  *   destroyed by bashers, but currently, the regular earth check will ensure
  *   bridges get destroyed anyway.
  *
+ * special_y & 2
+ *
+ *   If this is set, then leave no basher remains. We usually don't want
+ *   basher remains on the last swing.
+ *
  */
 
 #include "ac.h"
+
+static bool nothing_more_to_bash(Lixxie& l, const int px)
+{
+    // px: use 0 if you want the normal check. Use 10 if you want to check
+    // whether there was nothing to bash if we were 10 pixels ahead already.
+
+    // Gibt es noch etwas zu Bohren?
+    // Hier nehmen wir nicht alle Pixel am Fuß
+    // oder am Kopf der Lix mit.
+
+    // Auch die von der Lix am weitesten entfernten Doppelpixel
+    // werden nicht überbrückt.
+
+    // Alles wäre dagegen 12, -16, 23, +1
+    bool ret = false;
+    if (l.count_solid(12 + px, -14, 21 + px, -3) < 15) {
+        ret = true;
+        // Tills Bohr-Problem: Nochmal auf hauchduenne Waende pruefen
+        for (int x = 12 + px; x <= 23 + px; x += 2)
+            if (l.is_solid(x, -12)) ret = false;
+    }
+    return ret;
+}
+
+
+
+
 
 void update_basher(Lixxie& l, const UpdateArgs& ua)
 {
@@ -37,6 +71,14 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
 
     switch (l.get_frame()) {
     case 0:
+        // do the check whether to leave remains or not. We will leave remains
+        // unless this is the last swing, and the following column is empty.
+        {
+            bool omit_remains = nothing_more_to_bash(l, 10)
+                         && l.count_solid(14, -16, 15, 1) == 0;
+            if (omit_remains) l.set_special_y(l.get_special_y() | 2);
+            else              l.set_special_y(l.get_special_y() & ~2);
+        }
                      l.remove_rectangle(  0, -16,   5, -16);
                      l.remove_rectangle(  0, -15,   4, -15);
         steel_hit += l.remove_rectangle(  0, -14,   3, -14);
@@ -55,6 +97,10 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
         break;
 
     case 2:
+        if (l.get_special_y() & 2) {
+                     l.remove_rectangle( 10, -16,  13, -16);
+                     l.remove_rectangle( 12, -15,  13, -15);
+        }
                      l.remove_rectangle(  9, -15,  11, -15);
         steel_hit += l.remove_rectangle(  8, -14,  12, -14);
         steel_hit += l.remove_rectangle(  7, -13,  10, -13);
@@ -62,6 +108,9 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
         break;
 
     case 3:
+        if (l.get_special_y() & 2) {
+          steel_hit+=l.remove_rectangle( 13, -14,  13, -13);
+        }
         steel_hit += l.remove_rectangle( 11, -13,  12, -13);
         steel_hit += l.remove_rectangle(  7, -12,  13, -12);
         steel_hit += l.remove_rectangle(  2, -11,  13, -11);
@@ -77,7 +126,7 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
         break;
 
     case 5:
-        if (l.get_special_y() == 0) l.set_special_y(1);
+        l.set_special_y(l.get_special_y() | 1);
 
         steel_hit += l.remove_rectangle(  0,  -6,   4,  -6);
         steel_hit += l.remove_rectangle(  3,  -5,   8,  -5);
@@ -85,6 +134,9 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
         steel_hit += l.remove_rectangle(  7,  -3,  13,  -3);
         steel_hit += l.remove_rectangle(  9,  -2,  12,  -2);
         steel_hit += l.remove_rectangle( 11,  -1,  12,  -1);
+        if (l.get_special_y() & 2) {
+          steel_hit+=l.remove_rectangle( 13,  -2,  13,  -1);
+        }
         break;
 
     case 6:
@@ -95,6 +147,10 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
         steel_hit += l.remove_rectangle(  5,  -1,  10,  -1);
         steel_hit += l.remove_rectangle(  6,   0,  11,   0);
         steel_hit += l.remove_rectangle(  7,   1,   9,   1);
+        if (l.get_special_y() & 2) {
+          steel_hit+=l.remove_rectangle( 12,   0,  13,   0);
+          steel_hit+=l.remove_rectangle( 10,   1,  13,   1);
+        }
         break;
 
     case 7:
@@ -107,22 +163,7 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
         break;
 
     case 8:
-        // Gibt es noch etwas zu Bohren?
-        // Hier nehmen wir nicht alle Pixel am Fuß
-        // oder am Kopf der Lix mit.
-
-        // Auch die von der Lix am weitesten entfernten Doppelpixel
-        // werden nicht überbrückt.
-
-        // Alles wäre dagegen 12, -16, 23, +1
-
-        if (l.count_solid(12, -14, 21, -3) < 15) {
-            bool stop_bashing = true;
-            // Tills Bohr-Problem: Nochmal auf hauchduenne Waende pruefen
-            for (int x = 12; x <= 23; x += 2)
-                if (l.is_solid(x, -12)) stop_bashing = false;
-            if (stop_bashing) l.become(LixEn::WALKER);
-        }
+        if (nothing_more_to_bash(l, 0)) l.become(LixEn::WALKER);
         break;
 
     case  9:
