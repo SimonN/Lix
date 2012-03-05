@@ -85,24 +85,28 @@ OptionMenu::OptionMenu()
     scroll_edge           (check_x, 100),
     scroll_right          (check_x, 130),
     scroll_middle         (check_x, 160),
-    scroll_torus_x        (other_x, 220, button_xl),
-    scroll_torus_y        (other_x, 250, button_xl),
-    multiple_builders     (check_x, 220),
-    batter_priority       (check_x, 250),
-    prioinv_middle        (check_x, 280),
-    prioinv_right         (check_x, 310),
+    scroll_torus_x        (other_x, 250, button_xl),
+    scroll_torus_y        (other_x, 280, button_xl),
+    replay_cancel         (check_x, 190),
+    replay_cancel_at      (other_x, 190, button_xl, 2, 0, 90),
+    multiple_builders     (check_x, 250),
+    batter_priority       (check_x, 280),
+    prioinv_middle        (check_x, 310),
+    prioinv_right         (check_x, 340),
     desc_mouse_speed      (other_nx, 100, Language::option_mouse_speed),
     desc_scroll_speed_edge(other_nx, 130, Language::option_scroll_speed_edge),
     desc_scroll_speed_click(other_nx,160, Language::option_scroll_speed_click),
     desc_scroll_edge      (check_nx, 100, Language::option_scroll_edge),
     desc_scroll_right     (check_nx, 130, Language::option_scroll_right),
     desc_scroll_middle    (check_nx, 160, Language::option_scroll_middle),
-    desc_scroll_torus_x   (other_nx, 220, Language::option_scroll_torus_x),
-    desc_scroll_torus_y   (other_nx, 250, Language::option_scroll_torus_y),
-    desc_multiple_builders(check_nx, 220, Language::option_multiple_builders),
-    desc_batter_priority  (check_nx, 250, Language::option_batter_priority),
-    desc_prioinv_middle   (check_nx, 280, Language::option_prioinv_middle),
-    desc_prioinv_right    (check_nx, 310, Language::option_prioinv_right),
+    desc_scroll_torus_x   (other_nx, 250, Language::option_scroll_torus_x),
+    desc_scroll_torus_y   (other_nx, 280, Language::option_scroll_torus_y),
+    desc_replay_cancel    (check_nx, 190, Language::option_replay_cancel),
+    desc_replay_cancel_at (other_nx, 190, Language::option_replay_cancel_at),
+    desc_multiple_builders(check_nx, 250, Language::option_multiple_builders),
+    desc_batter_priority  (check_nx, 280, Language::option_batter_priority),
+    desc_prioinv_middle   (check_nx, 310, Language::option_prioinv_middle),
+    desc_prioinv_right    (check_nx, 340, Language::option_prioinv_right),
 
     key_force_left        (key_b1,  100, key_xl),
     key_force_right       (key_b1,  120, key_xl),
@@ -119,7 +123,10 @@ OptionMenu::OptionMenu()
     key_chat              (key_b1,  380, key_xl),
     key_spec_tribe        (key_b1,  400, key_xl),
     key_nuke              (key_b3,  220, key_xl),
-    key_ga_exit           (key_b3,  250, key_xl),
+    key_ga_exit           (key_b3,  310, key_xl),
+    key_scroll            (key_b3,  250, key_xl),
+    key_priority          (key_b3,  280, key_xl),
+
     // Some of the following buttons will be moved again.
     key_skill             (LixEn::AC_MAX, KeyButton(9999, 9999, key_xl)),
     desc_key_skill        (LixEn::AC_MAX, Label    (9999, 9999)),
@@ -138,10 +145,12 @@ OptionMenu::OptionMenu()
     desc_key_chat         (key_t1, 380, Language::option_key_chat),
     desc_key_spec_tribe   (key_t1, 400, Language::option_key_spec_tribe),
     desc_key_nuke         (key_t3, 220, Language::option_key_nuke),
-    desc_key_ga_exit      (key_t3, 250, Language::win_game_title),
-    desc_key_info_1       (key_b3, 330, Language::option_key_info_1),
-    desc_key_info_2       (key_b3, 350, Language::option_key_info_2),
-    desc_key_info_3       (key_b3, 370, Language::option_key_info_3),
+    desc_key_ga_exit      (key_t3, 310, Language::win_game_title),
+    desc_key_scroll       (key_t3, 250, Language::option_key_scroll),
+    desc_key_priority     (key_t3, 280, Language::option_key_priority),
+    desc_key_info_1       (key_b3, 340, Language::option_key_info_1),
+    desc_key_info_2       (key_b3, 360, Language::option_key_info_2),
+    desc_key_info_3       (key_b3, 380, Language::option_key_info_3),
 
     ed_left               (key_b1, 100, key_xl),
     ed_right              (key_b1, 120, key_xl),
@@ -315,6 +324,8 @@ OptionMenu::OptionMenu()
     pointers[GROUP_CONTROLS].push_back(&scroll_speed_click);
     pointers[GROUP_CONTROLS].push_back(&scroll_torus_x);
     pointers[GROUP_CONTROLS].push_back(&scroll_torus_y);
+    pointers[GROUP_CONTROLS].push_back(&replay_cancel);
+    pointers[GROUP_CONTROLS].push_back(&replay_cancel_at);
     pointers[GROUP_CONTROLS].push_back(&multiple_builders);
     pointers[GROUP_CONTROLS].push_back(&batter_priority);
     pointers[GROUP_CONTROLS].push_back(&prioinv_middle);
@@ -327,6 +338,8 @@ OptionMenu::OptionMenu()
     pointers[GROUP_CONTROLS].push_back(&desc_scroll_middle);
     pointers[GROUP_CONTROLS].push_back(&desc_scroll_torus_x);
     pointers[GROUP_CONTROLS].push_back(&desc_scroll_torus_y);
+    pointers[GROUP_CONTROLS].push_back(&desc_replay_cancel);
+    pointers[GROUP_CONTROLS].push_back(&desc_replay_cancel_at);
     pointers[GROUP_CONTROLS].push_back(&desc_multiple_builders);
     pointers[GROUP_CONTROLS].push_back(&desc_batter_priority);
     pointers[GROUP_CONTROLS].push_back(&desc_prioinv_middle);
@@ -348,6 +361,8 @@ OptionMenu::OptionMenu()
     pointers[GROUP_HOTKEYS ].push_back(&key_spec_tribe);
     pointers[GROUP_HOTKEYS ].push_back(&key_nuke);
     pointers[GROUP_HOTKEYS ].push_back(&key_ga_exit);
+    pointers[GROUP_HOTKEYS ].push_back(&key_scroll);
+    pointers[GROUP_HOTKEYS ].push_back(&key_priority);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_force_left);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_force_right);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_rate_minus);
@@ -364,6 +379,8 @@ OptionMenu::OptionMenu()
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_spec_tribe);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_nuke);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_ga_exit);
+    pointers[GROUP_HOTKEYS ].push_back(&desc_key_scroll);
+    pointers[GROUP_HOTKEYS ].push_back(&desc_key_priority);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_1);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_2);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_3);
@@ -565,6 +582,8 @@ void OptionMenu::reset_elements()
     scroll_speed_click   .set_number (useR->scroll_speed_click);
     scroll_torus_x       .set_number (useR->scroll_torus_x);
     scroll_torus_y       .set_number (useR->scroll_torus_y);
+    replay_cancel        .set_checked(useR->replay_cancel);
+    replay_cancel_at     .set_number (useR->replay_cancel_at);
     multiple_builders    .set_checked(useR->multiple_builders);
     batter_priority      .set_checked(useR->batter_priority);
     prioinv_middle       .set_checked(useR->prioinv_middle);
@@ -586,6 +605,8 @@ void OptionMenu::reset_elements()
     key_spec_tribe       .set_scancode(useR->key_spec_tribe);
     key_chat             .set_scancode(useR->key_chat);
     key_ga_exit          .set_scancode(useR->key_ga_exit);
+    key_scroll           .set_scancode(useR->key_scroll);
+    key_priority         .set_scancode(useR->key_priority);
     for (size_t i = 0; i < key_skill.size(); ++i)
      key_skill[i]        .set_scancode(useR->key_skill[i]);
 
@@ -745,6 +766,8 @@ void OptionMenu::calc_self()
         useR->scroll_middle     = scroll_middle     .get_checked();
         useR->scroll_torus_x    = scroll_torus_x    .get_number();
         useR->scroll_torus_y    = scroll_torus_y    .get_number();
+        useR->replay_cancel     = replay_cancel     .get_checked();
+        useR->replay_cancel_at  = replay_cancel_at  .get_number();
         useR->multiple_builders = multiple_builders .get_checked();
         useR->batter_priority   = batter_priority   .get_checked();
         useR->prioinv_middle    = prioinv_middle    .get_checked();
@@ -766,6 +789,8 @@ void OptionMenu::calc_self()
         useR->key_spec_tribe  = key_spec_tribe .get_scancode();
         useR->key_nuke        = key_nuke       .get_scancode();
         useR->key_ga_exit     = key_ga_exit    .get_scancode();
+        useR->key_scroll      = key_scroll     .get_scancode();
+        useR->key_priority    = key_priority   .get_scancode();
         for (size_t i = 0; i < key_skill.size(); ++i)
          useR->key_skill[i]   = key_skill[i]   .get_scancode();
         // There's only the Exploder hotkey in the options menu, but

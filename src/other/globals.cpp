@@ -19,8 +19,8 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2012, 01, 07, 00)),
-    version_min          (CONCAT(2012, 01, 01, 00)),
+    version              (CONCAT(2012, 03, 05, 00)),
+    version_min          (CONCAT(2012, 03, 05, 00)),
     version_stable       (true),
 
     updates_per_second   (globals_updates_per_second),
@@ -118,6 +118,8 @@ Globals::Globals()
     level_author                 ("AUTHOR"),
     level_name_german            ("GERMAN"),
     level_name_english           ("ENGLISH"),
+    level_hint_german            ("HINT_GERMAN"),
+    level_hint_english           ("HINT_ENGLISH"),
     level_size_x                 ("SIZE_X"),
     level_size_y                 ("SIZE_Y"),
     level_torus_x                ("TORUS_X"),
@@ -131,7 +133,8 @@ Globals::Globals()
     level_initial                ("INITIAL"),
     level_initial_legacy         ("LEMMINGS"), // backwards compatibility
     level_required               ("REQUIRED"),
-    level_spawnint               ("SPAWN_INTERVAL"),
+    level_spawnint_slow          ("SPAWN_INTERVAL"),
+    level_spawnint_fast          ("SPAWN_INTERVAL_FAST"),
     level_rate                   ("RATE"), // backwards compatibility
     level_count_neutrals_only    ("COUNT_NEUTRALS_ONLY"),
     level_transfer_skills        ("TRANSFER_SKILLS"),
@@ -190,6 +193,8 @@ Globals::Globals()
     user_scroll_middle           ("SCROLL_MIDDLE"),
     user_scroll_torus_x          ("SCROLL_TORUS_X"),
     user_scroll_torus_y          ("SCROLL_TORUS_Y"),
+    user_replay_cancel           ("REPLAY_CANCEL"),
+    user_replay_cancel_at        ("REPLAY_CANCEL_AT"),
     user_multiple_builders       ("MULTIPLE_BUILDERS"),
     user_batter_priority         ("BATTER_PRIORITY"),
     user_prioinv_middle          ("PRIORITY_INVERT_MIDDLE"),
@@ -226,6 +231,8 @@ Globals::Globals()
 
     user_key_force_left          ("KEY_FORCE_LEFT"),
     user_key_force_right         ("KEY_FORCE_RIGHT"),
+    user_key_scroll              ("KEY_SCROLL"),
+    user_key_priority            ("KEY_PRIORITY"),
     user_key_rate_minus          ("KEY_RATE_MINUS"),
     user_key_rate_plus           ("KEY_RATE_PLUS"),
     user_key_pause               ("KEY_PAUSE"),
@@ -321,6 +328,7 @@ Globals::Globals()
     file_bitmap_game_nuke        (dir_data_bitmap.get_dir_rootless() + "game_nuk.I"),
     file_bitmap_game_panel       (dir_data_bitmap.get_dir_rootless() + "game_pan.I"),
     file_bitmap_game_panel_2     (dir_data_bitmap.get_dir_rootless() + "game_pa2.I"),
+    file_bitmap_game_spi_fix     (dir_data_bitmap.get_dir_rootless() + "game_spi.I"),
     file_bitmap_game_pause       (dir_data_bitmap.get_dir_rootless() + "game_pau.I"),
     file_bitmap_game_replay      (dir_data_bitmap.get_dir_rootless() + "game_rep.I"),
     file_bitmap_lix              (dir_data_bitmap.get_dir_rootless() + "lix.I"),

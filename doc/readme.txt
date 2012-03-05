@@ -67,11 +67,14 @@ with such content already included.
 3. CONTACT
 ----------
 
-The Lix website: http://lplusplus.co.cc
+The Lix website: http://asdfasdf.ethz.ch/~simon
 
 My email address: eiderdaus@gmail.com
 
 Visit the Lix IRC channel: irc.quakenet.com #lix
+
+If you have an account on the Lemmings Forums, http://www.lemmingsforums.com,
+you can send me a personal message there. My username is Simon.
 
 
 
@@ -79,7 +82,7 @@ Visit the Lix IRC channel: irc.quakenet.com #lix
 ------------------------
 
 Under all operating systems, the following switches are available for the
-Lix executable (./lpp.exe unter Windows, ./lpp under Linux):
+Lix executable (./lix.exe unter Windows, ./bin/lix under Linux):
 
 -w      Run Lix in a window with a resolution of 640 x 480. If you use this
         switch, the in-game options for resolution and windowed mode are

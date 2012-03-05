@@ -267,8 +267,9 @@ void Gameplay::prepare_level()
         t.initial         = lv.initial;
         t.lix_hatch       = lv.initial;
         t.required        = lv.required;
-        t.spawnint_base   = lv.spawnint;
-        t.spawnint        = lv.spawnint;
+        t.spawnint_slow   = lv.spawnint_slow;
+        t.spawnint_fast   = lv.spawnint_fast;
+        t.spawnint        = lv.spawnint_slow;
         for (int a = 0; a < gloB->skill_max; ++a) {
             t.skill[a].ac = lv.skill[a].ac;
             t.skill[a].nr = lv.skill[a].nr;
@@ -320,6 +321,8 @@ void Gameplay::prepare_level()
         }
         break;
     }
+
+    chat.set_hint(lv.get_hint());
 
     state_manager.save_zero(cs);
 }

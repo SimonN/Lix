@@ -58,6 +58,8 @@ private:
     bool       game_end;
     bool       game_net;
     ExitWith   exit_with;
+    ExitWith   on_key_me_okay;
+    ExitWith   on_key_me_exit;
 
     int        lix_saved;    // These are != only at end of singleplayer mode.
     int        lix_required; // We don't use labels for these, b/c big digits.

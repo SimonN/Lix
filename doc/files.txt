@@ -13,8 +13,11 @@ work with the source code, or simply want to understand how everything works.
 
 TABLE OF CONTENTS
 -----------------
-
-
+Graphic file grids
+Designing terrain
+Designing steel
+Designing interactive objects
+Level hint texts
 
 
 
@@ -140,3 +143,35 @@ If you want to edit the trigger areas or hatch spawn points, you can do so
 by adding a .txt file with the same pre-extension name next to your object
 graphic file. Read the documentation in ``objdef.txt'' for instructions.
 
+
+
+LEVEL HINT TEXTS
+----------------
+You can display text in a level, no matter whether it's a singleplayer or a
+multiplayer level.
+
+Such texts are displayed at the top of the screen. They cannot be hidden, so
+this feature should only be used for tutorial levels. If you use this, please
+make sure that the level's vertical length isn't too big, or that the level is
+largely empty around its top.
+
+Level hints cannot be edited via the Lix editor, use a regular text editor on
+the level file. The Lix editor doesn't erase the hints if you edit the level
+with it, you merely cannot change or view them in there.
+
+Level hints are defined in the text file like this:
+
+$HINT_ENGLISH This is the first line of the hint.<br>The second.<br>The third.
+$HINT_GERMAN Das ist die erste Zeile des Tipps.<br>Die Zweite.<br>Die Dritte.
+
+Do not use regular line breaks to separate lines, use the sequence <br> as
+shown above instead. The game will hack the string apart into multiple lines
+based on the occurences of <br>.
+
+There is no limit on the number of in-game hint lines.
+
+You can exceed 80 characters in the level file, this is usually necessary to
+give concise tutorial hints with multiple in-game lines.
+
+If no German hint is defined, the English one will be shown to German users,
+just as with the level title.

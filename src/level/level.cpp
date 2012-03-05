@@ -34,23 +34,26 @@ void Level::clear()
 {
     status = BAD_EMPTY;
 
-    built        = "";
-    author       = "";
-    name_german  = "";
-    name_english = "";
-    size_x       = LEMSCR_X;
-    size_y       = LEMSCR_Y - gloB->panel_gameplay_yl;
-    torus_x      = false;
-    torus_y      = false;
-    start_x      = 0;
-    start_y      = 0;
-    bg_red       = 0;
-    bg_green     = 0;
-    bg_blue      = 0;
-    seconds      = 0;
-    initial      = 30;
-    required     = 20;
-    spawnint     = 32;
+    built         = "";
+    author        = "";
+    name_german   = "";
+    name_english  = "";
+    hint_german   = "";
+    hint_english  = "";
+    size_x        = LEMSCR_X;
+    size_y        = LEMSCR_Y - gloB->panel_gameplay_yl;
+    torus_x       = false;
+    torus_y       = false;
+    start_x       = 0;
+    start_y       = 0;
+    bg_red        = 0;
+    bg_green      = 0;
+    bg_blue       = 0;
+    seconds       = 0;
+    initial       = 30;
+    required      = 20;
+    spawnint_slow = 32;
+    spawnint_fast =  4;
 
     nuke_delayed = false;
     nuke_skill   = LixEn::NOTHING;
@@ -72,27 +75,30 @@ void Level::clear()
 
 bool Level::operator == (const Level& l) const
 {
-    if (this->author       != l.author
-     || this->name_german  != l.name_german
-     || this->name_english != l.name_english
+    if (this->author        != l.author
+     || this->name_german   != l.name_german
+     || this->name_english  != l.name_english
+     || this->hint_german   != l.hint_german
+     || this->hint_english  != l.hint_english
 
-     || this->size_x       != l.size_x
-     || this->size_y       != l.size_y
-     || this->torus_x      != l.torus_x
-     || this->torus_y      != l.torus_y
-     || this->start_x      != l.start_x
-     || this->start_y      != l.start_y
-     || this->bg_red       != l.bg_red
-     || this->bg_green     != l.bg_green
-     || this->bg_blue      != l.bg_blue
+     || this->size_x        != l.size_x
+     || this->size_y        != l.size_y
+     || this->torus_x       != l.torus_x
+     || this->torus_y       != l.torus_y
+     || this->start_x       != l.start_x
+     || this->start_y       != l.start_y
+     || this->bg_red        != l.bg_red
+     || this->bg_green      != l.bg_green
+     || this->bg_blue       != l.bg_blue
 
-     || this->seconds      != l.seconds
-     || this->initial      != l.initial
-     || this->required     != l.required
-     || this->spawnint     != l.spawnint
+     || this->seconds       != l.seconds
+     || this->initial       != l.initial
+     || this->required      != l.required
+     || this->spawnint_slow != l.spawnint_slow
+     || this->spawnint_fast != l.spawnint_fast
 
-     || this->nuke_delayed != l.nuke_delayed
-     || this->nuke_skill   != l.nuke_skill
+     || this->nuke_delayed  != l.nuke_delayed
+     || this->nuke_skill    != l.nuke_skill
 
      || this->count_neutrals_only != l.count_neutrals_only
      || this->transfer_skills     != l.transfer_skills    ) return false;
@@ -147,4 +153,12 @@ const std::string& Level::get_name() const {
     if (Language::get() == Language::GERMAN)
          return name_german .empty() ? name_english : name_german;
     else return name_english.empty() ? name_german  : name_english;
+}
+
+
+
+const std::string& Level::get_hint() const {
+    if (Language::get() == Language::GERMAN)
+         return hint_german .empty() ? hint_english : hint_german;
+    else return hint_english.empty() ? hint_german  : hint_english;
 }

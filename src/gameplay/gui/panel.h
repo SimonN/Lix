@@ -30,6 +30,7 @@ public:
 
     BiB rate_minus,
         rate_plus,
+        rate_fixed,
         pause,
         zoom,
         speed_slow,
@@ -45,8 +46,9 @@ public:
 
     GameplayStats stats;
 
-    Api::Label rate_min;
-    Api::Label rate;
+    Api::Label rate_slow;
+    Api::Label rate_cur;
+    Api::Label rate_fast;
 
     ///////////////////////////////////////////////////////////////////////////
 

@@ -174,6 +174,13 @@ void SaveBrowser::set_info_level_name(const std::string& s)
 
 
 
+void SaveBrowser::set_texttype(const std::string& s)
+{
+    file_name.set_text(s);
+}
+
+
+
 Filename SaveBrowser::get_current_file()
 {
     if (file_name.get_text().empty()) return Filename("");

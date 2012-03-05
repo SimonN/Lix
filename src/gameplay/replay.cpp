@@ -195,6 +195,21 @@ const std::string& Replay::get_player_local_name()
 
 
 
+std::string Replay::get_canonical_save_filename()
+{
+    std::string ret = level_filename.get_file_no_ext_no_pre_ext();
+
+    for (std::set <Player> ::const_iterator itr = players.begin();
+     itr != players.end(); ++itr) if (itr->number == player_local) {
+        ret += "-";
+        ret += itr->name;
+        break;
+    }
+    return ret;
+}
+
+
+
 void Replay::save_as_auto_replay(const Level* const lev)
 {
     bool multi = (players.size() > 1);

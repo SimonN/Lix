@@ -74,6 +74,7 @@ public:
     Filename    get_current_file();
            void set_info_filename  (const Filename&);
            void set_info_level_name(const std::string&);
+           void set_texttype       (const std::string&);
 
     // Nutzbare Funktionen, auch als Beispiel
     static bool        search_criterion_level (const Filename&);

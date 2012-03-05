@@ -159,10 +159,10 @@ void Level::export_image(const Filename& filename) const
     Api::LabelTwo info_spawnint(10, 20, 140);
     Api::LabelTwo info_clock   (10, 37, 140);
     info_initial .set_desc(Language::browser_info_initial);
-    info_spawnint.set_desc(Language::win_var_spawnint + ":");
+    info_spawnint.set_desc(Language::win_var_spawnint_slow + ":");
     info_clock   .set_desc(Language::browser_info_clock_2);
     info_initial .set_value(initial);
-    info_spawnint.set_value(spawnint);
+    info_spawnint.set_value(spawnint_slow);
     info_clock   .set_value_seconds_as_time(seconds);
     info_initial .draw();
     info_spawnint.draw();

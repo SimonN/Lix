@@ -18,7 +18,15 @@ void Gameplay::calc()
     // Wenn nicht gestartet, macht dies nix
     Network::calc();
 
+    // do this always, even when the window is on top
+    chat.calc();
+
     if (window_gameplay) {
+        // This is a bit of a kludge. We don't draw the chat with elders, so
+        // the chat, which always calculates and set_draw_requires, may
+        // overwrite the window. Don't let it do that.
+        window_gameplay->set_draw_required();
+
         calc_window();
         // This is a bit kludgy, but it prevents opening the window
         // immediately again during a network game on an ESC press
@@ -46,10 +54,16 @@ void Gameplay::calc_window()
 
         case Api::WindowGameplay::MENU:
             save_result();
-            if (multiplayer && ! replaying) write_outcome_to_console();
-            // Auto-save even if we were just watching a singleplayer replay,
-            // I can't differentiate quickly here.
-            if (! (multiplayer&&replaying)) replay.save_as_auto_replay(&level);
+            // Auto-save the replay. I can't tell whether it was just a
+            // watched singleplayer replay, so we'll save all successful
+            // plays/views in singleplayer.
+            if (multiplayer && ! replaying) {
+                write_outcome_to_console();
+                replay.save_as_auto_replay(&level);
+            }
+            if (! multiplayer && trlo->lix_saved >= trlo->required) {
+                replay.save_as_auto_replay(&level);
+            }
             exit = true;
             break;
 
@@ -94,11 +108,7 @@ void Gameplay::calc_self()
         mouse_cursor.set_x_frame(1);
         mouse_cursor.set_y_frame(2);
     }
-    else if (map.get_scrollable()
-     && ((useR->scroll_right  && hardware.get_mrh())
-      || (useR->scroll_middle && hardware.get_mmh()) ) ) {
-        mouse_cursor.set_x_frame(3);
-    }
+    else if (map.get_scrolling_now()) mouse_cursor.set_x_frame(3);
 
 
 
@@ -142,7 +152,6 @@ void Gameplay::calc_self()
     // Abort a singleplayer action replay?
     if (replaying && ! multiplayer) {
         const int& csu = cs.update;
-        const int& ups = gloB->updates_per_second;
         const int  max = replay.get_max_updates();
         const int& fff = turbo_times_faster_than_fast;
 
@@ -170,14 +179,15 @@ void Gameplay::calc_self()
             replay.erase_data_after_update(cs.update);
         }
         // abort fast-forward earlier than this
-        if (pan.speed_fast .get_on() && csu == max - 3 * ups)
-            pan.speed_fast .set_off();
-        if (pan.speed_turbo.get_on() && csu >= max - 3 * ups
-                                     && csu <  max - 3 * ups + fff)
-            pan.speed_turbo.set_off();
+        if (useR->replay_cancel) {
+            const int rcat = useR->replay_cancel_at;
+            if (pan.speed_fast .get_on() && csu == max - rcat)
+                pan.speed_fast .set_off();
+            if (pan.speed_turbo.get_on() && csu >= max - rcat
+                                         && csu <  max - rcat + fff)
+                pan.speed_turbo.set_off();
+        }
     }
-
-    chat.calc();
 
     // Konsole deaktiviert, normale Buttons ansehen und,
     // wenn kein Replay stattfindet, auch den aktiven Main-Loop abarbeiten

@@ -5,14 +5,16 @@
 
 
 
-Lix can use the graphics and levels from these games:
-Lemmings, Oh no more Lemmings, Holiday Lemmings, and Lemmings 2: The Tribes.
-Since these games are copyright-restricted, Lix doesn't contain any of their
-files.
+Lix can use the graphics and/or levels from these games:
 
-The game can still use the legacy terrain. If you have the DOS versions of
-the named games, you can take some of their files and put them into the lix
-directory structure.
+    Lemmings               (graphics and levels)
+    Oh no more Lemmings    (graphics and levels)
+    Holiday Lemmings 199x  (graphics and levels)
+    Lemmings 2: The Tribes (only graphics)
+
+Since these games are copyright-restricted, Lix doesn't contain any of their
+files. If you have the DOS versions of the named games, you can take some of
+their files and put them into the lix directory structure.
 
 
 
@@ -107,6 +109,10 @@ USING LEMMINGS LEVELS
 On the Lix website, you can download a package of multiplayer levels which
 use the Lemmings terrain. They were built by Lix players in the past. Extract
 the archive in the root directory of the game.
+
+Lix can read levelpacks (.DAT) and single levels (.LVL) from Lemmings 1, ONML,
+and Holiday Lemmings. Lix cannot (!) read levels from Lemmings 2: The Tribes,
+even though Lix can read the terrain graphics files from that game.
 
 You can take the LEVELxxx.DAT files from Lemmings 1, ONML, and Holiday
 Lemmings, and Lix will be able to extract them and play the levels, but note

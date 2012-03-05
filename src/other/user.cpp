@@ -105,6 +105,8 @@ User::User()
     scroll_edge            (true),
     scroll_right           (true),
     scroll_middle          (true),
+    replay_cancel          (true),
+    replay_cancel_at       (30),
     mouse_speed            (15),
     scroll_speed_edge      (5),
     scroll_speed_click     (6),
@@ -166,6 +168,8 @@ User::User()
 
     key_force_left             = KEY_S;
     key_force_right            = KEY_F;
+    key_scroll                 = KEY_MINUS_PAD;
+    key_priority               = KEY_MINUS_PAD;
     key_rate_minus             = KEY_1;
     key_rate_plus              = KEY_2;
     key_pause                  = KEY_SPACE;
@@ -292,6 +296,8 @@ void User::load()
         else if (i->text1 == gloB->user_scroll_middle          ) scroll_middle          = i->nr1;
         else if (i->text1 == gloB->user_scroll_torus_x         ) scroll_torus_x         = i->nr1;
         else if (i->text1 == gloB->user_scroll_torus_y         ) scroll_torus_y         = i->nr1;
+        else if (i->text1 == gloB->user_replay_cancel          ) replay_cancel          = i->nr1;
+        else if (i->text1 == gloB->user_replay_cancel_at       ) replay_cancel_at       = i->nr1;
         else if (i->text1 == gloB->user_multiple_builders      ) multiple_builders      = i->nr1;
         else if (i->text1 == gloB->user_batter_priority        ) batter_priority        = i->nr1;
         else if (i->text1 == gloB->user_prioinv_middle         ) prioinv_middle         = i->nr1;
@@ -318,6 +324,8 @@ void User::load()
 
         else if (i->text1 == gloB->user_key_force_left         ) key_force_left         = i->nr1;
         else if (i->text1 == gloB->user_key_force_right        ) key_force_right        = i->nr1;
+        else if (i->text1 == gloB->user_key_scroll             ) key_scroll             = i->nr1;
+        else if (i->text1 == gloB->user_key_priority           ) key_priority           = i->nr1;
         else if (i->text1 == gloB->user_key_rate_minus         ) key_rate_minus         = i->nr1;
         else if (i->text1 == gloB->user_key_rate_plus          ) key_rate_plus          = i->nr1;
         else if (i->text1 == gloB->user_key_pause              ) key_pause              = i->nr1;
@@ -421,6 +429,8 @@ void User::save() const
      << IO::LineHash  (gloB->user_scroll_middle,           scroll_middle)
      << IO::LineHash  (gloB->user_scroll_torus_x,          scroll_torus_x)
      << IO::LineHash  (gloB->user_scroll_torus_y,          scroll_torus_y)
+     << IO::LineHash  (gloB->user_replay_cancel,           replay_cancel)
+     << IO::LineHash  (gloB->user_replay_cancel_at,        replay_cancel_at)
      << IO::LineHash  (gloB->user_multiple_builders,       multiple_builders)
      << IO::LineHash  (gloB->user_batter_priority,         batter_priority)
      << IO::LineHash  (gloB->user_prioinv_middle,          prioinv_middle)
@@ -463,6 +473,8 @@ void User::save() const
 
      << IO::LineHash  (gloB->user_key_force_left,  key_force_left)
      << IO::LineHash  (gloB->user_key_force_right, key_force_right)
+     << IO::LineHash  (gloB->user_key_scroll,      key_scroll)
+     << IO::LineHash  (gloB->user_key_priority,    key_priority)
      << IO::LineHash  (gloB->user_key_rate_minus,  key_rate_minus)
      << IO::LineHash  (gloB->user_key_rate_plus,   key_rate_plus)
      << IO::LineHash  (gloB->user_key_pause,       key_pause)

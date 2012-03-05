@@ -91,7 +91,8 @@ void Gameplay::calc_active()
 
                 // Invert priority if a corresponding mouse button is held
                 if ((hardware.get_mrh() && useR->prioinv_right)
-                 || (hardware.get_mmh() && useR->prioinv_middle)) {
+                 || (hardware.get_mmh() && useR->prioinv_middle)
+                 ||  hardware.key_hold(useR->key_priority)) {
                     priority = 100000 - priority;
                 }
                 double hypot = map.hypot(mx, my, i->get_ex(),
@@ -221,41 +222,39 @@ void Gameplay::calc_active()
         // da alle bis auf die letzte Aenderung pro Update egal sind.
         // Modulo 2 rechnen wir bei den Help::timer_ticks, weil Frank die
         // Aenderung der Rate auch bei 60 /sec zu rasant war.
-        bool minus_clicked = pan.rate_minus.get_clicked();
-        bool plus_clicked  = pan.rate_plus .get_clicked();
-        if (hardware.key_hold(useR->key_rate_minus)) {
-            pan.rate_minus.set_down();
-        }
+        bool minus_clicked = pan.rate_minus.get_clicked()
+                          || hardware.key_release(useR->key_rate_minus);
+        bool plus_clicked  = pan.rate_plus .get_clicked()
+                          || hardware.key_release(useR->key_rate_plus);
+        if (hardware.key_hold(useR->key_rate_minus)) pan.rate_minus.set_down();
+        if (hardware.key_hold(useR->key_rate_plus))  pan.rate_plus.set_down();
         if (pan.rate_minus.get_down() || minus_clicked) {
             // Doppelklick?
             if (minus_clicked && Help::timer_ticks - timer_tick_last_F1
              <= hardware.doubleclick_speed) {
-                pan.rate.set_number(trlo->spawnint_base);
+                pan.rate_cur.set_number(trlo->spawnint_slow);
             }
             else if (minus_clicked) timer_tick_last_F1 = Help::timer_ticks;
             else {
                 // Normales Halten
-                if (pan.rate.get_number() < trlo->spawnint_base) {
+                if (pan.rate_cur.get_number() < trlo->spawnint_slow) {
                     if (Help::timer_ticks % 3 == 0)
-                     pan.rate.set_number(pan.rate.get_number() + 1);
+                     pan.rate_cur.set_number(pan.rate_cur.get_number() + 1);
                 }
                 else pan.rate_minus.set_down(false);
             }
         }
         // Plus
-        if (hardware.key_hold(useR->key_rate_plus)) {
-            pan.rate_plus.set_down();
-        }
         if (pan.rate_plus.get_down() || plus_clicked) {
             if (plus_clicked && Help::timer_ticks - timer_tick_last_F2
              <= hardware.doubleclick_speed) {
-                pan.rate.set_number(Level::spawnint_min);
+                pan.rate_cur.set_number(trlo->spawnint_fast);
             }
             else if (plus_clicked) timer_tick_last_F2 = Help::timer_ticks;
             else {
-                if (pan.rate.get_number() > Level::spawnint_min) {
+                if (pan.rate_cur.get_number() > trlo->spawnint_fast) {
                     if (Help::timer_ticks % 3 == 0)
-                     pan.rate.set_number(pan.rate.get_number() - 1);
+                     pan.rate_cur.set_number(pan.rate_cur.get_number() - 1);
                 }
                 else pan.rate_plus.set_down(false);
             }

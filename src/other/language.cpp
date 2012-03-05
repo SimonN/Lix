@@ -189,7 +189,8 @@ win_var_name_german,
 win_var_name_english,
 win_var_initial,
 win_var_required,
-win_var_spawnint,
+win_var_spawnint_slow,
+win_var_spawnint_fast,
 win_var_clock,
 
 // Faehigkeits-Fenster
@@ -249,6 +250,8 @@ option_language,
 option_replay_auto_max,
 option_replay_auto_single,
 option_replay_auto_multi,
+option_replay_cancel,
+option_replay_cancel_at,
 option_mouse_speed,
 option_scroll_speed_edge,
 option_scroll_speed_click,
@@ -294,6 +297,8 @@ option_info_sound,
 option_key_unassigned,
 option_key_force_left,
 option_key_force_right,
+option_key_scroll,
+option_key_priority,
 option_key_rate_minus,
 option_key_rate_plus,
 option_key_pause,
@@ -587,7 +592,8 @@ void Language::set(const Language lang)
         win_var_name_english          = "English title";
         win_var_initial               = "No. of lix";
         win_var_required              = "Lix to save";
-        win_var_spawnint              = "Spawn interval";
+        win_var_spawnint_slow         = "Spawn interval";
+        win_var_spawnint_fast         = "Spawn int. fast";
         win_var_clock                 = "Time/overtime";
 
         // Faehigkeits-Fenster
@@ -667,6 +673,8 @@ void Language::set(const Language lang)
         option_replay_auto_max        = "Max. auto replays";
         option_replay_auto_single     = "Auto replay in Singleplayer";
         option_replay_auto_multi      = "Auto replay in Multiplayer";
+        option_replay_cancel          = "Replay ends: normal speed...";
+        option_replay_cancel_at       = "...1/15 sec before end";
         option_scroll_edge            = "Scroll at screen border";
         option_scroll_right           = "Scroll with right click";
         option_scroll_middle          = "Scroll with middle click";
@@ -716,6 +724,8 @@ void Language::set(const Language lang)
         option_key_unassigned         = "none";
         option_key_force_left         = "Force left";
         option_key_force_right        = "Force right";
+        option_key_scroll             = "Hold to scroll";
+        option_key_priority           = "Priority invert";
         option_key_rate_minus         = "Rate down";
         option_key_rate_plus          = "Rate up";
         option_key_pause              = "Pause";
@@ -1035,7 +1045,8 @@ eb[Editor::ADD_HAZARD]
         win_var_name_english          = "Englischer Titel";
         win_var_initial               = "Anzahl Lix";
         win_var_required              = "Lix zu retten";
-        win_var_spawnint              = "Fall-Intervall";
+        win_var_spawnint_slow         = "Fall-Intervall";
+        win_var_spawnint_fast         = "Fall-I. schnell";
         win_var_clock                 = "Zeit/Nachspielz.";
 
         // Faehigkeits-Fenster
@@ -1121,6 +1132,8 @@ eb[Editor::ADD_HAZARD]
         option_replay_auto_max        = "Max. Auto-Replays";
         option_replay_auto_single     = "Auto-Replay Einzelspieler";
         option_replay_auto_multi      = "Auto-Replay Mehrspieler";
+        option_replay_cancel          = "Replayende: norm. Geschw.";
+        option_replay_cancel_at       = "...1/15 Sek. vor Ende";
         option_scroll_edge            = "Scrollen am Bildrand";
         option_scroll_right           = "Scrollen bei Rechtsklick";
         option_scroll_middle          = "Scrollen bei mittl. Maust.";
@@ -1171,6 +1184,8 @@ eb[Editor::ADD_HAZARD]
         option_key_unassigned         = "nichts";
         option_key_force_left         = "Nur links";
         option_key_force_right        = "Nur rechts";
+        option_key_scroll             = "Scrollen";
+        option_key_priority           = "Priorit. inv.";
         option_key_rate_minus         = "Rate runter";
         option_key_rate_plus          = "Rate rauf";
         option_key_pause              = "Pause";
@@ -1191,7 +1206,7 @@ eb[Editor::ADD_HAZARD]
         option_key_me_okay            = "Okay/ja";
         option_key_me_edit            = "Editieren";
         option_key_me_export          = "Exportieren";
-        option_key_me_delete          = "Loeschen/nein";
+        option_key_me_delete          = "Loesch./nein";
         option_key_me_up_dir          = "Ordner ..";
         option_key_me_up_1            = "Rauf um 1";
         option_key_me_up_5            = "Rauf um 5";

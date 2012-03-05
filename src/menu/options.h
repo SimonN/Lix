@@ -107,6 +107,8 @@ private:
     Checkbox   scroll_middle;
     EnumButton scroll_torus_x;
     EnumButton scroll_torus_y;
+    Checkbox   replay_cancel;
+    Number     replay_cancel_at;
     Checkbox   multiple_builders;
     Checkbox   batter_priority;
     Checkbox   prioinv_middle;
@@ -119,6 +121,8 @@ private:
                desc_scroll_middle,
                desc_scroll_torus_x,
                desc_scroll_torus_y,
+               desc_replay_cancel,
+               desc_replay_cancel_at,
                desc_multiple_builders,
                desc_batter_priority,
                desc_prioinv_middle,
@@ -140,6 +144,8 @@ private:
     KeyButton  key_spec_tribe;
     KeyButton  key_nuke;
     KeyButton  key_ga_exit;
+    KeyButton  key_scroll;
+    KeyButton  key_priority;
     std::vector <KeyButton> key_skill;
     std::vector <Label>     desc_key_skill;
     Label      desc_key_force_left,
@@ -158,6 +164,8 @@ private:
                desc_key_spec_tribe,
                desc_key_nuke,
                desc_key_ga_exit,
+               desc_key_scroll,
+               desc_key_priority,
                desc_key_info_1,
                desc_key_info_2,
                desc_key_info_3;

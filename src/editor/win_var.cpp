@@ -11,7 +11,7 @@
 namespace Api{
 
 const int WindowVariables::this_xl(480);
-const int WindowVariables::this_yl(260);
+const int WindowVariables::this_yl(290);
 
 WindowVariables::WindowVariables(Level& l)
 :
@@ -24,9 +24,11 @@ WindowVariables::WindowVariables(Level& l)
 
     initial      (160, 130, 180, 3, 1, 999,   l.initial,  true),
     required     (160, 160, 180, 3, 1, 999,   l.required, true),
-    spawnint     (180, 190, 140, 2, Level::spawnint_min,
-                                    Level::spawnint_max,  l.spawnint),
-    seconds      (160, 220, 180, 5, 0, 30*60, l.seconds,  true),
+    spawnint_slow(180, 190, 140, 2, Level::spawnint_min,
+                                    Level::spawnint_max,  l.spawnint_slow),
+    spawnint_fast(180, 220, 140, 2, Level::spawnint_min,
+                                    Level::spawnint_max,  l.spawnint_fast),
+    seconds      (160, 250, 180, 5, 0, 30*60, l.seconds,  true),
 
     ok           (360, this_yl - 70, 100, 20),
     cancel       (360, this_yl - 40, 100, 20),
@@ -36,7 +38,10 @@ WindowVariables::WindowVariables(Level& l)
     desc_english (20, name_english.get_y(), Language::win_var_name_english),
     desc_initial (20, initial.get_y(), Language::win_var_initial),
     desc_required(20, required.get_y(), Language::win_var_required),
-    desc_spawnint(20, spawnint.get_y(), Language::win_var_spawnint),
+    desc_spawnint_slow(20, spawnint_slow.get_y(),
+                            Language::win_var_spawnint_slow),
+    desc_spawnint_fast(20, spawnint_fast.get_y(),
+                            Language::win_var_spawnint_fast),
     desc_clock   (20, seconds.get_y(), Language::win_var_clock)
 {
     level = &l;
@@ -56,7 +61,8 @@ WindowVariables::WindowVariables(Level& l)
     add_child(name_english);
     add_child(initial);
     add_child(required);
-    add_child(spawnint);
+    add_child(spawnint_slow);
+    add_child(spawnint_fast);
     add_child(seconds);
     add_child(ok);
     add_child(cancel);
@@ -66,7 +72,8 @@ WindowVariables::WindowVariables(Level& l)
     add_child(desc_english);
     add_child(desc_initial);
     add_child(desc_required);
-    add_child(desc_spawnint);
+    add_child(desc_spawnint_slow);
+    add_child(desc_spawnint_fast);
     add_child(desc_clock);
 }
 
@@ -82,17 +89,19 @@ void WindowVariables::calc_self()
     if      (cancel.get_clicked()) set_exit();
     else if (ok    .get_clicked() || hardware.get_mr()) {
         // Gegen bloede Werte
-        if (required.get_number() > initial.get_number()) {
-            required.set_number(initial.get_number());
-        }
-        level->author       = author      .get_text();
-        level->name_german  = name_german .get_text();
-        level->name_english = name_english.get_text();
+        if (required.get_number() > initial.get_number())
+            required.set_number(    initial.get_number());
+        if (spawnint_fast.get_number() > spawnint_slow.get_number())
+            spawnint_fast.set_number(    spawnint_slow.get_number());
+        level->author        = author       .get_text();
+        level->name_german   = name_german  .get_text();
+        level->name_english  = name_english .get_text();
 
-        level->initial      = initial     .get_number();
-        level->required     = required    .get_number();
-        level->spawnint     = spawnint    .get_number();
-        level->seconds      = seconds     .get_number();
+        level->initial       = initial      .get_number();
+        level->required      = required     .get_number();
+        level->spawnint_slow = spawnint_slow.get_number();
+        level->spawnint_fast = spawnint_fast.get_number();
+        level->seconds       = seconds      .get_number();
         set_exit();
     }
     // Ende vom Ausstieg

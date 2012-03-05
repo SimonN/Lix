@@ -15,8 +15,8 @@ void Gameplay::update()
 {
     // Noch schnell die Replaydaten mit der eingestellten Rate fertig machen:
     // Siehe Ratenbutton-Calculate fuer Kommentar, warum dies hier passiert.
-    if (trlo && !replaying && pan.rate.get_number() != trlo->spawnint) {
-        trlo->spawnint    = pan.rate.get_number();
+    if (trlo && !replaying && pan.rate_cur.get_number() != trlo->spawnint) {
+        trlo->spawnint    = pan.rate_cur.get_number();
         Replay::Data data = new_replay_data();
         data.action       = Replay::SPAWNINT;
         data.what         = trlo->spawnint;
@@ -192,7 +192,11 @@ void Gameplay::update_cs_once()
         const int position = replay.get_permu()[t - cs.tribes.begin()];
         // Create new Lixxie if necessary
         if (t->lix_hatch != 0 && upd >= 60 &&
-         upd >= t->update_hatch + t->spawnint) {
+         (t->update_hatch == 0 || upd >= t->update_hatch + t->spawnint))
+            // sometimes, spawnint can be more than 60. In this case, it's fine
+            // to spawn earlier than usual if we haven't spawned anything at
+            // all yet, this is the first || criterion.
+        {
             t->update_hatch = upd;
             const EdGraphic& h = hatches[t->hatch_next];
             Lixxie& newlix = t->lixvec[level.initial - t->lix_hatch];
@@ -312,9 +316,10 @@ void Gameplay::update_cs_one_data(Tribe& t, Tribe::Master* m, Replay::It i)
     const Ulng& upd = cs.update;
 
     if (i->action == Replay::SPAWNINT) {
-        t.spawnint = i->what;
-        if (&t == trlo) {
-            pan.rate.set_number(t.spawnint);
+        const int spint = i->what;
+        if (spint >= t.spawnint_fast && spint <= t.spawnint_slow) {
+            t.spawnint = spint;
+            if (&t == trlo) pan.rate_cur.set_number(t.spawnint);
         }
     }
     else if (i->action == Replay::SKILL) {

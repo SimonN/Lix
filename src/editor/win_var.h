@@ -30,14 +30,16 @@ private:
 
     Number     initial;
     Number     required;
-    Number     spawnint;
+    Number     spawnint_slow;
+    Number     spawnint_fast;
     Number     seconds;
 
     TextButton ok;
     TextButton cancel;
 
     Label desc_author,  desc_german,   desc_english,
-          desc_initial, desc_required, desc_spawnint, desc_clock;
+          desc_initial, desc_required, desc_spawnint_slow,
+          desc_spawnint_fast,          desc_clock;
 
     // Kopieren verboten
     WindowVariables (const WindowVariables&);

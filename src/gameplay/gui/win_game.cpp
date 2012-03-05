@@ -59,6 +59,8 @@ WindowGameplay::WindowGameplay(Replay* rep, const Level* const lev)
         resume .set_hotkey(useR->key_ga_exit);
         restart.set_hotkey();
         menu   .set_hotkey(useR->key_me_delete);
+
+        on_key_me_exit = RESUME;
     }
 }
 
@@ -126,7 +128,9 @@ WindowGameplay::WindowGameplay(
 
     common_constructor();
 
-    menu.set_hotkey(useR->key_me_okay);
+    if (lix_saved >= lix_required)
+         on_key_me_okay = MENU;
+    else on_key_me_okay = RESTART;
 }
 
 
@@ -232,8 +236,8 @@ WindowGameplay::WindowGameplay(
 
     common_constructor();
 
-    menu.set_hotkey(useR->key_me_okay);
     menu.set_text  (Language::ok);
+    on_key_me_okay = MENU;
 }
 
 
@@ -260,7 +264,10 @@ void WindowGameplay::common_constructor()
     menu       .set_text(Language::win_game_menu);
     restart    .set_hotkey(useR->key_restart);
     save_replay.set_hotkey(useR->key_me_export);
-    menu       .set_hotkey(useR->key_ga_exit); // network: also space
+    menu       .set_hotkey(useR->key_ga_exit);
+
+    on_key_me_okay = RESUME;
+    on_key_me_exit = MENU;
 }
 
 
@@ -282,25 +289,15 @@ void WindowGameplay::calc_self()
         }
     }
     else {
-        if (!game_end) {
-            const int k = hardware.get_key();
-            if (resume.get_clicked() || hardware.get_mr()
-             || (k != -1 && k != menu       .get_hotkey()
-                         && k != restart    .get_hotkey()
-                         && k != save_replay.get_hotkey())) {
-                exit_with = RESUME;
-                Manager::remove_focus(this);
-            }
-        }
         if (!game_net && restart.get_clicked()) {
             exit_with = RESTART;
             Manager::remove_focus(this);
         }
-        if (menu.get_clicked()) {
+        else if (menu.get_clicked()) {
             exit_with = MENU;
             Manager::remove_focus(this);
         }
-        if (save_replay.get_clicked()) {
+        else if (save_replay.get_clicked()) {
             browser_save = new SaveBrowser(
              gloB->dir_replay,
              gloB->ext_replay,
@@ -310,7 +307,24 @@ void WindowGameplay::calc_self()
             browser_save->set_info_filename(replay->get_level_filename());
             browser_save->set_info_level_name(
              Level::get_name(replay->get_level_filename()));
+            browser_save->set_texttype(replay->get_canonical_save_filename());
             Manager::add_focus(browser_save);
+        }
+        else if (hardware.key_once(useR->key_me_exit)) {
+            exit_with = on_key_me_exit;
+        }
+        else if (hardware.key_once(useR->key_me_okay)) {
+            exit_with = on_key_me_okay;
+        }
+        else if (!game_end) {
+            const int k = hardware.get_key();
+            if (resume.get_clicked() || hardware.get_mr()
+             || (k != -1 && k != menu       .get_hotkey()
+                         && k != restart    .get_hotkey()
+                         && k != save_replay.get_hotkey())) {
+                exit_with = RESUME;
+                Manager::remove_focus(this);
+            }
         }
     }
 }

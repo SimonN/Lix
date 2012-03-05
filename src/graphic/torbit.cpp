@@ -106,6 +106,14 @@ double Torbit::hypot(int x1, int y1, int x2, int y2) const
 
 
 
+double Torbit::hypotsquare(int x1, int y1, int x2, int y2) const
+{
+    return distance_x(x2, x1) * distance_x(x2, x1)
+         + distance_y(y2, y1) * distance_y(y2, y1);
+}
+
+
+
 void Torbit::clear_to_color(int col)
 {
     ::clear_to_color(bitmap, col);

@@ -3,6 +3,12 @@
 #include "../../other/user.h"
 #include "../../network/network.h"
 
+const int GameplayChat::y_msg (12);
+const int GameplayChat::y_hint_first(1);
+const int GameplayChat::y_hint_plus (19);
+
+
+
 GameplayChat::GameplayChat()
 :
     Element(0, 0, LEMSCR_X, 20),
@@ -17,7 +23,7 @@ GameplayChat::GameplayChat()
         itr->set_font(font_sml);
         itr->set_undraw_color(color[COL_PINK]);
         itr->set_y(y);
-        y += 12;
+        y += y_msg;
     }
 
     set_undraw_color(color[COL_PINK]);
@@ -61,11 +67,38 @@ void GameplayChat::type_on_esc_callback(void* chat_instance)
 
 
 
+void GameplayChat::set_hint(const std::string& hi)
+{
+    set_draw_required();
+    hints.clear();
+    if (hi.empty()) return;
+
+    // hack the hint into separate lines, by parsing all `<br>'
+    const std::string brstr = "<br>";
+    size_t line_start = 0;
+    do {
+        int line_end = hi.find(brstr, line_start);
+        hints.push_back(
+            Api::Label(3, y_hint_first + y_hint_plus * hints.size()));
+        hints.back().set_text(hi.substr(line_start, line_end - line_start));
+        hints.back().set_undraw_color(color[COL_PINK]);
+        // prepare for next iteration, and skip the `<br>'
+        line_start = line_end;
+        if (line_start < std::string::npos) line_start += brstr.size();
+    } while (line_start < std::string::npos);
+}
+
+
+
+
+
 void GameplayChat::calc_self()
 {
     // Clear according to the old yl when drawing
     set_yl(type.get_y() + type.get_yl());
     set_draw_required();
+
+    const int yl_all_hints = y_hint_first + y_hint_plus * hints.size();
 
     const std::list <Console::Line>& li = Console::get_lines_recent();
     size_t nr = 0;
@@ -73,10 +106,11 @@ void GameplayChat::calc_self()
     for (Console::LiIt i = li.begin(); i != li.end(); ++i) {
         msgs[nr].set_text(i->text);
         msgs[nr].set_color(i->white ? color[COL_WHITE] : color[COL_TEXT]);
+        msgs[nr].set_y(yl_all_hints + y_msg * nr);
         ++nr;
     }
-    type.set_y(12 * nr - 2);
-    name.set_y(12 * nr - 2);
+    type.set_y(yl_all_hints + y_msg * nr - 2);
+    name.set_y(yl_all_hints + y_msg * nr - 2);
     for (; nr < msgs.size(); ++nr) {
         msgs[nr].set_text();
     }
@@ -91,6 +125,8 @@ void GameplayChat::calc_self()
 void GameplayChat::draw_self()
 {
     undraw_self();
+    for (std::vector <Api::Label> ::iterator itr = hints.begin();
+     itr != hints.end(); ++itr) { itr->set_draw_required(); itr->draw(); }
     for (std::vector <Api::Label> ::iterator itr = msgs.begin();
      itr != msgs.end(); ++itr) itr->draw();
     name.draw();
