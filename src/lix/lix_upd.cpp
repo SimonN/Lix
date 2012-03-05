@@ -276,27 +276,36 @@ void Gameplay::make_knockback_explosion(
     const int radius = 23; // Diese Zahl stammt aus L2-Screenshots
     for  (int lx = -radius; lx  <=  radius; ++lx) // lx = Loop-X
      for (int ly = -radius; ly  <=  radius; ++ly)
-     if  (map.hypot(lx, ly, 0, 0) <= (radius + 0.5))
+     if  (map.hypotsquare(lx, ly, 0, 0) <= (radius + 0.5) * (radius + 0.5))
      Lixxie::remove_pixel_absolute(x + lx, y + ly + 1); // +1, da Radius%2 = 1
 
     // Knockback
     // Fuer komische Werte siehe alle Kommentare zum lustigen Hochfliegen.
-    const double strength_x = 0.8;
-    const double strength_y = 0.9; // u. A. (!) ist dies fuer lustiges Fliegen
     const double range      = radius * 2.5 + 0.5;
     for (Tribe::It titr = cs.tribes.begin(); titr != cs.tribes.end(); ++titr)
      for (LixIt i = titr->lixvec.begin(); i != titr->lixvec.end(); ++i) {
         // Ausnahme:
         if (i->get_leaving()) continue;
         // Mehr lustiges Hochfliegen durch die 10 tiefere Explosion!
-        const int dx = map.distance_x(x,      i->get_ex());
-        const int dy = map.distance_y(y + 10, i->get_ey());
-        const double distance = map.hypot(dx, dy, 0, 0);
-        if (distance <= range) {
-            const int sx = (int) (dx * strength_x * (1 - distance / range));
-            const int sy = (int) (dy * strength_y * (1 - distance / range));
+        const int dx = map.distance_x(x,     i->get_ex());
+        const int dy = map.distance_y(y + 6, i->get_ey());
+        const double distancesquare = map.hypotsquare(dx, dy, 0, 0);
+        if (distancesquare <= range * range) {
+            const double distance = std::sqrt(distancesquare);
+            int sx = 0;
+            int sy = 0;
+            if (distance > 0) {
+                const double strength_x   = 300;
+                const double strength_y   = 200;
+                const int    center_const =  10;
+                sx = strength_x * dx / (distance * (distance + center_const));
+                sy = strength_y * dy / (distance * (distance + center_const));
+            }
             const bool same_tribe = (&t == &*titr);
-            // the upcoming -6 are for even more jolly flying upwards!
+            // the upcoming -5 are for even more jolly flying upwards!
+            // don't splat too easily from flinging, degrade this bonus softly
+            if      (sy > -10) sy += -5;
+            else if (sy > -20) sy += (-20 - sy) / 2;
             i->add_fling(sx, sy - 6, same_tribe);
         }
     }
