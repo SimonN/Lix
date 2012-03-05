@@ -144,7 +144,7 @@ void Gameplay::update_cs_once()
                     pan.nuke_single.set_on();
                     pan.nuke_multi .set_on();
                 }
-                effect.add_sound(upd, *tr, 0, Sound::OHNO);
+                effect.add_sound(upd, *tr, 0, Sound::NUKE);
             }
         }
         // Ebenfalls etwas Uhriges: Gibt es Spieler mit geretteten Lixen,
