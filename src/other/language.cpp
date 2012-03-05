@@ -911,7 +911,7 @@ eb[Editor::ADD_HAZARD]
         browser_export_image_done     = "Fertig.";
 
         browser_info_author           = "Von:";
-        browser_info_initgoal         = "Rette:";
+        browser_info_initgoal         = "Ziel:";
         browser_info_initial          = "Anzahl Lix:";
         browser_info_hatches          = "Klappen:";
         browser_info_goals            = "Ausgaenge:";
