@@ -40,9 +40,10 @@ public:
                                                       set_torus_y(y);   }
     // Abstandsfunktionen, die die Toruseigenschaft beachten
     // Diese Funktionen funktionieren semantisch wie 1. Arg. minus 2. Arg.
-    int    distance_x(int, int)           const;
-    int    distance_y(int, int)           const;
-    double hypot     (int, int, int, int) const;
+    int    distance_x (int, int)           const;
+    int    distance_y (int, int)           const;
+    double hypot      (int, int, int, int) const;
+    double hypotsquare(int, int, int, int) const; // more efficient
 
     // Malprimitiva
     void clear_to_color(int);
