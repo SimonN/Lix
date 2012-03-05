@@ -287,26 +287,26 @@ void Gameplay::make_knockback_explosion(
         // Ausnahme:
         if (i->get_leaving()) continue;
         // Mehr lustiges Hochfliegen durch die 10 tiefere Explosion!
-        const int dx = map.distance_x(x,     i->get_ex());
-        const int dy = map.distance_y(y + 6, i->get_ey());
+        const int dx = map.distance_x(x,      i->get_ex());
+        const int dy = map.distance_y(y + 10, i->get_ey());
         const double distancesquare = map.hypotsquare(dx, dy, 0, 0);
         if (distancesquare <= range * range) {
-            const double distance = std::sqrt(distancesquare);
+            const double dist = std::sqrt(distancesquare);
             int sx = 0;
             int sy = 0;
-            if (distance > 0) {
-                const double strength_x   = 300;
-                const double strength_y   = 200;
-                const int    center_const =  10;
-                sx = strength_x * dx / (distance * (distance + center_const));
-                sy = strength_y * dy / (distance * (distance + center_const));
+            if (dist > 0) {
+                const double strength_x   = 350;
+                const double strength_y   = 330;
+                const int    center_const =  20;
+                sx = (int) (strength_x * dx / (dist * (dist + center_const)) );
+                sy = (int) (strength_y * dy / (dist * (dist + center_const)) );
             }
             const bool same_tribe = (&t == &*titr);
             // the upcoming -5 are for even more jolly flying upwards!
             // don't splat too easily from flinging, degrade this bonus softly
             if      (sy > -10) sy += -5;
             else if (sy > -20) sy += (-20 - sy) / 2;
-            i->add_fling(sx, sy - 6, same_tribe);
+            i->add_fling(sx, sy, same_tribe);
         }
     }
     effect.add_explosion(upd, t, lem_id, x, y);
