@@ -11,6 +11,7 @@ Lix can use the graphics and/or levels from these games:
     Oh no more Lemmings    (graphics and levels)
     Holiday Lemmings 199x  (graphics and levels)
     Lemmings 2: The Tribes (only graphics)
+    Lemmini                (only levels)
 
 Since these games are copyright-restricted, Lix doesn't contain any of their
 files. If you have the DOS versions of the named games, you can take some of
@@ -100,6 +101,19 @@ Linux users probably know how to setup a shell script to do the work.
 
 Note that if you're going to include content from those Lemmings games,
 you shouldn't distribute your game directory as a whole any more.
+
+
+
+USING LEMMINI LEVELS
+--------------------
+Lix can read Lemmini's .INI format, as long as the .INI levels use styles from
+Lemmings 1 or ONML. Custom-style .INI levels are not supported.
+
+After installing the terrain as instructed above, simply copy Lemmini levels
+into any subdirectory of Lix's levels/ directory. They can be selected and
+played like regular Lix levels.
+
+If you edit such a level, the result will be saved in Lix's own format.
 
 
 

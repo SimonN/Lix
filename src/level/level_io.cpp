@@ -22,12 +22,17 @@ void Level::load_from_file(const Filename& filename)
     clear();
     status = GOOD;
 
-    // load an original level from L1/ONML/...
-    if (get_binary(filename)) {
+    FileFormat fmt = get_file_format(filename);
+    if (fmt == FORMAT_BINARY) {
+        // load an original .LVL file from L1/ONML/...
         load_from_binary(filename);
     }
-    // load something in the L++ text file format
+    else if (fmt == FORMAT_LEMMINI) {
+        // load an .INI file from Lemmini
+        load_from_lemmini(filename);
+    }
     else {
+        // load the regular Lix format
         std::vector <IO::Line> lines;
         if (IO::fill_vector_from_file(lines, filename.get_rootful())) {
             load_from_vector(lines);
@@ -323,9 +328,9 @@ std::ostream& operator << (std::ostream& o, const Level::PosLi& li)
 
 
 
-bool Level::get_binary(const Filename& filename)
+Level::FileFormat Level::get_file_format(const Filename& filename)
 {
-    if (! ::exists(filename.get_rootful().c_str())) return false;
+    if (! ::exists(filename.get_rootful().c_str())) return FORMAT_NOTHING;
     std::ifstream file(filename.get_rootful().c_str(), std::ios::binary);
     // the length check before the read() was necessary for me on Linux
     // to get the Debugger past this, it got stuck on read() when nothing
@@ -333,7 +338,7 @@ bool Level::get_binary(const Filename& filename)
     file.seekg (0, std::ios::end);
     if (file.tellg() < 8) {
         file.close();
-        return false;
+        return FORMAT_NOTHING;
     }
     file.seekg(0, std::ios::beg);
     unsigned char buf[8];
@@ -344,9 +349,15 @@ bool Level::get_binary(const Filename& filename)
     // for rate, lixes, required, seconds at the beginning.
     // Neither should be > 0x00FF. If all of them are,
     // this is an ASCII file which shouldn't have '\0' chars.
-    if (buf[0] != '\0' && buf[2] != '\0' && buf[4] != '\0' && buf[6] != '\0')
-         return false;
-    else return true;
+    if (buf[0] == '\0' || buf[2] == '\0' || buf[4] == '\0' || buf[6] == '\0')
+        return FORMAT_BINARY;
+
+    // This isn't a binary file. Is it a Lemmini file?
+    // Lemmini files start with "# LVL".
+    else if (buf[0] == '#' && buf[1] == ' ' && buf[2] == 'L' && buf[3] == 'V')
+        return FORMAT_LEMMINI;
+
+    else return FORMAT_LIX;
 }
 
 
@@ -354,8 +365,12 @@ bool Level::get_binary(const Filename& filename)
 // A speedup of the whole loading functionn, this only extracts the name.
 std::string Level::get_name(const Filename& filename)
 {
-    if (get_binary(filename)) return get_name_binary(filename);
-    else                      return get_name_ascii (filename);
+    FileFormat fmt = get_file_format(filename);
+    switch (fmt) {
+        case FORMAT_BINARY:  return get_name_binary (filename);
+        case FORMAT_LEMMINI: return get_name_lemmini(filename);
+        default:             return get_name_ascii  (filename);
+    }
 }
 
 

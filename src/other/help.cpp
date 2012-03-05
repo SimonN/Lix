@@ -76,11 +76,17 @@ std::string version_to_string(const unsigned long nr) {
     if (nr % 100 == 0) s.resize(s.size() - 3);
     return s;
 }
+
+
+
 void string_to_nice_case(std::string& s) {
+    if (s.empty()) return;
+    if (s[0] >= 'a' && s[0] <= 'z') s[0] = s[0] + 'A' - 'a';
     for (std::string::iterator i = ++s.begin(); i != s.end(); ++i) {
         if (*i >= 'A' && *i <= 'Z') *i = *i + 'a' - 'A';
     }
 }
+
 
 
 void string_shorten(std::string& s, const FONT* ft, const int length) {

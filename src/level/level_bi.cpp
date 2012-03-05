@@ -280,6 +280,14 @@ void Level::load_from_binary(const Filename& filename)
         itr->x *= 2;
         itr->y *= 2;
     }
+
+    load_finalize_binary_or_lemmini(filename);
+}
+
+
+
+void Level::load_finalize_binary_or_lemmini(const Filename& filename)
+{
     // Ueble Machenschaften, die den Level gar nicht so sehr wie das Original
     // darstellen, sondern dafuer viel schoener! Links und rechts den Level
     // abschneiden, wenn der Platz nicht gebraucht wird.
@@ -305,6 +313,8 @@ void Level::load_from_binary(const Filename& filename)
      itr = pos[type].begin(); itr != pos[type].end(); ++itr) {
         itr->x -= min_x;
     }
+
+    const std::string& filestr = filename.get_rootful();
 
     // ORIGHACK: In multiplayer levels, the hatch direction should point
     // towards the center because torus_x can't be set.

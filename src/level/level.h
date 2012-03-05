@@ -111,6 +111,13 @@ struct Level {
         BAD_EMPTY           // Leveldatei vorhanden, aber leer
     };
 
+    enum FileFormat {
+        FORMAT_NOTHING,
+        FORMAT_LIX,
+        FORMAT_BINARY,
+        FORMAT_LEMMINI
+    };
+
     struct Pos {
         const Object* ob; // Name des Objektes ("s" wie "String")
         int  x;
@@ -209,18 +216,22 @@ private:
     // Diese Funktionen sind Helfer. drit = draw_iterator_to_bitmap
     void drit(PosIt, Torbit&, Lookup* = 0) const;
 
-    void load_from_vector(const std::vector <IO::Line>&);
-    void load_from_binary(const Filename&);
-    void load_finalize   ();
+    void load_from_vector (const std::vector <IO::Line>&);
+    void load_from_binary (const Filename&);
+    void load_from_lemmini(const Filename&);
+
+    void load_finalize_binary_or_lemmini(const Filename&);
+    void load_finalize();
 
     void add_object_from_ascii_line(const std::string&,
                           int, int, const std::string&);
     void record_missing_image      (const std::string&);
 
     // Statisches Hilfszeug
-    static std::string get_name_ascii (const Filename&);
-    static std::string get_name_binary(const Filename&);
-    static bool        get_binary     (const Filename&);
+    static std::string get_name_ascii  (const Filename&);
+    static std::string get_name_binary (const Filename&);
+    static std::string get_name_lemmini(const Filename&);
+    static FileFormat  get_file_format (const Filename&);
 
 };
 

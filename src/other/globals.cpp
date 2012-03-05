@@ -66,12 +66,11 @@ Globals::Globals()
     // Dateien laden
     ext_level                    (".txt"),
     ext_level_orig               (".lvl"),
+    ext_level_lemmini            (".ini"),
     ext_replay                   (".txt"),
     ext_user                     (".txt"),
     ext_object_definitions       (".txt"),
     mask_anything                ("*.*"),
-    mask_ext_level               ("*.txt"),
-    mask_ext_level_orig          ("*.lvl"),
     mask_ext_replay              ("*.txt"),
     mask_ext_user                ("*.txt"),
     mask_ext_bmp                 ("*.bmp"),

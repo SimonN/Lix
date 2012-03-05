@@ -77,12 +77,11 @@ public:
         // Dateien laden
         ext_level,
         ext_level_orig,
+        ext_level_lemmini,
         ext_replay,
         ext_user,
         ext_object_definitions,
         mask_anything,
-        mask_ext_level,
-        mask_ext_level_orig,
         mask_ext_replay,
         mask_ext_user,
         mask_ext_bmp,
