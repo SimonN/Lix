@@ -1,4 +1,4 @@
-$BUILT                                             2011-11-20 10:52:17
+$BUILT                                             2012-02-12 20:29:36
 $AUTHOR                                                   Clam Spammer
 $GERMAN                                                               
 $ENGLISH                                              Builders' Cracks
@@ -16,15 +16,15 @@ $ENGLISH                                              Builders' Cracks
 #SECONDS                                                             0
 #INITIAL                                                            10
 #REQUIRED                                                           10
-#RATE                                                                1
+#SPAWN_INTERVAL                                                     53
 
 #NOTHING                                                             0
 #NOTHING                                                             0
 #NOTHING                                                             0
 #NOTHING                                                             0
-#NOTHING                                                             0
+#RUNNER                                                              1
 #FLOATER                                                             1
-#BUILDER                                                            11
+#BUILDER                                                            12
 #NOTHING                                                             0
 #NOTHING                                                             0
 #NOTHING                                                             0
@@ -40,20 +40,12 @@ $ENGLISH                                              Builders' Cracks
 
 :bitmap/geoo/construction/concrete/podium_32:            128       176
 :bitmap/geoo/construction/concrete/032h:                   0       144
-:bitmap/geoo/construction/concrete/032h:                 128       208
 :bitmap/geoo/construction/concrete/032h:                   0       304
 :bitmap/geoo/construction/pillar_32:                      16       208
 :bitmap/geoo/construction/pillar_base:                     0       176
 :bitmap/geoo/construction/pillar_base:                     0       288
 :bitmap/geoo/construction/pillar_top_shaded:              16       192
 :bitmap/geoo/construction/pillar_bottom:                  16       272
-:bitmap/geoo/construction/pillar_base:                   512       288
-:bitmap/geoo/construction/pillar_bottom:                 528       272
-:bitmap/geoo/construction/pillar_32:                     528       240
-:bitmap/geoo/construction/pillar_base:                   512       176
-:bitmap/geoo/construction/pillar_top_shaded:             528       192
-:bitmap/geoo/construction/pillar_32:                     528       208
-:bitmap/geoo/construction/concrete/032h:                 512       144
 :bitmap/geoo/construction/concrete/032h:                  96       272
 :bitmap/geoo/construction/concrete/032h:                 160       272
 :bitmap/geoo/construction/concrete/032v:                  96       144
@@ -61,8 +53,6 @@ $ENGLISH                                              Builders' Cracks
 :bitmap/geoo/construction/concrete/032v:                  96       208
 :bitmap/geoo/construction/concrete/032v:                 192       208
 :bitmap/geoo/construction/pillar_32:                      16       240
-:bitmap/geoo/construction/concrete/032h:                 128       240
-:bitmap/geoo/construction/concrete/032h:                 512       304
 :bitmap/geoo/construction/concrete/032h:                 576       304
 :bitmap/geoo/construction/pillar_base:                   576       288
 :bitmap/geoo/construction/pillar_bottom:                 592       272
@@ -85,3 +75,4 @@ $ENGLISH                                              Builders' Cracks
 :bitmap/geoo/construction/wall/big_brick1:               416       368
 :bitmap/geoo/construction/wall/big_brick1:               448       336
 :bitmap/geoo/construction/wall/big_square:               480       336     d
+:bitmap/geoo/construction/concrete/064:                  128       208

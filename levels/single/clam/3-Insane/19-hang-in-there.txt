@@ -1,22 +1,22 @@
-$BUILT                                             2011-12-10 09:19:05
+$BUILT                                             2012-02-18 10:55:19
 $AUTHOR                                                           Clam
 $GERMAN                                                               
 $ENGLISH                                                Hang in there!
 
 #SIZE_X                                                            640
-#SIZE_Y                                                            576
+#SIZE_Y                                                            592
 #TORUS_X                                                             0
 #TORUS_Y                                                             0
 #START_X                                                             0
 #START_Y                                                             0
 #BACKGROUND_RED                                                      0
 #BACKGROUND_GREEN                                                    0
-#BACKGROUND_BLUE                                                    64
+#BACKGROUND_BLUE                                                     0
 
 #SECONDS                                                             0
-#INITIAL                                                            10
-#REQUIRED                                                           10
-#RATE                                                               99
+#INITIAL                                                             5
+#REQUIRED                                                            5
+#SPAWN_INTERVAL                                                      4
 
 #NOTHING                                                             0
 #NOTHING                                                             0
@@ -25,7 +25,7 @@ $ENGLISH                                                Hang in there!
 #RUNNER                                                              1
 #JUMPER                                                             10
 #BATTER                                                             10
-#BUILDER                                                             1
+#PLATFORMER                                                          1
 #DIGGER                                                              2
 #NOTHING                                                             0
 #NOTHING                                                             0
@@ -33,70 +33,61 @@ $ENGLISH                                                Hang in there!
 
 :bitmap/geoo/sandstone/Hatch.H:                          272         0
 
-:bitmap/geoo/sandstone/Goal.G:                           288       416
+:bitmap/geoo/sandstone/Goal.G:                           288       384
 
-:bitmap/matt/water.W:                                     32       480
-:bitmap/matt/water.W:                                      0       480
-:bitmap/matt/water.W:                                    608       480
-:bitmap/matt/water.W:                                    576       480
-:bitmap/geoo/construction/sawblade_medium.F:             288       160
+:bitmap/geoo/sandstone/brazier.F:                        288       198
+:bitmap/geoo/sandstone/brazier.F:                        304       230
+:bitmap/geoo/sandstone/brazier.F:                        320       198
+:bitmap/matt/water.W:                                      0       496
+:bitmap/matt/water.W:                                     16       496
+:bitmap/matt/water.W:                                    592       496
+:bitmap/matt/water.W:                                    608       496
+:bitmap/geoo/sandstone/torch.F:                            8       318
+:bitmap/geoo/sandstone/torch.F:                          600       318
+:bitmap/geoo/sandstone/torch.F:                          192       224
+:bitmap/geoo/sandstone/torch.F:                          416       224
+:bitmap/geoo/sandstone/brazier.F:                        336       262
+:bitmap/geoo/sandstone/brazier.F:                        272       262
+:bitmap/geoo/sandstone/torch.F:                          192       416
+:bitmap/geoo/sandstone/torch.F:                          416       416
 
-:bitmap/geoo/sandstone/64x32:                             64       352
-:bitmap/geoo/sandstone/64x32:                            128       352
-:bitmap/geoo/sandstone/64x32:                            192       352
-:bitmap/geoo/sandstone/64x32:                            448       352
-:bitmap/geoo/sandstone/64x32:                            512       352
-:bitmap/geoo/sandstone/32x64:                            608       272
-:bitmap/geoo/sandstone/32x64:                            608       336
-:bitmap/geoo/sandstone/32x16:                            576       256
-:bitmap/geoo/sandstone/64x32:                             64       480
-:bitmap/geoo/sandstone/64x32:                            128       480
-:bitmap/geoo/sandstone/64x32:                            192       480
-:bitmap/geoo/sandstone/64x32:                            448       480
-:bitmap/geoo/sandstone/64x32:                            512       480
-:bitmap/geoo/sandstone/32x64:                              0       272
-:bitmap/geoo/sandstone/32x64:                              0       336
-:bitmap/geoo/sandstone/32x16:                             32       256
-:bitmap/geoo/sandstone/32x16:                             64       256
-:bitmap/geoo/sandstone/64x32:                            256       352
-:bitmap/geoo/sandstone/64x32:                            320       352
-:bitmap/geoo/sandstone/64x32:                            384       352
-:bitmap/geoo/sandstone/64x32:                            256       480
-:bitmap/geoo/sandstone/64x32:                            320       480
-:bitmap/geoo/sandstone/64x32:                            384       480
-:bitmap/geoo/sandstone/32x16:                            544       256
-:bitmap/geoo/sandstone/64x64:                            576       192
-:bitmap/geoo/sandstone/64x64:                              0       192
-:bitmap/geoo/sandstone/32x64:                              0       400
-:bitmap/geoo/sandstone/32x64:                            608       400
-:bitmap/geoo/sandstone/32x16:                              0       256
-:bitmap/geoo/sandstone/32x16:                            608       256
-:bitmap/geoo/sandstone/64x64:                            512       128
-:bitmap/geoo/sandstone/64x64:                            448       128
-:bitmap/geoo/sandstone/64x64:                            192       128
-:bitmap/geoo/sandstone/64x64:                            128       128
-:bitmap/geoo/sandstone/64x64:                             64       128
-:bitmap/geoo/sandstone/64x64:                            576       128
-:bitmap/geoo/sandstone/64x64:                              0       128
-:bitmap/geoo/sandstone/64x64:                            384       128
-:bitmap/geoo/sandstone/64x64:                            320       128
-:bitmap/geoo/sandstone/64x64:                            256       128
-:bitmap/geoo/sandstone/32x16:                             64       240
-:bitmap/geoo/sandstone/32x16:                            544       240
-:bitmap/geoo/sandstone/64x64:                              0       512
-:bitmap/geoo/sandstone/64x64:                             64       512
-:bitmap/geoo/sandstone/64x64:                            128       512
-:bitmap/geoo/sandstone/64x64:                            192       512
-:bitmap/geoo/sandstone/64x64:                            256       512
-:bitmap/geoo/sandstone/64x64:                            320       512
-:bitmap/geoo/sandstone/64x64:                            384       512
-:bitmap/geoo/sandstone/64x64:                            448       512
-:bitmap/geoo/sandstone/64x64:                            512       512
-:bitmap/geoo/sandstone/64x64:                            576       512
-:bitmap/geoo/sandstone/16x16:                            302        96
-:bitmap/geoo/sandstone/16x16:                            322        96
-:bitmap/geoo/sandstone/16x16:                            302       112
-:bitmap/geoo/sandstone/16x16:                            322       112
+:bitmap/geoo/sandstone/64x32:                             48       352
+:bitmap/geoo/sandstone/64x32:                            112       352
+:bitmap/geoo/sandstone/64x32:                            176       352
+:bitmap/geoo/sandstone/64x32:                            464       352
+:bitmap/geoo/sandstone/64x32:                            528       352
+:bitmap/geoo/sandstone/32x64:                            608       350
+:bitmap/geoo/sandstone/64x32:                            176       496
+:bitmap/geoo/sandstone/64x32:                            240       352
+:bitmap/geoo/sandstone/64x32:                            336       352
+:bitmap/geoo/sandstone/64x32:                            400       352
+:bitmap/geoo/sandstone/64x32:                            240       496
+:bitmap/geoo/sandstone/64x32:                            336       496
+:bitmap/geoo/sandstone/64x32:                            400       496
+:bitmap/geoo/sandstone/32x64:                            608       254
+:bitmap/geoo/sandstone/64x64:                            576       190
+:bitmap/geoo/sandstone/32x64:                              0       254
+:bitmap/geoo/sandstone/64x64:                              0       190
+:bitmap/geoo/sandstone/64x64:                            512       126
+:bitmap/geoo/sandstone/64x64:                            448       126
+:bitmap/geoo/sandstone/64x64:                            192       126
+:bitmap/geoo/sandstone/64x64:                            128       126
+:bitmap/geoo/sandstone/64x64:                             64       126
+:bitmap/geoo/sandstone/64x64:                            576       126
+:bitmap/geoo/sandstone/64x64:                              0       126
+:bitmap/geoo/sandstone/64x64:                            384       126
+:bitmap/geoo/sandstone/64x64:                            320       126
+:bitmap/geoo/sandstone/64x64:                            256       126
+:bitmap/geoo/sandstone/64x64:                              0       528
+:bitmap/geoo/sandstone/64x64:                             64       528
+:bitmap/geoo/sandstone/64x64:                            128       528
+:bitmap/geoo/sandstone/64x64:                            192       528
+:bitmap/geoo/sandstone/64x64:                            256       528
+:bitmap/geoo/sandstone/64x64:                            320       528
+:bitmap/geoo/sandstone/64x64:                            384       528
+:bitmap/geoo/sandstone/64x64:                            448       528
+:bitmap/geoo/sandstone/64x64:                            512       528
+:bitmap/geoo/sandstone/64x64:                            576       528
 :bitmap/geoo/sandstone/64x32:                            384        64
 :bitmap/geoo/sandstone/64x32:                            448        64
 :bitmap/geoo/sandstone/64x32:                            512        64
@@ -119,3 +110,39 @@ $ENGLISH                                                Hang in there!
 :bitmap/geoo/construction/rod_steel/straight32.S:        322        64     rrr
 :bitmap/geoo/construction/rod_steel/end_rect.S:          310        64     fr
 :bitmap/geoo/construction/rod_steel/end_rect.S:          322        64     fr
+:bitmap/geoo/sandstone/32x64:                              0       350
+:bitmap/geoo/sandstone/32x32:                             64       238
+:bitmap/geoo/sandstone/32x16:                             32       254
+:bitmap/geoo/sandstone/32x32:                            544       238
+:bitmap/geoo/sandstone/32x16:                            576       254
+:bitmap/geoo/sandstone/16x32:                            302        94
+:bitmap/geoo/sandstone/16x32:                            322        94
+:bitmap/geoo/sandstone/slopes/32x32lb:                   368       464
+:bitmap/geoo/sandstone/slopes/32x32rb:                   240       464
+:bitmap/geoo/sandstone/16x32:                              0       318
+:bitmap/geoo/sandstone/16x32:                            624       318
+:bitmap/geoo/sandstone/slopes/32x32rb:                   272       432
+:bitmap/geoo/sandstone/slopes/32x32rt:                   264       440     d
+:bitmap/geoo/sandstone/slopes/32x32rb:                   256       448     n
+:bitmap/geoo/sandstone/slopes/32x32lb:                   336       432
+:bitmap/geoo/sandstone/slopes/32x32lb:                   334       446     rd
+:bitmap/geoo/sandstone/64x32:                            112       496
+:bitmap/geoo/sandstone/64x32:                             48       496
+:bitmap/geoo/sandstone/slopes/32x32lb:                   352       448     n
+:bitmap/geoo/sandstone/32x32:                            304       352
+:bitmap/geoo/sandstone/64x32:                            464       496
+:bitmap/geoo/sandstone/64x32:                            528       496
+:bitmap/geoo/sandstone/32x16:                            304       432     d
+:bitmap/geoo/sandstone/32x64:                              0       414
+:bitmap/geoo/sandstone/32x64:                            608       414
+:bitmap/geoo/sandstone/64x16:                            288       448
+:bitmap/geoo/sandstone/64x16:                            288       432     d
+:bitmap/geoo/sandstone/32x32:                            272       464
+:bitmap/geoo/sandstone/32x32:                            336       464
+:bitmap/geoo/sandstone/32x64:                            304       464
+:bitmap/geoo/sandstone/slopes/32x32rb:                    64       464
+:bitmap/geoo/sandstone/slopes/32x32rb:                   480       464
+:bitmap/geoo/sandstone/slopes/32x32lb:                   128       464
+:bitmap/geoo/sandstone/slopes/32x32lb:                   544       464
+:bitmap/geoo/sandstone/32x32:                             96       464
+:bitmap/geoo/sandstone/32x32:                            512       464
