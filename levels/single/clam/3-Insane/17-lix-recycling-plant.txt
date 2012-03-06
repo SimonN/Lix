@@ -1,4 +1,4 @@
-$BUILT                                             2011-11-20 11:38:17
+$BUILT                                             2012-02-14 21:14:50
 $AUTHOR                                                   Clam Spammer
 $GERMAN                                                               
 $ENGLISH                                           Lix Recycling Plant
@@ -16,7 +16,7 @@ $ENGLISH                                           Lix Recycling Plant
 #SECONDS                                                             0
 #INITIAL                                                            30
 #REQUIRED                                                           27
-#RATE                                                               50
+#SPAWN_INTERVAL                                                     28
 
 #NOTHING                                                             0
 #NOTHING                                                             0
@@ -44,6 +44,7 @@ $ENGLISH                                           Lix Recycling Plant
 :bitmap/geoo/construction/Laseremit_vrt_16.F:              0       208
 :bitmap/geoo/construction/sawblade_small.F:              424       368
 :bitmap/geoo/construction/sawblade_small.F:              528       180
+:bitmap/geoo/construction/sawblade_small.F:              352       112
 
 :bitmap/geoo/construction/concrete/016h:                  64       352
 :bitmap/geoo/construction/concrete/016h:                  96       352
@@ -64,7 +65,6 @@ $ENGLISH                                           Lix Recycling Plant
 :bitmap/geoo/construction/concrete/008h:                  96       248
 :bitmap/geoo/steel/64x64.S:                              336       224
 :bitmap/geoo/construction/concrete/032h:                 336       192
-:bitmap/geoo/steel/64x64.S:                              336       128
 :bitmap/geoo/construction/concrete/032h:                 240       192
 :bitmap/geoo/construction/concrete/016h:                 208       240
 :bitmap/geoo/construction/concrete/016h:                 176       240
@@ -77,9 +77,6 @@ $ENGLISH                                           Lix Recycling Plant
 :bitmap/geoo/construction/concrete/016h:                 208       208
 :bitmap/geoo/steel/32x64o.S:                             448       208
 :bitmap/geoo/construction/concrete/podium_32:            432       144
-:bitmap/geoo/construction/concrete/016b:                 384       112
-:bitmap/geoo/construction/concrete/016a:                 336       112
-:bitmap/geoo/construction/concrete/016h:                 352       112
 :bitmap/geoo/construction/concrete/032v:                  80       112
 :bitmap/geoo/construction/concrete/032h:                  80        80
 :bitmap/geoo/construction/concrete/032h:                 112       176
@@ -94,8 +91,6 @@ $ENGLISH                                           Lix Recycling Plant
 :bitmap/geoo/construction/concrete/064:                    0       304
 :bitmap/geoo/construction/concrete/032h:                   0       272
 :bitmap/geoo/construction/concrete/032:                  208       352
-:bitmap/geoo/construction/concrete/008h:                 352       104
-:bitmap/geoo/construction/concrete/008h:                 368       104
 :bitmap/geoo/steel/32x32o.S:                             448       176
 :bitmap/geoo/construction/concrete/032:                  448       272
 :bitmap/geoo/construction/concrete/032:                   64       288
@@ -153,3 +148,17 @@ $ENGLISH                                           Lix Recycling Plant
 :bitmap/geoo/construction/concrete/064:                  576       144
 :bitmap/geoo/construction/concrete/032:                  544       144
 :bitmap/geoo/construction/concrete/032:                  608       208
+:bitmap/geoo/steel/64x64.S:                              336       128
+:bitmap/geoo/construction/concrete/008h:                 336       112     d
+:bitmap/geoo/construction/concrete/016a:                 336       112
+:bitmap/geoo/construction/concrete/008h:                 384       112     d
+:bitmap/geoo/construction/concrete/016b:                 384       112
+:bitmap/geoo/construction/concrete/016:                  360       104
+:bitmap/geoo/construction/concrete/008v:                 352       104
+:bitmap/geoo/construction/concrete/008v:                 376       104
+:bitmap/geoo/construction/concrete/008v:                 376       100     d
+:bitmap/geoo/construction/concrete/008v:                 352       100     d
+:bitmap/geoo/construction/concrete/008v:                 376       112     n
+:bitmap/geoo/construction/concrete/008v:                 352       112     n
+:bitmap/geoo/sandstone/8x8:                              352       120     d
+:bitmap/geoo/sandstone/8x8:                              376       120     d

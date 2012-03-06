@@ -1,4 +1,4 @@
-$BUILT                                             2011-11-28 14:27:52
+$BUILT                                             2012-02-18 21:06:56
 $AUTHOR                                                   Clam Spammer
 $GERMAN                                                               
 $ENGLISH                                       Leaky Building Syndrome
@@ -16,7 +16,7 @@ $ENGLISH                                       Leaky Building Syndrome
 #SECONDS                                                             0
 #INITIAL                                                            20
 #REQUIRED                                                           18
-#RATE                                                               50
+#SPAWN_INTERVAL                                                     28
 
 #NOTHING                                                             0
 #NOTHING                                                             0
@@ -33,7 +33,7 @@ $ENGLISH                                       Leaky Building Syndrome
 
 :bitmap/matt/08 - Bricks/Hatch.H:                        216        32
 
-:bitmap/matt/08 - Bricks/Goal.G:                         672       272
+:bitmap/matt/08 - Bricks/Goal.G:                         672       288
 
 :bitmap/matt/water.W:                                    752       368
 :bitmap/matt/water.W:                                    784       368
@@ -66,6 +66,8 @@ $ENGLISH                                       Leaky Building Syndrome
 :bitmap/matt/water.W:                                    672       368
 :bitmap/matt/water.W:                                    704       368
 :bitmap/matt/water.W:                                    720       368
+:bitmap/geoo/sandstone/brazier.F:                        712       296
+:bitmap/geoo/sandstone/brazier.F:                        664       296
 
 :bitmap/matt/08 - Bricks/03:                             416       272
 :bitmap/matt/08 - Bricks/17:                             464       200
@@ -114,10 +116,6 @@ $ENGLISH                                       Leaky Building Syndrome
 :bitmap/matt/02 - Gold Mine/tracks:                      400       112     rrrd
 :bitmap/matt/02 - Gold Mine/tracks:                      400        64     rrrd
 :bitmap/geoo/construction/stairsbrick_ru_32:             432       256     frd
-:bitmap/matt/08 - Bricks/01:                             672       320
-:bitmap/matt/08 - Bricks/01:                             704       320
-:bitmap/matt/08 - Bricks/01:                             736       320
-:bitmap/matt/09 - Marble/21:                             672       288     rrd
 :bitmap/matt/08 - Bricks/02:                             224       336
 :bitmap/matt/08 - Bricks/02:                             288       336
 :bitmap/matt/08 - Bricks/02:                             352       336
