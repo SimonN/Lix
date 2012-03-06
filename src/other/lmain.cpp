@@ -181,7 +181,8 @@ void LMain::draw()
 {
     // The hereby managed classes blit the OSD and other things to the screen
     // by themselves. Only Sound and Api::manager are done from here.
-    Api::Manager::draw();
+    // gameplay instead decides on a time itself to have this drawn.
+    if (! gameplay) Api::Manager::draw();
 
     if (editor)   editor  ->draw();
     if (gameplay) gameplay->draw();

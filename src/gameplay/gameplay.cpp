@@ -75,6 +75,9 @@ Gameplay::Gameplay(Replay* rep)
     prepare_players(rep);
     prepare_level();
     prepare_panel();
+
+    Api::Manager::add_elder(&pan);
+    Api::Manager::add_elder(&chat);
 }
 
 

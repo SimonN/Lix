@@ -73,8 +73,12 @@ void Gameplay::draw() {
          if ( i->get_mark()) i->draw();
     }
 
-    // Draw chat behind the replay sign
-    chat.draw();
+    // Statusanzeige
+    if (cs.clock > 0) pan.stats.set_use_countdown();
+    pan.stats.set_countdown(cs.clock);
+    pan.stats.set_stopwatch(cs.update);
+
+    Api::Manager::draw(); // draw all elements to its torbit
 
     // OSD: Replay-Zeichen
     if (replaying && ! multiplayer) {
@@ -82,19 +86,13 @@ void Gameplay::draw() {
         replay_sign.draw();
     }
 
-    // Statusanzeige
-    if (cs.clock > 0) pan.stats.set_use_countdown();
-    pan.stats.set_countdown(cs.clock);
-    pan.stats.set_stopwatch(cs.update);
-    pan.draw();
-
     // Mauszeiger ganz obenauf
     mouse_cursor.set_x(hardware.get_mx()-mouse_cursor_offset);
     mouse_cursor.set_y(hardware.get_my()-mouse_cursor_offset);
     mouse_cursor.draw();
 
     map. draw(*pre_screen);
-    Api::Manager::draw_to_pre_screen();
+    Api::Manager::draw_to_pre_screen(); // draw its prepared torbit
 
     blit_to_screen(pre_screen->get_al_bitmap());
 }

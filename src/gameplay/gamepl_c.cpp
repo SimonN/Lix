@@ -22,11 +22,6 @@ void Gameplay::calc()
     chat.calc();
 
     if (window_gameplay) {
-        // This is a bit of a kludge. We don't draw the chat with elders, so
-        // the chat, which always calculates and set_draw_requires, may
-        // overwrite the window. Don't let it do that.
-        window_gameplay->set_draw_required();
-
         calc_window();
         // This is a bit kludgy, but it prevents opening the window
         // immediately again during a network game on an ESC press
@@ -48,8 +43,6 @@ void Gameplay::calc_window()
         switch (exit_with)
         {
         case Api::WindowGameplay::RESUME:
-            // kludge: irgendwie werden sonst Panels geloescht
-            pan.set_draw_required();
             break;
 
         case Api::WindowGameplay::MENU:

@@ -90,30 +90,33 @@ void GameplayChat::set_hint(const std::string& hi)
 
 
 
-
-
 void GameplayChat::calc_self()
 {
-    // Clear according to the old yl when drawing
-    set_yl(type.get_y() + type.get_yl());
-    set_draw_required();
-
     const int yl_all_hints = y_hint_first + y_hint_plus * hints.size();
 
     const std::list <Console::Line>& li = Console::get_lines_recent();
     size_t nr = 0;
 
     for (Console::LiIt i = li.begin(); i != li.end(); ++i) {
-        msgs[nr].set_text(i->text);
+        if (msgs[nr].get_text() != i->text) {
+            msgs[nr].set_text(i->text);
+            set_draw_required();
+        }
         msgs[nr].set_color(i->white ? color[COL_WHITE] : color[COL_TEXT]);
         msgs[nr].set_y(yl_all_hints + y_msg * nr);
         ++nr;
     }
+    for (; nr < msgs.size(); ++nr) if (! msgs[nr].get_text().empty()) {
+        msgs[nr].set_text();
+        set_draw_required();
+    }
+    // Clear according to the old yl when drawing
+    if (get_draw_required())
+        set_yl(type.get_y() + type.get_yl());
+
     type.set_y(yl_all_hints + y_msg * nr - 2);
     name.set_y(yl_all_hints + y_msg * nr - 2);
-    for (; nr < msgs.size(); ++nr) {
-        msgs[nr].set_text();
-    }
+
     type.set_hidden(!type.get_on());
     name.set_hidden(!type.get_on());
     if (type_on_last_frame > 0) --type_on_last_frame;
