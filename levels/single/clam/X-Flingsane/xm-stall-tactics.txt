@@ -1,0 +1,85 @@
+$BUILT                                             2012-03-06 13:45:59
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                                 Stall Tactics
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            320
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                           220
+#BACKGROUND_RED                                                     32
+#BACKGROUND_GREEN                                                   32
+#BACKGROUND_BLUE                                                    32
+
+#SECONDS                                                            40
+#INITIAL                                                             8
+#REQUIRED                                                            4
+#SPAWN_INTERVAL                                                     12
+#SPAWN_INTERVAL_FAST                                                12
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#EXPLODER2                                                           4
+#PLATFORMER                                                          1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   486       188
+:bitmap/matt/02 - Gold Mine/pickaxe.D:                   610       248
+
+:bitmap/matt/02 - Gold Mine/Hatch.H:                      32       240
+
+:bitmap/matt/02 - Gold Mine/Goal.G:                      486       236
+
+:bitmap/matt/02 - Gold Mine/07:                          488        74
+:bitmap/matt/02 - Gold Mine/09:                          544       252     rrr
+:bitmap/matt/02 - Gold Mine/09:                          512       260     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:         66       272     r
+:bitmap/matt/02 - Gold Mine/06:                          204        44
+:bitmap/matt/02 - Gold Mine/06:                          462        36
+:bitmap/matt/02 - Gold Mine/03:                          178       154
+:bitmap/matt/02 - Gold Mine/07:                          240        92
+:bitmap/matt/02 - Gold Mine/06:                          408       280
+:bitmap/matt/02 - Gold Mine/06:                          452       280
+:bitmap/matt/02 - Gold Mine/02:                          382       174
+:bitmap/matt/02 - Gold Mine/07:                          322        86
+:bitmap/matt/02 - Gold Mine/03:                          452       296
+:bitmap/matt/02 - Gold Mine/02:                          406       294
+:bitmap/matt/02 - Gold Mine/00:                          552       136
+:bitmap/matt/02 - Gold Mine/07:                          592       244
+:bitmap/matt/02 - Gold Mine/07:                          630       180
+:bitmap/matt/02 - Gold Mine/07:                          594       110
+:bitmap/matt/02 - Gold Mine/07:                          456        42
+:bitmap/matt/02 - Gold Mine/07:                          328        14
+:bitmap/matt/02 - Gold Mine/07:                          238        18
+:bitmap/matt/02 - Gold Mine/07:                          118        78
+:bitmap/matt/02 - Gold Mine/07:                          -20        90
+:bitmap/matt/02 - Gold Mine/07:                           72        26
+:bitmap/matt/02 - Gold Mine/07:                          -52        34
+:bitmap/matt/02 - Gold Mine/07:                            8        28
+:bitmap/matt/02 - Gold Mine/02:                          -14       188
+:bitmap/matt/02 - Gold Mine/crate32:                      56       288     frr
+:bitmap/geoo/construction/rod_steel/straight32.S:         56       272     r
+:bitmap/geoo/construction/rod_steel/end_rect.S:           56       272     r
+:bitmap/geoo/construction/rod_steel/end_rect.S:           66       272     r
+:bitmap/matt/02 - Gold Mine/plank:                        88       288
+:bitmap/geoo/construction/rod_steel/straight32.S:         56       288     r
+:bitmap/matt/02 - Gold Mine/plank:                       120       288     d
+:bitmap/matt/02 - Gold Mine/plank:                        24       288     n
+:bitmap/matt/02 - Gold Mine/plank:                       -72       288     d
+:bitmap/matt/02 - Gold Mine/09:                          -38       216
+:bitmap/matt/02 - Gold Mine/crate32:                     152       288     frr
+:bitmap/matt/02 - Gold Mine/crate32:                     184       288     frr
+:bitmap/matt/02 - Gold Mine/crate32:                     216       288     frr
+:bitmap/matt/02 - Gold Mine/crate32:                     248       288     frr
+:bitmap/matt/02 - Gold Mine/crate32:                     280       288     frr
+:bitmap/matt/02 - Gold Mine/crate32:                     312       288     frr
+:bitmap/matt/02 - Gold Mine/crate32:                      24       288     frrn

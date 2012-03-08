@@ -1,0 +1,72 @@
+$BUILT                                             2012-02-17 11:14:30
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                                 Box of Tricks
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            80
+#REQUIRED                                                           70
+#SPAWN_INTERVAL                                                     23
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#DIGGER                                                             16
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/03 - Carnival/Hatch.H:                      112       104
+
+:bitmap/matt/03 - Carnival/Goal.G:                       560       184
+
+:bitmap/matt/03 - Carnival/58:                           384       248
+:bitmap/matt/03 - Carnival/26:                            96       200
+:bitmap/matt/03 - Carnival/26:                           160       200
+:bitmap/matt/03 - Carnival/26:                           224       200
+:bitmap/matt/03 - Carnival/26:                           288       200
+:bitmap/matt/03 - Carnival/26:                            96       264
+:bitmap/matt/03 - Carnival/26:                           160       264
+:bitmap/matt/03 - Carnival/26:                           224       264
+:bitmap/matt/03 - Carnival/26:                           288       264
+:bitmap/matt/03 - Carnival/50:                            96       168
+:bitmap/matt/03 - Carnival/50:                            64       136
+:bitmap/matt/03 - Carnival/49:                            64       104
+:bitmap/matt/03 - Carnival/49:                            96        72
+:bitmap/matt/03 - Carnival/57:                           128        72
+:bitmap/matt/03 - Carnival/57:                           384        72
+:bitmap/geoo/steel/16x16o.S:                             440       240
+:bitmap/geoo/steel/16x16o.S:                             472       240
+:bitmap/geoo/steel/16x16o.S:                             504       240
+:bitmap/geoo/steel/16x16o.S:                             536       240
+:bitmap/matt/03 - Carnival/25:                             0        72
+:bitmap/matt/03 - Carnival/48:                            64       168
+:bitmap/matt/03 - Carnival/47:                            96       104
+:bitmap/matt/03 - Carnival/13:                           440       224
+:bitmap/matt/03 - Carnival/13:                           472       224
+:bitmap/matt/03 - Carnival/13:                           504       224
+:bitmap/matt/03 - Carnival/13:                           536       224
+:bitmap/matt/03 - Carnival/43:                           352       200
+:bitmap/matt/03 - Carnival/03:                           384       216
+:bitmap/matt/03 - Carnival/56:                             0       368
+:bitmap/matt/03 - Carnival/56:                           256       368
+:bitmap/matt/03 - Carnival/56:                           512       368
+:bitmap/matt/03 - Carnival/55:                             0         0
+:bitmap/matt/03 - Carnival/55:                           256         0
+:bitmap/matt/03 - Carnival/55:                           512         0
+:bitmap/matt/03 - Carnival/25:                             0       136

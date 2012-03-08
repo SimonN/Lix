@@ -1,0 +1,93 @@
+$BUILT                                             2012-02-11 23:34:00
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                                  Sand me down
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            50
+#REQUIRED                                                           50
+#SPAWN_INTERVAL                                                     10
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#CLIMBER                                                             5
+#FLOATER                                                             3
+#MINER                                                               8
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                     8       104
+
+:bitmap/matt/04 - Sandy Beach/goal.G:                    528       194
+
+:bitmap/matt/water.W:                                    112       368
+
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           490       324
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass09:        472       270
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           524       114
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           456       -16
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           512        32
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/00:           224       280
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/14:           424        68     fr
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           490       316     rr
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           560       314
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           528       -16
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:            20       146
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:           448       -32     fr
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/00:            56       170
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          -104       192
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          -102       150
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/14:           120        64
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:            72        96
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           430       304
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           130       150     d
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           -74       332
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           120        36
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           184        32
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           184       112     d
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           424        14
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           248        64     d
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           248        48
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           280        32
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/15:           172       150     d
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/15:           242       106     d
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           342        40
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           400        16
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           284        82     d
+:bitmap/matt/04 - Sandy Beach/Sand Decor/palm tree:      -32        52
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           -74       142     frr
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           -96       258
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/05:            58       184
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/15:           128       204     rd
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/05:            92       358     d
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           140       336
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/15:           239       197     rrrd
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           300       340
+:bitmap/matt/04 - Sandy Beach/Sand Decor/palm tree:      376       252     n
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           274       310
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           192       288     f
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           184       304
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:           164       296
+:bitmap/matt/04 - Sandy Beach/Sand Decor/palm tree:      210       190     frrn
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/02:           138       368     f
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/15:           428       314     d
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/15:           322       288     rrd
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/15:           316       298     rrd
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/15:           302       296     rrd
+:bitmap/matt/04 - Sandy Beach/Sand Decor/palm tree:      302       218     frrn
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/15:           310       298     rrd

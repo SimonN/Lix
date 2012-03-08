@@ -1,0 +1,103 @@
+$BUILT                                             2012-02-18 10:23:00
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                                    Loose Ends
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            50
+#REQUIRED                                                           50
+#SPAWN_INTERVAL                                                     50
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#JUMPER                                                             10
+#BATTER                                                             10
+#BLOCKER                                                            10
+#BUILDER                                                             5
+#PLATFORMER                                                          6
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/geoo/construction/Hatch.H:                       304       320
+
+:bitmap/geoo/construction/Goal2.G:                       288        48
+
+:bitmap/geoo/sandstone/brazier.F:                        260        62
+:bitmap/geoo/sandstone/brazier.F:                        348        62
+
+:bitmap/geoo/construction/concrete/032a:                 352        80
+:bitmap/geoo/construction/pillar_32:                     460         0
+:bitmap/geoo/construction/pillar_32:                     460        32
+:bitmap/geoo/construction/pillar_32:                     460        64
+:bitmap/geoo/construction/pillar_32:                     460        96
+:bitmap/geoo/construction/pillar_32:                     460       128
+:bitmap/geoo/construction/pillar_32:                     460       160
+:bitmap/geoo/construction/pillar_32:                     460       192
+:bitmap/geoo/construction/pillar_32:                     460       224
+:bitmap/geoo/construction/pillar_32:                     460       256
+:bitmap/geoo/construction/pillar_32:                     460       288
+:bitmap/geoo/construction/pillar_32:                     460       320
+:bitmap/geoo/construction/pillar_32:                     460       352
+:bitmap/geoo/construction/pillar_32:                     460       384
+:bitmap/geoo/construction/pillar_32:                     148         0
+:bitmap/geoo/construction/pillar_32:                     148        32
+:bitmap/geoo/construction/pillar_32:                     148        64
+:bitmap/geoo/construction/pillar_32:                     148        96
+:bitmap/geoo/construction/pillar_32:                     148       128
+:bitmap/geoo/construction/pillar_32:                     148       160
+:bitmap/geoo/construction/pillar_32:                     148       192
+:bitmap/geoo/construction/pillar_32:                     148       224
+:bitmap/geoo/construction/pillar_32:                     148       256
+:bitmap/geoo/construction/pillar_32:                     148       288
+:bitmap/geoo/construction/pillar_32:                     148       320
+:bitmap/geoo/construction/pillar_32:                     148       352
+:bitmap/geoo/construction/pillar_32:                     148       384
+:bitmap/geoo/construction/concrete/032c:                 224       112
+:bitmap/geoo/construction/concrete/032h:                 256        16
+:bitmap/geoo/construction/concrete/032h:                 288       112
+:bitmap/geoo/construction/concrete/032b:                 352       112
+:bitmap/geoo/construction/concrete/016h:                 304       304
+:bitmap/geoo/construction/concrete/032b:                 352       208
+:bitmap/geoo/construction/concrete/032b:                 352       304
+:bitmap/geoo/construction/concrete/032a:                 256       160
+:bitmap/geoo/construction/concrete/032a:                 256       256
+:bitmap/geoo/construction/concrete/032h:                 320       352
+:bitmap/geoo/construction/concrete/032h:                 256       352
+:bitmap/geoo/construction/concrete/032h:                 288       256
+:bitmap/geoo/construction/concrete/032h:                 288       208
+:bitmap/geoo/construction/concrete/032h:                 288       160
+:bitmap/geoo/construction/concrete/016v:                 336       304
+:bitmap/geoo/construction/concrete/032b:                 256        80
+:bitmap/geoo/construction/concrete/032c:                 352        48
+:bitmap/geoo/construction/concrete/032d:                 256        48
+:bitmap/geoo/construction/concrete/032:                  256       304
+:bitmap/geoo/construction/concrete/016v:                 288       304
+:bitmap/geoo/construction/concrete/032:                  352       256
+:bitmap/geoo/construction/concrete/032:                  256       208
+:bitmap/geoo/construction/concrete/032:                  352       160
+:bitmap/geoo/construction/concrete/032d:                 384        80
+:bitmap/geoo/construction/concrete/032b:                 384        16
+:bitmap/geoo/construction/concrete/032a:                 224        16
+:bitmap/geoo/construction/concrete/032h:                 320        16
+:bitmap/geoo/construction/concrete/032:                  384        48
+:bitmap/geoo/construction/concrete/032v:                 224        48
+:bitmap/geoo/construction/concrete/032:                  256       112
+:bitmap/matt/01 - Earth/09:                              132        -6     d
+:bitmap/matt/07 - Underworld/09a:                        434       -10     d
+:bitmap/geoo/construction/pillar_base:                   132       384
+:bitmap/geoo/construction/pillar_base:                   444       384
+:bitmap/geoo/construction/pillar_bottom:                 460       368
+:bitmap/geoo/construction/pillar_bottom:                 148       368

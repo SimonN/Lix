@@ -1,0 +1,72 @@
+$BUILT                                             2012-03-06 14:28:25
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                                 From the Void
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            30
+#REQUIRED                                                           10
+#SPAWN_INTERVAL                                                     45
+#SPAWN_INTERVAL_FAST                                                 4
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#EXPLODER2                                                           4
+#BLOCKER                                                             2
+#PLATFORMER                                                          1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/geoo/construction/Hatch.H:                       208        88
+:bitmap/geoo/construction/Hatch.H:                       400       280
+
+:bitmap/geoo/construction/Goal2.G:                       208       320
+
+:bitmap/geoo/construction/sawblade_small.F:              432       160
+:bitmap/geoo/construction/sawblade_small.F:              176       160
+:bitmap/geoo/sandstone/torch.F:                          304       136
+
+:bitmap/geoo/steel/32x16o.S:                             336       192
+:bitmap/geoo/steel/32x16o.S:                             336       296
+:bitmap/geoo/steel/32x16o.S:                             304       192
+:bitmap/geoo/steel/32x16o.S:                             272       192
+:bitmap/geoo/steel/32x16o.S:                             240       192
+:bitmap/geoo/steel/32x16o.S:                             208       192
+:bitmap/geoo/steel/32x16o.S:                             240       296
+:bitmap/geoo/steel/32x16o.S:                             272       296
+:bitmap/geoo/steel/32x16o.S:                             304       296
+:bitmap/geoo/steel/32x16o.S:                             368       192
+:bitmap/geoo/construction/wall/small_brick1:             400       192
+:bitmap/geoo/steel/32x16o.S:                             400        88
+:bitmap/geoo/steel/32x16o.S:                             272        88
+:bitmap/geoo/steel/32x16o.S:                             304        88
+:bitmap/geoo/steel/32x16o.S:                             336        88
+:bitmap/geoo/steel/32x16o.S:                             368        88
+:bitmap/geoo/steel/32x16o.S:                             208       384
+:bitmap/geoo/steel/32x16o.S:                             240       384
+:bitmap/geoo/steel/32x16o.S:                             272       384
+:bitmap/geoo/steel/32x16o.S:                             400         0
+:bitmap/geoo/steel/32x16o.S:                             336         0
+:bitmap/geoo/steel/32x16o.S:                             368         0
+:bitmap/geoo/construction/wall/small_brick1:             208       296
+:bitmap/geoo/steel/32x16o.S:                             368       296
+:bitmap/geoo/steel/32x16o.S:                             240        88
+:bitmap/geoo/steel/32x16o.S:                             304         0
+:bitmap/geoo/steel/32x16o.S:                             272         0
+:bitmap/geoo/steel/32x16o.S:                             304       384
+:bitmap/geoo/steel/32x16o.S:                             336       384

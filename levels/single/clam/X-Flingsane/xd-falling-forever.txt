@@ -1,0 +1,96 @@
+$BUILT                                             2012-03-05 16:35:04
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                               Falling Forever
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            320
+#TORUS_X                                                             0
+#TORUS_Y                                                             1
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            10
+#REQUIRED                                                            8
+#SPAWN_INTERVAL                                                     18
+#SPAWN_INTERVAL_FAST                                                 4
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#FLOATER                                                            10
+#EXPLODER2                                                          10
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/geoo/construction/Hatch.H:                       296        80
+:bitmap/geoo/construction/Hatch.H:                       312       240     r
+
+:bitmap/matt/01 - Earth/Goal.G:                          360       160
+:bitmap/matt/01 - Earth/Goal.G:                          216         0
+
+:bitmap/matt/01 - Earth/10:                              -40       264     rrr
+:bitmap/matt/01 - Earth/10:                              -40       104     rrr
+:bitmap/matt/01 - Earth/10:                               24       192     rrr
+:bitmap/matt/01 - Earth/10:                               24        32     rrr
+:bitmap/matt/01 - Earth/10:                               88       128     rrr
+:bitmap/matt/01 - Earth/10:                               88       280     rrr
+:bitmap/geoo/steel/32x64o.S:                             176        16
+:bitmap/geoo/steel/32x64o.S:                             176       272
+:bitmap/geoo/steel/32x64o.S:                             176       208
+:bitmap/geoo/steel/32x64o.S:                             176       144
+:bitmap/geoo/steel/32x64o.S:                             176        80
+:bitmap/geoo/steel/32x16o.S:                             208        64
+:bitmap/geoo/steel/32x16o.S:                             240        64
+:bitmap/geoo/steel/32x16o.S:                             272        64
+:bitmap/geoo/steel/16x32o.S:                             288        32
+:bitmap/matt/01 - Earth/10:                              568        56     r
+:bitmap/matt/01 - Earth/10:                              568       216     r
+:bitmap/matt/01 - Earth/10:                              512       134     r
+:bitmap/matt/01 - Earth/10:                              504       304     r
+:bitmap/matt/01 - Earth/10:                              440        40     r
+:bitmap/matt/01 - Earth/10:                              440       192     r
+:bitmap/geoo/steel/32x64o.S:                             432       272
+:bitmap/geoo/steel/32x64o.S:                             432        16
+:bitmap/geoo/steel/32x64o.S:                             432        80
+:bitmap/geoo/steel/32x64o.S:                             432       144
+:bitmap/geoo/steel/32x64o.S:                             432       208
+:bitmap/geoo/steel/32x16o.S:                             400       224
+:bitmap/geoo/steel/32x16o.S:                             368       224
+:bitmap/geoo/steel/32x16o.S:                             336       224
+:bitmap/geoo/steel/16x32o.S:                             336       192
+:bitmap/matt/02 - Gold Mine/plank:                        48        64
+:bitmap/matt/02 - Gold Mine/plank:                        48        72
+:bitmap/matt/02 - Gold Mine/plank:                       -72        64     d
+:bitmap/matt/02 - Gold Mine/plank:                       -72        72     d
+:bitmap/matt/02 - Gold Mine/plank:                        80        80     rrr
+:bitmap/matt/02 - Gold Mine/plank:                        88        80     rrr
+:bitmap/matt/02 - Gold Mine/plank:                         0        64     n
+:bitmap/matt/02 - Gold Mine/plank:                         0        72     n
+:bitmap/matt/02 - Gold Mine/plank:                        80       256     rrr
+:bitmap/matt/02 - Gold Mine/plank:                        88       256     rrr
+:bitmap/matt/09 - Marble/20:                              80       200     d
+:bitmap/matt/02 - Gold Mine/plank:                        80       144     frn
+:bitmap/matt/02 - Gold Mine/plank:                        88       144     frn
+:bitmap/matt/02 - Gold Mine/plank:                       544       240     rrr
+:bitmap/matt/02 - Gold Mine/plank:                       552       240     rrr
+:bitmap/matt/02 - Gold Mine/plank:                       544        96     rrr
+:bitmap/matt/02 - Gold Mine/plank:                       552        96     rrr
+:bitmap/matt/09 - Marble/20:                             544        40     d
+:bitmap/matt/02 - Gold Mine/plank:                       544       304     frn
+:bitmap/matt/02 - Gold Mine/plank:                       552       304     frn
+:bitmap/matt/02 - Gold Mine/plank:                       464       224
+:bitmap/matt/02 - Gold Mine/plank:                       464       232
+:bitmap/matt/02 - Gold Mine/plank:                       584       224     d
+:bitmap/matt/02 - Gold Mine/plank:                       584       232     d
+:bitmap/matt/02 - Gold Mine/plank:                       512       224     n
+:bitmap/matt/02 - Gold Mine/plank:                       512       232     n

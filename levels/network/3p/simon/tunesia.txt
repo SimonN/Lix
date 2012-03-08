@@ -1,4 +1,4 @@
-$BUILT                                             2012-02-02 06:46:45
+$BUILT                                             2012-03-06 04:18:44
 $AUTHOR                                                          Simon
 $GERMAN                                                               
 $ENGLISH                                                       Tunesia
@@ -17,6 +17,7 @@ $ENGLISH                                                       Tunesia
 #INITIAL                                                           120
 #REQUIRED                                                           20
 #SPAWN_INTERVAL                                                     17
+#SPAWN_INTERVAL_FAST                                                 4
 
 #WALKER                                                             40
 #JUMPER                                                             40
@@ -32,11 +33,11 @@ $ENGLISH                                                       Tunesia
 #DIGGER                                                             20
 
 :bitmap/geoo/sandstone/Hatch.H:                          408       244
-:bitmap/geoo/sandstone/Hatch.H:                           88       244
 :bitmap/geoo/sandstone/Hatch.H:                          728       244
+:bitmap/geoo/sandstone/Hatch.H:                           88       244
+:bitmap/geoo/sandstone/Hatch.H:                          112        64
 :bitmap/geoo/sandstone/Hatch.H:                          432        64
 :bitmap/geoo/sandstone/Hatch.H:                          752        64
-:bitmap/geoo/sandstone/Hatch.H:                          112        64
 
 :bitmap/geoo/sandstone/Goal.G:                           768       720
 :bitmap/geoo/sandstone/Goal.G:                           128       720

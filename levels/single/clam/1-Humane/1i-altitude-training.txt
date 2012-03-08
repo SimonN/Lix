@@ -1,0 +1,120 @@
+$BUILT                                             2012-03-07 19:50:10
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                             Altitude Training
+
+#SIZE_X                                                            784
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                            80
+#START_Y                                                           -20
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            30
+#REQUIRED                                                           25
+#SPAWN_INTERVAL                                                     28
+#SPAWN_INTERVAL_FAST                                                 4
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#CLIMBER                                                             5
+#EXPLODER                                                            5
+#BLOCKER                                                             1
+#BUILDER                                                             5
+#MINER                                                               8
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/01 - Earth/Hatch.H:                         368       298
+
+:bitmap/matt/01 - Earth/Goal.G:                           80        68
+
+:bitmap/matt/water.W:                                    336       368
+:bitmap/matt/water.W:                                    368       368
+:bitmap/matt/water.W:                                    400       368
+:bitmap/matt/water.W:                                    432       368
+:bitmap/geoo/construction/sawblade_small.F:              332       216
+:bitmap/geoo/construction/sawblade_small.F:              468       216
+
+:bitmap/matt/01 - Earth/19:                              312       336     frr
+:bitmap/matt/01 - Earth/05:                              -32       176
+:bitmap/matt/01 - Earth/15:                              374       198     frr
+:bitmap/matt/01 - Earth/03:                               40       136
+:bitmap/matt/01 - Earth/03:                               18       136
+:bitmap/matt/01 - Earth/03:                              144       136
+:bitmap/matt/01 - Earth/10:                              175       309     rrr
+:bitmap/matt/01 - Earth/10:                              111       181     rrr
+:bitmap/matt/01 - Earth/10:                              175       149     rrr
+:bitmap/matt/01 - Earth/10:                                0       282     rr
+:bitmap/matt/01 - Earth/10:                                8       336     rr
+:bitmap/matt/01 - Earth/10:                               19       365     r
+:bitmap/matt/01 - Earth/10:                              111       373     rrr
+:bitmap/matt/01 - Earth/10:                                8       144     rr
+:bitmap/matt/01 - Earth/10:                               19       173     r
+:bitmap/matt/01 - Earth/15:                              469       148     fr
+:bitmap/matt/01 - Earth/10:                              544       378     rr
+:bitmap/matt/01 - Earth/10:                              655       277     rrr
+:bitmap/matt/01 - Earth/10:                              563       269     r
+:bitmap/matt/01 - Earth/10:                              552       240     rr
+:bitmap/matt/01 - Earth/05:                              -16       336     f
+:bitmap/matt/01 - Earth/05:                              240       -70     f
+:bitmap/matt/01 - Earth/05:                              244        48     f
+:bitmap/matt/01 - Earth/05:                              242       256
+:bitmap/geoo/steel/dark_32x64o.S:                        272       272
+:bitmap/geoo/steel/dark_32x64o.S:                        272       208
+:bitmap/matt/01 - Earth/05:                              508       256
+:bitmap/matt/01 - Earth/05:                              540      -136     f
+:bitmap/matt/01 - Earth/05:                              508        48     f
+:bitmap/matt/01 - Earth/05:                              -16       144
+:bitmap/geoo/steel/dark_32x64o.S:                        304       280     d
+:bitmap/matt/01 - Earth/03:                              624       240
+:bitmap/matt/01 - Earth/03:                              544       240
+:bitmap/matt/01 - Earth/09:                              560       238
+:bitmap/matt/01 - Earth/09:                              608       236
+:bitmap/matt/01 - Earth/09:                              656       236
+:bitmap/matt/01 - Earth/09:                              704       236
+:bitmap/matt/01 - Earth/05:                              524        48     f
+:bitmap/matt/01 - Earth/05:                              520       -80     f
+:bitmap/matt/01 - Earth/05:                              524       256
+:bitmap/geoo/steel/dark_32x64o.S:                        496       192     d
+:bitmap/geoo/steel/dark_32x64o.S:                        496       256     d
+:bitmap/geoo/steel/dark_32x64o.S:                        496       272     d
+:bitmap/matt/01 - Earth/05:                              736       256
+:bitmap/matt/01 - Earth/05:                              736        48     f
+:bitmap/matt/01 - Earth/09:                              700       236
+:bitmap/matt/01 - Earth/05:                              736       248
+:bitmap/matt/01 - Earth/05:                              736        56     f
+:bitmap/matt/01 - Earth/15:                              408       202
+:bitmap/matt/01 - Earth/15:                              344       202     frr
+:bitmap/matt/01 - Earth/15:                              469        88     rrr
+:bitmap/matt/01 - Earth/15:                              344        48     frr
+:bitmap/matt/01 - Earth/15:                              408        48
+:bitmap/matt/01 - Earth/15:                              469        48     rrr
+:bitmap/matt/01 - Earth/15:                              333        48     frrr
+:bitmap/matt/01 - Earth/15:                              333       104     r
+:bitmap/matt/01 - Earth/15:                              333       148     r
+:bitmap/geoo/steel/dark_32x64o.S:                        304       192     d
+:bitmap/geoo/steel/dark_32x64o.S:                        496       128     d
+:bitmap/geoo/steel/dark_32x64o.S:                        496        64     d
+:bitmap/matt/01 - Earth/09:                               40       132
+:bitmap/matt/01 - Earth/09:                               80       128
+:bitmap/matt/01 - Earth/09:                              120       132
+:bitmap/matt/01 - Earth/09:                              160       134
+:bitmap/matt/01 - Earth/09:                              200       132
+:bitmap/matt/01 - Earth/09:                               20       134
+:bitmap/matt/01 - Earth/06:                               -6       136
+:bitmap/geoo/steel/dark_64x64.S:                         272       336
+:bitmap/geoo/steel/dark_64x64.S:                         464       336
+:bitmap/matt/01 - Earth/05:                              244       -48     f
+:bitmap/geoo/steel/dark_32x64o.S:                        304       128     d
+:bitmap/geoo/steel/dark_32x64o.S:                        304        64     d
+:bitmap/geoo/steel/dark_32x64o.S:                        304         0     d
+:bitmap/geoo/steel/dark_32x64o.S:                        496         0     d
+:bitmap/matt/01 - Earth/05:                              726       -80     f

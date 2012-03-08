@@ -1,0 +1,104 @@
+$BUILT                                             2012-02-17 11:08:59
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                              House of Horrors
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                           100
+#REQUIRED                                                           50
+#SPAWN_INTERVAL                                                     28
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#CLIMBER                                                            50
+#CUBER                                                              50
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/08 - Bricks/Hatch.H:                        176       288
+
+:bitmap/matt/08 - Bricks/Goal.G:                         288       112
+
+:bitmap/geoo/construction/Laseremit_hzl_16.F:            168        88
+:bitmap/geoo/construction/Laseremit_hzr_16.F:            456        88
+:bitmap/geoo/construction/Laser_hz_64.F:                 184        88
+:bitmap/geoo/construction/Laser_hz_64.F:                 248        88
+:bitmap/geoo/construction/Laser_hz_64.F:                 312        88
+:bitmap/geoo/construction/Laser_hz_64.F:                 376        88
+:bitmap/geoo/construction/Laser_hz_64.F:                 392        88
+:bitmap/geoo/construction/sawblade_medium.F:             160       208
+
+:bitmap/matt/08 - Bricks/05b:                            528       128
+:bitmap/matt/08 - Bricks/04a:                            208       224
+:bitmap/matt/08 - Bricks/03a:                            112       352
+:bitmap/matt/08 - Bricks/03a:                            176       352
+:bitmap/matt/08 - Bricks/03a:                            240       352
+:bitmap/matt/08 - Bricks/03a:                            272       352
+:bitmap/matt/08 - Bricks/03a:                            400       352
+:bitmap/matt/08 - Bricks/03a:                            464       352
+:bitmap/matt/08 - Bricks/03a:                            112       288
+:bitmap/matt/08 - Bricks/03a:                            464       288
+:bitmap/matt/08 - Bricks/03a:                            464       224
+:bitmap/matt/08 - Bricks/03a:                            112       224
+:bitmap/matt/08 - Bricks/03a:                            336       352
+:bitmap/matt/08 - Bricks/02a:                            176       256
+:bitmap/matt/08 - Bricks/02a:                            240       256
+:bitmap/matt/08 - Bricks/02a:                            336       256
+:bitmap/matt/08 - Bricks/02a:                            400       256
+:bitmap/matt/08 - Bricks/01a:                            176       336
+:bitmap/matt/08 - Bricks/01a:                            208       336
+:bitmap/matt/08 - Bricks/03a:                            112       160
+:bitmap/matt/08 - Bricks/02a:                            176       160
+:bitmap/matt/08 - Bricks/02a:                            240       160
+:bitmap/matt/08 - Bricks/02a:                            304       160
+:bitmap/matt/08 - Bricks/03a:                            464       160
+:bitmap/matt/08 - Bricks/12a:                            352       176
+:bitmap/matt/08 - Bricks/12a:                            368       192
+:bitmap/matt/08 - Bricks/12a:                            432       160
+:bitmap/matt/08 - Bricks/12a:                            448       176
+:bitmap/matt/08 - Bricks/12a:                            384       208
+:bitmap/matt/08 - Bricks/12a:                            384       224     d
+:bitmap/matt/08 - Bricks/04b:                            496        64
+:bitmap/matt/08 - Bricks/05b:                            432        64
+:bitmap/matt/08 - Bricks/04b:                            432         0
+:bitmap/matt/08 - Bricks/06b:                            144        64
+:bitmap/matt/08 - Bricks/07b:                            144         0
+:bitmap/matt/08 - Bricks/07b:                             80        64
+:bitmap/matt/08 - Bricks/07b:                             16       128
+:bitmap/matt/08 - Bricks/03b:                            304         0
+:bitmap/matt/08 - Bricks/03b:                            368         0
+:bitmap/matt/08 - Bricks/03b:                            240         0
+:bitmap/matt/08 - Bricks/03b:                            208         0
+:bitmap/matt/08 - Bricks/05b:                            400         0
+:bitmap/matt/08 - Bricks/04b:                            464         0
+:bitmap/matt/08 - Bricks/05b:                            464        64
+:bitmap/matt/08 - Bricks/04b:                            528        64
+:bitmap/matt/08 - Bricks/04b:                            592       128
+:bitmap/matt/08 - Bricks/07b:                            112         0
+:bitmap/matt/08 - Bricks/06b:                            176         0
+:bitmap/matt/08 - Bricks/07b:                             48        64
+:bitmap/matt/08 - Bricks/06b:                            112        64
+:bitmap/matt/08 - Bricks/07b:                            -16       128
+:bitmap/matt/08 - Bricks/06b:                             48       128
+:bitmap/matt/08 - Bricks/04b:                            560       128
+:bitmap/matt/08 - Bricks/02:                             528       368
+:bitmap/matt/08 - Bricks/02:                             592       368
+:bitmap/matt/08 - Bricks/02:                              48       368
+:bitmap/matt/08 - Bricks/02:                             -16       368
+:bitmap/matt/08 - Bricks/01a:                            416       160

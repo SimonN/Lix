@@ -1,0 +1,76 @@
+$BUILT                                             2012-02-17 11:20:25
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                          Run around the block
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                   128
+
+#SECONDS                                                             0
+#INITIAL                                                            40
+#REQUIRED                                                           20
+#SPAWN_INTERVAL                                                     20
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#CUBER                                                              20
+#RUNNER                                                             20
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/09 - Marble/Hatch.H:                         52       180
+
+:bitmap/matt/09 - Marble/Goal.G:                          16       112
+
+:bitmap/matt/09 - Marble/04c:                             64       272
+:bitmap/matt/09 - Marble/04c:                            128       256
+:bitmap/matt/09 - Marble/04c:                            160       240
+:bitmap/matt/09 - Marble/04c:                            224       224
+:bitmap/matt/09 - Marble/04c:                            512       208
+:bitmap/matt/09 - Marble/04c:                            472       192
+:bitmap/matt/09 - Marble/04c:                            440       176
+:bitmap/matt/09 - Marble/04c:                            280       160
+:bitmap/matt/09 - Marble/04c:                            248       160
+:bitmap/matt/09 - Marble/04c:                            544       208
+:bitmap/matt/09 - Marble/04c:                            480       240
+:bitmap/matt/09 - Marble/04c:                            256       224
+:bitmap/matt/09 - Marble/04c:                            288       224
+:bitmap/matt/09 - Marble/04c:                            448       224
+:bitmap/matt/09 - Marble/04c:                            216       160
+:bitmap/matt/09 - Marble/04c:                            184       128
+:bitmap/matt/09 - Marble/04c:                            152       128
+:bitmap/matt/09 - Marble/04c:                            408       160
+:bitmap/matt/09 - Marble/04c:                            312       160
+:bitmap/matt/09 - Marble/04c:                            320       224
+:bitmap/matt/09 - Marble/04c:                            416       224
+:bitmap/matt/09 - Marble/04c:                            344       160
+:bitmap/matt/09 - Marble/04c:                            352       224
+:bitmap/matt/09 - Marble/04c:                            376       160
+:bitmap/matt/09 - Marble/04c:                            384       224
+:bitmap/matt/09 - Marble/04c:                            576       208
+:bitmap/matt/09 - Marble/04c:                            608       208
+:bitmap/matt/09 - Marble/04c:                            120       128
+:bitmap/matt/09 - Marble/04c:                            192       240
+:bitmap/matt/09 - Marble/04c:                             96       256
+:bitmap/matt/09 - Marble/04c:                             32       272
+:bitmap/matt/09 - Marble/04c:                            112       192
+:bitmap/matt/09 - Marble/04c:                             80       176
+:bitmap/matt/09 - Marble/04c:                             48       160
+:bitmap/matt/09 - Marble/04c:                             16       160
+:bitmap/matt/09 - Marble/04c:                             48       176
+:bitmap/matt/09 - Marble/04c:                            136       176
+:bitmap/matt/09 - Marble/04c:                            152       160
+:bitmap/matt/09 - Marble/04c:                            168       144

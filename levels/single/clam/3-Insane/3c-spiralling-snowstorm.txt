@@ -1,0 +1,180 @@
+$BUILT                                             2012-03-06 20:27:26
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                          Spiralling Snowstorm
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            25
+#REQUIRED                                                           25
+#SPAWN_INTERVAL                                                     94
+#SPAWN_INTERVAL_FAST                                                 4
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#CLIMBER                                                            12
+#FLOATER                                                             4
+#BUILDER                                                             8
+#BASHER                                                              2
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/05 - Winter/Hatch.H:                        296        10
+
+:bitmap/matt/05 - Winter/Goal.G:                         360       320
+
+:bitmap/geoo/construction/sawblade_small.F:              304       208
+:bitmap/geoo/construction/sawblade_small.F:              304       360
+
+:bitmap/matt/05 - Winter/06:                             526       384     r
+:bitmap/matt/05 - Winter/06:                             576       336
+:bitmap/matt/05 - Winter/06:                             456       288     r
+:bitmap/matt/05 - Winter/06:                             456       272     r
+:bitmap/matt/05 - Winter/06:                             526         0     r
+:bitmap/matt/05 - Winter/06:                             392       264     r
+:bitmap/matt/05 - Winter/06:                             520        80
+:bitmap/matt/05 - Winter/06:                             504        82
+:bitmap/matt/05 - Winter/06:                             472       288     r
+:bitmap/matt/05 - Winter/06:                             472       272     r
+:bitmap/matt/05 - Winter/06:                             520       240
+:bitmap/matt/05 - Winter/06:                             504       240
+:bitmap/matt/05 - Winter/06:                             344        64     r
+:bitmap/matt/05 - Winter/06:                             280        64     r
+:bitmap/geoo/steel/32x64o.S:                             152       176
+:bitmap/matt/05 - Winter/06:                              32         0
+:bitmap/matt/05 - Winter/06:                              48         0
+:bitmap/matt/05 - Winter/06:                              32        64
+:bitmap/matt/05 - Winter/06:                              48        64
+:bitmap/matt/05 - Winter/06:                              32       128
+:bitmap/matt/05 - Winter/06:                              48       128
+:bitmap/matt/05 - Winter/06:                              32       144
+:bitmap/matt/05 - Winter/06:                              48       176
+:bitmap/matt/05 - Winter/06:                              32       208
+:bitmap/matt/05 - Winter/06:                              32       272
+:bitmap/matt/05 - Winter/06:                              48       304
+:bitmap/matt/05 - Winter/06:                              32       336
+:bitmap/matt/05 - Winter/06:                              48       336
+:bitmap/matt/05 - Winter/06:                              64       384     r
+:bitmap/matt/05 - Winter/06:                             126       384     r
+:bitmap/geoo/steel/32x64o.S:                             184       320
+:bitmap/matt/05 - Winter/06:                             190       384     r
+:bitmap/geoo/steel/32x64o.S:                             184       256
+:bitmap/matt/05 - Winter/06:                             254       384     r
+:bitmap/geoo/steel/64x32o.S:                             328       208
+:bitmap/matt/05 - Winter/06:                             318       384     r
+:bitmap/matt/05 - Winter/06:                             382       384     r
+:bitmap/matt/05 - Winter/06:                             446       384     r
+:bitmap/matt/05 - Winter/06:                             510       384     r
+:bitmap/matt/05 - Winter/06:                             576       306
+:bitmap/matt/05 - Winter/06:                             592       336
+:bitmap/matt/05 - Winter/06:                             592       272
+:bitmap/matt/05 - Winter/06:                             592       208
+:bitmap/matt/05 - Winter/06:                             592       144
+:bitmap/matt/05 - Winter/06:                             576         0
+:bitmap/matt/05 - Winter/06:                             592         0
+:bitmap/matt/05 - Winter/06:                             576        64
+:bitmap/matt/05 - Winter/06:                             592        64
+:bitmap/matt/05 - Winter/06:                             592       128
+:bitmap/geoo/steel/32x64o.S:                             504       200
+:bitmap/matt/05 - Winter/06:                             424        80
+:bitmap/matt/05 - Winter/06:                             440        80
+:bitmap/matt/05 - Winter/06:                             392       -14
+:bitmap/geoo/steel/32x32o.S:                             376       112
+:bitmap/matt/05 - Winter/06:                             344        80     r
+:bitmap/matt/05 - Winter/06:                             392        32
+:bitmap/matt/05 - Winter/06:                             280        80     r
+:bitmap/geoo/steel/32x64o.S:                             504       136
+:bitmap/matt/05 - Winter/06:                             408         0     r
+:bitmap/matt/05 - Winter/06:                             472         0     r
+:bitmap/geoo/steel/32x64o.S:                             360       240
+:bitmap/matt/05 - Winter/06:                             216       368     r
+:bitmap/matt/05 - Winter/09c:                              0         0
+:bitmap/matt/05 - Winter/09c:                             14        16
+:bitmap/matt/05 - Winter/09c:                              0        32
+:bitmap/matt/05 - Winter/09c:                             14        48
+:bitmap/matt/05 - Winter/09c:                              0        64
+:bitmap/matt/05 - Winter/09c:                             14        80
+:bitmap/matt/05 - Winter/09c:                              0        96
+:bitmap/matt/05 - Winter/09c:                             14       112
+:bitmap/matt/05 - Winter/09c:                              0       128
+:bitmap/matt/05 - Winter/09c:                             14       144
+:bitmap/matt/05 - Winter/09c:                              0       160
+:bitmap/matt/05 - Winter/09c:                             14       176
+:bitmap/matt/05 - Winter/09c:                              0       192
+:bitmap/matt/05 - Winter/09c:                             14       208
+:bitmap/matt/05 - Winter/09c:                              0       224
+:bitmap/matt/05 - Winter/09c:                             14       240
+:bitmap/matt/05 - Winter/09c:                              0       256
+:bitmap/matt/05 - Winter/09c:                             14       272
+:bitmap/matt/05 - Winter/09c:                              0       288
+:bitmap/matt/05 - Winter/09c:                             14       304
+:bitmap/matt/05 - Winter/09c:                              0       320
+:bitmap/matt/05 - Winter/09c:                             14       336
+:bitmap/matt/05 - Winter/09c:                              0       352
+:bitmap/matt/05 - Winter/09c:                             14       368
+:bitmap/matt/05 - Winter/09c:                              0       384
+:bitmap/matt/05 - Winter/09c:                            610        16
+:bitmap/matt/05 - Winter/09c:                            624        32
+:bitmap/matt/05 - Winter/09c:                            610        48
+:bitmap/matt/05 - Winter/09c:                            624        64
+:bitmap/matt/05 - Winter/09c:                            610        80
+:bitmap/matt/05 - Winter/09c:                            624        96
+:bitmap/matt/05 - Winter/09c:                            610       112
+:bitmap/matt/05 - Winter/09c:                            624       128
+:bitmap/matt/05 - Winter/09c:                            610       144
+:bitmap/matt/05 - Winter/09c:                            624       160
+:bitmap/matt/05 - Winter/09c:                            610       176
+:bitmap/matt/05 - Winter/09c:                            624       192
+:bitmap/matt/05 - Winter/09c:                            610       208
+:bitmap/matt/05 - Winter/09c:                            624       224
+:bitmap/matt/05 - Winter/09c:                            610       240
+:bitmap/matt/05 - Winter/09c:                            624       256
+:bitmap/matt/05 - Winter/09c:                            610       272
+:bitmap/matt/05 - Winter/09c:                            624       288
+:bitmap/matt/05 - Winter/09c:                            610       304
+:bitmap/matt/05 - Winter/09c:                            624       320
+:bitmap/matt/05 - Winter/09c:                            610       336
+:bitmap/matt/05 - Winter/09c:                            624       352
+:bitmap/matt/05 - Winter/09c:                            610       368
+:bitmap/matt/05 - Winter/09c:                            624       384
+:bitmap/matt/05 - Winter/09c:                            624         0
+:bitmap/matt/05 - Winter/06:                             440       240
+:bitmap/geoo/steel/64x64.S:                              392       200
+:bitmap/geoo/steel/64x64.S:                              328       144
+:bitmap/geoo/steel/64x64.S:                              120       112
+:bitmap/geoo/steel/64x64.S:                               88       176
+:bitmap/matt/05 - Winter/06:                             520        16
+:bitmap/matt/05 - Winter/06:                             280       144
+:bitmap/matt/05 - Winter/06:                             296       144
+:bitmap/matt/05 - Winter/06:                             184       144
+:bitmap/matt/05 - Winter/06:                             200       144
+:bitmap/matt/05 - Winter/06:                             184       208     r
+:bitmap/matt/05 - Winter/06:                             184       224     r
+:bitmap/matt/05 - Winter/06:                             248       208     r
+:bitmap/matt/05 - Winter/06:                             248       224     r
+:bitmap/matt/05 - Winter/06:                             296       320
+:bitmap/matt/05 - Winter/06:                             328       320
+:bitmap/matt/05 - Winter/06:                             232       368     r
+:bitmap/geoo/steel/16x32o.S:                             352        96
+:bitmap/matt/05 - Winter/06:                             312         0     r
+:bitmap/matt/05 - Winter/06:                             248         0     r
+:bitmap/matt/05 - Winter/06:                             184         0     r
+:bitmap/matt/05 - Winter/06:                             120         0     r
+:bitmap/matt/05 - Winter/06:                              64         0     r
+:bitmap/geoo/steel/16x32o.S:                             376         0
+:bitmap/geoo/steel/16x32o.S:                             376        32
+:bitmap/matt/05 - Winter/06:                             456        80
+:bitmap/matt/05 - Winter/06:                             408        80     r

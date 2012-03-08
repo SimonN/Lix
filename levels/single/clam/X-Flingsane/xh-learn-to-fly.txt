@@ -1,0 +1,58 @@
+$BUILT                                             2012-03-06 11:25:52
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                                  Learn to fly
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            320
+#TORUS_X                                                             0
+#TORUS_Y                                                             1
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            20
+#REQUIRED                                                            5
+#SPAWN_INTERVAL                                                     50
+#SPAWN_INTERVAL_FAST                                                 4
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#FLOATER                                                            20
+#EXPLODER2                                                          20
+#PLATFORMER                                                          1
+#DIGGER                                                              5
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/01 - Earth/Hatch.H:                          72       128
+
+:bitmap/matt/01 - Earth/Goal.G:                          512       112
+
+:bitmap/geoo/steel/32x16o.S:                             568       176
+:bitmap/geoo/steel/32x16o.S:                             440       176
+:bitmap/geoo/steel/32x16o.S:                             472       176
+:bitmap/geoo/steel/32x16o.S:                             504       176
+:bitmap/geoo/steel/32x16o.S:                             536       176
+:bitmap/geoo/steel/32x16o.S:                             104       176
+:bitmap/geoo/steel/32x16o.S:                             136       176
+:bitmap/geoo/steel/32x16o.S:                             168       176
+:bitmap/geoo/steel/32x16o.S:                              72       176
+:bitmap/geoo/steel/32x16o.S:                              40       176
+:bitmap/matt/01 - Earth/25:                               26        18     rrr
+:bitmap/matt/01 - Earth/23:                               33        83     rrr
+:bitmap/matt/01 - Earth/23:                              571        15     r
+:bitmap/matt/01 - Earth/26:                              560       196
+:bitmap/matt/01 - Earth/16:                              566       146     rrr
+:bitmap/matt/01 - Earth/05:                              590       120
+:bitmap/matt/01 - Earth/05:                              580       280
+:bitmap/matt/01 - Earth/05:                              -30       270
+:bitmap/matt/01 - Earth/10:                             -146       124
+:bitmap/matt/01 - Earth/05:                              -38       178     f

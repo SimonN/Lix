@@ -1,0 +1,71 @@
+$BUILT                                             2012-03-05 16:34:42
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                                         Lost?
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            320
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                           220
+#BACKGROUND_RED                                                     96
+#BACKGROUND_GREEN                                                  128
+#BACKGROUND_BLUE                                                   255
+
+#SECONDS                                                             0
+#INITIAL                                                            10
+#REQUIRED                                                            5
+#SPAWN_INTERVAL                                                     28
+#SPAWN_INTERVAL_FAST                                                 4
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#WALKER                                                              5
+#EXPLODER2                                                           5
+#BLOCKER                                                             5
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/04 - Sandy Beach/Sand Decor/sun.D:          560        16
+
+:bitmap/matt/04 - Sandy Beach/Hatch.H:                    40        26
+
+:bitmap/matt/04 - Sandy Beach/goal.G:                    368       128
+
+:bitmap/matt/water.W:                                     64       288
+:bitmap/matt/water.W:                                     96       288
+:bitmap/matt/water.W:                                    128       288
+:bitmap/matt/water.W:                                    160       288
+:bitmap/matt/water.W:                                    192       288
+:bitmap/matt/water.W:                                    208       288
+
+:bitmap/matt/04 - Sandy Beach/Sand Decor/umbrella_red:   542       186
+:bitmap/matt/04 - Sandy Beach/Sand Decor/grass04:        182        54
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/15:           133       134
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/15:           154       102
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/00:           502       251
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/14:            -2       216
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           -63       194
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           -32        73
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/15:           250        59
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:            64        64
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           -48        64
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           288       240
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           416       240
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/02:            97        67     frrr
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/14:            -7       201
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          -133       125
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           236       252
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           230       261
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           355       258
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           428       256
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:           -64       -32
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/15:            46       162
+:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           160        62
+:bitmap/matt/04 - Sandy Beach/Sand Decor/umbrella_yellow: 484      158

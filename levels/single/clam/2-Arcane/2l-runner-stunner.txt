@@ -1,0 +1,113 @@
+$BUILT                                             2012-03-08 14:59:46
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                                Runner Stunner
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            10
+#REQUIRED                                                           10
+#SPAWN_INTERVAL                                                     20
+#SPAWN_INTERVAL_FAST                                                 4
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#RUNNER                                                             10
+#JUMPER                                                             10
+#BATTER                                                              1
+#BASHER                                                              1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/09 - Marble/Hatch.H:                        128       100
+
+:bitmap/matt/09 - Marble/Goal.G:                         384        64
+
+:bitmap/geoo/construction/fence_rust_32x32:              352       136
+:bitmap/geoo/construction/fence_rust_32x32:              328       208
+:bitmap/matt/09 - Marble/06b:                            192       144
+:bitmap/geoo/steel/32x32o.S:                             192       176
+:bitmap/geoo/construction/fence_rust_32x32:              352       168
+:bitmap/geoo/construction/fence_rust_32x32:              352       200
+:bitmap/geoo/construction/concrete/032d:                 326       208     d
+:bitmap/geoo/construction/fence_rust_32x32:              376       208
+:bitmap/geoo/construction/concrete/032d:                 378       208     rd
+:bitmap/matt/09 - Marble/14b:                            512       144
+:bitmap/matt/09 - Marble/08b:                              0       224
+:bitmap/matt/09 - Marble/08b:                             32       256
+:bitmap/matt/09 - Marble/08b:                             96       256
+:bitmap/matt/09 - Marble/08b:                             64       224
+:bitmap/matt/09 - Marble/08b:                            160       256
+:bitmap/matt/09 - Marble/08b:                            128       224
+:bitmap/matt/09 - Marble/08b:                            224       256
+:bitmap/matt/09 - Marble/08b:                            192       224
+:bitmap/matt/09 - Marble/08b:                            288       256
+:bitmap/matt/09 - Marble/08b:                            256       224
+:bitmap/matt/09 - Marble/08b:                            352       256
+:bitmap/matt/09 - Marble/08b:                            320       224
+:bitmap/matt/09 - Marble/08b:                            416       256
+:bitmap/matt/09 - Marble/08b:                            384       224
+:bitmap/matt/09 - Marble/08b:                            480       256
+:bitmap/matt/09 - Marble/08b:                            448       224
+:bitmap/matt/09 - Marble/08b:                            544       256
+:bitmap/matt/09 - Marble/08b:                            512       224
+:bitmap/matt/09 - Marble/08b:                            608       256
+:bitmap/matt/09 - Marble/08b:                            576       224
+:bitmap/matt/09 - Marble/08b:                            -32       256
+:bitmap/matt/09 - Marble/08b:                              0       144
+:bitmap/matt/09 - Marble/08b:                             64       144
+:bitmap/matt/09 - Marble/08b:                            -32       176
+:bitmap/matt/09 - Marble/08b:                            512       176
+:bitmap/matt/09 - Marble/08b:                            576       176
+:bitmap/matt/09 - Marble/08b:                            544       144
+:bitmap/matt/09 - Marble/08b:                            608       144
+:bitmap/matt/09 - Marble/06b:                            384       144
+:bitmap/matt/09 - Marble/08b:                            224       144
+:bitmap/matt/09 - Marble/08b:                            288       144
+:bitmap/matt/09 - Marble/04c:                              0       208
+:bitmap/matt/09 - Marble/04c:                             32       208
+:bitmap/matt/09 - Marble/04c:                             64       208
+:bitmap/matt/09 - Marble/04c:                             96       208
+:bitmap/matt/09 - Marble/04c:                            128       208
+:bitmap/matt/09 - Marble/04c:                            160       208
+:bitmap/matt/09 - Marble/04c:                            192       208
+:bitmap/matt/09 - Marble/04c:                            512       208
+:bitmap/matt/09 - Marble/04c:                            544       208
+:bitmap/matt/09 - Marble/04c:                            576       208
+:bitmap/matt/09 - Marble/04c:                            608       208
+:bitmap/matt/09 - Marble/08a:                            576       112
+:bitmap/matt/09 - Marble/08a:                            416       112
+:bitmap/matt/09 - Marble/08a:                            352       112
+:bitmap/matt/09 - Marble/08a:                             32       112
+:bitmap/matt/09 - Marble/08a:                            -32       112
+:bitmap/matt/09 - Marble/14a:                            544       112
+:bitmap/matt/09 - Marble/16a:                             96       112
+:bitmap/matt/09 - Marble/08b:                             96       176
+:bitmap/matt/09 - Marble/08b:                            120       176     d
+:bitmap/matt/09 - Marble/16b:                            128       176
+:bitmap/matt/09 - Marble/08b:                             64       176     n
+:bitmap/matt/09 - Marble/08b:                             32       176     d
+:bitmap/matt/09 - Marble/08b:                             32       176
+:bitmap/matt/09 - Marble/08a:                              0       288
+:bitmap/matt/09 - Marble/08a:                             64       288
+:bitmap/matt/09 - Marble/08a:                            128       288
+:bitmap/matt/09 - Marble/08a:                            192       288
+:bitmap/matt/09 - Marble/08a:                            256       288
+:bitmap/matt/09 - Marble/08a:                            320       288
+:bitmap/matt/09 - Marble/08a:                            384       288
+:bitmap/matt/09 - Marble/08a:                            448       288
+:bitmap/matt/09 - Marble/08a:                            512       288
+:bitmap/matt/09 - Marble/08a:                            576       288

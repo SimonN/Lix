@@ -1,0 +1,90 @@
+$BUILT                                             2012-03-06 11:33:18
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                          Experimental: Nuking
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            320
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                           200
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            80
+#REQUIRED                                                            1
+#SPAWN_INTERVAL                                                     10
+#SPAWN_INTERVAL_FAST                                                 4
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#EXPLODER2                                                           0
+#WALKER                                                             -1
+#BLOCKER                                                            -1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/geoo/sandstone/Hatch.H:                          240        96
+:bitmap/geoo/sandstone/Hatch.H:                          304        96     r
+
+:bitmap/geoo/sandstone/Goal.G:                           192       128
+:bitmap/geoo/sandstone/Goal.G:                           384       128
+
+:bitmap/geoo/steel/dark_64x64o.S:                        384       192
+:bitmap/geoo/steel/dark_64x64o.S:                        192       192
+:bitmap/geoo/steel/dark_64x32o.S:                        256       208
+:bitmap/geoo/steel/dark_64x32o.S:                        320       208
+:bitmap/geoo/sandstone/64x64:                            256       256
+:bitmap/geoo/sandstone/64x64:                            320       256
+:bitmap/geoo/sandstone/64x64:                            384       256
+:bitmap/geoo/sandstone/64x64:                            448       192
+:bitmap/geoo/sandstone/64x64:                            448       256
+:bitmap/geoo/sandstone/64x64:                            128       192
+:bitmap/geoo/sandstone/64x64:                            128       256
+:bitmap/geoo/sandstone/64x64:                            192       256
+:bitmap/geoo/steel/dark_32x16o.S:                        256       240
+:bitmap/geoo/steel/dark_32x16o.S:                        288       240
+:bitmap/geoo/steel/dark_32x16o.S:                        320       240
+:bitmap/geoo/steel/dark_32x16o.S:                        352       240
+:bitmap/geoo/sandstone/64x64:                            448       128
+:bitmap/geoo/sandstone/64x64:                            128       128
+:bitmap/geoo/sandstone/64x64:                            128        64
+:bitmap/geoo/sandstone/64x64:                            448        64
+:bitmap/geoo/sandstone/64x64:                            128         0
+:bitmap/geoo/sandstone/64x64:                            256         0
+:bitmap/geoo/sandstone/64x64:                            320         0
+:bitmap/geoo/sandstone/64x64:                            384         0
+:bitmap/geoo/sandstone/64x64:                            448         0
+:bitmap/geoo/sandstone/64x64:                            192         0
+:bitmap/geoo/sandstone/64x32:                            192        64
+:bitmap/geoo/sandstone/64x32:                            256        64
+:bitmap/geoo/sandstone/64x32:                            320        64
+:bitmap/geoo/sandstone/64x32:                            384        64
+:bitmap/geoo/sandstone/64x64:                             64       192
+:bitmap/geoo/sandstone/64x64:                             64       256
+:bitmap/geoo/sandstone/64x64:                             64       128
+:bitmap/geoo/sandstone/64x64:                             64        64
+:bitmap/geoo/sandstone/64x64:                             64         0
+:bitmap/geoo/sandstone/64x64:                            512       192
+:bitmap/geoo/sandstone/64x64:                            512       256
+:bitmap/geoo/sandstone/64x64:                            512       128
+:bitmap/geoo/sandstone/64x64:                            512        64
+:bitmap/geoo/sandstone/64x64:                            512         0
+:bitmap/geoo/sandstone/64x64:                              0       192
+:bitmap/geoo/sandstone/64x64:                              0       256
+:bitmap/geoo/sandstone/64x64:                              0       128
+:bitmap/geoo/sandstone/64x64:                              0        64
+:bitmap/geoo/sandstone/64x64:                              0         0
+:bitmap/geoo/sandstone/64x64:                            576       192
+:bitmap/geoo/sandstone/64x64:                            576       256
+:bitmap/geoo/sandstone/64x64:                            576       128
+:bitmap/geoo/sandstone/64x64:                            576        64
+:bitmap/geoo/sandstone/64x64:                            576         0

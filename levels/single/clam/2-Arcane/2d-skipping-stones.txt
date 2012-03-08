@@ -1,0 +1,274 @@
+$BUILT                                             2012-03-07 11:26:54
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                               Skipping Stones
+
+#SIZE_X                                                           1280
+#SIZE_Y                                                            384
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                           120
+#START_Y                                                           348
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            80
+#REQUIRED                                                           70
+#SPAWN_INTERVAL                                                     32
+#SPAWN_INTERVAL_FAST                                                 4
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#WALKER                                                              1
+#RUNNER                                                              2
+#JUMPER                                                              2
+#BATTER                                                              1
+#BUILDER                                                             6
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/geoo/construction/Hatch.H:                       272       112
+
+:bitmap/geoo/construction/Goal2.G:                       952        80
+
+:bitmap/geoo/construction/concrete/016h:                 256       176
+:bitmap/geoo/construction/concrete/016v:                 448       144
+:bitmap/geoo/construction/concrete/016h:                 464       144
+:bitmap/geoo/construction/concrete/016v:                 432       160
+:bitmap/geoo/construction/concrete/016v:                 416       176
+:bitmap/geoo/construction/concrete/016v:                 400       192
+:bitmap/geoo/construction/concrete/016v:                 384       208
+:bitmap/geoo/construction/concrete/016v:                 368       224
+:bitmap/geoo/construction/concrete/016v:                 352       240
+:bitmap/geoo/construction/concrete/016v:                 304       288
+:bitmap/geoo/construction/concrete/016h:                 416       144
+:bitmap/geoo/construction/concrete/016h:                 400       160
+:bitmap/geoo/construction/concrete/016h:                 384       176
+:bitmap/geoo/construction/concrete/016h:                 368       192
+:bitmap/geoo/construction/concrete/016h:                 352       208
+:bitmap/geoo/construction/concrete/016h:                 336       224
+:bitmap/geoo/construction/concrete/016h:                 320       240
+:bitmap/geoo/construction/concrete/016h:                 304       256
+:bitmap/geoo/construction/concrete/016h:                 288       272
+:bitmap/geoo/construction/concrete/016v:                 384       144
+:bitmap/geoo/construction/concrete/016v:                 368       160
+:bitmap/geoo/construction/concrete/016v:                 352       176
+:bitmap/geoo/construction/concrete/016v:                 336       192
+:bitmap/geoo/construction/concrete/016v:                 320       208
+:bitmap/geoo/construction/concrete/016v:                 304       224
+:bitmap/geoo/construction/concrete/016v:                 288       240
+:bitmap/geoo/construction/concrete/016v:                 272       256
+:bitmap/geoo/construction/concrete/016h:                 352       144
+:bitmap/geoo/construction/concrete/016h:                 336       160
+:bitmap/geoo/construction/concrete/016h:                 320       176
+:bitmap/geoo/construction/concrete/016h:                 304       192
+:bitmap/geoo/construction/concrete/016h:                 288       208
+:bitmap/geoo/construction/concrete/016h:                 272       224
+:bitmap/geoo/construction/concrete/016h:                 256       240
+:bitmap/geoo/construction/concrete/016v:                 400       128
+:bitmap/geoo/construction/concrete/016v:                 400       112     d
+:bitmap/geoo/construction/squarebrick_small:             584       144
+:bitmap/geoo/construction/squarebrick_small:             688       144
+:bitmap/geoo/construction/concrete/016h:                 792       144
+:bitmap/geoo/construction/concrete/016h:                 840       144
+:bitmap/geoo/construction/concrete/016h:                 288       144
+:bitmap/geoo/construction/concrete/016v:                 336       128
+:bitmap/geoo/construction/concrete/016v:                 320       144
+:bitmap/geoo/construction/concrete/016v:                 272       128
+:bitmap/geoo/construction/concrete/016v:                 336       112     d
+:bitmap/geoo/construction/concrete/016v:                 272       112     d
+:bitmap/geoo/construction/concrete/016h:                 272       288
+:bitmap/geoo/construction/concrete/016h:                 256       304
+:bitmap/geoo/construction/concrete/016v:                 288       304
+:bitmap/geoo/construction/concrete/064v:                 208         0
+:bitmap/geoo/construction/concrete/064v:                 208       128
+:bitmap/geoo/construction/concrete/064v:                 208       256
+:bitmap/geoo/construction/concrete/016v:                 272       320
+:bitmap/geoo/construction/concrete/016v:                 304       160
+:bitmap/geoo/construction/concrete/016v:                 288       176
+:bitmap/geoo/construction/concrete/016v:                 272       192
+:bitmap/geoo/construction/concrete/016h:                 272       160
+:bitmap/geoo/construction/pillar_32:                     144       140
+:bitmap/geoo/construction/pillar_base:                   128       196
+:bitmap/geoo/construction/pillar_base:                   128       172
+:bitmap/geoo/construction/pillar_top:                    144         0
+:bitmap/geoo/construction/pillar_top_shaded:             144       212
+:bitmap/geoo/construction/pillar_32:                     144       108
+:bitmap/geoo/construction/pillar_32:                     144        76
+:bitmap/geoo/construction/pillar_32:                     144        44
+:bitmap/geoo/construction/rod_steel/straight32.S:        176       188
+:bitmap/geoo/construction/pillar_32:                     144        16
+:bitmap/geoo/construction/pillar_32:                     144       324
+:bitmap/geoo/construction/pillar_32:                     144       292
+:bitmap/geoo/construction/pillar_32:                     144       260
+:bitmap/geoo/construction/pillar_32:                     144       228
+:bitmap/geoo/construction/pillar_bottom:                 144       368
+:bitmap/geoo/construction/pillar_32:                     144       336
+:bitmap/geoo/construction/rod_steel/straight32.S:        144       188
+:bitmap/geoo/construction/rod_steel/straight32.S:        112       188
+:bitmap/geoo/construction/pillar_32:                      48       140
+:bitmap/geoo/construction/pillar_base:                    32       196
+:bitmap/geoo/construction/pillar_base:                    32       172
+:bitmap/geoo/construction/pillar_top:                     48         0
+:bitmap/geoo/construction/pillar_top_shaded:              48       212
+:bitmap/geoo/construction/pillar_32:                      48       108
+:bitmap/geoo/construction/pillar_32:                      48        76
+:bitmap/geoo/construction/pillar_32:                      48        44
+:bitmap/geoo/construction/pillar_32:                      48        16
+:bitmap/geoo/construction/pillar_32:                      48       324
+:bitmap/geoo/construction/pillar_32:                      48       292
+:bitmap/geoo/construction/pillar_32:                      48       260
+:bitmap/geoo/construction/pillar_32:                      48       228
+:bitmap/geoo/construction/pillar_bottom:                  48       368
+:bitmap/geoo/construction/pillar_32:                      48       336
+:bitmap/geoo/construction/rod_steel/straight32.S:         48       188
+:bitmap/geoo/construction/rod_steel/straight32.S:         16       188
+:bitmap/geoo/construction/rod_steel/straight32.S:         80       188
+:bitmap/geoo/construction/rod_steel/end_rect.S:           16       188
+:bitmap/geoo/construction/wall/big_brickdiag_tu:         624       352
+:bitmap/geoo/construction/wall/big_brickdiag_td:         688       352
+:bitmap/geoo/construction/wall/small_brickdiag_td:       688       336
+:bitmap/geoo/construction/wall/small_brickdiag_tu:       656       336
+:bitmap/geoo/construction/concrete/016v:                 824       144
+:bitmap/geoo/construction/concrete/016v:                 840       160
+:bitmap/geoo/construction/concrete/016v:                 856       176
+:bitmap/geoo/construction/concrete/016v:                 872       192
+:bitmap/geoo/construction/concrete/016v:                 888       208
+:bitmap/geoo/construction/concrete/016v:                 904       224
+:bitmap/geoo/construction/concrete/016v:                 920       240
+:bitmap/geoo/construction/concrete/016v:                 936       256
+:bitmap/geoo/construction/concrete/016v:                 952       272
+:bitmap/geoo/construction/concrete/016v:                 968       288
+:bitmap/geoo/construction/concrete/016v:                 984       304
+:bitmap/geoo/construction/concrete/016v:                1000       320
+:bitmap/geoo/construction/concrete/016h:                 856       160
+:bitmap/geoo/construction/concrete/016h:                 872       176
+:bitmap/geoo/construction/concrete/016h:                 888       192
+:bitmap/geoo/construction/concrete/016h:                 904       208
+:bitmap/geoo/construction/concrete/016h:                 920       224
+:bitmap/geoo/construction/concrete/016h:                 936       240
+:bitmap/geoo/construction/concrete/016h:                 952       256
+:bitmap/geoo/construction/concrete/016h:                 968       272
+:bitmap/geoo/construction/concrete/016h:                 984       288
+:bitmap/geoo/construction/concrete/016h:                1000       304
+:bitmap/geoo/construction/concrete/016h:                 904       144
+:bitmap/geoo/construction/concrete/016v:                 888       144
+:bitmap/geoo/construction/concrete/016v:                 904       160
+:bitmap/geoo/construction/concrete/016v:                 920       176
+:bitmap/geoo/construction/concrete/016v:                 936       192
+:bitmap/geoo/construction/concrete/016v:                 952       208
+:bitmap/geoo/construction/concrete/016v:                 968       224
+:bitmap/geoo/construction/concrete/016v:                 984       240
+:bitmap/geoo/construction/concrete/016v:                1000       256
+:bitmap/geoo/construction/concrete/016h:                 920       160
+:bitmap/geoo/construction/concrete/016h:                 936       176
+:bitmap/geoo/construction/concrete/016h:                 952       192
+:bitmap/geoo/construction/concrete/016h:                 968       208
+:bitmap/geoo/construction/concrete/016h:                 984       224
+:bitmap/geoo/construction/concrete/016h:                1000       240
+:bitmap/geoo/construction/concrete/016h:                 968       144
+:bitmap/geoo/construction/concrete/016v:                 952       144
+:bitmap/geoo/construction/concrete/016v:                 968       160
+:bitmap/geoo/construction/concrete/016v:                 984       176
+:bitmap/geoo/construction/concrete/016v:                1000       192
+:bitmap/geoo/construction/concrete/016h:                 984       160
+:bitmap/geoo/construction/concrete/016h:                1000       176
+:bitmap/geoo/construction/concrete/064v:                1016         0
+:bitmap/geoo/construction/concrete/064v:                1016       128
+:bitmap/geoo/construction/concrete/064v:                1016       256
+:bitmap/geoo/construction/concrete/016v:                 872       128
+:bitmap/geoo/construction/concrete/016v:                 936       128
+:bitmap/geoo/construction/concrete/016v:                1000       128
+:bitmap/geoo/construction/concrete/016v:                1000       112     d
+:bitmap/geoo/construction/concrete/016v:                 936       112     d
+:bitmap/geoo/construction/concrete/016v:                 872       112     d
+:bitmap/geoo/construction/pillar_32:                    1208       140
+:bitmap/geoo/construction/pillar_base:                  1192       196
+:bitmap/geoo/construction/pillar_base:                  1192       172
+:bitmap/geoo/construction/pillar_top:                   1208         0
+:bitmap/geoo/construction/pillar_top_shaded:            1208       212
+:bitmap/geoo/construction/pillar_32:                    1208       108
+:bitmap/geoo/construction/pillar_32:                    1208        76
+:bitmap/geoo/construction/pillar_32:                    1208        44
+:bitmap/geoo/construction/rod_steel/straight32.S:       1240       188
+:bitmap/geoo/construction/pillar_32:                    1208        16
+:bitmap/geoo/construction/pillar_32:                    1208       324
+:bitmap/geoo/construction/pillar_32:                    1208       292
+:bitmap/geoo/construction/pillar_32:                    1208       260
+:bitmap/geoo/construction/pillar_32:                    1208       228
+:bitmap/geoo/construction/pillar_bottom:                1208       368
+:bitmap/geoo/construction/pillar_32:                    1208       336
+:bitmap/geoo/construction/rod_steel/straight32.S:       1208       188
+:bitmap/geoo/construction/rod_steel/straight32.S:       1176       188
+:bitmap/geoo/construction/pillar_32:                    1112       140
+:bitmap/geoo/construction/pillar_base:                  1096       196
+:bitmap/geoo/construction/pillar_base:                  1096       172
+:bitmap/geoo/construction/pillar_top:                   1112         0
+:bitmap/geoo/construction/pillar_top_shaded:            1112       212
+:bitmap/geoo/construction/pillar_32:                    1112       108
+:bitmap/geoo/construction/pillar_32:                    1112        76
+:bitmap/geoo/construction/pillar_32:                    1112        44
+:bitmap/geoo/construction/pillar_32:                    1112        16
+:bitmap/geoo/construction/pillar_32:                    1112       324
+:bitmap/geoo/construction/pillar_32:                    1112       292
+:bitmap/geoo/construction/pillar_32:                    1112       260
+:bitmap/geoo/construction/pillar_32:                    1112       228
+:bitmap/geoo/construction/pillar_bottom:                1112       368
+:bitmap/geoo/construction/pillar_32:                    1112       336
+:bitmap/geoo/construction/rod_steel/straight32.S:       1112       188
+:bitmap/geoo/construction/rod_steel/straight32.S:       1080       188
+:bitmap/geoo/construction/rod_steel/straight32.S:       1144       188
+:bitmap/geoo/construction/concrete/016v:                 336       256
+:bitmap/geoo/construction/concrete/016v:                 320       272
+:bitmap/geoo/construction/rod_steel/end_rect.S:         1264       188     frr
+:bitmap/geoo/construction/concrete/032h:                 272         0
+:bitmap/geoo/construction/concrete/032h:                 336         0
+:bitmap/geoo/construction/concrete/032h:                 888         0
+:bitmap/geoo/construction/concrete/032h:                 952         0
+:bitmap/geoo/construction/concrete/032:                  464         0
+:bitmap/geoo/construction/concrete/032:                  792         0
+:bitmap/geoo/construction/concrete/016:                  560         0
+:bitmap/geoo/construction/concrete/008v:                 624         0
+:bitmap/geoo/construction/concrete/008v:                 624        16
+:bitmap/geoo/construction/concrete/016:                  560        16
+:bitmap/geoo/construction/concrete/016:                  664         0
+:bitmap/geoo/construction/concrete/016:                  664        16
+:bitmap/geoo/construction/concrete/032:                  432         0
+:bitmap/geoo/construction/concrete/032:                  400         0
+:bitmap/geoo/construction/concrete/032:                  824         0
+:bitmap/geoo/construction/concrete/032:                  856         0
+:bitmap/geoo/construction/concrete/016:                  576         0
+:bitmap/geoo/construction/concrete/016:                  576        16
+:bitmap/geoo/construction/concrete/016:                  592         0
+:bitmap/geoo/construction/concrete/016:                  592        16
+:bitmap/geoo/construction/concrete/016:                  608         0
+:bitmap/geoo/construction/concrete/016:                  608        16
+:bitmap/geoo/construction/concrete/016:                  680         0
+:bitmap/geoo/construction/concrete/016:                  680        16
+:bitmap/geoo/construction/concrete/016:                  696         0
+:bitmap/geoo/construction/concrete/016:                  696        16
+:bitmap/geoo/construction/concrete/016:                  712         0
+:bitmap/geoo/construction/concrete/016:                  712        16
+:bitmap/geoo/construction/concrete/008v:                 632         0
+:bitmap/geoo/construction/concrete/008v:                 632        16
+:bitmap/geoo/construction/concrete/008v:                 640         0
+:bitmap/geoo/construction/concrete/008v:                 640        16
+:bitmap/geoo/construction/concrete/008v:                 648         0
+:bitmap/geoo/construction/concrete/008v:                 648        16
+:bitmap/geoo/construction/concrete/008v:                 656         0
+:bitmap/geoo/construction/concrete/008v:                 656        16
+:bitmap/geoo/construction/concrete/032:                  496         0
+:bitmap/geoo/construction/concrete/032:                  760         0
+:bitmap/geoo/construction/concrete/016:                  728         0
+:bitmap/geoo/construction/concrete/016:                  728        16
+:bitmap/geoo/construction/concrete/016:                  744         0
+:bitmap/geoo/construction/concrete/016:                  744        16
+:bitmap/geoo/construction/concrete/016:                  528         0
+:bitmap/geoo/construction/concrete/016:                  528        16
+:bitmap/geoo/construction/concrete/016:                  544         0
+:bitmap/geoo/construction/concrete/016:                  544        16

@@ -1,0 +1,94 @@
+$BUILT                                             2012-03-06 21:01:13
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                                      Flotilla
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            15
+#REQUIRED                                                           12
+#SPAWN_INTERVAL                                                     10
+#SPAWN_INTERVAL_FAST                                                10
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#FLOATER                                                            15
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/geoo/construction/Hatch.H:                         0        64
+
+:bitmap/geoo/construction/Goal2.G:                       576       240
+
+:bitmap/geoo/construction/squisher.T:                    512       240
+:bitmap/geoo/construction/squisher.T:                    384       128
+:bitmap/geoo/construction/squisher.T:                    256       128
+:bitmap/geoo/construction/squisher.T:                    128       128
+:bitmap/geoo/construction/squisher.T:                      0       128
+
+:bitmap/geoo/construction/steam_up.T:                     32       272
+:bitmap/geoo/construction/steam_up.T:                    160       272
+:bitmap/geoo/construction/steam_up.T:                    288       272
+
+:bitmap/geoo/construction/pillar_top:                    384       128
+:bitmap/geoo/construction/pillar_32:                     384       144
+:bitmap/geoo/construction/pillar_32:                     384       176
+:bitmap/geoo/construction/pillar_32:                     384       208
+:bitmap/geoo/construction/pillar_32:                     384       240
+:bitmap/geoo/construction/pillar_bottom:                 384       288
+:bitmap/geoo/construction/pillar_32:                     384       256
+:bitmap/matt/04 - Sandy Beach/Sand Decor/umbrella_yellow: 458       45     frr
+:bitmap/geoo/construction/pillar_top:                    512       128
+:bitmap/geoo/construction/pillar_32:                     512       144
+:bitmap/geoo/construction/pillar_32:                     512       176
+:bitmap/geoo/construction/pillar_32:                     512       208
+:bitmap/geoo/construction/wall/big_128x128:                0       304
+:bitmap/geoo/construction/wall/big_128x128:              128       304
+:bitmap/geoo/construction/wall/big_128x128:              256       304
+:bitmap/geoo/construction/wall/big_128x128:              384       304
+:bitmap/geoo/construction/wall/big_128x128:              512       304
+:bitmap/geoo/construction/pillar_32:                     384       132     d
+:bitmap/geoo/construction/pillar_32:                     384       152
+:bitmap/geoo/construction/pillar_top:                    256       128
+:bitmap/geoo/construction/pillar_32:                     256       144
+:bitmap/geoo/construction/pillar_32:                     256       176
+:bitmap/geoo/construction/pillar_32:                     256       208
+:bitmap/geoo/construction/pillar_32:                     256       240
+:bitmap/geoo/construction/pillar_bottom:                 256       288
+:bitmap/geoo/construction/pillar_32:                     256       256
+:bitmap/geoo/construction/pillar_32:                     256       132     d
+:bitmap/geoo/construction/pillar_32:                     256       152
+:bitmap/geoo/construction/pillar_top:                    128       128
+:bitmap/geoo/construction/pillar_32:                     128       144
+:bitmap/geoo/construction/pillar_32:                     128       176
+:bitmap/geoo/construction/pillar_32:                     128       208
+:bitmap/geoo/construction/pillar_32:                     128       240
+:bitmap/geoo/construction/pillar_bottom:                 128       288
+:bitmap/geoo/construction/pillar_32:                     128       256
+:bitmap/geoo/construction/pillar_32:                     128       132     d
+:bitmap/geoo/construction/pillar_32:                     128       152
+:bitmap/geoo/construction/pillar_top:                      0       128
+:bitmap/geoo/construction/pillar_32:                       0       144
+:bitmap/geoo/construction/pillar_32:                       0       176
+:bitmap/geoo/construction/pillar_32:                       0       208
+:bitmap/geoo/construction/pillar_32:                       0       240
+:bitmap/geoo/construction/pillar_bottom:                   0       288
+:bitmap/geoo/construction/pillar_32:                       0       256
+:bitmap/geoo/construction/pillar_32:                       0       132     d
+:bitmap/geoo/construction/pillar_32:                       0       152

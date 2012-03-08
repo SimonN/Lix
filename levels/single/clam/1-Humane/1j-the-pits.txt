@@ -1,0 +1,156 @@
+$BUILT                                             2012-02-18 11:37:46
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                                      The Pits
+
+#SIZE_X                                                           1280
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                           244
+#START_Y                                                           380
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            25
+#REQUIRED                                                           20
+#SPAWN_INTERVAL                                                     48
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#FLOATER                                                             5
+#EXPLODER                                                            2
+#BLOCKER                                                             5
+#BUILDER                                                            10
+#BASHER                                                             10
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/matt/07 - Underworld/Hatch.H:                    544         0
+
+:bitmap/matt/07 - Underworld/Goal.G:                    1136       212
+
+:bitmap/matt/07 - Underworld/Lava.W:                       0       368
+:bitmap/matt/07 - Underworld/Lava.W:                     240       368
+:bitmap/matt/07 - Underworld/Lava.W:                     400       368
+:bitmap/matt/07 - Underworld/Lava.W:                     704       368
+:bitmap/matt/07 - Underworld/Lava.W:                    1008       368
+:bitmap/matt/07 - Underworld/Lava.W:                    1056       368
+:bitmap/matt/07 - Underworld/Lava.W:                    1104       368
+:bitmap/matt/07 - Underworld/Lava.W:                    1152       368
+:bitmap/matt/07 - Underworld/Lava.W:                    1200       368
+:bitmap/matt/07 - Underworld/Lava.W:                     544       368
+:bitmap/matt/07 - Underworld/Lava.W:                      48       368
+:bitmap/geoo/construction/Laser_vr_64.F:                 864       132
+:bitmap/geoo/construction/Laser_vr_64.F:                 896       132
+:bitmap/geoo/construction/Laseremit_vrt_16.F:            864       116
+:bitmap/geoo/construction/Laseremit_vrt_16.F:            896       116
+:bitmap/geoo/construction/Laseremit_vrb_16.F:            864       228
+:bitmap/geoo/construction/Laseremit_vrb_16.F:            896       228
+:bitmap/geoo/construction/Laser_vr_64.F:                 864       164
+:bitmap/geoo/construction/Laser_vr_64.F:                 896       164
+
+:bitmap/matt/07 - Underworld/02:                         448       272
+:bitmap/matt/07 - Underworld/02:                         928       100
+:bitmap/matt/07 - Underworld/02:                         960        84
+:bitmap/matt/07 - Underworld/02:                        1024        20
+:bitmap/matt/07 - Underworld/02:                        1088        20
+:bitmap/matt/07 - Underworld/02:                        1152        20
+:bitmap/matt/07 - Underworld/05:                         416        92
+:bitmap/matt/07 - Underworld/07:                         352       116
+:bitmap/matt/07 - Underworld/06:                         496       124
+:bitmap/matt/07 - Underworld/06:                         320        84
+:bitmap/matt/07 - Underworld/06:                         270        52     rr
+:bitmap/matt/07 - Underworld/06:                         736        84
+:bitmap/matt/07 - Underworld/05:                         624       100
+:bitmap/matt/07 - Underworld/07:                         576       132
+:bitmap/matt/07 - Underworld/07:                         752       148
+:bitmap/matt/07 - Underworld/06:                         720       132
+:bitmap/matt/07 - Underworld/06:                         640       116
+:bitmap/matt/07 - Underworld/06:                         560       100
+:bitmap/matt/07 - Underworld/02:                         340       300
+:bitmap/matt/07 - Underworld/02:                         752       304
+:bitmap/matt/07 - Underworld/02:                         276       300
+:bitmap/matt/07 - Underworld/02:                         180       288
+:bitmap/matt/07 - Underworld/02:                         180       192
+:bitmap/matt/07 - Underworld/02:                         180       320
+:bitmap/geoo/steel/dark_32x32o.S:                        372       300
+:bitmap/geoo/steel/dark_32x32o.S:                        276       300
+:bitmap/matt/07 - Underworld/02:                         116       288
+:bitmap/matt/07 - Underworld/02:                         116       192
+:bitmap/matt/07 - Underworld/02:                         116       320
+:bitmap/matt/07 - Underworld/02:                          52       288
+:bitmap/matt/07 - Underworld/02:                          52       192
+:bitmap/matt/07 - Underworld/02:                          52       320
+:bitmap/geoo/steel/dark_64x32o.S:                        272        84
+:bitmap/geoo/steel/dark_64x32o.S:                        336        84
+:bitmap/geoo/steel/dark_64x32o.S:                        400        84
+:bitmap/geoo/steel/dark_64x32o.S:                        464        84
+:bitmap/geoo/steel/dark_64x32o.S:                        624        84
+:bitmap/geoo/steel/dark_64x32o.S:                        688        84
+:bitmap/geoo/steel/dark_64x32o.S:                        752        84
+:bitmap/geoo/steel/dark_64x32o.S:                        816        84
+:bitmap/geoo/steel/dark_64x32o.S:                        896        84
+:bitmap/geoo/steel/dark_64x32o.S:                        816       244
+:bitmap/geoo/steel/dark_64x32o.S:                        896       244
+:bitmap/geoo/steel/dark_32x64o.S:                        912       116
+:bitmap/geoo/steel/dark_32x64o.S:                        912       180
+:bitmap/geoo/steel/dark_32x64o.S:                        832       180
+:bitmap/geoo/steel/dark_32x64o.S:                        832       116
+:bitmap/geoo/steel/dark_64x32o.S:                        960        84
+:bitmap/geoo/steel/dark_32x64o.S:                        992        20
+:bitmap/matt/07 - Underworld/02:                         816       304
+:bitmap/matt/07 - Underworld/02:                         880       304
+:bitmap/matt/07 - Underworld/02:                         944       304
+:bitmap/matt/07 - Underworld/01:                        1088       276
+:bitmap/geoo/steel/dark_32x32o.S:                        212       192
+:bitmap/geoo/steel/dark_32x32o.S:                         52       192
+:bitmap/matt/07 - Underworld/01:                        1152       276
+:bitmap/matt/07 - Underworld/02:                        1216       308
+:bitmap/matt/07 - Underworld/02:                        1216       212
+:bitmap/matt/07 - Underworld/02:                        1216       116
+:bitmap/matt/07 - Underworld/02:                        1216        20
+:bitmap/geoo/steel/dark_32x32o.S:                        752       304
+:bitmap/geoo/steel/dark_32x32o.S:                        976       304
+:bitmap/geoo/steel/dark_32x32o.S:                       1088       276
+:bitmap/geoo/steel/dark_32x64o.S:                        560       180
+:bitmap/geoo/steel/dark_32x64o.S:                        560       116
+:bitmap/geoo/steel/dark_64x32o.S:                        272        52     d
+:bitmap/geoo/steel/dark_64x32o.S:                        336        52     d
+:bitmap/geoo/steel/dark_64x32o.S:                        240        52     rrrd
+:bitmap/matt/07 - Underworld/07:                         416       124
+:bitmap/matt/07 - Underworld/02:                        1024        84
+:bitmap/matt/07 - Underworld/02:                        1088        84
+:bitmap/matt/07 - Underworld/02:                        1152        84
+:bitmap/matt/07 - Underworld/01:                        1024       -12
+:bitmap/matt/07 - Underworld/01:                        1088       -12
+:bitmap/matt/07 - Underworld/01:                        1152       -12
+:bitmap/matt/07 - Underworld/01:                        1216       -12
+:bitmap/matt/07 - Underworld/00:                         944       180     d
+:bitmap/geoo/steel/dark_64x32o.S:                        580       368
+:bitmap/matt/07 - Underworld/02:                         644       272
+:bitmap/matt/07 - Underworld/02:                         644       304
+:bitmap/geoo/steel/dark_32x32o.S:                        676       272
+:bitmap/matt/07 - Underworld/02:                         580       272
+:bitmap/matt/08 - Bricks/06:                             612       272     d
+:bitmap/matt/08 - Bricks/06:                             580       304     d
+:bitmap/geoo/steel/dark_32x32o.S:                        580       272     d
+:bitmap/geoo/steel/dark_32x32o.S:                        448       272
+:bitmap/matt/07 - Underworld/02:                         448       304
+:bitmap/matt/07 - Underworld/02:                         480       256
+:bitmap/matt/07 - Underworld/02:                         480       352
+:bitmap/matt/07 - Underworld/00:                         480       256     d
+:bitmap/geoo/steel/dark_32x64o.S:                        560       244
+:bitmap/geoo/steel/dark_32x32o.S:                        528        84
+:bitmap/geoo/steel/dark_32x32o.S:                        560        84
+:bitmap/geoo/steel/dark_32x32o.S:                        592        84
+:bitmap/geoo/steel/dark_32x64o.S:                        992       -44
+:bitmap/matt/07 - Underworld/02:                         276       332
+:bitmap/matt/07 - Underworld/02:                         340       332
+:bitmap/geoo/steel/dark_32x64o.S:                        512       272
+:bitmap/geoo/steel/dark_32x64o.S:                        512       336

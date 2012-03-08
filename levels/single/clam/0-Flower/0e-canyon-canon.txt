@@ -1,0 +1,113 @@
+$BUILT                                             2012-03-02 22:48:07
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                                  Canyon Canon
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                    128
+#BACKGROUND_GREEN                                                  128
+#BACKGROUND_BLUE                                                   224
+
+#SECONDS                                                             0
+#INITIAL                                                            40
+#REQUIRED                                                           20
+#SPAWN_INTERVAL                                                     45
+
+#CLIMBER                                                            10
+#FLOATER                                                            10
+#RUNNER                                                             10
+#WALKER                                                             10
+#JUMPER                                                             10
+#EXPLODER                                                           10
+#BLOCKER                                                            10
+#BUILDER                                                            10
+#PLATFORMER                                                         10
+#BASHER                                                             10
+#MINER                                                              10
+#DIGGER                                                             10
+
+:bitmap/matt/04 - Sandy Beach/Sand Decor/sun.D:           48       -16
+
+:bitmap/geoo/sandstone/Hatch.H:                          144        16
+
+:bitmap/geoo/sandstone/Goal.G:                           416        24
+
+:bitmap/matt/water.W:                                    256       376
+:bitmap/matt/water.W:                                    288       376
+:bitmap/matt/water.W:                                    320       376
+:bitmap/matt/water.W:                                    352       376
+
+:bitmap/geoo/sandstone/ebony/h16r:                       300        88
+:bitmap/geoo/sandstone/ebony/h16a:                       268        88
+:bitmap/geoo/sandstone/ebony/h16b:                       236        88
+:bitmap/geoo/sandstone/ebony/h16c:                       206        88
+:bitmap/geoo/sandstone/ebony/h16l:                       324        88
+:bitmap/geoo/sandstone/ebony/h16a:                       400        88
+:bitmap/geoo/sandstone/ebony/h16b:                       368        88
+:bitmap/geoo/sandstone/ebony/h16c:                       336        88
+:bitmap/geoo/sandstone/ebony/h16a:                       496        88
+:bitmap/geoo/sandstone/ebony/h16b:                       464        88
+:bitmap/geoo/sandstone/ebony/h16c:                       432        88
+:bitmap/geoo/sandstone/ebony/h16b:                       528        88
+:bitmap/geoo/sandstone/ebony/h16r:                       560        88
+:bitmap/geoo/sandstone/ebony/h16a:                       176        88
+:bitmap/geoo/sandstone/ebony/h16b:                       144        88
+:bitmap/geoo/sandstone/ebony/h16c:                       112        88
+:bitmap/geoo/sandstone/ebony/h16c:                        80        88
+:bitmap/geoo/sandstone/ebony/h16l:                        64        88
+:bitmap/geoo/sandstone/64x64:                            576         0
+:bitmap/geoo/sandstone/64x64:                            576        64
+:bitmap/geoo/sandstone/64x64:                            576       256
+:bitmap/geoo/sandstone/64x64:                            576       320
+:bitmap/geoo/sandstone/64x16:                            576       384
+:bitmap/geoo/sandstone/64x16:                            512       384
+:bitmap/geoo/sandstone/64x16:                            448       384
+:bitmap/geoo/sandstone/64x64:                            576       128
+:bitmap/geoo/sandstone/64x64:                            576       192
+:bitmap/geoo/sandstone/64x64:                            512       128
+:bitmap/geoo/sandstone/64x64:                            512       192
+:bitmap/geoo/sandstone/64x64:                            512       256
+:bitmap/geoo/sandstone/64x64:                            512       320
+:bitmap/geoo/sandstone/64x64:                            448       256
+:bitmap/geoo/sandstone/64x64:                            448       320
+:bitmap/geoo/sandstone/64x64:                            128       256
+:bitmap/geoo/sandstone/64x64:                            128       320
+:bitmap/geoo/sandstone/64x64:                             64       256
+:bitmap/geoo/sandstone/64x64:                             64       320
+:bitmap/geoo/sandstone/64x64:                              0       256
+:bitmap/geoo/sandstone/64x64:                              0       320
+:bitmap/geoo/sandstone/64x64:                             64       128
+:bitmap/geoo/sandstone/64x64:                             64       192
+:bitmap/geoo/sandstone/64x64:                              0       128
+:bitmap/geoo/sandstone/64x64:                              0       192
+:bitmap/geoo/sandstone/64x64:                              0         0
+:bitmap/geoo/sandstone/64x64:                              0        64
+:bitmap/geoo/sandstone/64x16:                            128       384
+:bitmap/geoo/sandstone/64x16:                             64       384
+:bitmap/geoo/sandstone/64x16:                              0       384
+:bitmap/geoo/steel/dark_32x16o.S:                        192       384
+:bitmap/geoo/steel/dark_32x16o.S:                        224       384
+:bitmap/geoo/steel/dark_32x16o.S:                        384       384
+:bitmap/geoo/steel/dark_32x16o.S:                        416       384
+:bitmap/geoo/construction/rod_steel/end_rect.S:          316        96     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        316        64     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        316        32     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        316        18     rrr
+:bitmap/geoo/construction/rod_steel/end_rect.S:          326        78     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        326        40     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        326         8     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        306         8     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        306        40     rrr
+:bitmap/geoo/construction/rod_steel/end_rect.S:          306        78     rrr
+:bitmap/geoo/construction/rod_steel/edge_rd.S:           306         0
+:bitmap/geoo/construction/rod_steel/edge_ld.S:           326         0
+:bitmap/geoo/construction/rod_steel/straight8.S:         314         0
+:bitmap/geoo/construction/rod_steel/straight8.S:         318         0
+:bitmap/geoo/construction/rod_steel/end_rect.S:          316        10     fr
+:bitmap/geoo/construction/rod_steel/straight32.S:        306        46     rrr
+:bitmap/geoo/construction/rod_steel/straight32.S:        326        46     rrr

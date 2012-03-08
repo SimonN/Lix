@@ -1,0 +1,101 @@
+$BUILT                                             2012-02-28 11:40:46
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                                  Mirror Mines
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            40
+#REQUIRED                                                           20
+#SPAWN_INTERVAL                                                     45
+
+#CLIMBER                                                            10
+#FLOATER                                                            10
+#RUNNER                                                             10
+#WALKER                                                             10
+#JUMPER                                                             10
+#EXPLODER                                                           10
+#BLOCKER                                                            10
+#BUILDER                                                            10
+#PLATFORMER                                                         10
+#BASHER                                                             10
+#MINER                                                              10
+#DIGGER                                                             10
+
+:bitmap/matt/02 - Gold Mine/GoalTop.D:                   288       296
+
+:bitmap/matt/02 - Gold Mine/Hatch.H:                      32         8
+:bitmap/matt/02 - Gold Mine/Hatch.H:                     544         8     r
+
+:bitmap/matt/02 - Gold Mine/Goal.G:                      288       344
+
+:bitmap/matt/02 - Gold Mine/03:                          480       146
+:bitmap/matt/02 - Gold Mine/03:                          480       214
+:bitmap/matt/02 - Gold Mine/03:                          320       214
+:bitmap/matt/02 - Gold Mine/03:                          320       146
+:bitmap/matt/02 - Gold Mine/03:                          176       146
+:bitmap/matt/02 - Gold Mine/03:                            0       146
+:bitmap/matt/02 - Gold Mine/03:                          160       214
+:bitmap/matt/02 - Gold Mine/03:                            0       214
+:bitmap/matt/02 - Gold Mine/plank:                       -64        56
+:bitmap/matt/02 - Gold Mine/plank:                       -64        64
+:bitmap/matt/02 - Gold Mine/plank support:               -64         0
+:bitmap/matt/02 - Gold Mine/plank support:               -64         0     f
+:bitmap/matt/02 - Gold Mine/plank:                        64        64
+:bitmap/matt/02 - Gold Mine/plank:                        64        56
+:bitmap/matt/02 - Gold Mine/plank support:                64         0
+:bitmap/matt/02 - Gold Mine/plank support:                64         0     f
+:bitmap/matt/02 - Gold Mine/plank:                       192        64
+:bitmap/matt/02 - Gold Mine/plank:                       192        56
+:bitmap/matt/02 - Gold Mine/plank support:               192         0
+:bitmap/matt/02 - Gold Mine/plank support:               192         0     f
+:bitmap/matt/02 - Gold Mine/plank:                       320        64
+:bitmap/matt/02 - Gold Mine/plank:                       320        56
+:bitmap/matt/02 - Gold Mine/plank support:               320         0
+:bitmap/matt/02 - Gold Mine/plank support:               320         0     f
+:bitmap/matt/02 - Gold Mine/plank:                       448        64
+:bitmap/matt/02 - Gold Mine/plank:                       448        56
+:bitmap/matt/02 - Gold Mine/plank support:               448         0
+:bitmap/matt/02 - Gold Mine/plank support:               448         0     f
+:bitmap/matt/02 - Gold Mine/plank:                       -64       336
+:bitmap/matt/02 - Gold Mine/plank:                       -64       328
+:bitmap/matt/02 - Gold Mine/plank support:               -64       272     f
+:bitmap/matt/02 - Gold Mine/plank support:               -64       272
+:bitmap/matt/02 - Gold Mine/plank:                        64       336
+:bitmap/matt/02 - Gold Mine/plank:                        64       328
+:bitmap/matt/02 - Gold Mine/plank support:                64       272     f
+:bitmap/matt/02 - Gold Mine/plank support:                64       272
+:bitmap/matt/02 - Gold Mine/plank:                       192       336
+:bitmap/matt/02 - Gold Mine/plank:                       192       328
+:bitmap/matt/02 - Gold Mine/plank support:               192       272     f
+:bitmap/matt/02 - Gold Mine/plank support:               192       272
+:bitmap/matt/02 - Gold Mine/plank:                       320       336
+:bitmap/matt/02 - Gold Mine/plank:                       320       328
+:bitmap/matt/02 - Gold Mine/plank support:               320       272     f
+:bitmap/matt/02 - Gold Mine/plank support:               320       272
+:bitmap/matt/02 - Gold Mine/plank:                       448       336
+:bitmap/matt/02 - Gold Mine/plank:                       448       328
+:bitmap/matt/02 - Gold Mine/plank support:               448       272     f
+:bitmap/matt/02 - Gold Mine/plank support:               448       272
+:bitmap/matt/02 - Gold Mine/plank:                       576        64
+:bitmap/matt/02 - Gold Mine/plank:                       576        56
+:bitmap/matt/02 - Gold Mine/plank support:               576         0
+:bitmap/matt/02 - Gold Mine/plank support:               576         0     f
+:bitmap/matt/02 - Gold Mine/plank:                       576       336
+:bitmap/matt/02 - Gold Mine/plank:                       576       328
+:bitmap/matt/02 - Gold Mine/plank support:               576       272     f
+:bitmap/matt/02 - Gold Mine/plank support:               576       272
+:bitmap/matt/02 - Gold Mine/07:                          544       146
+:bitmap/matt/02 - Gold Mine/07:                          392       146
+:bitmap/matt/02 - Gold Mine/07:                          240       146
+:bitmap/matt/02 - Gold Mine/07:                           88       146
+:bitmap/matt/02 - Gold Mine/07:                          -64       146
