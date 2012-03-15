@@ -31,6 +31,8 @@ GameplayChat::GameplayChat()
 
     std::string str = gloB->user_name + ':';
     name.set_text(str);
+    name.set_hidden();
+
     type.set_x (name.get_xl());
     type.set_xl(LEMSCR_X - name.get_xl());
     type.set_on_enter(this, type_on_enter_callback);
