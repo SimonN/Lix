@@ -71,7 +71,7 @@ void update_digger(Lixxie& l, const UpdateArgs& ua)
 
     if (steel_pixels_hit && l.get_special_y() == 1) {
         // Steel was hit and we actually want to stop
-        l.turn();
+        // Continue walking in the same direction.
         l.become(LixEn::WALKER);
         l.set_frame(1);
         l.play_sound(ua, Sound::STEEL);
