@@ -109,8 +109,9 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
 
     case 3:
         if (l.get_special_y() & 2) {
-          steel_hit+=l.remove_rectangle( 13, -14,  13, -13);
+          steel_hit+=l.remove_rectangle( 13, -14,  14, -13);
         }
+        steel_hit += l.remove_rectangle( 13, -13,  13, -13); // less relics
         steel_hit += l.remove_rectangle( 11, -13,  12, -13);
         steel_hit += l.remove_rectangle(  7, -12,  13, -12);
         steel_hit += l.remove_rectangle(  2, -11,  13, -11);
@@ -134,8 +135,9 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
         steel_hit += l.remove_rectangle(  7,  -3,  13,  -3);
         steel_hit += l.remove_rectangle(  9,  -2,  12,  -2);
         steel_hit += l.remove_rectangle( 11,  -1,  12,  -1);
+        steel_hit += l.remove_rectangle( 13,  -2,  13,  -2); // less relics
         if (l.get_special_y() & 2) {
-          steel_hit+=l.remove_rectangle( 13,  -2,  13,  -1);
+          steel_hit+=l.remove_rectangle( 13,  -1,  13,  -1);
         }
         break;
 
