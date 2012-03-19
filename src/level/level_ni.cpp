@@ -102,10 +102,6 @@ void Level::load_from_lemmini(const Filename& filename)
     size_y       = 2 * 160;
     start_x      = lines["xPos"].nr;
 
-    bg_red   = 0;
-    bg_green = 0;
-    bg_blue  = 48;
-
     seconds       = std::max(lines["timeLimit"].nr * 60,
                              lines["timeLimitSeconds"].nr);
     initial       = lines["numLemmings"].nr;
