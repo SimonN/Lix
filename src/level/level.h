@@ -159,8 +159,9 @@ struct Level {
     bool torus_x;
     bool torus_y;
 
-    int  start_x;
-    int  start_y;
+    bool start_manual; // if not set, ignore start_x and start_y.
+    int  start_x;      // start_manual is set by naming at least either start_x
+    int  start_y;      // or start_y in a level file.
     int  bg_red;
     int  bg_green;
     int  bg_blue;

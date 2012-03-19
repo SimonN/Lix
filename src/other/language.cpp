@@ -173,7 +173,7 @@ win_size_torus_y,
 
 // Karten-Startausschnitt
 win_scroll_title,
-win_scroll_desc,
+win_scroll_manual,
 win_scroll_x,
 win_scroll_y,
 win_scroll_r,
@@ -575,8 +575,8 @@ void Language::set(const Language lang)
 
         // Scrollposition
         win_scroll_title              = "Level Visuals";
-        win_scroll_desc               = "Initially visible region"
-                                        " (Single Player only)";
+        win_scroll_manual             = "Manually set initially visible"
+                                        " region";
         win_scroll_x                  = "X Coordinate (0 = left)";
         win_scroll_y                  = "Y Coordinate (0 = top)";
         win_scroll_r                  = "Background red";
@@ -1028,8 +1028,8 @@ eb[Editor::ADD_HAZARD]
 
         // Scrollposition
         win_scroll_title              = "Aussehen des Levels";
-        win_scroll_desc               = "Anfangs sichtbarer Bereich"
-                                        " (nur Einzelspieler)";
+        win_scroll_manual             = "Anfangs sichtbaren Bereich manuell"
+                                        " festlegen";
         win_scroll_x                  = "X-Koordinate (0 = links)";
         win_scroll_y                  = "Y-Koordinate (0 = oben)";
         win_scroll_r                  = "Hintergrund Rot";

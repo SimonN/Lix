@@ -296,11 +296,13 @@ void Gameplay::prepare_level()
     // wir nicht alleine sind: In die Mitte aller eigenen Klappen, oder
     // auf die Antipode des Torus oder sowas, falls das mehr Sinn macht.
     // Also, these hatches will be marked to blink with the player's icon.
-    if (multiplayer) {
+    if (multiplayer || ! lv.start_manual) {
         int h = trlo->hatch_next;
         std::vector <GameHatch*> ownhatches;
         do {
-            hatches[h].set_style(trlo->style);
+            // in multiplayer, have the hatches blink
+            if (multiplayer) hatches[h].set_style(trlo->style);
+
             ownhatches.push_back(&hatches[h]);
             // the next hatch shall be analyzed
             h += cs.tribes.size();
@@ -309,7 +311,6 @@ void Gameplay::prepare_level()
         determine_screen_start_from_hatches(ownhatches);
     }
     else {
-        // In singleplayer, start at the given coordinates.
         map.set_screen_x(lv.start_x);
         map.set_screen_y(lv.start_y);
     }

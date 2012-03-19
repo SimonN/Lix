@@ -28,7 +28,8 @@ private:
     Level& level;
     Map&   map;
 
-    Label desc_win_scroll;
+    Checkbox manual;
+    Label    desc_manual;
 
     Number x;
     Number y;

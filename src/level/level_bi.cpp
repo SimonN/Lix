@@ -288,6 +288,8 @@ void Level::load_from_binary(const Filename& filename)
 
 void Level::load_finalize_binary_or_lemmini(const Filename& filename)
 {
+    start_manual = true;
+
     // Ueble Machenschaften, die den Level gar nicht so sehr wie das Original
     // darstellen, sondern dafuer viel schoener! Links und rechts den Level
     // abschneiden, wenn der Platz nicht gebraucht wird.
@@ -305,6 +307,7 @@ void Level::load_finalize_binary_or_lemmini(const Filename& filename)
     }
     if (min_x < 0)      min_x = 0;
     if (max_x > size_x) max_x = size_x;
+
     // Nun alles entsprechend verschieben
     size_x  = max_x - min_x;
     start_x -= min_x;

@@ -44,6 +44,7 @@ void Level::clear()
     size_y        = LEMSCR_Y - gloB->panel_gameplay_yl;
     torus_x       = false;
     torus_y       = false;
+    start_manual  = false;
     start_x       = 0;
     start_y       = 0;
     bg_red        = 0;
@@ -85,8 +86,9 @@ bool Level::operator == (const Level& l) const
      || this->size_y        != l.size_y
      || this->torus_x       != l.torus_x
      || this->torus_y       != l.torus_y
-     || this->start_x       != l.start_x
-     || this->start_y       != l.start_y
+     || this->start_manual  != l.start_manual
+     || ( this->start_x     != l.start_x && l.start_manual)
+     || ( this->start_y     != l.start_y && l.start_manual)
      || this->bg_red        != l.bg_red
      || this->bg_green      != l.bg_green
      || this->bg_blue       != l.bg_blue

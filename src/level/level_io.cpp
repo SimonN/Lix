@@ -77,12 +77,18 @@ void Level::load_from_vector(const std::vector <IO::Line>& lines)
 
     // Ganzzahlwert setzen
     case '#':
-        if      (i->text1 == gloB->level_size_x  ) size_x   = i->nr1;
+        if      (i->text1 == gloB->level_start_x ) {
+            start_manual = true;
+            start_x      = i->nr1;
+        }
+        else if (i->text1 == gloB->level_start_y ) {
+            start_manual = true;
+            start_y      = i->nr1;
+        }
+        else if (i->text1 == gloB->level_size_x  ) size_x   = i->nr1;
         else if (i->text1 == gloB->level_size_y  ) size_y   = i->nr1;
         else if (i->text1 == gloB->level_torus_x ) torus_x  = i->nr1;
         else if (i->text1 == gloB->level_torus_y ) torus_y  = i->nr1;
-        else if (i->text1 == gloB->level_start_x ) start_x  = i->nr1;
-        else if (i->text1 == gloB->level_start_y ) start_y  = i->nr1;
         else if (i->text1 == gloB->level_bg_red  ) bg_red   = i->nr1;
         else if (i->text1 == gloB->level_bg_green) bg_green = i->nr1;
         else if (i->text1 == gloB->level_bg_blue ) bg_blue  = i->nr1;
@@ -266,9 +272,13 @@ std::ostream& operator << (std::ostream& out, const Level& l)
      << IO::LineHash  (gloB->level_size_x,       l.size_x  )
      << IO::LineHash  (gloB->level_size_y,       l.size_y  )
      << IO::LineHash  (gloB->level_torus_x,      l.torus_x )
-     << IO::LineHash  (gloB->level_torus_y,      l.torus_y )
+     << IO::LineHash  (gloB->level_torus_y,      l.torus_y );
+
+    if (l.start_manual) out
      << IO::LineHash  (gloB->level_start_x,      l.start_x )
-     << IO::LineHash  (gloB->level_start_y,      l.start_y )
+     << IO::LineHash  (gloB->level_start_y,      l.start_y );
+
+    out
      << IO::LineHash  (gloB->level_bg_red,       l.bg_red  )
      << IO::LineHash  (gloB->level_bg_green,     l.bg_green)
      << IO::LineHash  (gloB->level_bg_blue,      l.bg_blue )
