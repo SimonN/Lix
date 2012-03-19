@@ -2,24 +2,33 @@
 /                                                                             \
 |   Lix                                                     Version History   |
 |                                                                             |
-|   (ncp) means netplay incompatibility with earlier versions.                |
+|   I haven't updated this file in quite a while. If you would like to see    |
+|   what's new in the current version, take a look at the commit messages     |
+|   on this website:                                                          |
+|                                                                             |
+|       https://github.com/SimonN/Lix/commits/master                          |
+|
 \_____________________________________________________________________________/
 
 
 
+(current version)
+
+    See website link above.
+
+
 2011-09-03
-(ncp)
 
     (This is just a summary of the development in the past two months)
 
     New skills
         We now have the baseball batter, the runner, and the cuber.
-        
+
     Physics updates
         We've done a lot of small physics fixes and features. Among others,
         climbers will stick to the wall when they jump into one and aren't
         a tumbler yet.
-    
+
     Spectator mode
         It's now possible to observe live multiplayer games without
         participating or even hitting a button at the end of the game.
@@ -27,14 +36,13 @@
     Automatic replays
         Replays are saved into replay/auto/, unless the user disables that
         in the options.
-    
+
     Many bugfixes
         Read the git commit messages if you wish to know everything.
-        
-        
+
+
 
 2011-07-13
-(ncp)
 
     Sprites
         Drew the exploder, two drowners, and included the previously drawn
@@ -46,7 +54,6 @@
 
 
 2011-06-03
-(ncp)
 
     Windows <-> Linux Desync fixed
         All terrain graphics are now loaded with even-numbered heights and
@@ -75,12 +82,11 @@
     Builder physics
         Builders can jump off their bridge at any time without getting stuck
         in the newly laid block.
-        
+
         Also, they die when building out of the top of a non-wrapping level.
 
 
 2011-03-05
-(ncp)
 
     Skill retrieving
         When you had infinite builders, queued builders, and then cancelled
@@ -109,7 +115,6 @@
 
 
 2011-01-08
-(ncp)
 
     999 of anything
         Instead of the old limit of 999 for both skill usages and lixes, the
@@ -254,7 +259,7 @@
     Hatch bugfix
         In the last build, lems always walked to the right when coming out of
         a hatch. This has been fixed again.
-        
+
     Flinger bugfix
         Flingers will now get drawn, and hopefully fling lems into the correct
         direction.
@@ -530,7 +535,7 @@
         Some new multiplayer maps are included: Equator (by me, 4 players),
         Towerhack (by ADmiral, 5 players) and Precise Fastclick Solves
         (by ADmiral, 3 players).
-    
+
     Editor, small bugfixes
         Altering the level size does not mess up the starting position any
         more. The starting position on a torus can now also be one with
@@ -630,7 +635,7 @@
         The grafic files from the L++ bitmap directory are not loaded all at
         once when the game starts anymore. Each graphic is loaded just when
         it is first required, and then stored in memory afterwards as before.
-        
+
     Exploders in multiplayer games
         All exploders in a multiplayer game are knockback exploders now.
         If you load a level with L1-style exploders (without knockback) and
@@ -1016,7 +1021,7 @@
         Die herumfliegenden Lemminge zuckeln nicht mehr im Gestein hin und her,
         sondern liegen direkt in der Naehe des Punktes, an dem sie ins Terrain
         eingetreten waeren.
-        
+
     Replaybrowser-Bugfix
         Replays, deren zugehorige Leveldatei fehlt, koennen nun korrekt aus
         dem Browser geloescht werden.
@@ -1121,7 +1126,7 @@
     Drehungs-Bugfix
         Spiegelungen und Drehungen von Objekten wurden manchmal nicht korrekt
         gespeichert, das ist jetzt behoben.
-    
+
     Bildzerstoerungs-Bugfix
         Ich habe beim Beenden von L++ aus einem destroy_bitmap(bitmap) gemacht:
         if (bitmap) destroy_bitmap(bitmap). Eventuell behebt das den Bug, bei
@@ -1344,7 +1349,7 @@
         nicht immer identisch abgespielt. Das Neu-Rechnen-Prinzip hat sich
         dennoch bereits bewaehrt, sofern nicht ein Rechner zeitlich stark dem
         anderen hinterherhinkt.
-        
+
     Quelltext
         L++ besteht nun 16.000 Zeilen Quelltext, davon sind 9.700 Code.
 
