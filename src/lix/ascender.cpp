@@ -28,9 +28,12 @@ void become_ascender(Lixxie& l)
     int swh_wanted = 10 - frame * 2;
     l.set_frame(frame);
 
-    // Move up, check for even cliff, move down again
+    // Move up, [check for even cliff,] move down again
     l.move_up(swh);
-    if (! l.is_solid(2, 0) && ! l.is_solid(2, 1)) l.move_ahead();
+    // This was in earlier versions to look good, but the community frowned
+    // on it for inconsistency; and sometimes the skipped x-pixels have indeed
+    // yielded problems.
+    // if (! l.is_solid(2, 0) && ! l.is_solid(2, 1)) l.move_ahead();
     l.move_down(swh_wanted);
 }
 
