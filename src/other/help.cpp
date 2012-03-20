@@ -79,6 +79,21 @@ std::string version_to_string(const unsigned long nr) {
 
 
 
+std::string scancode_to_string(const int sc)
+{
+    std::string ret = ::scancode_to_name(sc);
+    string_to_nice_case(ret);
+    for (size_t i = 0; i < ret.size(); ++i) {
+        if (ret[i] == '_' && i + 1 < ret.size()) {
+            ret.erase(i, 1);
+            if (ret[i] >= 'a' && ret[i] <= 'z') ret[i] = ret[i] + 'A' - 'a';
+        }
+    }
+    return ret;
+}
+
+
+
 void string_to_nice_case(std::string& s) {
     if (s.empty()) return;
     if (s[0] >= 'a' && s[0] <= 'z') s[0] = s[0] + 'A' - 'a';

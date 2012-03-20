@@ -2,34 +2,7 @@
  * gameplay/panel.h
  *
  * Das Panel am unteren Bildschirmrand, welches Informationen ueber die
- * Lixxiee sowie geretteten Lixxiee gibt und ggf. die Target Information
- * anzeigt.
- *
- * Im Achtspielermodus brauchen wir mindestens 160 Pixel in der Breite, das
- * ist so viel, wie vier normale Skill-Buttons nebeneinander lang sind.
- *
- * Ein GameplayPanel verwaltet mehrere Spielerdaten, also Objekte der Klasse
- * PanelTribe. Diese Objekte koennen auf verschieden Arten gezeichnet werden:
- *
- *  draw_big()        draw_med()        draw_sml()
- *
- * [Lm] 56 / 80        [Lm]  56            [Lm]
- * [Ex] 23 / 78        [Ex]  23             56
- * <-- frei -->        < frei >             23
- *
- *   80 Pixel          50 Pixel          20 Pixel, man verplane aber mehr
- *
- * Die der draw_*()-Funktion uebergebene X-Koordinate gibt das Zentrum der
- * PanelTribe-Zeichenausgabe an, nicht den linken Rand!
- *
- * Im Falle von draw_big() wird die untere Zahlenzeile gruen gezeichnet, wenn
- * mindestens so viele Lixxiee gerettet worden sind wie benoetigt. In beiden
- * anderen Faellen haben die Spieler mit den meisten geretteten Lixxieen > 0
- * eine gruene untere Zahl.
- *
- * X- und Y-Koordinate sind hartkodiert, sie richten sich je nach der Breit-
- * heit des Panels, einstellbar ueber set_wide(bool). Gleiches gilt fuer
- * die Laenge.
+ * Lix out sowie Lix saved gibt, target information, ...
  *
  */
 
@@ -38,6 +11,7 @@
 #include "../tribe.h"
 
 #include "../../api/button/button.h"
+#include "../../api/label.h"
 #include "../../lix/lix_enum.h" // Farben und Tarinf
 
  // Gameplay panel mode
@@ -115,6 +89,8 @@ private:
     int           countd;
     int           stopw;
 
+    Api::Label    help; // if nonempty, show this instead of regular stuff
+
     void          draw_button_connection(); // for multiplayer eye candy
 
     void draw_self_play_single();
@@ -123,20 +99,22 @@ private:
 
 public:
 
-    //            wohin
     GameplayStats();
     ~GameplayStats();
 
     void add_tribe(const Tribe&);
 
-    inline void set_gapamode   (GapaMode gm)         { gapamode = gm;        }
+    inline void set_gapamode     (GapaMode gm)       { gapamode = gm;        }
     inline void sdr()                                { set_draw_required();  }
+
            void set_tribe_local  (const Tribe*);
     inline void set_use_countdown(const bool b=true) { show_countd= b; sdr();}
     inline void set_tarinf       (const Lixxie*   l) { tarinf     = l; sdr();}
     inline void set_tarcnt       (const int u)       { tarcnt     = u; sdr();}
     inline void set_countdown    (const int u)       { countd     = u; sdr();}
     inline void set_stopwatch    (const int u)       { stopw      = u; sdr();}
+
+           void set_help         (const std::string& s = "");
 
 protected:
 

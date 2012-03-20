@@ -204,6 +204,7 @@ Globals::Globals()
     user_screen_windowed         ("SCREEN_WINDOWED"),
     user_arrows_replay           ("ARROWS_REPLAY"),
     user_arrows_network          ("ARROWS_NETWORK"),
+    user_gameplay_help           ("GAMEPLAY_HELP"),
     user_debris_amount           ("DEBRIS_AMOUNT"),
     user_debris_type             ("DEBRIS_TYPE"),
     user_gui_color_red           ("GUI_COLOR_RED"),

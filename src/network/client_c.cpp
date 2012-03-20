@@ -292,7 +292,7 @@ void NetClient::calc()
             if (useR->key_chat > 0
              && useR->key_chat < KEY_MAX) {
                 start_message << Language::net_game_how_to_chat_1;
-                start_message << scancode_to_name(useR->key_chat);
+                start_message << Help::scancode_to_string(useR->key_chat);
                 start_message << Language::net_game_how_to_chat_2;
             }
             Console::push_back(start_message.str());

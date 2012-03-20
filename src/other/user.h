@@ -89,6 +89,7 @@ public:
     bool screen_windowed;
     bool arrows_replay;
     bool arrows_network;
+    bool gameplay_help;
     int  debris_amount;
     int  debris_type;
     int  gui_color_red;

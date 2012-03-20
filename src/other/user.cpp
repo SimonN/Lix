@@ -122,6 +122,7 @@ User::User()
     screen_windowed        (false),
     arrows_replay          (true),
     arrows_network         (true),
+    gameplay_help          (true),
     debris_amount          (2),
     debris_type            (1),
     gui_color_red          (0x80),
@@ -308,6 +309,7 @@ void User::load()
         else if (i->text1 == gloB->user_screen_windowed        ) screen_windowed        = i->nr1;
         else if (i->text1 == gloB->user_arrows_replay          ) arrows_replay          = i->nr1;
         else if (i->text1 == gloB->user_arrows_network         ) arrows_network         = i->nr1;
+        else if (i->text1 == gloB->user_gameplay_help          ) gameplay_help          = i->nr1;
         else if (i->text1 == gloB->user_debris_amount          ) debris_amount          = i->nr1;
         else if (i->text1 == gloB->user_debris_type            ) debris_type            = i->nr1;
         else if (i->text1 == gloB->user_gui_color_red          ) gui_color_red          = i->nr1;

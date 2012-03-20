@@ -46,7 +46,7 @@ void KeyButton::set_scancode(const int sc)
 {
     if (sc > 0 && sc < KEY_MAX) {
         scancode = sc;
-        set_text(scancode_to_name(scancode));
+        set_text(Help::scancode_to_string(scancode));
     }
     else {
         scancode = 0;

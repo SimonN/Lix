@@ -2,6 +2,8 @@
 
 #include "../../level/level.h" // number of skills per level
 #include "../../graphic/gra_lib.h"
+
+#include "../../other/language.h"
 #include "../../other/user.h"
 
 GameplayPanel::GameplayPanel()
@@ -170,7 +172,9 @@ void GameplayPanel::set_like_tribe(const Tribe* tr, const Tribe::Master* ma)
         skill[i].set_skill (tr->skill[i].ac);
         skill[i].set_number(tr->skill[i].nr);
         skill[i].set_hotkey(key);
-        skill[i].set_hotkey_label(::scancode_to_name(key));
+
+        if (useR->gameplay_help)
+            skill[i].set_hotkey_label(Help::scancode_to_string(key));
     }
     if (ma) set_skill_on(ma->skill_sel);
 
@@ -205,6 +209,19 @@ void GameplayPanel::set_skill_on(const int which)
 
 
 
+// helper function for calc_self()
+static void fhs(
+    std::string& target_s, int& target_i,
+    const Api::Element& e, const std::string& s, const int& i
+) {
+    if (e.is_mouse_here()) {
+        target_s = s;
+        target_i = i;
+    }
+}
+
+
+
 void GameplayPanel::calc_self()
 {
     rate_fixed.set_down(false);
@@ -215,6 +232,34 @@ void GameplayPanel::calc_self()
     rate_slow .set_draw_required();
     rate_cur  .set_draw_required();
     rate_fast .set_draw_required();
+
+    if (useR->gameplay_help) {
+        std::string str;
+        int         key = 0;
+        using namespace Language;
+        fhs(str, key, rate_minus,  gameplay_rate_minus,  useR->key_rate_minus);
+        fhs(str, key, rate_plus,   gameplay_rate_plus,   useR->key_rate_plus);
+        fhs(str, key, pause,       gameplay_pause,       useR->key_pause);
+        fhs(str, key, zoom,        gameplay_zoom,        useR->key_zoom);
+        fhs(str, key, speed_slow,  gameplay_speed_slow,  useR->key_speed_slow);
+        fhs(str, key, speed_fast,  gameplay_speed_fast,  useR->key_speed_fast);
+        fhs(str, key, speed_turbo, gameplay_speed_turbo, useR->key_speed_turbo);
+        fhs(str, key, state_save,  gameplay_state_save,  useR->key_state_save);
+        fhs(str, key, state_load,  gameplay_state_load,  useR->key_state_load);
+        fhs(str, key, restart,     gameplay_restart,     useR->key_restart);
+        fhs(str, key, nuke_single, gameplay_nuke,        useR->key_nuke);
+        fhs(str, key, nuke_multi,  gameplay_nuke,        useR->key_nuke);
+        // some code copied from editor/editor_d.cpp
+        if (key) {
+            str += " ";
+            str += ::Language::editor_hotkey;
+            str += " [";
+            str += Help::scancode_to_string(key);
+            str += "]";
+            stats.set_help(str);
+        }
+        else stats.set_help();
+    }
 }
 
 

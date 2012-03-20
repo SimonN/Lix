@@ -268,6 +268,7 @@ private:
     Checkbox   screen_vsync;
     Checkbox   arrows_replay;
     Checkbox   arrows_network;
+    Checkbox   gameplay_help;
     EnumButton debris_amount;
     EnumButton debris_type;
     Number     gui_color_red;
@@ -281,6 +282,7 @@ private:
                desc_screen_vsync,
                desc_arrows_replay,
                desc_arrows_network,
+               desc_gameplay_help,
                desc_debris_amount,
                desc_debris_type,
                desc_gui_color_red,

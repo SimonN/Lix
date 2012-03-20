@@ -17,10 +17,12 @@ GameplayStats::GameplayStats()
     tarcnt     (0),
     tarinf     (0),
     countd     (0),
-    stopw      (0)
+    stopw      (0),
+    help       (3, 0)
 {
     add_child(stats_bar);
     add_child(stats_multi);
+    add_child(help);
 }
 
 GameplayStats::~GameplayStats()
@@ -64,6 +66,16 @@ void GameplayStats::set_tribe_local(const Tribe* t)
      itr = tribes.begin(); itr != tribes.end(); ++itr) {
         if (itr->tr == t) itr->white = true;
         else              itr->white = false;
+    }
+}
+
+
+
+void GameplayStats::set_help(const std::string& s)
+{
+    if (help.get_text() != s) {
+        help.set_text(s);
+        set_draw_required();
     }
 }
 
@@ -140,16 +152,18 @@ void GameplayStats::draw_self()
     }
 
     // Zunaechst den Spieler mit weisser Schrift nach links malen
-    for (std::vector <PanelTribe> ::const_iterator itr = tribes.begin();
-     itr != tribes.end(); ++itr)
-     if (itr->white) {
-        itr->draw_local(get_x_here(), get_y_here(), cups,
-           show_countd ? &countd : 0,
-         ! show_countd ? &stopw  : 0,
-         tarinf, tarcnt,
-         cup_style,    cup_colored,    oppo_saved,
-         cupall_style, cupall_colored, oppo_expected);
-        break;
+    if (help.get_text().empty()) {
+        for (std::vector <PanelTribe> ::const_iterator itr = tribes.begin();
+         itr != tribes.end(); ++itr)
+         if (itr->white) {
+            itr->draw_local(get_x_here(), get_y_here(), cups,
+               show_countd ? &countd : 0,
+             ! show_countd ? &stopw  : 0,
+             tarinf, tarcnt,
+             cup_style,    cup_colored,    oppo_saved,
+             cupall_style, cupall_colored, oppo_expected);
+            break;
+        }
     }
 
     if (table) {

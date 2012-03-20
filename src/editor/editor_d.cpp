@@ -90,7 +90,7 @@ void Editor::draw()
                 str += hold ? Language::editor_hotkey_hold
                             : Language::editor_hotkey;
                 str += " [";
-                str += scancode_to_name(key);
+                str += Help::scancode_to_string(key);
                 str += "]";
             }
             Help::draw_shadow_text(Api::Manager::get_torbit(), font_med,

@@ -217,6 +217,7 @@ public:
         user_screen_windowed,
         user_arrows_replay,
         user_arrows_network,
+        user_gameplay_help,
         user_debris_amount,
         user_debris_type,
         user_gui_color_red,

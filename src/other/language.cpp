@@ -135,6 +135,20 @@ win_game_replay_tie,
 win_game_overwrite_title,
 win_game_overwrite_question,
 
+// Help texts inside the game
+gameplay_rate_minus,
+gameplay_rate_plus,
+gameplay_pause,
+gameplay_zoom,
+gameplay_speed_slow,
+gameplay_speed_fast,
+gameplay_speed_turbo,
+gameplay_state_save,
+gameplay_state_load,
+gameplay_restart,
+gameplay_nuke,
+gameplay_spec_tribe,
+
 // Editor allgemein
 editor_unsaved_title,
 editor_unsaved_title_new,
@@ -278,6 +292,7 @@ option_screen_border_colored,
 option_screen_vsync,
 option_arrows_replay,
 option_arrows_network,
+option_gameplay_help,
 option_debris_amount,
 option_debris_amount_none,
 option_debris_amount_own,
@@ -537,6 +552,20 @@ void Language::set(const Language lang)
         win_game_overwrite_title      = "Overwrite Replay?";
         win_game_overwrite_question   = "Do you really want to overwrite this replay?";
 
+        // Help texts inside the game
+        gameplay_rate_minus           = "Raise spawn interval: Lix enter the level slower.";
+        gameplay_rate_plus            = "Lower spawn interval: Lix enter the level faster.";
+        gameplay_pause                = "Pause the game.";
+        gameplay_zoom                 = "Zoom into the level.";
+        gameplay_speed_slow           = "Slow motion.";
+        gameplay_speed_fast           = "Fast forward.";
+        gameplay_speed_turbo          = "Turbo fast forward.";
+        gameplay_state_save           = "Quicksave the current game position.";
+        gameplay_state_load           = "Load the previously quicksaved position.";
+        gameplay_restart              = "Restart the level.";
+        gameplay_nuke                 = "Nuke. Activate with a double click.";
+        gameplay_spec_tribe           = "Examine the skills of a different team.";
+
         // Editor allgemein
         editor_unsaved_title          = "Save changes?";
         editor_unsaved_title_new      = "Save level?";
@@ -702,6 +731,7 @@ void Language::set(const Language lang)
         option_screen_vsync           = "Wait for V-sync";
         option_arrows_replay          = "Arrows during replays";
         option_arrows_network         = "Arrows in network games";
+        option_gameplay_help          = "Display game hotkeys";
         option_debris_amount          = "Debris amount";
         option_debris_amount_none     = "None";
         option_debris_amount_own      = "Own";
@@ -990,6 +1020,20 @@ eb[Editor::ADD_HAZARD]
         win_game_overwrite_title      = "Replay ueberschreiben?";
         win_game_overwrite_question   = "Soll dieses Replay wirklich ueberschrieben werden?";
 
+        // Help texts inside the game
+        gameplay_rate_minus           = "Fall-Intervall: Lix erscheinen langsamer.";
+        gameplay_rate_plus            = "Fall-Intervall: Lix erscheinen schneller.";
+        gameplay_pause                = "Pause.";
+        gameplay_zoom                 = "Level-Zoom an- oder ausschalten.";
+        gameplay_speed_slow           = "Zeitlupe.";
+        gameplay_speed_fast           = "Schneller Vorlauf.";
+        gameplay_speed_turbo          = "Turbo-Vorlauf.";
+        gameplay_state_save           = "Aktuellen Spielstand schnellspeichern.";
+        gameplay_state_load           = "Den schnellgespeicherten Spielstand laden.";
+        gameplay_restart              = "Level neustarten.";
+        gameplay_nuke                 = "Atombombe. Aktivierung durch Doppelklick.";
+        gameplay_spec_tribe           = "Faehigkeiten eines anderen Teams ansehen.";
+
         // Editor allgemein
         editor_unsaved_title          = "Aenderungen speichern?";
         editor_unsaved_title_new      = "Level speichern?";
@@ -1121,7 +1165,7 @@ eb[Editor::ADD_HAZARD]
         // Optionsfenster
         option_title                  = "Optionen";
         option_group[0]               = "Allgemein";
-        option_group[1]               = "Steuerung";
+        option_group[1]               = "Steuerg.";
         option_group[2]               = "Hotkeys";
         option_group[3]               = "Editor";
         option_group[4]               = "Menue";
@@ -1161,6 +1205,7 @@ eb[Editor::ADD_HAZARD]
         option_screen_vsync           = "V-Sync abwarten";
         option_arrows_replay          = "Pfeile im Replay";
         option_arrows_network         = "Pfeile im Netzwerkspiel";
+        option_gameplay_help          = "Spiel-Hotkeys anzeigen";
         option_debris_amount          = "Truemmer-Anzahl";
         option_debris_amount_none     = "Keine";
         option_debris_amount_own      = "Lokaler Spieler";

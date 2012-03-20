@@ -250,6 +250,7 @@ OptionMenu::OptionMenu()
     screen_vsync          (check_x, 100),
     arrows_replay         (check_x, 220),
     arrows_network        (check_x, 250),
+    gameplay_help         (check_x, 280),
     debris_amount         (other_x, 220, button_xl),
     debris_type           (other_x, 250, button_xl),
     gui_color_red         (other_x - 40, 280, button_xl + 40),
@@ -263,6 +264,7 @@ OptionMenu::OptionMenu()
     desc_screen_vsync     (check_nx, 100, Language::option_screen_vsync),
     desc_arrows_replay    (check_nx, 220, Language::option_arrows_replay),
     desc_arrows_network   (check_nx, 250, Language::option_arrows_network),
+    desc_gameplay_help    (check_nx, 280, Language::option_gameplay_help),
     desc_debris_amount    (other_nx, 220, Language::option_debris_amount),
     desc_debris_type      (other_nx, 250, Language::option_debris_type),
     desc_gui_color_red    (other_nx, 280, Language::option_gui_color_red),
@@ -506,6 +508,7 @@ OptionMenu::OptionMenu()
     pointers[GROUP_GRAPHICS].push_back(&screen_vsync);
     pointers[GROUP_GRAPHICS].push_back(&arrows_replay);
     pointers[GROUP_GRAPHICS].push_back(&arrows_network);
+    pointers[GROUP_GRAPHICS].push_back(&gameplay_help);
     pointers[GROUP_GRAPHICS].push_back(&debris_amount);
     pointers[GROUP_GRAPHICS].push_back(&debris_type);
     pointers[GROUP_GRAPHICS].push_back(&gui_color_red);
@@ -519,6 +522,7 @@ OptionMenu::OptionMenu()
     pointers[GROUP_GRAPHICS].push_back(&desc_screen_vsync);
     pointers[GROUP_GRAPHICS].push_back(&desc_arrows_replay);
     pointers[GROUP_GRAPHICS].push_back(&desc_arrows_network);
+    pointers[GROUP_GRAPHICS].push_back(&desc_gameplay_help);
     pointers[GROUP_GRAPHICS].push_back(&desc_debris_amount);
     pointers[GROUP_GRAPHICS].push_back(&desc_debris_type);
     pointers[GROUP_GRAPHICS].push_back(&desc_gui_color_red);
@@ -670,6 +674,7 @@ void OptionMenu::reset_elements()
     screen_vsync         .set_checked(gloB->screen_vsync);
     arrows_replay        .set_checked(useR->arrows_replay);
     arrows_network       .set_checked(useR->arrows_network);
+    gameplay_help        .set_checked(useR->gameplay_help);
     debris_amount        .set_number (useR->debris_amount);
     debris_type          .set_number (useR->debris_type);
     gui_color_red        .set_number (useR->gui_color_red);
@@ -848,6 +853,7 @@ void OptionMenu::calc_self()
         useR->screen_border_colored = screen_border_colored.get_checked();
         useR->arrows_replay         = arrows_replay        .get_checked();
         useR->arrows_network        = arrows_network       .get_checked();
+        useR->gameplay_help         = gameplay_help        .get_checked();
         useR->debris_amount         = debris_amount        .get_number();
         useR->debris_type           = debris_type          .get_number();
         useR->gui_color_red         = gui_color_red        .get_number();
