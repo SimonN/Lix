@@ -94,6 +94,27 @@ std::string scancode_to_string(const int sc)
 
 
 
+std::string int_to_hex(int i)
+{
+    std::string ret;
+    bool negative = false;
+    if (i < 0) {
+        negative = true;
+        i *= -1;
+    }
+    if (i == 0) ret += '0';
+    else while (i > 0) {
+        int digit = i % 0x10;
+        ret.insert(ret.begin(), digit >= 0 && digit <= 9 ? '0' + digit
+                                                         : 'A' + digit - 0xA);
+        i /= 0x10;
+    }
+    ret = (negative ? "-0x" : "0x") + ret;
+    return ret;
+}
+
+
+
 void string_to_nice_case(std::string& s) {
     if (s.empty()) return;
     if (s[0] >= 'a' && s[0] <= 'z') s[0] = s[0] + 'A' - 'a';

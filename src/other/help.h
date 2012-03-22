@@ -48,6 +48,7 @@ namespace Help {
 
     std::string version_to_string   (const unsigned long);
     std::string scancode_to_string  (const int);
+    std::string int_to_hex          (const int);
 
     void string_to_nice_case    (std::string&); // Alle ausser 1. Bch.
     void string_shorten         (std::string&, const FONT*, const int);

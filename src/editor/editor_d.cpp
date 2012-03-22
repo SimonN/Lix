@@ -15,6 +15,8 @@
 #include "../api/manager.h" // osd
 #include "../other/user.h"
 
+#include "../level/obj_lib.h" // show the filename in the status bar
+
 void Editor::undraw()
 {
     // OSD zuerst entzeichnen
@@ -66,39 +68,8 @@ void Editor::draw()
                 i != object[Object::HATCH].end(); ++i)
      draw_object_with_numbers(i, ++n, object[Object::HATCH].size());
 
-
-
-    // OSD help texts for buttons
-    // A TextButton with left text alignment also starts at x = 3.
-    if (Api::Manager::get_focus() == 0) {
-        rectfill(Api::Manager::get_torbit().get_al_bitmap(),
-         0, LEMSCR_Y-80, LEMSCR_X-1, LEMSCR_Y-61, color[COL_PINK]);
-        if (panel[HELP].get_on())
-         for (unsigned i = 0; i < panel.size(); ++i)
-         if (panel[i].is_mouse_here()) {
-            std::string str = Language::editor_button[i];
-            int key   = panel[i].get_hotkey();
-            bool hold = false;
-            if (i>=GRID_2 && i<=GRID_16) key = useR->key_ed_grid;
-            else if (i == SELECT_FRAME)  key = useR->key_ed_sel_frame;
-            else if (i == SELECT_ADD)    key = useR->key_ed_sel_add;
-            else if (i == SELECT_BACK)   key = useR->key_ed_background;
-            else if (i == SELECT_FRONT)  key = useR->key_ed_foreground;
-            if (i == SELECT_BACK || i == SELECT_FRONT) hold = true;
-            if (key) {
-                str += " ";
-                str += hold ? Language::editor_hotkey_hold
-                            : Language::editor_hotkey;
-                str += " [";
-                str += Help::scancode_to_string(key);
-                str += "]";
-            }
-            Help::draw_shadow_text(Api::Manager::get_torbit(), font_med,
-             str.c_str(), 3, LEMSCR_Y - 80);
-        }
-    }
-
-
+    update_bar_text();
+    bar.draw();
 
     // Mouse cursor on top
     // The mouse positioning code is here as well, as Editor::calc_self()
@@ -268,4 +239,62 @@ void Editor::draw_object_with_numbers_at
 }
 
 
-// Diese Funktionen waren mir zu umfangreich fuer direktes Einfuegen oben
+
+void Editor::update_bar_text()
+{
+    if (Api::Manager::get_focus() != 0) return;
+
+    bar.set_text(gloB->empty_string);
+    std::ostringstream str;
+
+    // Describe the panel buttons, this is most important.
+    for (unsigned i = 0; i < panel.size(); ++i)
+     if (panel[i].is_mouse_here()) {
+        str << Language::editor_button[i];
+        int key   = panel[i].get_hotkey();
+        bool hold = false;
+        if (i>=GRID_2 && i<=GRID_16) key = useR->key_ed_grid;
+        else if (i == SELECT_FRAME)  key = useR->key_ed_sel_frame;
+        else if (i == SELECT_ADD)    key = useR->key_ed_sel_add;
+        else if (i == SELECT_BACK)   key = useR->key_ed_background;
+        else if (i == SELECT_FRONT)  key = useR->key_ed_foreground;
+        if (i == SELECT_BACK || i == SELECT_FRONT) hold = true;
+        if (key) {
+            str << " "
+             << (hold ? Language::editor_hotkey_hold : Language::editor_hotkey)
+             << " [" << Help::scancode_to_string(key) << "]";
+        }
+    }
+
+    // Describe the current selection/hover info only if no panel icon is to
+    // be described.
+    if (str.str().empty()) {
+        EdGraphic* tarinf = 0;
+        if      (hover.size()     == 1) tarinf = &*hover.begin()->o;
+        else if (selection.size() == 1) tarinf = &*selection.begin()->o;
+
+        if (hover.size() > 2) {
+            str << hover.size() << " " << Language::editor_bar_hover;
+        }
+        else if (tarinf) {
+            str << ObjLib::get_filename(tarinf->get_object());
+
+            std::string flags;
+            if (tarinf->get_mirror())                        flags += 'f';
+            for (int i = 0; i < tarinf->get_rotation(); ++i) flags += 'r';
+            if (tarinf->get_mode() == Cutbit::DARK_EDITOR)   flags += 'd';
+            if (tarinf->get_mode() == Cutbit::NOOW_EDITOR)   flags += 'n';
+            if (! flags.empty()) str << " [" << flags << "]";
+
+            str << " " << Language::editor_bar_at
+             << " (" << tarinf->get_x() << ", " << tarinf->get_y() << ")"
+             << " (" << Help::int_to_hex(tarinf->get_x())
+             << ", " << Help::int_to_hex(tarinf->get_y()) << ")";
+        }
+        else if (! selection.empty()) {
+            str << selection.size() << " " << Language::editor_bar_selection;
+        }
+    }
+
+    bar.set_text(str.str());
+}

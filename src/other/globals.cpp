@@ -26,7 +26,7 @@ Globals::Globals()
     updates_per_second   (globals_updates_per_second),
     skill_max            (12),
     panel_gameplay_yl    (80),
-    panel_editor_yl      (60),
+    panel_editor_yl      (80),
     scroll_torus_max     (2),
 
     user_name            (""),

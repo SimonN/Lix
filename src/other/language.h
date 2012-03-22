@@ -172,6 +172,9 @@ editor_file_name,
 editor_level_name,
 editor_hotkey,
 editor_hotkey_hold,
+editor_bar_at,
+editor_bar_hover,
+editor_bar_selection,
 
 // SaveBrowser
 save_browser_title,

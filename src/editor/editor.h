@@ -21,7 +21,8 @@
 #include "win_skil.h"
 
 #include "../api/brow_sav.h"
-#include "../api/button/b_bitmap.h" // Steuerleiste besteht aus BitmapButtons
+#include "../api/button/b_bitmap.h"
+#include "../api/button/b_text.h"
 #include "../graphic/graph_bg.h"
 #include "../graphic/map.h"
 #include "../other/globals.h"
@@ -109,6 +110,7 @@ private:
                         // when dragging objects with the mouse, instead
                         // only redraw after releasing mouse button.
 
+    Api::TextButton bar;
     std::vector <Api::BitmapButton> panel;
 
     ////////////////
@@ -121,6 +123,8 @@ private:
     void save_lists_and_level();
     void save_lists();
     void delete_everything(); // Neu-Button
+
+    void update_bar_text();
 
     void draw_selection_borders();
     void draw_selection_border   (const Selection&, const int);

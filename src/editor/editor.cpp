@@ -29,14 +29,19 @@ Editor::Editor()
     bg_color  (makecol(level.bg_red,
                        level.bg_green,
                        level.bg_blue)),
-    map       (level.size_x, level.size_y, LEMSCR_X, LEMSCR_Y - 60),
-    map_frames(level.size_x, level.size_y, LEMSCR_X, LEMSCR_Y - 60),
+    map       (level.size_x, level.size_y,
+               LEMSCR_X, LEMSCR_Y - gloB->panel_editor_yl),
+    map_frames(level.size_x, level.size_y,
+               LEMSCR_X, LEMSCR_Y - gloB->panel_editor_yl),
 
     object(Object::MAX),
 
     frame_start_x(-1),
     frame_start_y(-1),
     draw_required(true),
+
+    bar(0, LEMSCR_Y - gloB->panel_editor_yl, LEMSCR_X, 20),
+
     browser_terrain_last_page(0)
 {
     map.set_screen_x(level.start_x);
@@ -65,6 +70,8 @@ Editor::Editor()
             eg.set_x_frame(1);
         }
     }
+
+    bar.set_left();
 
     // Panel vorbereiten
     for (unsigned int i = 0; i < MAX; ++i) {

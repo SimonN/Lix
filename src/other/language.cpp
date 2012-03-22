@@ -158,6 +158,9 @@ editor_file_name,
 editor_level_name,
 editor_hotkey,
 editor_hotkey_hold,
+editor_bar_at,
+editor_bar_hover,
+editor_bar_selection,
 
 // SaveBrowser
 save_browser_title,
@@ -575,6 +578,9 @@ void Language::set(const Language lang)
         editor_level_name             = "Level name:";
         editor_hotkey                 = "Hotkey:";
         editor_hotkey_hold            = "Hotkey: hold";
+        editor_bar_at                 = "at";
+        editor_bar_hover              = "objects about to be selected.";
+        editor_bar_selection          = "objects selected.";
 
         // SaveBrowser
         save_browser_title            = "Save As";
@@ -861,7 +867,7 @@ eb[Editor::SELECT_NOOW]
 eb[Editor::VIEW_ZOOM]
 = "Zoom: Activate or deactivate the map zoom.";
 eb[Editor::HELP]
- = "Help: Activates/deactivates these help texts for buttons.";
+ = "(this doesn't do anything right now)";
 eb[Editor::MENU_SIZE]
  = "Measures: Set the size and the topology for the level.";
 eb[Editor::MENU_SCROLL]
@@ -1043,6 +1049,9 @@ eb[Editor::ADD_HAZARD]
         editor_level_name             = "Levelname:";
         editor_hotkey                 = "Hotkey:";
         editor_hotkey_hold            = "Hotkey: halte";
+        editor_bar_at                 = "an";
+        editor_bar_hover              = "Objekte werden markiert.";
+        editor_bar_selection          = "Objekte markiert.";
 
         // SaveBrowser
         save_browser_title            = "Speichern unter";
@@ -1315,7 +1324,7 @@ eb[Editor::SELECT_ROTATE]= "Drehen: Ausgewaehltes Terrain um ein Viertel drehen.
 eb[Editor::SELECT_DARK]  = "Dunkel: Ausgewaehltes Terrain im Spiel schwarz zeichnen.";
 eb[Editor::SELECT_NOOW]  = "Nicht ueberschreiben: Ausgew. Ter. ueberschr. nur dunkles Ter.";
 eb[Editor::VIEW_ZOOM]    = "Zoom: Vergroesserung der Karte ein- oder ausschalten.";
-eb[Editor::HELP]         = "Hilfe: Aktiviert/deaktiviert diese Button-Hilfstexte.";
+eb[Editor::HELP]         = "(dies macht derzeit nichts)";
 eb[Editor::MENU_SIZE]    = "Abmessungen: Festlegen der Groesse und Topologie des Levels.";
 eb[Editor::MENU_SCROLL]  = "Aussehen: Festlegen der Startposition und Hintergrundfarbe.";
 eb[Editor::MENU_VARS]    = "Variablen: Festlegen grundsaetzlicher Level-Variablen.";
