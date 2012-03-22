@@ -315,7 +315,7 @@ void Editor::flip_selection() {
         i->o->set_y(2 * y_pivot - i->o->get_y() - i->o->get_yl());
         if (i->l == &object[Object::TERRAIN]) {
             i->o->set_mirror(!i->o->get_mirror());
-            if (i->o->get_rotation() == 1 || i->o->get_rotation() == 3)
+            if (i->o->get_rotation() == 0 || i->o->get_rotation() == 2)
                 i->o->set_rotation(i->o->get_rotation() + 2);
         }
         if (i->l == &object[Object::HATCH])

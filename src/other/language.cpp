@@ -857,7 +857,7 @@ eb[Editor::SELECT_BACK]
 eb[Editor::SELECT_FRONT]
  = "Foreground: Puts the selected objects into the foreground.";
 eb[Editor::SELECT_FLIP]
- = "Flip: Mirrors the selected terrain vertically.";
+ = "Flip: Mirrors the selected terrain horizontally.";
 eb[Editor::SELECT_ROTATE]
  = "Rotate: Performs a quarter turn on the selected terrain.";
 eb[Editor::SELECT_DARK]
@@ -1319,7 +1319,7 @@ eb[Editor::SELECT_MINUS] = "Zurueck: Ausgewaehlte Objekte hinter einige andere s
 eb[Editor::SELECT_PLUS]  = "Hervor: Ausgewaehlte Objekte vor einige andere holen.";
 eb[Editor::SELECT_BACK]  = "Hintergrund: Ausgewaehlte Objekte ganz nach hinten setzen.";
 eb[Editor::SELECT_FRONT] = "Vordergrund: Ausgewaehlte Objekte ganz nach vorn holen.";
-eb[Editor::SELECT_FLIP]  = "Spiegeln: Ausgewaehltes Terrain vertikal kippen.";
+eb[Editor::SELECT_FLIP]  = "Spiegeln: Ausgewaehltes Terrain horizontal spiegeln.";
 eb[Editor::SELECT_ROTATE]= "Drehen: Ausgewaehltes Terrain um ein Viertel drehen.";
 eb[Editor::SELECT_DARK]  = "Dunkel: Ausgewaehltes Terrain im Spiel schwarz zeichnen.";
 eb[Editor::SELECT_NOOW]  = "Nicht ueberschreiben: Ausgew. Ter. ueberschr. nur dunkles Ter.";
