@@ -17,12 +17,8 @@ Customizing the game:
 
 Miscellaneous information:
 
-    doc/bugs.txt     - known bugs and issues
-    doc/ideas.txt    - longer feature ideas not found in the wishlist
-    doc/history.txt  - version history of the game
+    doc/history.txt  - version history of the game, outdated right now
     doc/techfaq.txt  - some older troubleshooting tips
-    doc/sounds.txt   - sound file replacements to-do list
-    doc/wishes.txt   - feature wish list
 
 Have fun!
 Simon
