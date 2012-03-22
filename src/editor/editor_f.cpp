@@ -21,7 +21,7 @@ int Editor::get_grid()
 
 
 // Auswahl eines Grafikobjekts
-Editor::Selection Editor::find_under_mouse_cursor()
+Editor::Selection Editor::find_under_mouse_cursor(Editor::FindBy findby)
 {
     Selection s;
     for (int type = Object::TERRAIN; type != Object::MAX; ++type) {
@@ -35,7 +35,7 @@ Editor::Selection Editor::find_under_mouse_cursor()
             itr  = --object[perm].end();
         }
         while (itr != object[perm].end() && itr != --object[perm].begin()) {
-            find_check(s, object[perm], itr);
+            find_check(s, object[perm], itr, findby);
             if (backwards) --itr;
             else           ++itr;
         }
@@ -46,28 +46,41 @@ Editor::Selection Editor::find_under_mouse_cursor()
 
 
 // Wird pro Objekt von find_under_mouse_cursor aufgerufen.
-void Editor::find_check(Selection& s, GraLi& l, GraIt g)
+void Editor::find_check(Selection& s, GraLi& l, GraIt g, FindBy findby)
 {
     const bool& tx  = level.torus_x;
     const bool& ty  = level.torus_y;
     const int&  txl = map.get_xl();
     const int&  tyl = map.get_yl();
-                  find_check_at(s, l, g, mx,       my);
-    if (tx)       find_check_at(s, l, g, mx + txl, my);
-    if (ty)       find_check_at(s, l, g, mx,       my + tyl);
-    if (tx && ty) find_check_at(s, l, g, mx + txl, my + tyl);
+                  find_check_at(s, l, g, findby, mx,       my);
+    if (tx)       find_check_at(s, l, g, findby, mx + txl, my);
+    if (ty)       find_check_at(s, l, g, findby, mx,       my + tyl);
+    if (tx && ty) find_check_at(s, l, g, findby, mx + txl, my + tyl);
 }
 
 
 
 // Wird je nach Torus-Einstellung mehrmals von find_check aufgerufen, where_xy.
-void Editor::find_check_at
-(Selection& s, GraLi& l, GraIt g, const int whx, const int why)
-{
-    const int col = g->get_pixel(whx-g->get_x(), why-g->get_y());
-    if (col != color[COL_TRANSPARENT] && col != color[COL_PINK]) {
-        s.o = g;
-        s.l = &l;
+void Editor::find_check_at(
+    Selection& s, GraLi& l, GraIt g, Editor::FindBy findby,
+    const int whx, const int why
+) {
+    if (findby == Editor::FIND_BY_TRANSP) {
+        const int col = g->get_pixel(whx - g->get_x(), why - g->get_y());
+        if (col != color[COL_TRANSPARENT] && col != color[COL_PINK]) {
+            s.o = g;
+            s.l = &l;
+        }
+    }
+    else {
+        const Object& ob = *g->get_object();
+        if (whx - g->get_x() >= ob.selbox_x
+         && whx - g->get_x() <  ob.selbox_x + ob.selbox_xl
+         && why - g->get_y() >= ob.selbox_y
+         && why - g->get_y() <  ob.selbox_y + ob.selbox_yl) {
+            s.o = g;
+            s.l = &l;
+        }
     }
 }
 

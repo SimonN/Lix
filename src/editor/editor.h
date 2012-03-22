@@ -72,10 +72,16 @@ private:
                                              // oder was kaeme in den Rahmen?
     typedef std::list <Selection> ::iterator SelIt;
 
-    Selection find_under_mouse_cursor();
-    void find_check      (Selection&, GraLi&, GraIt);
-    void find_check_at   (Selection&, GraLi&, GraIt,    const int, const int);
-    void find_check_frame(GraLi&, const int, const int, const int, const int);
+    enum FindBy {
+        FIND_BY_TRANSP,
+        FIND_BY_SELBOX
+    };
+
+    Selection find_under_mouse_cursor(FindBy);
+
+    void find_check      (Selection&, GraLi&, GraIt, FindBy);
+    void find_check_at   (Selection&, GraLi&, GraIt, FindBy, int, int);
+    void find_check_frame(GraLi&, int, int, int, int);
 
     bool get_overlap     (const EdGraphic&, int, int, int, int, bool, bool);
     bool get_overlap_at  (const EdGraphic&, int, int, int, int);

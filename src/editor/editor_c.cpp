@@ -350,10 +350,15 @@ void Editor::calc_self()
         mouse_hold_started_outside_panel = false;
     }
 
-    // Hoverobjekt nicht beim Umherziehen waehlen
-    if (!mouse_on_panel && hardware.get_mlh() < 2) {
-        Selection s = find_under_mouse_cursor();
-        if (s.is_valid() && !panel[SELECT_FRAME].get_on()) hover.push_back(s);
+    // Determine hover objects.
+    // (Allerdings Hoverobjekt nicht beim Umherziehen waehlen.)
+    // If no hover object found, then ignore transparency and go just by
+    // the objects' selection boxes' sizes.
+    if (! mouse_on_panel && hardware.get_mlh() < 2
+     && ! panel[SELECT_FRAME].get_on()) {
+        Selection s = find_under_mouse_cursor(FIND_BY_TRANSP);
+        if (! s.is_valid()) s = find_under_mouse_cursor(FIND_BY_SELBOX);
+        if (s.is_valid()) hover.push_back(s);
     }
 
     // Vielleicht doch klicken und Rahmen ziehen? Wenn man ins Nirvana
