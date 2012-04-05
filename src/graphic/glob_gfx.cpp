@@ -163,6 +163,12 @@ void set_screen_mode(const bool full, int res_x, int res_y)
     }
     bool      fail = (set_gfx_mode(mode, res_x,    res_y,    0, 0) != 0);
     if (fail) fail = (set_gfx_mode(mode, LEMSCR_X, LEMSCR_Y, 0, 0) != 0);
+    if (fail && full) {
+        if (res_x == 0 || res_y == 0) {
+            get_desktop_resolution(&res_x, &res_y);
+            fail = (set_gfx_mode(mode, res_x, res_y, 0, 0) != 0);
+        }
+    }
     if (fail) {
         mode = GFX_AUTODETECT_WINDOWED;
         set_gfx_mode(mode, LEMSCR_X, LEMSCR_Y, 0, 0);
