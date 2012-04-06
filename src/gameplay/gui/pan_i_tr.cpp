@@ -169,7 +169,7 @@ void GameplayStats::PanelTribe::draw_local(
     }
 
     // Tarinf
-    if (tarinf) {
+    if (tarinf && tarinf->get_ac() != LixEn::NOTHING) {
         std::ostringstream cnt;
         std::string str;
         std::string ab;

@@ -28,6 +28,9 @@ void Gameplay::calc_active()
 
     const bool mouse_on_panel = hardware.get_my() > map.get_screen_yl();
 
+    // Remedies the bug: displays "N nothings" after level restart
+    pan.stats.set_tarcnt(0);
+
     // mouse on the playing field, lixes are selectable
     if (!mouse_on_panel && malo->aiming != 2 && trlo) {
         // Bestimmte Richtung anwählen?
