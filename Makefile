@@ -1,12 +1,12 @@
-# Lix makefile copied from towerhack makefile
+# Lix Makefile
+# See ./doc/linux.txt if you want to compile yourself.
 
 CXX      := g++
 CXXFLAGS := -s -O2
-
 LD       := libtool --mode=link g++
-LDDIRS   := -L/usr/local/lib
-LDALLEG  := $(shell allegro-config --libs)
-LDENET   := -lenet
+
+LDALLEG  := $(shell allegro-config --libs) -Wl,-rpath,./bin/lib:./lib
+LDENET   := -L/usr/local/lib -lenet
 
 STRIP    := strip
 
@@ -59,16 +59,16 @@ clean:
 $(CLIENT_BIN): $(CLIENT_OBJS)
 	@$(MKDIR) $(BINDIR)
 	@echo Linking the game \`$(CLIENT_BIN)\' with \
-		$(LDDIRS) $(LDALLEG) $(LDENET)
-	@$(LD) $(LDDIRS) $(LDALLEG) $(LDENET) $(CLIENT_OBJS) -o $(CLIENT_BIN) \
+		$(LDALLEG) $(LDENET)
+	@$(LD) $(LDALLEG) $(LDENET) $(CLIENT_OBJS) -o $(CLIENT_BIN) \
 		> /dev/null
 	@$(STRIP) $(CLIENT_BIN)
 
 $(SERVER_BIN): $(SERVER_OBJS)
 	@$(MKDIR) $(BINDIR)
 	@echo Linking the server daemon \`$(SERVER_BIN)\' with \
-		$(LDDIRS) $(LDENET)
-	@$(LD) $(LDDIRS) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN) \
+		$(LDENET)
+	@$(LD) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN) \
 		> /dev/null
 	@$(STRIP) $(SERVER_BIN)
 
