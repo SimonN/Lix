@@ -73,11 +73,10 @@ void Editor::find_check_at(
         }
     }
     else {
-        const Object& ob = *g->get_object();
-        if (whx - g->get_x() >= ob.selbox_x
-         && whx - g->get_x() <  ob.selbox_x + ob.selbox_xl
-         && why - g->get_y() >= ob.selbox_y
-         && why - g->get_y() <  ob.selbox_y + ob.selbox_yl) {
+        if (whx - g->get_x() >= g->get_selbox_x()
+         && whx - g->get_x() <  g->get_selbox_x() + g->get_selbox_xl()
+         && why - g->get_y() >= g->get_selbox_y()
+         && why - g->get_y() <  g->get_selbox_y() + g->get_selbox_yl()) {
             s.o = g;
             s.l = &l;
         }
