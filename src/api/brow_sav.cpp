@@ -133,7 +133,8 @@ void SaveBrowser::calc_self()
             if (!typing) set_exit();
         }
         else if (ok.get_clicked()) {
-            if (file_name.get_text().empty()) return; // Nichts passiert
+            // generate random filename if empty, among other things
+            make_texttype_valid();
 
             Filename complete_file_name(
                 dir_list.get_current_dir().get_dir_rootful()
@@ -181,8 +182,34 @@ void SaveBrowser::set_texttype(const std::string& s)
 
 
 
+void SaveBrowser::make_texttype_valid()
+{
+    std::string str = file_name.get_text();
+    for (int i = str.size() - 1; i >= 0; --i) {
+        const char& c = str[i];
+        if (c == ' ')
+            str.erase(i, 1);
+        else if (! ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
+         ||         (c >= '0' && c <= '9')
+         ||          c == '.' || c == ',' || c == '-' || c == '_' || c == '+'))
+        {
+            if (i == (int) str.size() - 1) str.erase(i, 1);
+            else                           str[i] = '-';
+        }
+    }
+    // if all else fails, generate random filename
+    if (str.empty())
+        for (int i = 0; i < 8; ++i)
+            str += 'a' + ::rand() % 26;
+
+    file_name.set_text(str);
+}
+
+
+
 Filename SaveBrowser::get_current_file()
 {
+    make_texttype_valid();
     if (file_name.get_text().empty()) return Filename("");
     else {
         std::string str = dir_list.get_current_dir().get_dir_rootful();

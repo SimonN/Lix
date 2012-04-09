@@ -60,6 +60,8 @@ private:
     static const int dir_list_yl;
     static const int file_list_xl;
 
+    void make_texttype_valid();
+
 public:
 
     SaveBrowser(const Filename&,    // Basisverzeichnis
