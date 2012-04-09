@@ -44,6 +44,8 @@ public:
     int    distance_y (int, int)           const;
     double hypot      (int, int, int, int) const;
     double hypotsquare(int, int, int, int) const; // more efficient
+    //                            px   py   Rx   Ry   Rxl  Ryl
+    bool   get_point_in_rectangle(int, int, int, int, int, int) const;
 
     // Malprimitiva
     void clear_to_color(int);

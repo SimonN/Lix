@@ -114,6 +114,27 @@ double Torbit::hypotsquare(int x1, int y1, int x2, int y2) const
 
 
 
+bool Torbit::get_point_in_rectangle(
+    int px, int py,
+    int rx, int ry, int xl, int yl) const
+{
+    if (torus_x) {
+        px = Help::mod(px, bitmap->w);
+        rx = Help::mod(rx, bitmap->w);
+        // this omits the 4-subrectangle-check (..._at functions)
+        if (px < rx) px += bitmap->w;
+    }
+    if (torus_y) {
+        py = Help::mod(py, bitmap->h);
+        ry = Help::mod(ry, bitmap->h);
+        if (py < ry) py += bitmap->h;
+    }
+    return (px >= rx && px < rx + xl)
+        && (py >= ry && py < ry + yl);
+}
+
+
+
 void Torbit::clear_to_color(int col)
 {
     ::clear_to_color(bitmap, col);

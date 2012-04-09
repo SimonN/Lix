@@ -163,13 +163,10 @@ void Lixxie::turn()
 bool Lixxie::get_in_trigger_area(const EdGraphic& gr) const
 {
     const Object& ob = *gr.get_object();
-    int dx = ground_map->distance_x(get_ex(),
-              gr.get_x() + ob.get_trigger_x() + ob.trigger_xl/2);
-    int dy = ground_map->distance_y(get_ey(),
-              gr.get_y() + ob.get_trigger_y() + ob.trigger_yl/2);
-    if (dx < 0) dx *= -1;
-    if (dy < 0) dy *= -1;
-    return dx <= ob.trigger_xl/2 && dy <= ob.trigger_yl/2;
+    return ground_map->get_point_in_rectangle(
+        get_ex(), get_ey(),
+        gr.get_x() + ob.trigger_x,
+        gr.get_y() + ob.trigger_y, ob.trigger_xl, ob.trigger_yl);
 }
 
 
