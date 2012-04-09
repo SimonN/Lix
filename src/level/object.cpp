@@ -33,8 +33,8 @@ Object::Object(const Cutbit& c, Type t, int st)
     case GOAL:
         trigger_x  = cb.get_xl() / 2;
         trigger_y  = cb.get_yl() - 2;
-        trigger_xl = 10;
-        trigger_yl = 10;
+        trigger_xl = 12;
+        trigger_yl = 12;
         trigger_xc = true;
         trigger_yc = true;
         break;
@@ -55,7 +55,7 @@ Object::Object(const Cutbit& c, Type t, int st)
         // Feuer?
         if (subtype) {
             trigger_y  = 0;
-            trigger_yl = cb.get_yl() + 12;
+            trigger_yl = cb.get_yl();
         }
         break;
     default:
