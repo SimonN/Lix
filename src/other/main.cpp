@@ -47,13 +47,18 @@ struct MainArgs {
     int  scr_f, scr_x, scr_y;
     bool sound_load_driver;
 };
-MainArgs parse_main_arguments(int, char*[]);
+static MainArgs parse_main_arguments(int, char*[]);
+static void     setenv_allegro_modules();
+static void     unsetenv_allegro_modules();
 
 
 
 int main(int argc, char* argv[])
 {
+    setenv_allegro_modules();
     allegro_init();
+    unsetenv_allegro_modules();
+
     Help::timer_start();
 
     Globals::initialize();
@@ -151,3 +156,68 @@ MainArgs parse_main_arguments(int argc, char *argv[])
     return main_args;
 }
 // end of parse_main_arguments()
+
+
+
+// ############################################################################
+// ############################################################################
+// ############################################################################
+
+
+
+// Allegro loads a few modules as shared libraries, but not with the usual
+// process of linking against these libraries (and thus putting into the
+// binary the path to them) but by looking in standard places, or where
+// the environment variable ALLEGRO_MODULES points. To omit the need for a
+// shellscript wrapper for Lix, we set the environment variable here, and
+// delete it later again (or set it back to what it was before).
+//
+// If you have Allegro installed into your system, and there are no shared
+// Allegro libs in the Lix binary directory, then this won't set any env vars.
+
+#ifdef __unix__
+    #include <sys/stat.h>
+#endif
+
+
+
+static std::string* oldenv = 0;
+
+void setenv_allegro_modules()
+{
+#ifdef __unix__
+    char* env = ::getenv("ALLEGRO_MODULES");
+    if (env) oldenv = new std::string(env);
+    else     oldenv = new std::string;
+
+    struct ::stat statinfo;
+    if (env && 0 == ::stat((*oldenv + "/modules.lst").c_str(), &statinfo)) {
+        delete oldenv; // do nothing, user already supplied something good
+        oldenv = 0;
+    }
+    else if (0 == ::stat("./bin/lib/allegro/modules.lst", &statinfo)) {
+        ::setenv("ALLEGRO_MODULES", "bin/lib/allegro", 1);
+    }
+    else if (0 == ::stat("./lib/allegro/modules.lst", &statinfo)) {
+        ::setenv("ALLEGRO_MODULES", "lib/allegro", 1);
+    }
+    else {
+        delete oldenv; // we don't have to reset it
+        oldenv = 0;
+    }
+#endif
+}
+
+
+
+void unsetenv_allegro_modules()
+{
+#ifdef __unix__
+    if (oldenv) {
+        if (oldenv->empty()) ::unsetenv("ALLEGRO_MODULES");
+        else                 ::setenv  ("ALLEGRO_MODULES", oldenv->c_str(), 1);
+
+        delete oldenv;
+    }
+#endif
+}
