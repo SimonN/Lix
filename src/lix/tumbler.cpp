@@ -5,8 +5,6 @@
 
 #include "ac.h"
 
-#include <iostream> // debugging
-
 void become_tumbler(Lixxie& l)
 {
     if (l.is_solid(0, 0)) {

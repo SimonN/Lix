@@ -165,8 +165,9 @@ bool Lixxie::get_in_trigger_area(const EdGraphic& gr) const
     const Object& ob = *gr.get_object();
     return ground_map->get_point_in_rectangle(
         get_ex(), get_ey(),
-        gr.get_x() + ob.trigger_x,
-        gr.get_y() + ob.trigger_y, ob.trigger_xl, ob.trigger_yl);
+        gr.get_x() + ob.get_trigger_x(),
+        gr.get_y() + ob.get_trigger_y(),
+        ob.trigger_xl, ob.trigger_yl);
 }
 
 

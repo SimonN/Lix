@@ -95,8 +95,8 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
     // Ziele
     update_lix_goals(l, ua);
     // Ein Exiter, der seine Animation durchlaufen hat, verschwindet.
-    // special_x gibt gerade das an.
-    if (l.get_ac() == LixEn::EXITER && l.get_special_x() == 1) {
+    // special_x = 1000 gibt gerade das an, see exiter.cpp
+    if (l.get_ac() == LixEn::EXITER && l.get_special_x() == 1000) {
         if (goal[l.get_special_y()].has_tribe(&l.get_tribe())) {
             ++l.get_tribe().lix_saved;
             if (cs.tribes.size() == 1) {
@@ -250,6 +250,14 @@ void Gameplay::update_lix_goals(Lixxie& l, const UpdateArgs& ua)
         // Lixxie soll ins Ziel gehen und sich merken, in welches
         l.become(LixEn::EXITER);
         l.set_special_y(i);
+        // Mark for sidewards motion if the goal was entered near the side
+        // of the trigger area. The +1 is necessary because this counts
+        // pixel-wise, but the physics skip ahead 2 pixels at a time,
+        // so the lixes enter the right part further to the left.
+        const Object& ob = *goal[i].get_object();
+        l.set_special_x(map.distance_x(goal[i].get_x()
+         + ob.get_trigger_x() + ob.trigger_xl / 2, l.get_ex()));
+        if (l.get_special_x() % 2 == 0) l.set_special_x(l.get_special_x() + 1);
         // Wem gehoert das Ziel, um den Sound abzuspielen? Diese Kontrolle
         // wird beim Exiter nochmal gemacht, wenn der Lixxie verschwindet.
         // Sound is always played as if the player was the local player.

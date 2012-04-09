@@ -3,9 +3,11 @@
  *
  * special_x
  *
- *   Wird auf 1 gesetzt, wenn die Animation vollstaendig durchlaufen wurde.
- *   Dann kann die Gameplay-Funktion diese Lix entfernen und dem ent-
- *   sprechenden Spieler einen Punkt geben - hier kennen wir ja keine Ziele.
+ *   < 0     move 1 pixel to the left while exiting, add 1
+ *   0       do the exiting animation straight
+ *   < 1000  move 1 pixel to the right while exiting, deduct 1
+ *
+ *   1000    may be killed and scored by next gameplay update
  *
  * special_y
  *
@@ -29,6 +31,17 @@ void update_exiter(Lixxie& l, const UpdateArgs& ua)
 {
     ua.suppress_unused_variable_warning();
 
+    int x = l.get_special_x();
+    if (x < 0) {
+        l.set_x(l.get_x() + 1);
+        ++x;
+    }
+    else if (x > 0 && x < 1000) {
+        l.set_x(l.get_x() - 1);
+        --x;
+    }
+    l.set_special_x(x);
+
     if (!l.is_last_frame()) l.next_frame();
-    else l.set_special_x(1);
+    else l.set_special_x(1000);
 }
