@@ -155,9 +155,12 @@ void SingleBrowser::on_file_highlight(const Filename& filename)
     if (l.get_status() == Level::BAD_FILE_NOT_FOUND) clear_preview();
     else set_preview(l);
 
+    if (!l.get_good()) return;
+
     ////////////////////////////////////
     // Allgemeine Leveldaten anzeigen //
     ////////////////////////////////////
+
 
     std::ostringstream initgoalval;
     initgoalval << l.required << "/" << l.initial;
