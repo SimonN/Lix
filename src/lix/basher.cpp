@@ -50,18 +50,16 @@ static bool nothing_more_to_bash(Lixxie& l, const int px)
     // Auch die von der Lix am weitesten entfernten Doppelpixel
     // werden nicht überbrückt.
 
-    // Alles wäre dagegen 12, -16, 23, +1
+    // Alles wäre dagegen 14, -16, 23, +1
     bool ret = false;
-    if (l.count_solid(12 + px, -14, 21 + px, -3) < 15) {
+    if (l.count_solid(14 + px, -14, 21 + px, -3) < 15) {
         ret = true;
         // Tills Bohr-Problem: Nochmal auf hauchduenne Waende pruefen
-        for (int x = 12 + px; x <= 23 + px; x += 2)
+        for (int x = 14 + px; x <= 21 + px; x += 2)
             if (l.is_solid(x, -12)) ret = false;
     }
     return ret;
 }
-
-
 
 
 
@@ -74,7 +72,9 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
         // do the check whether to leave remains or not. We will leave remains
         // unless this is the last swing, and the following column is empty.
         {
-            bool omit_remains = nothing_more_to_bash(l, 10)
+            // The 0 in the latter argument is actually correct, since the
+            // check to become walker will be done from this location also.
+            bool omit_remains = nothing_more_to_bash(l, 0)
                          && l.count_solid(14, -16, 15, 1) == 0;
             if (omit_remains) l.set_special_y(l.get_special_y() | 2);
             else              l.set_special_y(l.get_special_y() & ~2);
