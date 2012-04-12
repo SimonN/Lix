@@ -21,6 +21,8 @@ private:
     bool replay_style;     // Replay-Infos anfordern statt Levelinfos
     bool checkmark_style;  // Einzelspieler: Geschaffte Levels abhaken
 
+    virtual void on_dir_load();
+
     virtual void add_file_button(const int, const int);
     virtual void add_flip_button();
 

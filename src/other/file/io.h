@@ -97,5 +97,7 @@ typedef                      std::vector <Line> ::const_iterator LineIt;
 bool fill_vector_from_file  (std::vector <Line>&, const std::string&);
 bool fill_vector_from_stream(std::vector <Line>&,       std::istream&);
 
+bool fill_vector_from_file_raw(std::vector <std::string>&, const std::string&);
+
 }
 // Ende Namensraum IO

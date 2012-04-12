@@ -85,6 +85,9 @@ public:
         mask_ext_replay,
         mask_ext_user,
 
+        file_level_dir_order,
+        file_level_dir_desc,
+
         // Unterteilung der Bilddateien nach Prae-Endung
         pre_ext_null,
         pre_ext_internal,

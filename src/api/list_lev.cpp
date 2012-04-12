@@ -1,4 +1,5 @@
 #include <sstream>
+#include <algorithm> // find in vector, in on_dir_load() with ordering file
 
 #include "list_lev.h"
 #include "button/b_text.h"
@@ -30,9 +31,41 @@ ListLevel::~ListLevel()
 
 bool ListLevel::search_criterion(const Filename& fn)
 {
-    return fn.get_extension() == gloB->ext_level
+    return fn.get_file()      != gloB->file_level_dir_order
+     && (  fn.get_extension() == gloB->ext_level
      ||    fn.get_extension() == gloB->ext_level_orig
-     ||    fn.get_extension() == gloB->ext_level_lemmini;
+     ||    fn.get_extension() == gloB->ext_level_lemmini);
+}
+
+
+
+// If there is a file determining level orders, then sort the levels by this
+// before buttons are drawn.
+void ListLevel::on_dir_load()
+{
+    // the list of files has already been sorted by name. Sort stably by
+    // appearance in the order file, if such a file exists at all.
+    std::vector <std::string> orders;
+    bool success = IO::fill_vector_from_file_raw(orders,
+        get_current_dir().get_dir_rootful() + gloB->file_level_dir_order);
+
+    if (! success) return;
+    std::vector <Filename>& files = get_file_list();
+    std::vector <Filename> ::iterator next_unsorted = files.begin();
+
+    // Sort whatever is encountered in the order file to the beginning of
+    // 'files'. What is encountered earliest shall go at the very beginning.
+    for (std::vector <std::string> ::iterator orit = orders.begin();
+     orit != orders.end(); ++orit) {
+        Filename fn(get_current_dir().get_dir_rootful() + *orit);
+        std::vector <Filename> ::iterator found =
+            std::find(next_unsorted, files.end(), fn);
+        if (found != files.end()) {
+            std::swap(*found, *next_unsorted);
+            ++next_unsorted;
+            if (next_unsorted == files.end()) break;
+        }
+    }
 }
 
 

@@ -292,5 +292,31 @@ bool fill_vector_from_stream(std::vector <Line>& v, std::istream& in)
     return true;
 }
 
+
+
+// Exact copy of the function above, just different push_back line
+bool fill_vector_from_file_raw(
+    std::vector <std::string>& v,
+    const std::string&         filename
+) {
+    std::ifstream file(filename.c_str());
+    if (! file.good()) {
+        file.close();
+        return false;
+    }
+    std::string s;
+    char        c;
+    while (file.get(c)) {
+        if (c != '\n' && c != '\r') s += c;
+        else if (! s.empty()) {
+            v.push_back(s);
+            s.clear();
+        }
+    }
+    if (! s.empty()) v.push_back(s);
+    file.close();
+    return true;
+}
+
 }
 // Ende Namensraum IO

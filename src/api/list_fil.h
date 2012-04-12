@@ -95,6 +95,10 @@ protected:
     virtual void on_dir_load     ()                  { }
     inline  void put_to_file_list(const Filename& s) { file.push_back(s); }
 
+    // retrieve the raw list of files. Useful when overriding on_dir_load()
+    // to sort the files before buttons are drawn.
+    inline  std::vector <Filename>& get_file_list()  { return file; }
+
     virtual void calc_self();
     virtual void draw_self();
 
