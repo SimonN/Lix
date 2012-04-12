@@ -84,9 +84,6 @@ public:
         mask_anything,
         mask_ext_replay,
         mask_ext_user,
-        mask_ext_bmp,
-        mask_ext_tga,
-        mask_ext_pcx,
 
         // Unterteilung der Bilddateien nach Prae-Endung
         pre_ext_null,

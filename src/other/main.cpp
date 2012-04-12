@@ -43,6 +43,8 @@
 
 #include "../lix/lix_enum.h" // initialize strings
 
+#include "../graphic/png/loadpng.h"
+
 struct MainArgs {
     int  scr_f, scr_x, scr_y;
     bool sound_load_driver;
@@ -60,6 +62,8 @@ int main(int argc, char* argv[])
     unsetenv_allegro_modules();
 
     Help::timer_start();
+
+    ::loadpng_init();
 
     Globals::initialize();
     User::initialize();

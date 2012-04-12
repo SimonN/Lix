@@ -18,13 +18,8 @@ static const int magicnr_icons = 2;
 GraLib::GraLib()
 {
     // Die Verzeichnisse nach Bilddateien durchsuchen
-    // Abk.-Deklarationen, um die Funktionsaufrufe in einer Zeile zu haben
-    const Filename& dd                   = gloB->dir_data_bitmap;
-    void (*ssii)(const Filename&, void*) = sort_string_into_internal;
-
-    Help::find_tree(dd, gloB->mask_ext_bmp, ssii, (void*) this);
-    Help::find_tree(dd, gloB->mask_ext_tga, ssii, (void*) this);
-    Help::find_tree(dd, gloB->mask_ext_pcx, ssii, (void*) this);
+    Help::find_tree(gloB->dir_data_bitmap, gloB->mask_anything,
+                    sort_string_into_internal, (void*) this);
 
     // Countdown-Matrix erstellen
     const Cutbit& cb = internal[gloB->file_bitmap_lix.
@@ -103,9 +98,11 @@ GraLib::GraLib()
 // namen ansonsten konstant haelt.
 void GraLib::sort_string_into_internal(const Filename& fn, void* v) {
     // zweites Argument: Nur Schneideversuch unternehmen, wenn mit Prae-End.
-    const Cutbit c(fn, fn.get_pre_extension());
-    ((GraLib*) v)->internal.insert(
-        std::make_pair(fn.get_rootless_no_extension(), c));
+    if (fn.has_image_extension()) {
+        const Cutbit c(fn, fn.get_pre_extension());
+        ((GraLib*) v)->internal.insert(
+            std::make_pair(fn.get_rootless_no_extension(), c));
+    }
 }
 
 

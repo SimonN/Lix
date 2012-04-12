@@ -41,6 +41,8 @@ public:
 
     inline char get_pre_extension()          const { return pre_extension;   }
 
+           bool has_image_extension()        const;
+
 private:
 
     static std::string root;

@@ -88,6 +88,7 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 					<Add option="-s" />
 					<Add option="`allegro-config --libs`" />
 					<Add option="-lenet" />
+					<Add option="-lpng -lz" />
 				</Linker>
 			</Target>
 			<Target title="Debug (Linux)">
@@ -109,19 +110,21 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 				<Linker>
 					<Add option="`allegro-config --libs`" />
 					<Add option="-lenet" />
+					<Add option="-lpng -lz" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
-			<Add option="-W" />
 			<Add option="-Wall" />
 			<Add option="-ansi" />
+			<Add option="-W" />
 		</Compiler>
 		<Linker>
 			<Add option="--subsystem,windows" />
 			<Add option="-lalleg" />
 			<Add option="-mwindows" />
 			<Add option="-lenet" />
+			<Add option="-lpng -lz" />
 			<Add option="-lws2_32" />
 			<Add option="-lwinmm" />
 		</Linker>
@@ -232,6 +235,16 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="graphic/map.cpp" />
 		<Unit filename="graphic/map.h" />
 		<Unit filename="graphic/map_d.cpp" />
+		<Unit filename="graphic/png/loadpng.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="graphic/png/loadpng.h" />
+		<Unit filename="graphic/png/regpng.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="graphic/png/savepng.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="graphic/sound.cpp" />
 		<Unit filename="graphic/sound.h" />
 		<Unit filename="graphic/torbit.cpp" />

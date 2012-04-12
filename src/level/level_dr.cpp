@@ -14,10 +14,14 @@
 #include "../api/button/b_skill.h" // to export it as an image
 #include "../api/labeltwo.h"       // to export it as an image
 #include "../api/manager.h"        // getting access to where buttons are drawn
-#include "../other/language.h"     // export
-#include "../graphic/gra_lib.h"
 
+#include "../graphic/gra_lib.h"
+#include "../graphic/png/loadpng.h"
+
+#include "../other/language.h"     // export
 #include "../other/help.h"
+
+
 
 void Level::draw_to(Torbit& ground, Lookup* lookup) const
 {
@@ -175,7 +179,7 @@ void Level::export_image(const Filename& filename) const
     icon_torus.set_y_frame(1);
     icon_torus.draw();
 
-    save_bmp(filename.get_rootful().c_str(), canvas.get_al_bitmap(), 0);
+    ::save_png(filename.get_rootful().c_str(), canvas.get_al_bitmap(), 0);
 
     // Cleanup what we have done, redraw the browser that's open
     Api::Manager::force_redraw();

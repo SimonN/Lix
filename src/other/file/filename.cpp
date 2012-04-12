@@ -107,3 +107,13 @@ bool Filename::operator <  (const Filename& rhs) const
     // The shorter string shall be smaller.
     return la < lb;
 }
+
+
+
+bool Filename::has_image_extension() const
+{
+    return extension == ".png"
+     ||    extension == ".bmp"
+     ||    extension == ".tga"
+     ||    extension == ".pcx";
+}

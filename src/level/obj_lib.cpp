@@ -27,13 +27,8 @@ ObjLib::ObjLib()
     graphic_set   (MAX, 0)
 {
     // Die Verzeichnisse nach Bilddateien durchsuchen
-    // Abk.-Deklarationen, um die Funktionsaufrufe in einer Zeile zu haben
-    const Filename& db                 = gloB->dir_bitmap;
-    void (*cb)(const Filename&, void*) = load_file_callback;
-
-    Help::find_tree(db, gloB->mask_ext_bmp, cb, (void*) this);
-    Help::find_tree(db, gloB->mask_ext_tga, cb, (void*) this);
-    Help::find_tree(db, gloB->mask_ext_pcx, cb, (void*) this);
+    Help::find_tree(gloB->dir_bitmap, gloB->mask_anything,
+                    load_file_callback, (void*) this);
 
     orig_set_string[DIRT]     = "Dirt";
     orig_set_string[HELL]     = "Hell";
@@ -121,8 +116,10 @@ void ObjLib::load_file(const std::string& no_ext, const Filename& fn)
 
 
 void ObjLib::load_file_callback(const Filename& s, void* v) {
-    static_cast <ObjLib*> (v)->queue.insert(
-        std::make_pair(s.get_rootless_no_extension(), s));
+    if (s.has_image_extension()) {
+        static_cast <ObjLib*> (v)->queue.insert(
+         std::make_pair(s.get_rootless_no_extension(), s));
+    }
 }
 
 

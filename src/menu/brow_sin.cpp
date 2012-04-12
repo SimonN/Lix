@@ -108,7 +108,7 @@ void SingleBrowser::calc_self()
             Level l(get_current_file());
             std::string s = get_current_file().get_rootless();
             for (size_t i = 0; i < s.size(); ++i) if (s[i] == '/') s[i] = '-';
-            s += ".bmp";
+            s += ".png";
             l.export_image(Filename(s));
             button_export.set_text(Language::browser_export_image_done);
         }

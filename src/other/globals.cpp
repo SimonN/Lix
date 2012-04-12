@@ -73,9 +73,6 @@ Globals::Globals()
     mask_anything                ("*.*"),
     mask_ext_replay              ("*.txt"),
     mask_ext_user                ("*.txt"),
-    mask_ext_bmp                 ("*.bmp"),
-    mask_ext_tga                 ("*.tga"),
-    mask_ext_pcx                 ("*.pcx"),
 
     // Unterteilung der Bilddateien nach Prae-Endung
     pre_ext_null                 (":"),
