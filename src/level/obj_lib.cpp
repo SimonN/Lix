@@ -113,12 +113,15 @@ void ObjLib::load_file(const std::string& no_ext, const Filename& fn)
     }
 }
 
+void ObjLib::load_file_callback(const Filename& fn, void* v) {
+    if (fn.has_image_extension()) {
+        const std::string& file   = fn.get_rootless_no_extension();
+        const std::string& imgdir = gloB->dir_bitmap.get_dir_rootless();
 
-
-void ObjLib::load_file_callback(const Filename& s, void* v) {
-    if (s.has_image_extension()) {
-        static_cast <ObjLib*> (v)->queue.insert(
-         std::make_pair(s.get_rootless_no_extension(), s));
+        if (file.substr(0, imgdir.size()) == imgdir) {
+            static_cast <ObjLib*> (v)->queue.insert(std::make_pair(
+             file.substr(imgdir.size()), fn));
+        }
     }
 }
 
@@ -274,7 +277,8 @@ ObjLib::OrigSet ObjLib::string_to_orig_set(const std::string& s) {
 
 const Object* ObjLib::get(const Filename& fn)
 {
-    return get(fn.get_rootless_no_extension());
+    return get(fn.get_rootless_no_extension()
+               .substr(gloB->dir_bitmap.get_dir_rootless().size()));
 }
 
 

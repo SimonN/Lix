@@ -83,14 +83,18 @@ GraLib::GraLib()
     eidrecol_api(gloB->file_bitmap_preview_icon);
 
     // Alle Namensersetzungen
-    add_replace("bitmap/Universal/water.W",  "bitmap/matt/water.W"  );
-    add_replace("bitmap/Universal/10tons.T", "bitmap/matt/10tons.T" );
+    add_replace("Universal/water.W",  "matt/water.W"  );
+    add_replace("Universal/10tons.T", "matt/10tons.T" );
 
-    add_substr_replace("bitmap/Universal/", "bitmap/matt/steel/");
-    add_substr_replace("bitmap/Rebuilds/",  "bitmap/matt/");
+    add_substr_replace("bitmap/", "");
+    add_substr_replace("Universal/", "matt/steel/");
+    add_substr_replace("Rebuilds/",  "matt/");
 }
 
 
+
+// Note: this is unrelated to the terrain name replacements! The internal
+// graphics are saved WITH dir.
 
 // Wir speichern alle Bilddateinamen ohne (Endung inklusive Punkt). Das hilft
 // beim einfachen Austauschen des benutzten Grafikformates: Man kann einfach
