@@ -306,10 +306,10 @@ Globals::Globals()
     dir_data_bitmap              ("data/bitmap/"),
     dir_data_sound               ("data/sound/"),
     dir_data_user                ("data/user/"),
-    dir_bitmap                   ("bitmap/"),
-    dir_bitmap_orig              ("bitmap/orig/"),
-    dir_bitmap_orig_l1           ("bitmap/orig/L1/"),
-    dir_bitmap_orig_l2           ("bitmap/orig/L2/"),
+    dir_bitmap                   ("images/"),
+    dir_bitmap_orig              (dir_bitmap.get_dir_rootless() + "orig/"),
+    dir_bitmap_orig_l1           (dir_bitmap.get_dir_rootless() + "orig/L1/"),
+    dir_bitmap_orig_l2           (dir_bitmap.get_dir_rootless() + "orig/L2/"),
 
     // Wichtige Dateien
     file_config                  (dir_data.get_dir_rootless() + "config.txt"),

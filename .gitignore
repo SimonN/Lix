@@ -23,9 +23,9 @@ replay/auto/*
 
 # exclude Lemmings legacy material: terrain and levels
 # the last line excludes free levels that need legacy terrain
-bitmap/orig/L1/*
-bitmap/orig/L1/*/*
-bitmap/orig/L2/*/*
+images/orig/L1/*
+images/orig/L1/*/*
+images/orig/L2/*/*
 levels/single/orig/*
 levels/network/*oldgfx/*
 
