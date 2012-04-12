@@ -69,7 +69,7 @@ SaveBrowser::SaveBrowser(const Filename&    bdir,
     level_list.set_write_file_names();
     if (replay_style) level_list.set_replay_style();
     level_list.load_dir(filename);
-    set_subtitle(filename.get_rootless());
+    set_subtitle(filename.get_dir_rootless());
 
     ok    .set_hotkey(useR->key_me_okay);
     cancel.set_hotkey(useR->key_me_exit);
