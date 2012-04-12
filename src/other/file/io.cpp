@@ -173,17 +173,23 @@ Line::Line(const char c, const Str  s1, const Str  s2, const Str  s3,
 
 
 // Mindestens ein Leerzeichen, anschliessend auffuellen, damit es schoen ist
-void pad(std::ostringstream& o, const int i)
+static inline void pad(std::ostringstream& o, int i)
 {
+    // don't pad with spaces just to align, instead save space. The raw format
+    // won't enter a beauty contest.
+    /*
     do {
         o << (char) ' ';
     } while ((int) o.str().size() < i);
+    */
+    o << ' ';
+    i = i; // against unused variable error
 }
 
 
 
 // Anzahl Ziffern in der Zahl, inklusive Minuszeichen
-int digits(long nr)
+static int digits(long nr)
 {
     int ret = (nr <= 0);
     while (nr) {
@@ -259,9 +265,9 @@ bool fill_vector_from_file(std::vector <Line>& v, const std::string& filename)
 {
     if ( ! ::exists(filename.c_str())) return false;
     std::ifstream file(filename.c_str());
-    fill_vector_from_stream(v, file);
+    bool was_good = fill_vector_from_stream(v, file);
     file.close();
-    return true; // even if empty file
+    return was_good; // even if empty file
 }
 
 
