@@ -246,6 +246,11 @@ void Replay::save_to_file(const Filename& s, const Level* const lev)
                              || level_filename == gloB->empty_filename
                              || lev != 0;
 
+    // We currently override the above check, and will always save a level
+    // into the replay, thus have the replay never point back into the level
+    // tree.
+    save_level_into_file = true;
+
     std::ofstream file(s.get_rootful().c_str());
 
     if (!save_level_into_file) {
