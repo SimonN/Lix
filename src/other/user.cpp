@@ -149,26 +149,26 @@ User::User()
     editor_last_dir_deco   (gloB->dir_bitmap),
     editor_last_dir_hazard (gloB->dir_bitmap)
 {
-    key_skill[LixEn::WALKER]     = KEY_W;
+    key_skill[LixEn::WALKER]     = KEY_F;
     key_skill[LixEn::RUNNER]     = KEY_LSHIFT;
     key_skill[LixEn::BASHER]     = KEY_E;
-    key_skill[LixEn::BUILDER]    = KEY_R;
+    key_skill[LixEn::BUILDER]    = KEY_D;
     key_skill[LixEn::PLATFORMER] = KEY_T;
-    key_skill[LixEn::DIGGER]     = KEY_G;
-    key_skill[LixEn::MINER]      = KEY_D;
-    key_skill[LixEn::BLOCKER]    = KEY_V;
-    key_skill[LixEn::CUBER]      = KEY_V;
-    key_skill[LixEn::EXPLODER]   = KEY_X;
-    key_skill[LixEn::EXPLODER2]  = KEY_X;
+    key_skill[LixEn::DIGGER]     = KEY_W;
+    key_skill[LixEn::MINER]      = KEY_G;
+    key_skill[LixEn::BLOCKER]    = KEY_X;
+    key_skill[LixEn::CUBER]      = KEY_X;
+    key_skill[LixEn::EXPLODER]   = KEY_V;
+    key_skill[LixEn::EXPLODER2]  = KEY_V;
 
     key_skill[LixEn::CLIMBER]    = KEY_B;
     key_skill[LixEn::FLOATER]    = KEY_Q;
-    key_skill[LixEn::JUMPER]     = KEY_A;
+    key_skill[LixEn::JUMPER]     = KEY_R;
     key_skill[LixEn::ROPER]      = KEY_C;
     key_skill[LixEn::BATTER]     = KEY_C;
 
-    key_force_left             = KEY_S;
-    key_force_right            = KEY_F;
+    key_force_left             = KEY_A;
+    key_force_right            = KEY_S;
     key_scroll                 = KEY_MINUS_PAD;
     key_priority               = KEY_MINUS_PAD;
     key_rate_minus             = KEY_1;
@@ -206,22 +206,22 @@ User::User()
     key_ed_up                  = KEY_E;
     key_ed_down                = KEY_D;
     key_ed_copy                = KEY_A;
-    key_ed_delete              = KEY_X;
+    key_ed_delete              = KEY_G;
     key_ed_grid                = KEY_C;
     key_ed_sel_all             = KEY_ALT;
     key_ed_sel_frame           = KEY_LSHIFT;
     key_ed_sel_add             = KEY_V;
     key_ed_background          = KEY_T;
-    key_ed_foreground          = KEY_G;
+    key_ed_foreground          = KEY_B;
     key_ed_mirror              = KEY_W;
     key_ed_rotate              = KEY_R;
-    key_ed_dark                = KEY_B;
-    key_ed_noow                = KEY_N;
+    key_ed_dark                = KEY_N;
+    key_ed_noow                = KEY_M;
     key_ed_zoom                = KEY_Y;
     key_ed_help                = KEY_H;
     key_ed_menu_size           = KEY_5;
     key_ed_menu_vars           = KEY_Q;
-    key_ed_menu_skills         = KEY_Z;
+    key_ed_menu_skills         = KEY_X;
     key_ed_add_terrain         = KEY_SPACE;
     key_ed_add_steel           = KEY_TAB;
     key_ed_add_hatch           = KEY_1;
