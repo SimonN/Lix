@@ -101,7 +101,7 @@ void ReplayBrowser::calc_self()
         switch (box_delete->get_button_clicked()) {
         case 1:
             delete_file(get_current_file().get_rootful().c_str());
-            reload_dir();
+            load_dir(get_current_file());
             clear_preview();
 
             desc_info_player  .set_text();

@@ -225,8 +225,7 @@ Filename SaveBrowser::get_current_file()
 // BoxMessage im Speicherdialog, und Suchkriterium
 bool SaveBrowser::search_criterion_level(const Filename& fn)
 {
-    return fn.get_extension() == gloB->ext_level
-     ||    fn.get_extension() == gloB->ext_level_orig;
+    return ListLevel::search_criterion(fn);
 }
 
 

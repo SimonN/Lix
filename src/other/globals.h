@@ -86,7 +86,8 @@ public:
         mask_ext_user,
 
         file_level_dir_order,
-        file_level_dir_desc,
+        file_level_dir_english,
+        file_level_dir_german,
 
         // Unterteilung der Bilddateien nach Prae-Endung
         pre_ext_null,

@@ -294,7 +294,9 @@ bool fill_vector_from_stream(std::vector <Line>& v, std::istream& in)
 
 
 
-// Exact copy of the function above, just different push_back line
+// This isn't just an exact copy of the function above, with just the string
+// instead of Line(string) pushed back. This actually cares about empty lines,
+// and is still compatible with any line ending.
 bool fill_vector_from_file_raw(
     std::vector <std::string>& v,
     const std::string&         filename
@@ -308,9 +310,15 @@ bool fill_vector_from_file_raw(
     char        c;
     while (file.get(c)) {
         if (c != '\n' && c != '\r') s += c;
-        else if (! s.empty()) {
+        else {
+            // do this even if the string is currently empty
             v.push_back(s);
             s.clear();
+            const char next = file.peek();
+            if ((c == '\n' && next == '\r') || (c == '\r' && next == '\n')) {
+                // discard the second line ending character
+                file.get(c);
+            }
         }
     }
     if (! s.empty()) v.push_back(s);

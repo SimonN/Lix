@@ -32,6 +32,8 @@ ListLevel::~ListLevel()
 bool ListLevel::search_criterion(const Filename& fn)
 {
     return fn.get_file()      != gloB->file_level_dir_order
+     &&    fn.get_file()      != gloB->file_level_dir_english
+     &&    fn.get_file()      != gloB->file_level_dir_german
      && (  fn.get_extension() == gloB->ext_level
      ||    fn.get_extension() == gloB->ext_level_orig
      ||    fn.get_extension() == gloB->ext_level_lemmini);

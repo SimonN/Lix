@@ -75,7 +75,8 @@ Globals::Globals()
     mask_ext_user                ("*.txt"),
 
     file_level_dir_order         ("_order.X.txt"),
-    file_level_dir_desc          ("_desc.X.txt"),
+    file_level_dir_english       ("_english.X.txt"),
+    file_level_dir_german        ("_german.X.txt"),
 
     // Unterteilung der Bilddateien nach Prae-Endung
     pre_ext_null                 (":"),

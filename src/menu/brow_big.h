@@ -64,6 +64,9 @@ private:
     DirList     dir_list;
     ListLevel   lev_list;
 
+    Frame               cover_frame; // looks like the lev_list's outer frame
+    std::vector <Label> cover_desc;  // the cover text in file-empty dirs
+
     TextButton  button_play;
     TextButton  button_exit;
 
@@ -94,7 +97,8 @@ public:
                                         { return lev_list.get_current_file(); }
            void         set_current_dir_to_parent_dir();
 
-           void         reload_dir();
+           //                             bool: call on_file_highlight()
+           void         load_dir         (const Filename&, bool = true);
            void         highlight_nothing();
 
     inline void         set_preview_y (int y)         { preview.set_y(y);     }
