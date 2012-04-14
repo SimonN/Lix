@@ -35,7 +35,7 @@ static bool platformer_is_solid(Lixxie& l, int x, int y)
     // over the pixel
     bool b = l.is_solid(x, y);
     if (b && l.is_solid(x + 2, y) && l.is_solid(x + 4, y)) return true;
-    for (int i = -1; i > -4; --i)
+    for (int i = 0; i > -3; --i)
         b = b && (l.is_solid(x+2, y-2)
                || l.is_solid(x, y-2)
                || l.is_solid(x-2, y-2));
@@ -67,8 +67,8 @@ void update_platformer(Lixxie& l, const UpdateArgs& ua)
     case  4:
         // Sinnvolle Steinverlegung wie bei Frame 25 pruefen:
         // Kompletten naechsen Stein vorausplanen, bei Kollision NICHT drehen.
-        if (platformer_is_solid(l, 6, -2)
-         && platformer_is_solid(l, 8, -2) && platformer_is_solid(l, 10, -2)) {
+        if (platformer_is_solid(l, 6, -1)
+         && platformer_is_solid(l, 8, -1) && platformer_is_solid(l, 10, -1)) {
             l.become(LixEn::WALKER);
         }
         break;
@@ -100,9 +100,9 @@ void update_platformer(Lixxie& l, const UpdateArgs& ua)
             l.become(LixEn::SHRUGGER2);
             l.set_special_y(2); // Bei Klick 2 tiefer anfng. = weiterbauen
         }
-        else if (platformer_is_solid(l, 2, 0)
-         &&      platformer_is_solid(l, 4, 0)
-         &&      platformer_is_solid(l, 6, 0)) {
+        else if (platformer_is_solid(l, 2, 1)
+         &&      platformer_is_solid(l, 4, 1)
+         &&      platformer_is_solid(l, 6, 1)) {
             l.become(LixEn::SHRUGGER2);
             l.set_frame(platformer_standing_up_frame);
         }
