@@ -144,7 +144,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
 
 
     // Flinging
-    if (! l.get_leaving())
+    if ((l.get_body_encounters() & Lookup::bit_fling) && ! l.get_leaving())
      for (TrigIt i = cs.fling.begin(); i != cs.fling.end(); ++i)
      if (l.get_in_trigger_area(*i)) {
         // non-constant?
@@ -160,7 +160,8 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
 
 
     // Trampoline
-    if (! l.get_leaving())
+    if ((l.get_body_encounters() & Lookup::bit_trampoline)
+     && ! l.get_leaving())
      for (TrigIt i = cs.trampoline.begin(); i != cs.trampoline.end(); ++i)
      if (l.get_in_trigger_area(*i)) {
         const int min_y_accel = -6;
