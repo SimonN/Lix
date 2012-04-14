@@ -49,6 +49,9 @@ private:
            void eidrecol_api       (Cutbit&, int = 0);
            void recolor_into_vector(const Cutbit&, std::vector <Cutbit>&,
                                     int = 0);
+
+    // GraLib holds the strings which ObjLib uses to replace files
+           void load_all_file_replacements();
            void add_replace        (const std::string&, const std::string&);
            void add_substr_replace (const std::string&, const std::string&);
 

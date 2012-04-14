@@ -82,13 +82,7 @@ GraLib::GraLib()
     eidrecol_api(gloB->file_bitmap_preview_icon);
     eidrecol_api(gloB->file_bitmap_preview_icon);
 
-    // Alle Namensersetzungen
-    add_replace("Universal/water.W",  "matt/water.W"  );
-    add_replace("Universal/10tons.T", "matt/10tons.T" );
-
-    add_substr_replace("bitmap/", "");
-    add_substr_replace("Universal/", "matt/steel/");
-    add_substr_replace("Rebuilds/",  "matt/");
+    load_all_file_replacements();
 }
 
 
