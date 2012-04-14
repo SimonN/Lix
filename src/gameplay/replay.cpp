@@ -240,6 +240,7 @@ void Replay::save_as_auto_replay(const Level* const lev)
 }
 
 
+
 void Replay::save_to_file(const Filename& s, const Level* const lev)
 {
     bool save_level_into_file = holds_level
@@ -255,8 +256,10 @@ void Replay::save_to_file(const Filename& s, const Level* const lev)
 
     if (!save_level_into_file) {
         built_required = Level::get_built(level_filename);
+        // Write the path to the level, but omit the leading (dir-levels)/
         file << IO::LineDollar(gloB->replay_level_filename,
-                               level_filename.get_rootless())
+                               level_filename.get_rootless().substr(
+                               gloB->dir_levels.get_dir_rootless().size()))
              << IO::LineDollar(gloB->replay_built_required, built_required);
     }
     file << IO::LineHash(gloB->replay_version_min, version_min)
@@ -316,12 +319,21 @@ void Replay::load_from_file(const Filename& fn)
     for (IO::LineIt i = lines.begin(); i != lines.end(); ++i) switch(i->type) {
     case '$':
         if      (i->text1 == gloB->replay_built_required) built_required = i->text2;
-        else if (i->text1 == gloB->replay_level_filename) level_filename = Filename(i->text2);
         else if (i->text1 == gloB->replay_permu         ) permu          = Permu   (i->text2);
+        else if (i->text1 == gloB->replay_level_filename) {
+            // We changed the names of the directories on 2012-04-12. Probably
+            // a year from this time on, there shouldn't be any important
+            // replays with the old path anymore. Then, remove this erase()
+            // to finally allow a directory (levels-dir)/levels/ in theory.
+            std::string filestr = i->text2;
+            if (filestr.substr(0, 7) == "levels/") filestr.erase(0, 7);
+            level_filename = Filename(
+                gloB->dir_levels.get_dir_rootless() + filestr);
+        }
         break;
 
     case '#':
-        if      (i->text1 == gloB->replay_version_min   ) vm             = i->nr1;
+        if      (i->text1 == gloB->replay_version_min   ) vm = i->nr1;
         break;
 
     case '+':
