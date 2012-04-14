@@ -104,33 +104,34 @@ static void tumbler_land(Lixxie& l)
 //   3 = We hit something, we didn't handle the position ourselves. The
 //       caller should move back one step to get into air again, and reset
 //       encounters.
+static inline bool wall  (Lixxie& l, int i) { return l.is_solid( 0, i); }
+static inline bool behind(Lixxie& l, int i) { return l.is_solid(-2, i)
+                                                  && l.is_solid( 0, i); }
 int jumper_and_tumbler_collision(Lixxie& l)
 {
-    std::map <int, bool> wall;
-    std::map <int, bool> behind;
     int wall_count   = 0;
     int wall_count_t = 0; // for turning at a wall
     int swh          = 0;
     int lowest_floor = 0;
     int behind_count = 0;
     for (int i = 1; i > -16; --i) {
-        if (l.is_solid(0, i)) {
-            wall[i] = true;
+        if (wall(l, i)) {
             ++wall_count;
             if (i > -11) ++wall_count_t;
-            // how high is a solid wall starting above (0, 2)?
-            if (wall_count == (int) wall.size()) ++swh;
         }
-        else wall[i] = false;
+    }
+    // how high is a solid wall starting above (0, 2)?
+    for (int i = 1; i > -16; --i) {
+        if (wall(l, i)) ++swh;
+        else break;
     }
 
     for (int i = -1; i > -9; --i) {
-        behind[i] = l.is_solid(-2, i);
-        behind_count += (behind[i] = l.is_solid(-2, i) && l.is_solid(0, i));
+        behind_count += behind(l, i);
     }
 
     for (int i = -1; i > -15; --i) {
-        if (! wall[i-1] && wall[i]) {
+        if (! wall(l, i-1) && wall(l, i)) {
             lowest_floor = i;
             break;
         }
@@ -140,7 +141,7 @@ int jumper_and_tumbler_collision(Lixxie& l)
 
     // bump head or some body part into really unreasonable ceilings
     if ((behind_count > 0 && l.get_special_y() < 2)
-     || (wall[-12] && ! wall_count_t && l.get_special_y() <= 0)) {
+     || (wall(l, -12) && ! wall_count_t && l.get_special_y() <= 0)) {
         if (l.get_ac() != LixEn::TUMBLER) l.become(LixEn::TUMBLER);
         l.set_special_y(4);
         l.set_special_x(l.get_special_x() / 4);
@@ -170,14 +171,23 @@ int jumper_and_tumbler_collision(Lixxie& l)
     // Jumping against a wall
     if (wall_count_t) {
         // Stick to the surface of the wall which we're inside right now
-        if (l.get_ac() == LixEn::JUMPER && l.get_climber()) {
-            l.move_ahead(-2);
-            l.become(LixEn::CLIMBER);
-            l.set_frame(0);
-            return 1;
+        if (l.get_ac() == LixEn::JUMPER) {
+            if (l.get_climber()) {
+                l.move_ahead(-2);
+                l.become(LixEn::CLIMBER);
+                l.set_frame(0);
+                return 1;
+            }
+            else {
+                // move out of the wall we're in
+                l.turn();
+                return 3;
+            }
         }
-        else {
-            // Move out of wall we seem to be in.
+        // we're a tumbler
+        else if (wall(l, 1) || (wall(l,  0) && ! behind(l,  0))
+                            || (wall(l, -1) && ! behind(l, -1))
+                            || (wall(l, -2) && ! behind(l, -2)) ) {
             l.turn();
             return 3;
         }
