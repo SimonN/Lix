@@ -16,10 +16,10 @@ data/config.txt
 data/log.txt
 
 # exclude replays, but track replay/ and replay/auto/ via a dummy file
-replay/*
-!replay/auto
-replay/auto/*
-!replay/auto/.gitignore
+replays/*
+!replays/auto
+replays/auto/*
+!replays/auto/.gitignore
 
 # exclude Lemmings legacy material: terrain and levels
 # the last line excludes free levels that need legacy terrain
