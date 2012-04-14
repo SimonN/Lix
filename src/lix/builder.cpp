@@ -67,9 +67,34 @@ void update_builder(Lixxie& l, const UpdateArgs& ua)
 
         // Note that the lix has already moved up and the image has its
         // feet below the regular position, inside the newly placed brick.
-        if (((l.is_solid(6, 1) && l.is_solid(6, -2)) || l.is_solid(6, -16))
-         || ((l.is_solid(4, 1) && l.is_solid(4, -2)) || l.is_solid(4, -16))
-         ||  (l.is_solid(2, 1) && l.is_solid(2, -2))) {
+        //
+        //   XX - the effective coordinate of the checking Lixxie. She has
+        //        already moved up from inside the brick, but not yet walked
+        //        forward.
+        //   11 - numbers denote the checks in the corresp. code line below
+        //
+        //
+        //
+        //                   33  22  11
+        //
+        //               XX
+        //           44  44  34  24  11
+        //           ()()()()()()()()()()()()
+        //           ()()()()()()()()()()()()
+        //   [][][][][][][][][][][][]
+        //   [][][][][][][][][][][][]
+        //
+        // lines 1, 2, 3, don't build through walls
+        if ((l.is_solid(6, 1) && l.is_solid(6, -2))
+         || (l.is_solid(4, 1) && l.is_solid(4, -2))
+         || (l.is_solid(2, 1) && l.is_solid(2, -2))
+         // line 4, don't allow building through long, 2px-thin horiz. beams
+         || (l.is_solid(4, 1) && l.is_solid(2, 1) && l.is_solid(0,  1)
+                                                  && l.is_solid(-2, 1))
+         // hit head
+         ||  l.is_solid(6, -16)
+         ||  l.is_solid(4, -16)
+        ) {
             // Ueberfluessige Faehigkeitsbenutzngen an den Spieler
             // zurueckgeben, passiert nur bei Option "multiple Builders".
             // Wird von l.assign() erledigt.
