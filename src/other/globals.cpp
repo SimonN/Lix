@@ -303,9 +303,9 @@ Globals::Globals()
     dir_replay                   ("replay/"),
     dir_replay_auto              ("replay/auto/"),
     dir_data                     ("data/"),
-    dir_data_bitmap              ("data/bitmap/"),
-    dir_data_sound               ("data/sound/"),
-    dir_data_user                ("data/user/"),
+    dir_data_bitmap              (dir_data.get_dir_rootless() + "images/"),
+    dir_data_sound               (dir_data.get_dir_rootless() + "sound/"),
+    dir_data_user                (dir_data.get_dir_rootless() + "user/"),
     dir_bitmap                   ("images/"),
     dir_bitmap_orig              (dir_bitmap.get_dir_rootless() + "orig/"),
     dir_bitmap_orig_l1           (dir_bitmap.get_dir_rootless() + "orig/L1/"),
@@ -354,7 +354,7 @@ Globals::Globals()
 void Globals::initialize()
 {
     // Determine root dir
-    std::string testdir = "./data/bitmap";
+    std::string testdir = "./data/images";
     std::string rootdir = "?????";
     if (file_exists(testdir.c_str(), FA_DIREC | FA_RDONLY, 0)) rootdir = "./";
     else {
