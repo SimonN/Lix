@@ -31,58 +31,58 @@ $ENGLISH                                                Upward Digging
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                          48       304
+:matt/earth/Hatch.H:                          48       304
 
-:bitmap/matt/01 - Earth/Goal.G:                          558       164
+:matt/earth/Goal.G:                          558       164
 
-:bitmap/matt/01 - Earth/06:                              345       156
-:bitmap/matt/01 - Earth/09:                              564        56
-:bitmap/matt/01 - Earth/08:                              535        27
-:bitmap/matt/01 - Earth/26:                              506        14
-:bitmap/matt/01 - Earth/01:                              499       -25
-:bitmap/matt/01 - Earth/23:                              277       322
-:bitmap/matt/01 - Earth/10:                              315       160
-:bitmap/matt/01 - Earth/10:                              190       191
-:bitmap/matt/01 - Earth/07:                              210       184
-:bitmap/matt/01 - Earth/10:                               84       177
-:bitmap/matt/01 - Earth/10:                              -49       200
-:bitmap/matt/01 - Earth/10:                              180       219
-:bitmap/matt/01 - Earth/10:                              185       224
-:bitmap/matt/01 - Earth/09:                               30       136
-:bitmap/matt/01 - Earth/10:                              -14       139
-:bitmap/matt/01 - Earth/10:                              132       241
-:bitmap/matt/01 - Earth/06:                              304       179
-:bitmap/matt/01 - Earth/10:                              269       189
-:bitmap/matt/01 - Earth/06:                              310       261
-:bitmap/matt/01 - Earth/10:                              293       256
-:bitmap/matt/01 - Earth/06:                              281       288
-:bitmap/matt/01 - Earth/10:                              298       261
-:bitmap/matt/01 - Earth/10:                              593       197
-:bitmap/matt/01 - Earth/10:                              579       198
-:bitmap/matt/01 - Earth/06:                              483       205
-:bitmap/matt/01 - Earth/06:                              439       229
-:bitmap/matt/01 - Earth/10:                              440       212
-:bitmap/matt/01 - Earth/10:                              473       258
-:bitmap/matt/steel/48x48.S:                               48       352
-:bitmap/matt/steel/48x48.S:                                0       352
-:bitmap/matt/steel/48x48.S:                              144       352
-:bitmap/matt/steel/48x48.S:                               96       352
-:bitmap/matt/steel/48x48.S:                              240       352
-:bitmap/matt/steel/48x48.S:                              192       352
-:bitmap/matt/steel/48x48.S:                              336       352
-:bitmap/matt/steel/48x48.S:                              288       352
-:bitmap/matt/steel/48x48.S:                              432       352
-:bitmap/matt/steel/48x48.S:                              384       352
-:bitmap/matt/steel/48x48.S:                              528       352
-:bitmap/matt/steel/48x48.S:                              480       352
-:bitmap/matt/steel/48x48.S:                              576       352
-:bitmap/matt/steel/48x48.S:                              624       352
-:bitmap/matt/steel/48x48.S:                                0       304
-:bitmap/matt/steel/48x48.S:                              624       304
-:bitmap/matt/01 - Earth/04:                              570       -85
-:bitmap/matt/01 - Earth/10:                              539       -46
-:bitmap/matt/01 - Earth/07:                              -11       109
-:bitmap/matt/01 - Earth/04:                              -80        39
-:bitmap/rubix/Tutorial/tricks-04pic:                     390        37
-:bitmap/rubix/Tutorial/Tricks04a:                          0         0
-:bitmap/rubix/Tutorial/Tricks04b:                        185         0
+:matt/earth/06:                              345       156
+:matt/earth/09:                              564        56
+:matt/earth/08:                              535        27
+:matt/earth/26:                              506        14
+:matt/earth/01:                              499       -25
+:matt/earth/23:                              277       322
+:matt/earth/10:                              315       160
+:matt/earth/10:                              190       191
+:matt/earth/07:                              210       184
+:matt/earth/10:                               84       177
+:matt/earth/10:                              -49       200
+:matt/earth/10:                              180       219
+:matt/earth/10:                              185       224
+:matt/earth/09:                               30       136
+:matt/earth/10:                              -14       139
+:matt/earth/10:                              132       241
+:matt/earth/06:                              304       179
+:matt/earth/10:                              269       189
+:matt/earth/06:                              310       261
+:matt/earth/10:                              293       256
+:matt/earth/06:                              281       288
+:matt/earth/10:                              298       261
+:matt/earth/10:                              593       197
+:matt/earth/10:                              579       198
+:matt/earth/06:                              483       205
+:matt/earth/06:                              439       229
+:matt/earth/10:                              440       212
+:matt/earth/10:                              473       258
+:matt/steel/48x48.S:                               48       352
+:matt/steel/48x48.S:                                0       352
+:matt/steel/48x48.S:                              144       352
+:matt/steel/48x48.S:                               96       352
+:matt/steel/48x48.S:                              240       352
+:matt/steel/48x48.S:                              192       352
+:matt/steel/48x48.S:                              336       352
+:matt/steel/48x48.S:                              288       352
+:matt/steel/48x48.S:                              432       352
+:matt/steel/48x48.S:                              384       352
+:matt/steel/48x48.S:                              528       352
+:matt/steel/48x48.S:                              480       352
+:matt/steel/48x48.S:                              576       352
+:matt/steel/48x48.S:                              624       352
+:matt/steel/48x48.S:                                0       304
+:matt/steel/48x48.S:                              624       304
+:matt/earth/04:                              570       -85
+:matt/earth/10:                              539       -46
+:matt/earth/07:                              -11       109
+:matt/earth/04:                              -80        39
+:rubix/Tutorial/tricks-04pic:                     390        37
+:rubix/Tutorial/Tricks04a:                          0         0
+:rubix/Tutorial/Tricks04b:                        185         0

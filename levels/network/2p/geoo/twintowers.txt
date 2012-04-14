@@ -31,53 +31,53 @@ $ENGLISH                                                   Twin Towers
 #MINER                                                              60
 #DIGGER                                                             40
 
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   144       608
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   432       608
+:matt/goldmine/GoalTop.D:                   144       608
+:matt/goldmine/GoalTop.D:                   432       608
 
-:bitmap/geoo/construction/Hatch.H:                       144        16
-:bitmap/geoo/construction/Hatch.H:                       464        16     r
+:geoo/construction/Hatch.H:                       144        16
+:geoo/construction/Hatch.H:                       464        16     r
 
-:bitmap/matt/02 - Gold Mine/Goal.G:                      144       656
-:bitmap/matt/02 - Gold Mine/Goal.G:                      432       656
+:matt/goldmine/Goal.G:                      144       656
+:matt/goldmine/Goal.G:                      432       656
 
-:bitmap/matt/water.W:                                    240       736
-:bitmap/matt/water.W:                                    272       736
-:bitmap/matt/water.W:                                    304       736
-:bitmap/matt/water.W:                                    336       736
-:bitmap/matt/water.W:                                    368       736
+:matt/water.W:                                    240       736
+:matt/water.W:                                    272       736
+:matt/water.W:                                    304       736
+:matt/water.W:                                    336       736
+:matt/water.W:                                    368       736
 
-:bitmap/matt/07 - Underworld/02:                         112        48
-:bitmap/matt/07 - Underworld/02:                         176        48
-:bitmap/matt/07 - Underworld/02:                         400        48
-:bitmap/matt/07 - Underworld/02:                         464        48
-:bitmap/matt/07 - Underworld/02:                         112       144
-:bitmap/matt/07 - Underworld/02:                         176       144
-:bitmap/matt/07 - Underworld/02:                         400       144
-:bitmap/matt/07 - Underworld/02:                         464       144
-:bitmap/matt/07 - Underworld/02:                         112       240
-:bitmap/matt/07 - Underworld/02:                         176       240
-:bitmap/matt/07 - Underworld/02:                         400       240
-:bitmap/matt/07 - Underworld/02:                         464       240
-:bitmap/matt/07 - Underworld/02:                         112       336
-:bitmap/matt/07 - Underworld/02:                         176       336
-:bitmap/matt/07 - Underworld/02:                         400       336
-:bitmap/matt/07 - Underworld/02:                         464       336
-:bitmap/matt/07 - Underworld/02:                         112       432
-:bitmap/matt/07 - Underworld/02:                         176       432
-:bitmap/matt/07 - Underworld/02:                         400       432
-:bitmap/matt/07 - Underworld/02:                         464       432
-:bitmap/matt/07 - Underworld/02:                         112       528
-:bitmap/matt/07 - Underworld/02:                         176       528
-:bitmap/matt/07 - Underworld/02:                         400       528
-:bitmap/matt/07 - Underworld/02:                         464       528
-:bitmap/matt/07 - Underworld/02:                         112       624
-:bitmap/matt/07 - Underworld/02:                         176       624
-:bitmap/matt/07 - Underworld/02:                         400       624
-:bitmap/matt/07 - Underworld/02:                         464       624
-:bitmap/geoo/steel/64x64.S:                              112       704
-:bitmap/geoo/steel/64x64.S:                              176       704
-:bitmap/geoo/steel/64x64.S:                              400       704
-:bitmap/geoo/steel/64x64.S:                              464       704
-:bitmap/matt/03 - Carnival/24:                           144       640     d
-:bitmap/matt/03 - Carnival/24:                           432       640     d
-:bitmap/geoo/steel/64x64.S:                              288         0
+:matt/underworld/02:                         112        48
+:matt/underworld/02:                         176        48
+:matt/underworld/02:                         400        48
+:matt/underworld/02:                         464        48
+:matt/underworld/02:                         112       144
+:matt/underworld/02:                         176       144
+:matt/underworld/02:                         400       144
+:matt/underworld/02:                         464       144
+:matt/underworld/02:                         112       240
+:matt/underworld/02:                         176       240
+:matt/underworld/02:                         400       240
+:matt/underworld/02:                         464       240
+:matt/underworld/02:                         112       336
+:matt/underworld/02:                         176       336
+:matt/underworld/02:                         400       336
+:matt/underworld/02:                         464       336
+:matt/underworld/02:                         112       432
+:matt/underworld/02:                         176       432
+:matt/underworld/02:                         400       432
+:matt/underworld/02:                         464       432
+:matt/underworld/02:                         112       528
+:matt/underworld/02:                         176       528
+:matt/underworld/02:                         400       528
+:matt/underworld/02:                         464       528
+:matt/underworld/02:                         112       624
+:matt/underworld/02:                         176       624
+:matt/underworld/02:                         400       624
+:matt/underworld/02:                         464       624
+:geoo/steel/64x64.S:                              112       704
+:geoo/steel/64x64.S:                              176       704
+:geoo/steel/64x64.S:                              400       704
+:geoo/steel/64x64.S:                              464       704
+:matt/carnival/24:                           144       640     d
+:matt/carnival/24:                           432       640     d
+:geoo/steel/64x64.S:                              288         0

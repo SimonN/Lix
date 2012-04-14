@@ -31,47 +31,47 @@ $ENGLISH                                            Tribute to Sliding
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/08 - Bricks/Hatch.H:                        192       192
+:matt/bricks/Hatch.H:                        192       192
 
-:bitmap/matt/08 - Bricks/Goal.G:                         416        80
+:matt/bricks/Goal.G:                         416        80
 
-:bitmap/matt/08 - Bricks/03:                             416       128
-:bitmap/matt/08 - Bricks/03:                             416       160
-:bitmap/matt/08 - Bricks/03:                             384       256
-:bitmap/matt/08 - Bricks/03:                             416       224
-:bitmap/matt/08 - Bricks/03:                             256       256
-:bitmap/matt/08 - Bricks/03:                             320       256
-:bitmap/matt/08 - Bricks/01:                             358       224
-:bitmap/matt/08 - Bricks/01:                             390       230
-:bitmap/matt/08 - Bricks/01:                             392       214
-:bitmap/matt/08 - Bricks/01:                             358       218
-:bitmap/matt/08 - Bricks/01:                             390       212
-:bitmap/matt/08 - Bricks/01:                             390       206
-:bitmap/matt/08 - Bricks/01:                             392       190
-:bitmap/matt/08 - Bricks/01:                             358       200
-:bitmap/matt/08 - Bricks/01:                             356       202
-:bitmap/matt/08 - Bricks/01:                             390       188
-:bitmap/matt/08 - Bricks/01:                             356       192
-:bitmap/matt/08 - Bricks/01:                             358       194
-:bitmap/matt/08 - Bricks/01:                             358       176
-:bitmap/matt/08 - Bricks/01:                             390       182
-:bitmap/matt/08 - Bricks/01:                             392       166
-:bitmap/matt/08 - Bricks/01:                             390       164
-:bitmap/matt/08 - Bricks/01:                             390       158
-:bitmap/matt/08 - Bricks/01:                             358       152
-:bitmap/matt/08 - Bricks/01:                             356       154
-:bitmap/matt/08 - Bricks/01:                             356       144
-:bitmap/matt/08 - Bricks/01:                             358       146
-:bitmap/matt/08 - Bricks/01:                             392       142
-:bitmap/matt/08 - Bricks/01:                             390       140
-:bitmap/matt/08 - Bricks/01:                             358       128
-:bitmap/matt/08 - Bricks/01:                             356       130
-:bitmap/matt/08 - Bricks/01:                             358       170
-:bitmap/matt/08 - Bricks/01:                             390       134
-:bitmap/matt/08 - Bricks/03:                             416       256
-:bitmap/matt/08 - Bricks/01:                             388       244
-:bitmap/matt/08 - Bricks/03:                             192       256
-:bitmap/matt/08 - Bricks/01:                             192       240
-:bitmap/matt/08 - Bricks/01:                             224       240
-:bitmap/matt/08 - Bricks/01:                             288       240
-:bitmap/matt/08 - Bricks/01:                             354       226
+:matt/bricks/03:                             416       128
+:matt/bricks/03:                             416       160
+:matt/bricks/03:                             384       256
+:matt/bricks/03:                             416       224
+:matt/bricks/03:                             256       256
+:matt/bricks/03:                             320       256
+:matt/bricks/01:                             358       224
+:matt/bricks/01:                             390       230
+:matt/bricks/01:                             392       214
+:matt/bricks/01:                             358       218
+:matt/bricks/01:                             390       212
+:matt/bricks/01:                             390       206
+:matt/bricks/01:                             392       190
+:matt/bricks/01:                             358       200
+:matt/bricks/01:                             356       202
+:matt/bricks/01:                             390       188
+:matt/bricks/01:                             356       192
+:matt/bricks/01:                             358       194
+:matt/bricks/01:                             358       176
+:matt/bricks/01:                             390       182
+:matt/bricks/01:                             392       166
+:matt/bricks/01:                             390       164
+:matt/bricks/01:                             390       158
+:matt/bricks/01:                             358       152
+:matt/bricks/01:                             356       154
+:matt/bricks/01:                             356       144
+:matt/bricks/01:                             358       146
+:matt/bricks/01:                             392       142
+:matt/bricks/01:                             390       140
+:matt/bricks/01:                             358       128
+:matt/bricks/01:                             356       130
+:matt/bricks/01:                             358       170
+:matt/bricks/01:                             390       134
+:matt/bricks/03:                             416       256
+:matt/bricks/01:                             388       244
+:matt/bricks/03:                             192       256
+:matt/bricks/01:                             192       240
+:matt/bricks/01:                             224       240
+:matt/bricks/01:                             288       240
+:matt/bricks/01:                             354       226

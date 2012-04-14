@@ -32,40 +32,40 @@ $ENGLISH                                                         Lost?
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/04 - Sandy Beach/Sand Decor/sun.D:          560        16
+:matt/beach/decor/sun.D:          560        16
 
-:bitmap/matt/04 - Sandy Beach/Hatch.H:                    40        26
+:matt/beach/Hatch.H:                    40        26
 
-:bitmap/matt/04 - Sandy Beach/goal.G:                    368       128
+:matt/beach/goal.G:                    368       128
 
-:bitmap/matt/water.W:                                     64       288
-:bitmap/matt/water.W:                                     96       288
-:bitmap/matt/water.W:                                    128       288
-:bitmap/matt/water.W:                                    160       288
-:bitmap/matt/water.W:                                    192       288
-:bitmap/matt/water.W:                                    208       288
+:matt/water.W:                                     64       288
+:matt/water.W:                                     96       288
+:matt/water.W:                                    128       288
+:matt/water.W:                                    160       288
+:matt/water.W:                                    192       288
+:matt/water.W:                                    208       288
 
-:bitmap/matt/04 - Sandy Beach/Sand Decor/umbrella_red:   542       186
-:bitmap/matt/04 - Sandy Beach/Sand Decor/grass04:        182        54
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/15:           133       134
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/15:           154       102
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/00:           502       251
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/14:            -2       216
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           -63       194
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           -32        73
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/15:           250        59
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:            64        64
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           -48        64
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           288       240
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           416       240
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/02:            97        67     frrr
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/14:            -7       201
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:          -133       125
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           236       252
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           230       261
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           355       258
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/06:           428       256
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/13:           -64       -32
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/15:            46       162
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           160        62
-:bitmap/matt/04 - Sandy Beach/Sand Decor/umbrella_yellow: 484      158
+:matt/beach/decor/umbrella_red:   542       186
+:matt/beach/decor/grass04:        182        54
+:matt/beach/daytime/15:           133       134
+:matt/beach/daytime/15:           154       102
+:matt/beach/daytime/00:           502       251
+:matt/beach/daytime/14:            -2       216
+:matt/beach/daytime/04:           -63       194
+:matt/beach/daytime/06:           -32        73
+:matt/beach/daytime/15:           250        59
+:matt/beach/daytime/03:            64        64
+:matt/beach/daytime/03:           -48        64
+:matt/beach/daytime/03:           288       240
+:matt/beach/daytime/03:           416       240
+:matt/beach/daytime/02:            97        67     frrr
+:matt/beach/daytime/14:            -7       201
+:matt/beach/daytime/06:          -133       125
+:matt/beach/daytime/06:           236       252
+:matt/beach/daytime/06:           230       261
+:matt/beach/daytime/06:           355       258
+:matt/beach/daytime/06:           428       256
+:matt/beach/daytime/13:           -64       -32
+:matt/beach/daytime/15:            46       162
+:matt/beach/daytime/03:           160        62
+:matt/beach/decor/umbrella_yellow: 484      158

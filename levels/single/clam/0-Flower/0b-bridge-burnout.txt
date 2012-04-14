@@ -31,68 +31,68 @@ $ENGLISH                                                Bridge Burnout
 #MINER                                                              10
 #DIGGER                                                             10
 
-:bitmap/matt/01 - Earth/Hatch.H:                          24        48
+:matt/earth/Hatch.H:                          24        48
 
-:bitmap/matt/01 - Earth/Goal.G:                          694       172
+:matt/earth/Goal.G:                          694       172
 
-:bitmap/matt/01 - Earth/20:                               -4        -4
-:bitmap/matt/01 - Earth/20:                               -4        92
-:bitmap/matt/01 - Earth/20:                               -4       188
-:bitmap/matt/01 - Earth/20:                               -4       284
-:bitmap/matt/01 - Earth/20:                               92        -4
-:bitmap/matt/01 - Earth/20:                              188        -4
-:bitmap/matt/01 - Earth/20:                               -4        16     rrr
-:bitmap/matt/01 - Earth/20:                               -4       112     rrr
-:bitmap/matt/01 - Earth/20:                               92        16     rrr
-:bitmap/matt/01 - Earth/20:                              284        -4
-:bitmap/matt/01 - Earth/20:                              188        16     rrr
-:bitmap/matt/01 - Earth/20:                               92       188
-:bitmap/matt/01 - Earth/20:                              188       112     rrr
-:bitmap/matt/01 - Earth/20:                              284        16     rrr
-:bitmap/matt/01 - Earth/20:                              284       112     rrr
-:bitmap/matt/01 - Earth/20:                              284       208     rrr
-:bitmap/matt/01 - Earth/20:                               -4       208     rrr
-:bitmap/matt/01 - Earth/20:                               92       284
-:bitmap/matt/01 - Earth/20:                              188       284
-:bitmap/matt/01 - Earth/20:                               -4       380
-:bitmap/matt/01 - Earth/20:                               92       380
-:bitmap/matt/01 - Earth/20:                              188       380
-:bitmap/matt/01 - Earth/20:                               -4       304     rrr
-:bitmap/matt/01 - Earth/20:                              380        16     rrr
-:bitmap/matt/01 - Earth/20:                              380       112     rrr
-:bitmap/matt/01 - Earth/20:                              380       208     rrr
-:bitmap/matt/01 - Earth/20:                              284       380
-:bitmap/matt/01 - Earth/20:                              380       304     rrr
-:bitmap/matt/06 - Oriental/leaves5:                       38        86     d
-:bitmap/matt/01 - Earth/22:                              380        -4
-:bitmap/matt/01 - Earth/20:                              380        -4
-:bitmap/matt/01 - Earth/20:                              476       332
-:bitmap/matt/01 - Earth/20:                              476        -4
-:bitmap/matt/01 - Earth/20:                              572        -4
-:bitmap/matt/01 - Earth/20:                              668        -4
-:bitmap/matt/01 - Earth/20:                              572       332
-:bitmap/matt/01 - Earth/20:                              668       332
-:bitmap/matt/01 - Earth/20:                              380       380
-:bitmap/matt/01 - Earth/20:                              476       380
-:bitmap/matt/01 - Earth/20:                              572       380
-:bitmap/matt/01 - Earth/20:                              764        16     rrr
-:bitmap/matt/01 - Earth/20:                              764       112     rrr
-:bitmap/matt/01 - Earth/20:                              764       208     rrr
-:bitmap/matt/01 - Earth/20:                              668       380
-:bitmap/matt/01 - Earth/20:                              764       304     rrr
-:bitmap/matt/01 - Earth/22:                              764        -4
-:bitmap/matt/01 - Earth/20:                              476        44
-:bitmap/matt/01 - Earth/20:                              572        44
-:bitmap/matt/01 - Earth/20:                              668        44
-:bitmap/matt/01 - Earth/20:                              476        64     rrr
-:bitmap/matt/01 - Earth/20:                              476       160     rrr
-:bitmap/matt/01 - Earth/20:                              476       256     rrr
-:bitmap/matt/01 - Earth/20:                              572        92
-:bitmap/matt/01 - Earth/20:                              668        92
-:bitmap/matt/01 - Earth/20:                              572       284
-:bitmap/matt/01 - Earth/20:                              668       284
-:bitmap/matt/01 - Earth/20:                              572       112     rrr
-:bitmap/matt/01 - Earth/20:                              572       208     rrr
-:bitmap/matt/01 - Earth/20:                              668       140
-:bitmap/matt/01 - Earth/20:                              668       236
-:bitmap/matt/01 - Earth/20:                              668       160     rrr
+:matt/earth/20:                               -4        -4
+:matt/earth/20:                               -4        92
+:matt/earth/20:                               -4       188
+:matt/earth/20:                               -4       284
+:matt/earth/20:                               92        -4
+:matt/earth/20:                              188        -4
+:matt/earth/20:                               -4        16     rrr
+:matt/earth/20:                               -4       112     rrr
+:matt/earth/20:                               92        16     rrr
+:matt/earth/20:                              284        -4
+:matt/earth/20:                              188        16     rrr
+:matt/earth/20:                               92       188
+:matt/earth/20:                              188       112     rrr
+:matt/earth/20:                              284        16     rrr
+:matt/earth/20:                              284       112     rrr
+:matt/earth/20:                              284       208     rrr
+:matt/earth/20:                               -4       208     rrr
+:matt/earth/20:                               92       284
+:matt/earth/20:                              188       284
+:matt/earth/20:                               -4       380
+:matt/earth/20:                               92       380
+:matt/earth/20:                              188       380
+:matt/earth/20:                               -4       304     rrr
+:matt/earth/20:                              380        16     rrr
+:matt/earth/20:                              380       112     rrr
+:matt/earth/20:                              380       208     rrr
+:matt/earth/20:                              284       380
+:matt/earth/20:                              380       304     rrr
+:matt/oriental/leaves5:                       38        86     d
+:matt/earth/22:                              380        -4
+:matt/earth/20:                              380        -4
+:matt/earth/20:                              476       332
+:matt/earth/20:                              476        -4
+:matt/earth/20:                              572        -4
+:matt/earth/20:                              668        -4
+:matt/earth/20:                              572       332
+:matt/earth/20:                              668       332
+:matt/earth/20:                              380       380
+:matt/earth/20:                              476       380
+:matt/earth/20:                              572       380
+:matt/earth/20:                              764        16     rrr
+:matt/earth/20:                              764       112     rrr
+:matt/earth/20:                              764       208     rrr
+:matt/earth/20:                              668       380
+:matt/earth/20:                              764       304     rrr
+:matt/earth/22:                              764        -4
+:matt/earth/20:                              476        44
+:matt/earth/20:                              572        44
+:matt/earth/20:                              668        44
+:matt/earth/20:                              476        64     rrr
+:matt/earth/20:                              476       160     rrr
+:matt/earth/20:                              476       256     rrr
+:matt/earth/20:                              572        92
+:matt/earth/20:                              668        92
+:matt/earth/20:                              572       284
+:matt/earth/20:                              668       284
+:matt/earth/20:                              572       112     rrr
+:matt/earth/20:                              572       208     rrr
+:matt/earth/20:                              668       140
+:matt/earth/20:                              668       236
+:matt/earth/20:                              668       160     rrr

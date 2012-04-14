@@ -32,50 +32,50 @@ $ENGLISH                                              Hall of Stalling
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/geoo/sandstone/Hatch.H:                          336        80
+:geoo/sandstone/Hatch.H:                          336        80
 
-:bitmap/geoo/sandstone/Goal.G:                           416       336
+:geoo/sandstone/Goal.G:                           416       336
 
-:bitmap/matt/water.W:                                    192       432
-:bitmap/matt/water.W:                                    224       432
-:bitmap/matt/water.W:                                    256       432
-:bitmap/geoo/sandstone/brazier.F:                        432       256
-:bitmap/geoo/sandstone/brazier.F:                        304       256
-:bitmap/geoo/sandstone/torch.F:                          240        88
-:bitmap/geoo/sandstone/torch.F:                          240       336
-:bitmap/geoo/sandstone/brazier.F:                        368       280
+:matt/water.W:                                    192       432
+:matt/water.W:                                    224       432
+:matt/water.W:                                    256       432
+:geoo/sandstone/brazier.F:                        432       256
+:geoo/sandstone/brazier.F:                        304       256
+:geoo/sandstone/torch.F:                          240        88
+:geoo/sandstone/torch.F:                          240       336
+:geoo/sandstone/brazier.F:                        368       280
 
-:bitmap/geoo/sandstone/64x64:                            128       400
-:bitmap/geoo/sandstone/64x64:                            128       272
-:bitmap/geoo/sandstone/64x64:                            128       208
-:bitmap/geoo/sandstone/32x64:                            480       144
-:bitmap/geoo/sandstone/32x64:                            480        80
-:bitmap/geoo/sandstone/64x64:                            416       400
-:bitmap/geoo/sandstone/32x16:                            256       400
-:bitmap/geoo/sandstone/32x64:                            480        16
-:bitmap/geoo/sandstone/32x16:                            192       400
-:bitmap/geoo/sandstone/64x32:                            384         0
-:bitmap/geoo/sandstone/64x32:                            320         0
-:bitmap/geoo/sandstone/64x32:                            256         0
-:bitmap/geoo/sandstone/64x64:                            128       144
-:bitmap/geoo/sandstone/64x32:                            192         0
-:bitmap/geoo/sandstone/64x64:                            128        80
-:bitmap/geoo/sandstone/64x64:                            128        16
-:bitmap/geoo/sandstone/32x64:                            480       400
-:bitmap/geoo/sandstone/32x64:                            480       272
-:bitmap/geoo/sandstone/32x64:                            480       208
-:bitmap/geoo/sandstone/64x64:                            128       336
-:bitmap/geoo/sandstone/32x64:                            480       336
-:bitmap/geoo/sandstone/64x16:                            448         0
-:bitmap/geoo/sandstone/64x16:                            128         0
-:bitmap/geoo/sandstone/64x16:                            352       448
-:bitmap/geoo/sandstone/64x16:                            224       288
-:bitmap/geoo/sandstone/64x64:                            288       400
-:bitmap/geoo/sandstone/pillar_bottom:                    224       176     fr
-:bitmap/geoo/sandstone/pillar_top:                       288       176     fr
-:bitmap/geoo/sandstone/pillar_bottom:                    448       176     fr
-:bitmap/geoo/sandstone/pillar_top:                       192       176     fr
-:bitmap/geoo/sandstone/pillar_32:                        320       176     r
-:bitmap/geoo/sandstone/pillar_32:                        352       176     fr
-:bitmap/geoo/sandstone/pillar_32:                        384       176     r
-:bitmap/geoo/sandstone/pillar_32:                        416       176     fr
+:geoo/sandstone/64x64:                            128       400
+:geoo/sandstone/64x64:                            128       272
+:geoo/sandstone/64x64:                            128       208
+:geoo/sandstone/32x64:                            480       144
+:geoo/sandstone/32x64:                            480        80
+:geoo/sandstone/64x64:                            416       400
+:geoo/sandstone/32x16:                            256       400
+:geoo/sandstone/32x64:                            480        16
+:geoo/sandstone/32x16:                            192       400
+:geoo/sandstone/64x32:                            384         0
+:geoo/sandstone/64x32:                            320         0
+:geoo/sandstone/64x32:                            256         0
+:geoo/sandstone/64x64:                            128       144
+:geoo/sandstone/64x32:                            192         0
+:geoo/sandstone/64x64:                            128        80
+:geoo/sandstone/64x64:                            128        16
+:geoo/sandstone/32x64:                            480       400
+:geoo/sandstone/32x64:                            480       272
+:geoo/sandstone/32x64:                            480       208
+:geoo/sandstone/64x64:                            128       336
+:geoo/sandstone/32x64:                            480       336
+:geoo/sandstone/64x16:                            448         0
+:geoo/sandstone/64x16:                            128         0
+:geoo/sandstone/64x16:                            352       448
+:geoo/sandstone/64x16:                            224       288
+:geoo/sandstone/64x64:                            288       400
+:geoo/sandstone/pillar_bottom:                    224       176     fr
+:geoo/sandstone/pillar_top:                       288       176     fr
+:geoo/sandstone/pillar_bottom:                    448       176     fr
+:geoo/sandstone/pillar_top:                       192       176     fr
+:geoo/sandstone/pillar_32:                        320       176     r
+:geoo/sandstone/pillar_32:                        352       176     fr
+:geoo/sandstone/pillar_32:                        384       176     r
+:geoo/sandstone/pillar_32:                        416       176     fr

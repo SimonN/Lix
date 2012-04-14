@@ -31,15 +31,15 @@ $ENGLISH                                                Square Dancing
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/03 - Carnival/Hatch.H:                       80        16
+:matt/carnival/Hatch.H:                       80        16
 
-:bitmap/matt/03 - Carnival/Goal.G:                       512        80
+:matt/carnival/Goal.G:                       512        80
 
-:bitmap/matt/03 - Carnival/24:                            80       112
-:bitmap/matt/03 - Carnival/25:                           512       144
-:bitmap/matt/03 - Carnival/26:                           208       176
-:bitmap/matt/03 - Carnival/27:                           144       256
-:bitmap/matt/03 - Carnival/25:                           304       216
-:bitmap/matt/03 - Carnival/24:                           320        80
-:bitmap/matt/03 - Carnival/27:                           416       176
-:bitmap/matt/03 - Carnival/26:                           480       272
+:matt/carnival/24:                            80       112
+:matt/carnival/25:                           512       144
+:matt/carnival/26:                           208       176
+:matt/carnival/27:                           144       256
+:matt/carnival/25:                           304       216
+:matt/carnival/24:                           320        80
+:matt/carnival/27:                           416       176
+:matt/carnival/26:                           480       272

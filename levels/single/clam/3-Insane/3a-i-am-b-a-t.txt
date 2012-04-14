@@ -31,76 +31,76 @@ $ENGLISH                                                   I Am B.A.T.
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/08 - Bricks/Hatch.H:                        128       192     r
+:matt/bricks/Hatch.H:                        128       192     r
 
-:bitmap/matt/08 - Bricks/Goal.G:                         448       192
+:matt/bricks/Goal.G:                         448       192
 
-:bitmap/matt/water.W:                                    256       304
-:bitmap/matt/water.W:                                    288       304
-:bitmap/matt/water.W:                                    320       304
-:bitmap/matt/water.W:                                    352       304
+:matt/water.W:                                    256       304
+:matt/water.W:                                    288       304
+:matt/water.W:                                    320       304
+:matt/water.W:                                    352       304
 
-:bitmap/matt/08 - Bricks/03b:                            256       240
-:bitmap/matt/08 - Bricks/03b:                            320       240
-:bitmap/matt/08 - Bricks/01a:                            224       288
-:bitmap/matt/08 - Bricks/04a:                            192       240
-:bitmap/matt/08 - Bricks/03a:                             64       240
-:bitmap/matt/08 - Bricks/01:                             384       288
-:bitmap/matt/08 - Bricks/03:                             448       240
-:bitmap/matt/08 - Bricks/03a:                             16       192
-:bitmap/matt/08 - Bricks/03a:                              0       240
-:bitmap/matt/08 - Bricks/07:                             384       240
-:bitmap/matt/08 - Bricks/03:                             512       240
-:bitmap/matt/08 - Bricks/03:                             560       192
-:bitmap/geoo/steel/32x32o.S:                             224       304
-:bitmap/geoo/steel/32x32o.S:                             384       304
-:bitmap/matt/08 - Bricks/03a:                              0       304
-:bitmap/matt/08 - Bricks/03a:                             64       304
-:bitmap/matt/08 - Bricks/03a:                            160       304
-:bitmap/matt/08 - Bricks/03:                             416       304
-:bitmap/matt/08 - Bricks/03:                             480       304
-:bitmap/matt/08 - Bricks/03:                             512       304
-:bitmap/matt/08 - Bricks/03b:                            256       176
-:bitmap/matt/08 - Bricks/03b:                            320       176
-:bitmap/matt/08 - Bricks/03b:                            256       144
-:bitmap/matt/08 - Bricks/03b:                            320       144
-:bitmap/matt/08 - Bricks/04a:                             80       192
-:bitmap/matt/08 - Bricks/10a:                             80       160
-:bitmap/matt/08 - Bricks/03a:                             16       128
-:bitmap/matt/08 - Bricks/03a:                            128       240
-:bitmap/matt/08 - Bricks/03a:                            128       304
-:bitmap/matt/08 - Bricks/03:                             576       240
-:bitmap/matt/08 - Bricks/03:                             576       304
-:bitmap/matt/08 - Bricks/07:                             496       192
-:bitmap/matt/08 - Bricks/08:                             512       144
-:bitmap/matt/08 - Bricks/02:                             448       144
-:bitmap/matt/08 - Bricks/03:                             560       128
-:bitmap/geoo/steel/64x64o.S:                             224       336
-:bitmap/geoo/steel/64x64o.S:                             288       336
-:bitmap/geoo/steel/64x64o.S:                             352       336
-:bitmap/matt/08 - Bricks/03a:                              0       336
-:bitmap/matt/08 - Bricks/03a:                             64       336
-:bitmap/matt/08 - Bricks/03a:                            160       336
-:bitmap/matt/08 - Bricks/03a:                            128       336
-:bitmap/matt/08 - Bricks/03:                             416       336
-:bitmap/matt/08 - Bricks/03:                             480       336
-:bitmap/matt/08 - Bricks/03:                             512       336
-:bitmap/matt/08 - Bricks/03:                             576       336
-:bitmap/matt/08 - Bricks/10a:                             96       144
-:bitmap/matt/08 - Bricks/08:                             528       160
-:bitmap/matt/08 - Bricks/02a:                            112       160
-:bitmap/matt/08 - Bricks/02:                             464       160
-:bitmap/matt/08 - Bricks/12a:                            160       176
-:bitmap/matt/08 - Bricks/12:                             448       176
-:bitmap/matt/08 - Bricks/01:                             160       192     d
-:bitmap/matt/08 - Bricks/01:                             448       192     d
-:bitmap/matt/08 - Bricks/03:                             592       192
-:bitmap/matt/08 - Bricks/03:                             592       128
-:bitmap/matt/08 - Bricks/03a:                            -16       128
-:bitmap/matt/08 - Bricks/03a:                            -16       176
-:bitmap/matt/08 - Bricks/03a:                             16        96
-:bitmap/matt/08 - Bricks/03a:                            -16        96
-:bitmap/matt/08 - Bricks/03:                             560        96
-:bitmap/matt/08 - Bricks/03:                             592        96
-:bitmap/matt/08 - Bricks/01a:                            128       144
-:bitmap/matt/08 - Bricks/02a:                            128       144
+:matt/bricks/03b:                            256       240
+:matt/bricks/03b:                            320       240
+:matt/bricks/01a:                            224       288
+:matt/bricks/04a:                            192       240
+:matt/bricks/03a:                             64       240
+:matt/bricks/01:                             384       288
+:matt/bricks/03:                             448       240
+:matt/bricks/03a:                             16       192
+:matt/bricks/03a:                              0       240
+:matt/bricks/07:                             384       240
+:matt/bricks/03:                             512       240
+:matt/bricks/03:                             560       192
+:geoo/steel/32x32o.S:                             224       304
+:geoo/steel/32x32o.S:                             384       304
+:matt/bricks/03a:                              0       304
+:matt/bricks/03a:                             64       304
+:matt/bricks/03a:                            160       304
+:matt/bricks/03:                             416       304
+:matt/bricks/03:                             480       304
+:matt/bricks/03:                             512       304
+:matt/bricks/03b:                            256       176
+:matt/bricks/03b:                            320       176
+:matt/bricks/03b:                            256       144
+:matt/bricks/03b:                            320       144
+:matt/bricks/04a:                             80       192
+:matt/bricks/10a:                             80       160
+:matt/bricks/03a:                             16       128
+:matt/bricks/03a:                            128       240
+:matt/bricks/03a:                            128       304
+:matt/bricks/03:                             576       240
+:matt/bricks/03:                             576       304
+:matt/bricks/07:                             496       192
+:matt/bricks/08:                             512       144
+:matt/bricks/02:                             448       144
+:matt/bricks/03:                             560       128
+:geoo/steel/64x64o.S:                             224       336
+:geoo/steel/64x64o.S:                             288       336
+:geoo/steel/64x64o.S:                             352       336
+:matt/bricks/03a:                              0       336
+:matt/bricks/03a:                             64       336
+:matt/bricks/03a:                            160       336
+:matt/bricks/03a:                            128       336
+:matt/bricks/03:                             416       336
+:matt/bricks/03:                             480       336
+:matt/bricks/03:                             512       336
+:matt/bricks/03:                             576       336
+:matt/bricks/10a:                             96       144
+:matt/bricks/08:                             528       160
+:matt/bricks/02a:                            112       160
+:matt/bricks/02:                             464       160
+:matt/bricks/12a:                            160       176
+:matt/bricks/12:                             448       176
+:matt/bricks/01:                             160       192     d
+:matt/bricks/01:                             448       192     d
+:matt/bricks/03:                             592       192
+:matt/bricks/03:                             592       128
+:matt/bricks/03a:                            -16       128
+:matt/bricks/03a:                            -16       176
+:matt/bricks/03a:                             16        96
+:matt/bricks/03a:                            -16        96
+:matt/bricks/03:                             560        96
+:matt/bricks/03:                             592        96
+:matt/bricks/01a:                            128       144
+:matt/bricks/02a:                            128       144

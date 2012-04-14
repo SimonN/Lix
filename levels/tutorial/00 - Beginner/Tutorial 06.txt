@@ -31,38 +31,38 @@ $ENGLISH                                         Bridges and platforms
 #MINER                                                               0
 #DIGGER                                                              0
 
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   492       282
-:bitmap/matt/02 - Gold Mine/mine cart.D:                 562       322
+:matt/goldmine/GoalTop.D:                   492       282
+:matt/goldmine/minecart.D:                 562       322
 
-:bitmap/matt/02 - Gold Mine/Hatch.H:                      36       324
+:matt/goldmine/Hatch.H:                      36       324
 
-:bitmap/matt/02 - Gold Mine/Goal.G:                      492       328
+:matt/goldmine/Goal.G:                      492       328
 
-:bitmap/matt/02 - Gold Mine/crate32:                     448       352
-:bitmap/matt/02 - Gold Mine/10:                          324       254
-:bitmap/matt/02 - Gold Mine/05:                           62       372
-:bitmap/matt/02 - Gold Mine/04:                          -46       270
-:bitmap/matt/02 - Gold Mine/06:                          115       377
-:bitmap/matt/02 - Gold Mine/08:                          154       298
-:bitmap/matt/02 - Gold Mine/08:                          268       300     frr
-:bitmap/matt/02 - Gold Mine/05:                          357       346
-:bitmap/matt/02 - Gold Mine/06:                          554       368
-:bitmap/matt/02 - Gold Mine/03:                          304       242     fr
-:bitmap/matt/02 - Gold Mine/04:                          296       261
-:bitmap/matt/02 - Gold Mine/08:                          576       287
-:bitmap/matt/02 - Gold Mine/07:                          474       372
-:bitmap/matt/02 - Gold Mine/05:                           32       368
-:bitmap/matt/02 - Gold Mine/09:                          448       368
-:bitmap/matt/02 - Gold Mine/02:                          486       368
-:bitmap/matt/02 - Gold Mine/plank support:               -32       -32     rr
-:bitmap/matt/02 - Gold Mine/plank support:               128       -32     rr
-:bitmap/matt/02 - Gold Mine/plank support:               384       -32     rr
-:bitmap/matt/02 - Gold Mine/06:                          436       380
-:bitmap/matt/02 - Gold Mine/04:                          -82       150
-:bitmap/matt/02 - Gold Mine/02:                          -38        90
-:bitmap/matt/02 - Gold Mine/02:                          622       214
-:bitmap/rubix/Tutorial/Tutorial 03:                       91        -4
-:bitmap/rubix/Tutorial/Tutorial03binfo:                  333        -7
-:bitmap/matt/02 - Gold Mine/plank support:               544       -16     rr
-:bitmap/matt/02 - Gold Mine/plank:                       289       -85     frrr
-:bitmap/matt/02 - Gold Mine/plank support:               229        39     rr
+:matt/goldmine/crate32:                     448       352
+:matt/goldmine/10:                          324       254
+:matt/goldmine/05:                           62       372
+:matt/goldmine/04:                          -46       270
+:matt/goldmine/06:                          115       377
+:matt/goldmine/08:                          154       298
+:matt/goldmine/08:                          268       300     frr
+:matt/goldmine/05:                          357       346
+:matt/goldmine/06:                          554       368
+:matt/goldmine/03:                          304       242     fr
+:matt/goldmine/04:                          296       261
+:matt/goldmine/08:                          576       287
+:matt/goldmine/07:                          474       372
+:matt/goldmine/05:                           32       368
+:matt/goldmine/09:                          448       368
+:matt/goldmine/02:                          486       368
+:matt/goldmine/planksupport:               -32       -32     rr
+:matt/goldmine/planksupport:               128       -32     rr
+:matt/goldmine/planksupport:               384       -32     rr
+:matt/goldmine/06:                          436       380
+:matt/goldmine/04:                          -82       150
+:matt/goldmine/02:                          -38        90
+:matt/goldmine/02:                          622       214
+:rubix/Tutorial/Tutorial 03:                       91        -4
+:rubix/Tutorial/Tutorial03binfo:                  333        -7
+:matt/goldmine/planksupport:               544       -16     rr
+:matt/goldmine/plank:                       289       -85     frrr
+:matt/goldmine/planksupport:               229        39     rr

@@ -31,72 +31,72 @@ $ENGLISH                                              None shall pass!
 #MINER                                                              30
 #DIGGER                                                             30
 
-:bitmap/geoo/construction/Hatch.H:                       144        24
-:bitmap/geoo/construction/Hatch.H:                       464        24     r
-:bitmap/geoo/construction/Hatch.H:                       144        24     r
-:bitmap/geoo/construction/Hatch.H:                       464        24
-:bitmap/geoo/construction/Hatch.H:                       144        24
-:bitmap/geoo/construction/Hatch.H:                       464        24     r
-:bitmap/geoo/construction/Hatch.H:                       144        24     r
-:bitmap/geoo/construction/Hatch.H:                       464        24
-:bitmap/geoo/construction/Hatch.H:                       400       200
-:bitmap/geoo/construction/Hatch.H:                       208       200     r
-:bitmap/geoo/construction/Hatch.H:                       528       200     r
-:bitmap/geoo/construction/Hatch.H:                        80       200
+:geoo/construction/Hatch.H:                       144        24
+:geoo/construction/Hatch.H:                       464        24     r
+:geoo/construction/Hatch.H:                       144        24     r
+:geoo/construction/Hatch.H:                       464        24
+:geoo/construction/Hatch.H:                       144        24
+:geoo/construction/Hatch.H:                       464        24     r
+:geoo/construction/Hatch.H:                       144        24     r
+:geoo/construction/Hatch.H:                       464        24
+:geoo/construction/Hatch.H:                       400       200
+:geoo/construction/Hatch.H:                       208       200     r
+:geoo/construction/Hatch.H:                       528       200     r
+:geoo/construction/Hatch.H:                        80       200
 
-:bitmap/matt/09 - Marble/Goal.G:                         128       320
-:bitmap/matt/09 - Marble/Goal.G:                         448       320
+:matt/marble/Goal.G:                         128       320
+:matt/marble/Goal.G:                         448       320
 
-:bitmap/geoo/construction/Laser_vr_64.F:                 312         0
-:bitmap/geoo/construction/Laser_vr_64.F:                 312        64
-:bitmap/geoo/construction/Laser_vr_64.F:                 312       128
-:bitmap/geoo/construction/Laser_vr_64.F:                 312       192
-:bitmap/geoo/construction/Laser_vr_64.F:                 312       256
-:bitmap/geoo/construction/Laser_vr_64.F:                 312       320
+:geoo/construction/Laser_vr_64.F:                 312         0
+:geoo/construction/Laser_vr_64.F:                 312        64
+:geoo/construction/Laser_vr_64.F:                 312       128
+:geoo/construction/Laser_vr_64.F:                 312       192
+:geoo/construction/Laser_vr_64.F:                 312       256
+:geoo/construction/Laser_vr_64.F:                 312       320
 
-:bitmap/matt/03 - Carnival/37:                            80       272     frr
-:bitmap/matt/03 - Carnival/26:                            64       256
-:bitmap/matt/03 - Carnival/25:                            64       128
-:bitmap/matt/03 - Carnival/37:                           176       272
-:bitmap/matt/03 - Carnival/26:                           192       256
-:bitmap/matt/03 - Carnival/25:                           128        96
-:bitmap/matt/03 - Carnival/25:                           192       128
-:bitmap/matt/03 - Carnival/49:                            64        96
-:bitmap/matt/03 - Carnival/50:                           224        96
-:bitmap/matt/03 - Carnival/01:                            96        96
-:bitmap/matt/03 - Carnival/01:                           192        96
-:bitmap/matt/03 - Carnival/29:                            64       192     f
-:bitmap/matt/03 - Carnival/29:                           192       192     f
-:bitmap/matt/03 - Carnival/37:                           400       272     frr
-:bitmap/matt/03 - Carnival/26:                           384       256
-:bitmap/matt/03 - Carnival/37:                           496       272
-:bitmap/matt/03 - Carnival/26:                           512       256
-:bitmap/matt/steel/48x48.S:                              112       368
-:bitmap/matt/steel/48x48.S:                              160       368
-:bitmap/matt/steel/48x48.S:                              432       368
-:bitmap/matt/steel/48x48.S:                              480       368
-:bitmap/matt/03 - Carnival/25:                           384       128
-:bitmap/matt/03 - Carnival/25:                           448        96
-:bitmap/matt/03 - Carnival/25:                           512       128
-:bitmap/matt/03 - Carnival/49:                           384        96
-:bitmap/matt/03 - Carnival/50:                           544        96
-:bitmap/matt/03 - Carnival/01:                           416        96
-:bitmap/matt/03 - Carnival/01:                           512        96
-:bitmap/matt/03 - Carnival/29:                           384       192     f
-:bitmap/matt/03 - Carnival/29:                           512       192     f
-:bitmap/matt/03 - Carnival/30:                           128        16     f
-:bitmap/matt/03 - Carnival/26:                           128       -48
-:bitmap/matt/03 - Carnival/30:                           448        16     f
-:bitmap/matt/03 - Carnival/26:                           448       -48
-:bitmap/matt/03 - Carnival/14:                           128       256
-:bitmap/matt/03 - Carnival/14:                           144       256
-:bitmap/matt/03 - Carnival/14:                           160       256
-:bitmap/matt/03 - Carnival/14:                           176       256
-:bitmap/matt/steel/48x48.S:                               64       344
-:bitmap/matt/steel/48x48.S:                              208       344
-:bitmap/matt/steel/48x48.S:                              384       344
-:bitmap/matt/steel/48x48.S:                              528       344
-:bitmap/matt/03 - Carnival/14:                           448       256
-:bitmap/matt/03 - Carnival/14:                           464       256
-:bitmap/matt/03 - Carnival/14:                           480       256
-:bitmap/matt/03 - Carnival/14:                           496       256
+:matt/carnival/37:                            80       272     frr
+:matt/carnival/26:                            64       256
+:matt/carnival/25:                            64       128
+:matt/carnival/37:                           176       272
+:matt/carnival/26:                           192       256
+:matt/carnival/25:                           128        96
+:matt/carnival/25:                           192       128
+:matt/carnival/49:                            64        96
+:matt/carnival/50:                           224        96
+:matt/carnival/01:                            96        96
+:matt/carnival/01:                           192        96
+:matt/carnival/29:                            64       192     f
+:matt/carnival/29:                           192       192     f
+:matt/carnival/37:                           400       272     frr
+:matt/carnival/26:                           384       256
+:matt/carnival/37:                           496       272
+:matt/carnival/26:                           512       256
+:matt/steel/48x48.S:                              112       368
+:matt/steel/48x48.S:                              160       368
+:matt/steel/48x48.S:                              432       368
+:matt/steel/48x48.S:                              480       368
+:matt/carnival/25:                           384       128
+:matt/carnival/25:                           448        96
+:matt/carnival/25:                           512       128
+:matt/carnival/49:                           384        96
+:matt/carnival/50:                           544        96
+:matt/carnival/01:                           416        96
+:matt/carnival/01:                           512        96
+:matt/carnival/29:                           384       192     f
+:matt/carnival/29:                           512       192     f
+:matt/carnival/30:                           128        16     f
+:matt/carnival/26:                           128       -48
+:matt/carnival/30:                           448        16     f
+:matt/carnival/26:                           448       -48
+:matt/carnival/14:                           128       256
+:matt/carnival/14:                           144       256
+:matt/carnival/14:                           160       256
+:matt/carnival/14:                           176       256
+:matt/steel/48x48.S:                               64       344
+:matt/steel/48x48.S:                              208       344
+:matt/steel/48x48.S:                              384       344
+:matt/steel/48x48.S:                              528       344
+:matt/carnival/14:                           448       256
+:matt/carnival/14:                           464       256
+:matt/carnival/14:                           480       256
+:matt/carnival/14:                           496       256

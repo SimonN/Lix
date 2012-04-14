@@ -31,50 +31,50 @@ $ENGLISH                                               Direction Force
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                         -26       236
-:bitmap/matt/01 - Earth/Hatch.H:                         582       226     r
+:matt/earth/Hatch.H:                         -26       236
+:matt/earth/Hatch.H:                         582       226     r
 
-:bitmap/matt/01 - Earth/Goal.G:                          310       328
+:matt/earth/Goal.G:                          310       328
 
-:bitmap/matt/01 - Earth/06:                              506       267
-:bitmap/matt/01 - Earth/07:                               81       266
-:bitmap/matt/01 - Earth/01:                              432       288
-:bitmap/matt/01 - Earth/02:                              177       261
-:bitmap/matt/01 - Earth/02:                              302       388
-:bitmap/matt/01 - Earth/00:                              514       352     f
-:bitmap/matt/01 - Earth/02:                              492       320
-:bitmap/matt/01 - Earth/04:                             -128       328     r
-:bitmap/matt/01 - Earth/04:                             -109       223
-:bitmap/matt/01 - Earth/04:                               31       277
-:bitmap/matt/01 - Earth/04:                               29       350
-:bitmap/matt/01 - Earth/00:                               42       328     f
-:bitmap/matt/01 - Earth/04:                               87       274
-:bitmap/matt/01 - Earth/04:                              141       279
-:bitmap/matt/01 - Earth/04:                              203       288
-:bitmap/matt/01 - Earth/04:                              211       314
-:bitmap/matt/01 - Earth/04:                              353       291
-:bitmap/matt/01 - Earth/04:                              355       288
-:bitmap/matt/01 - Earth/04:                              368       304
-:bitmap/matt/01 - Earth/04:                              419       303
-:bitmap/matt/01 - Earth/06:                              384       352
-:bitmap/matt/01 - Earth/04:                              382       329
-:bitmap/matt/01 - Earth/04:                              482       331
-:bitmap/matt/01 - Earth/08:                              609       249     r
-:bitmap/matt/01 - Earth/04:                              570       250
-:bitmap/matt/01 - Earth/06:                              597       337
-:bitmap/matt/01 - Earth/04:                              565       332
-:bitmap/matt/01 - Earth/04:                              -67       291
-:bitmap/matt/01 - Earth/07:                              143       257
-:bitmap/matt/01 - Earth/00:                              101       260
-:bitmap/matt/01 - Earth/07:                              257       265
-:bitmap/matt/01 - Earth/00:                              224       272
-:bitmap/matt/01 - Earth/04:                              474       265
-:bitmap/matt/01 - Earth/03:                              589       263
-:bitmap/matt/01 - Earth/03:                             -121       272
-:bitmap/matt/01 - Earth/02:                               -1       368
-:bitmap/matt/01 - Earth/28:                               -7       279
-:bitmap/matt/01 - Earth/05:                               41       224     f
-:bitmap/rubix/Tutorial/Tricks 001a:                        0         0
-:bitmap/rubix/Tutorial/Tricks 001c:                      440         1
-:bitmap/rubix/Tutorial/Tricks00b:                        222         4
-:bitmap/matt/01 - Earth/06:                              621       300
+:matt/earth/06:                              506       267
+:matt/earth/07:                               81       266
+:matt/earth/01:                              432       288
+:matt/earth/02:                              177       261
+:matt/earth/02:                              302       388
+:matt/earth/00:                              514       352     f
+:matt/earth/02:                              492       320
+:matt/earth/04:                             -128       328     r
+:matt/earth/04:                             -109       223
+:matt/earth/04:                               31       277
+:matt/earth/04:                               29       350
+:matt/earth/00:                               42       328     f
+:matt/earth/04:                               87       274
+:matt/earth/04:                              141       279
+:matt/earth/04:                              203       288
+:matt/earth/04:                              211       314
+:matt/earth/04:                              353       291
+:matt/earth/04:                              355       288
+:matt/earth/04:                              368       304
+:matt/earth/04:                              419       303
+:matt/earth/06:                              384       352
+:matt/earth/04:                              382       329
+:matt/earth/04:                              482       331
+:matt/earth/08:                              609       249     r
+:matt/earth/04:                              570       250
+:matt/earth/06:                              597       337
+:matt/earth/04:                              565       332
+:matt/earth/04:                              -67       291
+:matt/earth/07:                              143       257
+:matt/earth/00:                              101       260
+:matt/earth/07:                              257       265
+:matt/earth/00:                              224       272
+:matt/earth/04:                              474       265
+:matt/earth/03:                              589       263
+:matt/earth/03:                             -121       272
+:matt/earth/02:                               -1       368
+:matt/earth/28:                               -7       279
+:matt/earth/05:                               41       224     f
+:rubix/Tutorial/Tricks 001a:                        0         0
+:rubix/Tutorial/Tricks 001c:                      440         1
+:rubix/Tutorial/Tricks00b:                        222         4
+:matt/earth/06:                              621       300

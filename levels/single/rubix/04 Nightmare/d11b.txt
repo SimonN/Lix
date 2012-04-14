@@ -31,67 +31,67 @@ $ENGLISH                                     "Hate leads to suffering"
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/09 - Marble/Hatch.H:                         64         6
-:bitmap/matt/09 - Marble/Hatch.H:                        176         6
-:bitmap/matt/09 - Marble/Hatch.H:                        288         6
-:bitmap/matt/09 - Marble/Hatch.H:                        398         6
-:bitmap/matt/09 - Marble/Hatch.H:                        512         6
+:matt/marble/Hatch.H:                         64         6
+:matt/marble/Hatch.H:                        176         6
+:matt/marble/Hatch.H:                        288         6
+:matt/marble/Hatch.H:                        398         6
+:matt/marble/Hatch.H:                        512         6
 
-:bitmap/matt/09 - Marble/Goal.G:                         288       352
+:matt/marble/Goal.G:                         288       352
 
-:bitmap/matt/09 - Marble/06a:                             64       192
-:bitmap/matt/09 - Marble/06a:                             96       192
-:bitmap/matt/09 - Marble/06a:                             64       320
-:bitmap/matt/09 - Marble/06a:                             96       320
-:bitmap/matt/09 - Marble/06:                             176       192
-:bitmap/matt/09 - Marble/06:                             208       192
-:bitmap/matt/09 - Marble/06:                             176       320
-:bitmap/matt/09 - Marble/06:                             208       320
-:bitmap/matt/09 - Marble/06b:                            288       192
-:bitmap/matt/09 - Marble/06b:                            320       192
-:bitmap/matt/09 - Marble/06c:                            400       192
-:bitmap/matt/09 - Marble/06c:                            432       192
-:bitmap/matt/09 - Marble/06d:                            512       192
-:bitmap/matt/09 - Marble/06d:                            544       192
-:bitmap/matt/09 - Marble/06c:                            400       320
-:bitmap/matt/09 - Marble/06c:                            432       320
-:bitmap/matt/09 - Marble/06d:                            512       320
-:bitmap/matt/09 - Marble/06d:                            544       320
-:bitmap/matt/09 - Marble/23e:                              0       400
-:bitmap/matt/09 - Marble/23e:                             32       400
-:bitmap/matt/09 - Marble/23e:                             64       400
-:bitmap/matt/09 - Marble/23e:                             96       400
-:bitmap/matt/09 - Marble/23e:                            128       400
-:bitmap/matt/09 - Marble/23e:                            160       400
-:bitmap/matt/09 - Marble/23e:                            192       400
-:bitmap/matt/09 - Marble/23e:                            416       400
-:bitmap/matt/09 - Marble/23e:                            448       400
-:bitmap/matt/09 - Marble/23e:                            480       400
-:bitmap/matt/09 - Marble/23e:                            512       400
-:bitmap/matt/09 - Marble/23e:                            544       400
-:bitmap/matt/09 - Marble/23e:                            576       400
-:bitmap/matt/09 - Marble/23e:                            608       400
-:bitmap/matt/09 - Marble/06a:                             64        64
-:bitmap/matt/09 - Marble/06a:                             96        64
-:bitmap/matt/09 - Marble/06:                             176        64
-:bitmap/matt/09 - Marble/06:                             208        64
-:bitmap/matt/09 - Marble/06b:                            288        64
-:bitmap/matt/09 - Marble/06b:                            320        64
-:bitmap/matt/09 - Marble/06c:                            400        64
-:bitmap/matt/09 - Marble/06c:                            432        64
-:bitmap/matt/09 - Marble/06d:                            512        64
-:bitmap/matt/09 - Marble/06d:                            544        64
-:bitmap/matt/09 - Marble/06d:                            512       128
-:bitmap/matt/09 - Marble/06d:                            544       128
-:bitmap/matt/09 - Marble/06d:                            512       256
-:bitmap/matt/09 - Marble/06d:                            544       256
-:bitmap/matt/09 - Marble/06b:                            288       128
-:bitmap/matt/09 - Marble/06b:                            320       128
-:bitmap/matt/09 - Marble/06b:                            288       256
-:bitmap/matt/09 - Marble/06b:                            320       256
-:bitmap/matt/09 - Marble/06a:                             64       128
-:bitmap/matt/09 - Marble/06a:                             96       128
-:bitmap/matt/09 - Marble/06a:                             64       256
-:bitmap/matt/09 - Marble/06a:                             96       256
-:bitmap/matt/09 - Marble/23e:                            224       400
-:bitmap/matt/09 - Marble/23e:                            384       400
+:matt/marble/06a:                             64       192
+:matt/marble/06a:                             96       192
+:matt/marble/06a:                             64       320
+:matt/marble/06a:                             96       320
+:matt/marble/06:                             176       192
+:matt/marble/06:                             208       192
+:matt/marble/06:                             176       320
+:matt/marble/06:                             208       320
+:matt/marble/06b:                            288       192
+:matt/marble/06b:                            320       192
+:matt/marble/06c:                            400       192
+:matt/marble/06c:                            432       192
+:matt/marble/06d:                            512       192
+:matt/marble/06d:                            544       192
+:matt/marble/06c:                            400       320
+:matt/marble/06c:                            432       320
+:matt/marble/06d:                            512       320
+:matt/marble/06d:                            544       320
+:matt/marble/23e:                              0       400
+:matt/marble/23e:                             32       400
+:matt/marble/23e:                             64       400
+:matt/marble/23e:                             96       400
+:matt/marble/23e:                            128       400
+:matt/marble/23e:                            160       400
+:matt/marble/23e:                            192       400
+:matt/marble/23e:                            416       400
+:matt/marble/23e:                            448       400
+:matt/marble/23e:                            480       400
+:matt/marble/23e:                            512       400
+:matt/marble/23e:                            544       400
+:matt/marble/23e:                            576       400
+:matt/marble/23e:                            608       400
+:matt/marble/06a:                             64        64
+:matt/marble/06a:                             96        64
+:matt/marble/06:                             176        64
+:matt/marble/06:                             208        64
+:matt/marble/06b:                            288        64
+:matt/marble/06b:                            320        64
+:matt/marble/06c:                            400        64
+:matt/marble/06c:                            432        64
+:matt/marble/06d:                            512        64
+:matt/marble/06d:                            544        64
+:matt/marble/06d:                            512       128
+:matt/marble/06d:                            544       128
+:matt/marble/06d:                            512       256
+:matt/marble/06d:                            544       256
+:matt/marble/06b:                            288       128
+:matt/marble/06b:                            320       128
+:matt/marble/06b:                            288       256
+:matt/marble/06b:                            320       256
+:matt/marble/06a:                             64       128
+:matt/marble/06a:                             96       128
+:matt/marble/06a:                             64       256
+:matt/marble/06a:                             96       256
+:matt/marble/23e:                            224       400
+:matt/marble/23e:                            384       400

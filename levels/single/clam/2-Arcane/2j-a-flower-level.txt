@@ -32,71 +32,71 @@ $ENGLISH                                                A Flower Level
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/04 - Sandy Beach/Sand Decor/sun.D:          560         8
+:matt/beach/decor/sun.D:          560         8
 
-:bitmap/matt/01 - Earth/Hatch.H:                         238       266     r
+:matt/earth/Hatch.H:                         238       266     r
 
-:bitmap/matt/01 - Earth/Goal.G:                          432       290
+:matt/earth/Goal.G:                          432       290
 
-:bitmap/matt/water.W:                                    384       368
-:bitmap/matt/water.W:                                    400       368
+:matt/water.W:                                    384       368
+:matt/water.W:                                    400       368
 
-:bitmap/matt/03 - Carnival/06:                           304       288
-:bitmap/matt/01 - Earth/10:                              112       304
-:bitmap/matt/03 - Carnival/06:                           488       264
-:bitmap/matt/03 - Carnival/37:                           240       224     f
-:bitmap/matt/03 - Carnival/06:                           304       224
-:bitmap/matt/03 - Carnival/06:                           304       160
-:bitmap/matt/03 - Carnival/32:                           296        48     frrr
-:bitmap/matt/03 - Carnival/33:                           240       104
-:bitmap/matt/03 - Carnival/33:                           240       120     f
-:bitmap/matt/03 - Carnival/33:                           296       144     rrr
-:bitmap/matt/03 - Carnival/36:                           336       224     f
-:bitmap/matt/03 - Carnival/33:                           312       144     frrr
-:bitmap/matt/03 - Carnival/03:                           304       112
-:bitmap/matt/03 - Carnival/32:                           336       120
-:bitmap/matt/03 - Carnival/32:                           336       104     f
-:bitmap/matt/09 - Marble/00a:                            336       104     d
-:bitmap/matt/03 - Carnival/32:                           312        48     rrrn
-:bitmap/matt/01 - Earth/03:                              238       304
-:bitmap/matt/01 - Earth/17:                              288       308     frr
-:bitmap/matt/01 - Earth/03:                              104       304
-:bitmap/matt/01 - Earth/10:                              -50       252
-:bitmap/matt/03 - Carnival/06:                           128       264
-:bitmap/matt/01 - Earth/10:                               64       280
-:bitmap/matt/01 - Earth/10:                              166       312
-:bitmap/matt/01 - Earth/10:                              560       288
-:bitmap/matt/03 - Carnival/37:                            64       200     f
-:bitmap/matt/03 - Carnival/06:                           128       200
-:bitmap/matt/03 - Carnival/06:                           128       136
-:bitmap/matt/03 - Carnival/32:                           120        24     frrr
-:bitmap/matt/03 - Carnival/33:                            64        80
-:bitmap/matt/03 - Carnival/33:                            64        96     f
-:bitmap/matt/03 - Carnival/33:                           120       120     rrr
-:bitmap/matt/03 - Carnival/33:                           136       120     frrr
-:bitmap/matt/03 - Carnival/36:                           160       200     f
-:bitmap/matt/03 - Carnival/03:                           128        88
-:bitmap/matt/03 - Carnival/32:                           160        96
-:bitmap/matt/03 - Carnival/32:                           160        80     f
-:bitmap/matt/09 - Marble/00a:                            160        80     d
-:bitmap/matt/03 - Carnival/32:                           136        24     rrrn
-:bitmap/matt/01 - Earth/10:                              -32       336
-:bitmap/matt/03 - Carnival/37:                           424       264     f
-:bitmap/matt/03 - Carnival/06:                           488       200
-:bitmap/matt/03 - Carnival/32:                           480        88     frrr
-:bitmap/matt/03 - Carnival/33:                           424       144
-:bitmap/matt/03 - Carnival/33:                           424       160     f
-:bitmap/matt/03 - Carnival/33:                           480       184     rrr
-:bitmap/matt/03 - Carnival/36:                           520       264     f
-:bitmap/matt/03 - Carnival/33:                           496       184     frrr
-:bitmap/matt/03 - Carnival/03:                           488       152
-:bitmap/matt/03 - Carnival/32:                           520       160
-:bitmap/matt/03 - Carnival/32:                           520       144     f
-:bitmap/matt/09 - Marble/00a:                            520       144     d
-:bitmap/matt/03 - Carnival/32:                           496        88     rrrn
-:bitmap/matt/03 - Carnival/06:                           488       328
-:bitmap/matt/01 - Earth/03:                              436       348
-:bitmap/matt/01 - Earth/10:                              498       324
-:bitmap/matt/01 - Earth/02:                              426       354
-:bitmap/matt/01 - Earth/10:                              428       354
-:bitmap/matt/01 - Earth/17:                              320       308     frr
+:matt/carnival/06:                           304       288
+:matt/earth/10:                              112       304
+:matt/carnival/06:                           488       264
+:matt/carnival/37:                           240       224     f
+:matt/carnival/06:                           304       224
+:matt/carnival/06:                           304       160
+:matt/carnival/32:                           296        48     frrr
+:matt/carnival/33:                           240       104
+:matt/carnival/33:                           240       120     f
+:matt/carnival/33:                           296       144     rrr
+:matt/carnival/36:                           336       224     f
+:matt/carnival/33:                           312       144     frrr
+:matt/carnival/03:                           304       112
+:matt/carnival/32:                           336       120
+:matt/carnival/32:                           336       104     f
+:matt/marble/00a:                            336       104     d
+:matt/carnival/32:                           312        48     rrrn
+:matt/earth/03:                              238       304
+:matt/earth/17:                              288       308     frr
+:matt/earth/03:                              104       304
+:matt/earth/10:                              -50       252
+:matt/carnival/06:                           128       264
+:matt/earth/10:                               64       280
+:matt/earth/10:                              166       312
+:matt/earth/10:                              560       288
+:matt/carnival/37:                            64       200     f
+:matt/carnival/06:                           128       200
+:matt/carnival/06:                           128       136
+:matt/carnival/32:                           120        24     frrr
+:matt/carnival/33:                            64        80
+:matt/carnival/33:                            64        96     f
+:matt/carnival/33:                           120       120     rrr
+:matt/carnival/33:                           136       120     frrr
+:matt/carnival/36:                           160       200     f
+:matt/carnival/03:                           128        88
+:matt/carnival/32:                           160        96
+:matt/carnival/32:                           160        80     f
+:matt/marble/00a:                            160        80     d
+:matt/carnival/32:                           136        24     rrrn
+:matt/earth/10:                              -32       336
+:matt/carnival/37:                           424       264     f
+:matt/carnival/06:                           488       200
+:matt/carnival/32:                           480        88     frrr
+:matt/carnival/33:                           424       144
+:matt/carnival/33:                           424       160     f
+:matt/carnival/33:                           480       184     rrr
+:matt/carnival/36:                           520       264     f
+:matt/carnival/33:                           496       184     frrr
+:matt/carnival/03:                           488       152
+:matt/carnival/32:                           520       160
+:matt/carnival/32:                           520       144     f
+:matt/marble/00a:                            520       144     d
+:matt/carnival/32:                           496        88     rrrn
+:matt/carnival/06:                           488       328
+:matt/earth/03:                              436       348
+:matt/earth/10:                              498       324
+:matt/earth/02:                              426       354
+:matt/earth/10:                              428       354
+:matt/earth/17:                              320       308     frr

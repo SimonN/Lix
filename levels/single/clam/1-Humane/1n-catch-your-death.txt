@@ -31,94 +31,94 @@ $ENGLISH                                              Catch your Death
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/05 - Winter/Hatch.H:                         48       158
-:bitmap/matt/05 - Winter/Hatch.H:                         48         4
+:matt/winter/Hatch.H:                         48       158
+:matt/winter/Hatch.H:                         48         4
 
-:bitmap/matt/05 - Winter/Goal.G:                         400       200
+:matt/winter/Goal.G:                         400       200
 
-:bitmap/matt/water.W:                                    256       368
-:bitmap/matt/water.W:                                    352       368
-:bitmap/matt/water.W:                                    384       368
-:bitmap/matt/water.W:                                    480       368
-:bitmap/matt/water.W:                                    512       368
+:matt/water.W:                                    256       368
+:matt/water.W:                                    352       368
+:matt/water.W:                                    384       368
+:matt/water.W:                                    480       368
+:matt/water.W:                                    512       368
 
-:bitmap/matt/05 - Winter/06:                             368       264     r
-:bitmap/matt/05 - Winter/06:                             432       264     r
-:bitmap/matt/05 - Winter/15:                             440       264
-:bitmap/matt/05 - Winter/11:                             298       364
-:bitmap/matt/05 - Winter/11:                             418       364
-:bitmap/matt/05 - Winter/15:                              32       203
-:bitmap/matt/05 - Winter/05:                             -32       112
-:bitmap/matt/05 - Winter/14:                             200       176
-:bitmap/matt/05 - Winter/03:                              68       200
-:bitmap/matt/05 - Winter/10:                             -48       208
-:bitmap/matt/05 - Winter/10:                             118       202     r
-:bitmap/matt/05 - Winter/10:                               0       320
-:bitmap/matt/05 - Winter/10:                            -112       304
-:bitmap/matt/05 - Winter/10:                              20       268
-:bitmap/matt/05 - Winter/05:                             184       208
-:bitmap/matt/05 - Winter/13:                             298       214
-:bitmap/matt/05 - Winter/18:                             296       192
-:bitmap/matt/05 - Winter/13:                             306       192
-:bitmap/matt/05 - Winter/13:                             320       224
-:bitmap/matt/05 - Winter/03:                             352       268
-:bitmap/matt/05 - Winter/03:                             290       260
-:bitmap/matt/05 - Winter/11:                             410       364
-:bitmap/matt/05 - Winter/06:                             240       304
-:bitmap/matt/05 - Winter/11:                             290       364
-:bitmap/matt/05 - Winter/03:                             160        44
-:bitmap/matt/05 - Winter/03:                             100        44
-:bitmap/matt/05 - Winter/03:                              40        44
-:bitmap/matt/05 - Winter/06:                             240       234
-:bitmap/matt/05 - Winter/06:                             240       298
-:bitmap/geoo/steel/16x32o.S:                             286       368
-:bitmap/matt/05 - Winter/06:                             286        32     d
-:bitmap/matt/05 - Winter/06:                             290       190
-:bitmap/matt/05 - Winter/06:                             290       126
-:bitmap/matt/05 - Winter/06:                             290        62
-:bitmap/matt/05 - Winter/06:                             290        -2
-:bitmap/matt/05 - Winter/06:                             270        48
-:bitmap/matt/05 - Winter/06:                             306        32     d
-:bitmap/matt/05 - Winter/06:                             236       176
-:bitmap/matt/05 - Winter/06:                             236       240
-:bitmap/matt/05 - Winter/06:                             236       304
-:bitmap/geoo/steel/16x32o.S:                             344       368
-:bitmap/geoo/steel/16x32o.S:                             464       368
-:bitmap/geoo/steel/16x32o.S:                             408       368
-:bitmap/matt/05 - Winter/16:                             528       288
-:bitmap/geoo/steel/16x32o.S:                             528       368
-:bitmap/matt/05 - Winter/15:                             290       274     n
-:bitmap/matt/05 - Winter/06:                             290       240
-:bitmap/matt/05 - Winter/06:                             270       112
-:bitmap/matt/05 - Winter/06:                             270       160
-:bitmap/geoo/steel/16x32o.S:                             290       208
-:bitmap/geoo/steel/16x32o.S:                             290       272
-:bitmap/geoo/steel/16x32o.S:                             290       240
-:bitmap/geoo/steel/32x32o.S:                             224       368
-:bitmap/matt/05 - Winter/06:                             288       352     rd
-:bitmap/matt/05 - Winter/06:                             416       352     rd
-:bitmap/matt/05 - Winter/17:                             -24       168
-:bitmap/matt/05 - Winter/05:                             598       -16
-:bitmap/matt/05 - Winter/05:                             592       192
-:bitmap/matt/05 - Winter/05:                             578        96
-:bitmap/matt/05 - Winter/03:                             -40        48     f
-:bitmap/matt/05 - Winter/03:                             -54        44
-:bitmap/matt/05 - Winter/13:                             496       264
-:bitmap/matt/05 - Winter/15:                             432       280
-:bitmap/matt/05 - Winter/07:                             308         0     f
-:bitmap/matt/05 - Winter/07:                             326         0     f
-:bitmap/matt/05 - Winter/07:                             344         0     f
-:bitmap/matt/05 - Winter/07:                             362         0     f
-:bitmap/matt/05 - Winter/07:                             380         0     f
-:bitmap/matt/05 - Winter/07:                             398         0     f
-:bitmap/matt/05 - Winter/07:                             416         0     f
-:bitmap/matt/05 - Winter/07:                             434         0     f
-:bitmap/matt/05 - Winter/07:                             452         0     f
-:bitmap/matt/05 - Winter/07:                             470         0     f
-:bitmap/matt/05 - Winter/07:                             488         0     f
-:bitmap/matt/05 - Winter/07:                             506         0     f
-:bitmap/matt/05 - Winter/07:                             524         0     f
-:bitmap/matt/05 - Winter/07:                             542         0     f
-:bitmap/matt/05 - Winter/07:                             560         0     f
-:bitmap/matt/05 - Winter/07:                             578         0     f
-:bitmap/matt/05 - Winter/07:                             596         0     f
+:matt/winter/06:                             368       264     r
+:matt/winter/06:                             432       264     r
+:matt/winter/15:                             440       264
+:matt/winter/11:                             298       364
+:matt/winter/11:                             418       364
+:matt/winter/15:                              32       203
+:matt/winter/05:                             -32       112
+:matt/winter/14:                             200       176
+:matt/winter/03:                              68       200
+:matt/winter/10:                             -48       208
+:matt/winter/10:                             118       202     r
+:matt/winter/10:                               0       320
+:matt/winter/10:                            -112       304
+:matt/winter/10:                              20       268
+:matt/winter/05:                             184       208
+:matt/winter/13:                             298       214
+:matt/winter/18:                             296       192
+:matt/winter/13:                             306       192
+:matt/winter/13:                             320       224
+:matt/winter/03:                             352       268
+:matt/winter/03:                             290       260
+:matt/winter/11:                             410       364
+:matt/winter/06:                             240       304
+:matt/winter/11:                             290       364
+:matt/winter/03:                             160        44
+:matt/winter/03:                             100        44
+:matt/winter/03:                              40        44
+:matt/winter/06:                             240       234
+:matt/winter/06:                             240       298
+:geoo/steel/16x32o.S:                             286       368
+:matt/winter/06:                             286        32     d
+:matt/winter/06:                             290       190
+:matt/winter/06:                             290       126
+:matt/winter/06:                             290        62
+:matt/winter/06:                             290        -2
+:matt/winter/06:                             270        48
+:matt/winter/06:                             306        32     d
+:matt/winter/06:                             236       176
+:matt/winter/06:                             236       240
+:matt/winter/06:                             236       304
+:geoo/steel/16x32o.S:                             344       368
+:geoo/steel/16x32o.S:                             464       368
+:geoo/steel/16x32o.S:                             408       368
+:matt/winter/16:                             528       288
+:geoo/steel/16x32o.S:                             528       368
+:matt/winter/15:                             290       274     n
+:matt/winter/06:                             290       240
+:matt/winter/06:                             270       112
+:matt/winter/06:                             270       160
+:geoo/steel/16x32o.S:                             290       208
+:geoo/steel/16x32o.S:                             290       272
+:geoo/steel/16x32o.S:                             290       240
+:geoo/steel/32x32o.S:                             224       368
+:matt/winter/06:                             288       352     rd
+:matt/winter/06:                             416       352     rd
+:matt/winter/17:                             -24       168
+:matt/winter/05:                             598       -16
+:matt/winter/05:                             592       192
+:matt/winter/05:                             578        96
+:matt/winter/03:                             -40        48     f
+:matt/winter/03:                             -54        44
+:matt/winter/13:                             496       264
+:matt/winter/15:                             432       280
+:matt/winter/07:                             308         0     f
+:matt/winter/07:                             326         0     f
+:matt/winter/07:                             344         0     f
+:matt/winter/07:                             362         0     f
+:matt/winter/07:                             380         0     f
+:matt/winter/07:                             398         0     f
+:matt/winter/07:                             416         0     f
+:matt/winter/07:                             434         0     f
+:matt/winter/07:                             452         0     f
+:matt/winter/07:                             470         0     f
+:matt/winter/07:                             488         0     f
+:matt/winter/07:                             506         0     f
+:matt/winter/07:                             524         0     f
+:matt/winter/07:                             542         0     f
+:matt/winter/07:                             560         0     f
+:matt/winter/07:                             578         0     f
+:matt/winter/07:                             596         0     f

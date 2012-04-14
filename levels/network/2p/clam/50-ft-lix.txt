@@ -31,41 +31,41 @@ $ENGLISH                                        Attack of the 50ft Lix
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/03 - Carnival/Hatch.H:                      176       264     r
-:bitmap/matt/03 - Carnival/Hatch.H:                      400       264
+:matt/carnival/Hatch.H:                      176       264     r
+:matt/carnival/Hatch.H:                      400       264
 
-:bitmap/matt/03 - Carnival/Goal.G:                       370       144
-:bitmap/matt/03 - Carnival/Goal.G:                       208       144
+:matt/carnival/Goal.G:                       370       144
+:matt/carnival/Goal.G:                       208       144
 
-:bitmap/matt/01 - Earth/17:                              256       124     frr
-:bitmap/matt/01 - Earth/17:                              304       124
-:bitmap/matt/05 - Winter/18:                             302       186     f
-:bitmap/matt/01 - Earth/00:                              278       110
-:bitmap/matt/03 - Carnival/05:                           336       304
-:bitmap/matt/03 - Carnival/05:                           272       304
-:bitmap/matt/03 - Carnival/04:                           304       240
-:bitmap/matt/03 - Carnival/04:                           368       208     fr
-:bitmap/matt/03 - Carnival/04:                           208       208     fr
-:bitmap/matt/05 - Winter/14:                             424       184
-:bitmap/matt/05 - Winter/14:                             172       184     frr
-:bitmap/matt/03 - Carnival/00:                           272       272
-:bitmap/matt/03 - Carnival/00:                           336       272
-:bitmap/matt/05 - Winter/14:                             334       358     r
-:bitmap/matt/05 - Winter/14:                             250       358     fr
-:bitmap/matt/05 - Winter/11:                             284       146
-:bitmap/matt/05 - Winter/11:                             294       146     frr
-:bitmap/matt/05 - Winter/09c:                            296       158     d
-:bitmap/matt/05 - Winter/09c:                            328       158     d
-:bitmap/matt/steel/64x32.S:                              400       368
-:bitmap/matt/steel/64x32.S:                              176       368     f
-:bitmap/matt/03 - Carnival/00:                           304       208
-:bitmap/matt/03 - Carnival/04:                           272       208
-:bitmap/matt/03 - Carnival/04:                           336       208
-:bitmap/matt/steel/32x64.S:                              368       304
-:bitmap/matt/steel/32x64.S:                              368       240
-:bitmap/matt/steel/64x32.S:                              240       240     r
-:bitmap/matt/steel/64x32.S:                              240       304     r
-:bitmap/matt/steel/16x8.S:                               224       208
-:bitmap/matt/steel/16x8.S:                               240       208
-:bitmap/matt/steel/16x8.S:                               384       208
-:bitmap/matt/steel/16x8.S:                               400       208
+:matt/earth/17:                              256       124     frr
+:matt/earth/17:                              304       124
+:matt/winter/18:                             302       186     f
+:matt/earth/00:                              278       110
+:matt/carnival/05:                           336       304
+:matt/carnival/05:                           272       304
+:matt/carnival/04:                           304       240
+:matt/carnival/04:                           368       208     fr
+:matt/carnival/04:                           208       208     fr
+:matt/winter/14:                             424       184
+:matt/winter/14:                             172       184     frr
+:matt/carnival/00:                           272       272
+:matt/carnival/00:                           336       272
+:matt/winter/14:                             334       358     r
+:matt/winter/14:                             250       358     fr
+:matt/winter/11:                             284       146
+:matt/winter/11:                             294       146     frr
+:matt/winter/09c:                            296       158     d
+:matt/winter/09c:                            328       158     d
+:matt/steel/64x32.S:                              400       368
+:matt/steel/64x32.S:                              176       368     f
+:matt/carnival/00:                           304       208
+:matt/carnival/04:                           272       208
+:matt/carnival/04:                           336       208
+:matt/steel/32x64.S:                              368       304
+:matt/steel/32x64.S:                              368       240
+:matt/steel/64x32.S:                              240       240     r
+:matt/steel/64x32.S:                              240       304     r
+:matt/steel/16x8.S:                               224       208
+:matt/steel/16x8.S:                               240       208
+:matt/steel/16x8.S:                               384       208
+:matt/steel/16x8.S:                               400       208

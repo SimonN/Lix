@@ -31,41 +31,41 @@ $ENGLISH                                       Obstruction destruction
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/03 - Carnival/Hatch.H:                      -16        82
+:matt/carnival/Hatch.H:                      -16        82
 
-:bitmap/matt/03 - Carnival/Goal.G:                       592       192
+:matt/carnival/Goal.G:                       592       192
 
-:bitmap/matt/03 - Carnival/16:                           192       198     r
-:bitmap/matt/03 - Carnival/17:                           288       198     r
-:bitmap/matt/03 - Carnival/19:                           480       198     r
-:bitmap/matt/03 - Carnival/18:                           384       198     r
-:bitmap/matt/03 - Carnival/03:                           224       256
-:bitmap/matt/03 - Carnival/03:                           320       256
-:bitmap/matt/03 - Carnival/00:                           288       256
-:bitmap/matt/03 - Carnival/03:                           416       256
-:bitmap/matt/03 - Carnival/00:                           384       256
-:bitmap/matt/03 - Carnival/03:                           512       256
-:bitmap/matt/03 - Carnival/00:                           480       256
-:bitmap/matt/03 - Carnival/07:                           608       256     r
-:bitmap/matt/03 - Carnival/04:                           544       256     r
-:bitmap/matt/steel/32x32.S:                              160       256
-:bitmap/matt/steel/32x32.S:                               96       256
-:bitmap/matt/steel/32x32.S:                                0       224
-:bitmap/matt/steel/32x32.S:                               64       256
-:bitmap/matt/steel/32x32.S:                              128       256
-:bitmap/matt/steel/32x32.S:                                0       256
-:bitmap/matt/steel/32x32.S:                               32       256
-:bitmap/matt/steel/32x32.S:                                0       160
-:bitmap/matt/steel/32x32.S:                                0       192
-:bitmap/matt/steel/32x32.S:                               96       160
-:bitmap/matt/steel/32x32.S:                               64       160
-:bitmap/matt/steel/32x32.S:                              128       160
-:bitmap/matt/steel/32x32.S:                               32       160
-:bitmap/matt/steel/32x32.S:                              192       256
-:bitmap/matt/03 - Carnival/56:                           -80         0     rr
-:bitmap/matt/03 - Carnival/57:                           208         0
-:bitmap/matt/03 - Carnival/56:                           496         0     rr
-:bitmap/matt/03 - Carnival/56:                           -80       368     rr
-:bitmap/matt/03 - Carnival/57:                           208       368
-:bitmap/matt/03 - Carnival/56:                           496       368     rr
-:bitmap/matt/03 - Carnival/12:                           488       205     d
+:matt/carnival/16:                           192       198     r
+:matt/carnival/17:                           288       198     r
+:matt/carnival/19:                           480       198     r
+:matt/carnival/18:                           384       198     r
+:matt/carnival/03:                           224       256
+:matt/carnival/03:                           320       256
+:matt/carnival/00:                           288       256
+:matt/carnival/03:                           416       256
+:matt/carnival/00:                           384       256
+:matt/carnival/03:                           512       256
+:matt/carnival/00:                           480       256
+:matt/carnival/07:                           608       256     r
+:matt/carnival/04:                           544       256     r
+:matt/steel/32x32.S:                              160       256
+:matt/steel/32x32.S:                               96       256
+:matt/steel/32x32.S:                                0       224
+:matt/steel/32x32.S:                               64       256
+:matt/steel/32x32.S:                              128       256
+:matt/steel/32x32.S:                                0       256
+:matt/steel/32x32.S:                               32       256
+:matt/steel/32x32.S:                                0       160
+:matt/steel/32x32.S:                                0       192
+:matt/steel/32x32.S:                               96       160
+:matt/steel/32x32.S:                               64       160
+:matt/steel/32x32.S:                              128       160
+:matt/steel/32x32.S:                               32       160
+:matt/steel/32x32.S:                              192       256
+:matt/carnival/56:                           -80         0     rr
+:matt/carnival/57:                           208         0
+:matt/carnival/56:                           496         0     rr
+:matt/carnival/56:                           -80       368     rr
+:matt/carnival/57:                           208       368
+:matt/carnival/56:                           496       368     rr
+:matt/carnival/12:                           488       205     d

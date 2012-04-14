@@ -31,56 +31,56 @@ $ENGLISH                                              Abridged Version
 #MINER                                                              10
 #DIGGER                                                             10
 
-:bitmap/matt/06 - Oriental/Hatch.H:                      104       194
+:matt/oriental/Hatch.H:                      104       194
 
-:bitmap/matt/06 - Oriental/Goal.G:                       524       118
+:matt/oriental/Goal.G:                       524       118
 
-:bitmap/geoo/construction/rod_steel/straight32.S:        422       200     rrr
-:bitmap/geoo/construction/rod_steel/straight32.S:        422       168     rrr
-:bitmap/geoo/construction/rod_steel/straight32.S:        422       136     rrr
-:bitmap/geoo/construction/rod_steel/straight32.S:        422       104     rrr
-:bitmap/geoo/construction/rod_steel/straight32.S:        212       200     rrr
-:bitmap/geoo/construction/rod_steel/straight32.S:        212       168     rrr
-:bitmap/geoo/construction/rod_steel/straight32.S:        212       136     rrr
-:bitmap/geoo/construction/rod_steel/straight32.S:        212       104     rrr
-:bitmap/matt/06 - Oriental/asian gate:                   466       198
-:bitmap/matt/06 - Oriental/asian gate:                   520       198
-:bitmap/matt/06 - Oriental/branch1:                       46       248     r
-:bitmap/matt/06 - Oriental/branch1:                       52       248     r
-:bitmap/matt/06 - Oriental/branch1:                       42       248     r
-:bitmap/matt/06 - Oriental/branch1:                       34       244     r
-:bitmap/matt/06 - Oriental/bonsai tree:                  -34        58
-:bitmap/matt/06 - Oriental/bridge_straight:              268       200
-:bitmap/matt/06 - Oriental/bridge_angle:                 162       200
-:bitmap/matt/06 - Oriental/bridge_angle:                 372       200     frr
-:bitmap/matt/06 - Oriental/08:                           464       256
-:bitmap/matt/06 - Oriental/08:                            96       256
-:bitmap/matt/06 - Oriental/08:                           532       256
-:bitmap/matt/06 - Oriental/08:                           532       324
-:bitmap/matt/06 - Oriental/08:                           600       256
-:bitmap/matt/06 - Oriental/08:                           598       324
-:bitmap/matt/06 - Oriental/08:                            28       256
-:bitmap/matt/06 - Oriental/08:                            28       324
-:bitmap/matt/06 - Oriental/08:                           -40       256
-:bitmap/matt/06 - Oriental/08:                           -40       324
-:bitmap/matt/06 - Oriental/bridge_straight:              268        32
-:bitmap/matt/06 - Oriental/bridge_angle:                 372       -30     rr
-:bitmap/matt/06 - Oriental/bridge_angle:                 162       -30     f
-:bitmap/matt/06 - Oriental/bridge_angle:                  55       -91     f
-:bitmap/matt/06 - Oriental/bridge_angle:                 479       -91     rr
-:bitmap/matt/06 - Oriental/bridge_straight:              587       -90
-:bitmap/matt/06 - Oriental/bridge_straight:              -50       -90
-:bitmap/matt/06 - Oriental/bridge_straight:              268       -66
-:bitmap/matt/06 - Oriental/bridge_angle:                 372      -128     rr
-:bitmap/matt/06 - Oriental/bridge_angle:                 162      -128     f
-:bitmap/matt/06 - Oriental/bridge_straight:              268       298
-:bitmap/matt/06 - Oriental/bridge_angle:                 162       298
-:bitmap/matt/06 - Oriental/08:                            96       324
-:bitmap/matt/06 - Oriental/bridge_angle:                 372       298     frr
-:bitmap/matt/06 - Oriental/08:                           464       324
-:bitmap/geoo/construction/rod_steel/straight32.S:        268       136     rrr
-:bitmap/geoo/construction/rod_steel/straight32.S:        268       168     rrr
-:bitmap/geoo/construction/rod_steel/straight32.S:        366       136     rrr
-:bitmap/geoo/construction/rod_steel/straight32.S:        366       168     rrr
-:bitmap/geoo/construction/rod_steel/straight32.S:        316       136     rrr
-:bitmap/geoo/construction/rod_steel/straight32.S:        316       168     rrr
+:geoo/construction/rod_steel/straight32.S:        422       200     rrr
+:geoo/construction/rod_steel/straight32.S:        422       168     rrr
+:geoo/construction/rod_steel/straight32.S:        422       136     rrr
+:geoo/construction/rod_steel/straight32.S:        422       104     rrr
+:geoo/construction/rod_steel/straight32.S:        212       200     rrr
+:geoo/construction/rod_steel/straight32.S:        212       168     rrr
+:geoo/construction/rod_steel/straight32.S:        212       136     rrr
+:geoo/construction/rod_steel/straight32.S:        212       104     rrr
+:matt/oriental/asiangate:                   466       198
+:matt/oriental/asiangate:                   520       198
+:matt/oriental/branch1:                       46       248     r
+:matt/oriental/branch1:                       52       248     r
+:matt/oriental/branch1:                       42       248     r
+:matt/oriental/branch1:                       34       244     r
+:matt/oriental/bonsaitree:                  -34        58
+:matt/oriental/bridge_straight:              268       200
+:matt/oriental/bridge_angle:                 162       200
+:matt/oriental/bridge_angle:                 372       200     frr
+:matt/oriental/08:                           464       256
+:matt/oriental/08:                            96       256
+:matt/oriental/08:                           532       256
+:matt/oriental/08:                           532       324
+:matt/oriental/08:                           600       256
+:matt/oriental/08:                           598       324
+:matt/oriental/08:                            28       256
+:matt/oriental/08:                            28       324
+:matt/oriental/08:                           -40       256
+:matt/oriental/08:                           -40       324
+:matt/oriental/bridge_straight:              268        32
+:matt/oriental/bridge_angle:                 372       -30     rr
+:matt/oriental/bridge_angle:                 162       -30     f
+:matt/oriental/bridge_angle:                  55       -91     f
+:matt/oriental/bridge_angle:                 479       -91     rr
+:matt/oriental/bridge_straight:              587       -90
+:matt/oriental/bridge_straight:              -50       -90
+:matt/oriental/bridge_straight:              268       -66
+:matt/oriental/bridge_angle:                 372      -128     rr
+:matt/oriental/bridge_angle:                 162      -128     f
+:matt/oriental/bridge_straight:              268       298
+:matt/oriental/bridge_angle:                 162       298
+:matt/oriental/08:                            96       324
+:matt/oriental/bridge_angle:                 372       298     frr
+:matt/oriental/08:                           464       324
+:geoo/construction/rod_steel/straight32.S:        268       136     rrr
+:geoo/construction/rod_steel/straight32.S:        268       168     rrr
+:geoo/construction/rod_steel/straight32.S:        366       136     rrr
+:geoo/construction/rod_steel/straight32.S:        366       168     rrr
+:geoo/construction/rod_steel/straight32.S:        316       136     rrr
+:geoo/construction/rod_steel/straight32.S:        316       168     rrr

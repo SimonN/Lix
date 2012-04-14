@@ -31,47 +31,47 @@ $ENGLISH                                   Nothing to get hung about..
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/07 - Underworld/Hatch.H:                    316         2
+:matt/underworld/Hatch.H:                    316         2
 
-:bitmap/matt/07 - Underworld/Goal.G:                     320       224
+:matt/underworld/Goal.G:                     320       224
 
-:bitmap/matt/07 - Underworld/09a:                        656       210
-:bitmap/matt/07 - Underworld/09a:                        441       287
-:bitmap/matt/07 - Underworld/09b:                        183       290
-:bitmap/matt/07 - Underworld/00:                         519        38     rrr
-:bitmap/matt/07 - Underworld/00:                         533        38     fr
-:bitmap/matt/07 - Underworld/00:                         214       153     rr
-:bitmap/matt/07 - Underworld/00:                         214       137     rr
-:bitmap/matt/07 - Underworld/02:                         326       153
-:bitmap/matt/07 - Underworld/02:                         326        90
-:bitmap/matt/07 - Underworld/02:                         306        90
-:bitmap/matt/07 - Underworld/02:                         306       154
-:bitmap/matt/07 - Underworld/02:                         182        74
-:bitmap/matt/07 - Underworld/00:                         182        73     d
-:bitmap/matt/07 - Underworld/01:                         214       168     d
-:bitmap/matt/07 - Underworld/01:                         190       290
-:bitmap/matt/07 - Underworld/01:                         254       290
-:bitmap/matt/07 - Underworld/01:                         318       290
-:bitmap/matt/07 - Underworld/01:                         382       290
-:bitmap/matt/07 - Underworld/01:                         446       290
-:bitmap/matt/07 - Underworld/02:                          36         0
-:bitmap/matt/07 - Underworld/02:                          36        96
-:bitmap/matt/07 - Underworld/01:                          36       192
-:bitmap/matt/07 - Underworld/02:                         439        72     frr
-:bitmap/matt/07 - Underworld/02:                         592         0
-:bitmap/matt/07 - Underworld/02:                         592        96
-:bitmap/matt/07 - Underworld/01:                         592       192
-:bitmap/matt/07 - Underworld/02:                         -16         0
-:bitmap/matt/07 - Underworld/02:                         -16        96
-:bitmap/matt/07 - Underworld/01:                         -16       192
-:bitmap/matt/07 - Underworld/02:                         656         0
-:bitmap/matt/07 - Underworld/02:                         656        96
-:bitmap/matt/07 - Underworld/01:                         656       192
-:bitmap/matt/07 - Underworld/02:                         485        72     frr
-:bitmap/matt/07 - Underworld/09a:                        178        86
-:bitmap/matt/07 - Underworld/09a:                        382       289
-:bitmap/matt/07 - Underworld/09a:                         32       210
-:bitmap/matt/07 - Underworld/09a:                        -30       210     frr
-:bitmap/matt/07 - Underworld/09a:                        592       196     f
-:bitmap/matt/07 - Underworld/09a:                         34        -4     frr
-:bitmap/matt/07 - Underworld/09a:                        592       -16     frr
+:matt/underworld/09a:                        656       210
+:matt/underworld/09a:                        441       287
+:matt/underworld/09b:                        183       290
+:matt/underworld/00:                         519        38     rrr
+:matt/underworld/00:                         533        38     fr
+:matt/underworld/00:                         214       153     rr
+:matt/underworld/00:                         214       137     rr
+:matt/underworld/02:                         326       153
+:matt/underworld/02:                         326        90
+:matt/underworld/02:                         306        90
+:matt/underworld/02:                         306       154
+:matt/underworld/02:                         182        74
+:matt/underworld/00:                         182        73     d
+:matt/underworld/01:                         214       168     d
+:matt/underworld/01:                         190       290
+:matt/underworld/01:                         254       290
+:matt/underworld/01:                         318       290
+:matt/underworld/01:                         382       290
+:matt/underworld/01:                         446       290
+:matt/underworld/02:                          36         0
+:matt/underworld/02:                          36        96
+:matt/underworld/01:                          36       192
+:matt/underworld/02:                         439        72     frr
+:matt/underworld/02:                         592         0
+:matt/underworld/02:                         592        96
+:matt/underworld/01:                         592       192
+:matt/underworld/02:                         -16         0
+:matt/underworld/02:                         -16        96
+:matt/underworld/01:                         -16       192
+:matt/underworld/02:                         656         0
+:matt/underworld/02:                         656        96
+:matt/underworld/01:                         656       192
+:matt/underworld/02:                         485        72     frr
+:matt/underworld/09a:                        178        86
+:matt/underworld/09a:                        382       289
+:matt/underworld/09a:                         32       210
+:matt/underworld/09a:                        -30       210     frr
+:matt/underworld/09a:                        592       196     f
+:matt/underworld/09a:                         34        -4     frr
+:matt/underworld/09a:                        592       -16     frr

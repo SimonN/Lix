@@ -31,71 +31,71 @@ $ENGLISH                                                  Mirror Mines
 #MINER                                                              10
 #DIGGER                                                             10
 
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   288       296
+:matt/goldmine/GoalTop.D:                   288       296
 
-:bitmap/matt/02 - Gold Mine/Hatch.H:                      32         8
-:bitmap/matt/02 - Gold Mine/Hatch.H:                     544         8     r
+:matt/goldmine/Hatch.H:                      32         8
+:matt/goldmine/Hatch.H:                     544         8     r
 
-:bitmap/matt/02 - Gold Mine/Goal.G:                      288       344
+:matt/goldmine/Goal.G:                      288       344
 
-:bitmap/matt/02 - Gold Mine/03:                          480       146
-:bitmap/matt/02 - Gold Mine/03:                          480       214
-:bitmap/matt/02 - Gold Mine/03:                          320       214
-:bitmap/matt/02 - Gold Mine/03:                          320       146
-:bitmap/matt/02 - Gold Mine/03:                          176       146
-:bitmap/matt/02 - Gold Mine/03:                            0       146
-:bitmap/matt/02 - Gold Mine/03:                          160       214
-:bitmap/matt/02 - Gold Mine/03:                            0       214
-:bitmap/matt/02 - Gold Mine/plank:                       -64        56
-:bitmap/matt/02 - Gold Mine/plank:                       -64        64
-:bitmap/matt/02 - Gold Mine/plank support:               -64         0
-:bitmap/matt/02 - Gold Mine/plank support:               -64         0     f
-:bitmap/matt/02 - Gold Mine/plank:                        64        64
-:bitmap/matt/02 - Gold Mine/plank:                        64        56
-:bitmap/matt/02 - Gold Mine/plank support:                64         0
-:bitmap/matt/02 - Gold Mine/plank support:                64         0     f
-:bitmap/matt/02 - Gold Mine/plank:                       192        64
-:bitmap/matt/02 - Gold Mine/plank:                       192        56
-:bitmap/matt/02 - Gold Mine/plank support:               192         0
-:bitmap/matt/02 - Gold Mine/plank support:               192         0     f
-:bitmap/matt/02 - Gold Mine/plank:                       320        64
-:bitmap/matt/02 - Gold Mine/plank:                       320        56
-:bitmap/matt/02 - Gold Mine/plank support:               320         0
-:bitmap/matt/02 - Gold Mine/plank support:               320         0     f
-:bitmap/matt/02 - Gold Mine/plank:                       448        64
-:bitmap/matt/02 - Gold Mine/plank:                       448        56
-:bitmap/matt/02 - Gold Mine/plank support:               448         0
-:bitmap/matt/02 - Gold Mine/plank support:               448         0     f
-:bitmap/matt/02 - Gold Mine/plank:                       -64       336
-:bitmap/matt/02 - Gold Mine/plank:                       -64       328
-:bitmap/matt/02 - Gold Mine/plank support:               -64       272     f
-:bitmap/matt/02 - Gold Mine/plank support:               -64       272
-:bitmap/matt/02 - Gold Mine/plank:                        64       336
-:bitmap/matt/02 - Gold Mine/plank:                        64       328
-:bitmap/matt/02 - Gold Mine/plank support:                64       272     f
-:bitmap/matt/02 - Gold Mine/plank support:                64       272
-:bitmap/matt/02 - Gold Mine/plank:                       192       336
-:bitmap/matt/02 - Gold Mine/plank:                       192       328
-:bitmap/matt/02 - Gold Mine/plank support:               192       272     f
-:bitmap/matt/02 - Gold Mine/plank support:               192       272
-:bitmap/matt/02 - Gold Mine/plank:                       320       336
-:bitmap/matt/02 - Gold Mine/plank:                       320       328
-:bitmap/matt/02 - Gold Mine/plank support:               320       272     f
-:bitmap/matt/02 - Gold Mine/plank support:               320       272
-:bitmap/matt/02 - Gold Mine/plank:                       448       336
-:bitmap/matt/02 - Gold Mine/plank:                       448       328
-:bitmap/matt/02 - Gold Mine/plank support:               448       272     f
-:bitmap/matt/02 - Gold Mine/plank support:               448       272
-:bitmap/matt/02 - Gold Mine/plank:                       576        64
-:bitmap/matt/02 - Gold Mine/plank:                       576        56
-:bitmap/matt/02 - Gold Mine/plank support:               576         0
-:bitmap/matt/02 - Gold Mine/plank support:               576         0     f
-:bitmap/matt/02 - Gold Mine/plank:                       576       336
-:bitmap/matt/02 - Gold Mine/plank:                       576       328
-:bitmap/matt/02 - Gold Mine/plank support:               576       272     f
-:bitmap/matt/02 - Gold Mine/plank support:               576       272
-:bitmap/matt/02 - Gold Mine/07:                          544       146
-:bitmap/matt/02 - Gold Mine/07:                          392       146
-:bitmap/matt/02 - Gold Mine/07:                          240       146
-:bitmap/matt/02 - Gold Mine/07:                           88       146
-:bitmap/matt/02 - Gold Mine/07:                          -64       146
+:matt/goldmine/03:                          480       146
+:matt/goldmine/03:                          480       214
+:matt/goldmine/03:                          320       214
+:matt/goldmine/03:                          320       146
+:matt/goldmine/03:                          176       146
+:matt/goldmine/03:                            0       146
+:matt/goldmine/03:                          160       214
+:matt/goldmine/03:                            0       214
+:matt/goldmine/plank:                       -64        56
+:matt/goldmine/plank:                       -64        64
+:matt/goldmine/planksupport:               -64         0
+:matt/goldmine/planksupport:               -64         0     f
+:matt/goldmine/plank:                        64        64
+:matt/goldmine/plank:                        64        56
+:matt/goldmine/planksupport:                64         0
+:matt/goldmine/planksupport:                64         0     f
+:matt/goldmine/plank:                       192        64
+:matt/goldmine/plank:                       192        56
+:matt/goldmine/planksupport:               192         0
+:matt/goldmine/planksupport:               192         0     f
+:matt/goldmine/plank:                       320        64
+:matt/goldmine/plank:                       320        56
+:matt/goldmine/planksupport:               320         0
+:matt/goldmine/planksupport:               320         0     f
+:matt/goldmine/plank:                       448        64
+:matt/goldmine/plank:                       448        56
+:matt/goldmine/planksupport:               448         0
+:matt/goldmine/planksupport:               448         0     f
+:matt/goldmine/plank:                       -64       336
+:matt/goldmine/plank:                       -64       328
+:matt/goldmine/planksupport:               -64       272     f
+:matt/goldmine/planksupport:               -64       272
+:matt/goldmine/plank:                        64       336
+:matt/goldmine/plank:                        64       328
+:matt/goldmine/planksupport:                64       272     f
+:matt/goldmine/planksupport:                64       272
+:matt/goldmine/plank:                       192       336
+:matt/goldmine/plank:                       192       328
+:matt/goldmine/planksupport:               192       272     f
+:matt/goldmine/planksupport:               192       272
+:matt/goldmine/plank:                       320       336
+:matt/goldmine/plank:                       320       328
+:matt/goldmine/planksupport:               320       272     f
+:matt/goldmine/planksupport:               320       272
+:matt/goldmine/plank:                       448       336
+:matt/goldmine/plank:                       448       328
+:matt/goldmine/planksupport:               448       272     f
+:matt/goldmine/planksupport:               448       272
+:matt/goldmine/plank:                       576        64
+:matt/goldmine/plank:                       576        56
+:matt/goldmine/planksupport:               576         0
+:matt/goldmine/planksupport:               576         0     f
+:matt/goldmine/plank:                       576       336
+:matt/goldmine/plank:                       576       328
+:matt/goldmine/planksupport:               576       272     f
+:matt/goldmine/planksupport:               576       272
+:matt/goldmine/07:                          544       146
+:matt/goldmine/07:                          392       146
+:matt/goldmine/07:                          240       146
+:matt/goldmine/07:                           88       146
+:matt/goldmine/07:                          -64       146

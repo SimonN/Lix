@@ -31,48 +31,48 @@ $ENGLISH                                            Leader of the pack
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/08 - Bricks/Hatch.H:                          0        32
+:matt/bricks/Hatch.H:                          0        32
 
-:bitmap/matt/08 - Bricks/Goal.G:                         576       288
+:matt/bricks/Goal.G:                         576       288
 
-:bitmap/matt/water.W:                                    144       368
-:bitmap/matt/water.W:                                    176       368
-:bitmap/matt/water.W:                                    208       368
-:bitmap/matt/water.W:                                    400       368
-:bitmap/matt/water.W:                                    432       368
-:bitmap/matt/water.W:                                    464       368
-:bitmap/matt/water.W:                                    288       368
-:bitmap/matt/water.W:                                    320       368
-:bitmap/matt/water.W:                                    352       368
+:matt/water.W:                                    144       368
+:matt/water.W:                                    176       368
+:matt/water.W:                                    208       368
+:matt/water.W:                                    400       368
+:matt/water.W:                                    432       368
+:matt/water.W:                                    464       368
+:matt/water.W:                                    288       368
+:matt/water.W:                                    320       368
+:matt/water.W:                                    352       368
 
-:bitmap/matt/08 - Bricks/17:                             160       336
-:bitmap/matt/08 - Bricks/17:                             208       288
-:bitmap/matt/08 - Bricks/17:                             256       240
-:bitmap/matt/08 - Bricks/17:                             304       192
-:bitmap/matt/08 - Bricks/17:                             352       144
-:bitmap/matt/08 - Bricks/17:                             400        96
-:bitmap/matt/08 - Bricks/03:                             352       208
-:bitmap/matt/08 - Bricks/03:                             352       272
-:bitmap/matt/08 - Bricks/03:                             480        80
-:bitmap/matt/08 - Bricks/03:                             480       144
-:bitmap/matt/08 - Bricks/03:                             480       208
-:bitmap/matt/08 - Bricks/03:                             480       272
-:bitmap/matt/08 - Bricks/03:                             224       336
-:bitmap/matt/08 - Bricks/03:                             352       336
-:bitmap/matt/08 - Bricks/03:                             480       336
-:bitmap/matt/08 - Bricks/17:                             448        48
-:bitmap/matt/08 - Bricks/03:                             544       336
-:bitmap/matt/08 - Bricks/03:                             592       336
-:bitmap/matt/08 - Bricks/02:                             112       368
-:bitmap/matt/08 - Bricks/02:                              48       368
-:bitmap/matt/08 - Bricks/02:                             -16       368
-:bitmap/matt/08 - Bricks/02:                             112       288
-:bitmap/matt/08 - Bricks/02:                              48       288
-:bitmap/matt/08 - Bricks/02:                              64       208
-:bitmap/matt/08 - Bricks/02:                               0       208
-:bitmap/matt/08 - Bricks/02:                             112       144
-:bitmap/matt/08 - Bricks/02:                              48       144
-:bitmap/matt/08 - Bricks/02:                              64        80
-:bitmap/matt/08 - Bricks/02:                               0        80
-:bitmap/matt/08 - Bricks/02:                             176       144
-:bitmap/matt/08 - Bricks/04:                             512       272
+:matt/bricks/17:                             160       336
+:matt/bricks/17:                             208       288
+:matt/bricks/17:                             256       240
+:matt/bricks/17:                             304       192
+:matt/bricks/17:                             352       144
+:matt/bricks/17:                             400        96
+:matt/bricks/03:                             352       208
+:matt/bricks/03:                             352       272
+:matt/bricks/03:                             480        80
+:matt/bricks/03:                             480       144
+:matt/bricks/03:                             480       208
+:matt/bricks/03:                             480       272
+:matt/bricks/03:                             224       336
+:matt/bricks/03:                             352       336
+:matt/bricks/03:                             480       336
+:matt/bricks/17:                             448        48
+:matt/bricks/03:                             544       336
+:matt/bricks/03:                             592       336
+:matt/bricks/02:                             112       368
+:matt/bricks/02:                              48       368
+:matt/bricks/02:                             -16       368
+:matt/bricks/02:                             112       288
+:matt/bricks/02:                              48       288
+:matt/bricks/02:                              64       208
+:matt/bricks/02:                               0       208
+:matt/bricks/02:                             112       144
+:matt/bricks/02:                              48       144
+:matt/bricks/02:                              64        80
+:matt/bricks/02:                               0        80
+:matt/bricks/02:                             176       144
+:matt/bricks/04:                             512       272

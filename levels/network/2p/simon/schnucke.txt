@@ -31,78 +31,78 @@ $ENGLISH                                                Schnuckeluguck
 #MINER                                                             200
 #DIGGER                                                            200
 
-:bitmap/geoo/construction/Hatch.H:                       304       224
-:bitmap/geoo/construction/Hatch.H:                       304       224     r
+:geoo/construction/Hatch.H:                       304       224
+:geoo/construction/Hatch.H:                       304       224     r
 
-:bitmap/matt/09 - Marble/Goal.G:                         576        80
-:bitmap/matt/09 - Marble/Goal.G:                           0        80
+:matt/marble/Goal.G:                         576        80
+:matt/marble/Goal.G:                           0        80
 
-:bitmap/simon/tapir/064h:                                128       320     frr
-:bitmap/simon/tapir/032a:                                384       288
-:bitmap/simon/tapir/032a:                                416       256
-:bitmap/simon/tapir/032a:                                448       224
-:bitmap/simon/tapir/032a:                                480       192
-:bitmap/simon/tapir/032a:                                512       160
-:bitmap/simon/tapir/032a:                                544       128
-:bitmap/simon/tapir/064h:                                384       320
-:bitmap/simon/tapir/064h:                                512       320
-:bitmap/simon/tapir/064h:                                448       256
-:bitmap/simon/tapir/032:                                 416       288
-:bitmap/simon/tapir/032:                                 480       224
-:bitmap/simon/tapir/064h:                                512       192
-:bitmap/simon/tapir/032:                                 544       160
-:bitmap/simon/tapir/064:                                 576       128
-:bitmap/simon/tapir/064:                                 576       256
-:bitmap/simon/tapir/032a:                                224       288     frr
-:bitmap/simon/tapir/032a:                                192       256     frr
-:bitmap/simon/tapir/032a:                                160       224     frr
-:bitmap/simon/tapir/032a:                                128       192     frr
-:bitmap/simon/tapir/032a:                                 96       160     frr
-:bitmap/simon/tapir/032a:                                 64       128     frr
-:bitmap/simon/tapir/064h:                                 64       256     frr
-:bitmap/simon/tapir/032:                                 192       288     frr
-:bitmap/simon/tapir/032:                                 128       224     frr
-:bitmap/simon/tapir/064h:                                  0       192     frr
-:bitmap/simon/tapir/032:                                  64       160     frr
-:bitmap/simon/tapir/064:                                   0       128     frr
-:bitmap/simon/tapir/064:                                   0       256     frr
-:bitmap/simon/tapir/064h:                                  0       320     frr
-:bitmap/geoo/steel/32x32o.S:                             448       272
-:bitmap/geoo/steel/32x32o.S:                             160       272
-:bitmap/simon/tapir/064h:                                128         0     frr
-:bitmap/simon/tapir/064h:                                384         0
-:bitmap/simon/tapir/064h:                                512         0
-:bitmap/simon/tapir/064h:                                  0         0     frr
-:bitmap/geoo/sandstone/pillar_32:                        256       320     fr
-:bitmap/geoo/sandstone/pillar_32:                        288       320     fr
-:bitmap/geoo/sandstone/pillar_32:                        320       320     fr
-:bitmap/geoo/sandstone/pillar_32:                        352       320     fr
-:bitmap/geoo/sandstone/pillar_32:                        256       352     fr
-:bitmap/geoo/sandstone/pillar_32:                        288       352     fr
-:bitmap/geoo/sandstone/pillar_32:                        320       352     fr
-:bitmap/geoo/sandstone/pillar_32:                        352       352     fr
-:bitmap/geoo/sandstone/pillar_32:                        256         0     fr
-:bitmap/geoo/sandstone/pillar_32:                        288         0     fr
-:bitmap/geoo/sandstone/pillar_32:                        320         0     fr
-:bitmap/geoo/sandstone/pillar_32:                        352         0     fr
-:bitmap/geoo/sandstone/pillar_32:                        256        32     fr
-:bitmap/geoo/sandstone/pillar_32:                        288        32     fr
-:bitmap/geoo/sandstone/pillar_32:                        320        32     fr
-:bitmap/geoo/sandstone/pillar_32:                        352        32     fr
-:bitmap/geoo/sandstone/pillar_top_jaggedr:               496        80     r
-:bitmap/geoo/sandstone/pillar_32:                        144        80     fr
-:bitmap/geoo/sandstone/pillar_32:                        176        80     fr
-:bitmap/geoo/sandstone/pillar_32:                        208        80     fr
-:bitmap/geoo/sandstone/pillar_32:                        240        80     fr
-:bitmap/geoo/sandstone/pillar_32:                        272        80     fr
-:bitmap/geoo/sandstone/pillar_32:                        304        80     fr
-:bitmap/geoo/sandstone/pillar_32:                        336        80     fr
-:bitmap/geoo/sandstone/pillar_32:                        368        80     fr
-:bitmap/geoo/sandstone/pillar_32:                        400        80     fr
-:bitmap/geoo/sandstone/pillar_32:                        432        80     fr
-:bitmap/geoo/sandstone/pillar_32:                        464        80     fr
-:bitmap/geoo/sandstone/pillar_top_jaggedr:               112        80     fr
-:bitmap/geoo/steel/32x32o.S:                              16       128
-:bitmap/geoo/steel/32x32o.S:                             592       128
-:bitmap/simon/tapir/064:                                 -48        64     frr
-:bitmap/simon/tapir/064:                                 624        64
+:simon/tapir/064h:                                128       320     frr
+:simon/tapir/032a:                                384       288
+:simon/tapir/032a:                                416       256
+:simon/tapir/032a:                                448       224
+:simon/tapir/032a:                                480       192
+:simon/tapir/032a:                                512       160
+:simon/tapir/032a:                                544       128
+:simon/tapir/064h:                                384       320
+:simon/tapir/064h:                                512       320
+:simon/tapir/064h:                                448       256
+:simon/tapir/032:                                 416       288
+:simon/tapir/032:                                 480       224
+:simon/tapir/064h:                                512       192
+:simon/tapir/032:                                 544       160
+:simon/tapir/064:                                 576       128
+:simon/tapir/064:                                 576       256
+:simon/tapir/032a:                                224       288     frr
+:simon/tapir/032a:                                192       256     frr
+:simon/tapir/032a:                                160       224     frr
+:simon/tapir/032a:                                128       192     frr
+:simon/tapir/032a:                                 96       160     frr
+:simon/tapir/032a:                                 64       128     frr
+:simon/tapir/064h:                                 64       256     frr
+:simon/tapir/032:                                 192       288     frr
+:simon/tapir/032:                                 128       224     frr
+:simon/tapir/064h:                                  0       192     frr
+:simon/tapir/032:                                  64       160     frr
+:simon/tapir/064:                                   0       128     frr
+:simon/tapir/064:                                   0       256     frr
+:simon/tapir/064h:                                  0       320     frr
+:geoo/steel/32x32o.S:                             448       272
+:geoo/steel/32x32o.S:                             160       272
+:simon/tapir/064h:                                128         0     frr
+:simon/tapir/064h:                                384         0
+:simon/tapir/064h:                                512         0
+:simon/tapir/064h:                                  0         0     frr
+:geoo/sandstone/pillar_32:                        256       320     fr
+:geoo/sandstone/pillar_32:                        288       320     fr
+:geoo/sandstone/pillar_32:                        320       320     fr
+:geoo/sandstone/pillar_32:                        352       320     fr
+:geoo/sandstone/pillar_32:                        256       352     fr
+:geoo/sandstone/pillar_32:                        288       352     fr
+:geoo/sandstone/pillar_32:                        320       352     fr
+:geoo/sandstone/pillar_32:                        352       352     fr
+:geoo/sandstone/pillar_32:                        256         0     fr
+:geoo/sandstone/pillar_32:                        288         0     fr
+:geoo/sandstone/pillar_32:                        320         0     fr
+:geoo/sandstone/pillar_32:                        352         0     fr
+:geoo/sandstone/pillar_32:                        256        32     fr
+:geoo/sandstone/pillar_32:                        288        32     fr
+:geoo/sandstone/pillar_32:                        320        32     fr
+:geoo/sandstone/pillar_32:                        352        32     fr
+:geoo/sandstone/pillar_top_jaggedr:               496        80     r
+:geoo/sandstone/pillar_32:                        144        80     fr
+:geoo/sandstone/pillar_32:                        176        80     fr
+:geoo/sandstone/pillar_32:                        208        80     fr
+:geoo/sandstone/pillar_32:                        240        80     fr
+:geoo/sandstone/pillar_32:                        272        80     fr
+:geoo/sandstone/pillar_32:                        304        80     fr
+:geoo/sandstone/pillar_32:                        336        80     fr
+:geoo/sandstone/pillar_32:                        368        80     fr
+:geoo/sandstone/pillar_32:                        400        80     fr
+:geoo/sandstone/pillar_32:                        432        80     fr
+:geoo/sandstone/pillar_32:                        464        80     fr
+:geoo/sandstone/pillar_top_jaggedr:               112        80     fr
+:geoo/steel/32x32o.S:                              16       128
+:geoo/steel/32x32o.S:                             592       128
+:simon/tapir/064:                                 -48        64     frr
+:simon/tapir/064:                                 624        64

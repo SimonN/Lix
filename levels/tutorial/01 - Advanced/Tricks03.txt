@@ -31,55 +31,55 @@ $ENGLISH                                             Free the blockers
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   -22       230
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   600       228
+:matt/goldmine/GoalTop.D:                   -22       230
+:matt/goldmine/GoalTop.D:                   600       228
 
-:bitmap/matt/02 - Gold Mine/Hatch.H:                     272       116     r
-:bitmap/matt/02 - Gold Mine/Hatch.H:                     336       116
+:matt/goldmine/Hatch.H:                     272       116     r
+:matt/goldmine/Hatch.H:                     336       116
 
-:bitmap/matt/02 - Gold Mine/Goal.G:                      -22       278
-:bitmap/matt/02 - Gold Mine/Goal.G:                      598       276
+:matt/goldmine/Goal.G:                      -22       278
+:matt/goldmine/Goal.G:                      598       276
 
-:bitmap/matt/02 - Gold Mine/crate64:                     176       164
-:bitmap/matt/02 - Gold Mine/crate64:                     240       164
-:bitmap/matt/02 - Gold Mine/crate64:                     304       164
-:bitmap/matt/02 - Gold Mine/crate64:                     368       164
-:bitmap/matt/02 - Gold Mine/crate64:                     432       164
-:bitmap/matt/02 - Gold Mine/crate64:                     128       292
-:bitmap/matt/02 - Gold Mine/crate64:                     192       292
-:bitmap/matt/02 - Gold Mine/crate64:                     256       292
-:bitmap/matt/02 - Gold Mine/crate64:                     320       292
-:bitmap/matt/02 - Gold Mine/crate64:                     384       292
-:bitmap/matt/02 - Gold Mine/crate64:                      96       356
-:bitmap/matt/02 - Gold Mine/crate64:                     160       356
-:bitmap/matt/02 - Gold Mine/crate64:                     224       356
-:bitmap/matt/02 - Gold Mine/crate64:                     288       356
-:bitmap/matt/02 - Gold Mine/crate64:                     352       356
-:bitmap/matt/02 - Gold Mine/crate64:                     448       292
-:bitmap/matt/02 - Gold Mine/crate64:                     512       292
-:bitmap/matt/02 - Gold Mine/crate64:                     416       356
-:bitmap/matt/02 - Gold Mine/crate64:                     480       356
-:bitmap/matt/02 - Gold Mine/crate32:                       0       388
-:bitmap/matt/02 - Gold Mine/crate32:                       0       356
-:bitmap/matt/02 - Gold Mine/crate32:                       0       324
-:bitmap/matt/02 - Gold Mine/crate32:                     608       388
-:bitmap/matt/02 - Gold Mine/crate32:                     608       356
-:bitmap/matt/02 - Gold Mine/crate32:                     608       324
-:bitmap/matt/02 - Gold Mine/04:                           52       292
-:bitmap/matt/02 - Gold Mine/04:                           68       304     f
-:bitmap/matt/02 - Gold Mine/07:                          100       358
-:bitmap/matt/02 - Gold Mine/07:                         -180       362
-:bitmap/matt/02 - Gold Mine/04:                          456       282     f
-:bitmap/matt/02 - Gold Mine/04:                          448       244     f
-:bitmap/matt/02 - Gold Mine/07:                          368       356
-:bitmap/matt/02 - Gold Mine/07:                          480       292     r
-:bitmap/matt/02 - Gold Mine/crate64:                     176       228
-:bitmap/matt/02 - Gold Mine/crate64:                     240       228
-:bitmap/matt/02 - Gold Mine/crate64:                     304       228
-:bitmap/matt/02 - Gold Mine/crate64:                     368       228
-:bitmap/matt/02 - Gold Mine/crate64:                     432       228
-:bitmap/matt/02 - Gold Mine/04:                          432       196     frr
-:bitmap/matt/02 - Gold Mine/04:                          112       244
-:bitmap/rubix/Tutorial/Tricks03b:                        251        16
-:bitmap/rubix/Tutorial/Tricks03:                           0        -6
-:bitmap/rubix/Tutorial/Tricks-03pic-:                    463         1
+:matt/goldmine/crate64:                     176       164
+:matt/goldmine/crate64:                     240       164
+:matt/goldmine/crate64:                     304       164
+:matt/goldmine/crate64:                     368       164
+:matt/goldmine/crate64:                     432       164
+:matt/goldmine/crate64:                     128       292
+:matt/goldmine/crate64:                     192       292
+:matt/goldmine/crate64:                     256       292
+:matt/goldmine/crate64:                     320       292
+:matt/goldmine/crate64:                     384       292
+:matt/goldmine/crate64:                      96       356
+:matt/goldmine/crate64:                     160       356
+:matt/goldmine/crate64:                     224       356
+:matt/goldmine/crate64:                     288       356
+:matt/goldmine/crate64:                     352       356
+:matt/goldmine/crate64:                     448       292
+:matt/goldmine/crate64:                     512       292
+:matt/goldmine/crate64:                     416       356
+:matt/goldmine/crate64:                     480       356
+:matt/goldmine/crate32:                       0       388
+:matt/goldmine/crate32:                       0       356
+:matt/goldmine/crate32:                       0       324
+:matt/goldmine/crate32:                     608       388
+:matt/goldmine/crate32:                     608       356
+:matt/goldmine/crate32:                     608       324
+:matt/goldmine/04:                           52       292
+:matt/goldmine/04:                           68       304     f
+:matt/goldmine/07:                          100       358
+:matt/goldmine/07:                         -180       362
+:matt/goldmine/04:                          456       282     f
+:matt/goldmine/04:                          448       244     f
+:matt/goldmine/07:                          368       356
+:matt/goldmine/07:                          480       292     r
+:matt/goldmine/crate64:                     176       228
+:matt/goldmine/crate64:                     240       228
+:matt/goldmine/crate64:                     304       228
+:matt/goldmine/crate64:                     368       228
+:matt/goldmine/crate64:                     432       228
+:matt/goldmine/04:                          432       196     frr
+:matt/goldmine/04:                          112       244
+:rubix/Tutorial/Tricks03b:                        251        16
+:rubix/Tutorial/Tricks03:                           0        -6
+:rubix/Tutorial/Tricks-03pic-:                    463         1

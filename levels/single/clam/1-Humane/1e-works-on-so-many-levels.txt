@@ -31,82 +31,82 @@ $ENGLISH                                    Works on so many levels...
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/02 - Gold Mine/GoalTop.D:                   544       -16
+:matt/goldmine/GoalTop.D:                   544       -16
 
-:bitmap/matt/02 - Gold Mine/Hatch.H:                      32        32
-:bitmap/matt/02 - Gold Mine/Hatch.H:                      32       232
+:matt/goldmine/Hatch.H:                      32        32
+:matt/goldmine/Hatch.H:                      32       232
 
-:bitmap/matt/02 - Gold Mine/Goal.G:                      544        32
+:matt/goldmine/Goal.G:                      544        32
 
-:bitmap/geoo/construction/Laser_hz_64.F:                  32       316
-:bitmap/geoo/construction/Laser_hz_64.F:                  32       356
-:bitmap/geoo/construction/Laser_hz_64.F:                  96       316
-:bitmap/geoo/construction/Laser_hz_64.F:                  96       356
-:bitmap/geoo/construction/Laser_hz_64.F:                 160       316
-:bitmap/geoo/construction/Laser_hz_64.F:                 160       356
-:bitmap/geoo/construction/Laser_hz_64.F:                 224       316
-:bitmap/geoo/construction/Laser_hz_64.F:                 224       356
-:bitmap/geoo/construction/Laser_hz_64.F:                 288       316
-:bitmap/geoo/construction/Laser_hz_64.F:                 288       356
-:bitmap/geoo/construction/Laser_hz_64.F:                 352       316
-:bitmap/geoo/construction/Laser_hz_64.F:                 352       356
-:bitmap/geoo/construction/Laser_hz_64.F:                 416       316
-:bitmap/geoo/construction/Laser_hz_64.F:                 416       356
-:bitmap/geoo/construction/Laser_hz_64.F:                 480       316
-:bitmap/geoo/construction/Laser_hz_64.F:                 480       356
-:bitmap/geoo/construction/Laser_hz_64.F:                 544       316
-:bitmap/geoo/construction/Laser_hz_64.F:                 544       356
-:bitmap/geoo/construction/Laseremit_hzl_16.F:             32       316
-:bitmap/geoo/construction/Laseremit_hzl_16.F:             32       356
-:bitmap/geoo/construction/Laseremit_hzr_16.F:            592       316
-:bitmap/geoo/construction/Laseremit_hzr_16.F:            592       356
+:geoo/construction/Laser_hz_64.F:                  32       316
+:geoo/construction/Laser_hz_64.F:                  32       356
+:geoo/construction/Laser_hz_64.F:                  96       316
+:geoo/construction/Laser_hz_64.F:                  96       356
+:geoo/construction/Laser_hz_64.F:                 160       316
+:geoo/construction/Laser_hz_64.F:                 160       356
+:geoo/construction/Laser_hz_64.F:                 224       316
+:geoo/construction/Laser_hz_64.F:                 224       356
+:geoo/construction/Laser_hz_64.F:                 288       316
+:geoo/construction/Laser_hz_64.F:                 288       356
+:geoo/construction/Laser_hz_64.F:                 352       316
+:geoo/construction/Laser_hz_64.F:                 352       356
+:geoo/construction/Laser_hz_64.F:                 416       316
+:geoo/construction/Laser_hz_64.F:                 416       356
+:geoo/construction/Laser_hz_64.F:                 480       316
+:geoo/construction/Laser_hz_64.F:                 480       356
+:geoo/construction/Laser_hz_64.F:                 544       316
+:geoo/construction/Laser_hz_64.F:                 544       356
+:geoo/construction/Laseremit_hzl_16.F:             32       316
+:geoo/construction/Laseremit_hzl_16.F:             32       356
+:geoo/construction/Laseremit_hzr_16.F:            592       316
+:geoo/construction/Laseremit_hzr_16.F:            592       356
 
-:bitmap/matt/02 - Gold Mine/plank:                        32        80
-:bitmap/geoo/steel/dark_32x32o.S:                          0        80
-:bitmap/geoo/steel/dark_32x32o.S:                          0       112
-:bitmap/geoo/steel/dark_32x32o.S:                          0       144
-:bitmap/geoo/steel/dark_32x32o.S:                          0       176
-:bitmap/geoo/steel/dark_32x32o.S:                          0       208
-:bitmap/geoo/steel/dark_32x32o.S:                          0       240
-:bitmap/matt/02 - Gold Mine/plank:                        64       120
-:bitmap/matt/02 - Gold Mine/plank:                        64       160
-:bitmap/matt/02 - Gold Mine/plank:                        64       200
-:bitmap/matt/02 - Gold Mine/plank:                       128       240
-:bitmap/matt/02 - Gold Mine/plank:                        32       280
-:bitmap/matt/02 - Gold Mine/plank:                       192       120
-:bitmap/matt/02 - Gold Mine/plank:                       192       160
-:bitmap/matt/02 - Gold Mine/plank:                       192       200
-:bitmap/matt/02 - Gold Mine/plank:                       256       240
-:bitmap/matt/02 - Gold Mine/plank:                       320       120
-:bitmap/matt/02 - Gold Mine/plank:                       320       160
-:bitmap/matt/02 - Gold Mine/plank:                       320       200
-:bitmap/matt/02 - Gold Mine/plank:                       384       240
-:bitmap/matt/02 - Gold Mine/plank:                       480        80
-:bitmap/matt/02 - Gold Mine/plank:                       480       280
-:bitmap/geoo/steel/dark_32x32o.S:                        608        80
-:bitmap/geoo/steel/dark_32x32o.S:                        608       112
-:bitmap/geoo/steel/dark_32x32o.S:                        608       144
-:bitmap/geoo/steel/dark_32x32o.S:                        608       176
-:bitmap/geoo/steel/dark_32x32o.S:                        608       208
-:bitmap/geoo/steel/dark_32x32o.S:                        608       240
-:bitmap/matt/02 - Gold Mine/plank:                       288       280
-:bitmap/matt/02 - Gold Mine/plank:                       320       280     d
-:bitmap/matt/02 - Gold Mine/plank:                       224       280     n
-:bitmap/matt/02 - Gold Mine/plank:                       160       280
-:bitmap/matt/02 - Gold Mine/plank:                       352       280
-:bitmap/matt/02 - Gold Mine/plank:                       288        80
-:bitmap/matt/02 - Gold Mine/plank:                       320        80     d
-:bitmap/matt/02 - Gold Mine/plank:                       224        80     n
-:bitmap/matt/02 - Gold Mine/plank:                       352        80
-:bitmap/matt/02 - Gold Mine/plank:                       160        80
-:bitmap/geoo/steel/dark_32x32o.S:                          0       272
-:bitmap/geoo/steel/dark_32x32o.S:                        608       272
-:bitmap/geoo/steel/dark_32x32o.S:                          0       304
-:bitmap/geoo/steel/dark_32x32o.S:                        608       304
-:bitmap/geoo/steel/dark_32x32o.S:                          0       336
-:bitmap/geoo/steel/dark_32x32o.S:                        608       336
-:bitmap/matt/02 - Gold Mine/plank:                       448       120
-:bitmap/matt/02 - Gold Mine/plank:                       448       160
-:bitmap/matt/02 - Gold Mine/plank:                       448       200
-:bitmap/geoo/steel/dark_32x32o.S:                        608       368
-:bitmap/geoo/steel/dark_32x32o.S:                          0       368
+:matt/goldmine/plank:                        32        80
+:geoo/steel/dark_32x32o.S:                          0        80
+:geoo/steel/dark_32x32o.S:                          0       112
+:geoo/steel/dark_32x32o.S:                          0       144
+:geoo/steel/dark_32x32o.S:                          0       176
+:geoo/steel/dark_32x32o.S:                          0       208
+:geoo/steel/dark_32x32o.S:                          0       240
+:matt/goldmine/plank:                        64       120
+:matt/goldmine/plank:                        64       160
+:matt/goldmine/plank:                        64       200
+:matt/goldmine/plank:                       128       240
+:matt/goldmine/plank:                        32       280
+:matt/goldmine/plank:                       192       120
+:matt/goldmine/plank:                       192       160
+:matt/goldmine/plank:                       192       200
+:matt/goldmine/plank:                       256       240
+:matt/goldmine/plank:                       320       120
+:matt/goldmine/plank:                       320       160
+:matt/goldmine/plank:                       320       200
+:matt/goldmine/plank:                       384       240
+:matt/goldmine/plank:                       480        80
+:matt/goldmine/plank:                       480       280
+:geoo/steel/dark_32x32o.S:                        608        80
+:geoo/steel/dark_32x32o.S:                        608       112
+:geoo/steel/dark_32x32o.S:                        608       144
+:geoo/steel/dark_32x32o.S:                        608       176
+:geoo/steel/dark_32x32o.S:                        608       208
+:geoo/steel/dark_32x32o.S:                        608       240
+:matt/goldmine/plank:                       288       280
+:matt/goldmine/plank:                       320       280     d
+:matt/goldmine/plank:                       224       280     n
+:matt/goldmine/plank:                       160       280
+:matt/goldmine/plank:                       352       280
+:matt/goldmine/plank:                       288        80
+:matt/goldmine/plank:                       320        80     d
+:matt/goldmine/plank:                       224        80     n
+:matt/goldmine/plank:                       352        80
+:matt/goldmine/plank:                       160        80
+:geoo/steel/dark_32x32o.S:                          0       272
+:geoo/steel/dark_32x32o.S:                        608       272
+:geoo/steel/dark_32x32o.S:                          0       304
+:geoo/steel/dark_32x32o.S:                        608       304
+:geoo/steel/dark_32x32o.S:                          0       336
+:geoo/steel/dark_32x32o.S:                        608       336
+:matt/goldmine/plank:                       448       120
+:matt/goldmine/plank:                       448       160
+:matt/goldmine/plank:                       448       200
+:geoo/steel/dark_32x32o.S:                        608       368
+:geoo/steel/dark_32x32o.S:                          0       368

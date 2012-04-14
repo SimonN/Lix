@@ -31,73 +31,73 @@ $ENGLISH                                                  The solution
 #DIGGER                                                              2
 #NOTHING                                                             0
 
-:bitmap/matt/05 - Winter/Hatch.H:                         32       240
+:matt/winter/Hatch.H:                         32       240
 
-:bitmap/matt/05 - Winter/Goal.G:                         600       130
+:matt/winter/Goal.G:                         600       130
 
-:bitmap/matt/05 - Winter/03:                             490       340
-:bitmap/matt/05 - Winter/06:                             551       298
-:bitmap/matt/05 - Winter/09a:                             36       311
-:bitmap/matt/05 - Winter/10:                             -18       329
-:bitmap/matt/05 - Winter/10:                             396       341
-:bitmap/matt/05 - Winter/06:                             551       235
-:bitmap/matt/05 - Winter/16:                             688       292
-:bitmap/matt/05 - Winter/16:                             731       237
-:bitmap/matt/05 - Winter/06:                             793       185
-:bitmap/matt/05 - Winter/10:                             765       235     r
-:bitmap/matt/05 - Winter/10:                             902       156
-:bitmap/matt/05 - Winter/10:                             675       -77
-:bitmap/matt/05 - Winter/10:                             484       -81     rr
-:bitmap/matt/05 - Winter/06:                             672       117     r
-:bitmap/matt/05 - Winter/10:                             648       -31     r
-:bitmap/matt/steel/32x32.S:                              567       302
-:bitmap/matt/05 - Winter/06:                             551       172
-:bitmap/matt/05 - Winter/10:                             904       -82     r
-:bitmap/matt/05 - Winter/06:                             736       128     r
-:bitmap/matt/05 - Winter/06:                             792       124     r
-:bitmap/matt/05 - Winter/04:                             892       204     rr
-:bitmap/matt/05 - Winter/09a:                             47       317
-:bitmap/matt/05 - Winter/09a:                             12       330
-:bitmap/matt/05 - Winter/09a:                            -14       245
-:bitmap/matt/05 - Winter/09a:                             -2       279
-:bitmap/matt/05 - Winter/09a:                             41       287
-:bitmap/matt/05 - Winter/09a:                            -21       305
-:bitmap/matt/05 - Winter/10:                             862       -51
-:bitmap/matt/05 - Winter/15:                             620       191
-:bitmap/matt/05 - Winter/10:                             666       111
-:bitmap/matt/05 - Winter/10:                             836       215
-:bitmap/matt/05 - Winter/06:                             551       128
-:bitmap/matt/05 - Winter/06:                             551        64
-:bitmap/matt/05 - Winter/10:                             777       316
-:bitmap/matt/05 - Winter/10:                             826       290     r
-:bitmap/matt/05 - Winter/10:                             877       184     r
-:bitmap/matt/05 - Winter/15:                             680       393
-:bitmap/matt/05 - Winter/04:                             469       341     r
-:bitmap/matt/steel/32x32.S:                              567       334
-:bitmap/matt/05 - Winter/10:                             401       358
-:bitmap/matt/05 - Winter/04:                             932        64
-:bitmap/matt/steel/32x32.S:                              782       124
-:bitmap/matt/steel/32x32.S:                              782       156
-:bitmap/matt/steel/32x32.S:                              672         4
-:bitmap/matt/steel/32x32.S:                              672        35
-:bitmap/matt/steel/32x32.S:                              672        67
-:bitmap/matt/steel/32x32.S:                              672        98
-:bitmap/matt/steel/32x16.S:                              782       188
-:bitmap/matt/05 - Winter/10:                             687       339
-:bitmap/matt/05 - Winter/10:                             124       381
-:bitmap/matt/05 - Winter/03:                             220       390
-:bitmap/matt/05 - Winter/03:                             295       394
-:bitmap/matt/05 - Winter/09a:                            -20       346
-:bitmap/matt/05 - Winter/09a:                              6       364
-:bitmap/matt/05 - Winter/09a:                             53       362
-:bitmap/matt/05 - Winter/09a:                             80       335
-:bitmap/matt/05 - Winter/09a:                            102       380
-:bitmap/matt/05 - Winter/15:                             671       393
-:bitmap/rubix/Tutorial/8sola:                            118        98
-:bitmap/rubix/Tutorial/8solb:                            211       104
-:bitmap/rubix/Tutorial/8solc:                            329       119
-:bitmap/rubix/Tutorial/8sold:                            107       193
-:bitmap/rubix/Tutorial/8sole:                            217       198
-:bitmap/rubix/Tutorial/8solf:                            332       190
-:bitmap/rubix/Tutorial/8solfg:                            67         9
-:bitmap/matt/05 - Winter/15:                             594       190     rr
+:matt/winter/03:                             490       340
+:matt/winter/06:                             551       298
+:matt/winter/09a:                             36       311
+:matt/winter/10:                             -18       329
+:matt/winter/10:                             396       341
+:matt/winter/06:                             551       235
+:matt/winter/16:                             688       292
+:matt/winter/16:                             731       237
+:matt/winter/06:                             793       185
+:matt/winter/10:                             765       235     r
+:matt/winter/10:                             902       156
+:matt/winter/10:                             675       -77
+:matt/winter/10:                             484       -81     rr
+:matt/winter/06:                             672       117     r
+:matt/winter/10:                             648       -31     r
+:matt/steel/32x32.S:                              567       302
+:matt/winter/06:                             551       172
+:matt/winter/10:                             904       -82     r
+:matt/winter/06:                             736       128     r
+:matt/winter/06:                             792       124     r
+:matt/winter/04:                             892       204     rr
+:matt/winter/09a:                             47       317
+:matt/winter/09a:                             12       330
+:matt/winter/09a:                            -14       245
+:matt/winter/09a:                             -2       279
+:matt/winter/09a:                             41       287
+:matt/winter/09a:                            -21       305
+:matt/winter/10:                             862       -51
+:matt/winter/15:                             620       191
+:matt/winter/10:                             666       111
+:matt/winter/10:                             836       215
+:matt/winter/06:                             551       128
+:matt/winter/06:                             551        64
+:matt/winter/10:                             777       316
+:matt/winter/10:                             826       290     r
+:matt/winter/10:                             877       184     r
+:matt/winter/15:                             680       393
+:matt/winter/04:                             469       341     r
+:matt/steel/32x32.S:                              567       334
+:matt/winter/10:                             401       358
+:matt/winter/04:                             932        64
+:matt/steel/32x32.S:                              782       124
+:matt/steel/32x32.S:                              782       156
+:matt/steel/32x32.S:                              672         4
+:matt/steel/32x32.S:                              672        35
+:matt/steel/32x32.S:                              672        67
+:matt/steel/32x32.S:                              672        98
+:matt/steel/32x16.S:                              782       188
+:matt/winter/10:                             687       339
+:matt/winter/10:                             124       381
+:matt/winter/03:                             220       390
+:matt/winter/03:                             295       394
+:matt/winter/09a:                            -20       346
+:matt/winter/09a:                              6       364
+:matt/winter/09a:                             53       362
+:matt/winter/09a:                             80       335
+:matt/winter/09a:                            102       380
+:matt/winter/15:                             671       393
+:rubix/Tutorial/8sola:                            118        98
+:rubix/Tutorial/8solb:                            211       104
+:rubix/Tutorial/8solc:                            329       119
+:rubix/Tutorial/8sold:                            107       193
+:rubix/Tutorial/8sole:                            217       198
+:rubix/Tutorial/8solf:                            332       190
+:rubix/Tutorial/8solfg:                            67         9
+:matt/winter/15:                             594       190     rr

@@ -31,75 +31,75 @@ $ENGLISH                                                     Flinging!
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/04 - Sandy Beach/Sand Decor/sun.D:          509       -30
+:matt/beach/decor/sun.D:          509       -30
 
-:bitmap/matt/04 - Sandy Beach/Hatch.H:                     4        80
+:matt/beach/Hatch.H:                     4        80
 
-:bitmap/matt/04 - Sandy Beach/goal.G:                    534        34
+:matt/beach/goal.G:                    534        34
 
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           505       154
-:bitmap/matt/04 - Sandy Beach/Sand Decor/palm tree:      -25        24
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           271       169     r
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           175       153
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           239       153
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/01:           127       153
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/01:           351       153
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           335       155
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:            15       153
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:            79       153
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/01:           -33       249
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/01:           191       153
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           -49       105
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:            48        96     r
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/02:           191        73
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/01:           239       121
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/00:           287       137
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/03:           575       153
-:bitmap/matt/steel/48x48.S:                              415       153
-:bitmap/matt/steel/48x48.S:                              367       153
-:bitmap/matt/04 - Sandy Beach/Sand Decor/grass11:        156        92
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/01:           168        86
-:bitmap/matt/04 - Sandy Beach/Sand Decor/beach ball:     298       122
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           191        89
-:bitmap/matt/steel/48x48.S:                              319       153
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/01:           159       169
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:            -1       153
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:            79       185     r
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           207       201     r
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           511       172     r
-:bitmap/matt/04 - Sandy Beach/Sand Decor/shovel:         506       223
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           575       153
-:bitmap/matt/steel/48x48.S:                              271       153
-:bitmap/matt/steel/48x48.S:                              223       153
-:bitmap/matt/steel/48x48.S:                              175       153
-:bitmap/matt/steel/48x48.S:                              127       153
-:bitmap/matt/steel/48x48.S:                               79       153
-:bitmap/matt/steel/48x48.S:                               31       153
-:bitmap/matt/steel/48x48.S:                              -17       153
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           285       257     r
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           339       241
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/01:           -19       337
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:            13       241
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:            93       273     r
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           221       289     r
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           -50       286     r
-:bitmap/matt/04 - Sandy Beach/Sand Decor/grass08:         65       361
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:            96       322     r
-:bitmap/matt/04 - Sandy Beach/Sand Decor/umbrella_yellow: 357      310
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           282       362     r
-:bitmap/matt/04 - Sandy Beach/Sand Decor/pail:           542       165
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           519       210     r
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           587       214
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           577       297     r
-:bitmap/matt/04 - Sandy Beach/Sand Decor/grass08:        510       324
-:bitmap/matt/04 - Sandy Beach/Sand Decor/grass08:        550       356
-:bitmap/matt/04 - Sandy Beach/Daytime Sand/04:           512       270     r
-:bitmap/rubix/Tutorial/Tricks06a:                          4       208
-:bitmap/rubix/Tutorial/Tricks06p1:                       144       336
-:bitmap/rubix/Tutorial/Tricks06p2:                       240       336
-:bitmap/matt/steel/48x48.S:                              415       200
-:bitmap/rubix/Tutorial/Tricks06b:                        228       220
-:bitmap/matt/04 - Sandy Beach/Sand Decor/grass06:        247       104
-:bitmap/matt/04 - Sandy Beach/Sand Decor/grass06:        546       291
-:bitmap/matt/04 - Sandy Beach/Sand Decor/grass11:        574       235
-:bitmap/matt/04 - Sandy Beach/Sand Decor/grass11:        -15       316
+:matt/beach/daytime/04:           505       154
+:matt/beach/decor/palm tree:      -25        24
+:matt/beach/daytime/04:           271       169     r
+:matt/beach/daytime/03:           175       153
+:matt/beach/daytime/03:           239       153
+:matt/beach/daytime/01:           127       153
+:matt/beach/daytime/01:           351       153
+:matt/beach/daytime/04:           335       155
+:matt/beach/daytime/03:            15       153
+:matt/beach/daytime/03:            79       153
+:matt/beach/daytime/01:           -33       249
+:matt/beach/daytime/01:           191       153
+:matt/beach/daytime/04:           -49       105
+:matt/beach/daytime/04:            48        96     r
+:matt/beach/daytime/02:           191        73
+:matt/beach/daytime/01:           239       121
+:matt/beach/daytime/00:           287       137
+:matt/beach/daytime/03:           575       153
+:matt/steel/48x48.S:                              415       153
+:matt/steel/48x48.S:                              367       153
+:matt/beach/decor/grass11:        156        92
+:matt/beach/daytime/01:           168        86
+:matt/beach/decor/beach ball:     298       122
+:matt/beach/daytime/04:           191        89
+:matt/steel/48x48.S:                              319       153
+:matt/beach/daytime/01:           159       169
+:matt/beach/daytime/04:            -1       153
+:matt/beach/daytime/04:            79       185     r
+:matt/beach/daytime/04:           207       201     r
+:matt/beach/daytime/04:           511       172     r
+:matt/beach/decor/shovel:         506       223
+:matt/beach/daytime/04:           575       153
+:matt/steel/48x48.S:                              271       153
+:matt/steel/48x48.S:                              223       153
+:matt/steel/48x48.S:                              175       153
+:matt/steel/48x48.S:                              127       153
+:matt/steel/48x48.S:                               79       153
+:matt/steel/48x48.S:                               31       153
+:matt/steel/48x48.S:                              -17       153
+:matt/beach/daytime/04:           285       257     r
+:matt/beach/daytime/04:           339       241
+:matt/beach/daytime/01:           -19       337
+:matt/beach/daytime/04:            13       241
+:matt/beach/daytime/04:            93       273     r
+:matt/beach/daytime/04:           221       289     r
+:matt/beach/daytime/04:           -50       286     r
+:matt/beach/decor/grass08:         65       361
+:matt/beach/daytime/04:            96       322     r
+:matt/beach/decor/umbrella_yellow: 357      310
+:matt/beach/daytime/04:           282       362     r
+:matt/beach/decor/pail:           542       165
+:matt/beach/daytime/04:           519       210     r
+:matt/beach/daytime/04:           587       214
+:matt/beach/daytime/04:           577       297     r
+:matt/beach/decor/grass08:        510       324
+:matt/beach/decor/grass08:        550       356
+:matt/beach/daytime/04:           512       270     r
+:rubix/Tutorial/Tricks06a:                          4       208
+:rubix/Tutorial/Tricks06p1:                       144       336
+:rubix/Tutorial/Tricks06p2:                       240       336
+:matt/steel/48x48.S:                              415       200
+:rubix/Tutorial/Tricks06b:                        228       220
+:matt/beach/decor/grass06:        247       104
+:matt/beach/decor/grass06:        546       291
+:matt/beach/decor/grass11:        574       235
+:matt/beach/decor/grass11:        -15       316

@@ -31,157 +31,157 @@ $ENGLISH                                                    Bumpy Ride
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/04 - Sandy Beach/Sand Decor/sun.D:          504        16
+:matt/beach/decor/sun.D:          504        16
 
-:bitmap/matt/05 - Winter/Hatch.H:                         32       104
-:bitmap/matt/05 - Winter/Hatch.H:                         32       200
+:matt/winter/Hatch.H:                         32       104
+:matt/winter/Hatch.H:                         32       200
 
-:bitmap/matt/05 - Winter/Goal.G:                         544       272
+:matt/winter/Goal.G:                         544       272
 
-:bitmap/matt/water.W:                                      0       368
+:matt/water.W:                                      0       368
 
-:bitmap/matt/05 - Winter/06:                              56       216
-:bitmap/matt/05 - Winter/06:                              64       280
-:bitmap/matt/05 - Winter/06:                              32       344     r
-:bitmap/matt/05 - Winter/06:                              96       344     r
-:bitmap/matt/05 - Winter/06:                             160       344     r
-:bitmap/matt/05 - Winter/06:                             224       344     r
-:bitmap/matt/05 - Winter/06:                             544       336     r
-:bitmap/matt/05 - Winter/06:                             576       336     r
-:bitmap/matt/05 - Winter/06:                              32       368     r
-:bitmap/matt/05 - Winter/06:                              96       368     r
-:bitmap/matt/05 - Winter/06:                             160       368     r
-:bitmap/matt/05 - Winter/06:                             224       368     r
-:bitmap/matt/05 - Winter/06:                             288       368     r
-:bitmap/matt/05 - Winter/06:                             352       368     r
-:bitmap/matt/05 - Winter/06:                             544       352     r
-:bitmap/matt/05 - Winter/06:                             576       352     r
-:bitmap/matt/05 - Winter/06:                             416       368     r
-:bitmap/matt/05 - Winter/06:                             480       368     r
-:bitmap/matt/05 - Winter/06:                              48       280
-:bitmap/matt/05 - Winter/06:                              56       280
-:bitmap/matt/02 - Gold Mine/plank:                        42       204     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        44       192     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        46       180     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        48       168     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        50       156     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        52       144     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        54       132     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        66       132     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        68       144     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        70       156     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        72       168     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        74       180     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        76       192     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        78       204     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        58       120     rrrd
-:bitmap/matt/05 - Winter/06:                              92       216
-:bitmap/matt/05 - Winter/06:                             100       280
-:bitmap/matt/05 - Winter/06:                              84       280
-:bitmap/matt/05 - Winter/06:                              92       280
-:bitmap/matt/02 - Gold Mine/plank:                        78       204     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        80       192     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        82       180     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        84       168     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        86       156     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        88       144     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        90       132     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       102       132     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       104       144     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       106       156     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       108       168     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       110       180     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       112       192     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       114       204     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                        94       120     rrrd
-:bitmap/matt/05 - Winter/06:                             128       216
-:bitmap/matt/05 - Winter/06:                             136       280
-:bitmap/matt/05 - Winter/06:                             120       280
-:bitmap/matt/05 - Winter/06:                             128       280
-:bitmap/matt/02 - Gold Mine/plank:                       114       204     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       116       192     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       118       180     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       120       168     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       122       156     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       124       144     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       126       132     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       138       132     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       140       144     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       142       156     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       144       168     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       146       180     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       148       192     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       150       204     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       130       120     rrrd
-:bitmap/matt/05 - Winter/06:                             164       216
-:bitmap/matt/05 - Winter/06:                             172       280
-:bitmap/matt/05 - Winter/06:                             156       280
-:bitmap/matt/05 - Winter/06:                             164       280
-:bitmap/matt/02 - Gold Mine/plank:                       150       204     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       152       192     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       154       180     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       156       168     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       158       156     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       160       144     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       162       132     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       174       132     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       176       144     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       178       156     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       180       168     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       182       180     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       184       192     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       186       204     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       166       120     rrrd
-:bitmap/matt/05 - Winter/06:                              32       168     r
-:bitmap/matt/05 - Winter/06:                              96       168     r
-:bitmap/matt/05 - Winter/06:                              32       184     r
-:bitmap/matt/05 - Winter/06:                              96       184     r
-:bitmap/matt/02 - Gold Mine/plank:                       186       204     rrrd
-:bitmap/matt/05 - Winter/06:                             200       216
-:bitmap/matt/05 - Winter/06:                             208       280
-:bitmap/matt/05 - Winter/06:                             192       280
-:bitmap/matt/05 - Winter/06:                             200       280
-:bitmap/matt/02 - Gold Mine/plank:                       186       204     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       188       192     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       190       180     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       192       168     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       194       156     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       196       144     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       198       132     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       210       132     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       212       144     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       214       156     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       216       168     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       218       180     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       220       192     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       222       204     rrrd
-:bitmap/matt/02 - Gold Mine/plank:                       202       120     rrrd
-:bitmap/matt/05 - Winter/06:                             144       168     r
-:bitmap/matt/05 - Winter/06:                             144       184     r
-:bitmap/matt/05 - Winter/06:                              32       152     r
-:bitmap/matt/05 - Winter/06:                              96       152     r
-:bitmap/matt/05 - Winter/06:                             144       152     r
-:bitmap/matt/05 - Winter/06:                             288       344     r
-:bitmap/matt/05 - Winter/06:                             352       344     r
-:bitmap/matt/05 - Winter/06:                             544       368     r
-:bitmap/matt/05 - Winter/06:                             576       368     r
-:bitmap/matt/05 - Winter/06:                              32       384     r
-:bitmap/matt/05 - Winter/06:                              96       384     r
-:bitmap/matt/05 - Winter/06:                             160       384     r
-:bitmap/matt/05 - Winter/06:                             224       384     r
-:bitmap/matt/05 - Winter/06:                             288       384     r
-:bitmap/matt/05 - Winter/06:                             352       384     r
-:bitmap/matt/05 - Winter/06:                             416       384     r
-:bitmap/matt/05 - Winter/06:                             480       384     r
-:bitmap/matt/05 - Winter/06:                             544       384     r
-:bitmap/matt/05 - Winter/06:                             576       384     r
-:bitmap/matt/05 - Winter/06:                             544       336
-:bitmap/matt/05 - Winter/06:                             624       336
-:bitmap/matt/05 - Winter/06:                              32       368
-:bitmap/matt/05 - Winter/06:                              32       136
-:bitmap/matt/05 - Winter/06:                              32        88     d
-:bitmap/matt/05 - Winter/06:                             192       136
-:bitmap/matt/05 - Winter/06:                             192        88     d
-:bitmap/geoo/steel/16x16o.S:                             544       336
-:bitmap/geoo/steel/16x16o.S:                             624       336
-:bitmap/matt/05 - Winter/06:                             360       344     r
+:matt/winter/06:                              56       216
+:matt/winter/06:                              64       280
+:matt/winter/06:                              32       344     r
+:matt/winter/06:                              96       344     r
+:matt/winter/06:                             160       344     r
+:matt/winter/06:                             224       344     r
+:matt/winter/06:                             544       336     r
+:matt/winter/06:                             576       336     r
+:matt/winter/06:                              32       368     r
+:matt/winter/06:                              96       368     r
+:matt/winter/06:                             160       368     r
+:matt/winter/06:                             224       368     r
+:matt/winter/06:                             288       368     r
+:matt/winter/06:                             352       368     r
+:matt/winter/06:                             544       352     r
+:matt/winter/06:                             576       352     r
+:matt/winter/06:                             416       368     r
+:matt/winter/06:                             480       368     r
+:matt/winter/06:                              48       280
+:matt/winter/06:                              56       280
+:matt/goldmine/plank:                        42       204     rrrd
+:matt/goldmine/plank:                        44       192     rrrd
+:matt/goldmine/plank:                        46       180     rrrd
+:matt/goldmine/plank:                        48       168     rrrd
+:matt/goldmine/plank:                        50       156     rrrd
+:matt/goldmine/plank:                        52       144     rrrd
+:matt/goldmine/plank:                        54       132     rrrd
+:matt/goldmine/plank:                        66       132     rrrd
+:matt/goldmine/plank:                        68       144     rrrd
+:matt/goldmine/plank:                        70       156     rrrd
+:matt/goldmine/plank:                        72       168     rrrd
+:matt/goldmine/plank:                        74       180     rrrd
+:matt/goldmine/plank:                        76       192     rrrd
+:matt/goldmine/plank:                        78       204     rrrd
+:matt/goldmine/plank:                        58       120     rrrd
+:matt/winter/06:                              92       216
+:matt/winter/06:                             100       280
+:matt/winter/06:                              84       280
+:matt/winter/06:                              92       280
+:matt/goldmine/plank:                        78       204     rrrd
+:matt/goldmine/plank:                        80       192     rrrd
+:matt/goldmine/plank:                        82       180     rrrd
+:matt/goldmine/plank:                        84       168     rrrd
+:matt/goldmine/plank:                        86       156     rrrd
+:matt/goldmine/plank:                        88       144     rrrd
+:matt/goldmine/plank:                        90       132     rrrd
+:matt/goldmine/plank:                       102       132     rrrd
+:matt/goldmine/plank:                       104       144     rrrd
+:matt/goldmine/plank:                       106       156     rrrd
+:matt/goldmine/plank:                       108       168     rrrd
+:matt/goldmine/plank:                       110       180     rrrd
+:matt/goldmine/plank:                       112       192     rrrd
+:matt/goldmine/plank:                       114       204     rrrd
+:matt/goldmine/plank:                        94       120     rrrd
+:matt/winter/06:                             128       216
+:matt/winter/06:                             136       280
+:matt/winter/06:                             120       280
+:matt/winter/06:                             128       280
+:matt/goldmine/plank:                       114       204     rrrd
+:matt/goldmine/plank:                       116       192     rrrd
+:matt/goldmine/plank:                       118       180     rrrd
+:matt/goldmine/plank:                       120       168     rrrd
+:matt/goldmine/plank:                       122       156     rrrd
+:matt/goldmine/plank:                       124       144     rrrd
+:matt/goldmine/plank:                       126       132     rrrd
+:matt/goldmine/plank:                       138       132     rrrd
+:matt/goldmine/plank:                       140       144     rrrd
+:matt/goldmine/plank:                       142       156     rrrd
+:matt/goldmine/plank:                       144       168     rrrd
+:matt/goldmine/plank:                       146       180     rrrd
+:matt/goldmine/plank:                       148       192     rrrd
+:matt/goldmine/plank:                       150       204     rrrd
+:matt/goldmine/plank:                       130       120     rrrd
+:matt/winter/06:                             164       216
+:matt/winter/06:                             172       280
+:matt/winter/06:                             156       280
+:matt/winter/06:                             164       280
+:matt/goldmine/plank:                       150       204     rrrd
+:matt/goldmine/plank:                       152       192     rrrd
+:matt/goldmine/plank:                       154       180     rrrd
+:matt/goldmine/plank:                       156       168     rrrd
+:matt/goldmine/plank:                       158       156     rrrd
+:matt/goldmine/plank:                       160       144     rrrd
+:matt/goldmine/plank:                       162       132     rrrd
+:matt/goldmine/plank:                       174       132     rrrd
+:matt/goldmine/plank:                       176       144     rrrd
+:matt/goldmine/plank:                       178       156     rrrd
+:matt/goldmine/plank:                       180       168     rrrd
+:matt/goldmine/plank:                       182       180     rrrd
+:matt/goldmine/plank:                       184       192     rrrd
+:matt/goldmine/plank:                       186       204     rrrd
+:matt/goldmine/plank:                       166       120     rrrd
+:matt/winter/06:                              32       168     r
+:matt/winter/06:                              96       168     r
+:matt/winter/06:                              32       184     r
+:matt/winter/06:                              96       184     r
+:matt/goldmine/plank:                       186       204     rrrd
+:matt/winter/06:                             200       216
+:matt/winter/06:                             208       280
+:matt/winter/06:                             192       280
+:matt/winter/06:                             200       280
+:matt/goldmine/plank:                       186       204     rrrd
+:matt/goldmine/plank:                       188       192     rrrd
+:matt/goldmine/plank:                       190       180     rrrd
+:matt/goldmine/plank:                       192       168     rrrd
+:matt/goldmine/plank:                       194       156     rrrd
+:matt/goldmine/plank:                       196       144     rrrd
+:matt/goldmine/plank:                       198       132     rrrd
+:matt/goldmine/plank:                       210       132     rrrd
+:matt/goldmine/plank:                       212       144     rrrd
+:matt/goldmine/plank:                       214       156     rrrd
+:matt/goldmine/plank:                       216       168     rrrd
+:matt/goldmine/plank:                       218       180     rrrd
+:matt/goldmine/plank:                       220       192     rrrd
+:matt/goldmine/plank:                       222       204     rrrd
+:matt/goldmine/plank:                       202       120     rrrd
+:matt/winter/06:                             144       168     r
+:matt/winter/06:                             144       184     r
+:matt/winter/06:                              32       152     r
+:matt/winter/06:                              96       152     r
+:matt/winter/06:                             144       152     r
+:matt/winter/06:                             288       344     r
+:matt/winter/06:                             352       344     r
+:matt/winter/06:                             544       368     r
+:matt/winter/06:                             576       368     r
+:matt/winter/06:                              32       384     r
+:matt/winter/06:                              96       384     r
+:matt/winter/06:                             160       384     r
+:matt/winter/06:                             224       384     r
+:matt/winter/06:                             288       384     r
+:matt/winter/06:                             352       384     r
+:matt/winter/06:                             416       384     r
+:matt/winter/06:                             480       384     r
+:matt/winter/06:                             544       384     r
+:matt/winter/06:                             576       384     r
+:matt/winter/06:                             544       336
+:matt/winter/06:                             624       336
+:matt/winter/06:                              32       368
+:matt/winter/06:                              32       136
+:matt/winter/06:                              32        88     d
+:matt/winter/06:                             192       136
+:matt/winter/06:                             192        88     d
+:geoo/steel/16x16o.S:                             544       336
+:geoo/steel/16x16o.S:                             624       336
+:matt/winter/06:                             360       344     r

@@ -31,53 +31,53 @@ $ENGLISH                                           Tricks of the trade
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/03 - Carnival/Hatch.H:                      -16        80
-:bitmap/matt/03 - Carnival/Hatch.H:                      592        80     r
+:matt/carnival/Hatch.H:                      -16        80
+:matt/carnival/Hatch.H:                      592        80     r
 
-:bitmap/matt/03 - Carnival/Goal.G:                       -16       304
-:bitmap/matt/03 - Carnival/Goal.G:                       592       304
+:matt/carnival/Goal.G:                       -16       304
+:matt/carnival/Goal.G:                       592       304
 
-:bitmap/matt/03 - Carnival/15:                            64       217
-:bitmap/matt/03 - Carnival/14:                            80       217
-:bitmap/matt/03 - Carnival/15:                           544       216
-:bitmap/matt/03 - Carnival/14:                           560       216
-:bitmap/matt/03 - Carnival/26:                             0       160
-:bitmap/matt/03 - Carnival/27:                            96       160
-:bitmap/matt/03 - Carnival/24:                            48       224
-:bitmap/matt/03 - Carnival/26:                           480       160
-:bitmap/matt/03 - Carnival/27:                           576       160
-:bitmap/matt/03 - Carnival/24:                           528       224
-:bitmap/matt/03 - Carnival/56:                            48       288
-:bitmap/matt/03 - Carnival/56:                           336       288
-:bitmap/matt/03 - Carnival/34:                           176       256
-:bitmap/matt/03 - Carnival/36:                           112       224
-:bitmap/matt/03 - Carnival/34:                           400       256     frr
-:bitmap/matt/03 - Carnival/36:                           464       224     frr
-:bitmap/matt/03 - Carnival/57:                           -48       368
-:bitmap/matt/03 - Carnival/58:                           208       368
-:bitmap/matt/03 - Carnival/57:                           464       368
-:bitmap/matt/steel/32x32.S:                               96       192
-:bitmap/matt/steel/32x32.S:                              128       192
-:bitmap/matt/steel/32x32.S:                              480       192
-:bitmap/matt/steel/32x32.S:                              512       192
-:bitmap/matt/03 - Carnival/20:                             0         0     rr
-:bitmap/matt/03 - Carnival/21:                            32        48
-:bitmap/matt/03 - Carnival/20:                            64         0     rr
-:bitmap/matt/03 - Carnival/21:                            96        48
-:bitmap/matt/03 - Carnival/20:                           128         0     rr
-:bitmap/matt/03 - Carnival/21:                           160        48
-:bitmap/matt/03 - Carnival/20:                           192         0     rr
-:bitmap/matt/03 - Carnival/21:                           224        48
-:bitmap/matt/03 - Carnival/20:                           256         0     rr
-:bitmap/matt/03 - Carnival/21:                           288        48
-:bitmap/matt/03 - Carnival/20:                           320         0     rr
-:bitmap/matt/03 - Carnival/21:                           352        48
-:bitmap/matt/03 - Carnival/20:                           384         0     rr
-:bitmap/matt/03 - Carnival/21:                           416        48
-:bitmap/matt/03 - Carnival/20:                           448         0     rr
-:bitmap/matt/03 - Carnival/21:                           480        48
-:bitmap/matt/03 - Carnival/20:                           512         0     rr
-:bitmap/matt/03 - Carnival/21:                           544        48
-:bitmap/matt/03 - Carnival/20:                           576         0     rr
-:bitmap/matt/03 - Carnival/21:                           608        48
-:bitmap/matt/03 - Carnival/21:                           -32        48
+:matt/carnival/15:                            64       217
+:matt/carnival/14:                            80       217
+:matt/carnival/15:                           544       216
+:matt/carnival/14:                           560       216
+:matt/carnival/26:                             0       160
+:matt/carnival/27:                            96       160
+:matt/carnival/24:                            48       224
+:matt/carnival/26:                           480       160
+:matt/carnival/27:                           576       160
+:matt/carnival/24:                           528       224
+:matt/carnival/56:                            48       288
+:matt/carnival/56:                           336       288
+:matt/carnival/34:                           176       256
+:matt/carnival/36:                           112       224
+:matt/carnival/34:                           400       256     frr
+:matt/carnival/36:                           464       224     frr
+:matt/carnival/57:                           -48       368
+:matt/carnival/58:                           208       368
+:matt/carnival/57:                           464       368
+:matt/steel/32x32.S:                               96       192
+:matt/steel/32x32.S:                              128       192
+:matt/steel/32x32.S:                              480       192
+:matt/steel/32x32.S:                              512       192
+:matt/carnival/20:                             0         0     rr
+:matt/carnival/21:                            32        48
+:matt/carnival/20:                            64         0     rr
+:matt/carnival/21:                            96        48
+:matt/carnival/20:                           128         0     rr
+:matt/carnival/21:                           160        48
+:matt/carnival/20:                           192         0     rr
+:matt/carnival/21:                           224        48
+:matt/carnival/20:                           256         0     rr
+:matt/carnival/21:                           288        48
+:matt/carnival/20:                           320         0     rr
+:matt/carnival/21:                           352        48
+:matt/carnival/20:                           384         0     rr
+:matt/carnival/21:                           416        48
+:matt/carnival/20:                           448         0     rr
+:matt/carnival/21:                           480        48
+:matt/carnival/20:                           512         0     rr
+:matt/carnival/21:                           544        48
+:matt/carnival/20:                           576         0     rr
+:matt/carnival/21:                           608        48
+:matt/carnival/21:                           -32        48

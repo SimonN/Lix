@@ -31,73 +31,73 @@ $ENGLISH                                            Mining and digging
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                         512        16
+:matt/earth/Hatch.H:                         512        16
 
-:bitmap/matt/01 - Earth/Goal.G:                           48       320
+:matt/earth/Goal.G:                           48       320
 
-:bitmap/matt/01 - Earth/12:                              576        64     r
-:bitmap/matt/01 - Earth/01:                              256       368
-:bitmap/matt/01 - Earth/01:                              224       384
-:bitmap/matt/01 - Earth/04:                              256       288
-:bitmap/matt/01 - Earth/06:                              400       146
-:bitmap/matt/01 - Earth/09:                              210       138
-:bitmap/matt/01 - Earth/09:                              610        16     f
-:bitmap/matt/01 - Earth/09:                              564        22     f
-:bitmap/matt/01 - Earth/09:                               84         4     f
-:bitmap/matt/01 - Earth/09:                              136         4     f
-:bitmap/matt/01 - Earth/09:                              320         2     f
-:bitmap/matt/01 - Earth/09:                              374         6     f
-:bitmap/matt/01 - Earth/13:                              624       192
-:bitmap/matt/01 - Earth/10:                               48       144
-:bitmap/matt/01 - Earth/04:                               64       144
-:bitmap/matt/01 - Earth/10:                              160       144
-:bitmap/matt/01 - Earth/10:                              256       144
-:bitmap/matt/01 - Earth/10:                              384       144
-:bitmap/matt/01 - Earth/10:                              496       144
-:bitmap/matt/01 - Earth/10:                              -48       144
-:bitmap/matt/01 - Earth/12:                              -16       112
-:bitmap/matt/01 - Earth/12:                                0       128
-:bitmap/matt/01 - Earth/12:                               32       128
-:bitmap/matt/01 - Earth/12:                               48       144
-:bitmap/matt/01 - Earth/12:                               16       112
-:bitmap/matt/01 - Earth/12:                              -16        96
-:bitmap/matt/01 - Earth/13:                              -24        58
-:bitmap/matt/01 - Earth/12:                              -16       336     f
-:bitmap/matt/01 - Earth/12:                                0       352     f
-:bitmap/matt/01 - Earth/12:                               26       360     f
-:bitmap/matt/01 - Earth/12:                               16       336     f
-:bitmap/matt/01 - Earth/12:                              -16       320     f
-:bitmap/matt/01 - Earth/13:                              -16       288     f
-:bitmap/matt/01 - Earth/04:                              134       192     r
-:bitmap/matt/01 - Earth/04:                              256       160     r
-:bitmap/matt/01 - Earth/04:                              606        30
-:bitmap/matt/01 - Earth/04:                              464       176     r
-:bitmap/matt/01 - Earth/10:                              304       192
-:bitmap/matt/01 - Earth/16:                              -19       208     r
-:bitmap/matt/01 - Earth/09:                                0        16     f
-:bitmap/matt/01 - Earth/10:                              -48       -80
-:bitmap/matt/01 - Earth/10:                               96       -96
-:bitmap/matt/01 - Earth/10:                              208       -80
-:bitmap/matt/01 - Earth/06:                              203       -20     f
-:bitmap/matt/01 - Earth/06:                              528       -12     f
-:bitmap/matt/01 - Earth/10:                              352       -96
-:bitmap/matt/01 - Earth/10:                              528       -80
-:bitmap/matt/01 - Earth/07:                               56       235
-:bitmap/matt/01 - Earth/06:                              302       212
-:bitmap/matt/01 - Earth/07:                              580       200
-:bitmap/matt/01 - Earth/13:                              -23        20     f
-:bitmap/matt/01 - Earth/20:                               48       384
-:bitmap/matt/01 - Earth/12:                              -30       365     f
-:bitmap/matt/01 - Earth/12:                                2       365     f
-:bitmap/matt/01 - Earth/12:                              -23       379     f
-:bitmap/matt/01 - Earth/12:                                9       379     f
-:bitmap/matt/01 - Earth/20:                              144       384
-:bitmap/matt/steel/32x32.S:                              480        64
-:bitmap/matt/steel/32x64.S:                              480         0
-:bitmap/matt/steel/32x32.S:                              512        64
-:bitmap/matt/steel/32x32.S:                              544        64
-:bitmap/matt/steel/32x32.S:                              608        64
-:bitmap/matt/steel/32x64.S:                              608         0
-:bitmap/matt/01 - Earth/12:                              576        80     r
-:bitmap/rubix/Tutorial/Tutorial 04:                      447       305
-:bitmap/matt/01 - Earth/07:                              252       142
+:matt/earth/12:                              576        64     r
+:matt/earth/01:                              256       368
+:matt/earth/01:                              224       384
+:matt/earth/04:                              256       288
+:matt/earth/06:                              400       146
+:matt/earth/09:                              210       138
+:matt/earth/09:                              610        16     f
+:matt/earth/09:                              564        22     f
+:matt/earth/09:                               84         4     f
+:matt/earth/09:                              136         4     f
+:matt/earth/09:                              320         2     f
+:matt/earth/09:                              374         6     f
+:matt/earth/13:                              624       192
+:matt/earth/10:                               48       144
+:matt/earth/04:                               64       144
+:matt/earth/10:                              160       144
+:matt/earth/10:                              256       144
+:matt/earth/10:                              384       144
+:matt/earth/10:                              496       144
+:matt/earth/10:                              -48       144
+:matt/earth/12:                              -16       112
+:matt/earth/12:                                0       128
+:matt/earth/12:                               32       128
+:matt/earth/12:                               48       144
+:matt/earth/12:                               16       112
+:matt/earth/12:                              -16        96
+:matt/earth/13:                              -24        58
+:matt/earth/12:                              -16       336     f
+:matt/earth/12:                                0       352     f
+:matt/earth/12:                               26       360     f
+:matt/earth/12:                               16       336     f
+:matt/earth/12:                              -16       320     f
+:matt/earth/13:                              -16       288     f
+:matt/earth/04:                              134       192     r
+:matt/earth/04:                              256       160     r
+:matt/earth/04:                              606        30
+:matt/earth/04:                              464       176     r
+:matt/earth/10:                              304       192
+:matt/earth/16:                              -19       208     r
+:matt/earth/09:                                0        16     f
+:matt/earth/10:                              -48       -80
+:matt/earth/10:                               96       -96
+:matt/earth/10:                              208       -80
+:matt/earth/06:                              203       -20     f
+:matt/earth/06:                              528       -12     f
+:matt/earth/10:                              352       -96
+:matt/earth/10:                              528       -80
+:matt/earth/07:                               56       235
+:matt/earth/06:                              302       212
+:matt/earth/07:                              580       200
+:matt/earth/13:                              -23        20     f
+:matt/earth/20:                               48       384
+:matt/earth/12:                              -30       365     f
+:matt/earth/12:                                2       365     f
+:matt/earth/12:                              -23       379     f
+:matt/earth/12:                                9       379     f
+:matt/earth/20:                              144       384
+:matt/steel/32x32.S:                              480        64
+:matt/steel/32x64.S:                              480         0
+:matt/steel/32x32.S:                              512        64
+:matt/steel/32x32.S:                              544        64
+:matt/steel/32x32.S:                              608        64
+:matt/steel/32x64.S:                              608         0
+:matt/earth/12:                              576        80     r
+:rubix/Tutorial/Tutorial 04:                      447       305
+:matt/earth/07:                              252       142

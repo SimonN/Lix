@@ -27,49 +27,49 @@ $ENGLISH                                        One pack leads the way
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:./bitmap/Rebuilds/02 - Gold Mine/Hatch.H:               528       171
-:./bitmap/Rebuilds/02 - Gold Mine/Hatch.H:               560       264
+:matt/goldmine/Hatch.H:               528       171
+:matt/goldmine/Hatch.H:               560       264
 
-:./bitmap/Rebuilds/02 - Gold Mine/Goal.G:                410       149
+:matt/goldmine/Goal.G:                410       149
 
-:./bitmap/Rebuilds/02 - Gold Mine/plank:                 524       225
-:./bitmap/Rebuilds/02 - Gold Mine/plank:                 534       235
-:./bitmap/Rebuilds/02 - Gold Mine/02:                    518       227
-:./bitmap/Rebuilds/02 - Gold Mine/02:                    642       250     n
-:./bitmap/Rebuilds/02 - Gold Mine/07:                    511       314
-:./bitmap/Rebuilds/02 - Gold Mine/08:                    596       323
-:./bitmap/Rebuilds/02 - Gold Mine/09:                    675       318
-:./bitmap/Rebuilds/02 - Gold Mine/07:                    681       173     rrn
-:./bitmap/Rebuilds/02 - Gold Mine/00:                    681       161
-:./bitmap/Rebuilds/02 - Gold Mine/08:                    730       132     rrrn
-:./bitmap/Rebuilds/02 - Gold Mine/08:                    690       214     r
-:./bitmap/Rebuilds/02 - Gold Mine/04:                    648       248     n
-:./bitmap/Rebuilds/02 - Gold Mine/04:                    384       197
-:./bitmap/Rebuilds/02 - Gold Mine/06:                    410       184     n
-:./bitmap/Rebuilds/02 - Gold Mine/08:                    367       196
-:./bitmap/Rebuilds/02 - Gold Mine/07:                    366       275     r
-:./bitmap/Rebuilds/02 - Gold Mine/02:                    442       338     n
-:./bitmap/Rebuilds/02 - Gold Mine/07:                    217       122     r
-:./bitmap/Rebuilds/02 - Gold Mine/02:                    217       316
-:./bitmap/Rebuilds/02 - Gold Mine/07:                    157       230     rn
-:./bitmap/Rebuilds/02 - Gold Mine/00:                    168       222
-:./bitmap/Rebuilds/02 - Gold Mine/01:                    212       200
-:./bitmap/Rebuilds/02 - Gold Mine/01:                    140       339
-:./bitmap/Rebuilds/02 - Gold Mine/07:                    166        90     rrrn
-:./bitmap/Rebuilds/02 - Gold Mine/05:                    181       172
-:./bitmap/Rebuilds/02 - Gold Mine/02:                    449       113
-:./bitmap/Rebuilds/02 - Gold Mine/01:                    531       314     n
-:./bitmap/Rebuilds/02 - Gold Mine/plank:                 437       240     n
-:./bitmap/Universal/32x16.S:                             418       195
-:./bitmap/Universal/32x16.S:                             450       195
-:./bitmap/Universal/16x32.S:                             469       163
-:./bitmap/Universal/16x32.S:                             469       131
-:./bitmap/Universal/32x16.S:                             530       248
-:./bitmap/Universal/32x16.S:                             498       248
-:./bitmap/Universal/32x16.S:                             466       248
-:./bitmap/Rebuilds/02 - Gold Mine/plank:                 428       264     n
-:./bitmap/Universal/16x32.S:                             778       260
-:./bitmap/Universal/32x32.S:                             796       152
-:./bitmap/Universal/32x32.S:                             687       318
-:./bitmap/Universal/16x32.S:                             539       305
-:./bitmap/Universal/16x32.S:                             539       273
+:matt/goldmine/plank:                 524       225
+:matt/goldmine/plank:                 534       235
+:matt/goldmine/02:                    518       227
+:matt/goldmine/02:                    642       250     n
+:matt/goldmine/07:                    511       314
+:matt/goldmine/08:                    596       323
+:matt/goldmine/09:                    675       318
+:matt/goldmine/07:                    681       173     rrn
+:matt/goldmine/00:                    681       161
+:matt/goldmine/08:                    730       132     rrrn
+:matt/goldmine/08:                    690       214     r
+:matt/goldmine/04:                    648       248     n
+:matt/goldmine/04:                    384       197
+:matt/goldmine/06:                    410       184     n
+:matt/goldmine/08:                    367       196
+:matt/goldmine/07:                    366       275     r
+:matt/goldmine/02:                    442       338     n
+:matt/goldmine/07:                    217       122     r
+:matt/goldmine/02:                    217       316
+:matt/goldmine/07:                    157       230     rn
+:matt/goldmine/00:                    168       222
+:matt/goldmine/01:                    212       200
+:matt/goldmine/01:                    140       339
+:matt/goldmine/07:                    166        90     rrrn
+:matt/goldmine/05:                    181       172
+:matt/goldmine/02:                    449       113
+:matt/goldmine/01:                    531       314     n
+:matt/goldmine/plank:                 437       240     n
+:matt/steel/32x16.S:                             418       195
+:matt/steel/32x16.S:                             450       195
+:matt/steel/16x32.S:                             469       163
+:matt/steel/16x32.S:                             469       131
+:matt/steel/32x16.S:                             530       248
+:matt/steel/32x16.S:                             498       248
+:matt/steel/32x16.S:                             466       248
+:matt/goldmine/plank:                 428       264     n
+:matt/steel/16x32.S:                             778       260
+:matt/steel/32x32.S:                             796       152
+:matt/steel/32x32.S:                             687       318
+:matt/steel/16x32.S:                             539       305
+:matt/steel/16x32.S:                             539       273

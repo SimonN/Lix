@@ -27,49 +27,49 @@ $ENGLISH                                               Operation Frost
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:./bitmap/Rebuilds/02 - Gold Mine/GoalTop.D:             419        54
+:matt/goldmine/GoalTop.D:             419        54
 
-:./bitmap/Rebuilds/05 - Winter/Hatch.H:                  144       284
+:matt/winter/Hatch.H:                  144       284
 
-:./bitmap/Rebuilds/02 - Gold Mine/Goal.G:                421        95
+:matt/goldmine/Goal.G:                421        95
 
-:./bitmap/Rebuilds/05 - Winter/10:                        95       334
-:./bitmap/Rebuilds/05 - Winter/17:                       263       312
-:./bitmap/Rebuilds/05 - Winter/05:                       300       193
-:./bitmap/Rebuilds/05 - Winter/13:                        68       305
-:./bitmap/Rebuilds/05 - Winter/11:                        70       346
-:./bitmap/Rebuilds/05 - Winter/06:                       223       289     n
-:./bitmap/Rebuilds/05 - Winter/06:                       223       225
-:./bitmap/Rebuilds/05 - Winter/07:                       223       161
-:./bitmap/Rebuilds/05 - Winter/02:                       228       308     n
-:./bitmap/Rebuilds/05 - Winter/18:                       229       285     n
-:./bitmap/Rebuilds/05 - Winter/18:                       249       294     rn
-:./bitmap/Rebuilds/05 - Winter/16:                       323       114
-:./bitmap/Rebuilds/05 - Winter/15:                       400       131
-:./bitmap/Rebuilds/05 - Winter/01:                       456       145
-:./bitmap/Rebuilds/05 - Winter/04:                       350       128     n
-:./bitmap/Rebuilds/05 - Winter/13:                       430       149
-:./bitmap/Rebuilds/05 - Winter/02:                       433       155
-:./bitmap/Rebuilds/05 - Winter/10:                       328       231     n
-:./bitmap/Rebuilds/05 - Winter/07:                       408       326     rrn
-:./bitmap/Rebuilds/05 - Winter/07:                       450       280     rrn
-:./bitmap/Rebuilds/05 - Winter/07:                       421       292     rrn
-:./bitmap/Rebuilds/05 - Winter/07:                       438       303     rrn
-:./bitmap/Rebuilds/05 - Winter/07:                       476       311     rrn
-:./bitmap/Rebuilds/05 - Winter/05:                       503       284     n
-:./bitmap/Rebuilds/05 - Winter/13:                       481       162
-:./bitmap/Rebuilds/05 - Winter/17:                       467       180     n
-:./bitmap/Rebuilds/05 - Winter/07:                       249       213     rr
-:./bitmap/Rebuilds/05 - Winter/05:                        19       247
-:./bitmap/Rebuilds/05 - Winter/06:                       249       149     rr
-:./bitmap/Rebuilds/05 - Winter/06:                       249       113     rr
-:./bitmap/Rebuilds/05 - Winter/04:                       196       -12
-:./bitmap/Rebuilds/05 - Winter/05:                       147       -13     rr
-:./bitmap/Rebuilds/05 - Winter/01:                       193       -15
-:./bitmap/Rebuilds/05 - Winter/03:                       207       -21
-:./bitmap/Rebuilds/05 - Winter/16:                       278        -9     rr
-:./bitmap/Rebuilds/05 - Winter/02:                       271        82
-:./bitmap/Rebuilds/05 - Winter/07:                       370       300     rrn
-:./bitmap/Rebuilds/05 - Winter/09a:                      556       209
-:./bitmap/Rebuilds/05 - Winter/09b:                      609       243
-:./bitmap/Rebuilds/05 - Winter/03:                       517       267     n
+:matt/winter/10:                        95       334
+:matt/winter/17:                       263       312
+:matt/winter/05:                       300       193
+:matt/winter/13:                        68       305
+:matt/winter/11:                        70       346
+:matt/winter/06:                       223       289     n
+:matt/winter/06:                       223       225
+:matt/winter/07:                       223       161
+:matt/winter/02:                       228       308     n
+:matt/winter/18:                       229       285     n
+:matt/winter/18:                       249       294     rn
+:matt/winter/16:                       323       114
+:matt/winter/15:                       400       131
+:matt/winter/01:                       456       145
+:matt/winter/04:                       350       128     n
+:matt/winter/13:                       430       149
+:matt/winter/02:                       433       155
+:matt/winter/10:                       328       231     n
+:matt/winter/07:                       408       326     rrn
+:matt/winter/07:                       450       280     rrn
+:matt/winter/07:                       421       292     rrn
+:matt/winter/07:                       438       303     rrn
+:matt/winter/07:                       476       311     rrn
+:matt/winter/05:                       503       284     n
+:matt/winter/13:                       481       162
+:matt/winter/17:                       467       180     n
+:matt/winter/07:                       249       213     rr
+:matt/winter/05:                        19       247
+:matt/winter/06:                       249       149     rr
+:matt/winter/06:                       249       113     rr
+:matt/winter/04:                       196       -12
+:matt/winter/05:                       147       -13     rr
+:matt/winter/01:                       193       -15
+:matt/winter/03:                       207       -21
+:matt/winter/16:                       278        -9     rr
+:matt/winter/02:                       271        82
+:matt/winter/07:                       370       300     rrn
+:matt/winter/09a:                      556       209
+:matt/winter/09b:                      609       243
+:matt/winter/03:                       517       267     n

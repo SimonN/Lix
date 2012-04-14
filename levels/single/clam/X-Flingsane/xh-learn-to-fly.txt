@@ -32,27 +32,27 @@ $ENGLISH                                                  Learn to fly
 #NOTHING                                                             0
 #NOTHING                                                             0
 
-:bitmap/matt/01 - Earth/Hatch.H:                          72       128
+:matt/earth/Hatch.H:                          72       128
 
-:bitmap/matt/01 - Earth/Goal.G:                          512       112
+:matt/earth/Goal.G:                          512       112
 
-:bitmap/geoo/steel/32x16o.S:                             568       176
-:bitmap/geoo/steel/32x16o.S:                             440       176
-:bitmap/geoo/steel/32x16o.S:                             472       176
-:bitmap/geoo/steel/32x16o.S:                             504       176
-:bitmap/geoo/steel/32x16o.S:                             536       176
-:bitmap/geoo/steel/32x16o.S:                             104       176
-:bitmap/geoo/steel/32x16o.S:                             136       176
-:bitmap/geoo/steel/32x16o.S:                             168       176
-:bitmap/geoo/steel/32x16o.S:                              72       176
-:bitmap/geoo/steel/32x16o.S:                              40       176
-:bitmap/matt/01 - Earth/25:                               26        18     rrr
-:bitmap/matt/01 - Earth/23:                               33        83     rrr
-:bitmap/matt/01 - Earth/23:                              571        15     r
-:bitmap/matt/01 - Earth/26:                              560       196
-:bitmap/matt/01 - Earth/16:                              566       146     rrr
-:bitmap/matt/01 - Earth/05:                              590       120
-:bitmap/matt/01 - Earth/05:                              580       280
-:bitmap/matt/01 - Earth/05:                              -30       270
-:bitmap/matt/01 - Earth/10:                             -146       124
-:bitmap/matt/01 - Earth/05:                              -38       178     f
+:geoo/steel/32x16o.S:                             568       176
+:geoo/steel/32x16o.S:                             440       176
+:geoo/steel/32x16o.S:                             472       176
+:geoo/steel/32x16o.S:                             504       176
+:geoo/steel/32x16o.S:                             536       176
+:geoo/steel/32x16o.S:                             104       176
+:geoo/steel/32x16o.S:                             136       176
+:geoo/steel/32x16o.S:                             168       176
+:geoo/steel/32x16o.S:                              72       176
+:geoo/steel/32x16o.S:                              40       176
+:matt/earth/25:                               26        18     rrr
+:matt/earth/23:                               33        83     rrr
+:matt/earth/23:                              571        15     r
+:matt/earth/26:                              560       196
+:matt/earth/16:                              566       146     rrr
+:matt/earth/05:                              590       120
+:matt/earth/05:                              580       280
+:matt/earth/05:                              -30       270
+:matt/earth/10:                             -146       124
+:matt/earth/05:                              -38       178     f
