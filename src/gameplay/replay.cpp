@@ -254,7 +254,10 @@ void Replay::save_to_file(const Filename& s, const Level* const lev)
 
     std::ofstream file(s.get_rootful().c_str());
 
-    if (!save_level_into_file) {
+    // Also override NOT saving the filename. Always save the filename right
+    // now, and use the level in the replay as a fallback if there is nothing
+    // at the pointed-to level position.
+    if (true || !save_level_into_file) {
         built_required = Level::get_built(level_filename);
         // Write the path to the level, but omit the leading (dir-levels)/
         file << IO::LineDollar(gloB->replay_level_filename,
@@ -364,8 +367,27 @@ void Replay::load_from_file(const Filename& fn)
 
     // Variablen nach dem Laden zuweisen, damit add() nichts kaputtmacht
     version_min = vm;
-    if (level_filename == fn) {
-        holds_level    = true;
-        built_required = Level::get_built(level_filename);
+
+    // check whether the pointed-to level exists, otherwise use itself
+    // as a fallback level
+    Level pointedto(level_filename);
+    if (pointedto.get_status() == Level::BAD_FILE_NOT_FOUND
+     || pointedto.get_status() == Level::BAD_EMPTY) {
+        level_filename = fn;
     }
+
+    // load the replay file itself as a level, to see whether there's a level
+    // in the file itself. This is important e.g. for the extract button.
+    Level itself(fn);
+    if (itself.get_status() == Level::BAD_FILE_NOT_FOUND
+     || itself.get_status() == Level::BAD_EMPTY) {
+        holds_level = false;
+    }
+    else {
+        holds_level = true;
+        if (level_filename == fn) {
+            built_required = Level::get_built(level_filename);
+        }
+    }
+
 }

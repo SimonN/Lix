@@ -87,9 +87,10 @@ void ReplayBrowser::calc_self()
                 useR->single_last_level = browser_save->get_current_file();
                 // Replay-Verzeichnis und -Datei wurden aktualisiert, als
                 // auf den Extraktions-Button gedrueckt wurde
-                Replay r(get_current_file());
-                Level  l(r.get_level_filename());
+                // Extract exactly the replay, not the level it points to!
+                Level  l(get_current_file());
                 l.save_to_file(browser_save->get_current_file());
+                load_dir(get_current_file());
             }
             delete browser_save;
             browser_save = 0;
@@ -184,7 +185,8 @@ void ReplayBrowser::on_file_highlight(const Filename& filename)
         const unsigned long rmin = r.get_version_min();
         const Date&         dlev = l.built;
         const Date&         drep = r.get_built_required();
-        const bool&   holdslevel = r.get_holds_level();
+        const bool   showcontain = r.get_holds_level()
+                                   && filename == r.get_level_filename();
 
         std::string pl = Language::browser_info_player  + ' ';
         std::string ti = Language::browser_info_version + ' ';
@@ -197,7 +199,7 @@ void ReplayBrowser::on_file_highlight(const Filename& filename)
         ti += rmin > over ? Language::browser_info_old
             : rmin < omin ? Language::browser_info_new
             :               Language::browser_info_same;
-        bu += holdslevel  ? Language::browser_info_holds_level
+        bu += showcontain ? Language::browser_info_holds_level
             : drep > dlev ? Language::browser_info_old
             : drep < dlev ? Language::browser_info_new
             :               Language::browser_info_same;
