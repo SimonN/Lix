@@ -231,6 +231,14 @@ win_skill_classic_8,
 win_skill_classic_12,
 win_skill_all_to,
 
+// Exporting a level into a file
+export_single_lix,
+export_single_spawnint,
+export_single_clock,
+export_multi_lix,
+export_multi_spawnint,
+export_multi_clock,
+
 // Netzwerk-Chatnachrichten
 net_chat_welcome_1,
 net_chat_welcome_2,

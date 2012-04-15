@@ -217,6 +217,14 @@ win_skill_classic_8,
 win_skill_classic_12,
 win_skill_all_to,
 
+// Exporting a level into a file
+export_single_lix,
+export_single_spawnint,
+export_single_clock,
+export_multi_lix,
+export_multi_spawnint,
+export_multi_clock,
+
 // Netzwerk-Chatnachrichten
 net_chat_welcome_1,
 net_chat_welcome_2,
@@ -637,6 +645,14 @@ void Language::set(const Language lang)
         win_skill_classic_8           = "Classic 8";
         win_skill_classic_12          = "Modern 12";
         win_skill_all_to              = "Adjust all:";
+
+        // Exporting a level into a file
+        export_single_lix             = "Save:";
+        export_single_spawnint        = "Spawn int.:";
+        export_single_clock           = "Time:";
+        export_multi_lix              = "Lix:";
+        export_multi_spawnint         = "Spawn int.:";
+        export_multi_clock            = "Overtime:";
 
         // Netzwerk-Chatnachrichten
         net_chat_welcome_1            = "You can join the central server, "
@@ -1108,6 +1124,14 @@ eb[Editor::ADD_HAZARD]
         win_skill_classic_8           = "Alte 8";
         win_skill_classic_12          = "Moderne 12";
         win_skill_all_to              = "Alle aendern:";
+
+        // Exporting a level into a file
+        export_single_lix             = "Ziel:";
+        export_single_spawnint        = "Fall-Int.:";
+        export_single_clock           = "Zeit:";
+        export_multi_lix              = "Lix:";
+        export_multi_spawnint         = "Fall-Int.:";
+        export_multi_clock            = "Nachspielzeit:";
 
         // Netzwerk-Chatnachrichten
         net_chat_welcome_1            = "Verbinde zum Zentralserver, eroeffne "

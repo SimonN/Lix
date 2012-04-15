@@ -5,6 +5,8 @@
  *
  */
 
+#include <sstream> // print things onto the file-exported level bitmap
+
 #include "level.h"
 #include "obj_lib.h"
 
@@ -159,14 +161,28 @@ void Level::export_image(const Filename& filename) const
 
     osd.clear_to_color(color[COL_PINK]);
 
+    const bool singleplayer = true;
+
+    std::ostringstream initialstr;
+    if (singleplayer) initialstr << required << "/" << initial;
+    else              initialstr <<                    initial;
+
+    std::ostringstream spawnstr;
+    if (singleplayer && spawnint_slow != spawnint_fast)
+        spawnstr << spawnint_fast << "-" << spawnint_slow;
+    else spawnstr << spawnint_slow;
+
     Api::LabelTwo info_initial (10,  3, 140);
     Api::LabelTwo info_spawnint(10, 20, 140);
     Api::LabelTwo info_clock   (10, 37, 140);
-    info_initial .set_desc(Language::browser_info_initial);
-    info_spawnint.set_desc(Language::win_var_spawnint_slow + ":");
-    info_clock   .set_desc(Language::browser_info_clock_2);
-    info_initial .set_value(initial);
-    info_spawnint.set_value(spawnint_slow);
+    info_initial .set_desc(singleplayer ? Language::export_single_lix
+                                        : Language::export_multi_lix);
+    info_spawnint.set_desc(singleplayer ? Language::export_single_spawnint
+                                        : Language::export_multi_spawnint);
+    info_clock   .set_desc(singleplayer ? Language::export_single_clock
+                                        : Language::export_multi_clock);
+    info_initial .set_value(initialstr.str());
+    info_spawnint.set_value(spawnstr.str());
     info_clock   .set_value_seconds_as_time(seconds);
     info_initial .draw();
     info_spawnint.draw();
