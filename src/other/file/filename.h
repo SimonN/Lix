@@ -29,6 +29,8 @@ public:
     bool operator != (const Filename& rhs)   const;
     bool operator <  (const Filename& rhs)   const;
 
+    bool        is_child_of(const Filename&) const;
+
     inline StR  get_rootful ()               const { return rootful;         }
     inline StR  get_rootless()               const { return rootless;        }
 

@@ -14,11 +14,12 @@ DirList::DirList(const int x,  const int y,
                  const Filename& bdir, const Filename& cdir)
 :
     Frame(x, y, xl, yl),
-    page              (0),
-    bottom_button     (yl/20-1),
-    base_dir    (bdir.get_dir_rootful()),
-    current_dir (cdir.get_dir_rootful()),
-    clicked     (false)
+    page         (0),
+    bottom_button(yl/20-1),
+    base_dir     (bdir.get_dir_rootful()),
+    current_dir  (cdir.is_child_of(bdir) ? Filename(cdir.get_dir_rootful())
+                                         : base_dir),
+    clicked      (false)
 {
     load_current_dir();
     set_undraw_color(color[COL_API_M]);
@@ -91,7 +92,7 @@ void DirList::load_current_dir() {
     std::sort(dir_list.begin(), dir_list.end());
 
     // Hochwechsler
-    if (current_dir.get_rootful().size() > base_dir.get_rootful().size()) {
+    if (current_dir != base_dir) {
         add_button(0, Language::dir_parent);
         (**--buttons.end()).set_hotkey(useR->key_me_up_dir);
     }
@@ -126,14 +127,17 @@ void DirList::static_put_to_dir_list(const Filename& fn, void* which_object) {
 }
 
 void DirList::set_current_dir_to_parent_dir() {
-    if (current_dir.get_rootful().size() > base_dir.get_rootful().size()) {
+    if (current_dir.is_child_of(base_dir) && current_dir != base_dir) {
         std::string s = current_dir.get_rootful();
         do {
             s.resize(s.size()-1);
         } while (s[s.size()-1] != '/');
         current_dir = Filename(s);
-        load_current_dir();
     }
+    else {
+        current_dir = base_dir;
+    }
+    load_current_dir();
 }
 
 
@@ -141,7 +145,12 @@ void DirList::set_current_dir_to_parent_dir() {
 void DirList::set_current_dir(const Filename& s) {
     if (current_dir == s) return;
     // Wenn wirklich neu...
-    current_dir = Filename(s.get_dir_rootful());
+    if (s.is_child_of(base_dir)) {
+        current_dir = Filename(s.get_dir_rootful());
+    }
+    else {
+        current_dir = base_dir;
+    }
     load_current_dir();
 }
 

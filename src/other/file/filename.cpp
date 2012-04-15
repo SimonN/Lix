@@ -110,6 +110,14 @@ bool Filename::operator <  (const Filename& rhs) const
 
 
 
+bool Filename::is_child_of(const Filename& parent) const
+{
+    return parent.file.empty()
+        && parent.rootless == rootless.substr(0, parent.rootless.size());
+}
+
+
+
 bool Filename::has_image_extension() const
 {
     return extension == ".png"
