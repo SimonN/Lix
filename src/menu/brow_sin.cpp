@@ -147,13 +147,20 @@ void SingleBrowser::on_file_highlight(const Filename& filename)
     rec_altered_1.hide();
     rec_altered_2.hide();
 
-    button_export.hide();
-    button_export.set_text(Language::browser_export_image);
-    button_delete.hide();
-
     Level l(filename);
-    if (l.get_status() == Level::BAD_FILE_NOT_FOUND) clear_preview();
-    else set_preview(l);
+
+    if (l.get_status() == Level::BAD_FILE_NOT_FOUND) {
+        clear_preview();
+        button_export.hide();
+        button_export.set_text(Language::browser_export_image);
+        button_delete.hide();
+    }
+    else {
+        set_preview(l);
+        button_export.show();
+        button_export.set_text(Language::browser_export_image);
+        button_delete.show();
+    }
 
     if (!l.get_good()) return;
 
@@ -170,10 +177,6 @@ void SingleBrowser::on_file_highlight(const Filename& filename)
     info_author  .set_value(l.author.empty()
                             ? Language::browser_info_author_none : l.author);
     info_initial .set_value(initgoalval.str());
-
-    button_export.show();
-    button_export.set_text(Language::browser_export_image);
-    button_delete.show();
 
     //////////////////////////////////////
     // Besten frueheren Erfolg anzeigen //
