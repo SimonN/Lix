@@ -260,10 +260,15 @@ void Replay::save_to_file(const Filename& s, const Level* const lev)
     if (true || !save_level_into_file) {
         built_required = Level::get_built(level_filename);
         // Write the path to the level, but omit the leading (dir-levels)/
-        file << IO::LineDollar(gloB->replay_level_filename,
+        // This if is just against a crash in networking games.
+        if (level_filename.get_rootless().size()
+         >  gloB->dir_levels.get_dir_rootless().size())
+        {
+             file << IO::LineDollar(gloB->replay_level_filename,
                                level_filename.get_rootless().substr(
                                gloB->dir_levels.get_dir_rootless().size()))
              << IO::LineDollar(gloB->replay_built_required, built_required);
+        }
     }
     file << IO::LineHash(gloB->replay_version_min, version_min)
          << std::endl;
