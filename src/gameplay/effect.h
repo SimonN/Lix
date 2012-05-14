@@ -111,6 +111,7 @@ public:
     void add_overtime     (Uint, const Tribe&, Uint);
 
     int  get_effects();
+    int  get_effects_without_debris();
 
     void delete_after   (const unsigned);
     void calc           (const unsigned);

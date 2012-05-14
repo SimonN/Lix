@@ -295,6 +295,14 @@ int  EffectManager::get_effects()
 
 
 
+int  EffectManager::get_effects_without_debris()
+{
+    return obj_arrow    .size()
+         + obj_explosion.size();
+}
+
+
+
 void EffectManager::draw()
 {
     for (std::list <Arrow>   ::iterator

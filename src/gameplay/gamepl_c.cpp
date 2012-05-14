@@ -106,11 +106,14 @@ void Gameplay::calc_self()
 
 
     // ec kurz fuer exit_count
-    unsigned ec = effect.get_effects();
+    unsigned ec = 0;
     for (Tribe::CIt t = cs.tribes.begin(); t != cs.tribes.end(); ++t)
         ec += t->lix_hatch + t->get_lix_out();
     for (TrigIt i = cs.trap.begin(); i != cs.trap.end(); ++i)
         ec += i->get_x_frame();
+    if (pan.speed_turbo.get_on() || pan.speed_fast.get_on())
+         ec += effect.get_effects_without_debris();
+    else ec += effect.get_effects();
     // Check also for !window_gameplay, as in a networked game,
     // the action keeps running in the background
     if (ec == 0 && !window_gameplay) {
