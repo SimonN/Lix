@@ -1,7 +1,7 @@
 $BUILT                                             2012-02-18 11:37:46
 $AUTHOR                                                   Clam Spammer
 $GERMAN                                                               
-$ENGLISH                                                      The Pits
+$ENGLISH                                                    Underbelly
 
 #SIZE_X                                                           1280
 #SIZE_Y                                                            400

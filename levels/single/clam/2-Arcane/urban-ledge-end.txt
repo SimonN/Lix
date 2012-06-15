@@ -1,0 +1,56 @@
+$BUILT                                             2012-03-11 22:29:06
+$AUTHOR                                                   Clam Spammer
+$GERMAN                                                               
+$ENGLISH                                               Urban Ledge-end
+
+#SIZE_X                                                            640
+#SIZE_Y                                                            400
+#TORUS_X                                                             0
+#TORUS_Y                                                             0
+#START_X                                                             0
+#START_Y                                                             0
+#BACKGROUND_RED                                                      0
+#BACKGROUND_GREEN                                                    0
+#BACKGROUND_BLUE                                                     0
+
+#SECONDS                                                             0
+#INITIAL                                                            10
+#REQUIRED                                                            9
+#SPAWN_INTERVAL                                                     25
+#SPAWN_INTERVAL_FAST                                                25
+
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#BLOCKER                                                            10
+#PLATFORMER                                                          2
+#DIGGER                                                              1
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+#NOTHING                                                             0
+
+:bitmap/geoo/construction/Hatch.H:                       208       112
+
+:bitmap/geoo/construction/Goal2.G:                       508       192
+
+:bitmap/geoo/construction/concrete/032a:                 144       192
+:bitmap/geoo/construction/concrete/032b:                 144       224
+:bitmap/geoo/construction/concrete/032v:                 112       192
+:bitmap/geoo/construction/concrete/064:                  240       192
+:bitmap/geoo/construction/concrete/032a:                 144       256
+:bitmap/geoo/construction/concrete/032b:                 144       288
+:bitmap/geoo/construction/concrete/032v:                 112       256
+:bitmap/geoo/construction/concrete/032h:                 176       320
+:bitmap/geoo/construction/concrete/032h:                 240       320
+:bitmap/geoo/construction/concrete/032h:                 508       256
+:bitmap/geoo/construction/concrete/032h:                 444       256
+:bitmap/geoo/construction/concrete/064:                  444       128
+:bitmap/geoo/construction/concrete/032a:                 238       160
+:bitmap/geoo/construction/concrete/032:                  270       160
+:bitmap/geoo/construction/concrete/032h:                 112       320
+:bitmap/geoo/construction/concrete/032h:                 176       192
+:bitmap/geoo/construction/concrete/064:                  176       224
+:bitmap/geoo/construction/concrete/064:                  304       288

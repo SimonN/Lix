@@ -1,0 +1,78 @@
+$BUILT 2012-05-23 15:16:05
+$AUTHOR Clam Spammer
+$GERMAN 
+$ENGLISH Throw the Switch Mk II
+
+#SIZE_X 640
+#SIZE_Y 384
+#TORUS_X 0
+#TORUS_Y 0
+#START_X 0
+#START_Y -36
+#BACKGROUND_RED 0
+#BACKGROUND_GREEN 0
+#BACKGROUND_BLUE 0
+
+#SECONDS 0
+#INITIAL 12
+#REQUIRED 12
+#SPAWN_INTERVAL 60
+#SPAWN_INTERVAL_FAST 60
+
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#CLIMBER 4
+#FLOATER 4
+#RUNNER 4
+#JUMPER 4
+#BATTER 2
+#BLOCKER 2
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+
+:matt/carnival/Hatch.H: 288 0
+
+:matt/carnival/Goal.G: 512 256
+
+:geoo/construction/Laser_hz_64.F: 160 136
+:geoo/construction/Laseremit_hzl_16.F: 160 136
+:geoo/construction/Laseremit_hzr_16.F: 208 136
+:geoo/construction/sawblade_small.F: 264 16
+
+:matt/carnival/18: 288 64
+:matt/carnival/18: 352 64
+:matt/carnival/18: 416 64
+:matt/carnival/25: 576 0
+:matt/carnival/25: 576 64
+:matt/carnival/25: 576 128
+:matt/carnival/25: 576 192
+:matt/carnival/25: 576 256
+:matt/carnival/25: 576 320
+:matt/carnival/25: 512 320
+:matt/carnival/25: 448 320
+:matt/carnival/25: 384 320
+:matt/carnival/25: 192 320
+:matt/carnival/25: 128 320
+:matt/carnival/25: 64 320
+:matt/carnival/25: 0 320
+:matt/carnival/25: 0 0
+:matt/carnival/25: 0 64
+:matt/carnival/25: 0 128
+:matt/carnival/25: 0 192
+:matt/carnival/25: 0 256
+:matt/carnival/16: 288 192
+:matt/carnival/17: 224 128
+:matt/carnival/16: 384 224
+:matt/carnival/17: 96 128
+:matt/carnival/17: 64 224
+:matt/carnival/17: 128 224
+:matt/carnival/25: 256 320
+:matt/carnival/25: 320 320
+:matt/carnival/18: 480 64 fr
+:matt/carnival/18: 480 128 fr
+:matt/carnival/16: 352 192 fr
+:matt/carnival/16: 352 128 fr
+:matt/carnival/16: 448 224 fr
+:matt/carnival/17: 256 160 fr

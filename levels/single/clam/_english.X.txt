@@ -1,0 +1,21 @@
+Welcome to Clam's levelset for Lix!
+This set contains 99 levels
+across five ratings:
+
+Flower: Beginner-level puzzles, with
+identical stats and abundant skills.
+Humane: Medium-hard puzzles, not
+to be underestimated.
+Arcane: Seriously tough puzzles, a real
+test of your rodent-wrangling skills.
+Insane: My toughest levels, designed
+to challenge even the best players.
+Flingsane: Levels that use the fling-
+bomber ability in various ways.
+
+You can contact me via the Lix
+IRC channel (irc.quakenet.org #lix),
+or the Lemmings Forums
+(lemmingsforums.com).
+
+-- Clam
