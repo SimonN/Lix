@@ -256,7 +256,6 @@ void Gameplay::update_cs_once()
         for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
             if (!i->get_mark()) {
                 ua.id = i - t->lixvec.begin();
-                i->mark();
                 update_lix(*i, ua);
             }
         }
