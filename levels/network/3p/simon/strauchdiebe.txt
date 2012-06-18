@@ -1,14 +1,14 @@
-$BUILT 2012-06-16 01:53:59
+$BUILT 2012-06-16 01:57:35
 $AUTHOR Simon
 $GERMAN
 $ENGLISH Strauchdiebe
 
-#SIZE_X 640
+#SIZE_X 960
 #SIZE_Y 384
-#TORUS_X 0
+#TORUS_X 1
 #TORUS_Y 0
 #START_X 0
-#START_Y 348
+#START_Y -16
 #BACKGROUND_RED 0
 #BACKGROUND_GREEN 0
 #BACKGROUND_BLUE 0
@@ -33,20 +33,27 @@ $ENGLISH Strauchdiebe
 #DIGGER 30
 
 :geoo/construction/Hatch.H: 144 24
-:geoo/construction/Hatch.H: 464 24 r
-:geoo/construction/Hatch.H: 144 24 r
 :geoo/construction/Hatch.H: 464 24
+:geoo/construction/Hatch.H: 784 24
+:geoo/construction/Hatch.H: 144 24 r
+:geoo/construction/Hatch.H: 464 24 r
+:geoo/construction/Hatch.H: 784 24 r
 :geoo/construction/Hatch.H: 144 24
-:geoo/construction/Hatch.H: 464 24 r
-:geoo/construction/Hatch.H: 144 24 r
 :geoo/construction/Hatch.H: 464 24
+:geoo/construction/Hatch.H: 784 24
+:geoo/construction/Hatch.H: 144 24 r
+:geoo/construction/Hatch.H: 464 24 r
+:geoo/construction/Hatch.H: 784 24 r
 :geoo/construction/Hatch.H: 400 200
+:geoo/construction/Hatch.H: 720 200
+:geoo/construction/Hatch.H: 80 200
+:geoo/construction/Hatch.H: 848 200 r
 :geoo/construction/Hatch.H: 208 200 r
 :geoo/construction/Hatch.H: 528 200 r
-:geoo/construction/Hatch.H: 80 200
 
 :matt/marble/Goal.G: 128 320
 :matt/marble/Goal.G: 448 320
+:matt/marble/Goal.G: 768 320
 
 :geoo/construction/Laser_vr_64.F: 312 0
 :geoo/construction/Laser_vr_64.F: 312 64
@@ -54,6 +61,18 @@ $ENGLISH Strauchdiebe
 :geoo/construction/Laser_vr_64.F: 312 192
 :geoo/construction/Laser_vr_64.F: 312 256
 :geoo/construction/Laser_vr_64.F: 312 320
+:geoo/construction/Laser_vr_64.F: 632 0
+:geoo/construction/Laser_vr_64.F: 632 64
+:geoo/construction/Laser_vr_64.F: 632 128
+:geoo/construction/Laser_vr_64.F: 632 192
+:geoo/construction/Laser_vr_64.F: 632 256
+:geoo/construction/Laser_vr_64.F: 632 320
+:geoo/construction/Laser_vr_64.F: -8 0
+:geoo/construction/Laser_vr_64.F: -8 64
+:geoo/construction/Laser_vr_64.F: -8 128
+:geoo/construction/Laser_vr_64.F: -8 192
+:geoo/construction/Laser_vr_64.F: -8 256
+:geoo/construction/Laser_vr_64.F: -8 320
 
 :matt/carnival/37: 80 272 frr
 :matt/carnival/26: 64 256
@@ -109,3 +128,30 @@ $ENGLISH Strauchdiebe
 :matt/carnival/26: 384 320 d
 :matt/steel/48x48.S: 432 368
 :matt/steel/48x48.S: 384 344
+:matt/carnival/25: 704 128
+:matt/carnival/25: 768 96
+:matt/carnival/25: 832 128
+:matt/carnival/49: 704 96
+:matt/carnival/50: 864 96
+:matt/carnival/01: 736 96
+:matt/carnival/01: 832 96
+:matt/carnival/29: 704 192 f
+:matt/carnival/29: 832 192 f
+:matt/carnival/30: 768 16 f
+:matt/carnival/26: 768 -48
+:matt/carnival/37: 720 272 frr
+:matt/carnival/26: 704 256
+:matt/carnival/37: 816 272
+:matt/carnival/26: 832 256
+:matt/beach/decor/grass08: 834 262 frr
+:matt/carnival/26: 832 320 d
+:matt/steel/48x48.S: 800 368
+:matt/carnival/14: 768 256
+:matt/carnival/14: 784 256
+:matt/carnival/14: 800 256
+:matt/carnival/14: 816 256
+:matt/steel/48x48.S: 848 344
+:matt/beach/decor/grass08: 708 262
+:matt/carnival/26: 704 320 d
+:matt/steel/48x48.S: 752 368
+:matt/steel/48x48.S: 704 344
