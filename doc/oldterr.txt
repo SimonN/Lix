@@ -24,42 +24,42 @@ INSTALLING THE TERRAIN
 
 From DOS Lemmings 1, take VGAGRx.DAT (with x being any one-digit number) and
 GROUNDxO.DAT, optionally also VGASPECx.DAT, and put them into the following
-dir structure: (you have to create the directory `./bitmap/orig/' and its
+dir structure: (you have to create the directory `./images/orig/' and its
 subdirectories first:)
 
-    ./bitmap/orig/L1/0. Dirt/GROUND0O.DAT
-    ./bitmap/orig/L1/0. Dirt/VGAGR0.DAT
-    ./bitmap/orig/L1/1. Hell/GROUND1O.DAT
-    ./bitmap/orig/L1/1. Hell/VGAGR1.DAT
-    ./bitmap/orig/L1/2. Pastel/GROUND2O.DAT
-    ./bitmap/orig/L1/2. Pastel/VGAGR2.DAT
-    ./bitmap/orig/L1/3. Pillar/GROUND3O.DAT
-    ./bitmap/orig/L1/3. Pillar/VGAGR3.DAT
-    ./bitmap/orig/L1/4. Crystal/GROUND4O.DAT
-    ./bitmap/orig/L1/4. Crystal/VGAGR4.DAT
-    ./bitmap/orig/L1/VGASPEC0.DAT
-    ./bitmap/orig/L1/VGASPEC1.DAT
-    ./bitmap/orig/L1/VGASPEC2.DAT
-    ./bitmap/orig/L1/VGASPEC3.DAT
+    ./images/orig/L1/0. Dirt/GROUND0O.DAT
+    ./images/orig/L1/0. Dirt/VGAGR0.DAT
+    ./images/orig/L1/1. Hell/GROUND1O.DAT
+    ./images/orig/L1/1. Hell/VGAGR1.DAT
+    ./images/orig/L1/2. Pastel/GROUND2O.DAT
+    ./images/orig/L1/2. Pastel/VGAGR2.DAT
+    ./images/orig/L1/3. Pillar/GROUND3O.DAT
+    ./images/orig/L1/3. Pillar/VGAGR3.DAT
+    ./images/orig/L1/4. Crystal/GROUND4O.DAT
+    ./images/orig/L1/4. Crystal/VGAGR4.DAT
+    ./images/orig/L1/VGASPEC0.DAT
+    ./images/orig/L1/VGASPEC1.DAT
+    ./images/orig/L1/VGASPEC2.DAT
+    ./images/orig/L1/VGASPEC3.DAT
 
 If you have Oh no more Lemmings, you can take the same files (except
 VGASPECx.DAT, it doesn't have any), but you must add 5 to the single digit in
 each file's name by renaming it:
 
-    ./bitmap/orig/L1/5. Brick/GROUND5O.DAT
-    ./bitmap/orig/L1/5. Brick/VGAGR5.DAT
-    ./bitmap/orig/L1/6. Rock/GROUND6O.DAT
-    ./bitmap/orig/L1/6. Rock/VGAGR6.DAT
-    ./bitmap/orig/L1/7. Snow/GROUND7O.DAT
-    ./bitmap/orig/L1/7. Snow/VGAGR7.DAT
-    ./bitmap/orig/L1/8. Bubble/GROUND8O.DAT
-    ./bitmap/orig/L1/8. Bubble/VGAGR8.DAT
+    ./images/orig/L1/5. Brick/GROUND5O.DAT
+    ./images/orig/L1/5. Brick/VGAGR5.DAT
+    ./images/orig/L1/6. Rock/GROUND6O.DAT
+    ./images/orig/L1/6. Rock/VGAGR6.DAT
+    ./images/orig/L1/7. Snow/GROUND7O.DAT
+    ./images/orig/L1/7. Snow/VGAGR7.DAT
+    ./images/orig/L1/8. Bubble/GROUND8O.DAT
+    ./images/orig/L1/8. Bubble/VGAGR8.DAT
 
 If you have Holiday Lemmings 1993 or 1994 (I think 1992 does as well), you can
 also take the holiday terrain and change the 0 to a 9:
 
-    ./bitmap/orig/L1/9. Holiday/GROUND9O.DAT
-    ./bitmap/orig/L1/9. Holiday/VGAGR9.DAT
+    ./images/orig/L1/9. Holiday/GROUND9O.DAT
+    ./images/orig/L1/9. Holiday/VGAGR9.DAT
 
 If you have Lemmings 2, you can take the 12 files from its STYLES/ directory.
 Because all of these files except for CAVEMAN.DAT are compressed, you need
@@ -74,11 +74,11 @@ For each tribe, make a directory as following, and put the corresponding file
 in there. Rename the L2 style files so that only the first letter is capital,
 all else is small case (including the extension).
 
-    ./bitmap/orig/L2/Beach/Beach.dat
-    ./bitmap/orig/L2/Cavelems/Cavelems.dat
-    ./bitmap/orig/L2/Circus/Circus.dat
+    ./images/orig/L2/Beach/Beach.dat
+    ./images/orig/L2/Cavelems/Cavelems.dat
+    ./images/orig/L2/Circus/Circus.dat
     ... a total of 12 of these ...
-    ./bitmap/orig/L2/Sports/Sports.dat
+    ./images/orig/L2/Sports/Sports.dat
 
 Note that for CAVEMAN.DAT, this file must be named Cavelems.dat
 (not Caveman.dat) and its directory must also be called Cavelems.
@@ -106,6 +106,7 @@ you shouldn't distribute your game directory as a whole any more.
 
 USING LEMMINI LEVELS
 --------------------
+
 Lix can read Lemmini's .INI format, as long as the .INI levels use styles from
 Lemmings 1 or ONML. Custom-style .INI levels are not supported.
 
@@ -181,3 +182,8 @@ graphics set based on the subdirectory structure you put the files in:
     this currently makes Lix use the Holiday graphics set for the level.
     This is not entirely correct yet, as there are levels like
     "Vacation in Gemland" that require the ONML Rock set instead.
+
+Please note that Lix is not Lemmings, so the game physics are not the same.
+Some levels may prove unsolvable in Lix, especially due to exits buried too
+deep inside the terrain: Lemmings exit trigger areas stretch quite far up
+vertically, which is not the case in Lix for multiplayer balancing reasons.
