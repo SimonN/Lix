@@ -116,7 +116,8 @@ private:
     void prepare_panel  ();
     void save_result    ();
 
-    double distance_to_hatches(int, int, const std::vector <GameHatch*>&);
+    int  distance_x_to_hatches(int, const std::vector <GameHatch*>&);
+    int  distance_y_to_hatches(int, const std::vector <GameHatch*>&);
     void determine_screen_start_from_hatches(const std::vector <GameHatch*>&);
 
     // Calculate-Subroutinen

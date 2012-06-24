@@ -350,16 +350,28 @@ void Gameplay::prepare_panel()
 
 
 
-double Gameplay::distance_to_hatches(
-    int x, int y, const std::vector <GameHatch*>& vec
+int Gameplay::distance_x_to_hatches(
+    int x, const std::vector <GameHatch*>& vec
 ) {
     typedef std::vector <GameHatch*> ::const_iterator Chit;
-    double ret = 0;
+    int ret = 0;
     for (Chit itr = vec.begin(); itr != vec.end(); ++itr) {
-        ret += Help::hypot(0, 0, map.distance_x(x,
-            (**itr).get_x() + (**itr).get_object()->get_trigger_x()),
-                                 map.distance_y(y,
-            (**itr).get_y() + (**itr).get_object()->get_trigger_y()));
+        ret += std::abs(map.distance_x(x,
+            (**itr).get_x() + (**itr).get_object()->get_trigger_x()) );
+    }
+    return ret;
+}
+
+
+
+int Gameplay::distance_y_to_hatches(
+    int y, const std::vector <GameHatch*>& vec
+) {
+    typedef std::vector <GameHatch*> ::const_iterator Chit;
+    int ret = 0;
+    for (Chit itr = vec.begin(); itr != vec.end(); ++itr) {
+        ret += std::abs(map.distance_y(y,
+            (**itr).get_y() + (**itr).get_object()->get_trigger_y()) );
     }
     return ret;
 }
@@ -380,24 +392,44 @@ void Gameplay::determine_screen_start_from_hatches(
     }
     sum_x /= vec.size();
     sum_y /= vec.size();
-    const int more_x = sum_x + map.get_xl() / 2;
-    const int more_y = sum_y + map.get_yl() / 2;
-    double dist = distance_to_hatches(sum_x, sum_y, vec);
-    double dist_x = dist, dist_y = dist, dist_xy = dist;
-    if (map.get_torus_x())
-        dist_x = distance_to_hatches(more_x, sum_y, vec);
-    if (map.get_torus_y())
-        dist_y = distance_to_hatches(sum_x, more_y, vec);
-    if (map.get_torus_x() && map.get_torus_y())
-        dist_xy = distance_to_hatches(more_x, more_y, vec);
 
-                          map.set_screen_center(sum_x,  sum_y);
-    if (dist_x  < dist)   map.set_screen_center(more_x, sum_y);
-    if (dist_y  < dist
-     && dist_y  < dist_x) map.set_screen_center(sum_x,  more_y);
-    if (dist_xy < dist
-     && dist_xy < dist_x
-     && dist_xy < dist_y) map.set_screen_center(more_x, more_y);
+    int best_x = sum_x;
+    int best_y = sum_y;
+
+    // If we have n hatches with n > 1, and there are torus directions,
+    // repeatedly add 1/n of the screen size and see whether the new point is
+    // better than all before. For checking goodness of a point, we test
+    // independently for x and y distance using the 1-norm. This should
+    // produce nice results, since we start with the average of all coordinates
+    // and merely shift that around because of the torus.
+    if (vec.size() > 1 && map.get_torus_x()) {
+        int dist = 0;
+        for (int i = 0; i < (int) vec.size(); ++i) {
+            int plus_x  = map.get_xl() * i / vec.size();
+            int newdist = distance_x_to_hatches(sum_x + plus_x, vec);
+            if (newdist < dist || i == 0) {
+                dist   = newdist;
+                best_x = sum_x + i;
+            }
+        }
+    }
+    if (vec.size() > 1 && map.get_torus_y()) {
+        // here, we do the same stuff as above, but using the already computed
+        // best_x instead of the original value.
+        int dist = 0;
+        for (int i = 0; i < (int) vec.size(); ++i) {
+            int plus_y  = map.get_yl() * i / vec.size();
+            int newdist = distance_y_to_hatches(sum_y + plus_y, vec);
+            if (newdist < dist || i == 0) {
+                dist   = newdist;
+                best_y = sum_y + i;
+            }
+        }
+    }
+
+    // Now we have a point (best_x, best_y) on which we want to center the
+    // screen initially.
+    map.set_screen_center(best_x, best_y);
 }
 
 
