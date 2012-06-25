@@ -316,15 +316,17 @@ void Editor::flip_selection_individual() {
 }
 
 void Editor::flip_selection() {
-    int y_max = INT_MIN;
-    int y_min = INT_MAX;
+    int x_max = INT_MIN;
+    int x_min = INT_MAX;
     for (SelIt i = selection.begin(); i != selection.end(); ++i) {
-        y_max = std::max(y_max, i->o->get_y() + i->o->get_yl());
-        y_min = std::min(y_min, i->o->get_y());
+        x_max = std::max(x_max, i->o->get_x() + i->o->get_xl());
+        x_min = std::min(x_min, i->o->get_x());
     }
-    int y_pivot = (y_max + y_min) / 2;
+    int x_pivot = (x_max + x_min) / 2;
     for (SelIt i = selection.begin(); i != selection.end(); ++i) {
-        i->o->set_y(2 * y_pivot - i->o->get_y() - i->o->get_yl());
+        // move the piece according to the whole selection's ongoing flipping
+        i->o->set_x(2 * x_pivot - i->o->get_x() - i->o->get_xl());
+        // now rotate the piece individually
         if (i->l == &object[Object::TERRAIN]) {
             i->o->set_mirror(!i->o->get_mirror());
             if (i->o->get_rotation() == 0 || i->o->get_rotation() == 2)
