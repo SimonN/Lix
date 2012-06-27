@@ -1,20 +1,35 @@
  _____________________________________________________________________________
 /                                                                             \
 |   Lix                                                     Version History   |
-|                                                                             |
-|   I haven't updated this file in quite a while. If you would like to see    |
-|   what's new in the current version, take a look at the commit messages     |
-|   on this website:                                                          |
-|                                                                             |
-|       https://github.com/SimonN/Lix/commits/master                          |
-|
 \_____________________________________________________________________________/
 
 
 
-(current version)
+2012-06-27
 
-    See website link above.
+    Proxima's terrain
+        A new blocky terrain style by Proxima.
+
+    Clam's levels updated
+        Now with ordering files, directory description, and a few changes
+        in the levels themselves.
+
+    Drawing order bugfix
+        Workers are drawn properly over walkers again.
+
+    Editor mirroring bugfix
+        Select many pieces and hit the mirror button. Each piece was mirrored
+        in place horizontally (correct), then each piece moved as if the
+        selection should be mirrored vertically (false). Now fixed.
+
+    Fast-forward and debris
+        Don't wait anymore for the debris to clean up (exploder leftovers)
+        before displaying end-of-level thing iff (ffwd or turbo-ffwd) is on.
+
+(2011 to 2012)
+
+    A lot of small stuff.
+    See commit messages: https://github.com/SimonN/Lix/commits/master
 
 
 2011-09-03
