@@ -1,5 +1,5 @@
 Welcome to Clam's levelset for Lix!
-This set contains 99 levels
+This set contains 94 levels
 across five ratings:
 
 Flower: Beginner-level puzzles, with
