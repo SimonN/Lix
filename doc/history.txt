@@ -5,6 +5,12 @@
 
 
 
+2012-06-28
+
+    Proxima's terrain updated
+        The pieces fit together better when using the 16-sized grid.
+        There are 14 spheres in many colors now.
+
 2012-06-27
 
     Proxima's terrain
@@ -13,6 +19,10 @@
     Clam's levels updated
         Now with ordering files, directory description, and a few changes
         in the levels themselves.
+
+    Multiplayer levels
+        A couple of new multiplayer levels from geoo, thick molasses (TM),
+        and me.
 
     Drawing order bugfix
         Workers are drawn properly over walkers again.
