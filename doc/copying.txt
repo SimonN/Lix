@@ -1,8 +1,9 @@
 Lix -- a multiplayer-capable action-puzzle game
 
-Written in 2006 to 2012 by Simon <eiderdaus@gmail.com>
-
-[we should add the other contributors at some time here...]
+Written in 2006 to 2012 by Simon <eiderdaus@gmail.com>.
+Character sprites and non-level graphics by Simon.
+In-Level graphics, e.g. terrain, by Matt C., geoo, and Proxima.
+The files in ./src/graphic/png constitute loadpng by Peter Wang.
 
 To the extent possible under law, the authors have dedicated all
 copyright and related and neighboring rights to this software to the

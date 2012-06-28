@@ -6,10 +6,8 @@
 
 
 If you've downloaded a binary package from the Lix website, read the first
-chapter of this file.
-
-If you've obtained the Lix source and wish to build the game yourself, read
-the remaining chapters.
+chapter of this file. If you've obtained the Lix source and wish to build the
+game yourself, read the remaining chapters.
 
 
 
@@ -19,9 +17,10 @@ USING THE BINARY PACKAGE
 If you've downloaded a binary release from the Lix website, run the game
 like this:
 
-    ./bin/runme
+    ./bin/lix
 
-This is a shellscript wra
+This should use the shared libraries in ./bin/lib. 32-bit Linux systems
+won't get sound as far as I know, on 64-bit systems the sound works.
 
 
 
@@ -88,22 +87,11 @@ If you did not install the libraries to /usr/somewhere:
 Finally, whether or not you've tweaked the Makefile, invoke make from the Lix
 root dir. It should build two binaries, ./bin/lix and ./bin/lixd. The first
 binary is the game executable. If you have installed Allegro into your system,
-then you can run it directly. Otherwise, you should run it with a shellscript
-like so, to make sure you get sound:
-
-    #!/bin/sh
-    if [ ! -e bin/lix ]; then
-        echo "This script should be run from the game's root dir."
-        exit
-    fi
-    export LD_LIBRARY_PATH=path/to/lib
-    export ALLEGRO_MODULES=path/to/lib/allegro/4.4.x
-    bin/lix
-
-Edit the variables so that they point to directories, not to files. The first
-line should point to the directory containing liballeg.so.4.x (or however it is
-named for you), the second should point to the directory containing modules.lst
-(a file in the same directory as several other shared Allegro libraries).
+then you can run it directly. Otherwise, you should provide it with the
+necessary shared libraries in its subdirectories ./bin/lib, see the
+downloadable Lix binary archives for what to put in there. (You could also
+edit the Makefile linker settings to have the game search for the Allegro
+libraries somewhere else during runtime.)
 
 I didn't intend the game to be installed further in any way. All files reside
 in a single directory somewhere under the user's home directory. Uninstall

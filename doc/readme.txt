@@ -16,7 +16,7 @@ TABLE OF CONTENTS
 -----------------
 
 1. Overview
-2. License
+2. Copying Information
 3. Contact
 4. Command line switches
 5. The level editor
@@ -47,20 +47,23 @@ If you encounter any problems, read techfaq.txt in this directory.
 
 
 
-2. LICENSE
-----------
+2. COPYING INFORMATION
+----------------------
 
-Lix is free software. You can do whatever you like with it. Alter the levels,
-graphics, sound effects and even the game itself (source is available) to your
-pleasure, and then give copies to everyone and their neighbor.
+Lix is placed in the public domain via the CC0 public domain dedication.
+See the file copying.txt in this directory for details.
+
+You can do whatever you like with Lix. Alter the levels, graphics, sound
+effects and even the game itself (source is available) to your pleasure,
+and then give copies to everyone and their neighbor.
 
 You cannot hold me responsible for any damage Lix does to you or your machine.
-Don't save your diploma's thesis as a *.txt file and delete it using the
+Don't save your master's thesis as a *.txt file and delete it using the
 replay menu. ;-)
 
 If you add game content from Lemmings games to Lix, note that the Lemmings
 games are still restricted by copyright. You probably shouldn't distribute Lix
-with such content already included.
+with such content included.
 
 
 
@@ -103,12 +106,12 @@ Lix executable (./lix.exe unter Windows, ./bin/lix under Linux):
 The level editor can be accessed via the singleplayer menu. Select any level
 and hit the edit button on the right side of the screen.
 
-You can activate the context-sensitive button help in the editor by clicking
-on the button with the question mark "?". Hover over any editor button to see
-what it is good for, or which key it has as a hotkey.
+The editor has a status bar. To learn the functions and hotkeys of the various
+buttons, hover over any of them with the mouse.
 
-Make good use of these hotkeys. You can change the default key bindings if
-you want. At least, learn where the copy hotkey is, it's the most useful.
+You can change the default hotkey bindings in the game's options. Make good
+use of the keys: The handiest hotkey is the copy key, and popping up the
+terrain browser is also common.
 
 If you've created some nice levels, you can drop me a line in the Lix Forum or
 via email. I've given the website and my contact info in a note above.
@@ -123,7 +126,10 @@ play on the central server, or have a member of your peer group host a game.
 In that case, he has to make sure that port 22934 over UDP is open.
 
 The rules for the multiplayer game are as following. Everyone controls his
-own horde of lixes, you can only assign skills to your own lixes.
+own tribe (color) of lixes, you can only assign skills to your own lixes.
+In a team game (when a color is picked by several people), the teammates share
+the skillset.
+
 Try to get as many lixes into the goal that displays your player color.
 It doesn't matter whose lixes they are. You will want to lead your
 opponents' lixes in there as well for extra points...
@@ -132,21 +138,21 @@ If a player has no more lixes due to saving, losing or nuking them all,
 overtime will start. This is a time limit for the other players to catch up to
 his score of saved lixes. The countdown will not trigger if the
 lix-less player has not yet saved a single lix. This is to prevent evil
-persons from nuking their horde right at the start to spoil the game for
-everyone else.
+persons from nuking their tribe right at the start to spoil free-for-all
+games for everyone else.
 
 
 
 7. ORIGINAL LEMMINGS TERRAIN AND LEVELS
 ---------------------------------------
 
-Lix can use the graphics and levels from these games:
-Lemmings, Oh no more Lemmings, Holiday Lemmings, and Lemmings 2: The Tribes.
-Since these games are copyright-restricted, Lix doesn't contain any of their
-files.
+Lix can use the graphics and/or levels from these games:
+Lemmings, Oh no more Lemmings, Holiday Lemmings, and Lemmings 2: The Tribes,
+and it can read levels in Lemmini's .ini format. Since the Lemmings games are
+copyright-restricted, Lix doesn't contain any of their files.
 
-If you have these old games, you can use their terrain in Lix. For information
-on how to do this, read the file oldterr.txt in this directory.
+If you have some of the Lemmings games, you can use their terrain in Lix.
+Read the file oldterr.txt in this directory for detailed instructions.
 
 
 

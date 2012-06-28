@@ -22,6 +22,12 @@ their files and put them into the lix directory structure.
 INSTALLING THE TERRAIN
 ----------------------
 
+If you're on Linux, make sure you keep all filenames case-sensitively
+the same as instructed in the following paragraphs. Lemmings 1 and Oh no
+more Lemmings terrain graphics should be as all-uppercase files in
+lower/mixed-case directories. (Exact dir/file names will be given.) Lemmings 2
+files are as mixed-case files in lower/mixed-case directories.
+
 From DOS Lemmings 1, take VGAGRx.DAT (with x being any one-digit number) and
 GROUNDxO.DAT, optionally also VGASPECx.DAT, and put them into the following
 dir structure: (you have to create the directory `./images/orig/' and its

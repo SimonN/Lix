@@ -11,6 +11,8 @@
         The pieces fit together better when using the 16-sized grid.
         There are 14 spheres in many colors now.
 
+
+
 2012-06-27
 
     Proxima's terrain
@@ -36,10 +38,17 @@
         Don't wait anymore for the debris to clean up (exploder leftovers)
         before displaying end-of-level thing iff (ffwd or turbo-ffwd) is on.
 
+
+
 (2011 to 2012)
 
-    A lot of small stuff.
-    See commit messages: https://github.com/SimonN/Lix/commits/master
+    Lots of things.
+        See commit messages: https://github.com/SimonN/Lix/commits/master
+
+    Sprites done
+        All lix skills now have sprites. Some might change slightly, but this
+        is already very good to go.
+
 
 
 2011-09-03
@@ -200,12 +209,11 @@
 
 2010-03-21
 
-
     Last public version
-        This was the last version that got released to the public. This
-        and the compatible 2010-03-23 version are known as the
-        "March versions". The next public version will be released with
-        all-new ingame graphics.
+        This was the last version of L++ that got released to the public. This
+        and the compatible 2010-03-23 version were known as the
+        "March versions". The next public version were released with
+        all-new ingame graphics, and the name was changed to Lix.
 
 
 
