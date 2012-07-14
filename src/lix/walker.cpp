@@ -10,8 +10,6 @@
 
 void assclk_walker(Lixxie& l)
 {
-    l.set_special_y(0);
-    l.set_special_x(0);
     if (l.get_ac() == LixEn::WALKER
      || l.get_ac() == LixEn::RUNNER
      || l.get_ac() == LixEn::LANDER) {
