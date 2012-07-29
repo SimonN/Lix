@@ -182,7 +182,7 @@ void ListBitmap::add_file_button(const int nr, const int which_from_file)
     {
         b->set_object(ObjLib::get(fn));
         // Draw the entire number to the
-        const std::string& str = fn.get_file();
+        const std::string& str = fn.get_rootful();
         int pos = str.size() - 1;
         while (pos > 0 && str[pos] >= '0' && str[pos] <= '9') --pos;
         b->set_text(str.substr(pos + 1));

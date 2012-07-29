@@ -277,8 +277,12 @@ ObjLib::OrigSet ObjLib::string_to_orig_set(const std::string& s) {
 
 const Object* ObjLib::get(const Filename& fn)
 {
-    return get(fn.get_rootless_no_extension()
-               .substr(gloB->dir_bitmap.get_dir_rootless().size()));
+    // cut away "images/" if it is in front
+    const std::string& s = fn.get_rootless_no_extension();
+    const std::string& b = gloB->dir_bitmap.get_dir_rootless();
+
+    if (s.substr(0, b.size()) == b) return get(s.substr(b.size()));
+    else                            return get(s);
 }
 
 
