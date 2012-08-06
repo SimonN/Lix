@@ -47,6 +47,7 @@ Lixxie::Lixxie(
     dir                (1),
     special_x          (0),
     special_y          (0),
+    queue              (0),
 
     fling_x            (0),
     fling_y            (0),

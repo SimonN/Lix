@@ -213,7 +213,6 @@ public:
         bool      leaving;
         bool      blockable;
         bool      aiming;
-        int       returns_x;
         Sound::Id sound_assign;
         Sound::Id sound_become;
         Sound::Id sound_aim;
@@ -247,6 +246,7 @@ private:
     int  dir;
     int  special_x;
     int  special_y;
+    int  queue; // builders and platformers can be queued in advance
 
     int  fling_x;
     int  fling_y;
@@ -329,8 +329,10 @@ public:
 
     inline int  get_special_x()      { return special_x; }
     inline int  get_special_y()      { return special_y; }
-    inline void set_special_x(int n) { special_x = n;    }
+    inline int  get_queue()          { return queue;     }
+    inline void set_special_x(int i) { special_x = i;    }
     inline void set_special_y(int i) { special_y = i;    }
+    inline void set_queue    (int i) { queue     = i;    }
 
     inline bool get_fling_new() const { return fling_new; }
     inline int  get_fling_x()   const { return fling_x;   }

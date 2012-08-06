@@ -8,7 +8,7 @@
 void assclk_platformer(Lixxie& l)
 {
     if (l.get_ac() == LixEn::PLATFORMER) {
-        l.set_special_x(l.get_special_x() + 12);
+        l.set_queue(l.get_queue() + 1);
     }
     else l.become(LixEn::PLATFORMER);
 }
@@ -22,6 +22,7 @@ void become_platformer(Lixxie& l)
     const bool continue_on_same_height
         = (l.get_ac() == LixEn::SHRUGGER2
         && l.get_frame() < platformer_standing_up_frame);
+
     l.become_default(LixEn::PLATFORMER);
     l.set_special_x(12);
     l.set_frame(continue_on_same_height ? 16 : 0);
@@ -53,15 +54,12 @@ void update_platformer(Lixxie& l, const UpdateArgs& ua)
 
     // Bauen
     case  1:
-        l.set_special_x(l.get_special_x() - 1);
-        l.draw_brick   (0, 0, 7, 1);
-        if (l.get_special_x() < 3) l.play_sound_if_trlo(ua, Sound::BRICK);
-        break;
-
     case 17:
         l.set_special_x(l.get_special_x() - 1);
-        l.draw_brick   (4, 2, 9, 3);
-        if (l.get_special_x() < 3) l.play_sound_if_trlo(ua, Sound::BRICK);
+        if (l.get_frame() == 1) l.draw_brick(0, 0, 7, 1);
+        else                    l.draw_brick(4, 2, 9, 3);
+        if (l.get_special_x() < 3 && l.get_queue() <= 0)
+            l.play_sound_if_trlo(ua, Sound::BRICK);
         break;
 
     case  4:
@@ -96,9 +94,15 @@ void update_platformer(Lixxie& l, const UpdateArgs& ua)
 
     case 25: // durchaus auch das letzte Frame
         // Kann noch ein Stein verlegt werden?
-        if (l.get_special_x() == 0) {
-            l.become(LixEn::SHRUGGER2);
-            l.set_special_y(2); // Bei Klick 2 tiefer anfng. = weiterbauen
+        if (l.get_special_x() <= 0) {
+            if (l.get_queue() <= 0) {
+                l.become(LixEn::SHRUGGER2);
+                l.set_special_y(2); // Bei Klick 2 tiefer anfng. = weiterbauen
+            }
+            else {
+                l.set_queue    (l.get_queue()     -  1);
+                l.set_special_x(l.get_special_x() + 12);
+            }
         }
         else if (platformer_is_solid(l, 2, 1)
          &&      platformer_is_solid(l, 4, 1)

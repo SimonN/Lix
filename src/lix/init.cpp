@@ -83,9 +83,6 @@ void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
     ac_func     [LixEn::EXPLODER]  .leaving =
     ac_func     [LixEn::CUBER]     .leaving = true;
 
-    ac_func     [LixEn::BUILDER]   .returns_x =
-    ac_func     [LixEn::PLATFORMER].returns_x = 12;
-
     ac_func     [LixEn::ROPER]     .aiming    = true;
     ac_func     [LixEn::ROPER]     .sound_aim = Sound::ROPER;
 

@@ -5,6 +5,19 @@
 
 
 
+2012-08-06
+
+    Skill reimbursement bugfixes
+        Quick builder-platformer-builder-platformer-... assignments will not
+        delay a lix gratis anymore. Assigning walker didn't reimburse queued
+        builders/platformers, but now it does.
+
+    Legacy terrain bugfix
+        Terrain from L1, ONML, Holiday, L2 could still be added, but the editor
+        didn't list it in the browser. Now it does.
+
+
+
 2012-06-28
 
     Proxima's terrain updated

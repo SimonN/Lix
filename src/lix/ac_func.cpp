@@ -16,7 +16,6 @@ Lixxie::AcFunc::AcFunc()
     leaving  (false),
     blockable(true),
     aiming   (false),
-    returns_x(0),
     sound_assign(Sound::ASSIGN),
     sound_become(Sound::NOTHING),
     sound_aim   (Sound::NOTHING),
@@ -46,8 +45,8 @@ void Lixxie::assclk(const LixEn::Ac new_ac)
 
 void Lixxie::become(const LixEn::Ac new_ac)
 {
-    if (new_ac != ac && ac_func[ac].returns_x > 0) {
-        tribe->return_skills(ac, special_x / ac_func[ac].returns_x);
+    if (new_ac != ac && queue > 0) {
+        tribe->return_skills(ac, queue);
     }
     if (ac_func[new_ac].become) ac_func[new_ac].become(*this);
     else                        become_default(new_ac);
@@ -60,6 +59,7 @@ void Lixxie::become_default(const LixEn::Ac new_ac)
     frame     = 0;
     special_y = 0;
     special_x = 0;
+    queue     = 0;
     ac        = new_ac;
 }
 

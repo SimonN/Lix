@@ -18,7 +18,7 @@
 void assclk_builder(Lixxie& l)
 {
     if (l.get_ac() == LixEn::BUILDER) {
-        l.set_special_x(l.get_special_x() + 12);
+        l.set_queue(l.get_queue() + 1);
     }
     else l.become(LixEn::BUILDER);
 }
@@ -47,7 +47,8 @@ void update_builder(Lixxie& l, const UpdateArgs& ua)
 
         l.set_special_x(l.get_special_x() - 1);
         l.draw_brick   (-2, 0, 9, 1);
-        if (l.get_special_x() < 3) l.play_sound_if_trlo(ua, Sound::BRICK);
+        if (l.get_special_x() < 3 && l.get_queue() <= 0)
+            l.play_sound_if_trlo(ua, Sound::BRICK);
 
         l.move_up();
         break;
@@ -112,7 +113,13 @@ void update_builder(Lixxie& l, const UpdateArgs& ua)
 
     // Klötze zählen und ggf. zum Shrugger werden.
     case 15:
-        if (l.get_special_x() <= 0) l.become(LixEn::SHRUGGER);
+        if (l.get_special_x() <= 0) {
+            if (l.get_queue() <= 0) l.become(LixEn::SHRUGGER);
+            else {
+                l.set_queue    (l.get_queue()     -  1);
+                l.set_special_x(l.get_special_x() + 12);
+            }
+        }
         break;
     }
 
