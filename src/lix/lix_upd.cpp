@@ -41,8 +41,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
             l.set_updates_since_bomb(0);
             // Sowohl Climber als auch Ascender sollen entweder beide herunter
             // fallen oder beide in der Wand Oh-no-en.
-            if      (l.get_ac() == LixEn::CLIMBER)  l.move_ahead(2);
-            else if (l.get_ac() == LixEn::ASCENDER) l.move_ahead(-2);
+            if (l.get_ac() == LixEn::CLIMBER)  l.move_ahead(2);
             // Alles, was in der Luft ist, soll sofort explodieren
             if (l.get_ac() == LixEn::FALLER
              || l.get_ac() == LixEn::TUMBLER
