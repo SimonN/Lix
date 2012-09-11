@@ -14,7 +14,6 @@
 
 // Statische Konstanten initialisieren
 const int Gameplay::block_s = 14; // Blocker-Abstand zur Seite
-const int Gameplay::block_m = 20; // zur Seite, wenn der andere ein Miner ist
 const int Gameplay::block_u = 16; // nach oben
 const int Gameplay::block_d =  8; // nach unten
 

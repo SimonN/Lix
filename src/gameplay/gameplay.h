@@ -31,10 +31,9 @@ class Gameplay {
 
 public:
 
-    static const int block_s; // Blocker-Abstand zur Seite
-    static const int block_m; // zur Seite, wenn der andere ein Miner ist
-    static const int block_u; // nach oben
-    static const int block_d; // nach unten
+    static const int block_s; // blocker distance to either side (incl. miners)
+    static const int block_u; // blocker distance to above
+    static const int block_d; // blocker distance to below
 
     static const int distance_safe_fall;
     static const int distance_float;
