@@ -67,11 +67,11 @@ void GameplayStats::PanelTribe::draw_local(
 
     int x_out_icon   = x +   0;
     int x_out        = x +   0 + 25;
-    int x_hatch_icon = x +  70; // not used in singleplayer
+    int x_hatch_icon = x +  70; // a bit to the right, because out = ---/---
     int x_hatch      = x +  70 + 25;
-    int x_in_icon    = x +  70;
-    int x_in         = x +  70 + 25;
-    int x_cup_icon   = x + 140; // is the target save count
+    int x_in_icon    = x + 140; // drawn where the first cup is in multiplayer
+    int x_in         = x + 140 + 25;
+    int x_cup_icon   = x + 140; // doesn't appear in singleplayer
     int x_cup        = x + 140 + 25;
     int x_cupall_icon= x + 140; // doesn't appear in singleplayer
     int x_cupall     = x + 140 + 25;
@@ -95,7 +95,7 @@ void GameplayStats::PanelTribe::draw_local(
     }
 
     const int  in    = tr->lix_saved;
-    const int  out   = tr->get_lix_out();
+    const int  out   = tr->get_lix_out() + tr->lix_hatch;
     const bool green = multi ? tr->lix_saved >= oppo_saved
                              : tr->required && in >= tr->required;
 
@@ -104,19 +104,51 @@ void GameplayStats::PanelTribe::draw_local(
      out == 0 ? frame_gray :                       frame_color);
     draw_nr_sml(out, x_out, y);
 
-    if (multi && tr->lix_hatch > 0) {
-        // draw content of hatch
-        GraLib::get_icon(tr->style).draw(*ground, x_hatch_icon, y, frame_hatch,
-         frame_gray);
-        // i.e. always draw a grey frame, don't do something like this:
-        // tr->lix_hatch == 0 ? frame_gray : frame_color
-        draw_nr_sml(tr->lix_hatch, x_hatch, y);
+    // In Multiplayer, draw hatch or exit in the same place
+    if (multi) {
+        if (tr->lix_hatch > 0) {
+            // draw content of hatch
+            GraLib::get_icon(tr->style).draw(*ground, x_hatch_icon, y,
+             frame_hatch, frame_gray);
+            // i.e. always draw a grey frame, don't do something like this:
+            // tr->lix_hatch == 0 ? frame_gray : frame_color
+            draw_nr_sml(tr->lix_hatch, x_hatch, y);
+        }
+        else {
+            // draw the house in multiplayer
+            GraLib::get_icon(tr->style).draw(*ground, x_in_icon,  y, frame_in,
+             in  == 0 ? frame_gray : green ? frame_green : frame_color);
+            draw_nr_sml(in, x_in, y, green);
+        }
     }
+
+    // In Singleplayer, draw hatch, then exit with required count
     else {
-        // out count
-        GraLib::get_icon(tr->style).draw(*ground, x_in_icon,  y, frame_in,
-         in  == 0 ? frame_gray : green ? frame_green : frame_color);
-        draw_nr_sml(in, x_in, y, green);
+        GraLib::get_icon(tr->style).draw(*ground, x_hatch_icon, y,
+         frame_hatch, frame_gray);
+        draw_nr_sml(tr->lix_hatch, x_hatch, y);
+
+        // draw saved/required
+        // this is the highest number possible when all yet living are saved
+        const int possible = out + in;
+
+        if (possible < tr->required)
+            GraLib::get_icon(tr->style).draw(*ground, x_in_icon, y,
+             frame_target, frame_color);
+        else if (in >= tr->required)
+            GraLib::get_icon(tr->style).draw(*ground, x_in_icon, y,
+             frame_in, frame_green);
+        else if (in > 0)
+            GraLib::get_icon(tr->style).draw(*ground, x_in_icon, y,
+             frame_in, frame_color);
+        else
+            GraLib::get_icon(tr->style).draw(*ground, x_in_icon, y,
+             frame_in, frame_gray);
+
+        std::ostringstream str;
+        str << in << "/" << tr->required;
+        Help::draw_shadow_text(*ground, font_med, str.str().c_str(),
+         x_in, y, green ? color[COL_TEXT_GREEN] : color[COL_TEXT]);
     }
 
     if (countd || stopw) {
@@ -135,10 +167,10 @@ void GameplayStats::PanelTribe::draw_local(
          x_clock, y, color[COL_TEXT]);
     }
 
-    // draw the cup
-    std::ostringstream str;
-    bool               green_cup = false;
     if (multi) {
+        // draw the cup
+        std::ostringstream str;
+        bool               green_cup = false;
         GraLib::get_icon(cup_style).draw(*ground, x_cup_icon, y, frame_cup,
          cup_colored ? frame_color : frame_gray);
         if (in > oppo_saved) {
@@ -146,18 +178,10 @@ void GameplayStats::PanelTribe::draw_local(
             green_cup = true;
         }
         str << in - oppo_saved;
-    }
-    else {
-        // draw the required count
-        GraLib::get_icon(cup_style).draw(*ground, x_cup_icon, y, frame_target,
-         frame_gray);
-        str << tr->required << "/" << tr->initial;
-    }
-    Help::draw_shadow_text(*ground, font_med, str.str().c_str(),
-     x_cup, y, green_cup ? color[COL_TEXT_GREEN] : color[COL_TEXT]);
+        Help::draw_shadow_text(*ground, font_med, str.str().c_str(),
+         x_cup, y, green_cup ? color[COL_TEXT_GREEN] : color[COL_TEXT]);
 
-    // cupall
-    if (multi) {
+        // cupall
         GraLib::get_icon(cupall_style).draw(*ground, x_cupall_icon, y,
          frame_cupall, cupall_colored ? frame_color : frame_gray);
         str.str("");
