@@ -209,6 +209,9 @@ void Gameplay::calc_self()
                 if (! replay.equal_before(userrep, sta.update)) {
                     replay = userrep;
                 }
+                save_result();
+                pan.speed_fast .set_off();
+                pan.speed_turbo.set_off();
                 load_state(sta);
             }
         }
@@ -242,6 +245,9 @@ void Gameplay::calc_self()
         }
         // Neustart
         if (pan.restart.get_clicked()) {
+            save_result();
+            pan.speed_fast .set_off();
+            pan.speed_turbo.set_off();
             load_state(state_manager.get_zero());
         }
 
