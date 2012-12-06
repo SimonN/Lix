@@ -1,0 +1,197 @@
+$BUILT 2012-09-19 17:59:28
+$AUTHOR Rubix
+$GERMAN 
+$ENGLISH Char Broiled
+
+#SIZE_X 1540
+#SIZE_Y 320
+#TORUS_X 0
+#TORUS_Y 0
+#START_X 400
+#START_Y 0
+#BACKGROUND_RED 0
+#BACKGROUND_GREEN 0
+#BACKGROUND_BLUE 0
+
+#SECONDS 0
+#INITIAL 50
+#REQUIRED 20
+#SPAWN_INTERVAL 28
+#SPAWN_INTERVAL_FAST 4
+
+#CLIMBER 0
+#FLOATER 0
+#EXPLODER 0
+#BLOCKER 0
+#BUILDER 9
+#BASHER 0
+#MINER 2
+#DIGGER 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+
+:matt/underworld/Hatch.H: 480 40
+
+:matt/underworld/Goal.G: 964 132
+
+:geoo/construction/squisher.T: 704 120
+:geoo/construction/squisher.T: 736 120
+:geoo/construction/squisher.T: 768 120
+
+:geoo/sandstone/brazier.F: 694 96
+:geoo/sandstone/brazier.F: 710 96
+:geoo/sandstone/brazier.F: 726 96
+:geoo/sandstone/brazier.F: 746 96
+:geoo/sandstone/brazier.F: 678 44
+:geoo/sandstone/brazier.F: 694 44
+
+:geoo/construction/steam_left.T: 686 58
+
+:geoo/construction/pillar_bottom: 716 58
+:matt/underworld/09a: 508 0
+:matt/underworld/09a: 600 2
+:matt/underworld/09a: 780 252
+:matt/underworld/09a: 834 248
+:matt/underworld/09a: 364 252
+:matt/underworld/09a: 554 248
+:matt/underworld/09a: 720 242
+:matt/underworld/09a: 658 248
+:matt/underworld/09a: 608 250
+:matt/underworld/01: 394 48 fr
+:matt/underworld/01: 394 -16 fr
+:matt/underworld/thinplatform16: 640 144
+:matt/underworld/thinplatform16: 640 144
+:matt/underworld/thinplatform16: 624 144
+:matt/underworld/thinplatform16: 624 144
+:matt/underworld/thinplatform16: 672 144
+:matt/underworld/thinplatform16: 672 144
+:matt/underworld/thinplatform16: 656 144
+:matt/underworld/thinplatform16: 656 144
+:matt/underworld/thinplatform16: 688 144
+:matt/underworld/thinplatform16: 688 144
+:matt/underworld/thinplatform16: 608 144
+:matt/underworld/thinplatform16: 608 144
+:matt/underworld/thinplatform16: 576 144
+:matt/underworld/thinplatform16: 576 144
+:matt/underworld/thinplatform16: 592 144
+:matt/underworld/thinplatform16: 592 144
+:matt/underworld/thinplatform16: 544 144
+:matt/underworld/thinplatform16: 544 144
+:matt/underworld/thinplatform16: 560 144
+:matt/underworld/thinplatform16: 560 144
+:matt/underworld/thinplatform16: 512 144
+:matt/underworld/thinplatform16: 512 144
+:matt/underworld/thinplatform16: 528 144
+:matt/underworld/thinplatform16: 528 144
+:matt/underworld/thinplatform16: 480 144
+:matt/underworld/thinplatform16: 480 144
+:matt/underworld/thinplatform16: 496 144
+:matt/underworld/thinplatform16: 496 144
+:matt/underworld/thinplatform16: 448 144
+:matt/underworld/thinplatform16: 448 144
+:matt/underworld/thinplatform16: 464 144
+:matt/underworld/thinplatform16: 464 144
+:matt/underworld/01: 738 48 fr
+:matt/underworld/01: 738 -16 fr
+:matt/underworld/02: 964 160
+:matt/underworld/02: 1028 160
+:matt/underworld/02: 900 160
+:matt/underworld/09a: 894 16 frr
+:matt/underworld/01: 884 4 fr
+:matt/underworld/07: 66 198
+:matt/underworld/02: 354 112
+:matt/underworld/02: 354 160
+:matt/underworld/09a: 426 248
+:matt/underworld/02: 388 160
+:matt/underworld/02: 388 112
+:matt/underworld/09a: 488 234 rr
+:matt/underworld/02: 452 160
+:matt/underworld/02: 516 160
+:matt/underworld/02: 580 160
+:matt/underworld/02: 644 160
+:matt/underworld/00: 644 160 d
+:matt/underworld/00: 644 168 d
+:matt/underworld/00: 580 168 d
+:matt/underworld/00: 516 168 d
+:matt/underworld/00: 452 168 d
+:matt/underworld/00: 582 160 d
+:matt/underworld/00: 518 160 d
+:matt/underworld/00: 454 158 d
+:matt/underworld/00: 452 158 d
+:matt/underworld/02: 708 160
+:matt/underworld/00: 708 168 d
+:matt/underworld/00: 772 168 d
+:matt/underworld/00: 832 168 d
+:matt/underworld/00: 832 156 d
+:matt/underworld/00: 768 156 d
+:matt/underworld/00: 704 156 d
+:matt/underworld/00: 674 156 d
+:matt/underworld/00: 902 176 d
+:matt/underworld/00: 902 160 d
+:matt/underworld/00: 902 168 d
+:matt/underworld/00: 964 176 d
+:matt/underworld/00: 964 160 d
+:matt/underworld/00: 1028 160 d
+:matt/underworld/00: 1026 172 d
+:matt/underworld/00: 1028 176 d
+:matt/underworld/02: 702 112
+:matt/underworld/02: 766 112
+:matt/underworld/02: 802 112 d
+:matt/underworld/02: 836 160
+:matt/underworld/02: 772 160
+:matt/underworld/00: 702 168 d
+:matt/underworld/00: 702 156 d
+:matt/underworld/00: 764 156 d
+:matt/underworld/00: 766 168 d
+:matt/underworld/00: 828 160 d
+:matt/underworld/00: 828 168 d
+:matt/underworld/00: 832 168 d
+:matt/underworld/00: 832 158 d
+:matt/underworld/05: 534 -32
+:matt/underworld/05: 386 -30
+:matt/underworld/05: 336 -30
+:matt/underworld/05: 688 -30
+:matt/underworld/05: 816 -26
+:matt/underworld/08: 920 -72
+:matt/underworld/08: 1004 -80 f
+:matt/underworld/08: 1066 -96 f
+:matt/underworld/02: 964 208
+:matt/underworld/02: 1028 208
+:matt/underworld/02: 900 208
+:matt/underworld/09a: 898 252 frr
+:matt/underworld/02: 900 254 d
+:matt/underworld/02: 964 256 d
+:matt/underworld/02: 1028 256 d
+:geoo/steel/dark_32x32o.S: 176 288
+:geoo/steel/dark_32x32o.S: 144 288
+:geoo/steel/dark_32x32o.S: 170 256
+:geoo/steel/dark_32x32o.S: 170 224
+:geoo/steel/dark_32x32o.S: 32 256
+:geoo/steel/dark_32x48o.S: 138 240
+:matt/underworld/07: 48 238
+:geoo/steel/dark_32x32o.S: 96 240
+:geoo/steel/dark_32x32o.S: 112 288
+:matt/underworld/07: -4 268
+:geoo/steel/dark_32x48o.S: 80 272
+:geoo/steel/dark_32x32o.S: 64 240
+:geoo/steel/dark_32x32o.S: 48 288
+:geoo/steel/dark_64x64.S: 138 160
+:matt/underworld/thinplatform64: 896 120 rrr
+:matt/underworld/thinplatform64: 898 120 rrr
+:matt/underworld/thinplatform64: 896 120 rrr
+:matt/underworld/thinplatform64: 898 120 rrr
+:matt/underworld/thinplatform64: 900 120 rrr
+:matt/underworld/thinplatform64: 898 120 rrr
+:matt/underworld/thinplatform64: 896 104 rrr
+:matt/underworld/thinplatform64: 898 104 rrr
+:matt/underworld/thinplatform64: 896 104 rrr
+:matt/underworld/thinplatform64: 898 104 rrr
+:matt/underworld/thinplatform64: 900 104 rrr
+:matt/underworld/thinplatform64: 898 104 rrr
+:matt/underworld/03: 876 58
+:geoo/construction/pillar_bottom: 736 50
+:geoo/construction/pillar_bottom: 726 50
+:geoo/construction/pillar_bottom: 736 66
+:geoo/construction/pillar_bottom: 726 66

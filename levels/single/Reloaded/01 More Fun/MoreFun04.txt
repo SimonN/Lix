@@ -1,0 +1,171 @@
+$BUILT 2012-09-19 11:13:45
+$AUTHOR Rubix
+$GERMAN 
+$ENGLISH Crossing the gap in a snap??
+
+#SIZE_X 1130
+#SIZE_Y 320
+#TORUS_X 0
+#TORUS_Y 0
+#START_X 240
+#START_Y 0
+#BACKGROUND_RED 0
+#BACKGROUND_GREEN 0
+#BACKGROUND_BLUE 0
+
+#SECONDS 0
+#INITIAL 10
+#REQUIRED 9
+#SPAWN_INTERVAL 15
+#SPAWN_INTERVAL_FAST 15
+
+#CLIMBER 2
+#FLOATER 0
+#EXPLODER 1
+#BLOCKER 0
+#BUILDER 2
+#BASHER 1
+#MINER 0
+#DIGGER 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+
+:matt/marble/Hatch.H: 416 16
+
+:matt/marble/Goal.G: 736 48
+
+:matt/marble/08d: 222 122
+:matt/marble/21d: 352 80 rrr
+:matt/marble/21d: 304 0 rrr
+:matt/marble/21d: 320 0 rrr
+:matt/marble/21d: 592 0 rrr
+:matt/marble/21d: 608 0 rrr
+:matt/marble/21d: 624 0 rrr
+:matt/marble/21d: 640 0 rrr
+:matt/marble/18d: 32 -48
+:matt/marble/08d: 190 122
+:matt/marble/21d: 206 14 rrr
+:matt/marble/21d: 222 14 rrr
+:matt/marble/21d: 206 78 rrr
+:matt/marble/21d: 222 78 rrr
+:matt/marble/21d: 206 142 rrr
+:matt/marble/21d: 222 142 rrr
+:matt/marble/21d: 206 206 rrr
+:matt/marble/08d: 224 224
+:matt/marble/21d: 222 206 rrr
+:matt/marble/21d: 206 270 rrr
+:matt/marble/21d: 222 270 rrr
+:matt/marble/21d: 238 14 rrr
+:matt/marble/21d: 254 14 rrr
+:matt/marble/21d: 886 12 rrr
+:matt/marble/21d: 902 12 rrr
+:matt/marble/21d: 880 0
+:matt/marble/21d: 238 78 rrr
+:matt/marble/21d: 254 78 rrr
+:matt/marble/21d: 238 142 rrr
+:matt/marble/21d: 254 142 rrr
+:matt/marble/21d: 238 206 rrr
+:matt/marble/21d: 254 206 rrr
+:matt/marble/21d: 238 270 rrr
+:matt/marble/21d: 254 270 rrr
+:matt/marble/21d: 304 64 rrr
+:matt/marble/21d: 320 64 rrr
+:matt/marble/21d: 336 80 rrr
+:matt/marble/08d: 286 122
+:matt/marble/08d: 350 122
+:matt/marble/08d: 414 122
+:matt/marble/08d: 478 122
+:matt/marble/21d: 592 64 rrr
+:matt/marble/08d: 542 122
+:matt/marble/21d: 640 64 rrr
+:matt/marble/21d: 624 64 rrr
+:matt/marble/21d: 608 64 rrr
+:matt/marble/08d: 606 122
+:matt/marble/21d: 886 76 rrr
+:matt/marble/21d: 902 76 rrr
+:matt/marble/21d: 886 140 rrr
+:matt/marble/21d: 902 140 rrr
+:matt/marble/21d: 886 204 rrr
+:matt/marble/21d: 902 204 rrr
+:matt/marble/21d: 886 268 rrr
+:matt/marble/21d: 902 268 rrr
+:matt/marble/21d: 854 12 rrr
+:matt/marble/21d: 870 12 rrr
+:matt/marble/21d: 854 76 rrr
+:matt/marble/21d: 870 76 rrr
+:matt/marble/21d: 854 140 rrr
+:matt/marble/21d: 870 140 rrr
+:matt/marble/22a: 772 174 rrr
+:matt/marble/08d: 800 224
+:matt/marble/21d: 854 204 rrr
+:matt/marble/21d: 870 204 rrr
+:matt/marble/21d: 854 268 rrr
+:matt/marble/21d: 870 268 rrr
+:matt/marble/08d: 480 224
+:matt/marble/08d: 544 224
+:matt/marble/08d: 608 224
+:matt/marble/08d: 672 224
+:matt/marble/22a: 728 170
+:matt/marble/08d: 736 224
+:matt/marble/08d: 416 224
+:matt/marble/08d: 352 224
+:matt/marble/08d: 288 224
+:matt/marble/21d: 336 16 rrr
+:matt/marble/21d: 352 16 rrr
+:matt/marble/23: 710 192
+:matt/marble/23: 710 160
+:matt/marble/22a: 766 132
+:matt/marble/22a: 726 130 rrr
+:matt/marble/23: 710 128
+:matt/marble/23: 710 96
+:matt/marble/23: 742 96
+:matt/marble/23: 774 96
+:matt/marble/23: 806 96
+:matt/marble/23: 806 128
+:matt/marble/23: 806 160
+:matt/marble/23: 806 192
+:matt/marble/21d: 96 0
+:matt/marble/21d: 160 0
+:matt/marble/21d: 192 0
+:matt/marble/21d: 256 0
+:matt/marble/21d: 320 0
+:matt/marble/21d: 384 0
+:matt/marble/21d: 448 0
+:matt/marble/21d: 512 0
+:matt/marble/21d: 560 0
+:matt/marble/21d: 624 0
+:matt/marble/21d: 688 0
+:matt/marble/21d: 752 0
+:matt/marble/21d: 816 0
+:matt/marble/18d: 32 -16
+:matt/marble/03e_2: 206 80 rrr
+:matt/marble/03e_2: 238 80 rrr
+:matt/marble/03e_2: 304 80 rrr
+:matt/marble/03e_2: 336 80 rrr
+:matt/marble/03e_2: 206 48 rrr
+:matt/marble/03e_2: 238 48 rrr
+:matt/marble/03e_2: 304 48 rrr
+:matt/marble/03e_2: 336 48 rrr
+:matt/marble/03e_2: 592 48 rrr
+:matt/marble/03e_2: 624 48 rrr
+:matt/marble/03e_2: 592 80 rrr
+:matt/marble/03e_2: 624 80 rrr
+:matt/marble/03e_2: 854 48 rrr
+:matt/marble/03e_2: 886 48 rrr
+:matt/marble/03e_2: 886 80 rrr
+:matt/marble/03e_2: 854 80 rrr
+:matt/marble/18d: 944 -32
+:matt/marble/18d: 912 -32 rr
+:matt/marble/18d: 944 0
+:matt/marble/08b: 928 288
+:matt/marble/08b: 960 256
+:matt/marble/08b: 992 288
+:matt/marble/14c: 1056 288 r
+:matt/marble/14c: 1024 256 r
+:matt/marble/14c: 928 256
+:matt/marble/09c: 16 256
+:matt/marble/16c: 80 288
+:matt/marble/16b: -16 288 frr
+:matt/marble/18d: 0 -48
