@@ -107,7 +107,7 @@ User::User()
     scroll_middle          (true),
     replay_cancel          (true),
     replay_cancel_at       (30),
-    mouse_speed            (15),
+    mouse_speed            (20),
     scroll_speed_edge      (5),
     scroll_speed_click     (6),
     scroll_torus_x         (2),

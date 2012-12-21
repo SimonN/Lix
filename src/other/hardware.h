@@ -51,9 +51,11 @@ class Hardware {
 
 private:
 
-    int      mouse_own_x;  // Hier wird gespeichert, was bei get_mouse_x
-    int      mouse_own_y;  // bzw. -_y zurueckgegeben wird
-    int      mickey_x;     // Wie weit veraendert seit dem letzten
+    int      al_mouse_x_last; // what Allegro reported last tick for the
+    int      al_mouse_y_last; // mouse position
+    int      mouse_own_x;  // where the cursor will appear
+    int      mouse_own_y;  //
+    int      mickey_x;     // Wie weit mouse_own_xy veraendert seit dem letzten
     int      mickey_y;     // main_loop? Bei ruhender Maus z.B. null.
 
     bool     mouse_click  [3]; // gerade angeklickt
@@ -69,6 +71,9 @@ public:
     // Fuer Polling-Komponenten
     static const unsigned doubleclick_speed;
     static const unsigned doubleclick_for60;
+
+    void        center_mouse();
+
     inline int  get_mickey_x()        { return mickey_x;         }
     inline int  get_mickey_y()        { return mickey_y;         }
     inline int  get_mx()              { return mouse_own_x;      }

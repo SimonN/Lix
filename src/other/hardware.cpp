@@ -13,8 +13,10 @@ const unsigned int Hardware::doubleclick_for60(20);
 
 Hardware::Hardware()
 :
-    mouse_own_x   (LEMSCR_X/2),
-    mouse_own_y   (LEMSCR_Y/2),
+    al_mouse_x_last(LEMSCR_X/2),
+    al_mouse_y_last(LEMSCR_Y/2),
+    mouse_own_x    (LEMSCR_X/2),
+    mouse_own_y    (LEMSCR_Y/2),
     mickey_x(0),
     mickey_y(0)
 {
@@ -33,19 +35,33 @@ Hardware::~Hardware() {}
 
 
 
+void Hardware::center_mouse()
+{
+    position_mouse(LEMSCR_X/2, LEMSCR_Y/2);
+    al_mouse_x_last = LEMSCR_X/2;
+    al_mouse_y_last = LEMSCR_Y/2;
+}
+
+
+
 void Hardware::main_loop() {
 
     //////////
     // Maus //
     //////////
 
-    mickey_x = mouse_x - LEMSCR_X/2;
-    mickey_y = mouse_y - LEMSCR_Y/2;
+    mickey_x = mouse_x - al_mouse_x_last;
+    mickey_y = mouse_y - al_mouse_y_last;
     if (gloB->screen_fullscreen_now) {
         mickey_x = mickey_x * (int) useR->mouse_speed / 20;
         mickey_y = mickey_y * (int) useR->mouse_speed / 20;
     }
-    if (mickey_x || mickey_y) position_mouse(LEMSCR_X/2, LEMSCR_Y/2);
+    if (mouse_x < LEMSCR_X/4 || mouse_x > LEMSCR_X*3/4
+     || mouse_y < LEMSCR_Y/4 || mouse_y > LEMSCR_Y*3/4) center_mouse();
+    else {
+        al_mouse_x_last = mouse_x;
+        al_mouse_y_last = mouse_y;
+    }
 
     mouse_own_x += mickey_x;
     mouse_own_y += mickey_y;

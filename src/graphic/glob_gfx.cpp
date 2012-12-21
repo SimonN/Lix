@@ -11,6 +11,7 @@
 #include "../lix/lix.h" // call the initializer of Lixxie
 #include "../level/obj_lib.h"
 #include "../other/globals.h"
+#include "../other/hardware.h" // center mouse after setting gfx mode
 #include "../other/help.h" // Dateisuche
 #include "../other/language.h"
 #include "../other/file/log.h"
@@ -183,5 +184,5 @@ void set_screen_mode(const bool full, int res_x, int res_y)
     // In hardware.cpp, the mouse is always set to the center anyway, to trap
     // it in the program (scrolling at the sides) and for infinite movement
     // (for scrolling with right mouse button).
-    position_mouse(LEMSCR_X/2, LEMSCR_Y/2);
+    hardware.center_mouse();
 }
