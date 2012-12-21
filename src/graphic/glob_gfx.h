@@ -95,4 +95,4 @@ extern bool clear_screen_at_next_blit;
 void blit_to_screen(BITMAP*);
 
 // Will use global variables if res == (0, 0)
-void set_screen_mode(bool full, int res_x = 0, int res_y = 0);
+void set_screen_mode(bool full, const std::string& = "", int = 0, int = 0);

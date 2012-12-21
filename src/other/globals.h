@@ -54,6 +54,7 @@ public:
     int         screen_windowed_y;
     bool        screen_vsync;
     bool        screen_fullscreen_now;
+    std::string screen_modestr_now;
 
     bool        sound_load_driver;
 

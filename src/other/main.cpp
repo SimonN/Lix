@@ -46,6 +46,7 @@
 #include "../graphic/png/loadpng.h"
 
 struct MainArgs {
+    std::string scr_m;
     int  scr_f, scr_x, scr_y;
     bool sound_load_driver;
 };
@@ -90,7 +91,7 @@ int main(int argc, char* argv[])
 
     // Allegro graphics
     set_color_depth(16);
-    set_screen_mode(margs.scr_f, margs.scr_x, margs.scr_y); // in glob_gfx.h
+    set_screen_mode(margs.scr_f, margs.scr_m, margs.scr_x, margs.scr_y);
     set_window_title(Language::main_name_of_the_game.c_str());
 
     load_all_bitmaps();
@@ -128,34 +129,41 @@ END_OF_MAIN()
 MainArgs parse_main_arguments(int argc, char *argv[])
 {
     MainArgs main_args;
+    main_args.scr_m = "";
     main_args.scr_f = !useR->screen_windowed;
     main_args.scr_x = 0;
     main_args.scr_y = 0;
     main_args.sound_load_driver = gloB->sound_load_driver;
 
     // Check all arguments for any occurence of the switch-defining letters
-    for (int i = 1; i < argc; ++i)
-     for (unsigned pos = 0; argv[i][pos] != '\0'; ++pos)
-     switch (argv[i][pos]) {
-    case 'w':
-        main_args.scr_f = false;
-        main_args.scr_x = LEMSCR_X;
-        main_args.scr_y = LEMSCR_Y;
-        break;
+    for (int i = 1; i < argc; ++i) {
+        std::string arg = argv[i];
+        if (arg.substr(0, 10) == "--gfxmode=") {
+            main_args.scr_m = arg.substr(10, std::string::npos);
+        }
+        else if (! arg.empty() && arg[0] == '-') {
+            for (size_t pos = 1; pos < arg.size(); ++pos) switch (arg[pos]) {
+            case 'w':
+                main_args.scr_f = false;
+                main_args.scr_x = LEMSCR_X;
+                main_args.scr_y = LEMSCR_Y;
+                break;
 
-    case 'n':
-        // The global config file and the user file have already been loaded.
-        // To enable the question for the user name, we remove some data again.
-        gloB->user_name = "";
-        useR->load();
-        break;
+            case 'n':
+                // The global config file and the user file have already been loaded.
+                // To enable the question for the user name, we remove some data again.
+                gloB->user_name = "";
+                useR->load();
+                break;
 
-    case 'o':
-        main_args.sound_load_driver = false;
-        break;
+            case 'o':
+                main_args.sound_load_driver = false;
+                break;
 
-    default:
-        break;
+            default:
+                break;
+            }
+        }
     }
     return main_args;
 }

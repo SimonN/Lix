@@ -870,7 +870,8 @@ void OptionMenu::calc_self()
         useR->sound_volume = sound_volume     .get_number();
 
         // Use new resolution that's already written to globals
-        if (call_ssm) set_screen_mode(gloB->screen_fullscreen_now);
+        if (call_ssm) set_screen_mode(gloB->screen_fullscreen_now,
+                                      gloB->screen_modestr_now);
         if (reload_gralib) {
             make_all_colors();
             GraLib::deinitialize();

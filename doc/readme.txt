@@ -87,16 +87,40 @@ you can send me a personal message there. My username is Simon.
 Under all operating systems, the following switches are available for the
 Lix executable (./lix.exe unter Windows, ./bin/lix under Linux):
 
--w      Run Lix in a window with a resolution of 640 x 480. If you use this
-        switch, the in-game options for resolution and windowed mode are
-        overridden for that session of Lix.
+-w
+    Run Lix in a window with a resolution of 640 x 480. If you use this switch,
+    the in-game options for resolution and windowed mode are overridden for
+    that single session.
 
--n      Asks for your name when starting Lix, no matter if it is enabled or
-        disabled in the game options.
+-n
+    Asks for your name when starting Lix, no matter if it is enabled or
+    disabled in the game options.
 
--o      Runs the game without loading the sound driver. This might be useful
-        under some Linux systems. To prevent loading the driver permanently,
-        disable "load sound driver" in the sound options.
+-o
+    Runs the game without loading the sound driver. This might be useful to
+    debug crashes. To prevent loading the driver permanently, disable
+    "load sound driver" in the sound options.
+
+--gfxmode=MODENAME
+    Substitute one of the following all-caps names for MODENAME.
+    This switch allows you to select a graphics mode manually on Windows
+    systems. If you use it, your mode selection will override the ingame option
+    for windowed/fullscreen as well as the switch -w.
+
+    Experiment with different modes when you have problems running the game.
+    GFX_GDI should always work, but it is very slow.
+
+    GFX_AUTODETECT -- Allegro 4 will choose the mode itself, this is default
+    GFX_AUTODETECT_FULLSCREEN -- same as above, but force fullscreen
+    GFX_AUTODETECT_WINDOWED -- same as above, but force windowed, like -w
+    GFX_SAFE -- tries to ignore resolution and color depth during problems
+    GFX_DIRECTX -- alias for GFX_DIRECTX_ACCEL
+    GFX_DIRECTX_ACCEL -- fullscreen DirectX with hardware acceleration
+    GFX_DIRECTX_SOFT -- fullscreen DirectX without some hardware acceleration
+    GFX_DIRECTX_SAFE -- fullscreen DirectX without any hardware acceleration
+    GFX_DIRECTX_WIN -- windowed DirectX with color conversion
+    GFX_DIRECTX_OVL -- windowed DirectX requiring 16-bit desktop color depth
+    GFX_GDI -- should always work, but bad performance
 
 
 

@@ -147,9 +147,43 @@ void blit_to_screen(BITMAP* b)
 
 // May change gloB->screen_fullscreen_right_now.
 // Other globals are not changed.
-void set_screen_mode(const bool full, int res_x, int res_y)
+void set_screen_mode(
+    bool full,
+    const std::string& modestr,
+    int res_x,
+    int res_y)
 {
     int mode = full ? GFX_AUTODETECT_FULLSCREEN : GFX_AUTODETECT_WINDOWED;
+
+    if (! modestr.empty()) {
+        #if defined _WIN64 || defined _WIN32
+            if      (modestr == "GFX_TEXT")
+                { mode = GFX_TEXT; full = true; }
+            else if (modestr == "GFX_AUTODETECT")
+                { mode = GFX_AUTODETECT; full = true; }
+            else if (modestr == "GFX_AUTODETECT_FULLSCREEN")
+                { mode = GFX_AUTODETECT_FULLSCREEN; full = true; }
+            else if (modestr == "GFX_AUTODETECT_WINDOWED")
+                { mode = GFX_AUTODETECT_WINDOWED; full = false; }
+            else if (modestr == "GFX_SAFE")
+                { mode = GFX_SAFE; full = true; }
+            else if (modestr == "GFX_DIRECTX")
+                { mode = GFX_DIRECTX; full = true; }
+            else if (modestr == "GFX_DIRECTX_ACCEL")
+                { mode = GFX_DIRECTX_ACCEL; full = true; }
+            else if (modestr == "GFX_DIRECTX_SOFT")
+                { mode = GFX_DIRECTX_SOFT; full = true;}
+            else if (modestr == "GFX_DIRECTX_SAFE")
+                { mode = GFX_DIRECTX_SAFE; full = true; }
+            else if (modestr == "GFX_DIRECTX_WIN")
+                { mode = GFX_DIRECTX_WIN; full = false; }
+            else if (modestr == "GFX_DIRECTX_OVL")
+                { mode = GFX_DIRECTX_OVL; full = false; }
+            else if (modestr == "GFX_GDI")
+                { mode = GFX_GDI; full = false; }
+        #endif
+    }
+
     if (res_x == 0 || res_y == 0) {
         if (full) {
             res_x = gloB->screen_resolution_x;
@@ -179,6 +213,7 @@ void set_screen_mode(const bool full, int res_x, int res_y)
 
     clear_screen_at_next_blit = true;
     gloB->screen_fullscreen_now = (mode == GFX_AUTODETECT_FULLSCREEN);
+    gloB->screen_modestr_now    = modestr;
 
     // Do this so the mouse doesn't scroll stupidly after a switch.
     // In hardware.cpp, the mouse is always set to the center anyway, to trap
