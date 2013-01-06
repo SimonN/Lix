@@ -36,7 +36,7 @@ GraLib::GraLib()
             // Is it the pixel of the eye?
             const int real_x = 1 + fx * (cb.get_xl() + 1) + x;
             const int real_y = 1 + fy * (cb.get_yl() + 1) + y;
-            if (_getpixel16(b, real_x, real_y) == color[COL_LIXFILE_EYE]) {
+            if (_getpixel32(b, real_x, real_y) == color[COL_LIXFILE_EYE]) {
                 Lixxie::countdown[fx][fy].x = x;
                 Lixxie::countdown[fx][fy].y = y - 1;
                 goto GOTO_NEXTFRAME;

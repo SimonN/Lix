@@ -200,10 +200,10 @@ BITMAP* GraphicSetL1::new_read_bitmap(
             if (pixel % 8 == 0 && data_ptr < (int) section.size())
              eight_pixel_byte = section[data_ptr++];
             const bool c = eight_pixel_byte & (1 << (7 - pixel%8));
-            _putpixel16(b, x, y, _getpixel16(b, x, y) + (c << plane));
+            _putpixel32(b, x, y, _getpixel32(b, x, y) + (c << plane));
         }
         else {
-            _putpixel16(b, x, y, palette[_getpixel16(b, x, y)]);
+            _putpixel32(b, x, y, palette[_getpixel32(b, x, y)]);
         }
     }
     // Monochrome Maske: 1 Bit pro Pixel
@@ -216,7 +216,7 @@ BITMAP* GraphicSetL1::new_read_bitmap(
         const int  x = pixel % xl;
         const int  y = pixel / xl;
         const bool c = eight_pixel_byte & (1 << (7 - pixel%8));
-        if (!c) _putpixel16(b, x, y, color[COL_PINK]);
+        if (!c) _putpixel32(b, x, y, color[COL_PINK]);
     }
     // Und alles aufs Doppelte fuer L++ vergroessern
     BITMAP* big = create_bitmap(2 * xl, 2 * yl);

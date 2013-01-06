@@ -227,8 +227,8 @@ int Cutbit::get_pixel(const int fx, const int fy,
      ||  px < 0 || py < 0 || px >= xl       || py >= yl) return -1;
     // Ansonsten liefere Farbe
     else if (x_frames == 1 && y_frames == 1)
-         return _getpixel16(bitmap, px, py);
-    else return _getpixel16(bitmap, fx * (xl+1) + 1 + px,
+         return _getpixel32(bitmap, px, py);
+    else return _getpixel32(bitmap, fx * (xl+1) + 1 + px,
                                     fy * (yl+1) + 1 + py);
 }
 

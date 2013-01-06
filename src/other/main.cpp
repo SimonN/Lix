@@ -90,7 +90,7 @@ int main(int argc, char* argv[])
     if (margs.sound_load_driver) Sound::initialize();
 
     // Allegro graphics
-    set_color_depth(16);
+    set_color_depth(32);
     set_screen_mode(margs.scr_f, margs.scr_m, margs.scr_x, margs.scr_y);
     set_window_title(Language::main_name_of_the_game.c_str());
 

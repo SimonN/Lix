@@ -92,7 +92,7 @@ bool Graphic::is_last_frame() const
 {
     return x_frame == get_x_frames() - 1
      || cutbit->get_pixel(x_frame + 1, y_frame, 0, 0)
-     == _getpixel16(cutbit->get_al_bitmap(), 0, 0);
+     == _getpixel32(cutbit->get_al_bitmap(), 0, 0);
 }
 
 
@@ -101,7 +101,7 @@ bool Graphic::get_frame_exists(const int xf, const int yf) const
 {
     return xf < get_x_frames() && yf < get_y_frames()
      && cutbit->get_pixel(xf, yf, 0, 0)
-     != _getpixel16(cutbit->get_al_bitmap(), 0, 0);
+     != _getpixel32(cutbit->get_al_bitmap(), 0, 0);
 }
 
 

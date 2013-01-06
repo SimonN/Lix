@@ -148,7 +148,7 @@ int Torbit::get_pixel(int x, int y) const
     // Am Rand die Karte mit der letzten Pixelreihe gedanklich wiederholt
     // fortsetzen, es sei denn, es ist ohnehin ein Torus.
     if (!bitmap) return 0;
-    return _getpixel16(bitmap,
+    return _getpixel32(bitmap,
      torus_x        ? Help::mod(x, bitmap->w) :
      x < 0          ? 0                       :
      x >= bitmap->w ? bitmap->w - 1           : x,
@@ -166,7 +166,7 @@ void Torbit::set_pixel(const int x, const int y, const int col)
     if (bitmap
      && (torus_x || (x >= 0 && x < bitmap->w))
      && (torus_y || (y >= 0 && y < bitmap->h)) )
-     _putpixel16(bitmap, torus_x ? Help::mod(x, bitmap->w) : x,
+     _putpixel32(bitmap, torus_x ? Help::mod(x, bitmap->w) : x,
                          torus_y ? Help::mod(y, bitmap->h) : y, col);
 }
 
@@ -237,8 +237,8 @@ void Torbit::rcir_at(
 
     for  (int x = start_x; x < start_x + xl; ++x)
      for (int y = start_y; y < start_y + yl; ++y) {
-        if (_getpixel16(bitmap, x, y) == c_old) {
-            _putpixel16(bitmap, x, y,    c_new);
+        if (_getpixel32(bitmap, x, y) == c_old) {
+            _putpixel32(bitmap, x, y,    c_new);
         }
     }
 }
