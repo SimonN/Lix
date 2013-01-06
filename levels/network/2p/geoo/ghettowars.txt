@@ -1,4 +1,4 @@
-$BUILT 2012-04-17 23:56:39
+$BUILT 2012-12-05 00:39:35
 $AUTHOR geoo
 $GERMAN 
 $ENGLISH Ghetto wars
@@ -258,3 +258,5 @@ $ENGLISH Ghetto wars
 :geoo/steel/16x32o.S: 464 32
 :geoo/steel/16x16o.S: 464 30 d
 :geoo/steel/16x32o.S: 464 18 n
+:geoo/construction/rod_steel/edge_ru.S: 168 256
+:geoo/construction/rod_steel/edge_lu.S: 464 256
