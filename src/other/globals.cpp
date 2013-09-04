@@ -19,7 +19,7 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2012, 12, 21, 00)),
+    version              (CONCAT(2013, 09, 16, 00)),
     version_min          (CONCAT(2012, 12, 21, 00)),
     version_stable       (true),
 
@@ -118,6 +118,8 @@ Globals::Globals()
     level_author                 ("AUTHOR"),
     level_name_german            ("GERMAN"),
     level_name_english           ("ENGLISH"),
+    level_tutorial_german        ("TUTORIAL_GERMAN"),
+    level_tutorial_english       ("TUTORIAL_ENGLISH"),
     level_hint_german            ("HINT_GERMAN"),
     level_hint_english           ("HINT_ENGLISH"),
     level_size_x                 ("SIZE_X"),
@@ -329,6 +331,7 @@ Globals::Globals()
     file_bitmap_game_nuke        (dir_data_bitmap.get_dir_rootless() + "game_nuk.I"),
     file_bitmap_game_panel       (dir_data_bitmap.get_dir_rootless() + "game_pan.I"),
     file_bitmap_game_panel_2     (dir_data_bitmap.get_dir_rootless() + "game_pa2.I"),
+    file_bitmap_game_panel_hints (dir_data_bitmap.get_dir_rootless() + "game_pah.I"),
     file_bitmap_game_spi_fix     (dir_data_bitmap.get_dir_rootless() + "game_spi.I"),
     file_bitmap_game_pause       (dir_data_bitmap.get_dir_rootless() + "game_pau.I"),
     file_bitmap_game_replay      (dir_data_bitmap.get_dir_rootless() + "game_rep.I"),

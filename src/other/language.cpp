@@ -147,6 +147,10 @@ gameplay_state_save,
 gameplay_state_load,
 gameplay_restart,
 gameplay_nuke,
+gameplay_hint_first,
+gameplay_hint_next,
+gameplay_hint_prev,
+gameplay_hint_off,
 gameplay_spec_tribe,
 
 // Editor allgemein
@@ -575,6 +579,10 @@ void Language::set(const Language lang)
         gameplay_state_load           = "Load the previously quicksaved position.";
         gameplay_restart              = "Restart the level.";
         gameplay_nuke                 = "Nuke. Activate with a double click.";
+        gameplay_hint_first           = "View a hint for this level.";
+        gameplay_hint_next            = "View the next hint.";
+        gameplay_hint_prev            = "View the previous hint.";
+        gameplay_hint_off             = "Hide the hint.";
         gameplay_spec_tribe           = "Examine the skills of a different team.";
 
         // Editor allgemein
@@ -1054,6 +1062,10 @@ eb[Editor::ADD_HAZARD]
         gameplay_state_load           = "Den schnellgespeicherten Spielstand laden.";
         gameplay_restart              = "Level neustarten.";
         gameplay_nuke                 = "Atombombe. Aktivierung durch Doppelklick.";
+        gameplay_hint_first           = "Einen Tipp fuer diesen Level lesen.";
+        gameplay_hint_next            = "Den naechsten Tipp lesen.";
+        gameplay_hint_prev            = "Den vorherigen Tipp lesen.";
+        gameplay_hint_off             = "Den Tipp ausblenden.";
         gameplay_spec_tribe           = "Faehigkeiten eines anderen Teams ansehen.";
 
         // Editor allgemein

@@ -119,6 +119,9 @@ private:
     int  distance_y_to_hatches(int, const std::vector <GameHatch*>&);
     void determine_screen_start_from_hatches(const std::vector <GameHatch*>&);
 
+    // Callback for hints changes
+    static void on_hint_change_callback(void*, const int);
+
     // Calculate-Subroutinen
     void calc_window(); // Fuers Unterfenster, ansonsten:
     void calc_self  (); // Wird sonst in jedem Tick ausgeführt

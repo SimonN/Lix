@@ -17,7 +17,7 @@ Graphic file grids
 Designing terrain
 Designing steel
 Designing interactive objects
-Level hint texts
+Level hints and tutorials
 
 
 
@@ -145,33 +145,52 @@ graphic file. Read the documentation in ``objdef.txt'' for instructions.
 
 
 
-LEVEL HINT TEXTS
-----------------
-You can display text in a level, no matter whether it's a singleplayer or a
-multiplayer level.
+LEVEL HINTS AND TUTORIALS
+-------------------------
 
-Such texts are displayed at the top of the screen. They cannot be hidden, so
-this feature should only be used for tutorial levels. If you use this, please
-make sure that the level's vertical length isn't too big, or that the level is
-largely empty around its top.
+You can display custom text in a level at the top of the screen.
 
-Level hints cannot be edited via the Lix editor, use a regular text editor on
+There are two types of texts: Tutorials are shown when the level starts, and
+they can be used in singleplayer and in multiplayer. Layered hints are not
+shown immediately, but only if the user presses the hint button in singleplayer
+mode.
+
+Neither text can be edited via the Lix editor. Use a regular text editor on
 the level file. The Lix editor doesn't erase the hints if you edit the level
 with it, you merely cannot change or view them in there.
 
-Level hints are defined in the text file like this:
+Level hints, as opposed to tutorial texts, are meant to be used in any level.
+They are hidden until the user wishes to view a hint. Several hints can be
+given for the same level, and only the first hint is displayed when the user
+presses the hint button. If there are subsequent hints, the user can move
+forth and back through the sequence of hints, including back to the beginning
+where no hint is shown at all.
 
-$HINT_ENGLISH This is the first line of the hint.<br>The second.<br>The third.
-$HINT_GERMAN Das ist die erste Zeile des Tipps.<br>Die Zweite.<br>Die Dritte.
+Level hints can be given like this:
 
-Do not use regular line breaks to separate lines, use the sequence <br> as
-shown above instead. The game will hack the string apart into multiple lines
-based on the occurences of <br>.
+$HINT_ENGLISH You must build over three gaps with two builders.<br>But how?
+$HINT_ENGLISH Build over the second and third gap with one builder.
+$HINT_ENGLISH Before building, remove the wall with a climber-exploder.
 
-There is no limit on the number of in-game hint lines.
+This gives three subsequent hints for the same level. German hints are given
+with $HINT_GERMAN.
 
-You can exceed 80 characters in the level file, this is usually necessary to
-give concise tutorial hints with multiple in-game lines.
+There is no limit on the number of in-game hints, and no limit on the number
+of lines within one hint. You can exceed 80 characters in the level file, this
+is usually necessary to give concise hints with multiple in-game lines.
 
-If no German hint is defined, the English one will be shown to German users,
-just as with the level title.
+Level tutorials are defined in the text file like this:
+
+$TUTORIAL_ENGLISH This is the first line.<br>The second.<br>The third.
+$TUTORIAL_GERMAN Das ist die erste Zeile.<br>Die Zweite.<br>Die Dritte.
+
+Tutorial text cannot be hidden; this feature is meant only for introductory
+levels. If you use this, please make sure that the level's vertical length
+isn't too big, or that the level is largely empty around the text.
+
+Do not make a physical linebreak in the level file. If you wish to break the
+displayed line, use <br> as in the example above. The game will not insert
+linebreaks automatically otherwise.
+
+If no German hint or tutorial is defined, the English one will be shown to
+German users, just as with the level title.

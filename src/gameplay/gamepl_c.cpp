@@ -126,7 +126,7 @@ void Gameplay::calc_self()
         else if (multiplayer) {
             window_gameplay = new Api::WindowGameplay(&replay,
                 cs.tribes, trlo, (malo == 0), &level);
-            Api::Manager::add_elder(window_gameplay);
+            Api::Manager::add_focus(window_gameplay);
         }
         else {
             // Singleplayer
@@ -134,7 +134,7 @@ void Gameplay::calc_self()
                 // Eye candy when not saving anything, won't be saved anyway
                 (trlo->lix_saved > 0 ? update_last_exiter : cs.update),
                 level.required, level.initial, level.get_name());
-            Api::Manager::add_elder(window_gameplay);
+            Api::Manager::add_focus(window_gameplay);
         }
         return;
     }
@@ -142,8 +142,6 @@ void Gameplay::calc_self()
 
 
 
-
-    pan.calc();
 
     // Abort a singleplayer action replay?
     if (replaying && ! multiplayer) {
@@ -289,7 +287,7 @@ void Gameplay::calc_self()
          && !window_gameplay) {
             window_gameplay = new Api::WindowGameplay(&replay,
                                Network::get_started() ? &level : 0);
-            Api::Manager::add_elder(window_gameplay);
+            Api::Manager::add_focus(window_gameplay);
             return;
         }
     }

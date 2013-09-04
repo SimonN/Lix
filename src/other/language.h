@@ -161,6 +161,10 @@ gameplay_state_save,
 gameplay_state_load,
 gameplay_restart,
 gameplay_nuke,
+gameplay_hint_first,
+gameplay_hint_next,
+gameplay_hint_prev,
+gameplay_hint_off,
 gameplay_spec_tribe,
 
 // Editor allgemein

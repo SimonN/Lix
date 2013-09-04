@@ -60,6 +60,25 @@ void Level::load_from_stream(std::istream& in)
 
 
 
+static void load_tuto(std::vector <std::string>& into, const std::string& s)
+{
+    // this always goes into index 0
+    if (into.empty()) into.push_back(s);
+    else              into[0] = s;
+}
+
+static void load_hint(std::vector <std::string>& into, const std::string& s)
+{
+    // empty hints aren't allowed, all hints shall be in consecutive entries
+    if (s.empty()) return;
+
+    // hint 0 is the tutorial hint, this should be empty for most levels.
+    if (into.empty()) into.push_back(gloB->empty_string);
+    into.push_back(s);
+}
+
+
+
 void Level::load_from_vector(const std::vector <IO::Line>& lines)
 {
     int sk = 0;
@@ -71,8 +90,15 @@ void Level::load_from_vector(const std::vector <IO::Line>& lines)
         else if (i->text1 == gloB->level_author      ) author      =i->text2;
         else if (i->text1 == gloB->level_name_german ) name_german =i->text2;
         else if (i->text1 == gloB->level_name_english) name_english=i->text2;
-        else if (i->text1 == gloB->level_hint_german ) hint_german =i->text2;
-        else if (i->text1 == gloB->level_hint_english) hint_english=i->text2;
+
+        else if (i->text1 == gloB->level_hint_german)
+            load_hint(hints_german, i->text2);
+        else if (i->text1 == gloB->level_hint_english)
+            load_hint(hints_english, i->text2);
+        else if (i->text1 == gloB->level_tutorial_german)
+            load_tuto(hints_german, i->text2);
+        else if (i->text1 == gloB->level_tutorial_english)
+            load_tuto(hints_english, i->text2);
         break;
 
     // Ganzzahlwert setzen
@@ -249,6 +275,24 @@ void Level::save_to_file(const Filename& filename) const
 
 
 
+static void print_hints(
+    std::ostream& out,
+    const std::vector <std::string>& vec,
+    const std::string& str_tuto,
+    const std::string& str_hint
+) {
+    typedef std::vector <std::string> ::const_iterator VSItr;
+    for (VSItr itr = vec.begin(); itr != vec.end(); ++itr) {
+        // index 0 is the tutorial hint
+        if (itr == vec.begin()) {
+            if (! itr->empty()) out << IO::LineDollar(str_tuto, *itr);
+        }
+        else out << IO::LineDollar(str_hint, *itr);
+    }
+}
+
+
+
 std::ostream& operator << (std::ostream& out, const Level& l)
 {
     Date best_built = l.built;
@@ -263,9 +307,11 @@ std::ostream& operator << (std::ostream& out, const Level& l)
 
      << std::endl;
 
-    if (! l.hint_german.empty() || ! l.hint_english.empty()) out
-     << IO::LineDollar(gloB->level_hint_german,  l.hint_german )
-     << IO::LineDollar(gloB->level_hint_english, l.hint_english)
+    print_hints(out, l.hints_german,  gloB->level_tutorial_german,
+                                      gloB->level_hint_german);
+    print_hints(out, l.hints_english, gloB->level_tutorial_english,
+                                      gloB->level_hint_english);
+    if (! l.hints_german.empty() || ! l.hints_english.empty()) out
      << std::endl;
 
     out

@@ -38,8 +38,8 @@ void Level::clear()
     author        = "";
     name_german   = "";
     name_english  = "";
-    hint_german   = "";
-    hint_english  = "";
+    hints_german  . clear();
+    hints_english . clear();
     size_x        = LEMSCR_X;
     size_y        = LEMSCR_Y - gloB->panel_gameplay_yl;
     torus_x       = false;
@@ -79,8 +79,8 @@ bool Level::operator == (const Level& l) const
     if (this->author        != l.author
      || this->name_german   != l.name_german
      || this->name_english  != l.name_english
-     || this->hint_german   != l.hint_german
-     || this->hint_english  != l.hint_english
+     || this->hints_german  != l.hints_german
+     || this->hints_english != l.hints_english
 
      || this->size_x        != l.size_x
      || this->size_y        != l.size_y
@@ -159,8 +159,8 @@ const std::string& Level::get_name() const {
 
 
 
-const std::string& Level::get_hint() const {
+const std::vector <std::string>& Level::get_hints() const {
     if (Language::get() == Language::GERMAN)
-         return hint_german .empty() ? hint_english : hint_german;
-    else return hint_english.empty() ? hint_german  : hint_english;
+         return hints_german .empty() ? hints_english : hints_german;
+    else return hints_english.empty() ? hints_german  : hints_english;
 }

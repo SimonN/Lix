@@ -5,6 +5,19 @@
 
 
 
+2013-09-16
+
+    Hint system
+        Level hints are different from tutorials, they are shown sequentially.
+        The Editor cannot edit hints, but leaves them in the file properly.
+        No in-game hotkeys are assigned, and zoom is not available in levels
+        with hints. doc/files.txt is updated with the hints/tutorial format.
+
+    Rubix's singleplayer levels
+        Rubix has made some updates to his singleplayer levels.
+
+
+
 2012-08-06
 
     Skill reimbursement bugfixes

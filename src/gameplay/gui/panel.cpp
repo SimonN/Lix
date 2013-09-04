@@ -29,7 +29,16 @@ GameplayPanel::GameplayPanel()
     rate_slow  (rate_minus.get_x() + 27, rate_minus.get_y()),
     rate_cur   (rate_plus .get_x() + 27, rate_plus .get_y()),
     rate_fast  (rate_fixed.get_x() + 57, rate_fixed.get_y()),
-    gapamode   (GM_NONE)
+
+    on_hint_change(0),
+    on_hint_change_where(0),
+
+    gapamode   (GM_NONE),
+    hint_size  (0),
+    hint_cur   (0),
+    hint_big   (GraLib::get(gloB->file_bitmap_game_panel),       40*13,    20),
+    hint_plus  (GraLib::get(gloB->file_bitmap_game_panel_hints), 40*13+20, 20),
+    hint_minus (GraLib::get(gloB->file_bitmap_game_panel_hints), 40*13,    20)
 {
     for (SkBIt itr = skill.begin(); itr != skill.end(); ++itr) add_child(*itr);
     add_child(rate_minus);
@@ -52,6 +61,10 @@ GameplayPanel::GameplayPanel()
     add_child(rate_cur);
     add_child(rate_fast);
 
+    add_child(hint_big);
+    add_child(hint_plus);
+    add_child(hint_minus);
+
     for (unsigned i = 0; i < skill.size(); ++i) {
         skill[i].set_x(i * 40);
         skill[i].set_y(20);
@@ -69,6 +82,10 @@ GameplayPanel::GameplayPanel()
     restart    .set_x_frame(8);
     nuke_single.set_x_frame(9);
     nuke_multi .set_x_frame(0);
+
+    hint_big   .set_x_frame(1);
+    hint_plus  .set_x_frame(1);
+    hint_minus .set_x_frame(0);
 
     for (SkBIt itr = skill.begin(); itr != skill.end(); ++itr) itr->set_hot();
     speed_slow.set_warm();
@@ -95,11 +112,13 @@ GameplayPanel::GameplayPanel()
     rate_slow.set_undraw_color(0);
     rate_cur .set_undraw_color(0);
     rate_fast.set_undraw_color(0);
+
+
 }
 
 
 
-void GameplayPanel::set_gapamode(const GapaMode m)
+void GameplayPanel::set_gapamode_and_hints(const GapaMode m, const int hs)
 {
     if (m == gapamode || m == GM_NONE) return;
 
@@ -159,6 +178,12 @@ void GameplayPanel::set_gapamode(const GapaMode m)
             spec_tribe.set_xl(40*4);
         }
     }
+
+    // Hint size
+    if (hs < 0) hint_size = 0;
+    else        hint_size = hs;
+    if (hint_size > 0 && hint_cur >= hint_size) hint_cur = hint_size - 1;
+    set_hint_cur(hint_cur);
 }
 
 
@@ -209,10 +234,62 @@ void GameplayPanel::set_skill_on(const int which)
 
 
 
+void GameplayPanel::set_hint_cur(const int i)
+{
+    if      (i < 0 || hint_size == 0) hint_cur = 0;
+    else if (i >= hint_size)          hint_cur = hint_size - 1;
+    else                              hint_cur = i;
+
+    if (gapamode == GM_PLAY_SINGLE || gapamode == GM_REPLAY_SINGLE
+                                   || gapamode == GM_REPLAY_MULTI) {
+        // if there are no hints, maybe only the tutorial
+        if (hint_size < 2) {
+            zoom.show();
+            hint_big.hide();
+            hint_plus.hide();
+            hint_minus.hide();
+        }
+        // with hints, if the hint is either deactivated or the last one
+        else if (hint_cur == 0 || hint_cur == hint_size - 1) {
+            zoom.hide();
+            hint_big.show();
+            hint_plus.hide();
+            hint_minus.hide();
+            hint_big.set_on(hint_cur != 0);
+        }
+        // with hints, showing an intermediate hint
+        else {
+            zoom.hide();
+            hint_big.hide();
+            hint_plus.show();
+            hint_minus.show();
+        }
+    }
+    // gapamode is GM_PLAY_MULTI or GM_SPEC_MULTI
+    else {
+        zoom.hide();
+        hint_big.hide();
+        hint_plus.hide();
+        hint_minus.hide();
+    }
+
+    if (on_hint_change) on_hint_change(on_hint_change_where, hint_cur);
+
+    set_draw_required();
+}
+
+
+
+// ############################################################################
+// ############################################################################
+// ############################################################################
+
+
+
 // helper function for calc_self()
 static void fhs(
     std::string& target_s, int& target_i,
-    const Api::Element& e, const std::string& s, const int& i
+    const Api::Element& e, const std::string& s, const int& i = 0
 ) {
     if (e.is_mouse_here()) {
         target_s = s;
@@ -233,6 +310,10 @@ void GameplayPanel::calc_self()
     rate_cur  .set_draw_required();
     rate_fast .set_draw_required();
 
+    if      (hint_big  .get_clicked()) set_hint_cur(hint_cur==0?1:hint_size-2);
+    else if (hint_minus.get_clicked()) set_hint_cur(hint_cur - 1);
+    else if (hint_plus .get_clicked()) set_hint_cur(hint_cur + 1);
+
     if (useR->gameplay_help) {
         std::string str;
         int         key = 0;
@@ -249,6 +330,12 @@ void GameplayPanel::calc_self()
         fhs(str, key, restart,     gameplay_restart,     useR->key_restart);
         fhs(str, key, nuke_single, gameplay_nuke,        useR->key_nuke);
         fhs(str, key, nuke_multi,  gameplay_nuke,        useR->key_nuke);
+        fhs(str, key, hint_big,    hint_cur == 0 ? gameplay_hint_first
+                                 : hint_cur == 1 ? gameplay_hint_off
+                                 :                 gameplay_hint_prev);
+        fhs(str, key, hint_minus,  hint_cur == 1 ? gameplay_hint_off
+                                                 : gameplay_hint_prev);
+        fhs(str, key, hint_plus,                   gameplay_hint_next);
         // some code copied from editor/editor_d.cpp
         if (key) {
             str += " ";
@@ -256,8 +343,8 @@ void GameplayPanel::calc_self()
             str += " [";
             str += Help::scancode_to_string(key);
             str += "]";
-            stats.set_help(str);
         }
+        if (! str.empty()) stats.set_help(str);
         else stats.set_help();
     }
 }

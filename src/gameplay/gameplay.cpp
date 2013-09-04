@@ -325,8 +325,6 @@ void Gameplay::prepare_level()
         break;
     }
 
-    chat.set_hint(lv.get_hint());
-
     state_manager.save_zero(cs);
 }
 
@@ -336,16 +334,28 @@ void Gameplay::prepare_panel()
 {
     pan.set_like_tribe(trlo, malo);
 
+    pan.on_hint_change       = on_hint_change_callback;
+    pan.on_hint_change_where = this;
+
+    GapaMode gm = GM_NONE;
     if (multiplayer) {
-        if      (replaying)  pan.set_gapamode(GM_REPLAY_MULTI);
-        else if (spectating) pan.set_gapamode(GM_SPEC_MULTI);
-        else                 pan.set_gapamode(GM_PLAY_MULTI);
+        if      (replaying)  gm = GM_REPLAY_MULTI;
+        else if (spectating) gm = GM_SPEC_MULTI;
+        else                 gm = GM_PLAY_MULTI;
     }
     else {
-        if (spectating) pan.set_gapamode(GM_REPLAY_MULTI);
-        else            pan.set_gapamode(GM_PLAY_SINGLE);
+        if (spectating) gm = GM_REPLAY_MULTI;
+        else            gm = GM_PLAY_SINGLE;
     }
+
+    pan.set_gapamode_and_hints(gm, level.get_hints().size());
 }
+
+
+
+// ############################################################################
+// ############################################################################
+// ############################################################################
 
 
 
@@ -429,6 +439,16 @@ void Gameplay::determine_screen_start_from_hatches(
     // Now we have a point (best_x, best_y) on which we want to center the
     // screen initially.
     map.set_screen_center(best_x, best_y);
+}
+
+
+
+void Gameplay::on_hint_change_callback(void* v, const int hint_cur)
+{
+    Gameplay& g = *static_cast <Gameplay*> (v);
+    const std::vector <std::string>& hint_vec = g.level.get_hints();
+    if (hint_vec.empty()) g.chat.set_hint("");
+    else                  g.chat.set_hint(hint_vec[hint_cur]);
 }
 
 

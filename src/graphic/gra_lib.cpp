@@ -76,10 +76,10 @@ GraLib::GraLib()
     eidrecol_api(gloB->file_bitmap_game_nuke);
     eidrecol_api(gloB->file_bitmap_game_panel);
     eidrecol_api(gloB->file_bitmap_game_panel_2);
+    eidrecol_api(gloB->file_bitmap_game_panel_hints);
     eidrecol_api(gloB->file_bitmap_game_spi_fix);
     eidrecol_api(gloB->file_bitmap_game_pause);
     eidrecol_api(gloB->file_bitmap_lobby_spec);
-    eidrecol_api(gloB->file_bitmap_preview_icon);
     eidrecol_api(gloB->file_bitmap_preview_icon);
 
     load_all_file_replacements();

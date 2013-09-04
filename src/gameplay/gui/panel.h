@@ -50,17 +50,26 @@ public:
     Api::Label rate_cur;
     Api::Label rate_fast;
 
+    void (*on_hint_change)(void*, const int); // int = new hint number
+    void* on_hint_change_where; // first arg to give to above function
+
     ///////////////////////////////////////////////////////////////////////////
 
     GameplayPanel();
     virtual ~GameplayPanel() {}
 
-    void            set_gapamode(GapaMode);
+    void set_gapamode_and_hints(GapaMode, const int); // hint size
+
     inline GapaMode get_gapamode() { return gapamode;}
 
     void set_like_tribe   (const Tribe*, const Tribe::Master*);
     void set_skill_numbers(const Tribe&);
     void set_skill_on     (const int);
+
+           void set_hint_cur (const int);
+    inline int  get_hint_cur () { return hint_cur; }
+
+
 
 protected:
 
@@ -70,5 +79,12 @@ protected:
 private:
 
     GapaMode gapamode;
+
+    int hint_size; // including the tutorial hint
+    int hint_cur;
+
+    BiB hint_big,
+        hint_plus,
+        hint_minus;
 
 };
