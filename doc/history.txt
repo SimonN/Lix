@@ -13,6 +13,10 @@
         No in-game hotkeys are assigned, and zoom is not available in levels
         with hints. doc/files.txt is updated with the hints/tutorial format.
 
+    Main menu background image
+        We now have a main menu background image by Mikex62 from the Lemmings
+        Forums. Many thanks!
+
     Rubix's singleplayer levels
         Rubix has made some updates to his singleplayer levels.
 
