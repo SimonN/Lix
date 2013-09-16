@@ -63,4 +63,8 @@ public:
     static        void push_back(const std::string& t, const bool w = false);
     static inline void clear()  { con.line.clear(); }
 
+    static void break_lines(std::vector <std::string>&, // target lines vector
+                            const std::string&,         // source string
+                            FONT*, int);                // line length (pixels)
+
 };

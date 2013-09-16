@@ -75,19 +75,16 @@ void GameplayChat::set_hint(const std::string& hi)
     hints.clear();
     if (hi.empty()) return;
 
-    // hack the hint into separate lines, by parsing all `<br>'
-    const std::string brstr = "<br>";
-    size_t line_start = 0;
-    do {
-        int line_end = hi.find(brstr, line_start);
-        hints.push_back(
-            Api::Label(3, y_hint_first + y_hint_plus * hints.size()));
-        hints.back().set_text(hi.substr(line_start, line_end - line_start));
+    typedef std::vector <std::string> VecStr;
+    VecStr lines;
+    Console::break_lines(lines, hi, font_med, LEMSCR_X - 6);
+
+    for (VecStr::iterator itr = lines.begin(); itr != lines.end(); ++itr) {
+        Api::Label lab(3, y_hint_first + y_hint_plus * hints.size());
+        hints.push_back(lab);
+        hints.back().set_text(*itr);
         hints.back().set_undraw_color(color[COL_PINK]);
-        // prepare for next iteration, and skip the `<br>'
-        line_start = line_end;
-        if (line_start < std::string::npos) line_start += brstr.size();
-    } while (line_start < std::string::npos);
+    }
 }
 
 
