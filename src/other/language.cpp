@@ -399,7 +399,7 @@ last_string;
 // Rueckgabewert   Funktion
 Language::Language Language::get()
 {
-    return static_cast <Language::Language> (useR->language);
+    return static_cast <Language> (useR->language);
 }
 
 
