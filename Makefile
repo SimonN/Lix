@@ -5,7 +5,7 @@ CXX      ?= g++
 CXXFLAGS ?= -O2
 LD       = libtool --tag=CXX --mode=link $(CXX)
 
-LDALLEG  = $(shell allegro-config --libs) -Wl,-rpath,./bin/lib:./lib
+LDALLEG  = $(shell allegro-config --libs)
 LDENET   = -L/usr/local/lib -lenet
 LDPNG    = -lpng -lz
 
