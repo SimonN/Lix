@@ -1,9 +1,9 @@
 # Lix Makefile
 # See ./doc/linux.txt if you want to compile yourself.
 
-CXX      = g++
-CXXFLAGS = -s -O2
-LD       = libtool --mode=link g++
+CXX      ?= g++
+CXXFLAGS ?= -O2
+LD       = libtool --tag=CXX --mode=link $(CXX)
 
 LDALLEG  = $(shell allegro-config --libs) -Wl,-rpath,./bin/lib:./lib
 LDENET   = -L/usr/local/lib -lenet
@@ -11,7 +11,7 @@ LDPNG    = -lpng -lz
 
 STRIP    = strip
 
-DEPGEN   = g++ -MM
+DEPGEN   = $(CXX) -MM
 RM       = rm -rf
 MKDIR    = mkdir -p
 
@@ -70,7 +70,7 @@ $(CLIENT_BIN): $(CLIENT_OBJS)
 	$(Q)$(MKDIR) $(BINDIR)
 	@echo Linking the game \`$(CLIENT_BIN)\' with \
 		$(LDALLEG) $(LDENET) $(LDPNG)
-	$(Q)$(LD) $(LDALLEG) $(LDENET) $(LDPNG) $(CLIENT_OBJS) -o $(CLIENT_BIN) \
+	$(Q)$(LD) $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS) $(LDALLEG) $(LDENET) $(LDPNG) $(CLIENT_OBJS) -o $(CLIENT_BIN) \
 		> /dev/null
 	$(Q)$(STRIP) $(CLIENT_BIN)
 
@@ -78,14 +78,14 @@ $(SERVER_BIN): $(SERVER_OBJS)
 	$(Q)$(MKDIR) $(BINDIR)
 	@echo Linking the server daemon \`$(SERVER_BIN)\' with \
 		$(LDENET)
-	$(Q)$(LD) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN) \
+	$(Q)$(LD) $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN) \
 		> /dev/null
 	$(Q)$(STRIP) $(SERVER_BIN)
 
 define MAKEFROMSOURCE
 $(Q)$(MKDIR) `dirname $@` `dirname $(DEPDIR)/$*.d`
 @echo $<
-$(Q)$(CXX) $(CXXFLAGS) -c $< -o $@
+$(Q)$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
 @printf "%s/%s" `dirname $@` "`$(DEPGEN) $<`" > $(DEPDIR)/$*.d
 endef
 
