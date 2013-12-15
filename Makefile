@@ -20,6 +20,12 @@ OBJDIR   = obj
 DEPDIR   = $(OBJDIR)
 BINDIR   = bin
 
+# verbosity switch
+V=0
+ifeq ($(V),0)
+Q=@
+endif
+
 CLIENT_BIN  = $(BINDIR)/lix
 CLIENT_CSRC = $(wildcard src/graphic/png/*.c)
 CLIENT_SRCS = $(wildcard src/api/*.cpp) \
@@ -61,25 +67,25 @@ clean:
 	$(RM) $(DEPDIR)
 
 $(CLIENT_BIN): $(CLIENT_OBJS)
-	@$(MKDIR) $(BINDIR)
+	$(Q)$(MKDIR) $(BINDIR)
 	@echo Linking the game \`$(CLIENT_BIN)\' with \
 		$(LDALLEG) $(LDENET) $(LDPNG)
-	@$(LD) $(LDALLEG) $(LDENET) $(LDPNG) $(CLIENT_OBJS) -o $(CLIENT_BIN) \
+	$(Q)$(LD) $(LDALLEG) $(LDENET) $(LDPNG) $(CLIENT_OBJS) -o $(CLIENT_BIN) \
 		> /dev/null
-	@$(STRIP) $(CLIENT_BIN)
+	$(Q)$(STRIP) $(CLIENT_BIN)
 
 $(SERVER_BIN): $(SERVER_OBJS)
-	@$(MKDIR) $(BINDIR)
+	$(Q)$(MKDIR) $(BINDIR)
 	@echo Linking the server daemon \`$(SERVER_BIN)\' with \
 		$(LDENET)
-	@$(LD) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN) \
+	$(Q)$(LD) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN) \
 		> /dev/null
-	@$(STRIP) $(SERVER_BIN)
+	$(Q)$(STRIP) $(SERVER_BIN)
 
 define MAKEFROMSOURCE
-@$(MKDIR) `dirname $@` `dirname $(DEPDIR)/$*.d`
+$(Q)$(MKDIR) `dirname $@` `dirname $(DEPDIR)/$*.d`
 @echo $<
-@$(CXX) $(CXXFLAGS) -c $< -o $@
+$(Q)$(CXX) $(CXXFLAGS) -c $< -o $@
 @printf "%s/%s" `dirname $@` "`$(DEPGEN) $<`" > $(DEPDIR)/$*.d
 endef
 
