@@ -4,10 +4,12 @@
 CXX      ?= g++
 CXXFLAGS ?= -O2
 LD       = libtool --tag=CXX --mode=link $(CXX)
+PKG_CONFIG ?= pkg-config
 
 LDALLEG  = $(shell allegro-config --libs)
-LDENET   = -L/usr/local/lib -lenet
-LDPNG    = -lpng -lz
+LDENET   = $(shell $(PKG_CONFIG) --libs libenet 2>/dev/null || echo "-L/usr/local/lib -lenet")
+LDPNG    = $(shell $(PKG_CONFIG) --libs libpng zlib 2>/dev/null || echo "-lpng -lz")
+CPPFLAGS += $(shell $(PKG_CONFIG) --cflags libpng zlib libenet 2>/dev/null) $(shell allegro-config --cflags)
 
 STRIP    = strip
 
