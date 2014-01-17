@@ -139,6 +139,20 @@ bool Replay::get_on_update_lix_clicked(const unsigned long u,
 
 
 
+inline static int compare_data(const Replay::Data& a, const Replay::Data& b)
+{
+    if (a.update < b.update) return -1;
+    if (a.update > b.update) return 1;
+    if (a.player < b.player) return -1;
+    if (a.player > b.player) return 1;
+    // do not order by action:
+    // first assign, then skill, or first skill, then assign shall go
+    // in whatever order the player has input them.
+    return 0;
+}
+
+
+
 void Replay::add(const Replay::Data& d)
 {
     // Veraendert ist es natuerlich nicht mehr geladen, aber die Tatsache, ob
@@ -147,25 +161,21 @@ void Replay::add(const Replay::Data& d)
     version_min    = gloB->version_min;
 
     // Daten verarbeiten
-    if (data.size() == 0 || d.update >= max_updates) {
+    if (data.size() == 0 || d.update > max_updates) {
         data.push_back(d);
         max_updates = d.update;
     }
-    else if (data.begin()->update > d.update) {
-        data.insert(data.begin(), d);
-    }
     else {
-        It i = data.begin();
-        It j = data.begin();
-        while (j != data.end()) {
-            j++;
-            if (i->update <= d.update && (j == data.end()
-                                       || j->update > d.update)) {
-                data.insert(j, d);
+        It itr = data.begin();
+        while (itr != data.end()) {
+            // compare_data is a static funcition defined right above this
+            if (compare_data(d, *itr) == -1) {
+                data.insert(itr, d);
                 break;
             }
-            i++;
+            ++itr;
         }
+        if (itr == data.end()) data.push_back(d);
     }
 }
 
