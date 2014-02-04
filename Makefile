@@ -1,17 +1,19 @@
 # Lix Makefile
 # See ./doc/linux.txt if you want to compile yourself.
 
-CXX      = g++
-CXXFLAGS = -s -O2
-LD       = libtool --mode=link g++
+CXX      ?= g++
+CXXFLAGS ?= -O2
+LD       = libtool --tag=CXX --mode=link $(CXX)
+PKG_CONFIG ?= pkg-config
 
-LDALLEG  = $(shell allegro-config --libs) -Wl,-rpath,./bin/lib:./lib
-LDENET   = -L/usr/local/lib -lenet
-LDPNG    = -lpng -lz
+LDALLEG  = $(shell allegro-config --libs)
+LDENET   = $(shell $(PKG_CONFIG) --libs libenet 2>/dev/null || echo "-L/usr/local/lib -lenet")
+LDPNG    = $(shell $(PKG_CONFIG) --libs libpng zlib 2>/dev/null || echo "-lpng -lz")
+CPPFLAGS += $(shell $(PKG_CONFIG) --cflags libpng zlib libenet 2>/dev/null) $(shell allegro-config --cflags)
 
 STRIP    = strip
 
-DEPGEN   = g++ -MM
+DEPGEN   = $(CXX) -MM
 RM       = rm -rf
 MKDIR    = mkdir -p
 
@@ -19,6 +21,12 @@ SRCDIR   = src
 OBJDIR   = obj
 DEPDIR   = $(OBJDIR)
 BINDIR   = bin
+
+# verbosity switch
+V=0
+ifeq ($(V),0)
+Q=@
+endif
 
 CLIENT_BIN  = $(BINDIR)/lix
 CLIENT_CSRC = $(wildcard src/graphic/png/*.c)
@@ -61,25 +69,25 @@ clean:
 	$(RM) $(DEPDIR)
 
 $(CLIENT_BIN): $(CLIENT_OBJS)
-	@$(MKDIR) $(BINDIR)
+	$(Q)$(MKDIR) $(BINDIR)
 	@echo Linking the game \`$(CLIENT_BIN)\' with \
 		$(LDALLEG) $(LDENET) $(LDPNG)
-	@$(LD) $(LDALLEG) $(LDENET) $(LDPNG) $(CLIENT_OBJS) -o $(CLIENT_BIN) \
+	$(Q)$(LD) $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS) $(LDALLEG) $(LDENET) $(LDPNG) $(CLIENT_OBJS) -o $(CLIENT_BIN) \
 		> /dev/null
-	@$(STRIP) $(CLIENT_BIN)
+	$(Q)$(STRIP) $(CLIENT_BIN)
 
 $(SERVER_BIN): $(SERVER_OBJS)
-	@$(MKDIR) $(BINDIR)
+	$(Q)$(MKDIR) $(BINDIR)
 	@echo Linking the server daemon \`$(SERVER_BIN)\' with \
 		$(LDENET)
-	@$(LD) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN) \
+	$(Q)$(LD) $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN) \
 		> /dev/null
-	@$(STRIP) $(SERVER_BIN)
+	$(Q)$(STRIP) $(SERVER_BIN)
 
 define MAKEFROMSOURCE
-@$(MKDIR) `dirname $@` `dirname $(DEPDIR)/$*.d`
+$(Q)$(MKDIR) `dirname $@` `dirname $(DEPDIR)/$*.d`
 @echo $<
-@$(CXX) $(CXXFLAGS) -c $< -o $@
+$(Q)$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
 @printf "%s/%s" `dirname $@` "`$(DEPGEN) $<`" > $(DEPDIR)/$*.d
 endef
 
