@@ -165,6 +165,10 @@ editor_hotkey_hold,
 editor_bar_at,
 editor_bar_hover,
 editor_bar_selection,
+editor_bar_movekeys_long,
+editor_bar_movekeys_short,
+editor_bar_movekeys_mid,
+editor_bar_movekeys_end,
 
 // SaveBrowser
 save_browser_title,
@@ -597,6 +601,10 @@ void Language::set(const Language lang)
         editor_bar_at                 = "at";
         editor_bar_hover              = "objects about to be selected.";
         editor_bar_selection          = "objects selected.";
+        editor_bar_movekeys_long      = "Drag objects or move them with [";
+        editor_bar_movekeys_short     = "Move with [";
+        editor_bar_movekeys_mid       = "], [";
+        editor_bar_movekeys_end       = "].";
 
         // SaveBrowser
         save_browser_title            = "Save As";
@@ -1080,6 +1088,10 @@ eb[Editor::ADD_HAZARD]
         editor_bar_at                 = "an";
         editor_bar_hover              = "Objekte werden markiert.";
         editor_bar_selection          = "Objekte markiert.";
+        editor_bar_movekeys_long      = "Ziehe Objekte umher oder bewege sie mit [";
+        editor_bar_movekeys_short     = "Bewegen mit [";
+        editor_bar_movekeys_mid       = "], [";
+        editor_bar_movekeys_end       = "].";
 
         // SaveBrowser
         save_browser_title            = "Speichern unter";

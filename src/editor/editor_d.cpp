@@ -273,10 +273,14 @@ void Editor::update_bar_text()
         if      (hover.size()     == 1) tarinf = &*hover.begin()->o;
         else if (selection.size() == 1) tarinf = &*selection.begin()->o;
 
+        int add_movekey_info = 0;
+
         if (hover.size() > 2) {
+            // display "n objects about to be selected"
             str << hover.size() << " " << Language::editor_bar_hover;
         }
         else if (tarinf) {
+            // exactly one item is selected or about to be selected
             str << ObjLib::get_filename(tarinf->get_object());
 
             std::string flags;
@@ -292,7 +296,28 @@ void Editor::update_bar_text()
              << ", " << Help::int_to_hex(tarinf->get_y()) << ")";
         }
         else if (! selection.empty()) {
+            // display "n objects are currently selected"
             str << selection.size() << " " << Language::editor_bar_selection;
+            add_movekey_info = 1;
+        }
+        else {
+            // nothing is selected or hovered above
+            add_movekey_info = 2;
+        }
+
+        if (add_movekey_info > 0) {
+            if (! str.str().empty()) str << " ";
+            const std::string& beg = (add_movekey_info == 2
+                                   ? Language::editor_bar_movekeys_long
+                                   : Language::editor_bar_movekeys_short);
+            const std::string& mid = Language::editor_bar_movekeys_mid;
+            const std::string& end = Language::editor_bar_movekeys_end;
+            str
+             << beg << Help::scancode_to_string(useR->key_ed_up)
+             << mid << Help::scancode_to_string(useR->key_ed_left)
+             << mid << Help::scancode_to_string(useR->key_ed_down)
+             << mid << Help::scancode_to_string(useR->key_ed_right)
+             << end;
         }
     }
 

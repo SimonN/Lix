@@ -179,6 +179,10 @@ editor_hotkey_hold,
 editor_bar_at,
 editor_bar_hover,
 editor_bar_selection,
+editor_bar_movekeys_long,
+editor_bar_movekeys_short,
+editor_bar_movekeys_mid,
+editor_bar_movekeys_end,
 
 // SaveBrowser
 save_browser_title,
