@@ -111,6 +111,8 @@ bool Lookup::get_solid(int x, int y) const
 bool Lookup::get_solid_even(int x, int y) const
 {
     amend(x, y);
+    // x & ~1 makes numbers even by zeroing the last bit
+    // x |  1 makes numbers odd
     return ( get_at(x&~1,y) | get_at(x|1,y) ) & bit_terrain;
 }
 
