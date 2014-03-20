@@ -4,6 +4,7 @@
  */
 
 #include "log.h"
+#include "date.h"
 #include "../help.h"     // timer_ticks
 #include "../globals.h"
 #include "../language.h" // Error and Info text
@@ -48,6 +49,18 @@ Log::~Log()
 
 
 
+void Log::log_header_if_necessary()
+{
+    if (singl->something_was_logged_already_this_session) return;
+
+    singl->something_was_logged_already_this_session = true;
+
+    // a free line and then a date in its own line
+    singl->file << std::endl << Date() << std::endl;
+}
+
+
+
 void Log::log(Priority p, const std::string& s) {
     if ((singl->priority == ERROR && p == ERROR)
      || (singl->priority == INFO && p == ERROR)
@@ -57,10 +70,8 @@ void Log::log(Priority p, const std::string& s) {
         sprintf(time, "%9.2f", (float) Help::timer_ticks
                                      / Help::timer_ticks_per_second);
         // Free line between to L++ programm sessions
-        if (!singl->something_was_logged_already_this_session) {
-             singl->something_was_logged_already_this_session = true;
-             singl->file << std::endl;
-        }
+        log_header_if_necessary();
+
         // Output the line
         singl->file << time << ' ';
         if (p == ERROR) singl->file << Language::log_error;
@@ -77,10 +88,7 @@ void Log::log(Priority p, int i) {
         char time[10];
         sprintf(time, "%9.2f", (float) Help::timer_ticks
                                      / Help::timer_ticks_per_second);
-        if (!singl->something_was_logged_already_this_session) {
-             singl->something_was_logged_already_this_session = true;
-             singl->file << std::endl;
-        }
+        log_header_if_necessary();
         singl->file << time << ' ';
         if (p == ERROR) singl->file << Language::log_error;
         else            singl->file << Language::log_info;
@@ -96,10 +104,7 @@ void Log::log(Priority p, const std::string& s, int i) {
         char time[10];
         sprintf(time, "%9.2f", (float) Help::timer_ticks
                                      / Help::timer_ticks_per_second);
-        if (!singl->something_was_logged_already_this_session) {
-             singl->something_was_logged_already_this_session = true;
-             singl->file << std::endl;
-        }
+        log_header_if_necessary();
         singl->file << time << ' ';
         if (p == ERROR) singl->file << Language::log_error;
         else            singl->file << Language::log_info;

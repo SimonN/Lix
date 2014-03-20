@@ -11,7 +11,6 @@
 #include <vector>
 
 #include "help.h"
-#include "./file/log.h"
 
 #include "../graphic/glob_gfx.h" // color[COL_BLACK]
 

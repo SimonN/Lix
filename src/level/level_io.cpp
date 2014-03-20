@@ -15,7 +15,7 @@
 
 #include "../other/help.h"      // Prae-Extension heraussuchen
 #include "../other/language.h"
-#include "../other/file/log.h"
+#include "../other/file/log.h" // report missing images
 
 void Level::load_from_file(const Filename& filename)
 {

@@ -41,6 +41,7 @@
 #include "lmain.h" // Main object to manage the different parts of the program
 #include "user.h"
 
+#include "file/log.h"
 #include "../lix/lix_enum.h" // initialize strings
 
 #include "../graphic/png/loadpng.h"

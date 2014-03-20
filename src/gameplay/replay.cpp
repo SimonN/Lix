@@ -12,7 +12,6 @@
 
 #include "../other/file/io.h"
 #include "../other/language.h"
-#include "../other/file/log.h"     // Datei nicht gefunden
 
 Replay::Replay()
 :

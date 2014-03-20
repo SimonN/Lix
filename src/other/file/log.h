@@ -62,6 +62,8 @@ private:
     Log();
     ~Log();
 
+    static void log_header_if_necessary();
+
     void operator = (const Log&);
 
 public:

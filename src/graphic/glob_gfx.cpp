@@ -14,7 +14,6 @@
 #include "../other/hardware.h" // center mouse after setting gfx mode
 #include "../other/help.h" // Dateisuche
 #include "../other/language.h"
-#include "../other/file/log.h"
 #include "../other/user.h"
 
 Torbit *pre_screen;

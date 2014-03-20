@@ -4,7 +4,6 @@
  */
 
 #include "console.h"
-#include "./file/log.h"
 
 const int Console::lines_max_number(8);
 const int Console::lines_max_ticks (10 * Help::timer_ticks_per_second);

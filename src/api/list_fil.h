@@ -51,7 +51,6 @@
 #include "button/button.h"
 #include "frame.h"
 
-#include "../other/file/log.h"
 #include "../other/file/filename.h"
 
 namespace Api {
