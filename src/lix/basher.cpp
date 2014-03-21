@@ -190,15 +190,18 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
     // Die Pixel, in dem die Lix steht, müssen auch hohl sein, denn
     // sonst fällt ein Basher im Zipfel seines Ganges, aber die Kollegen
     // nicht!
+    int downwards_movement_this_frame = 0;
     while (!l.is_solid() && !l.is_solid(0, 1) && !l.is_solid(0, 0)
              && l.get_special_x() < 9) {
         l.move_down(1);
+        ++downwards_movement_this_frame;
         l.set_special_x(l.get_special_x() + 2);
     }
     // Get up again to counter the Horus bug, but never go up further than
     // the basher started initially.
     while (l.get_special_x() > 0 && l.is_solid() && l.is_solid(0, 1)) {
         l.move_up(1);
+        --downwards_movement_this_frame;
         l.set_special_x(l.get_special_x() - 2);
         if (l.get_special_x() < 0) l.set_special_x(0);
     }
@@ -206,7 +209,10 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
     // Object zu hoch? Dann Faller werden, sonst special_x senken.
     if (l.get_special_x() > 8) {
         l.move_up(1);
+        --downwards_movement_this_frame;
         l.become(LixEn::FALLER);
+        // count the downward movement towards max fall distance
+        l.set_special_x(downwards_movement_this_frame);
     }
     else if (l.get_special_x() > 0) l.set_special_x(l.get_special_x() - 1);
 
