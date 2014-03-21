@@ -127,8 +127,12 @@ void GameplayChat::calc_self()
         set_draw_required();
     }
     // Clear according to the old yl when drawing
-    if (get_draw_required())
+    // yl is only used for drawing, so as a little kludge, we'll be setting
+    // it again in draw_self()
+    if (get_draw_required()
+     && get_yl() < type.get_y() + type.get_yl()) {
         set_yl(type.get_y() + type.get_yl());
+    }
 
     type.set_y(yl_all_hints + y_msg * nr - 2);
     name.set_y(yl_all_hints + y_msg * nr - 2);
@@ -149,5 +153,9 @@ void GameplayChat::draw_self()
     for (std::vector <Api::Label> ::iterator itr = msgs.begin();
      itr != msgs.end(); ++itr) itr->draw();
     name.draw();
-    type.draw();
+    // type.draw(); this isn't necessary, it's drawn by focus
+
+    // see comment in calc_self() for how this is a little kludge
+    set_yl(type.get_y() + type.get_yl());
+    set_draw_required(false);
 }
