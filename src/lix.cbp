@@ -350,7 +350,6 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="other/file/io.h" />
 		<Unit filename="other/file/log.cpp" />
 		<Unit filename="other/file/log.h" />
-		<Unit filename="other/file/vfs.h" />
 		<Unit filename="other/globals.cpp" />
 		<Unit filename="other/globals.h" />
 		<Unit filename="other/hardware.cpp" />

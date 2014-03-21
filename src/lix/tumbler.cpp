@@ -107,17 +107,23 @@ static void tumbler_land(Lixxie& l)
 static inline bool wall  (Lixxie& l, int i) { return l.is_solid( 0, i); }
 static inline bool behind(Lixxie& l, int i) { return l.is_solid(-2, i)
                                                   && l.is_solid( 0, i); }
+
 int jumper_and_tumbler_collision(Lixxie& l)
 {
     int wall_count   = 0;
     int wall_count_t = 0; // for turning at a wall
     int swh          = 0;
-    int lowest_floor = 0;
+    int lowest_floor = -999; // a default value for "no floor here at all"
     int behind_count = 0;
     for (int i = 1; i > -16; --i) {
         if (wall(l, i)) {
             ++wall_count;
-            if (i > -11) ++wall_count_t;
+            // i <= -1 is tested because the lowest floor check also starts
+            // at -1 and goes further into the negatives. If we don't do that,
+            // we might enter not the ascender check, but instead the climber
+            // check while being sure that we can't ascend,
+            // leading to the ascender in midair bug.
+            if (i <= -1 && i > -11) ++wall_count_t;
         }
     }
     // how high is a solid wall starting above (0, 2)?
@@ -161,7 +167,7 @@ int jumper_and_tumbler_collision(Lixxie& l)
     }
 
     // Stepping up a step we jumped onto
-    if (lowest_floor && l.get_ac() == LixEn::JUMPER) {
+    if (lowest_floor != -999 && l.get_ac() == LixEn::JUMPER) {
         if (lowest_floor > -9 || l.get_climber()) {
             l.become(LixEn::ASCENDER);
             return 2;
