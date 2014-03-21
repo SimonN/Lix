@@ -129,9 +129,9 @@ int daemonize(const std::string& argument_lockfilename)
 
     // Close all file descriptors and reopen them as /dev/null
 	for (int i = ::getdtablesize(); i >= 0; --i) ::close(i);
-	int i = ::open("/dev/null", O_RDWR); // stdin
-	::dup(i); // stdout
-	::dup(i); // stderr
+	int i                     = ::open("/dev/null", O_RDWR); // stdin
+    int dummy_suppress_unused_return_val_warning = ::dup(i); // stdout
+	    dummy_suppress_unused_return_val_warning = ::dup(i); // stderr
 
     return 0;
 
