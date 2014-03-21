@@ -188,7 +188,7 @@ static int really_save_png(PACKFILE *fp, BITMAP *bmp, AL_CONST RGB *pal)
 	goto Error;
 
     /* Set error handling. */
-    if (setjmp(png_ptr->jmpbuf)) {
+    if (setjmp(png_jmpbuf(png_ptr))) {
 	/* If we get here, we had a problem reading the file. */
 	goto Error;
     }
