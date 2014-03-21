@@ -27,7 +27,8 @@ GameplayChat::GameplayChat()
     }
 
     set_undraw_color(color[COL_PINK]);
-    name.set_undraw_color(0); // don't cut away a part of the lowermost msg
+    name.set_undraw_color(color[COL_PINK]);
+    type.set_undraw_color(color[COL_PINK]);
 
     std::string str = gloB->user_name + ':';
     name.set_text(str);
@@ -42,8 +43,23 @@ GameplayChat::GameplayChat()
 
 
 
-void GameplayChat::set_type_on()  { type.set_on();  }
-void GameplayChat::set_type_off() { type.set_off(); }
+void GameplayChat::set_type_on()
+{
+    name.show();
+    type.set_on();
+    set_draw_required();
+}
+
+
+
+void GameplayChat::set_type_off()
+{
+    name.set_hidden();
+    type.set_off();
+    set_draw_required();
+}
+
+
 
 bool GameplayChat::get_type_on()            { return type.get_on();          }
 bool GameplayChat::get_type_on_last_frame() { return type_on_last_frame > 0; }
@@ -105,8 +121,9 @@ void GameplayChat::calc_self()
         msgs[nr].set_y(yl_all_hints + y_msg * nr);
         ++nr;
     }
-    for (; nr < msgs.size(); ++nr) if (! msgs[nr].get_text().empty()) {
-        msgs[nr].set_text();
+    for (size_t i = nr; i < msgs.size(); ++i)
+     if (! msgs[i].get_text().empty()) {
+        msgs[i].set_text();
         set_draw_required();
     }
     // Clear according to the old yl when drawing
