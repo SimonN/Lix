@@ -1,8 +1,8 @@
 Welcome to Lix!
 
-To see how this game works,
-select the directory "tutorial"
-on the left-hand side.
+Tutorials are being revised,
+they are not included yet.
+Try easy singleplayer levels.
 
 Lix comes with a variety of
 single-player puzzle levels,

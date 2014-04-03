@@ -1,8 +1,8 @@
 Willkommen zu Lix!
 
-Um zu sehen, wie das Spiel
-funktioniert, klicke auf den
-Ordner "tutorial" links oben.
+Die Tutorial-Levels werden noch
+ueberarbeitet. Spiele einfache
+Levels aus "single" zum Lernen.
 
 Lix enthaelt eine Vielfalt an
 Einzelspieler-Puzzle-Levels,
