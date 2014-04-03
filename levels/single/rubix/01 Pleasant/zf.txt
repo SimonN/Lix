@@ -1,243 +1,83 @@
-$BUILT 2012-04-25 08:18:06
+$BUILT 2014-02-28 15:25:55
 $AUTHOR Rubix
 $GERMAN 
-$ENGLISH You keep me hangin' on
+$ENGLISH The new Lix caper
 
-#SIZE_X 1280
-#SIZE_Y 560
+#SIZE_X 640
+#SIZE_Y 400
 #TORUS_X 0
 #TORUS_Y 0
-#START_X 320
+#START_X 0
 #START_Y 0
-#BACKGROUND_RED 0
-#BACKGROUND_GREEN 0
-#BACKGROUND_BLUE 0
+#BACKGROUND_RED 111
+#BACKGROUND_GREEN 159
+#BACKGROUND_BLUE 80
 
 #SECONDS 0
-#INITIAL 35
-#REQUIRED 28
-#SPAWN_INTERVAL 53
+#INITIAL 10
+#REQUIRED 8
+#SPAWN_INTERVAL 41
 #SPAWN_INTERVAL_FAST 4
 
-#FLOATER 4
-#BLOCKER 1
-#EXPLODER 1
-#BASHER 1
+#WALKER 1
+#CLIMBER 1
+#FLOATER 1
+#PLATFORMER 1
+#BUILDER 3
+#BASHER 2
 #MINER 1
-#BUILDER 1
-#PLATFORMER 3
-#CUBER 4
+#CUBER 2
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
 
-:matt/bricks/Hatch.H: 1072 112
+:simon/hatch001.H: -16 80
 
-:matt/bricks/Goal.G: 1072 32
+:simon/tapir/goal.G: 592 240
 
-:matt/water.W: -16 512
-:matt/water.W: 16 512
-:matt/water.W: 48 512
-:matt/water.W: 1024 512
-:matt/water.W: 1056 512
-:matt/water.W: -16 528
-:matt/water.W: 16 528
-:matt/water.W: 48 528
-:matt/water.W: 1024 528
-:matt/water.W: 1056 528
-:matt/water.W: 624 512
-:matt/water.W: 656 512
-:matt/water.W: 688 512
-:matt/water.W: 720 512
-:matt/water.W: 752 512
-:matt/water.W: 624 528
-:matt/water.W: 656 528
-:matt/water.W: 688 528
-:matt/water.W: 720 528
-:matt/water.W: 752 528
-:matt/water.W: 752 512
-:matt/water.W: 784 512
-:matt/water.W: 816 512
-:matt/water.W: 848 512
-:matt/water.W: 880 512
-:matt/water.W: 752 528
-:matt/water.W: 784 528
-:matt/water.W: 816 528
-:matt/water.W: 848 528
-:matt/water.W: 880 528
-:matt/water.W: 432 512
-:matt/water.W: 464 512
-:matt/water.W: 496 512
-:matt/water.W: 528 512
-:matt/water.W: 560 512
-:matt/water.W: 432 528
-:matt/water.W: 464 528
-:matt/water.W: 496 528
-:matt/water.W: 528 528
-:matt/water.W: 560 528
-:matt/water.W: 1216 512
-:matt/water.W: 1248 512
-:matt/water.W: 1216 528
-:matt/water.W: 1248 528
+:simon/crystal.W: 0 368
+:simon/crystal.W: 48 368
+:simon/crystal.W: 96 368
+:simon/crystal.W: 144 368
+:simon/crystal.W: 512 368
+:simon/crystal.W: 416 368
 
-:matt/bricks/02a: 448 480
-:matt/bricks/06a: 448 496
-:matt/bricks/02a: 512 480
-:matt/bricks/03a: 384 496
-:matt/bricks/03a: 576 240
-:matt/bricks/03a: 576 368
-:matt/bricks/03a: 576 432
-:matt/bricks/03a: 576 496
-:matt/bricks/03a: 320 496
-:matt/bricks/03a: 896 256
-:matt/bricks/03a: 896 320
-:matt/bricks/03a: 896 384
-:matt/bricks/03a: 896 448
-:matt/bricks/03a: 896 512
-:matt/bricks/03a: 736 432
-:matt/bricks/03a: 960 384
-:matt/bricks/03a: 960 448
-:matt/bricks/03a: 960 512
-:matt/bricks/03a: 1024 320
-:matt/bricks/03a: 736 368
-:matt/bricks/03a: 1152 256
-:matt/bricks/03a: 1088 320
-:matt/bricks/03a: 1088 384
-:matt/bricks/03a: 1088 448
-:matt/bricks/03a: 1088 512
-:matt/bricks/03a: 1152 320
-:matt/bricks/03a: 1152 384
-:matt/bricks/03a: 1152 448
-:matt/bricks/03a: 1152 512
-:matt/bricks/07a: 832 320
-:matt/bricks/03a: 736 496
-:matt/bricks/04a: 800 368
-:matt/bricks/07a: 672 368
-:matt/bricks/03a: 960 320
-:matt/bricks/04a: 640 288
-:matt/bricks/03a: 576 304
-:matt/bricks/04a: 256 448
-:matt/bricks/04a: 192 384
-:matt/bricks/04a: 128 320
-:matt/bricks/04a: 64 256
-:matt/bricks/03a: 256 496
-:matt/bricks/03a: 192 496
-:matt/bricks/03a: 192 448
-:matt/bricks/03a: 128 512
-:matt/bricks/03a: 128 448
-:matt/bricks/03a: 64 512
-:matt/bricks/03a: 64 448
-:matt/bricks/03a: 64 384
-:matt/bricks/03a: 64 320
-:matt/bricks/03a: 128 384
-:matt/bricks/07a: 160 288
-:matt/bricks/07a: 224 224
-:matt/bricks/07a: 288 160
-:matt/bricks/07a: 352 96
-:matt/bricks/07a: 416 32
-:matt/bricks/03a: 224 288
-:matt/bricks/03a: 288 288
-:matt/bricks/03a: 288 224
-:matt/bricks/03a: 352 224
-:matt/bricks/03a: 352 160
-:matt/bricks/03a: 416 160
-:matt/bricks/03a: 416 96
-:matt/bricks/03a: 416 224
-:matt/bricks/03a: 352 288
-:matt/bricks/02a: 480 240
-:matt/bricks/02a: 544 240
-:matt/bricks/06a: 416 288
-:matt/bricks/02a: 464 176
-:matt/bricks/02a: 448 128
-:matt/bricks/02a: 432 80
-:matt/bricks/02a: 480 32
-:matt/bricks/02a: 544 32
-:matt/bricks/02a: 608 32
-:matt/bricks/02a: 672 32
-:matt/bricks/02a: 736 32
-:matt/bricks/02a: 800 32
-:matt/bricks/02a: 864 32
-:matt/bricks/02a: 928 32
-:matt/bricks/02a: 1088 80
-:matt/bricks/02a: 1024 160
-:matt/bricks/02a: 1120 160
-:matt/bricks/18: 1040 64
-:matt/bricks/18: 1040 96
-:matt/bricks/18: 1040 128
-:matt/bricks/18: 1152 64
-:matt/bricks/18: 1152 96
-:matt/bricks/18: 1152 128
-:matt/bricks/02a: 1056 80
-:matt/bricks/02a: 992 32
-:matt/bricks/02a: 1152 32
-:matt/bricks/02a: 1216 32
-:matt/bricks/03a: 1136 192
-:matt/bricks/03a: 1008 192
-:matt/bricks/07a: 704 336
-:matt/bricks/04a: 768 336
-:matt/bricks/17: 720 64 frr
-:matt/bricks/17: 768 112 frr
-:matt/bricks/17: 736 128
-:matt/bricks/17: 688 176
-:matt/bricks/18: 1248 64
-:matt/bricks/18: 1248 96
-:matt/bricks/18: 1248 128
-:matt/bricks/18: 1248 160
-:matt/bricks/17: 736 192 frr
-:matt/bricks/17: 592 64 frr
-:matt/bricks/18: 1248 192
-:matt/bricks/18: 1248 224
-:matt/bricks/18: 1248 256
-:matt/bricks/18: 1248 288
-:matt/bricks/18: 1248 320
-:matt/bricks/18: 1248 352
-:matt/bricks/18: 1248 384
-:matt/bricks/18: 1248 416
-:matt/bricks/18: 1248 448
-:matt/bricks/18: 1248 480
-:matt/bricks/18: 1248 512
-:matt/bricks/18: 1248 544
-:matt/bricks/18: 16 32
-:matt/bricks/18: 16 64
-:matt/bricks/18: 16 96
-:matt/bricks/18: 16 128
-:matt/bricks/18: 16 160
-:matt/bricks/18: 16 192
-:matt/bricks/18: 16 224
-:matt/bricks/18: 16 256
-:matt/bricks/18: 16 288
-:matt/bricks/18: 16 320
-:matt/bricks/18: 16 352
-:matt/bricks/18: 16 384
-:matt/bricks/18: 16 416
-:matt/bricks/18: 16 448
-:matt/bricks/18: 16 480
-:matt/bricks/18: 16 512
-:matt/bricks/18: 16 544
-:matt/bricks/06a: 0 0
-:matt/bricks/02a: 32 0
-:matt/bricks/02a: 96 0
-:matt/bricks/02a: 160 0
-:matt/bricks/12a: -16 48
-:matt/bricks/12a: -16 80
-:matt/bricks/12a: -16 112
-:matt/bricks/12a: -16 144
-:matt/bricks/12a: -16 176
-:matt/bricks/12a: -16 208
-:matt/bricks/12a: -16 240
-:matt/bricks/12a: -16 272
-:matt/bricks/12a: -16 304
-:matt/bricks/12a: -16 336
-:matt/bricks/12a: -16 368
-:matt/bricks/12a: -16 400
-:matt/bricks/12a: -16 432
-:matt/bricks/12a: -16 464
-:matt/bricks/12a: -16 496
-:matt/bricks/12a: -16 528
-:matt/bricks/17: 944 64
-:matt/bricks/17: 896 112
-:matt/bricks/17: 928 128 frr
-:matt/bricks/17: 560 80
-:matt/bricks/17: 544 112 frr
-:matt/bricks/17: 576 144 frr
+:simon/tapir/128: 0 256
+:simon/tapir/032h: 368 370
+:simon/tapir/032h: 240 370
+:simon/tapir/128: 272 302
+:simon/tapir/064v: 560 288
+:simon/tapir/032v: 448 288
+:simon/tapir/064: 448 352
+:simon/tapir/064h: 0 128
+:simon/tapir/064: 496 256
+:simon/tapir/032hb: 64 224
+:simon/tapir/032: 0 192
+:simon/tapir/032: 32 192
+:simon/tapir/032: 448 256
+:simon/tapir/016h: 480 288 rrr
+:simon/tapir/032h: 176 370
+:simon/tapir/032: 32 224
+:matt/steel/48x48.S: 0 128
+:simon/tapir/064v: 624 288
+:simon/tapir/008h: 256 302
+:simon/tapir/064: 128 144
+:matt/steel/48x48.S: 144 144
+:simon/tapir/032: 0 224
+:simon/tapir/128: 272 -48
+:simon/tapir/064v: 208 -80
+:simon/tapir/064v: 144 -112
+:simon/tapir/064v: 400 -80
+:simon/tapir/064v: 464 -112
+:simon/tapir/032: 112 0
+:simon/tapir/032: 80 16
+:simon/tapir/032: 80 -16
+:simon/tapir/032: 528 0
+:simon/tapir/032: 560 16
+:simon/tapir/032: 560 -16
+:simon/tapir/032hc: 336 80 rrr
+:simon/tapir/032hd: 304 80 r
+:simon/tapir/016h: 480 320 rrr
+:simon/tapir/016h: 480 256 rrr
+:simon/tapir/016h: 560 272 rr

@@ -1,7 +1,7 @@
-$BUILT 2012-04-23 20:05:16
+$BUILT 2014-02-27 15:32:59
 $AUTHOR Rubix
 $GERMAN 
-$ENGLISH Out of the blue
+$ENGLISH Undercutting the competition
 
 #SIZE_X 640
 #SIZE_Y 400
@@ -9,22 +9,22 @@ $ENGLISH Out of the blue
 #TORUS_Y 0
 #START_X 0
 #START_Y 0
-#BACKGROUND_RED 0
-#BACKGROUND_GREEN 0
-#BACKGROUND_BLUE 0
+#BACKGROUND_RED 32
+#BACKGROUND_GREEN 64
+#BACKGROUND_BLUE 192
 
 #SECONDS 0
-#INITIAL 50
-#REQUIRED 45
-#SPAWN_INTERVAL 4
+#INITIAL 70
+#REQUIRED 70
+#SPAWN_INTERVAL 33
 #SPAWN_INTERVAL_FAST 4
 
-#CLIMBER 2
-#BUILDER 3
-#PLATFORMER 3
+#CLIMBER 1
+#FLOATER 1
 #BASHER 3
-#MINER 3
-#DIGGER 3
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
@@ -32,55 +32,89 @@ $ENGLISH Out of the blue
 #NOTHING 0
 #NOTHING 0
 
-:matt/winter/Hatch.H: 48 304
+:matt/carnival/Hatch.H: 480 -6 r
 
-:matt/winter/Goal.G: 558 292
+:matt/carnival/Goal.G: 64 240
+:geoo/abstract/goal.G: 64 64
 
-:matt/winter/07: 76 -6 rr
-:matt/winter/07: 21 10 rr
-:matt/winter/07: 275 29 rr
-:matt/winter/07: 574 73 rr
-:matt/winter/07: 423 8 rr
-:matt/winter/07: 297 14 rr
-:matt/winter/06: 160 288
-:matt/winter/04: -43 224
-:matt/winter/10: 80 352
-:matt/winter/10: 161 233 fr
-:matt/winter/06: 160 272 f
-:matt/winter/06: 496 336
-:matt/winter/06: 496 289
-:matt/winter/09a: 383 337
-:matt/winter/10: 43 345
-:matt/winter/04: 208 352 r
-:matt/winter/06: 112 352 fr
-:matt/winter/06: 48 352 fr
-:matt/winter/06: 48 304 f
-:matt/winter/04: -32 320
-:matt/winter/06: 48 240 f
-:matt/winter/10: 160 263 r
-:matt/winter/06: 112 240 fr
-:matt/winter/06: 48 240 fr
-:matt/winter/03: -32 224
-:matt/winter/10: -95 169
-:matt/winter/04: 88 121
-:matt/winter/10: -64 128
-:matt/winter/04: 240 -80
-:matt/winter/10: 336 -80
-:matt/winter/10: -48 -80
-:matt/winter/10: 496 -48 r
-:matt/winter/09a: 528 352
-:matt/winter/09a: 371 368
-:matt/winter/09a: 410 380
-:matt/winter/09a: 560 352
-:matt/winter/09a: 592 352
-:matt/winter/09b: 452 376
-:matt/winter/09b: 437 353
-:matt/winter/09c: 436 340
-:matt/winter/09c: 421 366
-:matt/winter/09b: 454 349
-:matt/winter/09c: 452 338
-:matt/winter/09c: 442 331
-:matt/winter/04: 550 153
-:matt/winter/02: 585 176
-:matt/winter/10: 597 107 fr
-:matt/winter/05: 625 -37
+:matt/water.W: 64 352
+:matt/water.W: 96 352
+:matt/water.W: 128 352
+:matt/water.W: 160 352
+:matt/water.W: 192 352
+:matt/water.W: 224 352
+:matt/water.W: 64 368
+:matt/water.W: 96 368
+:matt/water.W: 128 368
+:matt/water.W: 160 368
+:matt/water.W: 192 368
+:matt/water.W: 224 368
+:matt/water.W: 256 352
+:matt/water.W: 288 352
+:matt/water.W: 320 352
+:matt/water.W: 352 352
+:matt/water.W: 384 352
+:matt/water.W: 416 352
+:matt/water.W: 256 368
+:matt/water.W: 288 368
+:matt/water.W: 320 368
+:matt/water.W: 352 368
+:matt/water.W: 384 368
+:matt/water.W: 416 368
+:matt/water.W: 448 352
+:matt/water.W: 480 352
+:matt/water.W: 512 352
+:matt/water.W: 544 352
+:matt/water.W: 576 352
+:matt/water.W: 608 352
+:matt/water.W: 448 368
+:matt/water.W: 480 368
+:matt/water.W: 512 368
+:matt/water.W: 544 368
+:matt/water.W: 576 368
+:matt/water.W: 608 368
+:matt/water.W: 0 352
+:matt/water.W: 0 368
+
+:matt/carnival/26: 480 227
+:matt/carnival/26: 544 227
+:matt/carnival/26: 528 26
+:matt/carnival/26: 304 104
+:matt/carnival/26: 432 104
+:matt/carnival/04: 496 88
+:matt/carnival/27: 368 104
+:matt/carnival/27: 240 104
+:matt/carnival/04: 608 227
+:matt/carnival/27: 528 104
+:matt/carnival/27: 432 26
+:matt/carnival/04: 608 163
+:matt/carnival/04: 608 99
+:matt/carnival/04: 608 35
+:matt/carnival/26: 416 227
+:matt/carnival/26: 192 305
+:matt/carnival/26: 320 305
+:matt/carnival/04: 384 289
+:matt/carnival/27: 256 305
+:matt/carnival/27: 128 305
+:matt/carnival/27: 416 305
+:matt/carnival/27: 320 227
+:matt/carnival/26: 240 40
+:matt/carnival/26: 128 241
+:matt/steel/32x64.S: 272 40
+:matt/carnival/04: 479 355
+:matt/carnival/04: 479 291
+:matt/carnival/07: 256 8 r
+:matt/carnival/06: 64 304 r
+:matt/carnival/07: 142 210 r
+:matt/steel/32x64.S: 352 227
+:matt/carnival/07: 599 3 r
+:matt/carnival/04: 32 357
+:matt/carnival/04: 32 293
+:geoo/steel/dark_32x16o.S: 64 64
+:geoo/steel/dark_32x16o.S: 64 112
+:geoo/steel/dark_32x16o.S: 96 80 rrr
+:geoo/steel/dark_32x16o.S: 48 80 rrr
+:geoo/steel/dark_16x16o.S: 96 64
+:geoo/steel/dark_16x16o.S: 96 112
+:geoo/steel/dark_16x16o.S: 48 112
+:geoo/steel/dark_16x16o.S: 48 64

@@ -1,83 +1,142 @@
-$BUILT                                             2011-09-05 20:40:24
-$AUTHOR                                                          Rubix
-$GERMAN                                                               
-$ENGLISH                                                       Trapped
+$BUILT 2014-02-28 19:33:46
+$AUTHOR rubix
+$GERMAN 
+$ENGLISH Ergonomically Terrific
 
-#SIZE_X                                                            610
-#SIZE_Y                                                            560
-#TORUS_X                                                             0
-#TORUS_Y                                                             0
-#START_X                                                           580
-#START_Y                                                             0
-#BACKGROUND_RED                                                      0
-#BACKGROUND_GREEN                                                    0
-#BACKGROUND_BLUE                                                     0
+#SIZE_X 784
+#SIZE_Y 480
+#TORUS_X 0
+#TORUS_Y 0
+#START_X 144
+#START_Y 12
+#BACKGROUND_RED 0
+#BACKGROUND_GREEN 64
+#BACKGROUND_BLUE 16
 
-#SECONDS                                                           120
-#INITIAL                                                             8
-#REQUIRED                                                            5
-#RATE                                                                7
+#SECONDS 0
+#INITIAL 30
+#REQUIRED 28
+#SPAWN_INTERVAL 16
+#SPAWN_INTERVAL_FAST 4
 
-#WALKER                                                              1
-#JUMPER                                                              1
-#CLIMBER                                                             2
-#FLOATER                                                             1
-#BLOCKER                                                             3
-#EXPLODER                                                            1
-#BUILDER                                                             3
-#MINER                                                               1
-#NOTHING                                                             0
-#NOTHING                                                             0
-#NOTHING                                                             0
-#NOTHING                                                             0
+#CLIMBER 3
+#FLOATER 1
+#WALKER 1
+#JUMPER 4
+#RUNNER 1
+#PLATFORMER 1
+#MINER 2
+#CUBER 2
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
 
-:matt/bricks/Hatch.H:                        272        96
+:geoo/construction/Hatch.H: 560 256
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
+:geoo/construction/Hatch.H: 464 256 r
 
-:matt/bricks/Goal.G:                         278       496
+:geoo/construction/Goal2.G: -16 176
 
-:matt/bricks/01:                             336        80
-:matt/bricks/01:                             240        80
-:matt/bricks/02:                             240        96     r
-:matt/bricks/03:                             208       160
-:matt/bricks/03:                             144       192
-:matt/bricks/03:                             336       160
-:matt/bricks/03:                             272       144
-:matt/bricks/03:                             400       192
-:matt/bricks/03:                              80       256
-:matt/bricks/03:                             464       256
-:matt/bricks/03:                             176       320
-:matt/bricks/03:                             304       320
-:matt/bricks/03:                             240       320
-:matt/bricks/03:                             368       320
-:matt/bricks/03:                             240       320
-:matt/bricks/03:                              16       256
-:matt/bricks/03:                             528       256
-:matt/bricks/02:                             336        96     r
-:matt/bricks/03:                             -32       176
-:matt/bricks/03:                             -32       112
-:matt/bricks/03:                             576       176
-:matt/bricks/03:                             576       112
-:matt/bricks/03:                             544       496
-:matt/bricks/03:                             480       496
-:matt/bricks/03:                             416       496
-:matt/bricks/03:                             352       496
-:matt/bricks/03:                             192       496
-:matt/bricks/03:                             128       496
-:matt/bricks/03:                              64       496
-:matt/bricks/03:                               0       496
-:matt/bricks/03:                             256       544
-:matt/bricks/03:                             288       544
-:matt/bricks/01:                             160       352
-:matt/bricks/01:                             416       352
-:matt/bricks/01:                             256        80
-:matt/bricks/02:                             256        96     r
-:matt/bricks/01:                             320        80
-:matt/bricks/02:                             320        96     r
-:matt/steel/32x64.S:                              320        80
-:matt/steel/32x64.S:                              256        80
-:matt/steel/32x32.S:                              400       224
-:matt/steel/32x32.S:                              176       224
-:matt/steel/16x32.S:                              208       176
-:matt/steel/16x32.S:                              384       176
-:matt/steel/16x32.S:                              192       192
-:matt/steel/16x32.S:                              400       192
+:geoo/construction/sawblade.F: 544 464
+:geoo/construction/sawblade.F: 576 464
+:geoo/construction/sawblade.F: 608 464
+:geoo/construction/sawblade.F: 640 464
+:geoo/construction/sawblade.F: 672 464
+:geoo/construction/sawblade.F: 704 464
+:geoo/construction/sawblade.F: 496 192
+:geoo/construction/sawblade.F: 512 208
+:geoo/construction/sawblade.F: 528 192
+:geoo/construction/sawblade.F: 490 92
+:geoo/construction/sawblade.F: 424 106
+:geoo/construction/sawblade.F: 362 122
+:geoo/construction/sawblade.F: 298 140
+:geoo/construction/sawblade.F: 234 156
+
+:geoo/sandstone/32x32: 464 224
+:geoo/sandstone/32x32: 560 224
+:geoo/sandstone/64x64: 432 304
+:geoo/sandstone/64x64: 368 288
+:geoo/sandstone/64x64: 304 272
+:geoo/sandstone/64x32: 496 304
+:geoo/sandstone/64x64: 624 336
+:geoo/sandstone/64x64: 560 336
+:geoo/sandstone/64x64: 496 336
+:geoo/sandstone/64x64: 688 336
+:geoo/sandstone/64x64: 688 208
+:geoo/sandstone/64x64: 688 272
+:geoo/sandstone/64x64: 688 144
+:geoo/sandstone/32x32: 496 240
+:geoo/sandstone/32x32: 496 272
+:geoo/sandstone/32x32: 528 272
+:geoo/sandstone/32x64: 752 96
+:geoo/sandstone/32x16: 752 240
+:geoo/sandstone/32x64: 752 256
+:geoo/sandstone/32x64: 752 176
+:geoo/sandstone/32x16: 752 160
+:geoo/sandstone/32x16: 752 320
+:geoo/sandstone/32x64: 752 336
+:geoo/sandstone/32x16: 752 80
+:geoo/sandstone/64x64: 688 80
+:geoo/sandstone/64x64: 432 336
+:geoo/sandstone/64x64: 368 336
+:geoo/sandstone/64x64: 304 336
+:geoo/sandstone/64x64: 240 336
+:geoo/sandstone/64x64: 240 256
+:geoo/sandstone/32x32: 528 240
+:geoo/sandstone/64x64: 176 336
+:geoo/sandstone/64x64: 176 240
+:geoo/sandstone/64x64: 48 336
+:geoo/sandstone/64x64: 112 208
+:geoo/sandstone/64x64: 128 144
+:geoo/sandstone/64x64: 112 80
+:geoo/sandstone/64x64: 96 16
+:geoo/sandstone/64x64: 112 336
+:geoo/sandstone/16x16: 448 224
+:geoo/sandstone/16x16: 592 224
+:geoo/sandstone/32x16: 752 400
+:geoo/sandstone/64x64: 496 464
+:geoo/sandstone/64x64: 432 464
+:geoo/sandstone/64x64: 368 464
+:geoo/sandstone/64x64: 304 464
+:geoo/sandstone/64x64: 240 464
+:geoo/sandstone/64x64: 176 464
+:geoo/sandstone/64x64: 48 464
+:geoo/sandstone/64x64: 112 464
+:geoo/sandstone/64x64: 48 272
+:geoo/sandstone/64x64: -16 240
+:geoo/sandstone/64x64: 256 96
+:geoo/sandstone/64x64: 16 96
+:geoo/sandstone/64x64: -16 32
+:geoo/sandstone/64x64: 48 224
+:geoo/sandstone/32x16: 272 320
+:geoo/sandstone/32x16: 208 320
+:geoo/sandstone/32x16: 112 320
+:geoo/sandstone/32x16: 128 304
+:geoo/sandstone/32x16: 160 320
+:geoo/sandstone/64x64: 192 112
+:geoo/sandstone/32x64: 752 416
+:geoo/steel/64x32o.S: 496 272
+:geoo/steel/64x32o.S: 496 240
+:geoo/steel/64x32o.S: 496 304
+:geoo/sandstone/64x64: 320 80
+:geoo/sandstone/64x64: 384 64
+:geoo/sandstone/64x64: 448 48

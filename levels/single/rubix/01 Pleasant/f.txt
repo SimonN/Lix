@@ -1,4 +1,4 @@
-$BUILT 2012-04-23 20:22:32
+$BUILT 2014-02-27 16:05:57
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH knocked out
@@ -9,8 +9,8 @@ $ENGLISH knocked out
 #TORUS_Y 0
 #START_X 128
 #START_Y 380
-#BACKGROUND_RED 0
-#BACKGROUND_GREEN 0
+#BACKGROUND_RED 63
+#BACKGROUND_GREEN 79
 #BACKGROUND_BLUE 0
 
 #SECONDS 0
@@ -83,3 +83,8 @@ $ENGLISH knocked out
 :geoo/construction/squarebrick_large: 352 288
 :geoo/construction/wall/big_brickdiag_td: 192 224
 :geoo/construction/wall/big_brickdiag_tu: -32 192
+:geoo/construction/concrete/128: 672 -64
+:geoo/construction/concrete/128: 544 -16
+:geoo/construction/concrete/128: 416 -64
+:geoo/construction/concrete/128: 288 -16
+:geoo/construction/concrete/128: 160 -64

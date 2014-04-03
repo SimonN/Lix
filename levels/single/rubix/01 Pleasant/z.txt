@@ -1,123 +1,81 @@
-$BUILT 2012-04-26 21:05:54
+$BUILT 2014-02-27 08:58:28
 $AUTHOR Rubix
 $GERMAN 
-$ENGLISH Sparkle N Shine On Time
+$ENGLISH Work work
 
-#SIZE_X 1600
+#SIZE_X 640
 #SIZE_Y 400
 #TORUS_X 0
 #TORUS_Y 0
 #START_X 0
-#START_Y 380
+#START_Y 0
 #BACKGROUND_RED 0
 #BACKGROUND_GREEN 0
 #BACKGROUND_BLUE 0
 
-#SECONDS 240
-#INITIAL 40
-#REQUIRED 39
-#SPAWN_INTERVAL 16
+#SECONDS 0
+#INITIAL 50
+#REQUIRED 46
+#SPAWN_INTERVAL 23
 #SPAWN_INTERVAL_FAST 4
 
-#RUNNER 1
-#PLATFORMER 1
-#BUILDER 8
-#BASHER 1
+#WALKER 2
+#BUILDER 9
+#PLATFORMER 3
+#BASHER 3
 #MINER 1
-#CUBER 1
-#NOTHING 0
+#DIGGER 1
+#CUBER 3
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
 
-:matt/goldmine/GoalTop.D: 1530 271
-:matt/goldmine/minecart.D: 1578 316
+:matt/underworld/Hatch.H: 592 192
+:matt/underworld/Hatch.H: 64 0
 
-:matt/goldmine/Hatch.H: 46 276
+:matt/underworld/Goal.G: 208 208
 
-:matt/goldmine/Goal.G: 1530 319
+:matt/underworld/Lava.W: 352 368
+:matt/underworld/Lava.W: 400 368
+:matt/underworld/Lava.W: 448 368
+:matt/underworld/Lava.W: 496 368
+:matt/underworld/Lava.W: 544 368
+:matt/underworld/Lava.W: 48 368
+:matt/underworld/Lava.W: 0 368
+:matt/underworld/Lava.W: 592 368
 
-:matt/goldmine/06: 176 0
-:matt/goldmine/08: 334 217
-:matt/goldmine/09: 360 314 frr
-:matt/goldmine/04: 1394 132
-:matt/goldmine/08: 1384 200
-:matt/goldmine/04: 772 201
-:matt/goldmine/04: 782 230
-:matt/goldmine/08: 860 254
-:matt/goldmine/04: 704 210 f
-:matt/goldmine/04: 690 268
-:matt/goldmine/09: 786 334
-:matt/goldmine/09: 770 254
-:matt/goldmine/09: 720 208
-:matt/goldmine/09: 720 192
-:matt/goldmine/08: 350 208
-:matt/goldmine/09: 385 208 frr
-:matt/goldmine/09: 368 288 frr
-:matt/goldmine/crate64: 960 336
-:matt/goldmine/crate64: 960 272
-:matt/goldmine/09: 944 288
-:matt/goldmine/crate64: 960 208
-:matt/goldmine/09: 928 208
-:matt/goldmine/crate64: 960 144
-:matt/goldmine/09: 914 144
-:matt/goldmine/09: 736 208 frr
-:matt/goldmine/09: 720 288 frr
-:matt/goldmine/07: 1214 324
-:matt/goldmine/09: 1460 292
-:matt/goldmine/crate64: 1459 88
-:matt/goldmine/09: 1416 86
-:matt/goldmine/crate64: 1459 216
-:matt/goldmine/crate64: 1459 152
-:matt/goldmine/07: 1390 146 r
-:matt/goldmine/09: 1444 212
-:matt/goldmine/09: 1428 132
-:matt/goldmine/08: 418 204 f
-:matt/goldmine/07: 626 382
-:matt/goldmine/07: 784 336
-:matt/goldmine/07: 288 336
-:matt/goldmine/08: 208 320 r
-:matt/goldmine/04: 128 288
-:matt/goldmine/07: 0 320
-:matt/goldmine/07: -64 320
-:matt/goldmine/07: -40 240 r
-:matt/goldmine/09: 1522 363 r
-:matt/goldmine/08: 293 284
-:matt/goldmine/08: 720 176
-:matt/goldmine/08: 1240 220
-:matt/goldmine/09: 1266 318 frr
-:matt/goldmine/08: 1282 150
-:matt/goldmine/09: 1290 212 frr
-:matt/goldmine/09: 1274 292 frr
-:matt/goldmine/08: 1184 320
-:matt/goldmine/08: 1298 246
-:matt/goldmine/08: 1366 322 r
-:matt/goldmine/08: 1386 304 rr
-:matt/goldmine/08: 452 208
-:matt/goldmine/08: 848 174
-:matt/goldmine/08: 852 222 f
-:matt/goldmine/08: 1201 286
-:matt/goldmine/09: 1353 181
-:matt/goldmine/09: 1441 273 f
-:matt/goldmine/08: 1104 -64
-:matt/goldmine/09: 1008 -32 fr
-:matt/goldmine/05: 1184 -16
-:matt/goldmine/06: 1280 -16
-:matt/goldmine/08: 1216 -80
-:matt/goldmine/04: 928 -128
-:matt/goldmine/08: 864 -64
-:matt/goldmine/09: 768 -32 fr
-:matt/goldmine/05: 896 16
-:matt/goldmine/06: 992 32
-:matt/goldmine/08: 928 -48
-:matt/goldmine/04: 720 -96 frr
-:matt/goldmine/09: 80 -32 fr
-:matt/goldmine/04: 96 -112
-:matt/goldmine/08: -16 -80
-:matt/goldmine/09: 48 -16 fr
-:matt/goldmine/05: 48 48
-:matt/goldmine/08: 32 0 r
-:matt/goldmine/08: -16 -32
-:matt/goldmine/08: -32 16
+:matt/underworld/09c: 154 270 frr
+:matt/underworld/09c: 296 304
+:matt/underworld/09a: 528 368
+:matt/underworld/09a: 112 64
+:matt/underworld/01: 288 368
+:matt/underworld/08: 224 304 r
+:matt/underworld/02: 224 304
+:matt/underworld/02: 528 288
+:matt/underworld/01: 592 288
+:matt/underworld/09a: 16 304
+:matt/underworld/00: 32 304
+:matt/underworld/02: 96 304
+:matt/underworld/08: 112 288
+:matt/underworld/08: 176 256 frrr
+:matt/underworld/01: -44 64
+:matt/underworld/01: 64 64
+:matt/underworld/01: 128 64
+:matt/underworld/01: 288 64
+:matt/underworld/01: 400 64
+:matt/underworld/01: 464 64
+:matt/underworld/01: 528 64
+:matt/underworld/02: -44 96
+:matt/underworld/02: 528 96
+:matt/underworld/02: 528 192
+:matt/underworld/01: 64 80 d
+:matt/underworld/01: 128 80 d
+:matt/underworld/01: 288 80 d
+:matt/underworld/01: 368 80 d
+:matt/underworld/01: 400 80 d
+:matt/underworld/01: 464 80 d
+:matt/underworld/00: -32 304
+:matt/underworld/02: -44 122
+:matt/underworld/02: 592 320 d

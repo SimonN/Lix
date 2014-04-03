@@ -1,14 +1,14 @@
-$BUILT 2012-08-25 09:10:34
+$BUILT 2012-08-25 20:29:54
 $AUTHOR Rubix
 $GERMAN 
-$ENGLISH Build me up buttercup.
+$ENGLISH The Stockade
 
-#SIZE_X 1198
-#SIZE_Y 380
+#SIZE_X 680
+#SIZE_Y 400
 #TORUS_X 0
 #TORUS_Y 0
-#START_X 558
-#START_Y 340
+#START_X 20
+#START_Y 380
 #BACKGROUND_RED 0
 #BACKGROUND_GREEN 0
 #BACKGROUND_BLUE 0
@@ -16,128 +16,141 @@ $ENGLISH Build me up buttercup.
 #SECONDS 0
 #INITIAL 99
 #REQUIRED 99
-#SPAWN_INTERVAL 16
+#SPAWN_INTERVAL 53
 #SPAWN_INTERVAL_FAST 4
 
 #CLIMBER 1
+#DIGGER 20
 #FLOATER 1
-#WALKER 1
-#JUMPER 1
-#BLOCKER 1
-#BUILDER 3
-#BASHER 2
-#MINER 2
+#JUMPER 5
+#BLOCKER 2
+#WALKER 20
+#BUILDER 26
+#NOTHING 0
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
 
-:matt/underworld/Hatch.H: 208 16 r
+:matt/goldmine/GoalTop.D: 58 -16
+:matt/goldmine/GoalTop.D: 558 -16
 
-:matt/underworld/Goal.G: 1024 308
+:matt/goldmine/Hatch.H: 96 320
+:matt/goldmine/Hatch.H: 512 320 r
 
-:matt/underworld/09a: 94 12
-:matt/underworld/09a: 1093 312
-:matt/underworld/09a: 1085 316
-:matt/underworld/09a: 1158 207 rrr
-:matt/underworld/09a: 1113 300
-:matt/underworld/09a: 1101 306
-:matt/underworld/09a: 1160 85 frrr
-:matt/underworld/09a: 1170 6 frrr
-:matt/underworld/09a: 903 372
-:matt/underworld/09a: 751 336
-:matt/underworld/09a: 685 342
-:matt/underworld/09a: 621 341
-:matt/underworld/09b: 391 243
-:matt/underworld/09b: 298 345
-:matt/underworld/09b: 369 269
-:matt/underworld/09a: 169 3
-:matt/underworld/09a: 2 18
-:matt/underworld/09a: 8 176
-:matt/underworld/09a: 193 -12 f
-:matt/underworld/01: 232 126
-:matt/underworld/02: 64 112
-:matt/underworld/06: 506 132
-:matt/underworld/08: 484 208 frr
-:matt/underworld/08: 404 352 frr
-:matt/underworld/08: 420 336 frr
-:matt/underworld/08: 436 320 frr
-:matt/underworld/08: 452 304 frr
-:matt/underworld/08: 484 272 frr
-:matt/underworld/04: 150 134
-:matt/underworld/01: 232 110
-:matt/underworld/01: 170 110
-:matt/underworld/01: 562 356
-:matt/underworld/05: 748 348
-:matt/underworld/01: 546 356
-:matt/underworld/08: 718 340 frr
-:matt/underworld/05: 569 337
-:matt/underworld/05: 908 359 frr
-:matt/underworld/08: 1062 318
-:matt/underworld/08: 1104 270
-:matt/underworld/08: 1136 222
-:matt/underworld/05: 1152 110 r
-:matt/underworld/05: 1184 110 r
-:matt/underworld/05: 1172 4 r
-:matt/underworld/05: 1184 30 r
-:matt/underworld/08: 1136 302
-:matt/underworld/05: -32 64 r
-:matt/underworld/01: 76 140
-:matt/underworld/01: 76 110
-:matt/underworld/01: 418 356
-:matt/underworld/01: 354 356
-:matt/underworld/09a: 164 110
-:matt/underworld/08: 64 84 f
-:matt/underworld/08: 16 160 r
-:matt/underworld/05: 0 -16
-:matt/underworld/01: 482 356
-:matt/underworld/05: 120 110
-:matt/underworld/08: 480 144 frr
-:matt/underworld/08: 462 160 frr
-:matt/underworld/08: 433 192 frr
-:matt/underworld/08: 413 210 frr
-:matt/underworld/08: 399 223 frr
-:matt/underworld/08: 388 240 frr
-:matt/underworld/08: 356 272 frr
-:matt/underworld/08: 340 288 frr
-:matt/underworld/08: 324 304 frr
-:matt/underworld/08: 308 320 frr
-:matt/steel/32x32.S: 584 324
-:matt/steel/32x32.S: 584 292
-:matt/steel/32x32.S: 584 260
-:matt/steel/32x32.S: 584 228
-:matt/steel/32x32.S: 584 196
-:matt/steel/32x32.S: 584 164
-:matt/steel/32x32.S: 584 132
-:matt/underworld/08: 290 341 frr
-:matt/underworld/05: 655 358
-:matt/underworld/05: 699 330
-:matt/underworld/08: 275 362 frr
-:matt/underworld/08: 282 352 frr
-:matt/underworld/08: 228 376 frr
-:matt/underworld/08: -48 192 r
-:matt/underworld/05: -32 -80 r
-:matt/underworld/01: 64 80 d
-:matt/underworld/01: 128 80 d
-:matt/underworld/01: 192 80 d
-:matt/underworld/01: 256 80 d
-:matt/underworld/04: 90 181 d
-:matt/underworld/04: 79 209 d
-:matt/underworld/04: 61 238 d
-:matt/underworld/04: 26 256 d
-:matt/underworld/04: -15 266 d
-:matt/underworld/04: 70 162
-:matt/underworld/04: 48 183
-:matt/underworld/04: 10 206
-:matt/underworld/04: -31 219
-:matt/underworld/04: 94 148
-:matt/steel/32x32.S: 16 192
-:matt/steel/32x32.S: 48 192
-:matt/steel/32x32.S: 80 192
-:matt/steel/32x32.S: 80 160
-:matt/steel/32x32.S: 112 160
-:matt/steel/32x32.S: -16 224
-:matt/steel/32x32.S: 16 224
-:matt/underworld/05: 127 -38
-:matt/underworld/09a: 228 111
-:matt/underworld/09c: 1134 241 rrr
+:matt/goldmine/Goal.G: 58 32
+:matt/goldmine/Goal.G: 558 32
+
+:matt/goldmine/crate16: 330 80
+:matt/goldmine/plank: 272 80
+:matt/goldmine/crate32: 44 272
+:matt/goldmine/crate32: 44 240
+:matt/goldmine/crate32: 44 336
+:matt/goldmine/crate32: 44 304
+:matt/goldmine/crate32: 44 208
+:matt/goldmine/crate32: 44 176
+:matt/goldmine/crate32: 44 144
+:matt/goldmine/crate32: 44 112
+:matt/goldmine/crate64: 140 112
+:matt/goldmine/crate64: 204 112
+:matt/goldmine/crate64: 346 112
+:matt/goldmine/crate64: 410 112
+:matt/goldmine/crate64: 474 112
+:matt/goldmine/crate64: 538 112
+:matt/goldmine/crate64: 140 176
+:matt/goldmine/crate64: 204 176
+:matt/goldmine/crate64: 346 176
+:matt/goldmine/crate64: 410 176
+:matt/goldmine/crate64: 474 176
+:matt/goldmine/crate64: 538 176
+:matt/goldmine/crate64: 76 112
+:matt/goldmine/crate64: 76 176
+:matt/goldmine/crate32: 266 80
+:matt/goldmine/crate32: 298 80
+:matt/goldmine/crate32: 298 304
+:matt/goldmine/crate32: 298 336
+:matt/goldmine/crate32: 298 368
+:matt/goldmine/crate32: 346 80
+:matt/goldmine/crate32: 346 240
+:matt/goldmine/crate32: 346 272
+:matt/goldmine/crate32: 346 304
+:matt/goldmine/crate32: 346 336
+:matt/goldmine/crate64: 42 368
+:matt/goldmine/crate64: 106 368
+:matt/goldmine/crate64: 170 368
+:matt/goldmine/crate64: 234 368
+:matt/goldmine/crate64: 378 368
+:matt/goldmine/crate64: 442 368
+:matt/goldmine/crate64: 506 368
+:matt/goldmine/crate64: 570 368
+:matt/goldmine/crate32: 202 80
+:matt/goldmine/crate32: 234 80
+:matt/goldmine/crate32: 138 80
+:matt/goldmine/crate32: 170 80
+:matt/goldmine/crate32: 74 80
+:matt/goldmine/crate32: 106 80
+:matt/goldmine/crate32: 42 80
+:matt/goldmine/plank: 42 80 r
+:matt/goldmine/crate32: 570 80
+:matt/goldmine/crate32: 602 80
+:matt/goldmine/crate32: 506 80
+:matt/goldmine/crate32: 538 80
+:matt/goldmine/crate32: 442 80
+:matt/goldmine/crate32: 474 80
+:matt/goldmine/crate32: 378 80
+:matt/goldmine/crate32: 410 80
+:matt/goldmine/crate32: 298 240
+:matt/goldmine/crate32: 298 272
+:matt/goldmine/crate32: 346 368
+:matt/goldmine/plank: 42 272 r
+:matt/goldmine/plank: 42 144 r
+:matt/goldmine/plank: 42 80 rr
+:matt/goldmine/plank: 202 80 rr
+:matt/goldmine/plank: 122 80 rr
+:matt/goldmine/plank: 426 80 rr
+:matt/goldmine/plank: 346 80 rr
+:matt/goldmine/plank: 506 80 rr
+:matt/goldmine/crate64: 266 112
+:matt/goldmine/crate64: 266 176
+:matt/goldmine/crate32: 602 112
+:matt/goldmine/crate32: 602 144
+:matt/goldmine/crate32: 602 176
+:matt/goldmine/crate32: 602 208
+:matt/goldmine/plank: 626 82 r
+:matt/goldmine/crate32: 602 240
+:matt/goldmine/crate32: 602 272
+:matt/goldmine/crate32: 602 304
+:matt/goldmine/crate32: 602 336
+:matt/goldmine/plank: 626 208 r
+:matt/goldmine/plank: 626 272 r
+:matt/goldmine/plank: -14 0 rr
+:matt/goldmine/plank: 114 0 rr
+:matt/goldmine/plank: 242 0 rr
+:matt/goldmine/plank: 370 0 rr
+:matt/goldmine/plank: 498 0 rr
+:matt/goldmine/plank: 626 0 rr
+:matt/goldmine/plank: 0 0 r
+:matt/goldmine/plank: 672 2 r
+:matt/goldmine/crate16: 330 96
+:matt/steel/32x32.S: 44 82
+:matt/steel/32x32.S: 44 114
+:matt/steel/32x32.S: 44 146
+:matt/steel/32x32.S: 44 178
+:matt/steel/32x32.S: 44 210
+:matt/steel/32x32.S: 44 242
+:matt/steel/32x32.S: 602 82
+:matt/steel/32x32.S: 602 114
+:matt/steel/32x32.S: 602 146
+:matt/steel/32x32.S: 602 178
+:matt/steel/32x32.S: 602 210
+:matt/steel/32x32.S: 602 242
+:matt/steel/32x32.S: 76 82
+:matt/steel/32x32.S: 570 82
+:matt/steel/32x32.S: 108 114
+:matt/steel/32x32.S: 140 144
+:matt/steel/32x32.S: 172 176
+:matt/steel/32x32.S: 204 206
+:matt/steel/32x32.S: 540 114
+:matt/steel/32x32.S: 508 146
+:matt/steel/32x32.S: 476 176
+:matt/steel/32x32.S: 444 206

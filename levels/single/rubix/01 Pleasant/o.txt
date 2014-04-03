@@ -1,129 +1,79 @@
-$BUILT 2012-04-24 20:02:46
+$BUILT 2014-02-27 14:40:23
 $AUTHOR Rubix
 $GERMAN 
-$ENGLISH Start thinking strategically
+$ENGLISH Leader of the pack
 
-#SIZE_X 1000
+#SIZE_X 640
 #SIZE_Y 400
 #TORUS_X 0
 #TORUS_Y 0
 #START_X 0
-#START_Y 380
-#BACKGROUND_RED 0
-#BACKGROUND_GREEN 0
-#BACKGROUND_BLUE 0
+#START_Y 0
+#BACKGROUND_RED 80
+#BACKGROUND_GREEN 127
+#BACKGROUND_BLUE 191
 
-#SECONDS 150
-#INITIAL 80
-#REQUIRED 79
-#SPAWN_INTERVAL 4
+#SECONDS 0
+#INITIAL 35
+#REQUIRED 33
+#SPAWN_INTERVAL 75
 #SPAWN_INTERVAL_FAST 4
 
-#CLIMBER 1
-#JUMPER 1
-#EXPLODER 2
-#BLOCKER 2
-#BUILDER 10
-#PLATFORMER 5
-#BASHER 15
-#MINER 2
-#DIGGER 2
+#FLOATER 1
+#EXPLODER 4
+#BLOCKER 4
+#PLATFORMER 1
+#BASHER 1
+#MINER 1
+#DIGGER 1
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
+#NOTHING 0
+#NOTHING 0
 
-:matt/goldmine/minecart.D: 372 325
-:matt/goldmine/minecart.D: 663 257
-:matt/goldmine/GoalTop.D: 938 206
-:matt/goldmine/shovel.D: 396 311
+:matt/bricks/Hatch.H: 0 32
 
-:matt/goldmine/Hatch.H: 0 256
+:matt/bricks/Goal.G: 576 288
 
-:matt/goldmine/Goal.G: 938 252
+:matt/water.W: 144 368
+:matt/water.W: 176 368
+:matt/water.W: 208 368
+:matt/water.W: 400 368
+:matt/water.W: 432 368
+:matt/water.W: 464 368
+:matt/water.W: 288 368
+:matt/water.W: 320 368
+:matt/water.W: 352 368
 
-:matt/goldmine/07: 208 333
-:matt/goldmine/04: 118 309 r
-:matt/goldmine/07: 52 315
-:matt/goldmine/04: -34 321 r
-:matt/goldmine/07: 567 332
-:matt/goldmine/04: 477 308 r
-:matt/goldmine/07: 411 314
-:matt/goldmine/04: 325 320 r
-:matt/goldmine/07: 961 279
-:matt/goldmine/04: 898 331 r
-:matt/goldmine/07: 568 333
-:matt/goldmine/04: 636 349 r
-:matt/goldmine/planksupport: -32 304
-:matt/goldmine/tracks: 0 296
-:matt/goldmine/plank: 96 304
-:matt/goldmine/planksupport: 224 304
-:matt/goldmine/plank: 352 304
-:matt/goldmine/planksupport: 480 304
-:matt/goldmine/plank: 608 304
-:matt/goldmine/planksupport: 723 304
-:matt/goldmine/plank: 900 304
-:matt/goldmine/tracks: 112 296
-:matt/goldmine/tracks: 226 296
-:matt/goldmine/tracks: 338 296
-:matt/goldmine/tracks: 450 296
-:matt/goldmine/tracks: 562 296
-:matt/goldmine/tracks: 746 296
-:matt/goldmine/tracks: 674 296
-:matt/goldmine/tracks: 900 296
-:matt/goldmine/crate64: 236 240
-:matt/steel/48x48.S: 531 176
-:matt/goldmine/crate64: 172 240
-:matt/goldmine/crate64: 108 240
-:matt/steel/48x48.S: 619 256
-:matt/steel/48x48.S: 619 176
-:matt/goldmine/plank: 579 176 r
-:matt/goldmine/plank: 667 176 r
-:matt/goldmine/plank: 611 176 r
-:matt/goldmine/07: 358 -14 r
-:matt/goldmine/07: 418 -90 r
-:matt/goldmine/07: 302 -94 r
-:matt/goldmine/07: 170 -54 rr
-:matt/goldmine/07: 34 -60 rr
-:matt/goldmine/07: -140 -8 rr
-:matt/goldmine/07: 500 -28 rr
-:matt/goldmine/07: 642 -78 rr
-:matt/goldmine/07: 812 -30 rr
-:matt/goldmine/07: 362 78 r
-:matt/steel/48x48.S: 376 256
-:matt/goldmine/crate64: 208 176
-:matt/goldmine/crate64: 140 176
-:matt/goldmine/crate16: 800 224 fr
-:matt/goldmine/crate16: 512 256
-:matt/goldmine/crate16: 800 256 fr
-:matt/goldmine/crate16: 512 272
-:matt/goldmine/crate16: 800 272 fr
-:matt/goldmine/crate16: 496 272
-:matt/goldmine/crate16: 800 240 fr
-:matt/goldmine/crate16: 800 288 fr
-:matt/goldmine/crate16: 496 288
-:matt/goldmine/crate16: 512 272
-:matt/goldmine/crate16: 480 288
-:matt/goldmine/crate16: 512 288
-:matt/goldmine/crate16: 800 208 fr
-:matt/steel/48x48.S: 531 256
-:matt/goldmine/plank: 523 176 r
-:matt/goldmine/crate16: 784 272 fr
-:matt/goldmine/crate16: 768 256 fr
-:matt/goldmine/crate16: 768 272 fr
-:matt/goldmine/crate16: 784 288 fr
-:matt/goldmine/crate16: 768 288 fr
-:matt/goldmine/crate16: 784 256 fr
-:matt/goldmine/crate16: 768 240 fr
-:matt/goldmine/crate16: 832 288 fr
-:matt/goldmine/crate16: 816 288 fr
-:matt/goldmine/crate16: 832 272 fr
-:matt/goldmine/crate16: 832 256 fr
-:matt/goldmine/crate16: 816 272 fr
-:matt/goldmine/07: 842 305
-:matt/goldmine/07: 774 350
-:matt/steel/48x48.S: 721 256
-:matt/steel/32x32.S: 816 240
-:matt/steel/32x32.S: 816 272
-:matt/steel/32x32.S: 816 208
-:matt/steel/32x32.S: 816 176
-:matt/steel/32x32.S: 848 272
+:matt/bricks/17: 160 336
+:matt/bricks/17: 208 288
+:matt/bricks/17: 256 240
+:matt/bricks/17: 304 192
+:matt/bricks/17: 352 144
+:matt/bricks/17: 400 96
+:matt/bricks/03: 352 208
+:matt/bricks/03: 352 272
+:matt/bricks/03: 480 80
+:matt/bricks/03: 480 144
+:matt/bricks/03: 480 208
+:matt/bricks/03: 480 272
+:matt/bricks/03: 224 336
+:matt/bricks/03: 352 336
+:matt/bricks/03: 480 336
+:matt/bricks/17: 448 48
+:matt/bricks/03: 544 336
+:matt/bricks/03: 592 336
+:matt/bricks/02: 112 368
+:matt/bricks/02: 48 368
+:matt/bricks/02: -16 368
+:matt/bricks/02: 112 288
+:matt/bricks/02: 48 288
+:matt/bricks/02: 64 208
+:matt/bricks/02: 0 208
+:matt/bricks/02: 112 144
+:matt/bricks/02: 48 144
+:matt/bricks/02: 64 80
+:matt/bricks/02: 0 80
+:matt/bricks/02: 176 144
+:matt/bricks/04: 512 272

@@ -1,29 +1,29 @@
-$BUILT 2012-08-24 19:56:37
-$AUTHOR rubix
+$BUILT 2014-02-27 19:13:00
+$AUTHOR Rubix
 $GERMAN 
-$ENGLISH Step above the rest
+$ENGLISH Obstruction destruction
 
-#SIZE_X 1312
+#SIZE_X 640
 #SIZE_Y 400
 #TORUS_X 0
 #TORUS_Y 0
-#START_X 320
-#START_Y 380
-#BACKGROUND_RED 0
-#BACKGROUND_GREEN 0
-#BACKGROUND_BLUE 0
+#START_X 0
+#START_Y 0
+#BACKGROUND_RED 64
+#BACKGROUND_GREEN 16
+#BACKGROUND_BLUE 80
 
 #SECONDS 0
-#INITIAL 40
-#REQUIRED 29
-#SPAWN_INTERVAL 31
+#INITIAL 30
+#REQUIRED 28
+#SPAWN_INTERVAL 16
 #SPAWN_INTERVAL_FAST 4
 
-#WALKER 1
 #CLIMBER 1
-#MINER 1
-#DIGGER 9
-#CUBER 11
+#EXPLODER 2
+#PLATFORMER 3
+#BASHER 2
+#MINER 2
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
@@ -32,56 +32,41 @@ $ENGLISH Step above the rest
 #NOTHING 0
 #NOTHING 0
 
-:geoo/construction/Hatch.H: 784 272 r
-:geoo/construction/Hatch.H: 48 208
+:matt/carnival/Hatch.H: -16 82
 
-:geoo/construction/Goal2.G: 1216 80
+:matt/carnival/Goal.G: 592 192
 
-:geoo/construction/wall/big_brickdiag_tu: 496 176
-:geoo/construction/wall/big_brickdiag_tu: 464 208
-:geoo/construction/wall/big_brickdiag_tu: 432 240
-:geoo/construction/concrete/032v: 848 256
-:geoo/construction/concrete/064v: 848 144
-:geoo/construction/wall/big_brickdiag_td: 712 304
-:geoo/construction/wall/big_brickdiag_td: 680 272
-:geoo/construction/wall/big_brickdiag_td: 648 240
-:geoo/construction/wall/big_brickdiag_tu: 472 304
-:geoo/construction/wall/big_brickdiag_tu: 504 272
-:geoo/construction/wall/big_brickdiag_tu: 536 240
-:geoo/construction/concrete/064h: 0 336
-:geoo/construction/concrete/064h: 128 336
-:geoo/construction/concrete/064h: 256 336
-:geoo/construction/concrete/064h: 384 336
-:geoo/construction/concrete/064h: 736 336
-:geoo/construction/concrete/064h: 864 336
-:geoo/construction/concrete/064h: 992 336
-:geoo/construction/concrete/064h: 1120 336
-:geoo/construction/concrete/064h: 0 144
-:geoo/construction/concrete/064h: 128 160
-:geoo/construction/concrete/064h: 992 208
-:geoo/construction/concrete/064h: 1120 144
-:geoo/construction/concrete/064v: -16 208
-:geoo/construction/concrete/064v: 1184 208
-:geoo/construction/concrete/064v: 256 176
-:geoo/construction/wall/big_brickdiag_td: 384 240
-:geoo/construction/wall/big_brickdiag_td: 352 208
-:geoo/construction/wall/big_brickdiag_td: 320 176
-:geoo/construction/concrete/064h: 992 272
-:geoo/construction/concrete/064h: 992 144
-:geoo/construction/concrete/064h: 864 272
-:geoo/construction/concrete/128: 864 144
-:geoo/construction/concrete/064v: 1120 208
-:geoo/construction/concrete/064v: 1248 144
-:geoo/construction/concrete/064v: 1248 272
-:geoo/construction/concrete/064h: 416 0
-:geoo/construction/concrete/064h: 672 0
-:geoo/construction/concrete/064h: 544 0
-:geoo/construction/concrete/064h: 800 0
-:geoo/construction/concrete/032hb: 928 0 f
-:geoo/construction/concrete/032hb: 352 0 rr
-:geoo/construction/wall/big_brickdiag_tu: 672 64 f
-:geoo/construction/wall/big_brickdiag_tu: 704 96 f
-:geoo/construction/wall/big_brickdiag_tu: 736 128 f
-:geoo/construction/wall/big_brickdiag_tu: 480 64 rr
-:geoo/construction/wall/big_brickdiag_tu: 448 96 rr
-:geoo/construction/wall/big_brickdiag_tu: 416 128 rr
+:matt/carnival/16: 192 198 r
+:matt/carnival/17: 288 198 r
+:matt/carnival/19: 480 198 r
+:matt/carnival/18: 384 198 r
+:matt/carnival/03: 224 256
+:matt/carnival/03: 320 256
+:matt/carnival/00: 288 256
+:matt/carnival/03: 416 256
+:matt/carnival/00: 384 256
+:matt/carnival/03: 512 256
+:matt/carnival/00: 480 256
+:matt/carnival/07: 608 256 r
+:matt/carnival/04: 544 256 r
+:matt/steel/32x32.S: 160 256
+:matt/steel/32x32.S: 96 256
+:matt/steel/32x32.S: 0 224
+:matt/steel/32x32.S: 64 256
+:matt/steel/32x32.S: 128 256
+:matt/steel/32x32.S: 0 256
+:matt/steel/32x32.S: 32 256
+:matt/steel/32x32.S: 0 160
+:matt/steel/32x32.S: 0 192
+:matt/steel/32x32.S: 96 160
+:matt/steel/32x32.S: 64 160
+:matt/steel/32x32.S: 128 160
+:matt/steel/32x32.S: 32 160
+:matt/steel/32x32.S: 192 256
+:matt/carnival/56: -80 0 rr
+:matt/carnival/57: 208 0
+:matt/carnival/56: 496 0 rr
+:matt/carnival/56: -80 368 rr
+:matt/carnival/57: 208 368
+:matt/carnival/56: 496 368 rr
+:matt/carnival/12: 488 205 d

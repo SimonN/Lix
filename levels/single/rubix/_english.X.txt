@@ -1,16 +1,21 @@
-This is Rubix's Single Player!
+Welcome to Epic Adventure!
+A full featured Lix puzzle game.
 
-Setup is very similar to Lemmings,
-with 4 difficulty levels.
+Enjoy these 150+ puzzles in
+Four difficulty ratings
+(+bonus adventure)
 
-I have videos for the 'Nightmare'
-maps on Youtube, but they are
-hidden from public view.
+Pleasant & Sinister puzzles
+(Often many alternate solutions)
 
-If you would like to see a
-solution video, message me
-via Youtube at rubix2007,
-or join the Lix IRC channel.
+Perplexing & Nightmare puzzles
+(Expect very minor alternate solutions)
 
-Thanks for trying the maps!
-Rubix.
+
+Extensive testing thanks to:
+Sekti, geoo, Clam, Proxima,
+Simon, Akseli, Ramond
+
+
+E-mail rubix01(at)gmail.com for hints!
+Rubix (V3 March 2014)

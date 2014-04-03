@@ -1,4 +1,4 @@
-$BUILT 2012-04-30 09:00:33
+$BUILT 2014-02-27 22:50:34
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH The Armory
@@ -9,9 +9,9 @@ $ENGLISH The Armory
 #TORUS_Y 0
 #START_X 160
 #START_Y -40
-#BACKGROUND_RED 0
-#BACKGROUND_GREEN 0
-#BACKGROUND_BLUE 0
+#BACKGROUND_RED 48
+#BACKGROUND_GREEN 16
+#BACKGROUND_BLUE 16
 
 #SECONDS 0
 #INITIAL 30
@@ -35,9 +35,9 @@ $ENGLISH The Armory
 :matt/marble/Hatch.H: 176 -16
 
 :matt/marble/Goal.G: 736 240
+:geoo/abstract/goal.G: 496 32
 
 :matt/marble/21d: 48 0
-:matt/marble/09d: 128 256
 :matt/marble/18a: 112 240
 :matt/marble/18a: 128 224
 :matt/marble/18a: 144 208
@@ -59,20 +59,6 @@ $ENGLISH The Armory
 :matt/marble/09a: 544 256
 :matt/marble/09a: 608 192
 :matt/marble/09a: 608 256
-:matt/marble/08d: 288 320 f
-:matt/marble/08d: 288 352
-:matt/marble/08d: 352 320 f
-:matt/marble/08d: 352 352
-:matt/marble/08d: 416 320 f
-:matt/marble/08d: 416 352
-:matt/marble/08d: 480 320 f
-:matt/marble/08d: 480 352
-:matt/marble/08d: 544 320 f
-:matt/marble/08d: 544 352
-:matt/marble/08d: 608 320 f
-:matt/marble/08d: 608 352
-:matt/marble/08d: 736 288 f
-:matt/marble/08d: 736 352
 :matt/marble/22d: 368 0
 :matt/marble/21d: 480 0
 :matt/marble/21d: 544 0
@@ -90,8 +76,6 @@ $ENGLISH The Armory
 :matt/marble/15a: 224 96 rrr
 :matt/marble/22a: 240 0 frr
 :matt/marble/22a: 368 48 frr
-:matt/marble/09d: 128 320
-:matt/marble/08d: 736 320 f
 :matt/marble/09d: 0 256
 :matt/marble/09d: 0 320
 :matt/marble/09d: 0 128
@@ -101,3 +85,21 @@ $ENGLISH The Armory
 :matt/marble/22d: 80 -16
 :matt/marble/22d: 112 16
 :matt/marble/22a: 80 16 frr
+:geoo/steel/dark_32x16o.S: 496 32
+:geoo/steel/dark_32x16o.S: 496 80
+:geoo/steel/dark_32x16o.S: 480 48 rrr
+:geoo/steel/dark_32x16o.S: 528 48 rrr
+:geoo/steel/dark_16x16o.S: 480 32
+:geoo/steel/dark_16x16o.S: 480 80
+:geoo/steel/dark_16x16o.S: 528 80
+:geoo/steel/dark_16x16o.S: 528 32
+:matt/marble/09b: 288 320
+:matt/marble/09b: 352 320
+:matt/marble/09b: 416 320
+:matt/marble/09b: 480 320
+:matt/marble/09b: 544 320
+:matt/marble/09b: 608 320
+:matt/marble/09b: 112 320
+:matt/marble/09b: 112 256
+:matt/marble/09b: 736 320
+:matt/marble/08a: 736 288

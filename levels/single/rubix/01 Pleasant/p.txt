@@ -1,30 +1,30 @@
-$BUILT 2012-04-25 08:05:56
+$BUILT 2014-02-27 14:45:40
 $AUTHOR Rubix
 $GERMAN 
-$ENGLISH Alternative cancellation
+$ENGLISH Tricks of the trade
 
-#SIZE_X 960
+#SIZE_X 640
 #SIZE_Y 400
 #TORUS_X 0
 #TORUS_Y 0
 #START_X 0
-#START_Y 380
-#BACKGROUND_RED 0
-#BACKGROUND_GREEN 0
-#BACKGROUND_BLUE 0
+#START_Y 0
+#BACKGROUND_RED 38
+#BACKGROUND_GREEN 48
+#BACKGROUND_BLUE 32
 
-#SECONDS 0
-#INITIAL 60
-#REQUIRED 60
-#SPAWN_INTERVAL 45
+#SECONDS 120
+#INITIAL 30
+#REQUIRED 28
+#SPAWN_INTERVAL 28
 #SPAWN_INTERVAL_FAST 4
 
-#CLIMBER 1
-#WALKER 1
-#JUMPER 1
-#PLATFORMER 1
-#BUILDER 1
-#DIGGER 4
+#CLIMBER 2
+#JUMPER 2
+#EXPLODER 2
+#BASHER 2
+#NOTHING 0
+#NOTHING 0
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
@@ -32,91 +32,53 @@ $ENGLISH Alternative cancellation
 #NOTHING 0
 #NOTHING 0
 
-:matt/winter/Hatch.H: -16 272
+:matt/carnival/Hatch.H: -16 80
+:matt/carnival/Hatch.H: 592 80 r
 
-:matt/winter/Goal.G: 896 320
+:matt/carnival/Goal.G: -16 304
+:matt/carnival/Goal.G: 592 304
 
-:matt/winter/07: 857 215 f
-:matt/winter/07: 839 208 f
-:matt/winter/07: 825 218 f
-:matt/winter/07: 693 252 f
-:matt/winter/07: 490 220 f
-:matt/winter/07: 529 232 f
-:matt/winter/07: 455 213 f
-:matt/winter/07: 112 197 f
-:matt/winter/07: 63 218 f
-:matt/winter/07: 260 182 f
-:matt/winter/07: 225 207 f
-:matt/winter/07: 177 166 f
-:matt/winter/07: 273 162 f
-:matt/winter/07: 299 194 f
-:matt/winter/07: 639 192 f
-:matt/winter/07: 737 199 f
-:matt/winter/07: 515 230 f
-:matt/winter/06: -8 270
-:matt/winter/06: -8 206
-:matt/winter/06: 144 288
-:matt/winter/10: -32 304
-:matt/winter/10: 64 336
-:matt/winter/06: 384 312
-:matt/winter/10: 288 352 frr
-:matt/winter/10: 192 384 f
-:matt/winter/06: 144 224
-:matt/winter/10: 400 304
-:matt/winter/06: 596 308
-:matt/winter/10: 496 336
-:matt/winter/06: 805 310
-:matt/winter/10: 720 352 frr
-:matt/winter/10: 624 384 f
-:matt/winter/06: 153 224 d
-:matt/winter/06: 153 282 d
-:matt/winter/06: 384 248
-:matt/winter/06: 393 246 d
-:matt/winter/06: 393 310 d
-:matt/winter/06: 596 244
-:matt/winter/06: 605 244 d
-:matt/winter/06: 605 308 d
-:matt/winter/06: 805 246
-:matt/winter/06: 815 246 d
-:matt/winter/06: 815 306 d
-:matt/winter/10: -40 126
-:matt/winter/10: 146 110
-:matt/winter/10: 362 128
-:matt/winter/10: 452 138
-:matt/winter/10: 646 144
-:matt/winter/10: 848 142
-:matt/winter/10: -76 82
-:matt/winter/10: 98 90
-:matt/winter/10: 280 94
-:matt/winter/10: 448 106
-:matt/winter/10: 602 94
-:matt/winter/10: 766 98
-:matt/winter/10: 97 7
-:matt/winter/10: 222 32
-:matt/winter/10: 404 36
-:matt/winter/10: 572 48
-:matt/winter/10: 726 36
-:matt/winter/10: 890 40
-:matt/winter/10: -26 14
-:matt/winter/10: 148 22
-:matt/winter/10: 330 26
-:matt/winter/10: 498 38
-:matt/winter/10: 652 26
-:matt/winter/10: 816 30
-:matt/winter/10: -112 -32
-:matt/winter/10: -51 -34
-:matt/winter/10: 244 -20
-:matt/winter/10: 371 -40
-:matt/winter/10: 566 -20
-:matt/winter/10: 730 -16
-:matt/winter/10: 46 55
-:matt/winter/10: 90 -55
-:matt/winter/10: 502 -52
-:matt/winter/10: 570 -42
-:matt/winter/10: 724 -54
-:matt/winter/10: 888 -50
-:matt/winter/05: 910 384 r
-:matt/winter/10: 59 335
-:matt/winter/10: 301 339 frr
-:matt/winter/10: 502 335
-:matt/winter/10: 723 350 frr
+:matt/carnival/15: 64 217
+:matt/carnival/14: 80 217
+:matt/carnival/15: 544 216
+:matt/carnival/14: 560 216
+:matt/carnival/26: 0 160
+:matt/carnival/27: 96 160
+:matt/carnival/24: 48 224
+:matt/carnival/26: 480 160
+:matt/carnival/27: 576 160
+:matt/carnival/24: 528 224
+:matt/carnival/56: 48 288
+:matt/carnival/56: 336 288
+:matt/carnival/34: 176 256
+:matt/carnival/36: 112 224
+:matt/carnival/34: 400 256 frr
+:matt/carnival/36: 464 224 frr
+:matt/carnival/57: -48 368
+:matt/carnival/58: 208 368
+:matt/carnival/57: 464 368
+:matt/steel/32x32.S: 96 192
+:matt/steel/32x32.S: 128 192
+:matt/steel/32x32.S: 480 192
+:matt/steel/32x32.S: 512 192
+:matt/carnival/20: 0 0 rr
+:matt/carnival/21: 32 48
+:matt/carnival/20: 64 0 rr
+:matt/carnival/21: 96 48
+:matt/carnival/20: 128 0 rr
+:matt/carnival/21: 160 48
+:matt/carnival/20: 192 0 rr
+:matt/carnival/21: 224 48
+:matt/carnival/20: 256 0 rr
+:matt/carnival/21: 288 48
+:matt/carnival/20: 320 0 rr
+:matt/carnival/21: 352 48
+:matt/carnival/20: 384 0 rr
+:matt/carnival/21: 416 48
+:matt/carnival/20: 448 0 rr
+:matt/carnival/21: 480 48
+:matt/carnival/20: 512 0 rr
+:matt/carnival/21: 544 48
+:matt/carnival/20: 576 0 rr
+:matt/carnival/21: 608 48
+:matt/carnival/21: -32 48

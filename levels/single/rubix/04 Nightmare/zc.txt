@@ -1,136 +1,154 @@
-$BUILT 2012-08-25 20:31:46
+$BUILT 2014-02-27 22:47:51
 $AUTHOR Rubix
 $GERMAN 
-$ENGLISH Hello darkness my old friend.
+$ENGLISH Speechless!
 
-#SIZE_X 1120
-#SIZE_Y 400
+#SIZE_X 800
+#SIZE_Y 560
 #TORUS_X 0
 #TORUS_Y 0
-#START_X 0
-#START_Y 380
+#START_X 160
+#START_Y 0
 #BACKGROUND_RED 0
 #BACKGROUND_GREEN 0
 #BACKGROUND_BLUE 0
 
-#SECONDS 0
+#SECONDS 240
 #INITIAL 50
-#REQUIRED 48
-#SPAWN_INTERVAL 28
+#REQUIRED 50
+#SPAWN_INTERVAL 4
 #SPAWN_INTERVAL_FAST 4
 
-#CLIMBER 1
-#WALKER 1
-#JUMPER 5
-#EXPLODER2 1
-#BUILDER 2
-#PLATFORMER 4
+#JUMPER 1
+#BLOCKER 1
+#BUILDER 4
+#BASHER 1
 #MINER 1
-#DIGGER 1
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
 
-:matt/beach/decor/bonfire.D: 144 122
-:matt/beach/decor/bonfire.D: 902 114
-:matt/beach/decor/moon.D: 84 -21
+:matt/underworld/Hatch.H: 32 32
 
-:matt/beach/Hatch.H: 1028 -8 r
+:matt/underworld/Goal.G: 752 416
 
-:matt/beach/goal.G: 204 -2
+:matt/underworld/Lava.W: 0 512
+:matt/underworld/Lava.W: 48 512
+:matt/underworld/Lava.W: 96 512
+:matt/underworld/Lava.W: 144 512
+:matt/underworld/Lava.W: 192 512
+:matt/underworld/Lava.W: 240 512
+:matt/underworld/Lava.W: 288 512
+:matt/underworld/Lava.W: 336 512
+:matt/underworld/Lava.W: 336 512
+:matt/underworld/Lava.W: 384 512
+:matt/underworld/Lava.W: 432 512
 
-:matt/beach/decor/grass02: 1095 231 fr
-:matt/beach/decor/grass08: 363 -8
-:matt/beach/decor/grass03: 921 335
-:matt/beach/decor/grass02: 1028 340
-:matt/beach/decor/grass02: 675 379
-:matt/beach/decor/grass08: 747 178
-:matt/beach/decor/beach ball: 244 310
-:matt/beach/decor/beach ball: 871 132
-:matt/beach/nighttime/04: -23 189
-:matt/beach/nighttime/03: 718 51
-:matt/beach/nighttime/04: 778 170 r
-:matt/beach/nighttime/13: 129 155 r
-:matt/beach/decor/grass11: 485 95 rr
-:matt/beach/nighttime/01: 510 65
-:matt/beach/nighttime/03: 463 3 rr
-:matt/beach/nighttime/06: 159 121
-:matt/beach/nighttime/13: 176 320 fr
-:matt/beach/nighttime/04: 463 -59
-:matt/beach/nighttime/06: 272 240 r
-:matt/beach/nighttime/06: 464 224 rr
-:matt/beach/decor/pail: 537 230
-:matt/beach/nighttime/13: 416 256
-:matt/beach/nighttime/13: 384 304
-:matt/beach/decor/shovel: 516 230
-:matt/beach/nighttime/06: 480 272 rr
-:matt/beach/nighttime/06: 432 320 rr
-:matt/beach/decor/grass08: 467 324
-:matt/beach/nighttime/15: 576 352
-:matt/beach/nighttime/01: 752 64
-:matt/beach/nighttime/04: 756 73
-:matt/beach/nighttime/14: 784 160
-:matt/beach/nighttime/04: 431 -123
-:matt/beach/nighttime/06: 891 345
-:matt/beach/decor/umbrella_red: 1058 301
-:matt/beach/nighttime/01: 1040 352
-:matt/beach/nighttime/06: 954 278 r
-:matt/beach/nighttime/13: 986 278 f
-:matt/beach/nighttime/04: 790 138
-:matt/beach/nighttime/13: 73 317
-:matt/beach/nighttime/04: 32 368
-:matt/beach/nighttime/06: 305 -4 r
-:matt/beach/nighttime/13: 1012 36 rr
-:matt/beach/nighttime/13: 944 32 rr
-:matt/beach/decor/grass08: 918 43
-:matt/beach/nighttime/04: 976 64
-:matt/beach/nighttime/04: 257 101 r
-:matt/beach/nighttime/06: 1090 135 fr
-:matt/beach/nighttime/03: 899 30
-:matt/beach/nighttime/03: 802 42
-:matt/beach/nighttime/03: 889 145
-:matt/beach/nighttime/03: 801 154
-:matt/beach/nighttime/02: 714 385
-:matt/beach/nighttime/02: 820 354
-:matt/beach/nighttime/06: 621 330 r
-:matt/beach/nighttime/15: 649 283
-:matt/beach/nighttime/01: 1112 129
-:matt/beach/nighttime/13: -66 23 fr
-:matt/beach/nighttime/13: -61 78 fr
-:matt/beach/nighttime/05: 8 -54 r
-:matt/beach/decor/grass04: 10 12
-:matt/beach/nighttime/06: -172 -56
-:matt/beach/nighttime/06: -78 232
-:matt/beach/nighttime/04: -34 160
-:matt/beach/nighttime/06: -148 269
-:matt/beach/nighttime/02: 274 -35 r
-:matt/beach/nighttime/15: 67 257
-:matt/beach/nighttime/15: 29 132 r
-:matt/beach/nighttime/15: 29 132 r
-:matt/beach/nighttime/05: -6 53 rr
-:matt/beach/nighttime/15: 26 62 r
-:matt/beach/nighttime/15: 26 55 r
-:matt/beach/nighttime/05: 674 -141
-:matt/beach/nighttime/04: 722 7
-:matt/beach/nighttime/04: 701 61 frr
-:matt/beach/nighttime/13: 767 192 rrr
-:matt/beach/decor/grass06: 1022 111
-:matt/beach/decor/grass06: 770 56
-:matt/beach/decor/grass06: 836 176
-:matt/beach/decor/grass06: 659 336
-:matt/beach/decor/grass06: 335 45
-:matt/beach/decor/grass06: 232 148
-:matt/beach/decor/grass06: 340 50
-:matt/beach/decor/grass06: 10 52
-:matt/beach/decor/grass11: 31 265
-:matt/beach/decor/grass11: 1026 343
-:matt/beach/decor/grass11: 505 10
-:matt/beach/decor/grass04: 140 163
-:matt/beach/decor/grass04: 299 340
-:matt/beach/decor/grass04: 125 351
-:matt/beach/decor/grass04: 318 269
-:matt/beach/decor/grass04: 402 373
-:matt/beach/decor/grass10: 974 290
-:matt/beach/decor/grass10: 325 146
-:matt/beach/decor/grass02: 921 365
+:matt/underworld/09a: 683 476
+:matt/underworld/09a: 146 488
+:matt/underworld/09c: 430 364
+:matt/underworld/09b: 344 480
+:matt/underworld/09a: 122 2
+:matt/underworld/09a: 36 14
+:matt/underworld/09a: 404 16
+:matt/underworld/09a: 198 8 f
+:matt/underworld/09a: 266 10
+:matt/underworld/09c: 692 182
+:matt/underworld/09c: 740 32
+:matt/underworld/09a: 484 12
+:matt/underworld/09a: 646 34
+:matt/underworld/09c: 634 352
+:matt/underworld/09a: 572 404
+:matt/underworld/09c: 730 280
+:matt/underworld/09c: 468 234
+:matt/underworld/09c: 440 332
+:matt/underworld/09a: 308 460
+:matt/underworld/09a: 226 470
+:matt/underworld/02: 480 512
+:matt/underworld/02: 480 416
+:matt/underworld/02: 480 224
+:matt/underworld/02: 176 128
+:matt/underworld/02: 240 128
+:matt/underworld/02: 304 128
+:matt/underworld/02: 368 128
+:matt/steel/32x32.S: 400 128
+:matt/steel/32x32.S: 400 160
+:matt/steel/32x32.S: 400 192
+:matt/steel/32x32.S: 464 128
+:matt/steel/32x32.S: 464 160
+:matt/steel/32x32.S: 464 192
+:matt/underworld/08: 464 144
+:matt/underworld/08: 504 160
+:matt/underworld/08: 552 192
+:matt/underworld/08: 538 210
+:matt/underworld/04: 464 208
+:matt/underworld/06: 496 208
+:matt/underworld/06: 504 272
+:matt/underworld/06: 472 272
+:matt/underworld/06: 472 336
+:matt/underworld/06: 536 320
+:matt/underworld/06: 563 274
+:matt/underworld/04: 452 300
+:matt/underworld/09c: 657 356 f
+:matt/underworld/07: 558 312
+:matt/underworld/01: 0 64 r
+:matt/underworld/01: 0 0 r
+:matt/underworld/02: 608 480
+:matt/underworld/09a: 574 474 frr
+:matt/underworld/02: 672 480
+:matt/underworld/02: 736 480
+:matt/underworld/08: 432 316
+:matt/underworld/05: 352 416
+:matt/underworld/04: 320 448
+:matt/underworld/07: 256 464
+:matt/underworld/07: 368 416
+:matt/underworld/07: 400 368
+:matt/underworld/05: 144 464
+:matt/underworld/08: 736 -32
+:matt/underworld/05: 624 -16
+:matt/underworld/05: 768 48 rn
+:matt/underworld/08: 748 143
+:matt/underworld/08: 724 189
+:matt/underworld/08: 691 114
+:matt/underworld/06: 693 191
+:matt/underworld/02: 544 480
+:matt/underworld/04: 472 290
+:matt/underworld/08: 667 82 r
+:matt/underworld/00: 138 224
+:matt/underworld/00: 252 224
+:matt/underworld/00: 368 224
+:matt/underworld/00: 24 224 rr
+:matt/underworld/08: 576 256
+:matt/underworld/08: 746 252 r
+:matt/underworld/02: -16 128
+:matt/underworld/02: 48 128
+:matt/underworld/02: 112 128
+:matt/underworld/00: 104 0 r
+:matt/underworld/00: 108 0 rd
+:matt/underworld/00: 292 208 d
+:matt/underworld/00: 176 208 d
+:matt/underworld/00: 63 208 d
+:matt/underworld/00: -56 208 d
+:matt/underworld/00: 138 -1 r
+:matt/underworld/00: 142 0 rd
+:matt/underworld/00: 335 0 r
+:matt/underworld/00: 339 0 rd
+:matt/underworld/00: 369 1 r
+:matt/underworld/00: 373 1 rd
+:matt/underworld/00: 564 -3 r
+:matt/underworld/00: 568 -3 rd
+:matt/underworld/00: 598 -2 r
+:matt/underworld/00: 602 -2 rd
+:matt/underworld/05: -11 -25
+:matt/underworld/05: 143 -16
+:matt/underworld/05: 279 -25
+:matt/underworld/05: 394 -16
+:matt/underworld/05: 529 -25
+:matt/underworld/05: 588 0
+:matt/underworld/04: 439 308
+:matt/underworld/09b: 631 375 rr
+:matt/underworld/09a: 628 474

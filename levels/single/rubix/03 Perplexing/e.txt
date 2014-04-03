@@ -1,29 +1,27 @@
-$BUILT 2012-08-25 09:04:09
+$BUILT 2014-02-25 09:00:21
 $AUTHOR Rubix
 $GERMAN 
-$ENGLISH Justification
+$ENGLISH Pyramatic
 
 #SIZE_X 640
 #SIZE_Y 400
 #TORUS_X 0
 #TORUS_Y 0
-#START_X 0
-#START_Y 0
-#BACKGROUND_RED 0
-#BACKGROUND_GREEN 0
-#BACKGROUND_BLUE 0
+#BACKGROUND_RED 32
+#BACKGROUND_GREEN 63
+#BACKGROUND_BLUE 128
 
 #SECONDS 0
-#INITIAL 75
-#REQUIRED 75
-#SPAWN_INTERVAL 53
+#INITIAL 50
+#REQUIRED 50
+#SPAWN_INTERVAL 32
 #SPAWN_INTERVAL_FAST 4
 
 #WALKER 1
-#CLIMBER 10
-#BUILDER 1
-#MINER 1
-#BASHER 1
+#JUMPER 1
+#PLATFORMER 5
+#MINER 3
+#BATTER 1
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
@@ -32,52 +30,81 @@ $ENGLISH Justification
 #NOTHING 0
 #NOTHING 0
 
-:matt/carnival/Hatch.H: 594 148 r
+:simon/hatch001.H: 32 16
 
-:matt/carnival/Goal.G: 592 304
+:simon/tapir/goal.G: 576 224
 
-:matt/carnival/54: 480 208
-:matt/carnival/51: 544 208
-:matt/carnival/51: 448 112 r
-:matt/carnival/54: 416 304 rrr
-:matt/carnival/51: 448 176 r
-:matt/carnival/54: 416 272
-:matt/carnival/54: 576 240
-:matt/carnival/51: 512 240
-:matt/carnival/54: 480 272
-:matt/carnival/51: 544 272
-:matt/carnival/54: 448 240
-:matt/carnival/54: 608 208
-:matt/carnival/54: 608 272
-:matt/carnival/51: 416 80
-:matt/carnival/54: 416 368
-:matt/carnival/54: 480 368
-:matt/carnival/51: 544 368
-:matt/carnival/54: 608 368
-:matt/carnival/51: 352 80
-:matt/carnival/51: 288 80
-:matt/carnival/51: 192 176
-:matt/carnival/51: 256 112
-:matt/carnival/51: 224 144
-:matt/carnival/51: 112 208 r
-:matt/carnival/51: 112 144 r
-:matt/carnival/54: 240 304
-:matt/carnival/54: 304 304
-:matt/carnival/54: 336 336 frrr
-:matt/carnival/54: 112 304
-:matt/carnival/54: 176 304
-:matt/carnival/54: 48 240 rrr
-:matt/carnival/54: 48 208
-:matt/carnival/54: 48 304
-:matt/carnival/51: 160 208
-:matt/carnival/51: 112 112
-:matt/carnival/46: 0 0 r
-:matt/carnival/28: 32 0 rr
-:matt/carnival/28: 0 32 r
-:matt/carnival/29: 32 384
-:matt/carnival/29: 0 304 r
-:matt/carnival/50: 0 368
-:matt/carnival/58: 448 0
-:matt/carnival/51: 512 0 r
-:matt/carnival/51: 608 0 r
-:matt/carnival/51: 608 64 r
+:simon/water.W: 240 368
+:simon/water.W: 288 368
+:simon/water.W: 336 368
+:simon/water.W: 384 368
+:simon/acid.W: 0 368
+:simon/acid.W: 48 368
+:simon/acid.W: 96 368
+:simon/acid.W: 144 368
+:simon/acid.W: 560 368
+:simon/acid.W: 608 368
+
+:simon/tapir/032h: 416 112
+:simon/tapir/032hd: 352 208
+:simon/tapir/032hd: 320 176 frrr
+:simon/tapir/032h: 240 304
+:simon/tapir/032h: 304 304
+:simon/tapir/032hd: 240 336
+:simon/tapir/032hd: 432 336
+:simon/tapir/032hd: 432 304 f
+:simon/tapir/032h: 368 304
+:simon/tapir/032hd: 432 336 rr
+:simon/tapir/032h: 96 192
+:simon/tapir/032h: 32 192
+:simon/tapir/032h: 0 192 rrr
+:simon/tapir/032h: 0 128 rrr
+:simon/tapir/032h: 160 192 rrr
+:simon/tapir/032h: 160 128 rrr
+:simon/tapir/032h: 96 128
+:simon/tapir/032h: 32 128
+:simon/tapir/032h: 160 64 rrr
+:simon/tapir/032h: 0 64 rrr
+:simon/tapir/032h: 96 64
+:simon/tapir/032h: 32 64
+:simon/tapir/032h: 160 0 rrr
+:simon/tapir/032h: 0 0 rrr
+:simon/tapir/032h: 96 0
+:simon/tapir/032h: 32 0
+:simon/tapir/032h: 208 304 rrr
+:simon/tapir/032h: 176 368 rr
+:simon/tapir/032h: 432 368 rr
+:simon/tapir/032h: 496 368 rr
+:simon/tapir/032h: 352 80
+:simon/tapir/032h: 416 80
+:simon/tapir/032h: 576 0
+:simon/tapir/032h: 512 0
+:simon/tapir/032hd: 512 80 fr
+:simon/tapir/032hd: 352 112 frr
+:simon/tapir/032h: 448 0
+:simon/tapir/032h: 384 0
+:simon/tapir/032h: 576 32
+:simon/tapir/032h: 576 64
+:simon/tapir/032h: 576 96
+:simon/tapir/032h: 576 128
+:simon/tapir/032h: 576 160
+:simon/tapir/032h: 496 272
+:simon/tapir/032h: 496 192
+:simon/tapir/032h: 576 272
+:simon/tapir/032h: 576 304 rrr
+:simon/tapir/016h: 576 368
+:simon/tapir/016h: 560 368 rrr
+:geoo/steel/dark_48x32o.S: 576 192
+:geoo/steel/dark_16x32o.S: 624 192
+:simon/tapir/032h: 544 304 rrr
+:simon/tapir/032d: 480 144
+:geoo/steel/dark_64x32o.S: 416 176
+:geoo/steel/dark_64x32o.S: 416 144
+:simon/tapir/016v: 336 240
+:simon/tapir/016v: 336 272
+:simon/tapir/032hd: 272 240 frrr
+:geoo/steel/dark_32x64o.S: 304 240
+:geoo/steel/dark_32x64o.S: 480 80
+:geoo/steel/dark_64x32o.S: 352 176
+:simon/tapir/016v: 560 272
+:geoo/steel/dark_16x32o.S: 560 192

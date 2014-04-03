@@ -1,79 +1,119 @@
-$BUILT 2012-04-23 20:07:04
+$BUILT 2014-02-28 16:49:31
 $AUTHOR Rubix
 $GERMAN 
-$ENGLISH Leader of the pack
+$ENGLISH feLIX Baumgartner saves the day!
 
 #SIZE_X 640
-#SIZE_Y 400
+#SIZE_Y 2000
 #TORUS_X 0
 #TORUS_Y 0
-#START_X 0
-#START_Y 0
 #BACKGROUND_RED 0
-#BACKGROUND_GREEN 0
-#BACKGROUND_BLUE 0
+#BACKGROUND_GREEN 48
+#BACKGROUND_BLUE 159
 
 #SECONDS 0
-#INITIAL 35
-#REQUIRED 33
-#SPAWN_INTERVAL 75
+#INITIAL 2
+#REQUIRED 2
+#SPAWN_INTERVAL 32
 #SPAWN_INTERVAL_FAST 4
 
 #FLOATER 1
-#EXPLODER 4
-#BLOCKER 4
 #PLATFORMER 1
-#BASHER 1
-#MINER 1
-#DIGGER 1
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
 
-:matt/bricks/Hatch.H: 0 32
+:matt/beach/decor/moon.D: 560 16
 
-:matt/bricks/Goal.G: 576 288
+:geoo/abstract/hatch.H: 158 114 r
+:geoo/abstract/hatch.H: 608 832 r
 
-:matt/water.W: 144 368
-:matt/water.W: 176 368
-:matt/water.W: 208 368
-:matt/water.W: 400 368
-:matt/water.W: 432 368
-:matt/water.W: 464 368
-:matt/water.W: 288 368
-:matt/water.W: 320 368
-:matt/water.W: 352 368
+:matt/earth/Goal.G: -16 1872
 
-:matt/bricks/17: 160 336
-:matt/bricks/17: 208 288
-:matt/bricks/17: 256 240
-:matt/bricks/17: 304 192
-:matt/bricks/17: 352 144
-:matt/bricks/17: 400 96
-:matt/bricks/03: 352 208
-:matt/bricks/03: 352 272
-:matt/bricks/03: 480 80
-:matt/bricks/03: 480 144
-:matt/bricks/03: 480 208
-:matt/bricks/03: 480 272
-:matt/bricks/03: 224 336
-:matt/bricks/03: 352 336
-:matt/bricks/03: 480 336
-:matt/bricks/17: 448 48
-:matt/bricks/03: 544 336
-:matt/bricks/03: 592 336
-:matt/bricks/02: 112 368
-:matt/bricks/02: 48 368
-:matt/bricks/02: -16 368
-:matt/bricks/02: 112 288
-:matt/bricks/02: 48 288
-:matt/bricks/02: 64 208
-:matt/bricks/02: 0 208
-:matt/bricks/02: 112 144
-:matt/bricks/02: 48 144
-:matt/bricks/02: 64 80
-:matt/bricks/02: 0 80
-:matt/bricks/02: 176 144
-:matt/bricks/04: 512 272
+:simon/water.W: 448 1952
+:simon/water.W: 496 1952
+:simon/water.W: 544 1952
+:simon/water.W: 144 1952
+:simon/water.W: 96 1952
+:simon/water.W: 48 1952
+:simon/water.W: 400 1952
+
+:matt/earth/07: 40 1954
+:matt/earth/13: 560 1808
+:matt/earth/13: 576 1792
+:matt/earth/13: 416 1664
+:matt/earth/06: 192 1856
+:matt/earth/06: 544 1552 rrr
+:matt/earth/06: 320 1584
+:matt/earth/06: 368 1488
+:matt/earth/19: 432 1840
+:matt/earth/16: 128 1888
+:matt/earth/16: 208 1792
+:matt/earth/06: 272 1760
+:matt/earth/16: 272 1712
+:matt/earth/07: 380 1940
+:matt/earth/10: 224 1920
+:matt/earth/10: 224 1808
+:matt/earth/04: 272 1872
+:matt/earth/02: 352 1888
+:matt/earth/06: 352 1920
+:matt/earth/10: 528 1840
+:matt/earth/10: 576 1856 rrr
+:matt/earth/10: -128 1936 frr
+:matt/earth/10: 176 1856
+:matt/earth/13: 224 1824
+:matt/earth/09: 256 1888
+:matt/earth/10: 224 1808 frr
+:matt/earth/16: 336 1616
+:matt/earth/16: 352 1632 frr
+:matt/earth/06: 304 1712
+:matt/earth/10: 304 1584 fr
+:matt/earth/06: 416 1680 rrr
+:matt/earth/13: 368 1696
+:matt/earth/06: 344 1734
+:matt/earth/10: 352 1696 fr
+:matt/earth/10: 336 1520 fr
+:matt/earth/06: 368 1616
+:matt/earth/10: 368 1488 r
+:matt/carnival/39: 158 114
+:matt/carnival/balloons: 158 2
+:matt/carnival/15: 150 114 d
+:matt/carnival/15: 150 128 d
+:matt/earth/16: 428 1438
+:matt/earth/16: 444 1454 frr
+:matt/earth/13: 384 1472
+:matt/earth/10: 396 1406 fr
+:matt/earth/10: 428 1342 fr
+:matt/earth/10: 512 1456
+:matt/earth/10: 480 1392
+:matt/earth/12: 576 1472
+:matt/earth/10: 560 1488 fr
+:matt/earth/10: 608 1616 fr
+:matt/earth/08: 528 1440 rrr
+:matt/earth/06: 448 1344
+:matt/earth/10: 464 1264 fr
+:matt/earth/13: 608 1472
+:matt/earth/08: 528 1408
+:matt/earth/10: 544 1264 rrr
+:matt/earth/04: 512 1216
+:matt/earth/10: 576 1200 rrr
+:matt/earth/10: 576 1808 fr
+:matt/earth/05: -176 1936 rrr
+:matt/winter/10: 528 1072 rrr
+:matt/winter/10: 496 1168 rrr
+:matt/winter/10: 560 1216 rrr
+:matt/winter/10: 592 1072 rrr
+:matt/winter/10: 576 960 rrr
+:matt/winter/10: 624 832 rrr
+:matt/winter/10: 480 1248 f
+:matt/winter/10: 464 1280 f
+:matt/earth/06: 400 1664 rrr
+:matt/earth/06: 368 1632 rrr
+:matt/earth/13: 592 1424

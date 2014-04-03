@@ -1,169 +1,155 @@
-$BUILT 2012-04-26 20:30:38
+$BUILT 2014-02-27 15:22:43
 $AUTHOR Rubix
 $GERMAN 
-$ENGLISH Night at the beach
+$ENGLISH Shot through the heart
 
-#SIZE_X 1440
-#SIZE_Y 400
+#SIZE_X 640
+#SIZE_Y 720
 #TORUS_X 0
 #TORUS_Y 0
-#START_X 800
-#START_Y 380
-#BACKGROUND_RED 0
+#START_X 0
+#START_Y 0
+#BACKGROUND_RED 48
 #BACKGROUND_GREEN 0
-#BACKGROUND_BLUE 0
+#BACKGROUND_BLUE 96
 
 #SECONDS 0
-#INITIAL 60
-#REQUIRED 58
-#SPAWN_INTERVAL 8
+#INITIAL 40
+#REQUIRED 38
+#SPAWN_INTERVAL 53
 #SPAWN_INTERVAL_FAST 4
 
-#WALKER 1
-#JUMPER 1
 #BLOCKER 2
-#EXPLODER 2
+#EXPLODER 1
 #BUILDER 3
-#PLATFORMER 3
-#BASHER 3
-#MINER 3
-#DIGGER 1
+#PLATFORMER 1
+#BASHER 4
+#MINER 1
+#DIGGER 4
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
+#NOTHING 0
+#NOTHING 0
 
-:matt/beach/decor/bonfire.D: 1103 161
-:matt/beach/decor/moon.D: 457 -20
+:matt/marble/Hatch.H: 0 -16
 
-:matt/beach/Hatch.H: 1365 3 r
+:matt/marble/Goal.G: 0 576
 
-:matt/beach/goal.G: 373 259
+:matt/water.W: 240 672
+:matt/water.W: 272 672
+:matt/water.W: 304 672
+:matt/water.W: 336 672
+:matt/water.W: 240 688
+:matt/water.W: 272 688
+:matt/water.W: 304 688
+:matt/water.W: 336 688
+:matt/water.W: 48 672
+:matt/water.W: 80 672
+:matt/water.W: 112 672
+:matt/water.W: 144 672
+:matt/water.W: 48 688
+:matt/water.W: 80 688
+:matt/water.W: 112 688
+:matt/water.W: 144 688
+:matt/water.W: 176 672
+:matt/water.W: 208 672
+:matt/water.W: 176 688
+:matt/water.W: 208 688
+:matt/water.W: 384 672
+:matt/water.W: 416 672
+:matt/water.W: 448 672
+:matt/water.W: 480 672
+:matt/water.W: 384 688
+:matt/water.W: 416 688
+:matt/water.W: 448 688
+:matt/water.W: 480 688
+:matt/water.W: 512 672
+:matt/water.W: 544 672
+:matt/water.W: 512 688
+:matt/water.W: 544 688
 
-:matt/water.W: 1328 384
-:matt/water.W: 1360 384
-:matt/water.W: 1392 384
-:matt/water.W: 1424 384
-:matt/water.W: 64 384
-:matt/water.W: 96 384
-:matt/water.W: 128 384
-:matt/water.W: 160 384
-:matt/water.W: 192 384
-:matt/water.W: 224 384
-:matt/water.W: 256 384
-:matt/water.W: 288 384
-:matt/water.W: 304 384
-:matt/water.W: 496 384
-:matt/water.W: 528 384
-:matt/water.W: 560 384
-:matt/water.W: 976 384
-:matt/water.W: 1008 384
-:matt/water.W: 1040 384
-
-:matt/beach/decor/grass08: 377 224
-:matt/beach/decor/grass08: 877 203
-:matt/beach/decor/grass08: 1047 342
-:matt/beach/decor/grass08: 1301 348
-:matt/beach/decor/grass08: 1390 137
-:matt/beach/decor/umbrella_red: 830 1
-:matt/beach/decor/umbrella_green: 1155 100
-:matt/beach/decor/beach ball: 922 275
-:matt/beach/decor/pail: 618 272
-:matt/beach/nighttime/06: 866 298 r
-:matt/beach/nighttime/06: 788 374 r
-:matt/beach/nighttime/06: 724 310 r
-:matt/beach/nighttime/06: 692 278 r
-:matt/beach/nighttime/06: 628 294 r
-:matt/beach/nighttime/06: 612 294
-:matt/beach/decor/grass08: 742 358
-:matt/beach/nighttime/01: 1008 208
-:matt/beach/nighttime/13: 1156 162 r
-:matt/beach/nighttime/15: 1230 218
-:matt/beach/nighttime/15: 1244 226
-:matt/beach/nighttime/06: 1018 198
-:matt/beach/nighttime/14: 1024 128
-:matt/beach/nighttime/06: -83 -13
-:matt/beach/nighttime/06: -30 48
-:matt/beach/nighttime/06: 95 57
-:matt/beach/nighttime/06: 192 118
-:matt/beach/nighttime/06: 302 172
-:matt/beach/nighttime/06: 121 75
-:matt/beach/nighttime/06: 97 82
-:matt/beach/nighttime/06: 100 145
-:matt/beach/nighttime/06: 105 176
-:matt/beach/nighttime/06: -36 13
-:matt/beach/nighttime/06: -31 44
-:matt/beach/nighttime/06: -22 97
-:matt/beach/decor/grass08: 148 181
-:matt/beach/decor/grass08: 60 280
-:matt/beach/nighttime/06: -17 130
-:matt/beach/nighttime/06: -14 193
-:matt/beach/nighttime/06: 4 232
-:matt/beach/decor/pail: 214 107
-:matt/beach/nighttime/06: 250 145
-:matt/beach/nighttime/06: 306 171
-:matt/beach/nighttime/06: 187 188
-:matt/beach/nighttime/06: 192 219
-:matt/beach/nighttime/03: 320 384
-:matt/beach/nighttime/03: 368 384
-:matt/beach/nighttime/06: 1312 48
-:matt/beach/nighttime/03: 1344 48
-:matt/beach/nighttime/06: 1118 188
-:matt/beach/nighttime/06: 1268 88
-:matt/beach/nighttime/06: 1044 230 r
-:matt/beach/nighttime/06: 1088 244 r
-:matt/beach/nighttime/06: 1144 244 r
-:matt/beach/nighttime/06: 1148 248 r
-:matt/beach/decor/grass08: 1171 281
-:matt/beach/nighttime/06: 1202 248 r
-:matt/beach/decor/shovel: 1328 217
-:matt/beach/nighttime/06: 1246 250 r
-:matt/beach/nighttime/06: -72 238 r
-:matt/beach/nighttime/06: 446 226 r
-:matt/beach/nighttime/06: 748 36 r
-:matt/beach/nighttime/06: 780 74 r
-:matt/beach/nighttime/06: 822 126 r
-:matt/steel/48x48.S: 592 384
-:matt/steel/48x48.S: 592 336
-:matt/steel/48x48.S: 592 288
-:matt/steel/48x48.S: 592 240
-:matt/steel/48x48.S: 592 192
-:matt/steel/48x48.S: 592 96
-:matt/steel/48x48.S: 592 48
-:matt/steel/48x48.S: 592 0
-:matt/steel/48x48.S: 944 384
-:matt/steel/48x48.S: 944 336
-:matt/steel/48x48.S: 944 288
-:matt/steel/48x48.S: 944 240
-:matt/steel/48x48.S: 944 192
-:matt/steel/48x48.S: 944 96
-:matt/steel/48x48.S: 944 48
-:matt/steel/48x48.S: 944 0
-:matt/steel/48x48.S: 400 208
-:matt/steel/48x48.S: 448 240
-:matt/steel/48x48.S: 480 288
-:matt/steel/48x48.S: 352 176
-:matt/steel/48x48.S: 480 336
-:matt/beach/nighttime/03: 320 384
-:matt/steel/48x48.S: 304 144
-:matt/beach/decor/shovel: 46 295
-:matt/beach/nighttime/06: -32 336 r
-:matt/beach/decor/beach ball: 709 214
-:matt/beach/nighttime/06: 684 214
-:matt/beach/nighttime/06: 736 172 r
-:matt/beach/nighttime/06: 768 204 r
-:matt/beach/nighttime/06: 828 282 r
-:matt/beach/decor/grass11: 1126 188
-:matt/beach/decor/grass11: 741 162
-:matt/beach/decor/grass11: 75 5
-:matt/beach/decor/grass11: 502 240
-:matt/beach/decor/grass10: 1325 54
-:matt/beach/decor/grass10: 1362 40
-:matt/beach/decor/grass03: 34 116
-:matt/beach/decor/grass03: 357 224
-:matt/beach/decor/grass03: 843 167
-:matt/beach/decor/grass03: 1285 348
-:matt/beach/decor/grass10: 1040 184
-:matt/beach/decor/grass10: 819 291
-:matt/beach/decor/grass10: -6 3
-:matt/beach/decor/grass10: 126 119
-:matt/beach/decor/grass10: 781 58
+:matt/marble/22c: 16 336 r
+:matt/marble/22a: 16 480
+:matt/marble/22c: 0 400 f
+:matt/marble/22c: 16 512 r
+:matt/marble/22a: 16 384
+:matt/marble/22a: -16 416
+:matt/marble/19a: 544 192
+:matt/marble/14a: 368 416 fr
+:matt/marble/14a: 336 416 r
+:matt/marble/09d: 192 48
+:matt/marble/09b: 128 48
+:matt/marble/09b: 128 112
+:matt/marble/09b: 192 112
+:matt/marble/09a: 64 48
+:matt/marble/09a: 64 112
+:matt/marble/09a: 128 176
+:matt/marble/09a: 192 176
+:matt/marble/09d: 0 48
+:matt/marble/09d: 448 288
+:matt/marble/09d: 448 352
+:matt/marble/09d: 576 272
+:matt/marble/09d: 576 336
+:matt/marble/09b: 512 400
+:matt/marble/09b: 576 400
+:matt/marble/09a: 336 288
+:matt/marble/09a: 336 352
+:matt/marble/09a: 576 480
+:matt/marble/09a: 512 496
+:matt/marble/09a: 448 512
+:matt/marble/09a: 384 528
+:matt/marble/09a: 320 544
+:matt/marble/09a: 192 576
+:matt/marble/09a: 128 592
+:matt/marble/09a: 64 608
+:matt/marble/09a: 0 624
+:matt/marble/17a: 96 176
+:matt/marble/09d: 320 608
+:matt/marble/09d: 320 672
+:matt/marble/09d: 576 544
+:matt/marble/09d: 576 608
+:matt/marble/09d: 576 672
+:matt/marble/09d: 192 640
+:matt/marble/09d: 192 704
+:matt/marble/09d: 0 688
+:matt/marble/14d: 480 416 f
+:matt/marble/23b: 608 96
+:matt/marble/23b: 608 64
+:matt/marble/23b: 608 32
+:matt/marble/23: 576 0
+:matt/marble/23: 544 0
+:matt/marble/23: 512 0
+:matt/marble/23d: 480 32
+:matt/marble/23d: 448 32
+:matt/marble/19a: 384 32
+:matt/marble/23d: 416 32
+:matt/marble/23c: 576 128
+:matt/marble/23c: 576 160
+:matt/marble/23c: 576 192
+:matt/marble/20a: 416 -32
+:matt/marble/20a: 608 208 r
+:matt/marble/23c: 432 0
+:matt/marble/23c: 480 0
+:matt/marble/23d: 608 176
+:matt/marble/23d: 608 128
+:matt/marble/23e: 608 0
+:matt/marble/22c: 400 64 r
+:matt/marble/22d: 512 176 f
+:matt/marble/22d: 464 128 f
+:matt/marble/22c: 448 112 r
+:matt/marble/22a: 560 16 rr
+:matt/marble/22a: 512 64 rr
+:matt/marble/22a: 464 112 rr
+:matt/marble/22a: 416 160 rr
+:matt/marble/22a: 48 448 r
+:matt/marble/22a: 64 384 r
+:matt/marble/22c: 80 400 r
+:matt/marble/22a: 64 432
+:matt/marble/17a: 160 240
+:matt/marble/09d: 192 240
+:matt/marble/22a: -32 464 r
+:matt/marble/22c: -32 288 r
+:matt/marble/22c: -48 352 f
+:matt/marble/22: 400 176 fr
+:matt/marble/22a: 416 160 rr
