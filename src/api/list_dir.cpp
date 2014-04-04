@@ -89,8 +89,7 @@ void DirList::load_current_dir() {
     }
 
     Help::find_dirs(current_dir, static_put_to_dir_list, (void*) this);
-    std::sort(dir_list.begin(), dir_list.end());
-    sort_filenames_by_order_txt(dir_list, current_dir, true);
+    sort_filenames_by_order_txt_then_alpha(dir_list, current_dir, true);
 
     // Hochwechsler
     if (current_dir != base_dir) {

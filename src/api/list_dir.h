@@ -70,7 +70,7 @@ protected:
 
 
 // implemented in list_lev.cpp
-void sort_filenames_by_order_txt(
+void sort_filenames_by_order_txt_then_alpha(
     std::vector <Filename>&, // the filenames to be sorted
     const Filename&,         // directory in which to look for order file
     bool                     // set to true if we sort dirs, not regular files

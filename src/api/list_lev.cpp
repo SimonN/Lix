@@ -47,7 +47,9 @@ void ListLevel::on_dir_load()
 {
     // the list of files has already been sorted by name. Sort stably by
     // appearance in the order file, if such a file exists at all.
-    sort_filenames_by_order_txt(get_file_list(), get_current_dir(), false);
+    // We're thus sorting alphabetically twice, that's an inefficient kludge.
+    sort_filenames_by_order_txt_then_alpha(
+     get_file_list(), get_current_dir(), false);
 }
 
 
@@ -104,44 +106,47 @@ void ListLevel::add_flip_button()
 
 
 
-void sort_filenames_by_order_txt(
+void sort_filenames_by_order_txt_then_alpha(
     std::vector <Filename>& files,
     const Filename& dir_with_order_file,
     bool we_sort_dirs // this is a little kludge, we add slashes to the
                       // entries in the order file to work with Filename::==
 ) {
-    // We assume that files has been sorted alphabetically already.
-    // Sort stably by the order file, putting at the end what doesn't
-    // appear in the file.
     // Assume that the filenames to be sorted also start with
     // dir_with_oder_file and only have appended the order file's substring.
     std::vector <std::string> orders;
     bool file_exists = IO::fill_vector_from_file_raw(orders,
         dir_with_order_file.get_dir_rootful() + gloB->file_level_dir_order);
-    if (! file_exists) return;
 
-    // dirs can be named as "somedir" or "somedir/", both shall work
-    if (we_sort_dirs)
-     for (std::vector <std::string> ::iterator itr = orders.begin();
-     itr != orders.end(); ++itr) {
-        if (itr->empty()) continue;
-        if (*--(itr->end()) != '/') itr->push_back('/');
-    }
-
-    // Sort whatever is encountered in the order file to the beginning of
-    // 'files'. What is encountered earliest shall go at the very beginning.
     std::vector <Filename> ::iterator next_unsorted = files.begin();
-    for (std::vector <std::string> ::iterator orit = orders.begin();
-     orit != orders.end(); ++orit) {
-        Filename fn(dir_with_order_file.get_dir_rootful() + *orit);
-        std::vector <Filename> ::iterator found =
-            std::find(next_unsorted, files.end(), fn);
-        if (found != files.end()) {
-            std::swap(*found, *next_unsorted);
-            ++next_unsorted;
-            if (next_unsorted == files.end()) break;
+
+    if (file_exists) {
+        // dirs can be named as "somedir" or "somedir/", both shall work
+        if (we_sort_dirs)
+         for (std::vector <std::string> ::iterator itr = orders.begin();
+         itr != orders.end(); ++itr) {
+            if (itr->empty()) continue;
+            if (*--(itr->end()) != '/') itr->push_back('/');
+        }
+
+        // Sort whatever is encountered in the order file to the beginning of
+        // 'files'. What is encountered earliest shall go at the very beginning.
+        for (std::vector <std::string> ::iterator orit = orders.begin();
+         orit != orders.end(); ++orit) {
+            Filename fn(dir_with_order_file.get_dir_rootful() + *orit);
+            std::vector <Filename> ::iterator found =
+                std::find(next_unsorted, files.end(), fn);
+            if (found != files.end()) {
+                std::swap(*found, *next_unsorted);
+                ++next_unsorted;
+                if (next_unsorted == files.end()) break;
+            }
         }
     }
+    // done processing the ordering file
+
+    // sort the remaining items alphabetically
+    std::sort(next_unsorted, files.end());
 }
 
 
