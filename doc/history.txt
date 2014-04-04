@@ -5,6 +5,52 @@
 
 
 
+2014-04-04
+
+    Amanda's occult tileset
+        There is a new tileset with an occult Lovecraftian theme in
+        images/amanda/. Many thanks to Amanda (NaOH) for allowing me to
+        release it with Lix!
+
+    Amanda's menu background image
+        Further thanks to her for the great new main menu screen!
+
+    Rubix's levels
+        Both Rubix's singleplayer and multiplayer levels have been updated.
+        His singleplayer collection is now Epic Adventure.
+
+    hasufell's bugfixes
+        hasufell from github has submitted several small fixes, mostly for the
+        game's Makefile and libpng usage. Thanks!
+
+    Team game bugfix
+        Partners giving simultaneous assignments to the same lix caused a
+        race bug. Such assignments are now ordered by player order, the same
+        assignment is now the last one everywhere.
+
+    Basher bugfix
+        A basher without ground was previously able to survive a little deeper
+        a fall than walkers.
+
+    Ascender bugfix
+        In rare cases, jumping climbers hit an edge and ascended way above it,
+        looking weird and allowing assignments in midair afterwards.
+
+    Chat bugfix
+        Text input for the in-game chat looked garbled, it's better now.
+
+    _order.X.txt for dirs
+        If directory names are given in the level ordering file, either as
+        "dirname" or as "dirname/" without quotes, matching subdirectories
+        are sorted in the directory list just like levels in the level list.
+
+    Tutorial and Phil's levels temporarily out
+        The tutorials are being revised entirely. Phil's levels need
+        adjustments, exits and traps are currently oddly placed or buried
+        in the terrain.
+
+
+
 2013-09-16
 
     Hint system
