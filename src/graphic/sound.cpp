@@ -128,6 +128,7 @@ Sound::Sound()
     sample[JOIN]        = Sample(dds + "join.wav");
 
     sample[PANEL]       = Sample(dds + "panel.wav");
+    sample[PANEL_EMPTY] = Sample(dds + "panel_em.wav");
     sample[ASSIGN]      = Sample(dds + "assign.wav");
     sample[CLOCK]       = Sample(dds + "clock.wav");
 

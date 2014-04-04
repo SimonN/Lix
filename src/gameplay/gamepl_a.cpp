@@ -78,7 +78,11 @@ void Gameplay::calc_active()
           ||   pan.skill[skill_visible].get_number() == 0); ++skill_visible);
 
         // Dies fuer den Notfall, um sinniges Cursoroeffnen zu produzieren
-        if (skill_visible == gloB->skill_max) skill_visible = malo->skill_sel;
+        bool skills_are_empty = false;
+        if (skill_visible == gloB->skill_max) {
+            skill_visible = malo->skill_sel;
+            skills_are_empty = true;
+        }
 
         for (LixIt i = --trlo->lixvec.end(); i != --trlo->lixvec.begin();
          --i) {
@@ -135,38 +139,44 @@ void Gameplay::calc_active()
         // Auswertung von target
         // Wir kontrollieren auch die angezeigte Zahl, siehe Kommentar zur
         // sichtbaren Zahl wegen Schokolade fuer's Auge
-        if (target != trlo->lixvec.end() && hardware.get_ml()
-         && pan.skill[skill_visible].get_number() != 0) {
-            const int lem_id = target - trlo->lixvec.begin();
-            pan.pause.set_off();
+        if (target != trlo->lixvec.end() && hardware.get_ml()) {
 
-            Replay::Data data = new_replay_data();
-            data.action       = Replay::ASSIGN;
-            data.what         = lem_id;
-            replay.add(data);
-            Network::send_replay_data(data);
+            if (pan.skill[skill_visible].get_number() != 0) {
+                // assign
+                const int lem_id = target - trlo->lixvec.begin();
+                pan.pause.set_off();
 
-            // Die sichtbare Zahl hinabsetzen geschieht nur fuer's Auge,
-            // in Wirklichkeit geschieht dies erst beim Update. Das Augen-
-            // spielzeug verabreichen wir allerdings nur, wenn nicht z.B.
-            // zweimal auf dieselbe Lix mit derselben Faehigkeit
-            // geklickt wurde. Den unwahrscheinlichen Fall, dass man
-            // zweimal mit beide Male anwendbaren Faehigkeiten auf dieselbe
-            // Lix geklickt hat, koennen wir vernachlaessigen - dann
-            // erscheint die Nummernaenderung eben erst beim kommenden Update.
-            // Auch der Sound (s.u.) wird dann nicht gespielt.
-            if (!replay.get_on_update_lix_clicked(cs.update + 1, lem_id)
-             && pan.skill[skill_visible].get_number() != LixEn::infinity) {
-                pan.skill[skill_visible].set_number(
-                pan.skill[skill_visible].get_number() - 1);
+                Replay::Data data = new_replay_data();
+                data.action       = Replay::ASSIGN;
+                data.what         = lem_id;
+                replay.add(data);
+                Network::send_replay_data(data);
+
+                // Die sichtbare Zahl hinabsetzen geschieht nur fuer's Auge,
+                // in Wirklichkeit geschieht dies erst beim Update. Das Augen-
+                // spielzeug verabreichen wir allerdings nur, wenn nicht z.B.
+                // zweimal auf dieselbe Lix mit derselben Faehigkeit
+                // geklickt wurde. Den unwahrscheinlichen Fall, dass man
+                // zweimal mit beide Male anwendbaren Faehigkeiten auf dieselbe
+                // Lix geklickt hat, koennen wir vernachlaessigen - dann
+                // erscheint die Nummernaenderung eben erst beim kommenden Update.
+                // Auch der Sound (s.u.) wird dann nicht gespielt.
+                if (!replay.get_on_update_lix_clicked(cs.update + 1, lem_id)
+                 && pan.skill[skill_visible].get_number() != LixEn::infinity) {
+                    pan.skill[skill_visible].set_number(
+                    pan.skill[skill_visible].get_number() - 1);
+                }
+                // Sound in der Effektliste speichern, damit er nicht beim Update
+                // nochmal ertoent, und zusatzlich wird er hier nochmals gespielt,
+                // damit wir sicher gehen, dass er auf jeden Fall beim Klick kommt.
+                Sound::Id snd = Lixxie::get_ac_func(pan.skill[skill_visible]
+                                .get_skill()).sound_assign;
+                effect.add_sound(cs.update + 1, *trlo, lem_id, snd);
+                Sound::play_loud(snd);
             }
-            // Sound in der Effektliste speichern, damit er nicht beim Update
-            // nochmal ertoent, und zusatzlich wird er hier nochmals gespielt,
-            // damit wir sicher gehen, dass er auf jeden Fall beim Klick kommt.
-            Sound::Id snd = Lixxie::get_ac_func(pan.skill[skill_visible]
-                            .get_skill()).sound_assign;
-            effect.add_sound(cs.update + 1, *trlo, lem_id, snd);
-            Sound::play_loud(snd);
+            else {
+                Sound::play_loud(Sound::PANEL_EMPTY);
+            }
         }
 
     }
@@ -286,6 +296,11 @@ void Gameplay::calc_active()
         if (!pan.skill[current_button].get_clicked())
             current_button = gloB->skill_max - 1;
 
+        // Scan for hotkey presses of empty/nonpresent skills
+        // if this is still false later, iterate over nonpresent skills
+        // and play the empty-skill sound if a key for them was pressed
+        bool some_panel_action = false;
+
         for (size_t j = 0; j < pan.skill.size(); ++j) {
             size_t i = (current_button + j + 1) % pan.skill.size();
             if (pan.skill[i].get_number() != 0
@@ -306,8 +321,39 @@ void Gameplay::calc_active()
                 effect.add_sound(cs.update + 1, *trlo, i, Sound::PANEL);
                 Sound::play_loud(Sound::PANEL);
                 // Don't check any more buttons, see comment before the loop.
+                some_panel_action = true;
                 break;
             }
+        }
+
+
+        if (! some_panel_action) {
+            // check for empty clicked panel icons
+            for (size_t i = 0; i < pan.skill.size(); ++i)
+             if (pan.skill[i].get_clicked()
+             &&  pan.skill[i].get_skill() != LixEn::NOTHING) {
+                if (! pan.skill[i].get_on()) {
+                    if (hardware.get_ml()) {
+                        Sound::play_loud(Sound::PANEL_EMPTY);
+                    }
+                    // else play no sound -- we're holding the mouse button
+                    // over a wrong skill, that's not notify-necessary, but
+                    // leave open the possibility to play a sound later
+                }
+                // we've clicked on an activated skill, that's all good,
+                // never play a sound even if a hotkey was used
+                else some_panel_action = true;
+            }
+            // check for hotkeys of present/nonpresent skills:
+            // if the hotkey is of an available skill, we wouldn't have ended
+            // up in this if (! some_panel_action)
+            if (! some_panel_action)
+             for (size_t i = 0; i < LixEn::AC_MAX; ++i) {
+                const int key = useR->key_skill[i];
+                if (key != 0 && hardware.key_once(key))
+                 Sound::play_loud(Sound::PANEL_EMPTY);
+            }
+
         }
     }
     // Restliche Buttons in der normalen Calculate-Funktion

@@ -59,6 +59,7 @@ public:
         JOIN,        // Someone joins the network
 
         PANEL,       // Choice of skill on the panel
+        PANEL_EMPTY, // Trying to select a skill that's empty or nonpresent
         ASSIGN,      // Assignment of a skill to a lix
         CLOCK,       // Once per second played when the clock is low on time
 
