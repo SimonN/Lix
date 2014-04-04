@@ -43,4 +43,13 @@ public:
     static bool search_criterion(const Filename&);
 
 }; // Ende Klasse ListLevel
+
+
+
+void sort_filenames_by_order_txt(
+    std::vector <Filename>&, // the filenames to be sorted
+    const Filename&,         // directory in which to look for order file
+    bool                     // set to true if we sort dirs, not regular files
+);
+
 }  // Ende Namensraum Api

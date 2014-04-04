@@ -66,5 +66,15 @@ protected:
     virtual void draw_self(); // clear remainders of buttons already erased
 
 };
+
+
+
+// implemented in list_lev.cpp
+void sort_filenames_by_order_txt(
+    std::vector <Filename>&, // the filenames to be sorted
+    const Filename&,         // directory in which to look for order file
+    bool                     // set to true if we sort dirs, not regular files
+);
+
 }
 
