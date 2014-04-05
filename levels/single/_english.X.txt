@@ -9,7 +9,3 @@ have designed full level packs.
 A community project by members of
 lemmingsforums.com is currently
 in the works. Stay tuned!
-
-If you haven't played before,
-try the tutorial levels:
-Click "..", then "tutorial".

@@ -1,4 +1,4 @@
-$BUILT 2012-12-04 22:46:36
+$BUILT 2014-04-06 00:42:24
 $AUTHOR geoo/Simon
 $GERMAN 
 $ENGLISH Factory Flinging
@@ -35,8 +35,8 @@ $ENGLISH Factory Flinging
 :geoo/construction/Hatch.H: 248 96
 :geoo/construction/Hatch.H: 360 96 r
 
-:geoo/sandstone/Goal.G: 128 144
 :geoo/sandstone/Goal.G: 448 144
+:geoo/sandstone/Goal.G: 128 144
 
 :geoo/construction/factory.T: 312 128
 

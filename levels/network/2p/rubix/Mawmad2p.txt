@@ -1,4 +1,4 @@
-$BUILT 2014-03-26 16:52:53
+$BUILT 2014-04-06 00:56:21
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Into The Maw Of Madness (2p)
@@ -33,8 +33,8 @@ $ENGLISH Into The Maw Of Madness (2p)
 :amanda/occult/hatch_tentacle.H: -16 80
 :amanda/occult/hatch_tentacle.H: 560 80 r
 
-:amanda/occult/occult_goal_skull.G: 544 688
-:amanda/occult/occult_goal_skull.G: -32 688
+:amanda/occult/occult_goal_skull.G: 544 676
+:amanda/occult/occult_goal_skull.G: -32 676
 
 :amanda/occult/occult_wax_details_drip_b: 278 362
 :amanda/occult/occult_wax_details_drip_b: 330 362 frr
@@ -320,5 +320,5 @@ $ENGLISH Into The Maw Of Madness (2p)
 :amanda/steel/steel32x32.S: 608 208
 :amanda/steel/steel32x32.S: 576 208
 :amanda/steel/steel32x32.S: 608 240
-:amanda/steel/steel32x32.S: 16 752
-:amanda/steel/steel32x32.S: 592 752
+:amanda/steel/steel32x32.S: 16 756
+:amanda/steel/steel32x32.S: 592 756

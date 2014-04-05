@@ -9,7 +9,3 @@ komplette Level-Pakete entwickelt.
 Ein Gemeinschaftsprojekt der Seite
 lemmingsforums.com ist in Arbeit
 und kommt spaeter hier hinzu.
-
-Wenn du das Spiel noch nicht kennst,
-versuche dich an den Tutorial-Levels:
-Klicke auf "..", dann auf "tutorial".

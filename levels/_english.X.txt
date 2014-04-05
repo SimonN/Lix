@@ -7,7 +7,6 @@ Try easy singleplayer levels.
 Lix comes with a variety of
 single-player puzzle levels,
 ranging from easy to very hard.
-If you've mastered the tutorials,
-select the directory "single".
+Select the directory "single".
 
 Have fun!
