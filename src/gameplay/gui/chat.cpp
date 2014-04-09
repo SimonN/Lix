@@ -1,3 +1,5 @@
+// see ./tutorial.cpp for more functions about filling the chat/hints
+
 #include "chat.h"
 #include "../../other/globals.h" // player name
 #include "../../other/user.h"
@@ -81,26 +83,6 @@ void GameplayChat::type_on_esc_callback(void* chat_instance)
 {
     GameplayChat& ch = *static_cast <GameplayChat*> (chat_instance);
     ch.type.set_text();
-}
-
-
-
-void GameplayChat::set_hint(const std::string& hi)
-{
-    set_draw_required();
-    hints.clear();
-    if (hi.empty()) return;
-
-    typedef std::vector <std::string> VecStr;
-    VecStr lines;
-    Console::break_lines(lines, hi, font_med, LEMSCR_X - 6);
-
-    for (VecStr::iterator itr = lines.begin(); itr != lines.end(); ++itr) {
-        Api::Label lab(3, y_hint_first + y_hint_plus * hints.size());
-        hints.push_back(lab);
-        hints.back().set_text(*itr);
-        hints.back().set_undraw_color(color[COL_PINK]);
-    }
 }
 
 
