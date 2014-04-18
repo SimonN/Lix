@@ -138,8 +138,12 @@ void NetClient::calc()
         else if (type == LEMNET_ASSIGN_NUMBER) {
             PlayerData pd(event.packet->data[2],
              gloB->user_name.c_str());
-            pd.style = pd.number % (LixEn::STYLE_MAX-1) + 1;
-            if (useR->network_last_style > 0
+            // choose some color to get us started based on the player number
+            // this might be already taken though by others, the code here
+            // is just a very simple algorithm
+            pd.style =
+                pd.number % (LixEn::STYLE_MAX - LixEn::RED) + LixEn::RED;
+            if (useR->network_last_style >= LixEn::RED
              && useR->network_last_style < LixEn::STYLE_MAX)
                 pd.style = static_cast <char> (useR->network_last_style);
             // The lobby saves the style to useR->...
