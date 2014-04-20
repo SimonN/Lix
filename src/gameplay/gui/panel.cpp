@@ -198,7 +198,7 @@ void GameplayPanel::set_like_tribe(const Tribe* tr, const Tribe::Master* ma)
         skill[i].set_number(tr->skill[i].nr);
         skill[i].set_hotkey(key);
 
-        if (useR->gameplay_help)
+        if (useR->gameplay_help && key != 0)
             skill[i].set_hotkey_label(Help::scancode_to_string(key));
     }
     if (ma) set_skill_on(ma->skill_sel);
