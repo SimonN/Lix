@@ -47,6 +47,7 @@ void Lixxie::become(const LixEn::Ac new_ac)
 {
     if (new_ac != ac && queue > 0) {
         tribe->return_skills(ac, queue);
+        queue = 0; // in case other skill_become() redirect again to become()
     }
     if (ac_func[new_ac].become) ac_func[new_ac].become(*this);
     else                        become_default(new_ac);
