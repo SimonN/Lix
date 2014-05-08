@@ -1,9 +1,9 @@
-$BUILT 2014-05-08 14:29:07
+$BUILT 2014-05-08 14:27:21
 $AUTHOR geoo
 $GERMAN 
 $ENGLISH Scorched Earth
 
-#SIZE_X 3072
+#SIZE_X 2048
 #SIZE_Y 400
 #TORUS_X 1
 #TORUS_Y 0
@@ -34,18 +34,14 @@ $ENGLISH Scorched Earth
 
 :geoo/sandstone/Hatch.H: 528 208 r
 :geoo/sandstone/Hatch.H: 1552 208 r
-:geoo/sandstone/Hatch.H: 2576 208 r
 
 :geoo/sandstone/Goal.G: 1120 304
-:geoo/sandstone/Goal.G: 2144 304
 :geoo/sandstone/Goal.G: 96 304
 
 :geoo/sandstone/chopper.T: 752 112
 :geoo/sandstone/chopper.T: 912 112
 :geoo/sandstone/chopper.T: 1776 112
 :geoo/sandstone/chopper.T: 1936 112
-:geoo/sandstone/chopper.T: 2800 112
-:geoo/sandstone/chopper.T: 2960 112
 
 :geoo/sandstone/torch.F: 384 288
 :geoo/sandstone/torch.F: 384 256
@@ -69,27 +65,13 @@ $ENGLISH Scorched Earth
 :matt/water.W: 1440 368
 :geoo/sandstone/torch.F: 384 160
 :geoo/sandstone/torch.F: 1408 160
-:geoo/sandstone/torch.F: 2432 288
-:geoo/sandstone/torch.F: 2432 256
-:geoo/sandstone/torch.F: 2432 224
-:geoo/sandstone/brazier.F: 2128 208
-:geoo/sandstone/brazier.F: 2192 208
-:matt/water.W: 2080 368
-:matt/water.W: 2240 368
-:matt/water.W: 2400 368
-:matt/water.W: 2432 368
-:matt/water.W: 2464 368
-:geoo/sandstone/torch.F: 2432 160
 
-:geoo/abstract/tbeam_down.T: 1744 160
-:geoo/abstract/tbeam_down.T: 1744 192
-:geoo/abstract/tbeam_down.T: 1744 224
 :geoo/abstract/tbeam_down.T: 720 160
 :geoo/abstract/tbeam_down.T: 720 192
 :geoo/abstract/tbeam_down.T: 720 224
-:geoo/abstract/tbeam_down.T: 2768 160
-:geoo/abstract/tbeam_down.T: 2768 192
-:geoo/abstract/tbeam_down.T: 2768 224
+:geoo/abstract/tbeam_down.T: 1744 160
+:geoo/abstract/tbeam_down.T: 1744 192
+:geoo/abstract/tbeam_down.T: 1744 224
 
 :geoo/steel/dark_64x64.S: 736 144
 :geoo/steel/dark_64x64.S: 736 208
@@ -337,126 +319,3 @@ $ENGLISH Scorched Earth
 :geoo/sandstone/pillar_top_shaded: 1588 48
 :geoo/sandstone/pillar_bottom: 1588 80
 :geoo/sandstone/pillar_bottom_ext: 1572 112
-:geoo/steel/dark_64x64.S: 2784 144
-:geoo/steel/dark_64x64.S: 2784 208
-:geoo/steel/dark_64x64.S: 2784 272
-:geoo/steel/dark_64x64.S: 2784 336
-:geoo/sandstone/pillar_32: 2688 0 r
-:geoo/sandstone/pillar_32: 2768 0 r
-:geoo/steel/dark_64x64.S: 2712 0
-:geoo/steel/dark_64x64.S: 2712 128
-:geoo/steel/dark_64x64.S: 2712 192
-:geoo/steel/dark_32x64o.S: 2752 336
-:geoo/sandstone/64x64: 2496 336
-:geoo/sandstone/ebony/h8a: 2592 128
-:geoo/sandstone/ebony/h8b: 2624 128
-:geoo/sandstone/ebony/h8c: 2560 128
-:geoo/sandstone/ebony/h8b: 2656 128
-:geoo/steel/dark_32x32o.S: 2752 304
-:geoo/steel/dark_32x16o.S: 2752 288
-:geoo/sandstone/ebony/h8r: 2688 128
-:geoo/sandstone/ebony/h8l: 2560 128
-:geoo/sandstone/16x16: 2712 272
-:geoo/sandstone/pillar_top_ext: 2688 288
-:geoo/sandstone/pillar_top_ext: 2624 288
-:geoo/sandstone/pillar_top_shaded: 2704 304
-:geoo/sandstone/pillar_top_shaded: 2640 304
-:geoo/sandstone/pillar_32: 2640 336
-:geoo/sandstone/pillar_32: 2704 336
-:geoo/sandstone/pillar_top_ext: 2560 288
-:geoo/sandstone/pillar_top_shaded: 2576 304
-:geoo/sandstone/pillar_32: 2576 336
-:geoo/sandstone/pillar_32: 2640 368
-:geoo/sandstone/pillar_32: 2704 368
-:geoo/sandstone/pillar_32: 2576 368
-:geoo/sandstone/64x64: 2496 272
-:geoo/sandstone/64x64: 2336 336
-:geoo/sandstone/32x64: 2368 272
-:geoo/sandstone/64x64: 2272 336
-:geoo/sandstone/32x64: 2272 272
-:geoo/sandstone/64x32: 2304 304
-:geoo/steel/dark_32x64o.S: 2744 64
-:geoo/sandstone/ebony/h8a: 2432 128
-:geoo/sandstone/ebony/h8b: 2456 128
-:geoo/sandstone/ebony/h8r: 2488 128
-:geoo/sandstone/ebony/h8l: 2400 128
-:geoo/sandstone/ebony/h8b: 2408 128
-:geoo/construction/rod_steel/straight32.S: 2232 272
-:geoo/construction/rod_steel/end_rect.S: 2192 272
-:geoo/construction/rod_steel/end_rect.S: 2264 272 frr
-:geoo/construction/rod_steel/straight32.S: 2088 272
-:geoo/construction/rod_steel/end_rect.S: 2080 272
-:geoo/construction/rod_steel/end_rect.S: 2152 272 frr
-:geoo/construction/rod_steel/straight32.S: 2120 272
-:geoo/construction/rod_steel/straight32.S: 2200 272
-:geoo/sandstone/ebony/h8b: 2160 272
-:geoo/steel/64x32o.S: 2144 368
-:geoo/steel/32x64o.S: 2112 336
-:geoo/steel/32x64o.S: 2208 336
-:geoo/sandstone/64x64: 3040 272
-:geoo/sandstone/64x64: 3040 336
-:geoo/sandstone/64x64: 3040 144
-:geoo/sandstone/64x64: 3040 208
-:geoo/sandstone/64x64: 2976 272
-:geoo/sandstone/64x64: 2976 336
-:geoo/sandstone/64x64: 2976 144
-:geoo/sandstone/64x64: 2976 208
-:geoo/sandstone/64x64: 2912 272
-:geoo/sandstone/64x64: 2912 336
-:geoo/sandstone/64x64: 2912 144
-:geoo/sandstone/64x64: 2912 208
-:geoo/sandstone/64x64: 2848 272
-:geoo/sandstone/64x64: 2848 336
-:geoo/sandstone/64x64: 2848 144
-:geoo/sandstone/64x64: 2848 208
-:geoo/sandstone/ebony/v16b: 2496 192
-:geoo/sandstone/ebony/v16l: 2496 176
-:geoo/sandstone/ebony/v16r: 2496 224
-:geoo/sandstone/ebony/v16b: 2384 192
-:geoo/sandstone/ebony/v16l: 2384 176
-:geoo/sandstone/ebony/v16r: 2384 224
-:geoo/sandstone/64x64: 2272 32
-:geoo/sandstone/64x64: 2272 96
-:geoo/sandstone/64x64: 2208 32
-:geoo/sandstone/64x64: 2208 96
-:geoo/sandstone/64x64: 2144 32
-:geoo/sandstone/64x64: 2144 96
-:geoo/sandstone/16x16: 2648 272
-:geoo/sandstone/16x16: 2584 272
-:geoo/sandstone/pillar_32: 2336 0 r
-:geoo/sandstone/pillar_32: 2368 0 r
-:geoo/sandstone/pillar_32: 2400 0 r
-:geoo/sandstone/pillar_32: 2432 0 r
-:geoo/sandstone/pillar_32: 2464 0 r
-:geoo/sandstone/pillar_32: 2496 0 r
-:geoo/sandstone/pillar_32: 2528 0 r
-:geoo/sandstone/pillar_32: 2560 0 r
-:geoo/sandstone/pillar_32: 2592 0 r
-:geoo/sandstone/pillar_32: 2624 0 r
-:geoo/sandstone/pillar_32: 2656 0 r
-:geoo/sandstone/pillar_32: 2112 0 r
-:geoo/sandstone/pillar_32: 2784 0 r
-:geoo/sandstone/pillar_32: 2816 0 r
-:geoo/sandstone/pillar_32: 2848 0 r
-:geoo/sandstone/pillar_32: 2880 0 r
-:geoo/sandstone/pillar_32: 2912 0 r
-:geoo/sandstone/pillar_32: 2944 0 r
-:geoo/sandstone/pillar_32: 2976 0 r
-:geoo/sandstone/pillar_32: 3008 0 r
-:geoo/sandstone/pillar_32: 3040 0 r
-:geoo/sandstone/pillar_32: 2080 0 r
-:geoo/sandstone/pillar_32: 2240 0 r
-:geoo/sandstone/pillar_32: 2144 0 r
-:geoo/sandstone/pillar_32: 2176 0 r
-:geoo/sandstone/pillar_32: 2208 0 r
-:geoo/sandstone/pillar_32: 2304 0 r
-:geoo/sandstone/pillar_32: 2272 0 r
-:geoo/sandstone/pillar_top_ext: 2416 32
-:geoo/sandstone/pillar_top_shaded: 2432 48
-:geoo/sandstone/pillar_bottom: 2432 80
-:geoo/sandstone/pillar_bottom_ext: 2416 112
-:geoo/sandstone/pillar_top_ext: 2596 32
-:geoo/sandstone/pillar_top_shaded: 2612 48
-:geoo/sandstone/pillar_bottom: 2612 80
-:geoo/sandstone/pillar_bottom_ext: 2596 112
-:geoo/sandstone/pillar_32: 2048 0 r
