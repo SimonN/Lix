@@ -13,7 +13,6 @@
 
 unsigned Lixxie::get_priority(
     LixEn::Ac  new_ac,
-    int        tribes_active,
     const bool personal
 ) {
     // Argument:  Die Faehigkeit, die beim Klick gegeben wuerde.
@@ -32,11 +31,6 @@ unsigned Lixxie::get_priority(
      || (new_ac == LixEn::RUNNER    && runner)
      || (new_ac == LixEn::CLIMBER   && climber)
      || (new_ac == LixEn::FLOATER   && floater) ) return 1;
-
-    // Don't plant blockers close to exits in multiplayer
-    if (new_ac == LixEn::BLOCKER && tribes_active > 1
-        && (enc_foot & Lookup::bit_goal_prox))
-        return 1;
 
     switch (ac) {
         // Nur Exploder ist erlaubt, und zwar mit wesentlich hoeherer Prior.!

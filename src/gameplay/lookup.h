@@ -29,7 +29,7 @@ public:
     static const LoNr bit_ow_right;   // same
 
     static const LoNr bit_goal;
-    static const LoNr bit_goal_prox;  // Near goal, can't block here
+    static const LoNr bit_goal_prox;  // unused: the no-block area around goal
     static const LoNr bit_fire;
     static const LoNr bit_water;
 

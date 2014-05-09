@@ -347,8 +347,7 @@ void Gameplay::update_cs_one_data(Tribe& t, Tribe::Master* m, Replay::It i)
             Lixxie& lix = t.lixvec[i->what];
             // false: Do not respect the user's options like
             // disabling the multiple builder feature
-            if (lix.get_priority(psk.ac, cs.tribes.size(), false) > 1
-             && psk.nr != 0) {
+            if (lix.get_priority(psk.ac, false) > 1 && psk.nr != 0) {
                 ++(t.skills_used);
                 if (psk.nr != LixEn::infinity) --psk.nr;
                 lix.evaluate_click(psk.ac);

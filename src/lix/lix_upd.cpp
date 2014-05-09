@@ -243,7 +243,7 @@ void Gameplay::update_lix_goals(Lixxie& l, const UpdateArgs& ua)
 {
     // false: Keine persoenlichen Einstellungen wie !multbuilders beachten
     if (l.get_foot_encounters() & Lookup::bit_goal
-     && l.get_priority(LixEn::EXITER, cs.tribes.size(), false) > 1)
+     && l.get_priority(LixEn::EXITER, false) > 1)
      for (int i = 0; i < (int) goal.size(); ++i)
      if (l.get_in_trigger_area(goal[i])) {
         // Lixxie soll ins Ziel gehen und sich merken, in welches

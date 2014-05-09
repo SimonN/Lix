@@ -44,6 +44,4 @@ public:
 
     virtual void draw(bool = false);
 
-    virtual void draw_lookup(Lookup&);
-
 };

@@ -325,7 +325,7 @@ public:
     inline static const AcFunc& get_ac_func(LixEn::Ac a) { return ac_func[a]; }
 
     void        evaluate_click(const LixEn::Ac);
-    unsigned    get_priority  (const LixEn::Ac, int, bool);
+    unsigned    get_priority  (const LixEn::Ac, bool);
 
     inline int  get_special_x()      { return special_x; }
     inline int  get_special_y()      { return special_y; }
