@@ -31,195 +31,6 @@ void Gameplay::calc_active()
     // Remedies the bug: displays "N nothings" after level restart
     pan.stats.set_tarcnt(0);
 
-    // mouse on the playing field, lixes are selectable
-    if (!mouse_on_panel && malo->aiming != 2 && trlo) {
-        // Bestimmte Richtung anwählen?
-        bool only_dir_l = false;
-        bool only_dir_r = false;
-        if (  key[useR->key_force_left]
-         && ! key[useR->key_force_right]) {
-            only_dir_l = true;
-            mouse_cursor.set_x_frame(1);
-        }
-        else if (! key[useR->key_force_left]
-         &&        key[useR->key_force_right]) {
-            only_dir_r = true;
-            mouse_cursor.set_x_frame(2);
-        }
-        // Decide which lix the cursor points at
-        // Die Liste der Lixen wird durchlaufen und die Priorität jeder
-        // Lix errechnet. Wird eine höhere Priorität als die derzeitig
-        // höchste gefunden, wechselt LixIt target. Bei gleicher Prioritaet
-        // haben Lixen, die naeher am Mauscursor liegen, Vorrang! Mit rechter
-        // Maustaste (selectable in the options) waehlt man dagegen die letzte
-        // Lix mit der niedrigsten Priorität. Auch hier haben naeher liegende
-        // Lixen Vorrang.
-        LixIt  target = trlo->lixvec.end(); // Klickbar mit Prioritaet
-        LixIt  tarinf = trlo->lixvec.end(); // Nicht unb. klickbar mit Prior.
-        int    tarcnt = 0; // Anzahl Lixen unter Cursor
-        int    target_priority = 0;
-        int    tarinf_priority = 0;
-        double target_hypot = 1000;
-        double tarinf_hypot = 1000;
-
-        // Bei Zoom diese Variablen veraendern
-        int zoom   = map.get_zoom();
-        int mmld_x = mouse_max_lix_distance_x - mouse_cursor_offset/2*zoom;
-        int mmld_u = mouse_max_lix_distance_u - mouse_cursor_offset/2*zoom;
-        int mmld_d = mouse_max_lix_distance_d - mouse_cursor_offset/2*zoom;
-
-        // trlo->skill_sel wird erst beim naechsten Update gesetzt.
-        // Also suchen wir manuell, welche Faehigkeit der Spieler durch
-        // Anklicken gewaehlt hat.
-        int skill_visible;
-        for (skill_visible = 0; skill_visible < gloB->skill_max
-         && ( !pan.skill[skill_visible].get_on()
-          || trlo->skill[skill_visible].nr == 0
-          ||   pan.skill[skill_visible].get_number() == 0); ++skill_visible);
-
-        // Dies fuer den Notfall, um sinniges Cursoroeffnen zu produzieren
-        bool skills_are_empty = false;
-        if (skill_visible == gloB->skill_max) {
-            skill_visible = malo->skill_sel;
-            skills_are_empty = true;
-        }
-
-        for (LixIt i = --trlo->lixvec.end(); i != --trlo->lixvec.begin();
-         --i) {
-            if (map.distance_x(i->get_ex(), mx) <=  mmld_x
-             && map.distance_x(i->get_ex(), mx) >= -mmld_x
-             && map.distance_y(i->get_ey(), my) <=  mmld_d
-             && map.distance_y(i->get_ey(), my) >= -mmld_u) {
-
-                // Hypot geht von (ex|ey+etwas) aus
-                // true = Beachte persoenliche Einschraenkungen wie !MultBuild
-                int priority = i->get_priority(
-                 trlo->skill[skill_visible].ac, true);
-
-                // Invert priority if a corresponding mouse button is held
-                if ((hardware.get_mrh() && useR->prioinv_right)
-                 || (hardware.get_mmh() && useR->prioinv_middle)
-                 ||  hardware.key_hold(useR->key_priority)) {
-                    priority = 100000 - priority;
-                }
-                double hypot = map.hypot(mx, my, i->get_ex(),
-                                          i->get_ey() + ((mmld_d - mmld_u)/2)
-                                          );
-                if (priority > 0 && priority < 100000) {
-                    // Die Anforderungen den offenen Mauscursur
-                    // und das Schreiben des Strings auf die Info...
-                    ++tarcnt;
-                    if (priority >  tarinf_priority
-                     ||(priority == tarinf_priority && hypot < tarinf_hypot)) {
-                        tarinf = i;
-                        tarinf_priority = priority;
-                        tarinf_hypot    = hypot;
-                    }
-                    // ...sind geringer als die für Anklick-Inbetrachtnahme!
-                    if ((priority > 1 && priority < 99999)
-                     && (priority >  target_priority
-                     || (priority == target_priority && hypot < target_hypot))
-                     && !(only_dir_l && i->get_dir() ==  1)
-                     && !(only_dir_r && i->get_dir() == -1)) {
-                        target          = i;
-                        target_priority = priority;
-                        target_hypot    = hypot;
-                    }
-                }
-            }
-        }
-
-        // Auswertung von tarinf
-        if (tarinf != trlo->lixvec.end()) {
-            mouse_cursor.set_y_frame(1);
-        }
-        pan.stats.set_tarinf(tarinf == trlo->lixvec.end() ? 0 : &*tarinf);
-        pan.stats.set_tarcnt(tarcnt);
-
-        // Auswertung von target
-        // Wir kontrollieren auch die angezeigte Zahl, siehe Kommentar zur
-        // sichtbaren Zahl wegen Schokolade fuer's Auge
-        if (target != trlo->lixvec.end() && hardware.get_ml()) {
-
-            if (pan.skill[skill_visible].get_number() != 0) {
-                // assign
-                const int lem_id = target - trlo->lixvec.begin();
-                pan.pause.set_off();
-
-                Replay::Data data = new_replay_data();
-                data.action       = Replay::ASSIGN;
-                data.what         = lem_id;
-                replay.add(data);
-                Network::send_replay_data(data);
-
-                // Die sichtbare Zahl hinabsetzen geschieht nur fuer's Auge,
-                // in Wirklichkeit geschieht dies erst beim Update. Das Augen-
-                // spielzeug verabreichen wir allerdings nur, wenn nicht z.B.
-                // zweimal auf dieselbe Lix mit derselben Faehigkeit
-                // geklickt wurde. Den unwahrscheinlichen Fall, dass man
-                // zweimal mit beide Male anwendbaren Faehigkeiten auf dieselbe
-                // Lix geklickt hat, koennen wir vernachlaessigen - dann
-                // erscheint die Nummernaenderung eben erst beim kommenden Update.
-                // Auch der Sound (s.u.) wird dann nicht gespielt.
-                if (!replay.get_on_update_lix_clicked(cs.update + 1, lem_id)
-                 && pan.skill[skill_visible].get_number() != LixEn::infinity) {
-                    pan.skill[skill_visible].set_number(
-                    pan.skill[skill_visible].get_number() - 1);
-                }
-                // Sound in der Effektliste speichern, damit er nicht beim Update
-                // nochmal ertoent, und zusatzlich wird er hier nochmals gespielt,
-                // damit wir sicher gehen, dass er auf jeden Fall beim Klick kommt.
-                Sound::Id snd = Lixxie::get_ac_func(pan.skill[skill_visible]
-                                .get_skill()).sound_assign;
-                effect.add_sound(cs.update + 1, *trlo, lem_id, snd);
-                Sound::play_loud(snd);
-            }
-            else {
-                Sound::play_loud(Sound::PANEL_EMPTY);
-            }
-        }
-
-    }
-    // Ende von: Maus im Spielfeld ohne Zielen
-
-    // Zielen
-    else if (malo->aiming == 2) {
-        // Hingucken der Lixen wird im Update der Lixen erledigt. Hier
-        // geht es nur darum, einen Klick und dessen Koordinaten zu
-        // registrieren. Es wird entsprechend auch ein Netzwerkpaket versandt.
-        if (hardware.get_ml() && !pan.pause.is_mouse_here())
-         for (LixIt lem = trlo->lixvec.begin();
-         lem != trlo->lixvec.end(); ++lem) if (lem->get_aiming()) {
-            pan.pause.set_off();
-            // Klick sauber vormerken fuers naechste Update und verschicken.
-            Replay::Data data = new_replay_data();
-            data.action       = Replay::AIM;
-            data.what         = (my * level.initial * map.get_xl())
-                              + (mx * level.initial)
-                              + lem - trlo->lixvec.begin(); // siehe replay.h
-            replay.add(data);
-            Network::send_replay_data(data);
-
-            // Gegen zweimaliges Schiessen pro Update
-            malo->aiming = 1;
-
-            // Sound in der Effektliste speichern, damit er nicht beim Update
-            // nochmal ertoent, und zusatzlich wird er hier nochmals gespielt,
-            // damit wir sicher gehen, dass er auf jeden Fall beim Klick kommt.
-            Sound::play_loud(lem->get_sound_aim());
-            effect.add_sound(cs.update + 1, *trlo, lem - trlo->lixvec.begin(),
-                                                   lem->get_sound_aim());
-            break;
-        }
-    }
-
-
-
-
-
-
-
-
     // Panels ueberpruefen. Zuerst Singleplayer-Panels.
     if (cs.tribes.size() == 1) {
         // Plus und Minus werden nicht auf "clicked" geprueft, sondern aktiv,
@@ -388,5 +199,197 @@ void Gameplay::calc_active()
             pan.nuke_multi .set_down();
         }
     }
+
+
+
+    ///////////////////////////////////////
+    // End of: check things in the panel //
+    // Now: mouse on the playing field   //
+    ///////////////////////////////////////
+
+
+
+    // mouse on the playing field, lixes are selectable
+    if (!mouse_on_panel && malo->aiming != 2 && trlo) {
+        // Bestimmte Richtung anwählen?
+        bool only_dir_l = false;
+        bool only_dir_r = false;
+        if (  key[useR->key_force_left]
+         && ! key[useR->key_force_right]) {
+            only_dir_l = true;
+            mouse_cursor.set_x_frame(1);
+        }
+        else if (! key[useR->key_force_left]
+         &&        key[useR->key_force_right]) {
+            only_dir_r = true;
+            mouse_cursor.set_x_frame(2);
+        }
+        // Decide which lix the cursor points at
+        // Die Liste der Lixen wird durchlaufen und die Priorität jeder
+        // Lix errechnet. Wird eine höhere Priorität als die derzeitig
+        // höchste gefunden, wechselt LixIt target. Bei gleicher Prioritaet
+        // haben Lixen, die naeher am Mauscursor liegen, Vorrang! Mit rechter
+        // Maustaste (selectable in the options) waehlt man dagegen die letzte
+        // Lix mit der niedrigsten Priorität. Auch hier haben naeher liegende
+        // Lixen Vorrang.
+        LixIt  target = trlo->lixvec.end(); // Klickbar mit Prioritaet
+        LixIt  tarinf = trlo->lixvec.end(); // Nicht unb. klickbar mit Prior.
+        int    tarcnt = 0; // Anzahl Lixen unter Cursor
+        int    target_priority = 0;
+        int    tarinf_priority = 0;
+        double target_hypot = 1000;
+        double tarinf_hypot = 1000;
+
+        // Bei Zoom diese Variablen veraendern
+        int zoom   = map.get_zoom();
+        int mmld_x = mouse_max_lix_distance_x - mouse_cursor_offset/2*zoom;
+        int mmld_u = mouse_max_lix_distance_u - mouse_cursor_offset/2*zoom;
+        int mmld_d = mouse_max_lix_distance_d - mouse_cursor_offset/2*zoom;
+
+        // trlo->skill_sel wird erst beim naechsten Update gesetzt.
+        // Also suchen wir manuell, welche Faehigkeit der Spieler durch
+        // Anklicken gewaehlt hat.
+        int skill_visible;
+        for (skill_visible = 0; skill_visible < gloB->skill_max
+         && ( !pan.skill[skill_visible].get_on()
+          || trlo->skill[skill_visible].nr == 0
+          ||   pan.skill[skill_visible].get_number() == 0); ++skill_visible);
+
+        // Dies fuer den Notfall, um sinniges Cursoroeffnen zu produzieren
+        bool skills_are_empty = false;
+        if (skill_visible == gloB->skill_max) {
+            skill_visible = malo->skill_sel;
+            skills_are_empty = true;
+        }
+
+        for (LixIt i = --trlo->lixvec.end(); i != --trlo->lixvec.begin();
+         --i) {
+            if (map.distance_x(i->get_ex(), mx) <=  mmld_x
+             && map.distance_x(i->get_ex(), mx) >= -mmld_x
+             && map.distance_y(i->get_ey(), my) <=  mmld_d
+             && map.distance_y(i->get_ey(), my) >= -mmld_u) {
+
+                // Hypot geht von (ex|ey+etwas) aus
+                // true = Beachte persoenliche Einschraenkungen wie !MultBuild
+                int priority = i->get_priority(
+                 trlo->skill[skill_visible].ac, true);
+
+                // Invert priority if a corresponding mouse button is held
+                if ((hardware.get_mrh() && useR->prioinv_right)
+                 || (hardware.get_mmh() && useR->prioinv_middle)
+                 ||  hardware.key_hold(useR->key_priority)) {
+                    priority = 100000 - priority;
+                }
+                double hypot = map.hypot(mx, my, i->get_ex(),
+                                          i->get_ey() + ((mmld_d - mmld_u)/2)
+                                          );
+                if (priority > 0 && priority < 100000) {
+                    // Die Anforderungen den offenen Mauscursur
+                    // und das Schreiben des Strings auf die Info...
+                    ++tarcnt;
+                    if (priority >  tarinf_priority
+                     ||(priority == tarinf_priority && hypot < tarinf_hypot)) {
+                        tarinf = i;
+                        tarinf_priority = priority;
+                        tarinf_hypot    = hypot;
+                    }
+                    // ...sind geringer als die für Anklick-Inbetrachtnahme!
+                    if ((priority > 1 && priority < 99999)
+                     && (priority >  target_priority
+                     || (priority == target_priority && hypot < target_hypot))
+                     && !(only_dir_l && i->get_dir() ==  1)
+                     && !(only_dir_r && i->get_dir() == -1)) {
+                        target          = i;
+                        target_priority = priority;
+                        target_hypot    = hypot;
+                    }
+                }
+            }
+        }
+
+        // Auswertung von tarinf
+        if (tarinf != trlo->lixvec.end()) {
+            mouse_cursor.set_y_frame(1);
+        }
+        pan.stats.set_tarinf(tarinf == trlo->lixvec.end() ? 0 : &*tarinf);
+        pan.stats.set_tarcnt(tarcnt);
+
+        // Auswertung von target
+        // Wir kontrollieren auch die angezeigte Zahl, siehe Kommentar zur
+        // sichtbaren Zahl wegen Schokolade fuer's Auge
+        if (target != trlo->lixvec.end() && hardware.get_ml()) {
+
+            if (pan.skill[skill_visible].get_number() != 0) {
+                // assign
+                const int lem_id = target - trlo->lixvec.begin();
+                pan.pause.set_off();
+
+                Replay::Data data = new_replay_data();
+                data.action       = Replay::ASSIGN;
+                data.what         = lem_id;
+                replay.add(data);
+                Network::send_replay_data(data);
+
+                // Die sichtbare Zahl hinabsetzen geschieht nur fuer's Auge,
+                // in Wirklichkeit geschieht dies erst beim Update. Das Augen-
+                // spielzeug verabreichen wir allerdings nur, wenn nicht z.B.
+                // zweimal auf dieselbe Lix mit derselben Faehigkeit
+                // geklickt wurde. Den unwahrscheinlichen Fall, dass man
+                // zweimal mit beide Male anwendbaren Faehigkeiten auf dieselbe
+                // Lix geklickt hat, koennen wir vernachlaessigen - dann
+                // erscheint die Nummernaenderung eben erst beim kommenden Upd.
+                // Auch der Sound (s.u.) wird dann nicht gespielt.
+                if (!replay.get_on_update_lix_clicked(cs.update + 1, lem_id)
+                 && pan.skill[skill_visible].get_number() != LixEn::infinity) {
+                    pan.skill[skill_visible].set_number(
+                    pan.skill[skill_visible].get_number() - 1);
+                }
+                // Sound in der Effektliste speichern, damit er nicht beim Upd.
+                // nochmal ertoent, und dazu wird er hier nochmals gespielt,
+                // damit wir sicher gehen, dass er beim Klick kommt.
+                Sound::Id snd = Lixxie::get_ac_func(pan.skill[skill_visible]
+                                .get_skill()).sound_assign;
+                effect.add_sound(cs.update + 1, *trlo, lem_id, snd);
+                Sound::play_loud(snd);
+            }
+            else {
+                Sound::play_loud(Sound::PANEL_EMPTY);
+            }
+        }
+
+    }
+    // Ende von: Maus im Spielfeld ohne Zielen
+
+    // Zielen
+    else if (malo->aiming == 2) {
+        // Hingucken der Lixen wird im Update der Lixen erledigt. Hier
+        // geht es nur darum, einen Klick und dessen Koordinaten zu
+        // registrieren. Es wird entsprechend auch ein Netzwerkpaket versandt.
+        if (hardware.get_ml() && !pan.pause.is_mouse_here())
+         for (LixIt lem = trlo->lixvec.begin();
+         lem != trlo->lixvec.end(); ++lem) if (lem->get_aiming()) {
+            pan.pause.set_off();
+            // Klick sauber vormerken fuers naechste Update und verschicken.
+            Replay::Data data = new_replay_data();
+            data.action       = Replay::AIM;
+            data.what         = (my * level.initial * map.get_xl())
+                              + (mx * level.initial)
+                              + lem - trlo->lixvec.begin(); // siehe replay.h
+            replay.add(data);
+            Network::send_replay_data(data);
+
+            // Gegen zweimaliges Schiessen pro Update
+            malo->aiming = 1;
+
+            // Sound in der Effektliste speichern, damit er nicht beim Update
+            // nochmal ertoent, und zusatzlich wird er hier nochmals gespielt,
+            // damit wir sicher gehen, dass er auf jeden Fall beim Klick kommt.
+            Sound::play_loud(lem->get_sound_aim());
+            effect.add_sound(cs.update + 1, *trlo, lem - trlo->lixvec.begin(),
+                                                   lem->get_sound_aim());
+            break;
+        }
+    }
+    // end of: aiming
 
 }
