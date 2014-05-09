@@ -11,10 +11,14 @@
  *
  */
 
+#include <algorithm> // std::find in selection for mouse dragging
+
 #include "editor.h"
 
 #include "../api/manager.h"
 #include "../other/user.h"
+
+#include "../other/file/log.h" // debugging
 
 void Editor::calc_self()
 {
@@ -358,7 +362,11 @@ void Editor::calc_self()
      && ! panel[SELECT_FRAME].get_on()) {
         Selection s = find_under_mouse_cursor(FIND_BY_TRANSP);
         if (! s.is_valid()) s = find_under_mouse_cursor(FIND_BY_SELBOX);
-        if (s.is_valid()) hover.push_back(s);
+        if (s.is_valid()) {
+            hover.push_back(s);
+            snapper = s; // this should run every time before dragging
+                         // and thus there should be no pointer crash
+        }
     }
 
     // Vielleicht doch klicken und Rahmen ziehen? Wenn man ins Nirvana
@@ -490,18 +498,31 @@ void Editor::calc_self()
 
         // Umherziehen von Objekten mit der Maus
         else if (hardware.get_mlh() && mouse_hold_started_outside_panel) {
-            if (mx_grid != mx_grid_last || my_grid != my_grid_last) {
-                for (SelIt i = selection.begin(); i != selection.end(); ++i) {
-                    const int iox = i->o->get_x() + grid/2;
-                    const int ioy = i->o->get_y() + grid/2;
-                    i->o->set_x(
-                        iox - Help::mod(iox, grid) - mx_grid_last + mx_grid
-                    );
-                    i->o->set_y(
-                        ioy - Help::mod(ioy, grid) - my_grid_last + my_grid
-                    );
+            if (! selection.empty()
+             && (mx_grid != mx_grid_last || my_grid != my_grid_last)) {
+
+                // search snap_to_grid in the selection. Maybe it's been
+                // deleted via hotkey or something in the meantime -- then
+                // use some default selected element.
+                SelIt sn =
+                 std::find(selection.begin(), selection.end(), snapper);
+                if (sn == selection.end()) sn = selection.begin();
+
+                const int sn_x   = sn->o->get_x();
+                const int sn_y   = sn->o->get_y();
+                const int sn_x_g = sn->o->get_x() + grid/2;
+                const int sn_y_g = sn->o->get_y() + grid/2;
+                sn->o->set_x(
+                 sn_x_g - Help::mod(sn_x_g, grid) - mx_grid_last + mx_grid);
+                sn->o->set_y(
+                 sn_y_g - Help::mod(sn_y_g, grid) - my_grid_last + my_grid);
+
+                for (SelIt i = selection.begin(); i != selection.end(); ++i)
+                 if (i != sn) {
+                    i->o->set_x(i->o->get_x() + sn->o->get_x() - sn_x);
+                    i->o->set_y(i->o->get_y() + sn->o->get_y() - sn_y);
                 }
-                if (!selection.empty()) draw_required = true;
+                draw_required = true;
             }
             mx_grid_last = mx_grid;
             my_grid_last = my_grid;
@@ -527,6 +548,7 @@ void Editor::calc_self()
 
     }
     // Ende der grossen Moeglichkeit fuer "Keinen Rahmen ziehen"
+                Log::log("hover: ", hover.size());
 
 
 }

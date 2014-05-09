@@ -63,13 +63,16 @@ private:
         GraLi* l;                                 // zeigt auf dessen Liste
         inline Selection() { l = 0; }             // ungueltig initialisiern
         inline Selection(GraLi* nl, GraIt no)  { l = nl; o = no; }
-        inline bool operator == (Selection& s) { return o == s.o && l == s.l; }
+        inline bool operator == (const Selection& s)
+            { return o == s.o && l == s.l; }
         inline bool is_valid() { return l != 0; } // gueltig: zeigt auf Objekt
     };
 
-    std::list         <Selection> selection; // Fasst mehrere, etwa im Rahmen
-    std::list         <Selection> hover;     // Worauf zeigt die Maus gerade
-                                             // oder was kaeme in den Rahmen?
+    std::list <Selection> selection; // Fasst mehrere, etwa im Rahmen
+    std::list <Selection> hover;     // Worauf zeigt die Maus gerade
+                                     // oder was kaeme in den Rahmen?
+    Selection snapper;               // when drawing_with_mouse
+
     typedef std::list <Selection> ::iterator SelIt;
 
     enum FindBy {
