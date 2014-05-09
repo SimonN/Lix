@@ -50,14 +50,16 @@ void update_digger(Lixxie& l, const UpdateArgs& ua)
         steel_pixels_hit += l.remove_rectangle(0, 2, 2, 2);
         steel_pixels_hit += l.remove_rectangle(0, 3, 3, 4);
         steel_pixels_hit += l.remove_rectangle(0, 5, 4, 5);
-        // this frame will later have protection from falling. You can assign
-        // building skills in midair here, but builder and platformer will
-        // still connect to the partly digged wall.
-        break;
-    case 3:
-        steel_pixels_hit += l.remove_rectangle(-4, 2, -1, 5);
         // This is the only frame of downward motion
         l.move_down(4);
+        // Kludge/fixme/todo: update the spritesheet and remove l.set_y
+        // We haven't updated the large spritesheet yet. Do this hack instaed:
+        l.set_y(l.get_y() - 4);
+        break;
+    case 3:
+        // to remedy the kludge in case 2
+        l.set_ey(l.get_ey());
+        steel_pixels_hit += l.remove_rectangle(-4, -2, -1, 1);
         break;
     case 4:
         // Since we have moved down, we must adjust the y coordinates
