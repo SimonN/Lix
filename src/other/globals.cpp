@@ -19,7 +19,7 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2014, 05, 10, 00)),
+    version              (CONCAT(2014, 05, 10, 01)),
     version_min          (CONCAT(2014, 05, 10, 00)),
     version_stable       (false),
 
@@ -182,8 +182,8 @@ Globals::Globals()
     replay_aim                   ("AIM"),
     replay_nuke                  ("NUKE"),
     replay_assign_any            ("ASSIGN"),
-    replay_assign_left           ("FORCE_LEFT"),
-    replay_assign_right          ("FORCE_RIGHT"),
+    replay_assign_left           ("ASSIGN_LEFT"),
+    replay_assign_right          ("ASSIGN_RIGHT"),
 
     // Userdatei-Schluessel
     user_language                ("LANGUAGE"),
