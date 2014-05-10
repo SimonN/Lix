@@ -145,17 +145,6 @@ int jumper_and_tumbler_collision(Lixxie& l)
 
     // Das Vorruecken zum jeweiligen Pixel ist bereits gemacht.
 
-    // bump head or some body part into really unreasonable ceilings
-    if ((behind_count > 0 && l.get_special_y() < 2)
-     || (wall(l, -12) && ! wall_count_t && l.get_special_y() <= 0)) {
-        if (l.get_ac() != LixEn::TUMBLER) l.become(LixEn::TUMBLER);
-        l.set_special_y(4);
-        l.set_special_x(l.get_special_x() / 4);
-        l.set_special_x(l.get_special_x() * 2);
-        if (l.is_solid(0, 0)) return 3;
-        else                  return 1;
-    }
-
     // Boden-Kollision
     const bool down = (l.get_special_y() > 0);
     if ( (swh <= 2 && l.is_solid(0, 1) && (l.is_solid(2, 0) || down))
@@ -168,10 +157,23 @@ int jumper_and_tumbler_collision(Lixxie& l)
 
     // Stepping up a step we jumped onto
     if (lowest_floor != -999 && l.get_ac() == LixEn::JUMPER) {
-        if (lowest_floor > -9 || l.get_climber()) {
+        if (lowest_floor > -9
+         || (l.get_climber() && ! behind(l, lowest_floor))
+        ) {
             l.become(LixEn::ASCENDER);
             return 2;
         }
+    }
+
+    // bump head into ceilings
+    if ((behind_count > 0 && l.get_special_y() < 2)
+     || (wall(l, -12) && ! wall_count_t && l.get_special_y() < 0)) {
+        if (l.get_ac() != LixEn::TUMBLER) l.become(LixEn::TUMBLER);
+        l.set_special_y(4);
+        l.set_special_x(l.get_special_x() / 4);
+        l.set_special_x(l.get_special_x() * 2);
+        if (l.is_solid(0, 0)) return 3;
+        else                  return 1;
     }
 
     // Jumping against a wall
