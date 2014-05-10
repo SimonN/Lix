@@ -18,8 +18,6 @@
 #include "../api/manager.h"
 #include "../other/user.h"
 
-#include "../other/file/log.h" // debugging
-
 void Editor::calc_self()
 {
     // Aendert die Mauskoordinaten ggf., also frueh aufrufen!
@@ -548,8 +546,6 @@ void Editor::calc_self()
 
     }
     // Ende der grossen Moeglichkeit fuer "Keinen Rahmen ziehen"
-                Log::log("hover: ", hover.size());
-
 
 }
 // Ende von main_loop_calc()
