@@ -49,8 +49,9 @@ struct Object {
     bool trigger_xc; // center around trigger_x instead of going right from it
     bool trigger_yc; // center around trigger_y instead of going down from it
 
-    int  special_x; // not used for everything, but e.g. for flingers
-    int  special_y;
+    // these are not used for everything
+    int  special_x; // FLING: x-direction, HATCH: start of opening anim
+    int  special_y; // FLING: y-direction
 
     Sound::Id sound;
 

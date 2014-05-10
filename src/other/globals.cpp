@@ -150,6 +150,7 @@ Globals::Globals()
     objdef_ta_from_bottom_y      ("TRIGGER_AREA_POSITION_FROM_BOTTOM_Y"),
     objdef_ta_xl                 ("TRIGGER_AREA_SIZE_X"),
     objdef_ta_yl                 ("TRIGGER_AREA_SIZE_Y"),
+    objdef_hatch_opening_frame   ("HATCH_OPENING_FRAME"),
     objdef_fling_nonpermanent    ("FLING_NONPERMANENT"),
     objdef_fling_ignore_orient   ("FLING_IGNORE_X_ORIENTATION"),
     objdef_fling_x               ("FLING_SPEED_X"),

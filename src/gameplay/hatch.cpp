@@ -32,7 +32,11 @@ GameHatch::~GameHatch()
 
 void GameHatch::animate(EffectManager& effect, const unsigned long u)
 {
-    if (u < update_open) {
+    const unsigned long of = update_open - get_object()->special_x;
+    // of == first absolute frame of opening. This is earlier if the sound
+    // shall match a later frame of the hatch, as defined in special_x.
+
+    if (u < of) {
         set_y_frame(0);
         set_x_frame(0);
     }
@@ -46,16 +50,15 @@ void GameHatch::animate(EffectManager& effect, const unsigned long u)
     else {
         // open or just opening
         set_y_frame(0);
-        set_x_frame(u - update_open + 1 < static_cast <unsigned long>
-         (x_frames_open) ? u - update_open + 1
-         : x_frames_open - 1);
-        if (u == update_open) effect.add_sound_general(u, Sound::HATCH_OPEN);
+        set_x_frame(u - of < static_cast <unsigned long>
+         (x_frames_open) ? u - of : x_frames_open - 1);
     }
     if (u < update_blink_stop) blink_now
      = (u % (updates_blink_on + updates_blink_off) < updates_blink_on);
     else blink_now = false;
 
     if (u == update_lets_go) effect.add_sound_general(u, Sound::LETS_GO);
+    if (u == update_open)    effect.add_sound_general(u, Sound::HATCH_OPEN);
 }
 
 

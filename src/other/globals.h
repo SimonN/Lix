@@ -164,6 +164,7 @@ public:
         objdef_ta_from_bottom_y,
         objdef_ta_xl,
         objdef_ta_yl,
+        objdef_hatch_opening_frame,
         objdef_fling_nonpermanent,
         objdef_fling_ignore_orient,
         objdef_fling_x,

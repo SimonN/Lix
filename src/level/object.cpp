@@ -29,6 +29,7 @@ Object::Object(const Cutbit& c, Type t, int st)
     case HATCH:
         trigger_x  = cb.get_xl() / 2;
         trigger_y  = std::max(20, cb.get_yl() - 24);
+        special_x  = 1;
         break;
     case GOAL:
         trigger_x  = cb.get_xl() / 2;
@@ -111,6 +112,10 @@ void Object::read_definitions_file(const Filename& filename)
         else if (i->text1 == gloB->objdef_ta_yl) {
             trigger_yl = i->nr1;
             if (trigger_yl < 0) trigger_yl = 0;
+        }
+        else if (i->text1 == gloB->objdef_hatch_opening_frame) {
+            type = HATCH;
+            special_x = i->nr1;
         }
         else if (i->text1 == gloB->objdef_fling_nonpermanent) {
             type = FLING;
