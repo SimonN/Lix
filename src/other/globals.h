@@ -195,8 +195,9 @@ public:
         replay_skill,
         replay_aim,
         replay_nuke,
-        replay_assign,
-        replay_assign_legacy,
+        replay_assign_any,
+        replay_assign_left,
+        replay_assign_right,
 
         // Userdatei-Schluessel
         user_language,

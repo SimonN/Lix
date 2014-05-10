@@ -340,14 +340,19 @@ void Gameplay::update_cs_one_data(Tribe& t, Tribe::Master* m, Replay::It i)
             effect.add_sound(upd, t, 0, Sound::NUKE);
         }
     }
-    else if (i->action == Replay::ASSIGN) {
+    else if (i->action == Replay::ASSIGN
+          || i->action == Replay::ASSIGN_LEFT
+          || i->action == Replay::ASSIGN_RIGHT) {
         if (!m) return;
         Tribe::Skill& psk = t.skill[m->skill_sel];
         if (i->what < t.lixvec.size()) {
             Lixxie& lix = t.lixvec[i->what];
             // false: Do not respect the user's options like
             // disabling the multiple builder feature
-            if (lix.get_priority(psk.ac, false) > 1 && psk.nr != 0) {
+            if (lix.get_priority(psk.ac, false) > 1 && psk.nr != 0
+             && ! (lix.get_dir() ==  1 && i->action == Replay::ASSIGN_LEFT)
+             && ! (lix.get_dir() == -1 && i->action == Replay::ASSIGN_RIGHT)
+            ) {
                 ++(t.skills_used);
                 if (psk.nr != LixEn::infinity) --psk.nr;
                 lix.evaluate_click(psk.ac);

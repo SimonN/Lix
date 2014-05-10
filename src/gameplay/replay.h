@@ -64,6 +64,8 @@ public:
         SPAWNINT,
         SKILL,
         ASSIGN,
+        ASSIGN_LEFT,
+        ASSIGN_RIGHT,
         AIM,
         NUKE
     };

@@ -325,7 +325,9 @@ void Gameplay::calc_active()
                 pan.pause.set_off();
 
                 Replay::Data data = new_replay_data();
-                data.action       = Replay::ASSIGN;
+                data.action       = only_dir_l ? Replay::ASSIGN_LEFT
+                                  : only_dir_r ? Replay::ASSIGN_RIGHT
+                                  : Replay::ASSIGN;
                 data.what         = lem_id;
                 replay.add(data);
                 Network::send_replay_data(data);

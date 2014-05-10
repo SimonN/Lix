@@ -181,8 +181,9 @@ Globals::Globals()
     replay_skill                 ("SKILL"),
     replay_aim                   ("AIM"),
     replay_nuke                  ("NUKE"),
-    replay_assign                ("ASSIGN"),
-    replay_assign_legacy         ("LEMMING"), // backwards compatibility
+    replay_assign_any            ("ASSIGN"),
+    replay_assign_left           ("FORCE_LEFT"),
+    replay_assign_right          ("FORCE_RIGHT"),
 
     // Userdatei-Schluessel
     user_language                ("LANGUAGE"),

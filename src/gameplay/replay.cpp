@@ -145,8 +145,9 @@ inline static int compare_data(const Replay::Data& a, const Replay::Data& b)
     if (a.player < b.player) return -1;
     if (a.player > b.player) return 1;
     // do not order by action:
-    // first assign, then skill, or first skill, then assign shall go
-    // in whatever order the player has input them.
+    // assign, force, skill -- all of these are equal, and the sort must be
+    // stable later. Keep these in the replay in whatever order the player
+    // has input them.
     return 0;
 }
 
@@ -300,12 +301,14 @@ void Replay::save_to_file(const Filename& s, const Level* const lev)
     // Die einzelnen Aktionen schreiben
     for (It itr = data.begin(); itr != data.end(); ++itr) {
         file << IO::LineBang(itr->update, itr->player,
-           itr->action == Replay::SPAWNINT ? gloB->replay_spawnint
-         : itr->action == Replay::SKILL    ? gloB->replay_skill
-         : itr->action == Replay::ASSIGN   ? gloB->replay_assign
-         : itr->action == Replay::AIM      ? gloB->replay_aim
-         : itr->action == Replay::NUKE     ? gloB->replay_nuke
-                                           : Language::cancel,
+           itr->action == Replay::SPAWNINT     ? gloB->replay_spawnint
+         : itr->action == Replay::SKILL        ? gloB->replay_skill
+         : itr->action == Replay::AIM          ? gloB->replay_aim
+         : itr->action == Replay::NUKE         ? gloB->replay_nuke
+         : itr->action == Replay::ASSIGN       ? gloB->replay_assign_any
+         : itr->action == Replay::ASSIGN_LEFT  ? gloB->replay_assign_left
+         : itr->action == Replay::ASSIGN_RIGHT ? gloB->replay_assign_right
+                                               : Language::cancel,
          itr->what);
     }
 
@@ -366,12 +369,13 @@ void Replay::load_from_file(const Filename& fn)
         d.update = i->nr1; // d.player ist zwar ein char, aber wir lesen ja
         d.player = i->nr2; // nicht aktiv longs ein, sondern weisen nur zu.
         d.what   = i->nr3;
-        if      (i->text1 == gloB->replay_spawnint     ) d.action = SPAWNINT;
-        else if (i->text1 == gloB->replay_skill        ) d.action = SKILL;
-        else if (i->text1 == gloB->replay_assign       ) d.action = ASSIGN;
-        else if (i->text1 == gloB->replay_assign_legacy) d.action = ASSIGN;
-        else if (i->text1 == gloB->replay_aim          ) d.action = AIM;
-        else if (i->text1 == gloB->replay_nuke         ) d.action = NUKE;
+        d.action = i->text1 == gloB->replay_spawnint     ? SPAWNINT
+                 : i->text1 == gloB->replay_skill        ? SKILL
+                 : i->text1 == gloB->replay_assign_any   ? ASSIGN
+                 : i->text1 == gloB->replay_assign_left  ? ASSIGN_LEFT
+                 : i->text1 == gloB->replay_assign_right ? ASSIGN_RIGHT
+                 : i->text1 == gloB->replay_aim          ? AIM
+                 : i->text1 == gloB->replay_nuke         ? NUKE : NOTHING;
         add(d);
         break; }
 
