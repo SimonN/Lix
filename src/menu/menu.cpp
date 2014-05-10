@@ -22,7 +22,10 @@ Menu::Menu(SubMenu sm)
 
     mouse_cursor_offset(15),
     mouse_cursor(GraLib::get(gloB->file_bitmap_mouse),
-     Api::Manager::get_torbit())
+     Api::Manager::get_torbit()),
+
+    chat_type          (),
+    chat_on            (false)
 {
     if (single) Api::Manager::add_elder(single);
     if (lobby)  Api::Manager::add_elder(lobby);
@@ -124,6 +127,8 @@ void Menu::calc()
     else if (lobby) {
         Network::calc();
         if (lobby->get_exit_with() == Api::Lobby::EXIT_WITH_PLAY) {
+            chat_type = lobby->get_chat_type();
+            chat_on   = lobby->get_chat_on();
             delete lobby;
             lobby = 0;
             exit_with = START_LEVEL;
@@ -200,6 +205,18 @@ void Menu::calc()
         }
         else main      = new MainMenu();
     }
+}
+
+
+
+void Menu::set_chat_type(const std::string& s)
+{
+    if (lobby) lobby->set_chat_type(s);
+}
+
+void Menu::set_chat_on(bool b)
+{
+    if (lobby) lobby->set_chat_on(b);
 }
 
 

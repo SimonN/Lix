@@ -45,8 +45,12 @@ GameplayChat::GameplayChat()
 
 
 
-void GameplayChat::set_type_on()
+void GameplayChat::set_type_on(bool b)
 {
+    if (b == false) {
+        set_type_off();
+        return;
+    }
     name.show();
     type.set_on();
     set_draw_required();

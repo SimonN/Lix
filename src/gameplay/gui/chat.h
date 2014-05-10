@@ -21,8 +21,11 @@ public:
     GameplayChat();
     virtual inline ~GameplayChat() {}
 
-    void set_type_on();
+    void set_type_on(bool = true);
     void set_type_off();
+
+    inline const std::string& get_text()       { return type.get_text(); }
+    inline void set_text(const std::string& s) { type.set_text(s);       }
 
     bool get_type_on();
     bool get_type_on_last_frame(); // a bit kludgy, but good for Gameplay

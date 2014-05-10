@@ -97,7 +97,12 @@ public:
 
     inline void       reset_exit_with()      { exit_with = EXIT_WITH_NOTHING; }
     inline ExitWith     get_exit_with()      { return exit_with;              }
-    // inline std::string& get_selected_level() { return selected_level; }
+
+    inline const std::string& get_chat_type() { return chat_type.get_text(); }
+    inline       bool         get_chat_on  () { return chat_type.get_on();   }
+
+    inline void set_chat_type(const std::string& s) { chat_type.set_text(s); }
+    inline void set_chat_on  (bool b = true)        { chat_type.set_on(b);   }
 
 protected:
 

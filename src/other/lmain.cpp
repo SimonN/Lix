@@ -111,6 +111,8 @@ void LMain::calc()
         case Menu::START_LEVEL: {
             gameplay_started_with_replay = false;
             gameplay = new Gameplay();
+            gameplay->set_chat_type(menu->get_chat_type());
+            gameplay->set_chat_on  (menu->get_chat_on  ());
             delete menu;
             menu = 0;
             break; }
@@ -146,6 +148,16 @@ void LMain::calc()
             else if (Network::get_started())  sub = SUBMENU_NETWORK;
 
             menu = new Menu(sub);
+
+            if (Network::get_started()) {
+                // the chat_type may be nonempty, but it's always switched
+                // off because the end-of-game dialogue has just been shown,
+                // before which Gameplay deactivates its chat. Still, keep
+                // around both functions here for consistency.
+                menu->set_chat_type(gameplay->get_chat_type());
+                menu->set_chat_on  (gameplay->get_chat_on  ());
+            }
+
             delete gameplay;
             gameplay = 0;
         }

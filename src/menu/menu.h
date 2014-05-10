@@ -68,6 +68,9 @@ private:
     const int mouse_cursor_offset;
     GraphicBG mouse_cursor;
 
+    std::string chat_type; // to carry the half-typed chat line to Gameplay
+    bool        chat_on;   // is the typing thing on? then switch it on in G.
+
     // Kopierverbot
     Menu(const Menu&);
     void operator = (const Menu&);
@@ -83,6 +86,11 @@ public:
     void calc();
     void draw();
 
-    inline ExitWith     get_exit_with()   { return exit_with;      }
+    inline ExitWith           get_exit_with() { return exit_with; }
+
+    inline const std::string& get_chat_type() { return chat_type; }
+    inline bool               get_chat_on  () { return chat_on;   }
+           void               set_chat_type(const std::string&);
+           void               set_chat_on  (const bool = true);
 
 };

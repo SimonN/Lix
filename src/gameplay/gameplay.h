@@ -153,6 +153,11 @@ public:
     inline Replay&         get_replay  () { return replay;           }
     inline int             get_tribes  () { return cs.tribes.size(); }
 
+    inline const std::string& get_chat_type() { return chat.get_text();     }
+    inline       bool         get_chat_on  () { return chat.get_type_on();  }
+    inline void  set_chat_type(const std::string& s) { chat.set_text(s);    }
+    inline void  set_chat_on  (bool b = true)        { chat.set_type_on(b); }
+
     void undraw();
     void calc();
     void draw();
