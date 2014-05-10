@@ -4,6 +4,7 @@
  */
 
 #include <cstring> // memcpy
+#include <ctime>
 
 #include "server.h"
 

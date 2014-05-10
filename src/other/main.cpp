@@ -190,11 +190,10 @@ MainArgs parse_main_arguments(int argc, char *argv[])
 
 #ifdef __unix__
     #include <sys/stat.h>
+    static std::string* oldenv = 0;
 #endif
 
 
-
-static std::string* oldenv = 0;
 
 void setenv_allegro_modules()
 {
