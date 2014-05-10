@@ -187,7 +187,7 @@ public:
     ~User();
 
     const Result* get_level_result(const Filename&) const;
-    void          set_level_result(const Filename&, const Result&);
+    void  set_level_result_force_this_built(const Filename&, const Result&);
 
     static void initialize();
     static void deinitialize();

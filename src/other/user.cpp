@@ -56,7 +56,7 @@ bool Result::operator < (const Result& r) const
     // darf auch nicht null sein. Das ist der (im normalen Spiel unerreichbare)
     // Update-Wert eines standardkonstruierten Result-Objektes.
     return built      != r.built          ? built          < r.built
-     : lix_saved != r.lix_saved ? lix_saved < r.lix_saved
+     : lix_saved      != r.lix_saved      ? lix_saved      < r.lix_saved
      : skills_used    != r.skills_used    ? skills_used    > r.skills_used
      : updates_used   != r.updates_used   ? updates_used   > r.updates_used
                                             && r.updates_used > 0
@@ -248,10 +248,11 @@ const Result* User::get_level_result(const Filename& filename) const
 
 
 
-void User::set_level_result(const Filename& filename, const Result& r)
-{
+void User::set_level_result_force_this_built(
+    const Filename& filename, const Result& r
+) {
     Result& saved_result = result[filename];
-    if (saved_result < r) saved_result = r;
+    if (saved_result.built != r.built || saved_result < r) saved_result = r;
 }
 
 

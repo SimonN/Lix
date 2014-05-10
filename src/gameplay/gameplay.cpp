@@ -468,7 +468,7 @@ void Gameplay::save_result()
     {
         Result res(level.built, trlo->lix_saved,
          trlo->skills_used, update_last_exiter);
-        useR->set_level_result(filename, res);
+        useR->set_level_result_force_this_built(filename, res);
         useR->save();
     }
 }
