@@ -21,6 +21,7 @@ void become_miner(Lixxie& l)
 void update_miner(Lixxie& l, const UpdateArgs& ua)
 {
     int steel_hit = 0;
+    int downwards_movement_this_frame = 0;
 
     switch (l.get_frame()) {
     case 0:
@@ -62,20 +63,34 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
 
     case 6:
         l.move_ahead();
-        l.move_down();
+        l.move_down(1);
+        downwards_movement_this_frame = 1;
+        // the spritesheet currently look as if she moves according to a
+        // low-res mining slope, let's fix that like so for now
+        l.set_y(l.get_y() + 1);
         break;
 
     case 7:
         l.move_ahead();
+        l.move_down(1);
+        downwards_movement_this_frame = 1;
+        // here, the graphics match again
         break;
 
     case 9:
         l.move_ahead();
-        l.move_down();
+        l.move_down(1);
+        downwards_movement_this_frame = 1;
+        // the spritesheet currently look as if she moves according to a
+        // low-res mining slope, let's fix that like so for now
+        l.set_y(l.get_y() + 1);
         break;
 
     case 10:
         l.move_ahead();
+        l.move_down(1);
+        downwards_movement_this_frame = 1;
+        // here, the graphics match again
         break;
 
     }
@@ -97,8 +112,9 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
     }
 
     // Fertig gegraben?
-    else if (!l.is_solid( 0, 2) && !l.is_solid( 0, 1)) {
+    else if (!l.is_solid()) {
         l.become(LixEn::FALLER);
+        l.set_special_x(downwards_movement_this_frame);
     }
     else if (l.get_ac() == LixEn::MINER) l.next_frame();
 }
