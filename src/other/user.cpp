@@ -149,10 +149,10 @@ User::User()
     editor_last_dir_deco   (gloB->dir_bitmap),
     editor_last_dir_hazard (gloB->dir_bitmap)
 {
-    key_skill[LixEn::WALKER]     = KEY_F;
+    key_skill[LixEn::WALKER]     = KEY_D;
     key_skill[LixEn::RUNNER]     = KEY_LSHIFT;
     key_skill[LixEn::BASHER]     = KEY_E;
-    key_skill[LixEn::BUILDER]    = KEY_D;
+    key_skill[LixEn::BUILDER]    = KEY_A;
     key_skill[LixEn::PLATFORMER] = KEY_T;
     key_skill[LixEn::DIGGER]     = KEY_W;
     key_skill[LixEn::MINER]      = KEY_G;
@@ -167,8 +167,8 @@ User::User()
     key_skill[LixEn::ROPER]      = KEY_C;
     key_skill[LixEn::BATTER]     = KEY_C;
 
-    key_force_left             = KEY_A;
-    key_force_right            = KEY_S;
+    key_force_left             = KEY_S;
+    key_force_right            = KEY_F;
     key_scroll                 = KEY_MINUS_PAD;
     key_priority               = KEY_MINUS_PAD;
     key_rate_minus             = KEY_1;
