@@ -244,7 +244,7 @@ void Lobby::calc_self()
 
     // GUI stuff
     if (button_exit.get_clicked()
-     || (button_exit.get_hotkey() == KEY_ESC && hardware.get_mr())) {
+     || (hardware.get_mr() && (mode == CONNECTING || mode == NOT_CONNECTED))) {
         if      (mode == NOT_CONNECTED) exit_with = EXIT_WITH_EXIT;
         else if (mode == INSIDE_ROOM) {
             Network::set_room(0);
@@ -377,9 +377,6 @@ void Lobby::work_self()
 
 
     // Use the evaluated network data to modify other buttons
-    if (Network::get_people_in_room() > 1) button_exit.set_hotkey();
-    else                                   button_exit.set_hotkey(KEY_ESC);
-
     if (mode == INSIDE_ROOM) {
         if (button_spec.get_on() || Network::get_spec()
          || Network::get_people_in_room() <= 1) button_ready.hide();
