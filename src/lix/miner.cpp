@@ -21,8 +21,9 @@ void become_miner(Lixxie& l)
 void update_miner(Lixxie& l, const UpdateArgs& ua)
 {
     int steel_hit = 0;
-    int downwards_movement_this_frame = 0;
-
+    int downwards_movement_this_frame = 0; // miner->faller gets no free pixels
+    bool allow_one_air_under_foot = false; // make the terrain check as coarse
+                                           // as before commit 4fc7b0b1ab9
     switch (l.get_frame()) {
     case 0:
         steel_hit += l.remove_rectangle(  3, -20,  7, -20);
@@ -65,6 +66,7 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
         l.move_ahead();
         l.move_down(1);
         downwards_movement_this_frame = 1;
+        allow_one_air_under_foot = true;
         // the spritesheet currently look as if she moves according to a
         // low-res mining slope, let's fix that like so for now
         l.set_y(l.get_y() + 1);
@@ -81,6 +83,7 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
         l.move_ahead();
         l.move_down(1);
         downwards_movement_this_frame = 1;
+        allow_one_air_under_foot = true;
         // the spritesheet currently look as if she moves according to a
         // low-res mining slope, let's fix that like so for now
         l.set_y(l.get_y() + 1);
@@ -112,7 +115,7 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
     }
 
     // Fertig gegraben?
-    else if (!l.is_solid()) {
+    else if (!l.is_solid(0, 2 + allow_one_air_under_foot)) {
         l.become(LixEn::FALLER);
         l.set_special_x(downwards_movement_this_frame);
     }
