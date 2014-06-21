@@ -135,6 +135,7 @@ public:
 
     void        clear                          ();
     void        erase_data_after_update        (const Ulng);
+    void        erase_early_singleplayer_nukes ();
     bool        get_on_update_lix_clicked      (const Ulng, const Uint);
     Vec         get_and_erase_data_until_update(const Ulng);
     Vec         get_data_for_update            (const Ulng) const;

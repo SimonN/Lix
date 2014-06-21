@@ -62,6 +62,7 @@ void Gameplay::calc_window()
 
         case Api::WindowGameplay::RESTART:
             save_result();
+            replay.erase_early_singleplayer_nukes();
             load_state(state_manager.get_zero());
             pan.pause      .set_off();
             pan.speed_slow .set_off();
@@ -244,6 +245,7 @@ void Gameplay::calc_self()
         // Neustart
         if (pan.restart.get_clicked()) {
             save_result();
+            replay.erase_early_singleplayer_nukes();
             pan.speed_fast .set_off();
             pan.speed_turbo.set_off();
             load_state(state_manager.get_zero());

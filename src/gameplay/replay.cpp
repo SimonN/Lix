@@ -98,6 +98,31 @@ void Replay::erase_data_after_update(const unsigned long i)
 
 
 
+void Replay::erase_early_singleplayer_nukes()
+{
+    if (players.size() != 1) return;
+
+    file_not_found = false;
+    version_min    = gloB->version_min;
+
+    // Erase nukes in singleplayer before the first spawned lix.
+    // The number of the spawn update is 60, it's hardcoded here and in
+    // gamepl_u.cpp. The nuke is performed before the lix spawns in the same
+    // update, so <= 60 is correct instead of < 60.
+    It it = data.begin();
+    while (it != data.end() && it->update <= 60) {
+        if (it->action == NUKE) {
+            data.erase(it);
+            it = data.begin();
+        }
+        else ++it;
+    }
+    max_updates = data.empty() ? 0 : (--data.end())->update;
+}
+
+
+
+
 Replay::Vec Replay::get_and_erase_data_until_update(const unsigned long i)
 {
     file_not_found = false;
