@@ -6,7 +6,6 @@
 
 #include "ac.h"
 
-
 void become_ascender(Lixxie& l)
 {
     l.become_default(LixEn::ASCENDER);
@@ -15,6 +14,18 @@ void become_ascender(Lixxie& l)
     int swh = 0;
     while (swh < 26 && ! (l.is_solid(0, 2 - swh) && ! l.is_solid(0, 1 - swh)))
         ++swh;
+
+    // Prevent moving up a giant amount if there is no wall at all
+    // in front of the lix, which led to a bug reported by Nepster in 2014-06.
+    // This assumes that all pixels are empty. It might create a further bug
+    // when all pixels are solid, but I don't think become_ascender is ever
+    // called when that is the case.
+    if (swh == 26) {
+        l.become(LixEn::FALLER);
+        return;
+    }
+
+    // if there is a good step
     int frame = 5; // this is the last frame
     switch (swh) {
         case 0:  case 1:

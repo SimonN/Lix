@@ -92,30 +92,41 @@ void update_climber(Lixxie& l, const UpdateArgs& ua)
         default:           break;
     }
 
-    if (l.get_frame() >= 4 && (l.get_frame() - 4) % 8 > 3)
-     for (int i = 0; i < up_by; ++i) {
-        l.move_up(1);
-        // Fallen? Dann sofort aus der Schleife ausbrechen!
-        // Object ist 1, wenn die Lix einen Pixel zurück liegt
-        // solid_diff wird gebraucht, wenn das Lixbild um einen Pixel nach
-        // rechts verschoben worden ist. Das muss jeweils unterschiedlich
-        // gehandhabt werden, je nach Richtung.
-        const bool diff       = l.get_special_x();
-        const bool solid_here = l.is_solid_single(0, -16);
-        const bool solid_diff = l.is_solid_single(1, -16);
-        if ((l.get_dir() > 0 && (solid_here || (solid_diff && !diff)) )
-         || (l.get_dir() < 0 && (solid_here || (solid_diff &&  diff)) ) ) {
-            l.move_down(1);
-            l.turn();
-            l.become(LixEn::FALLER);
-            break;
+    if (l.get_frame() >= 4 && (l.get_frame() - 4) % 8 > 3) {
+        for (int i = 0; i < up_by; ++i) {
+            l.move_up(1);
+            // Fallen? Dann sofort aus der Schleife ausbrechen!
+            // Object ist 1, wenn die Lix einen Pixel zurück liegt
+            // solid_diff wird gebraucht, wenn das Lixbild um einen Pixel nach
+            // rechts verschoben worden ist. Das muss jeweils unterschiedlich
+            // gehandhabt werden, je nach Richtung.
+            const bool diff       = l.get_special_x();
+            const bool solid_here = l.is_solid_single(0, -16);
+            const bool solid_diff = l.is_solid_single(1, -16);
+            if ((l.get_dir() > 0 && (solid_here || (solid_diff && !diff)) )
+             || (l.get_dir() < 0 && (solid_here || (solid_diff &&  diff)) ) ) {
+                l.move_down(1);
+                l.turn();
+                l.become(LixEn::FALLER);
+                break;
+            }
+            // Ist der obere Rand erreicht zum Ascender-Werden?
+            else if (!l.is_solid(2, -16)) {
+                l.move_ahead();
+                l.become(LixEn::ASCENDER);
+                break;
+            }
         }
-        // Ist der obere Rand erreicht zum Ascender-Werden?
-        else if (!l.is_solid(2, -16)) {
-            l.move_ahead();
-            l.become(LixEn::ASCENDER);
-            break;
-        }
+    }
+    // Preventing Nepster's bug (bomb a climber, have another climber near
+    // the top of the removed ground, the second climber should move ahead
+    // and then fall forward, but it ascended way too far upwards) is done
+    // in become_ascender. We should check for missing ground here like
+    // in the loop above, to have the climber fall immediately instead of
+    // only during upwards-moving frames.
+    else if (!l.is_solid(2, -16)) {
+        l.move_ahead();
+        l.become(LixEn::ASCENDER);
     }
 
     // Wenn noch Climber...
