@@ -18,16 +18,8 @@
  *
  * special_y & 1
  *
- *   0: This is 0 until the lix has completed half of its first swing.
- *   While it's 0, steel doesn't cancel the basher.
- *
- *   1: This is 1 during the second half of the first swing, until the check
- *   to continue bashing has been completed.
- *
- *   The idea was originally to make another value for this, after the
- *   first check for enough earth to continue bashing. We want bridges to be
- *   destroyed by bashers, but currently, the regular earth check will ensure
- *   bridges get destroyed anyway.
+ *   This is 0 until steel was hit, then it becomes 1 and is never reset to
+ *   0 in the future. The lix will stop bashing after the cycle.
  *
  * special_y & 2
  *
@@ -127,8 +119,6 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
         break;
 
     case 5:
-        l.set_special_y(l.get_special_y() | 1);
-
         steel_hit += l.remove_rectangle(  0,  -6,   4,  -6);
         steel_hit += l.remove_rectangle(  3,  -5,   8,  -5);
         steel_hit += l.remove_rectangle(  5,  -4,  13,  -4);
@@ -165,7 +155,16 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
         break;
 
     case 8:
-        if (nothing_more_to_bash(l, 0)) l.become(LixEn::WALKER);
+        // stop if we hit steel or if there's nothing more to bash
+        // the sound is not played here, it's played upon detecting steel
+        // for the first time in an earlier frame
+        if (l.get_special_y() & 1) {
+            l.turn();
+            l.become(LixEn::WALKER);
+        }
+        else if (nothing_more_to_bash(l, 0)) {
+            l.become(LixEn::WALKER);
+        }
         break;
 
     case  9:
@@ -177,12 +176,10 @@ void update_basher(Lixxie& l, const UpdateArgs& ua)
         break;
     }
 
-    // Wurde Stahl getroffen?
-    // Die Object-Sachen können ruhig noch ausgeführt werden.
-    if (steel_hit && l.get_special_y() != 0) {
-        l.turn();
-        l.become(LixEn::WALKER);
+    if (steel_hit && ! (l.get_special_y() & 1)) {
+        l.set_special_y(l.get_special_y() | 1);
         l.play_sound(ua, Sound::STEEL);
+        // do not cancel the basher yet, this will be done in the switch above
     }
 
     // Object misst, wie viele Pixel kürzlich hinunter gestiegen wurden

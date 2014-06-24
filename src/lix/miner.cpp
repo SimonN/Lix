@@ -3,20 +3,16 @@
  *
  * special_x
  *
- *   1 during the very first frames. Steel doesn't have an effect during the
- *   first part of the first swing. This is set to 0 after the first swing.
+ *   0 until steel was hit for the first time, then 1 forever after.
+ *
+ *   The lix will stop and throw the axe after she has finished a cycle with
+ *   this set to 1. The ground removing is very fast, so the sound plays only
+ *   upon throwing the axe. For comparison, the basher plays the steel sound
+ *   upon making contact with steel, then cancels later.
  *
  */
 
 #include "ac.h"
-
-void become_miner(Lixxie& l)
-{
-    l.become_default(LixEn::MINER);
-    l.set_special_x(1);
-}
-
-
 
 void update_miner(Lixxie& l, const UpdateArgs& ua)
 {
@@ -35,9 +31,7 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
         steel_hit += l.remove_rectangle(  0, -16, 12, -15);
         steel_hit += l.remove_rectangle(  0, -14, 13, -11);
 
-        // Don't stop mining before the very first swing is complete at least
-        if (l.get_special_x() == 1) steel_hit = 0;
-        l.set_special_x(0);
+        if (steel_hit) l.set_special_x(1);
         break;
 
     case 1:
@@ -60,6 +54,23 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
 
         steel_hit += l.remove_rectangle( 6,   4, 13,   4);
         steel_hit += l.remove_rectangle( 8,   5, 11,   5);
+
+        if (steel_hit) l.set_special_x(1);
+        if (l.get_special_x() == 1) {
+            // Hacke muss je nach Frame und Drehung, die noch nicht stattfand,
+            // richtig positioniert und gedreht werden (0 = Hackenkopf unten
+            // rechts, ferner +1 = Drehung um 90 Grad nach rechts).
+            int axe_rotation = l.get_dir() < 0;
+            // this cannot occur when remembering in frame 0 to cancel later:
+            // if (l.get_frame() == 0) axe_rotation = 3 - axe_rotation;
+            l.get_ef()->add_pickaxe(ua.st.update, l.get_tribe(), ua.id,
+             l.get_ex() + 10,
+             l.get_frame() == 1 ? l.get_ey()-2 : l.get_ey()-16, axe_rotation);
+            l.turn();
+            l.become(LixEn::WALKER);
+            l.play_sound(ua, Sound::STEEL);
+        }
+
         break;
 
     case 6:
@@ -98,26 +109,14 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
 
     }
 
-    // Stahl getroffen?
-    // Sonst: Wenn er noch gräbt, das nächste Frame auswählen
-    if (steel_hit) {
-        // Hacke muss je nach Frame und Drehung, die noch nicht stattfand,
-        // richtig positioniert und gedreht werden (0 = Hackenkopf unten
-        // rechts, ferner +1 = Drehung um 90 Grad nach rechts).
-        int axe_rotation = l.get_dir() < 0;
-        if (l.get_frame() == 0) axe_rotation = 3 - axe_rotation;
-        l.get_ef()->add_pickaxe(ua.st.update, l.get_tribe(), ua.id,
-         l.get_ex() + 10, l.get_frame() == 1 ? l.get_ey() - 2 : l.get_ey() -16,
-         axe_rotation);
-        l.turn();
-        l.become(LixEn::WALKER);
-        l.play_sound(ua, Sound::STEEL);
+    // if we haven't thrown the axe earlier
+    if (l.get_ac() == LixEn::MINER) {
+        // done mining?
+        if (!l.is_solid(0, 2 + allow_one_air_under_foot)) {
+            l.become(LixEn::FALLER);
+            l.set_special_x(downwards_movement_this_frame);
+        }
+        else l.next_frame();
     }
 
-    // Fertig gegraben?
-    else if (!l.is_solid(0, 2 + allow_one_air_under_foot)) {
-        l.become(LixEn::FALLER);
-        l.set_special_x(downwards_movement_this_frame);
-    }
-    else if (l.get_ac() == LixEn::MINER) l.next_frame();
 }
