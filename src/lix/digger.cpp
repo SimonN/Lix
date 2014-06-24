@@ -50,11 +50,15 @@ void update_digger(Lixxie& l, const UpdateArgs& ua)
         steel_pixels_hit += l.remove_rectangle(0, 2, 2, 2);
         steel_pixels_hit += l.remove_rectangle(0, 3, 3, 4);
         steel_pixels_hit += l.remove_rectangle(0, 5, 4, 5);
-        // This is the only frame of downward motion
-        l.move_down(4);
-        // Kludge/fixme/todo: update the spritesheet and remove l.set_y
-        // We haven't updated the large spritesheet yet. Do this hack instaed:
-        l.set_y(l.get_y() - 4);
+
+        // This is the only frame with possible downward motion.
+        // This 'if' is entered iff the lix does not cancel due to steel later.
+        if (! steel_pixels_hit || l.get_special_y() == 0) {
+            l.move_down(4);
+            // Kludge/fixme/todo: update the spritesheet and remove l.set_y
+            // We haven't updated the large spritesheet yet. Instaed:
+            l.set_y(l.get_y() - 4);
+        }
         break;
     case 3:
         // to remedy the kludge in case 2
