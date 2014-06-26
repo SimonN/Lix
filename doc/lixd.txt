@@ -1,0 +1,75 @@
+ _____________________________________________________________________________
+/                                                                             \
+|   Lix                                           Server daemon information   |
+\_____________________________________________________________________________/
+
+
+
+This file is about the non-interactive server program lixd.
+
+For information on the game Lix itself, see readme.txt.
+
+
+
+PURPOSE
+-------
+
+Multiplayer Lix can be played on the central server. This is a machine in
+Switzerland with the static address asdfasdf.ethz.ch, courtesy of tarzeau.
+This machine runs lixd, the standalone non-interactive server daemon of Lix.
+
+By running lixd, anybody can open a server similar to the central server.
+Port 22934 via UDP should be open. If necessary, lixd can be run with a
+different port number, see the -p <port> switch below.
+
+It is possible to use the game itself as a server by clicking on 'Host a
+game yourself' in the network menu. However, running the lightweight lixd
+can be more comfortable. Even if you wish to play yourself, run lixd, then
+connect with the main game to 'localhost'. This way, you won't kick the
+connected peers if you close the game.
+
+
+
+USAGE
+-----
+
+lixd start
+
+    Starts the server daemon. It will listen to connections on the default
+    Lix UDP port 22934.
+
+    On Linux, the shell prompt is given back immediately, and the daemon
+    runs in the background. A PID file is created in /var/run, so that the
+    correct process can be terminated later with the command 'lixd stop'.
+    The file prevents running a second instance of lixd on the same machine.
+    You usually need root privileges to run PID-file-creating programs.
+
+    I have not yet written daemonizing code for Windows, so you should keep
+    open the command prompt.
+
+lixd start --no-lock
+
+    If you lack root privileges, you can still run lixd with this command.
+
+    No PID file will be created. You should take care manually not to run
+    several instances of lixd. To terminate lixd, use 'killall lixd'.
+
+lixd start -p <port>
+
+    Have lixd listen on UDP port <port> instead of the default UDP port 22934.
+
+    This should be used only when necessary, because the Lix game program will
+    use port 22934 unless the user reconfigures this in data/config.txt. There
+    is no in-game option for the port number.
+
+    You can combine --no-lock and -p <port>.
+
+lixd stop
+
+    Terminates lixd if you have run it with 'lixd start', i.e., it has created
+    a PID file.
+
+    On Linux, if you have run lixd with the --no-lock switch, you cannot use
+    'lixd stop', instead use 'killall lixd'.
+
+    On Windows, terminate it with Ctrl+C or closing the command prompt.
