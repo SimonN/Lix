@@ -43,13 +43,14 @@ void update_digger(Lixxie& l, const UpdateArgs& ua)
     case 1:
         steel_pixels_hit += l.remove_rectangle(3, 2, 5, 2);
         steel_pixels_hit += l.remove_rectangle(4, 3, 5, 3);
-        steel_pixels_hit += l.remove_rectangle(4, 4, 6, 4);
-        steel_pixels_hit += l.remove_rectangle(5, 5, 7, 5);
+        steel_pixels_hit += l.remove_rectangle(5, 4, 6, 4); // miner-cancel fix
+        steel_pixels_hit += l.remove_rectangle(6, 5, 7, 5);
         break;
     case 2:
         steel_pixels_hit += l.remove_rectangle(0, 2, 2, 2);
-        steel_pixels_hit += l.remove_rectangle(0, 3, 3, 4);
-        steel_pixels_hit += l.remove_rectangle(0, 5, 4, 5);
+        steel_pixels_hit += l.remove_rectangle(0, 3, 3, 3);
+        steel_pixels_hit += l.remove_rectangle(0, 4, 4, 4); // miner-cancel fix
+        steel_pixels_hit += l.remove_rectangle(0, 5, 5, 5);
 
         // This is the only frame with possible downward motion.
         // This 'if' is entered iff the lix does not cancel due to steel later.
