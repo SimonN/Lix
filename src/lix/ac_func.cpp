@@ -49,6 +49,12 @@ void Lixxie::become(const LixEn::Ac new_ac)
         tribe->return_skills(ac, queue);
         queue = 0; // in case other skill_become() redirect again to become()
     }
+    // Reset sprite placement like climber's offset in x-direction by 1,
+    // or the digger sprite displacement in one frame. This is the same code
+    // as the sprite placement in set_ex/ey().
+    set_x(ex - LixEn::ex_offset);
+    set_y(ey - LixEn::ey_offset);
+
     if (ac_func[new_ac].become) ac_func[new_ac].become(*this);
     else                        become_default(new_ac);
 }
