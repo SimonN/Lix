@@ -4,6 +4,87 @@
 \_____________________________________________________________________________/
 
 
+2014-06-27
+
+    Late steel cancelling
+        Bashers and miners will always complete their stroke before cancelling
+        due to a steel encounter earlier in the same stroke. Diggers are not
+        changed to this behavior, they would move into steel if they were
+        changed.
+
+    Digger-cancelling bugfix
+        Diggers cannot be reverted to walkers anymore by assigning miner or
+        blocker in certain frames. If these skills are assigned to a digger
+        now, they will be carried out normally, instead of terminating
+        immediately due to lack of specific terrain. The fix consists of a
+        slight amendment of the digger's terrain-removing mask and the digger's
+        positioning.
+
+    Climber-ascender bugfix
+        If a non-flinging exploder removes all terrain in front of a climber,
+        it will not ascend in mid-air or further above anymore, it will simply
+        move ahead and fall into the new gap.
+
+    Platform jumping bugfix
+        Jumpers could jump into a thin platform from below and proceed to
+        ascend it. This is now fixed.
+
+    Builder reimbursement bugfix
+        Runners reimbursed queued builders and platformers twice, allowing
+        to create builders from nothing. This is now fixed.
+
+    No anti-blocker field
+        The anti-blocker field around exits in multiplayer is a relic from
+        the very first networking versions. Flinging exploders and batters are
+        very popular in blocker levels, so the anti-blocker field is gone now.
+        It was irritating to almost all players.
+
+    Removing early nukes
+        In singleplayer, if you nuke before the first lix spawns, this nuke
+        is removed from the replay upon restarting the level.
+
+    Esoteric skill hotkeys
+        Undocumented skills like stunner, burner, ..., can still be used by
+        hand-editing a level file, but don't get the "(no" hotkey written on
+        them due to nonexistant keybinds.
+
+    Directional force transmission
+        Assignments in the replay now carry information about whether the
+        player has used directional force, a.k.a. directional select. This
+        makes multiplayer team games much easier: If both players force the
+        same walker assignment to turn a lix, the result will be just one
+        assignment.
+
+    Default directional force keys
+        Qwerty S and F are now used per default for dir force. Having it on
+        A and S like before is less intuitive for new players.
+
+    Lobby uses back/cancel key
+        The lobby can be quit with the back/cancel hotkey. Accidental quittings
+        can be remedied fast anyway, since most games are on the central server
+        or hosted by someone running the daemon lixd. In the early networking
+        version days, I wanted to prevent the host from accidentally leaving
+        the lobby and thus kicking all peers.
+
+    Bracketed checkmarks bugfix
+        Bracketed checkmarks in the singleplayer browser properly vanish after
+        the level gets replaced with an older version and solved again.
+
+    Aligned editor dragging bugfix
+        The editor preserves the relative alignment of the dragged selection.
+        Only the tile grabbed with the mouse is aligned to the grid.
+
+    Beach set hatch, exit
+        The beach set hatch is now a pail animated by Matt. The exit is the
+        sandcastle that was used previously as a hatch. The old hatch and
+        palm tree exits were sometimes confused for each other.
+
+    Beach set palm tree
+        The palm tree in the beach set was probably not compatible with the
+        CC0 waiver/fallback license, so it has been replaced by another tree
+        drawn by Amanda. Thanks!
+
+
 
 2014-04-04
 
