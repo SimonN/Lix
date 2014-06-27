@@ -1,4 +1,4 @@
-$BUILT 2014-02-28 15:38:34
+$BUILT 2014-06-04 10:38:04
 $AUTHOR RubiX
 $GERMAN 
 $ENGLISH Heat Wave
@@ -34,9 +34,9 @@ $ENGLISH Heat Wave
 
 :matt/beach/decor/sun.D: 707 12
 
-:matt/beach/Hatch.H: 1218 410 r
+:matt/beach/Hatch.H: 1218 394 r
 
-:matt/beach/goal.G: -46 484
+:matt/beach/goal.G: 14 544
 :geoo/abstract/goal.G: 1082 202
 
 :matt/water.W: 240 640
@@ -88,7 +88,6 @@ $ENGLISH Heat Wave
 :matt/water.W: 960 656
 :matt/water.W: 928 656
 
-:matt/beach/decor/palm tree: 1046 11 frr
 :matt/beach/daytime/04: 1196 -82 r
 :matt/beach/daytime/06: 576 256
 :matt/beach/daytime/06: 560 272 d

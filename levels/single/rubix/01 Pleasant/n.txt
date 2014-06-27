@@ -1,4 +1,4 @@
-$BUILT 2014-02-28 15:24:33
+$BUILT 2014-06-04 10:13:42
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Getting ahead of the game
@@ -34,9 +34,9 @@ $ENGLISH Getting ahead of the game
 
 :matt/beach/decor/sun.D: 2579 18
 
-:matt/beach/Hatch.H: 64 86
+:matt/beach/Hatch.H: 96 50
 
-:matt/beach/goal.G: 2712 156
+:matt/beach/goal.G: 2728 220
 
 :matt/water.W: 2448 352
 :matt/water.W: 2480 352
@@ -49,7 +49,6 @@ $ENGLISH Getting ahead of the game
 :matt/water.W: 2544 368
 :matt/water.W: 2576 368
 
-:matt/beach/decor/palm tree: 63 37
 :matt/beach/decor/pail: 2078 231
 :matt/beach/daytime/06: 1914 169 r
 :matt/beach/daytime/06: 1911 92 r

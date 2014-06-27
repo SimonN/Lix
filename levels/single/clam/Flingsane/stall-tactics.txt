@@ -1,0 +1,99 @@
+$BUILT 2014-06-08 16:24:08
+$AUTHOR Clam
+$GERMAN 
+$ENGLISH Stall Tactics
+
+#SIZE_X 640
+#SIZE_Y 320
+#TORUS_X 0
+#TORUS_Y 0
+#START_X 0
+#START_Y 220
+#BACKGROUND_RED 32
+#BACKGROUND_GREEN 32
+#BACKGROUND_BLUE 32
+
+#SECONDS 45
+#INITIAL 8
+#REQUIRED 4
+#SPAWN_INTERVAL 12
+#SPAWN_INTERVAL_FAST 12
+
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#EXPLODER2 4
+#PLATFORMER 1
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+
+:matt/goldmine/GoalTop.D: 518 188
+:matt/goldmine/pickaxe.D: 610 248
+
+:matt/goldmine/Hatch.H: 32 240
+
+:matt/goldmine/Goal.G: 518 236
+
+:matt/goldmine/07: 488 74
+:matt/goldmine/09: 576 252 rrr
+:matt/goldmine/09: 544 260 rrr
+:geoo/construction/rod_steel/straight32.S: 66 272 fr
+:matt/goldmine/06: 204 44
+:matt/goldmine/06: 462 36
+:matt/goldmine/03: 178 154
+:matt/goldmine/07: 240 92
+:matt/goldmine/06: 472 280
+:matt/goldmine/06: 484 280
+:matt/goldmine/02: 446 174
+:matt/goldmine/07: 338 86
+:matt/goldmine/03: 484 296
+:matt/goldmine/02: 470 294
+:matt/goldmine/00: 552 136
+:matt/goldmine/07: 592 244
+:matt/goldmine/07: 630 180
+:matt/goldmine/07: 594 110
+:matt/goldmine/07: 456 42
+:matt/goldmine/07: 328 14
+:matt/goldmine/07: 238 18
+:matt/goldmine/07: 118 78
+:matt/goldmine/07: -20 90
+:matt/goldmine/07: 72 26
+:matt/goldmine/07: -52 34
+:matt/goldmine/07: 8 28
+:matt/goldmine/02: -14 188
+:matt/goldmine/crate32: 56 288 frr
+:geoo/construction/rod_steel/straight32.S: 56 272 r
+:geoo/construction/rod_steel/end_rect.S: 56 272 r
+:matt/goldmine/plank: 88 288
+:geoo/construction/rod_steel/straight32.S: 56 288 r
+:matt/goldmine/plank: 120 288 d
+:matt/goldmine/plank: 24 288 n
+:matt/goldmine/plank: -72 288 d
+:matt/goldmine/09: -38 216
+:matt/goldmine/crate32: 152 288 frr
+:matt/goldmine/crate32: 184 288 frr
+:matt/goldmine/crate32: 216 288 frr
+:matt/goldmine/crate32: 248 288 frr
+:matt/goldmine/crate32: 280 288 frr
+:matt/goldmine/crate32: 312 288 frr
+:matt/goldmine/crate32: 24 288 frrn
+:geoo/construction/rod_steel/straight32.S: 376 272
+:geoo/construction/rod_steel/straight32.S: 344 272
+:geoo/construction/rod_steel/straight32.S: 248 272
+:geoo/construction/rod_steel/straight32.S: 216 272
+:geoo/construction/rod_steel/straight32.S: 184 272
+:geoo/construction/rod_steel/straight32.S: 152 272
+:geoo/construction/rod_steel/straight32.S: 120 272
+:geoo/construction/rod_steel/straight32.S: 88 272
+:geoo/construction/rod_steel/edge_rd.S: 66 272
+:geoo/construction/rod_steel/straight32.S: 74 272
+:geoo/construction/rod_steel/end_rect.S: 400 272 frr
+:matt/goldmine/crate32: 344 288 frr
+:matt/goldmine/crate32: 376 288 frr
+:geoo/construction/rod_steel/straight32.S: 312 272
+:geoo/construction/rod_steel/straight32.S: 280 272

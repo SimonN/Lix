@@ -1,0 +1,118 @@
+$BUILT 2014-02-10 11:53:39
+$AUTHOR Clam
+$GERMAN 
+$ENGLISH Abridged Version
+
+#SIZE_X 640
+#SIZE_Y 816
+#TORUS_X 0
+#TORUS_Y 0
+#START_X 0
+#START_Y 208
+#BACKGROUND_RED 0
+#BACKGROUND_GREEN 0
+#BACKGROUND_BLUE 0
+
+#SECONDS 0
+#INITIAL 40
+#REQUIRED 20
+#SPAWN_INTERVAL 45
+#SPAWN_INTERVAL_FAST 4
+
+#CLIMBER 10
+#FLOATER 10
+#RUNNER 10
+#JUMPER 10
+#WALKER 10
+#EXPLODER 10
+#BLOCKER 10
+#BUILDER 10
+#PLATFORMER 10
+#BASHER 10
+#MINER 10
+#DIGGER 10
+
+:matt/oriental/Hatch.H: 22 316
+
+:matt/oriental/Goal.G: 554 460
+
+:matt/oriental/bridge_angle: 106 319
+:matt/oriental/bridge_angle: 213 258
+:matt/oriental/bridge_angle: 320 197
+:matt/oriental/bridge_angle: 427 136
+:matt/oriental/bridge_angle: 106 417
+:matt/oriental/bridge_angle: 213 356
+:matt/oriental/bridge_angle: 320 295
+:matt/oriental/bridge_angle: 427 234
+:matt/oriental/bridge_angle: 213 454
+:matt/oriental/bridge_angle: 320 393
+:matt/oriental/bridge_angle: 427 332
+:matt/oriental/bridge_angle: 106 515
+:geoo/steel/16x16o.S: 151 393
+:geoo/steel/16x16o.S: 258 332
+:geoo/steel/16x16o.S: 364 271
+:geoo/steel/16x16o.S: 472 210
+:geoo/steel/16x16o.S: 472 308
+:geoo/steel/16x16o.S: 151 491
+:geoo/steel/16x16o.S: 258 430
+:geoo/steel/16x16o.S: 365 369
+:geoo/steel/16x16o.S: 472 406
+:geoo/steel/16x16o.S: 151 589
+:geoo/steel/16x16o.S: 258 528
+:geoo/steel/16x16o.S: 364 467
+:matt/oriental/bridge_straight: 534 136
+:matt/oriental/bridge_straight: 534 234
+:matt/oriental/bridge_straight: 534 332
+:matt/oriental/bridge_straight: 1 380
+:matt/oriental/bridge_straight: 1 478
+:matt/oriental/bridge_straight: 1 576
+:matt/oriental/bridge_straight: 639 136
+:matt/oriental/bridge_straight: 639 234
+:matt/oriental/bridge_straight: 639 332
+:matt/oriental/bridge_straight: -104 380
+:matt/oriental/bridge_straight: -104 478
+:matt/oriental/bridge_straight: -104 576
+:matt/oriental/bridge_angle: 213 760
+:matt/oriental/bridge_angle: 320 699
+:matt/oriental/bridge_angle: 427 638
+:matt/oriental/bridge_straight: 534 638
+:matt/oriental/bridge_straight: 639 638
+:matt/oriental/bridge_angle: 427 736
+:matt/oriental/bridge_straight: 534 736
+:matt/oriental/bridge_straight: 639 736
+:matt/oriental/bridge_straight: 534 540
+:matt/oriental/bridge_straight: 639 540
+:matt/oriental/bridge_angle: 427 540
+:matt/oriental/bridge_angle: 320 601
+:matt/oriental/bridge_angle: 213 662
+:matt/oriental/bridge_angle: 106 723
+:matt/oriental/bridge_straight: 1 784
+:matt/oriental/bridge_straight: -104 784
+:matt/oriental/bridge_angle: 320 797
+:matt/oriental/bridge_angle: 427 -72
+:matt/oriental/bridge_straight: 534 -72
+:matt/oriental/bridge_straight: 639 -72
+:matt/oriental/bridge_angle: 320 -11
+:matt/oriental/bridge_angle: 213 50
+:matt/oriental/bridge_angle: 106 111
+:matt/oriental/bridge_straight: 1 172
+:matt/oriental/bridge_straight: -104 172
+:geoo/steel/16x16o.S: 45 424
+:geoo/steel/16x16o.S: 45 522
+:geoo/steel/16x16o.S: 45 620
+:geoo/steel/16x16o.S: 578 377
+:geoo/steel/16x16o.S: 578 181
+:geoo/steel/16x16o.S: 578 279
+:matt/oriental/bridge_angle: 320 -109
+:matt/oriental/bridge_angle: 213 -48
+:matt/oriental/bridge_angle: 106 13
+:matt/oriental/bridge_straight: 1 74
+:matt/oriental/bridge_straight: -104 74
+:matt/oriental/bridge_angle: 213 -146
+:matt/oriental/bridge_angle: 106 -85
+:matt/oriental/bridge_straight: 1 -24
+:matt/oriental/bridge_straight: -104 -24
+:matt/oriental/bridge_straight: -98 274 rrr
+:matt/oriental/bridge_straight: 634 30 rrr
+:matt/oriental/bridge_straight: -98 678 rrr
+:matt/oriental/bridge_straight: 634 434 rrr

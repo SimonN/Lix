@@ -1,0 +1,90 @@
+$BUILT 2014-06-08 16:24:16
+$AUTHOR Clam
+$GERMAN 
+$ENGLISH Experimental: Nuking
+
+#SIZE_X 640
+#SIZE_Y 400
+#TORUS_X 0
+#TORUS_Y 0
+#START_X 0
+#START_Y 0
+#BACKGROUND_RED 0
+#BACKGROUND_GREEN 0
+#BACKGROUND_BLUE 0
+
+#SECONDS 0
+#INITIAL 80
+#REQUIRED 1
+#SPAWN_INTERVAL 10
+#SPAWN_INTERVAL_FAST 4
+
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#EXPLODER2 0
+#RUNNER 2
+#WALKER -1
+#BLOCKER -1
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+
+:geoo/sandstone/Hatch.H: 240 176
+:geoo/sandstone/Hatch.H: 304 176 r
+
+:geoo/sandstone/Goal.G: 192 208
+:geoo/sandstone/Goal.G: 384 208
+
+:geoo/steel/dark_64x64o.S: 384 272
+:geoo/steel/dark_64x64o.S: 192 272
+:geoo/steel/dark_64x32o.S: 256 288
+:geoo/steel/dark_64x32o.S: 320 288
+:geoo/sandstone/64x64: 256 336
+:geoo/sandstone/64x64: 320 336
+:geoo/sandstone/64x64: 384 336
+:geoo/sandstone/64x64: 448 272
+:geoo/sandstone/64x64: 448 336
+:geoo/sandstone/64x64: 128 272
+:geoo/sandstone/64x64: 128 336
+:geoo/sandstone/64x64: 192 336
+:geoo/steel/dark_32x16o.S: 256 320
+:geoo/steel/dark_32x16o.S: 288 320
+:geoo/steel/dark_32x16o.S: 320 320
+:geoo/steel/dark_32x16o.S: 352 320
+:geoo/sandstone/64x64: 448 208
+:geoo/sandstone/64x64: 128 208
+:geoo/sandstone/64x64: 128 144
+:geoo/sandstone/64x64: 448 144
+:geoo/sandstone/64x64: 128 80
+:geoo/sandstone/64x64: 256 80
+:geoo/sandstone/64x64: 320 80
+:geoo/sandstone/64x64: 384 80
+:geoo/sandstone/64x64: 448 80
+:geoo/sandstone/64x64: 192 80
+:geoo/sandstone/64x32: 192 144
+:geoo/sandstone/64x32: 256 144
+:geoo/sandstone/64x32: 320 144
+:geoo/sandstone/64x32: 384 144
+:geoo/sandstone/64x64: 64 272
+:geoo/sandstone/64x64: 64 336
+:geoo/sandstone/64x64: 64 208
+:geoo/sandstone/64x64: 64 144
+:geoo/sandstone/64x64: 64 80
+:geoo/sandstone/64x64: 512 272
+:geoo/sandstone/64x64: 512 336
+:geoo/sandstone/64x64: 512 208
+:geoo/sandstone/64x64: 512 144
+:geoo/sandstone/64x64: 512 80
+:geoo/sandstone/64x64: 0 272
+:geoo/sandstone/64x64: 0 336
+:geoo/sandstone/64x64: 0 208
+:geoo/sandstone/64x64: 0 144
+:geoo/sandstone/64x64: 0 80
+:geoo/sandstone/64x64: 576 272
+:geoo/sandstone/64x64: 576 336
+:geoo/sandstone/64x64: 576 208
+:geoo/sandstone/64x64: 576 144
+:geoo/sandstone/64x64: 576 80

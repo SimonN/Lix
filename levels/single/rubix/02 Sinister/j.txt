@@ -1,4 +1,4 @@
-$BUILT 2012-04-29 19:32:49
+$BUILT 2014-06-04 10:21:44
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH I'm holding out for a hero...
@@ -39,7 +39,7 @@ $ENGLISH I'm holding out for a hero...
 :matt/beach/Hatch.H: 1024 0 r
 :matt/beach/Hatch.H: 16 144
 
-:matt/beach/goal.G: 996 268
+:matt/beach/goal.G: 1008 332
 :matt/beach/goal.G: 86 252
 
 :matt/water.W: 256 384

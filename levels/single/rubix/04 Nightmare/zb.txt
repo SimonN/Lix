@@ -1,4 +1,4 @@
-$BUILT 2012-08-25 20:31:46
+$BUILT 2014-06-04 10:41:02
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Hello darkness my old friend.
@@ -38,7 +38,7 @@ $ENGLISH Hello darkness my old friend.
 
 :matt/beach/Hatch.H: 1028 -8 r
 
-:matt/beach/goal.G: 204 -2
+:matt/beach/goal.G: 222 60
 
 :matt/beach/decor/grass02: 1095 231 fr
 :matt/beach/decor/grass08: 363 -8

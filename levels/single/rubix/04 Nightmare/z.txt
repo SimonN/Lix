@@ -1,4 +1,4 @@
-$BUILT 2014-02-27 23:03:22
+$BUILT 2014-06-04 10:40:25
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Sand in your eyes
@@ -34,9 +34,9 @@ $ENGLISH Sand in your eyes
 
 :matt/beach/decor/sun.D: 554 -21
 
-:matt/beach/Hatch.H: -6 8
+:matt/beach/Hatch.H: 30 2
 
-:matt/beach/goal.G: 442 698
+:matt/beach/goal.G: 462 760
 :geoo/abstract/goal.G: 112 736
 
 :matt/beach/decor/grass04: 228 63

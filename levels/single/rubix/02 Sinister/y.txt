@@ -1,4 +1,4 @@
-$BUILT 2014-02-27 18:58:02
+$BUILT 2014-06-04 10:23:57
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Slow approach
@@ -32,9 +32,9 @@ $ENGLISH Slow approach
 #NOTHING 0
 #NOTHING 0
 
-:matt/beach/Hatch.H: 424 234
+:matt/beach/Hatch.H: 428 212
 
-:matt/beach/goal.G: -52 68
+:matt/beach/goal.G: -26 130
 
 :matt/water.W: 144 384
 :matt/water.W: 176 368

@@ -1,4 +1,4 @@
-$BUILT 2012-04-26 20:30:38
+$BUILT 2014-06-04 10:17:01
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Night at the beach
@@ -35,9 +35,9 @@ $ENGLISH Night at the beach
 :matt/beach/decor/bonfire.D: 1103 161
 :matt/beach/decor/moon.D: 457 -20
 
-:matt/beach/Hatch.H: 1365 3 r
+:matt/beach/Hatch.H: 1364 -16 r
 
-:matt/beach/goal.G: 373 259
+:matt/beach/goal.G: 386 322
 
 :matt/water.W: 1328 384
 :matt/water.W: 1360 384

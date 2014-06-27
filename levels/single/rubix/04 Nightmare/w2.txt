@@ -1,4 +1,4 @@
-$BUILT 2014-02-27 14:31:30
+$BUILT 2014-06-04 10:39:10
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Baywatch
@@ -32,7 +32,7 @@ $ENGLISH Baywatch
 
 :matt/beach/Hatch.H: 512 144 r
 
-:matt/beach/goal.G: 188 160
+:matt/beach/goal.G: 206 220
 
 :matt/water.W: 464 368
 :matt/water.W: 496 368

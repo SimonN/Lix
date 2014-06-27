@@ -1,0 +1,84 @@
+$BUILT 2014-06-08 16:05:32
+$AUTHOR Clam
+$GERMAN 
+$ENGLISH Urban Ledge-end
+
+#SIZE_X 640
+#SIZE_Y 400
+#TORUS_X 0
+#TORUS_Y 0
+#START_X 0
+#START_Y 0
+#BACKGROUND_RED 0
+#BACKGROUND_GREEN 0
+#BACKGROUND_BLUE 0
+
+#SECONDS 0
+#INITIAL 10
+#REQUIRED 9
+#SPAWN_INTERVAL 25
+#SPAWN_INTERVAL_FAST 25
+
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#BLOCKER 10
+#PLATFORMER 2
+#DIGGER 1
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+
+:geoo/construction/Hatch.H: 176 144
+
+:geoo/construction/Goal2.G: 492 208
+
+:proxima/flame.F: 336 368
+:proxima/flame.F: 368 368
+:proxima/flame.F: 400 368
+
+:geoo/construction/concrete/032a: 128 208
+:geoo/construction/concrete/032b: 128 240
+:geoo/construction/concrete/064: 224 208
+:geoo/construction/concrete/032a: 128 272
+:geoo/construction/concrete/032b: 128 304
+:geoo/construction/concrete/032h: 492 272
+:geoo/construction/concrete/032h: 428 272
+:geoo/construction/concrete/032a: 222 176
+:geoo/construction/concrete/032: 254 176
+:geoo/construction/concrete/032h: 160 208
+:geoo/construction/concrete/064: 160 240
+:geoo/construction/concrete/064: 288 304
+:geoo/construction/wall/big_128x128: -64 80
+:geoo/construction/wall/big_128x128: -64 144
+:geoo/construction/wall/big_128x128: -64 272
+:geoo/construction/wall/big_128x128: 576 144
+:geoo/construction/concrete/064: 96 336
+:geoo/construction/concrete/032h: 288 368
+:geoo/construction/concrete/064: 428 304
+:geoo/construction/concrete/032h: 428 368
+:geoo/construction/concrete/064: 492 304
+:geoo/construction/concrete/032h: 492 368
+:geoo/construction/concrete/032h: 556 272
+:geoo/construction/concrete/064: 556 304
+:geoo/construction/concrete/032h: 556 368
+:geoo/construction/wall/big_128x128: 576 272
+:geoo/construction/concrete/064: 556 112
+:geoo/construction/wall/big_128x128: 576 80
+:geoo/construction/concrete/032v: 64 336
+:geoo/construction/concrete/064v: 64 208
+:geoo/construction/concrete/064h: 160 336
+:geoo/construction/concrete/064h: 428 112
+:geoo/construction/wall/big_square: 32 112
+:geoo/construction/wall/big_square: 32 176
+:geoo/construction/wall/big_square: 32 240
+:geoo/construction/wall/big_square: 32 304
+:geoo/construction/wall/big_square: 32 368
+:geoo/construction/wall/big_square: 576 112
+:geoo/construction/wall/big_square: 576 176
+:geoo/construction/wall/big_square: 576 240
+:geoo/construction/wall/big_square: 576 304
+:geoo/construction/wall/big_square: 576 368
