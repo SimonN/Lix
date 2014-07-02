@@ -42,8 +42,8 @@ Object::Object(const Cutbit& c, Type t, int st)
     case TRAP:
         trigger_x  = cb.get_xl() / 2;
         trigger_y  = cb.get_yl() * 4 / 5;
-        trigger_xl = 6;
-        trigger_yl = 6;
+        trigger_xl = 4; // was 6 before July 2014, but 6 is not symmetric
+        trigger_yl = 6; //     on a piece with width 16 and (lix-xl % 2 == 0)
         trigger_xc = true;
         trigger_yc = true;
         sound      = Sound::SPLAT;
