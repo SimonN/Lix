@@ -1,4 +1,4 @@
-$BUILT 2014-03-24 19:53:19
+$BUILT 2014-06-06 10:17:35
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Glare(4p)
@@ -13,10 +13,10 @@ $ENGLISH Glare(4p)
 #BACKGROUND_GREEN 0
 #BACKGROUND_BLUE 0
 
-#SECONDS 280
-#INITIAL 65
+#SECONDS 40
+#INITIAL 70
 #REQUIRED 20
-#SPAWN_INTERVAL 38
+#SPAWN_INTERVAL 32
 #SPAWN_INTERVAL_FAST 4
 
 #WALKER 50
@@ -32,15 +32,15 @@ $ENGLISH Glare(4p)
 #NOTHING 0
 #NOTHING 0
 
-:matt/beach/Hatch.H: 0 -16
-:matt/beach/Hatch.H: 544 -16 r
-:matt/beach/Hatch.H: 640 -16
-:matt/beach/Hatch.H: 1184 -16 r
+:matt/beach/Hatch.H: 32 -14
+:matt/beach/Hatch.H: 556 -16 r
+:matt/beach/Hatch.H: 684 -16
+:matt/beach/Hatch.H: 1194 -16 r
 
-:matt/beach/goal.G: 444 264
-:matt/beach/goal.G: 62 266
-:matt/beach/goal.G: 1090 264
-:matt/beach/goal.G: 704 264
+:matt/beach/goal.G: 462 326
+:matt/beach/goal.G: 78 326
+:matt/beach/goal.G: 1108 326
+:matt/beach/goal.G: 720 326
 
 :matt/beach/daytime/15: 112 50
 :matt/beach/daytime/03: -24 32
@@ -67,10 +67,10 @@ $ENGLISH Glare(4p)
 :matt/beach/daytime/05: 614 -104 f
 :matt/beach/daytime/05: 608 48 f
 :matt/beach/daytime/05: 622 240 f
-:matt/steel/32x32.S: 94 394
-:matt/steel/32x32.S: 126 394
-:matt/steel/32x32.S: 478 394
-:matt/steel/32x32.S: 510 394
+:matt/steel/32x32.S: 94 392
+:matt/steel/32x32.S: 126 392
+:matt/steel/32x32.S: 478 392
+:matt/steel/32x32.S: 510 392
 :matt/beach/daytime/03: -52 30
 :matt/beach/daytime/03: 512 32
 :matt/steel/32x32.S: 624 0
@@ -149,7 +149,3 @@ $ENGLISH Glare(4p)
 :matt/steel/32x32.S: 48 32
 :matt/steel/32x32.S: 1232 32
 :matt/steel/32x32.S: 1200 32
-:matt/goldmine/crate32: 112 272 d
-:matt/goldmine/crate32: 496 272 d
-:matt/goldmine/crate32: 752 272 d
-:matt/goldmine/crate32: 1136 272 d

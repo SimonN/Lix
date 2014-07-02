@@ -1,4 +1,4 @@
-$BUILT 2014-03-27 15:23:56
+$BUILT 2014-06-06 10:21:04
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Dooom and Glooom (6p)
@@ -12,7 +12,7 @@ $ENGLISH Dooom and Glooom (6p)
 #BACKGROUND_BLUE 0
 
 #SECONDS 50
-#INITIAL 70
+#INITIAL 80
 #REQUIRED 20
 #SPAWN_INTERVAL 32
 #SPAWN_INTERVAL_FAST 4
@@ -416,3 +416,16 @@ $ENGLISH Dooom and Glooom (6p)
 :amanda/steel/steel32x32.S: 624 0
 :amanda/steel/steel32x32.S: 592 0
 :amanda/steel/steel32x32.S: 560 0
+:amanda/steel/steel24x16.S: 256 160
+:amanda/steel/steel24x16.S: 528 160
+:amanda/steel/steel24x16.S: 800 160
+:amanda/steel/steel24x16.S: 1072 160
+:amanda/steel/steel24x16.S: 1344 160
+:amanda/steel/steel24x16.S: 1616 160
+:amanda/occult/occult_cube: 1616 144
+:amanda/steel/steel24x16.S: 144 96 d
+:amanda/steel/steel24x16.S: 416 96 d
+:amanda/steel/steel24x16.S: 688 96 d
+:amanda/steel/steel24x16.S: 960 96 d
+:amanda/steel/steel24x16.S: 1232 96 d
+:amanda/steel/steel24x16.S: 1504 96 d

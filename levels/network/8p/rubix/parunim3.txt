@@ -1,4 +1,4 @@
-$BUILT 2014-03-24 19:39:19
+$BUILT 2014-04-17 10:34:30
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Parallel Universe Swamp (8p)
@@ -11,8 +11,8 @@ $ENGLISH Parallel Universe Swamp (8p)
 #BACKGROUND_GREEN 0
 #BACKGROUND_BLUE 0
 
-#SECONDS 50
-#INITIAL 70
+#SECONDS 56
+#INITIAL 80
 #REQUIRED 6
 #SPAWN_INTERVAL 32
 #SPAWN_INTERVAL_FAST 4
@@ -608,3 +608,27 @@ $ENGLISH Parallel Universe Swamp (8p)
 :geoo/steel/dark_32x32o.S: 2544 66
 :geoo/steel/dark_32x32o.S: 1264 66
 :geoo/steel/dark_32x32o.S: 624 66
+:geoo/steel/dark_32x32o.S: 624 34
+:geoo/steel/dark_32x32o.S: 1264 34
+:geoo/steel/dark_32x32o.S: 1904 34
+:geoo/steel/dark_32x32o.S: 2544 34
+:geoo/steel/dark_32x32o.S: 1904 452
+:geoo/steel/dark_32x32o.S: 2544 452
+:geoo/steel/dark_32x32o.S: 624 452
+:geoo/steel/dark_32x32o.S: 1264 452
+:geoo/steel/dark_32x16o.S: 2528 436
+:geoo/steel/dark_32x16o.S: 0 436
+:geoo/steel/dark_32x16o.S: 608 436
+:geoo/steel/dark_32x16o.S: 640 436
+:geoo/steel/dark_32x16o.S: 1248 436
+:geoo/steel/dark_32x16o.S: 1280 436
+:geoo/steel/dark_32x16o.S: 1888 436
+:geoo/steel/dark_32x16o.S: 1920 436
+:geoo/steel/dark_32x16o.S: 2530 18
+:geoo/steel/dark_32x16o.S: 2 18
+:geoo/steel/dark_32x16o.S: 608 18
+:geoo/steel/dark_32x16o.S: 640 18
+:geoo/steel/dark_32x16o.S: 1248 18
+:geoo/steel/dark_32x16o.S: 1280 18
+:geoo/steel/dark_32x16o.S: 1888 18
+:geoo/steel/dark_32x16o.S: 1920 18

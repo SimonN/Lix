@@ -1,4 +1,4 @@
-$BUILT 2014-03-27 15:25:32
+$BUILT 2014-05-08 13:54:08
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Dooom and Glooom (2p)
@@ -160,3 +160,5 @@ $ENGLISH Dooom and Glooom (2p)
 :amanda/steel/steel32x32.S: 32 464
 :amanda/occult/occult_wax32x48_cap_left_sheer: 160 416
 :amanda/occult/occult_wax32x48_cap_left_sheer: 576 416
+:amanda/steel/steel24x16.S: 256 160
+:amanda/steel/steel24x16.S: 672 160

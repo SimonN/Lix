@@ -1,4 +1,4 @@
-$BUILT 2014-03-24 19:21:09
+$BUILT 2014-04-16 20:52:30
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Parallel Universe Swamp (2p)
@@ -12,7 +12,7 @@ $ENGLISH Parallel Universe Swamp (2p)
 #BACKGROUND_BLUE 0
 
 #SECONDS 50
-#INITIAL 65
+#INITIAL 75
 #REQUIRED 6
 #SPAWN_INTERVAL 32
 #SPAWN_INTERVAL_FAST 4
@@ -49,9 +49,8 @@ $ENGLISH Parallel Universe Swamp (2p)
 :simon/acid.W: 480 368
 :simon/acid.W: 528 368
 :simon/acid.W: 576 368
-:simon/acid.W: 1218 364
+:simon/acid.W: 1232 368
 :simon/acid.W: 1184 368
-:simon/acid.W: 1248 360
 :simon/acid.W: 1134 368
 :simon/acid.W: 1086 368
 :simon/acid.W: 1038 368

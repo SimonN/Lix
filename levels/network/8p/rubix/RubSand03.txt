@@ -1,4 +1,4 @@
-$BUILT 2014-03-24 19:52:43
+$BUILT 2014-06-06 10:26:33
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Glare(8p)
@@ -13,10 +13,10 @@ $ENGLISH Glare(8p)
 #BACKGROUND_GREEN 0
 #BACKGROUND_BLUE 0
 
-#SECONDS 120
-#INITIAL 65
+#SECONDS 60
+#INITIAL 80
 #REQUIRED 20
-#SPAWN_INTERVAL 38
+#SPAWN_INTERVAL 32
 #SPAWN_INTERVAL_FAST 4
 
 #WALKER 70
@@ -32,23 +32,23 @@ $ENGLISH Glare(8p)
 #NOTHING 0
 #NOTHING 0
 
-:matt/beach/Hatch.H: 0 -16
-:matt/beach/Hatch.H: 544 -16 r
-:matt/beach/Hatch.H: 640 -16
-:matt/beach/Hatch.H: 1184 -16 r
-:matt/beach/Hatch.H: 1280 -16
-:matt/beach/Hatch.H: 1824 -16 r
-:matt/beach/Hatch.H: 1920 -16
-:matt/beach/Hatch.H: 2464 -16 r
+:matt/beach/Hatch.H: 34 -16
+:matt/beach/Hatch.H: 554 -18 r
+:matt/beach/Hatch.H: 680 -14
+:matt/beach/Hatch.H: 1192 -16 r
+:matt/beach/Hatch.H: 1312 -16
+:matt/beach/Hatch.H: 1828 -16 r
+:matt/beach/Hatch.H: 1962 -16
+:matt/beach/Hatch.H: 2466 -16 r
 
-:matt/beach/goal.G: 448 264
-:matt/beach/goal.G: 64 264
-:matt/beach/goal.G: 1088 264
-:matt/beach/goal.G: 704 266
-:matt/beach/goal.G: 1726 264
-:matt/beach/goal.G: 1338 264
-:matt/beach/goal.G: 2366 264
-:matt/beach/goal.G: 1982 264
+:matt/beach/goal.G: 460 324
+:matt/beach/goal.G: 78 324
+:matt/beach/goal.G: 1108 324
+:matt/beach/goal.G: 724 326
+:matt/beach/goal.G: 1738 324
+:matt/beach/goal.G: 1358 324
+:matt/beach/goal.G: 2386 324
+:matt/beach/goal.G: 2000 326
 
 :matt/beach/daytime/15: 112 50
 :matt/beach/daytime/03: -24 32
@@ -75,10 +75,10 @@ $ENGLISH Glare(8p)
 :matt/beach/daytime/05: 614 -104 f
 :matt/beach/daytime/05: 608 48 f
 :matt/beach/daytime/05: 622 240 f
-:matt/steel/32x32.S: 94 394
-:matt/steel/32x32.S: 126 394
-:matt/steel/32x32.S: 478 394
-:matt/steel/32x32.S: 510 394
+:matt/steel/32x32.S: 94 392
+:matt/steel/32x32.S: 126 392
+:matt/steel/32x32.S: 478 392
+:matt/steel/32x32.S: 510 392
 :matt/beach/daytime/03: -52 30
 :matt/beach/daytime/03: 512 32
 :matt/steel/32x32.S: 624 0
@@ -174,10 +174,10 @@ $ENGLISH Glare(8p)
 :matt/beach/daytime/05: 1891 -103 f
 :matt/beach/daytime/05: 1885 49 f
 :matt/beach/daytime/05: 1899 241 f
-:matt/steel/32x32.S: 1371 395
-:matt/steel/32x32.S: 1403 395
-:matt/steel/32x32.S: 1755 395
-:matt/steel/32x32.S: 1787 395
+:matt/steel/32x32.S: 1374 392
+:matt/steel/32x32.S: 1404 392
+:matt/steel/32x32.S: 1756 392
+:matt/steel/32x32.S: 1788 392
 :matt/beach/daytime/03: 1225 31
 :matt/beach/daytime/03: 1789 33
 :matt/steel/32x32.S: 1901 1
@@ -243,8 +243,8 @@ $ENGLISH Glare(8p)
 :matt/beach/daytime/01: 1902 247
 :matt/steel/32x32.S: 1904 0
 :matt/steel/32x32.S: 1904 32
-:matt/steel/32x32.S: 2401 393
-:matt/steel/32x32.S: 2432 394
+:matt/steel/32x32.S: 2402 392
+:matt/steel/32x32.S: 2432 392
 :matt/steel/32x32.S: 2019 393
 :matt/steel/32x32.S: 2049 393
 :matt/beach/decor/pail: 1233 202
@@ -272,11 +272,3 @@ $ENGLISH Glare(8p)
 :matt/steel/32x32.S: 1872 32
 :matt/steel/32x32.S: 1936 32
 :matt/steel/32x32.S: 1968 32
-:matt/goldmine/crate32: 112 272 d
-:matt/goldmine/crate32: 496 272 d
-:matt/goldmine/crate32: 752 272 d
-:matt/goldmine/crate32: 1136 272 d
-:matt/goldmine/crate32: 1386 272 d
-:matt/goldmine/crate32: 1776 272 d
-:matt/goldmine/crate32: 2032 272 d
-:matt/goldmine/crate32: 2416 272 d

@@ -1,4 +1,4 @@
-$BUILT 2014-03-25 20:08:45
+$BUILT 2014-04-05 16:27:14
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Access Denied (2p)
@@ -32,7 +32,6 @@ $ENGLISH Access Denied (2p)
 
 :matt/bricks/Hatch.H: 232 336 r
 :matt/bricks/Hatch.H: 504 336
-:matt/bricks/Hatch.H: 442 643 r
 
 :matt/bricks/Goal.G: 608 96
 :matt/bricks/Goal.G: 128 96

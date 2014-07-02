@@ -1,4 +1,4 @@
-$BUILT 2014-03-24 19:56:10
+$BUILT 2014-06-06 10:08:46
 $AUTHOR RubiX
 $GERMAN 
 $ENGLISH King of the castle(2p)
@@ -14,9 +14,9 @@ $ENGLISH King of the castle(2p)
 #BACKGROUND_BLUE 0
 
 #SECONDS 35
-#INITIAL 65
+#INITIAL 70
 #REQUIRED 1
-#SPAWN_INTERVAL 53
+#SPAWN_INTERVAL 32
 #SPAWN_INTERVAL_FAST 4
 
 #WALKER 60
@@ -32,11 +32,11 @@ $ENGLISH King of the castle(2p)
 #NOTHING 0
 #NOTHING 0
 
-:matt/beach/Hatch.H: -16 224
-:matt/beach/Hatch.H: 1920 224 r
+:matt/beach/Hatch.H: 16 176
+:matt/beach/Hatch.H: 1936 176 r
 
-:matt/beach/goal.G: 1136 -32
-:matt/beach/goal.G: 720 -32
+:matt/beach/goal.G: 1136 32
+:matt/beach/goal.G: 754 32
 
 :matt/water.W: 1056 368
 :matt/water.W: 1088 368
@@ -63,8 +63,6 @@ $ENGLISH King of the castle(2p)
 :matt/beach/decor/umbrella_red: 672 0
 :matt/beach/nighttime/15: 802 344 r
 :matt/beach/nighttime/15: 778 283
-:matt/beach/decor/palm tree: -43 178 frr
-:matt/beach/decor/palm tree: 1955 178
 :matt/beach/decor/beach ball: 316 250
 :matt/beach/decor/beach ball: 1634 247
 :matt/beach/decor/shovel: 176 176

@@ -1,4 +1,4 @@
-$BUILT 2014-03-27 15:24:52
+$BUILT 2014-05-08 13:54:57
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Dooom and Glooom (3p)
@@ -224,3 +224,9 @@ $ENGLISH Dooom and Glooom (3p)
 :amanda/steel/steel32x32.S: 624 0
 :amanda/steel/steel32x32.S: 592 0
 :amanda/steel/steel32x32.S: 560 0
+:amanda/steel/steel24x16.S: 256 160
+:amanda/steel/steel24x16.S: 528 160
+:amanda/steel/steel24x16.S: 800 160
+:amanda/steel/steel24x16.S: 688 96 d
+:amanda/steel/steel24x16.S: 144 96 d
+:amanda/steel/steel24x16.S: 416 96 d

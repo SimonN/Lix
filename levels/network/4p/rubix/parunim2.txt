@@ -1,4 +1,4 @@
-$BUILT 2014-03-25 17:00:26
+$BUILT 2014-04-16 20:53:48
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Parallel Universe Swamp (4p)
@@ -12,7 +12,7 @@ $ENGLISH Parallel Universe Swamp (4p)
 #BACKGROUND_BLUE 0
 
 #SECONDS 50
-#INITIAL 65
+#INITIAL 75
 #REQUIRED 6
 #SPAWN_INTERVAL 32
 #SPAWN_INTERVAL_FAST 4
@@ -377,3 +377,15 @@ $ENGLISH Parallel Universe Swamp (4p)
 :geoo/steel/dark_32x32o.S: 624 48
 :geoo/steel/dark_32x32o.S: 1904 48
 :geoo/steel/dark_32x32o.S: 1264 48
+:geoo/steel/dark_32x32o.S: 2544 16
+:geoo/steel/dark_32x16o.S: 2528 0
+:geoo/steel/dark_32x16o.S: 0 0
+:geoo/steel/dark_32x16o.S: 608 0
+:geoo/steel/dark_32x16o.S: 640 0
+:geoo/steel/dark_32x32o.S: 624 16
+:geoo/steel/dark_32x32o.S: 1264 16
+:geoo/steel/dark_32x16o.S: 1248 0
+:geoo/steel/dark_32x16o.S: 1280 0
+:geoo/steel/dark_32x32o.S: 1904 16
+:geoo/steel/dark_32x16o.S: 1888 0
+:geoo/steel/dark_32x16o.S: 1920 0
