@@ -4,7 +4,7 @@
 \_____________________________________________________________________________/
 
 
-2014-06-27
+2014-07-02
 
     Late steel cancelling
         Bashers and miners will always complete their stroke before cancelling
@@ -19,6 +19,12 @@
         immediately due to lack of specific terrain. The fix consists of a
         slight amendment of the digger's terrain-removing mask and the digger's
         positioning.
+
+    Miner bugfix
+        The miner doesn't get an extra falling distance pixel when becoming
+        faller. The unreleased version 2014-06-27 had a bug in this bugfix
+        where the miner would stop at a gap below the terrain under his feet,
+        but that is now fixed as well.
 
     Climber-ascender bugfix
         If a non-flinging exploder removes all terrain in front of a climber,
@@ -83,6 +89,11 @@
         The palm tree in the beach set was probably not compatible with the
         CC0 waiver/fallback license, so it has been replaced by another tree
         drawn by Amanda. Thanks!
+
+    Rubix's and Clam's maps
+        Clams singleplayer levels have been updated, and so have Rubix's
+        singleplayer and multiplayer levels. There are assault maps in
+        levels/network/2p/rubix/atk-def/ to be played in two rounds, or as 2v2.
 
 
 
