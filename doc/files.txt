@@ -46,7 +46,7 @@ best with a picture. This is what a file with 3 columns (XF = 3) and 2 rows
     x    x    x    x
     xxxxxxxxxxxxxxxx
 
-Look at ./bitmap/data/lemming.I.bmp for more examples. Interactive objects
+Look at ./bitmap/data/lix.I.png for more examples. Interactive objects
 use only a single row of frames (YF = 1), see their section for more
 information.
 
@@ -175,6 +175,10 @@ $HINT_ENGLISH Before building, remove the wall with a climber-exploder.
 This gives three subsequent hints for the same level. German hints are given
 with $HINT_GERMAN.
 
+Do not make a physical linebreak in the level file. You can linebreak manually
+with <br>, see the example in the first $HINT_ENGLISH above. If you do not
+insert linebreaks, the game will linebreak at the edge of the screen.
+
 There is no limit on the number of in-game hints, and no limit on the number
 of lines within one hint. You can exceed 80 characters in the level file, this
 is usually necessary to give concise hints with multiple in-game lines.
@@ -188,9 +192,13 @@ Tutorial text cannot be hidden; this feature is meant only for introductory
 levels. If you use this, please make sure that the level's vertical length
 isn't too big, or that the level is largely empty around the text.
 
-Do not make a physical linebreak in the level file. If you wish to break the
-displayed line, use <br> as in the example above. The game will not insert
-linebreaks automatically otherwise.
+You can insert skill names for automatic substitution with their hotkey:
+
+$TUTORIAL_ENGLISH Press <MINER> to select the miner skill.
+
+If the user has mapped the miner to the [G] key, the game will display
+"Press [G] to select the miner skill." Skill names must be given in all-caps
+and be surrounded by angular brackets.
 
 If no German hint or tutorial is defined, the English one will be shown to
 German users, just as with the level title.
