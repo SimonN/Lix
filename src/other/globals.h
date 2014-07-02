@@ -204,6 +204,7 @@ public:
         user_option_group,
 
         user_mouse_speed,
+        user_mouse_acceleration,
         user_scroll_speed_edge,
         user_scroll_speed_click,
         user_scroll_edge,

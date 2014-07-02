@@ -87,6 +87,7 @@ int main(int argc, char* argv[])
 
     // Allegro preparations, no graphics function are called yet
     install_keyboard();
+    set_config_int("mouse", "mouse_accel_factor", (int) useR->mouse_acceleration);
     install_mouse();
     if (margs.sound_load_driver) Sound::initialize();
 

@@ -108,6 +108,7 @@ User::User()
     replay_cancel          (true),
     replay_cancel_at       (30),
     mouse_speed            (20),
+    mouse_acceleration     (1),
     scroll_speed_edge      (5),
     scroll_speed_click     (6),
     scroll_torus_x         (2),
@@ -291,6 +292,7 @@ void User::load()
         else if (i->text1 == gloB->user_option_group           ) option_group           = i->nr1;
 
         else if (i->text1 == gloB->user_mouse_speed            ) mouse_speed            = i->nr1;
+        else if (i->text1 == gloB->user_mouse_acceleration     ) mouse_acceleration     = i->nr1;
         else if (i->text1 == gloB->user_scroll_speed_edge      ) scroll_speed_edge      = i->nr1;
         else if (i->text1 == gloB->user_scroll_speed_click     ) scroll_speed_click     = i->nr1;
         else if (i->text1 == gloB->user_scroll_edge            ) scroll_edge            = i->nr1;
@@ -425,6 +427,7 @@ void User::save() const
      << std::endl
 
      << IO::LineHash  (gloB->user_mouse_speed,             mouse_speed)
+     << IO::LineHash  (gloB->user_mouse_acceleration,      mouse_acceleration)
      << IO::LineHash  (gloB->user_scroll_speed_edge,       scroll_speed_edge)
      << IO::LineHash  (gloB->user_scroll_speed_click,      scroll_speed_click)
      << IO::LineHash  (gloB->user_scroll_edge,             scroll_edge)

@@ -45,6 +45,8 @@ void Hardware::center_mouse()
 
 void Hardware::main_loop() {
 
+    static int restX = 0, restY = 0;
+
     //////////
     // Maus //
     //////////
@@ -52,8 +54,14 @@ void Hardware::main_loop() {
     mickey_x = mouse_x - al_mouse_x_last;
     mickey_y = mouse_y - al_mouse_y_last;
     if (gloB->screen_fullscreen_now) {
-        mickey_x = mickey_x * (int) useR->mouse_speed / 20;
-        mickey_y = mickey_y * (int) useR->mouse_speed / 20;
+        mickey_x = (restX + mickey_x * (int) useR->mouse_speed);
+        mickey_y = (restY + mickey_y * (int) useR->mouse_speed);
+
+        restX = mickey_x % 20;
+        restY = mickey_y % 20;
+
+        mickey_x /= 20;
+        mickey_y /= 20;
     }
     if (mouse_x < LEMSCR_X/4 || mouse_x > LEMSCR_X*3/4
      || mouse_y < LEMSCR_Y/4 || mouse_y > LEMSCR_Y*3/4) center_mouse();
