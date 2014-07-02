@@ -111,8 +111,13 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
 
     // if we haven't thrown the axe earlier
     if (l.get_ac() == LixEn::MINER) {
-        // done mining?
-        if (!l.is_solid(0, 2 + allow_one_air_under_foot)) {
+        bool done_mining = false;
+        if (allow_one_air_under_foot) {
+             done_mining = !l.is_solid() && !l.is_solid(0, 3);
+        }
+        else done_mining = !l.is_solid();
+
+        if (done_mining) {
             l.become(LixEn::FALLER);
             l.set_special_x(downwards_movement_this_frame);
         }
