@@ -1,0 +1,69 @@
+$BUILT 2014-04-19 18:06:14
+$AUTHOR Amanda
+$GERMAN Flunderwsuchen (2p)
+$ENGLISH Gliff Gicker (2p)
+
+#SIZE_X 640
+#SIZE_Y 400
+#TORUS_X 0
+#TORUS_Y 1
+#BACKGROUND_RED 0
+#BACKGROUND_GREEN 0
+#BACKGROUND_BLUE 0
+
+#SECONDS 50
+#INITIAL 150
+#REQUIRED 121
+#SPAWN_INTERVAL 56
+#SPAWN_INTERVAL_FAST 56
+
+#CLIMBER 2
+#FLOATER 20
+#EXPLODER -1
+#BLOCKER -1
+#BUILDER -1
+#BASHER -1
+#MINER -1
+#DIGGER -1
+#BATTER 40
+#JUMPER 10
+#WALKER -1
+#PLATFORMER 10
+
+:simon/hatch001.H: 256 320 r
+:simon/hatch001.H: 384 320
+
+:matt/underworld/Goal.G: 512 192
+:matt/underworld/Goal.G: 128 192
+
+:proxima/tile/blue2: 192 256
+:proxima/tile/blue2: 256 256
+:proxima/tile/blue2: 320 256
+:proxima/tile/green1: 320 384
+:proxima/tile/green1: 320 48
+:proxima/tile/green1: 320 128
+:proxima/tile/green1: 320 192
+:proxima/tile/pink4: 128 256
+:proxima/tile/pink4: 512 256
+:proxima/tile/pink4: 512 320
+:proxima/tile/pink4: 512 384
+:proxima/tile/pink4: 128 320
+:proxima/tile/pink4: 128 384
+:geoo/steel/dark_32x64o.S: 336 192
+:geoo/steel/dark_32x64o.S: 336 128
+:geoo/steel/dark_32x64o.S: 192 192
+:geoo/steel/dark_32x64o.S: 192 128
+:geoo/steel/dark_32x64o.S: 480 192
+:geoo/steel/dark_32x64o.S: 480 128
+:proxima/tile/blue2: 384 256
+:proxima/tile/blue2: 448 256
+:proxima/tile/pink4: 512 48
+:geoo/steel/dark_32x64o.S: 480 64
+:geoo/steel/dark_32x64o.S: 192 64
+:proxima/tile/pink4: 128 48
+:geoo/steel/dark_32x64o.S: 320 256 r
+:geoo/steel/dark_32x64o.S: 192 256
+:geoo/steel/dark_32x64o.S: 480 256
+:geoo/steel/32x16o.S: 272 304
+:geoo/steel/32x16o.S: 400 304
+:geoo/steel/dark_32x64o.S: 320 288 r

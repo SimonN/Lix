@@ -1,0 +1,52 @@
+$BUILT 2014-04-18 00:08:07
+$AUTHOR Amanda
+$GERMAN Apokalix Jetzt (4p)
+$ENGLISH Apocalix Now (4p)
+
+#SIZE_X 320
+#SIZE_Y 160
+#TORUS_X 1
+#TORUS_Y 1
+#BACKGROUND_RED 0
+#BACKGROUND_GREEN 0
+#BACKGROUND_BLUE 0
+
+#SECONDS 10
+#INITIAL 40
+#REQUIRED 20
+#SPAWN_INTERVAL 20
+#SPAWN_INTERVAL_FAST 4
+
+#WALKER 1
+#JUMPER 100
+#EXPLODER2 -1
+#FLOATER -1
+#CLIMBER -1
+#BLOCKER -1
+#BUILDER -1
+#DIGGER 100
+#PLATFORMER -1
+#BASHER 999
+#MINER 10
+#BATTER 10
+
+:geoo/abstract/hatch.H: 104 -8 r
+:geoo/abstract/hatch.H: 184 -8 r
+:geoo/abstract/hatch.H: 24 152 r
+:geoo/abstract/hatch.H: 264 152 r
+
+:simon/tapir/goal.G: 87 96
+:simon/tapir/goal.G: 167 96
+:simon/tapir/goal.G: 8 96
+:simon/tapir/goal.G: 248 96
+
+:geoo/abstract/cvblocks/045: 88 80
+:matt/marble/09c: 168 80
+:matt/bricks/07a: 8 80
+:matt/bricks/06b: 8 80
+:matt/bricks/10b: 40 112
+:matt/bricks/11a: 8 80
+:matt/bricks/08a: 8 112
+:matt/bricks/09b: 40 80
+:geoo/sandstone/64x64: 248 80
+:geoo/sandstone/smaragd: 272 104

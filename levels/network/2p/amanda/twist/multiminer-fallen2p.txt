@@ -1,0 +1,271 @@
+$BUILT 2014-05-15 19:51:52
+$AUTHOR Rubix (w/Amanda)
+$GERMAN 
+$ENGLISH Fallen To Multiplayer Mining (2p)
+
+#SIZE_X 320
+#SIZE_Y 1248
+#TORUS_X 0
+#TORUS_Y 1
+#START_X -320
+#START_Y 512
+#BACKGROUND_RED 0
+#BACKGROUND_GREEN 0
+#BACKGROUND_BLUE 0
+
+#SECONDS 50
+#INITIAL 70
+#REQUIRED 18
+#SPAWN_INTERVAL 28
+#SPAWN_INTERVAL_FAST 28
+
+#CLIMBER 10
+#FLOATER 10
+#WALKER 40
+#JUMPER 40
+#RUNNER 5
+#BUILDER 90
+#NOTHING 0
+#MINER 90
+#NOTHING 0
+#NOTHING 0
+#BATTER 15
+#NOTHING 0
+
+:matt/marble/Hatch.H: 70 22
+:matt/marble/Hatch.H: 70 646
+
+:matt/marble/Goal.G: -10 806
+:matt/marble/Goal.G: -10 182
+
+:matt/marble/22: 254 562
+:matt/marble/22: 258 1236 r
+:matt/marble/08d: 144 134 rrr
+:matt/marble/05d: 144 198 r
+:matt/marble/05d: 144 230 rrr
+:matt/marble/08d: 144 262 fr
+:matt/marble/08d: 176 198 rrr
+:matt/marble/03d: 176 182 r
+:matt/marble/03d: 176 262 r
+:matt/marble/03d: 176 278
+:matt/marble/03d: 176 150
+:matt/marble/01d: 192 278 r
+:matt/marble/01d: 192 166 r
+:matt/marble/01d: 176 134 r
+:matt/marble/01d: 176 310 r
+:matt/marble/21d: 48 1232
+:matt/marble/21d: 112 1232
+:matt/marble/21d: 176 1232
+:matt/marble/21d: 240 1232
+:matt/marble/21d: 176 604
+:matt/marble/21d: 240 604
+:matt/marble/21d: 48 604
+:matt/marble/21d: 112 604
+:matt/marble/21d: 310 1238 rrr
+:matt/marble/21d: 310 54 rrr
+:matt/marble/21d: 310 118 rrr
+:matt/marble/21d: 310 182 rrr
+:matt/marble/21d: 310 246 rrr
+:matt/marble/21d: 310 310 rrr
+:matt/marble/21d: 310 374 rrr
+:matt/marble/21d: 310 438 rrr
+:matt/marble/21d: 310 502 rrr
+:matt/marble/21d: 310 566 rrr
+:matt/marble/21d: 246 604
+:matt/marble/21d: 246 1232
+:matt/marble/22d: 254 556
+:matt/marble/22d: 256 1240 r
+:geoo/steel/dark_48x48o.S: 0 1238 r
+:geoo/steel/dark_48x48o.S: 0 38 r
+:geoo/steel/dark_48x48o.S: 0 86 r
+:geoo/steel/dark_48x48o.S: 0 134 r
+:geoo/steel/dark_48x48o.S: 0 230 r
+:geoo/steel/dark_48x48o.S: 0 278 r
+:geoo/steel/dark_48x48o.S: 0 326 r
+:geoo/steel/dark_48x48o.S: 0 374 r
+:geoo/steel/dark_48x48o.S: 0 422 r
+:geoo/steel/dark_48x48o.S: 0 470 r
+:geoo/steel/dark_48x48o.S: 0 518 r
+:geoo/steel/dark_48x48o.S: 0 566 r
+:matt/marble/01: 88 604 r
+:matt/marble/01: 48 604 r
+:matt/marble/01: 164 604 r
+:matt/marble/01: 124 604 r
+:matt/marble/01: 242 604 r
+:matt/marble/01: 202 604 r
+:matt/marble/01: 278 604 r
+:matt/marble/01: 88 1232 r
+:matt/marble/01: 48 1232 r
+:matt/marble/01: 164 1232 r
+:matt/marble/01: 124 1232 r
+:matt/marble/01: 242 1232 r
+:matt/marble/01: 202 1232 r
+:matt/marble/01: 278 1232 r
+:matt/marble/01: 312 1232 r
+:matt/marble/thinplatform64p: 316 64 r
+:matt/marble/thinplatform64p: 316 128 r
+:matt/marble/thinplatform64p: 316 192 r
+:matt/marble/thinplatform64p: 316 256 r
+:matt/marble/thinplatform64p: 316 320 r
+:matt/marble/thinplatform64p: 316 384 r
+:matt/marble/thinplatform64p: 316 448 r
+:matt/marble/thinplatform64p: 316 0 r
+:matt/marble/thinplatform64p: 314 64 r
+:matt/marble/thinplatform64p: 314 128 r
+:matt/marble/thinplatform64p: 314 192 r
+:matt/marble/thinplatform64p: 314 256 r
+:matt/marble/thinplatform64p: 314 320 r
+:matt/marble/thinplatform64p: 314 384 r
+:matt/marble/thinplatform64p: 314 448 r
+:matt/marble/thinplatform64p: 314 0 r
+:matt/marble/thinplatform64p: 48 1240
+:matt/marble/thinplatform64p: 112 1240
+:matt/marble/thinplatform64p: 176 1240
+:matt/marble/thinplatform64p: 240 1240
+:matt/marble/thinplatform64p: 48 1242
+:matt/marble/thinplatform64p: 112 1242
+:matt/marble/thinplatform64p: 176 1242
+:matt/marble/thinplatform64p: 240 1242
+:matt/marble/thinplatform64p: 316 510 r
+:matt/marble/thinplatform64p: 316 540 r
+:matt/marble/thinplatform64p: 314 510 r
+:matt/marble/thinplatform64p: 314 540 r
+:matt/marble/thinplatform64p: 248 1240
+:matt/marble/thinplatform64p: 248 1242
+:matt/marble/thinplatform64p: 236 608
+:matt/marble/thinplatform64p: 172 608
+:matt/marble/thinplatform64p: 108 608
+:matt/marble/thinplatform64p: 48 608
+:matt/marble/thinplatform64p: 236 610
+:matt/marble/thinplatform64p: 172 610
+:matt/marble/thinplatform64p: 108 610
+:matt/marble/thinplatform64p: 48 610
+:matt/marble/thinplatform64p: 248 608
+:matt/marble/thinplatform64p: 248 610
+:matt/marble/22: 254 1186
+:matt/marble/22: 258 612 r
+:matt/marble/08d: 144 758 rrr
+:matt/marble/05d: 144 822 r
+:matt/marble/05d: 144 854 rrr
+:matt/marble/08d: 144 886 fr
+:matt/marble/08d: 176 822 rrr
+:matt/marble/03d: 176 806 r
+:matt/marble/03d: 176 886 r
+:matt/marble/03d: 176 902
+:matt/marble/03d: 176 774
+:matt/marble/01d: 192 902 r
+:matt/marble/01d: 192 790 r
+:matt/marble/01d: 176 758 r
+:matt/marble/01d: 176 934 r
+:matt/marble/21d: 48 608
+:matt/marble/21d: 112 608
+:matt/marble/21d: 176 608
+:matt/marble/21d: 240 608
+:matt/marble/21d: 176 1228
+:matt/marble/21d: 240 1228
+:matt/marble/21d: 48 1228
+:matt/marble/21d: 112 1228
+:matt/marble/21d: 310 614 rrr
+:matt/marble/21d: 310 678 rrr
+:matt/marble/21d: 310 742 rrr
+:matt/marble/21d: 310 806 rrr
+:matt/marble/21d: 310 870 rrr
+:matt/marble/21d: 310 934 rrr
+:matt/marble/21d: 310 998 rrr
+:matt/marble/21d: 310 1062 rrr
+:matt/marble/21d: 310 1126 rrr
+:matt/marble/21d: 310 1190 rrr
+:matt/marble/01: 312 1228 r
+:matt/marble/21d: 246 1228
+:matt/marble/21d: 246 608
+:matt/marble/22d: 254 1180
+:matt/marble/22d: 256 616 r
+:geoo/steel/dark_48x48o.S: 0 614 r
+:geoo/steel/dark_48x48o.S: 0 662 r
+:geoo/steel/dark_48x48o.S: 0 710 r
+:geoo/steel/dark_48x48o.S: 0 758 r
+:geoo/steel/dark_48x48o.S: 0 854 r
+:geoo/steel/dark_48x48o.S: 0 902 r
+:geoo/steel/dark_48x48o.S: 0 950 r
+:geoo/steel/dark_48x48o.S: 0 998 r
+:geoo/steel/dark_48x48o.S: 0 1046 r
+:geoo/steel/dark_48x48o.S: 0 1094 r
+:geoo/steel/dark_48x48o.S: 0 1142 r
+:geoo/steel/dark_48x48o.S: 0 1190 r
+:matt/marble/01: 88 1228 r
+:matt/marble/01: 48 1228 r
+:matt/marble/01: 164 1228 r
+:matt/marble/01: 124 1228 r
+:matt/marble/01: 242 1228 r
+:matt/marble/01: 202 1228 r
+:matt/marble/01: 278 1228 r
+:matt/marble/01: 88 608 r
+:matt/marble/01: 48 608 r
+:matt/marble/01: 164 608 r
+:matt/marble/01: 124 608 r
+:matt/marble/01: 242 608 r
+:matt/marble/01: 202 608 r
+:matt/marble/01: 278 608 r
+:matt/marble/01: 312 606 r
+:matt/marble/thinplatform64p: 316 688 r
+:matt/marble/thinplatform64p: 316 752 r
+:matt/marble/thinplatform64p: 316 816 r
+:matt/marble/thinplatform64p: 316 880 r
+:matt/marble/thinplatform64p: 316 944 r
+:matt/marble/thinplatform64p: 316 1008 r
+:matt/marble/thinplatform64p: 316 1072 r
+:matt/marble/thinplatform64p: 316 624 r
+:matt/marble/thinplatform64p: 314 688 r
+:matt/marble/thinplatform64p: 314 752 r
+:matt/marble/thinplatform64p: 314 816 r
+:matt/marble/thinplatform64p: 314 880 r
+:matt/marble/thinplatform64p: 314 944 r
+:matt/marble/thinplatform64p: 314 1008 r
+:matt/marble/thinplatform64p: 314 1072 r
+:matt/marble/thinplatform64p: 314 624 r
+:matt/marble/thinplatform64p: 58 614
+:matt/marble/thinplatform64p: 120 614
+:matt/marble/thinplatform64p: 184 614
+:matt/marble/thinplatform64p: 248 616
+:matt/marble/thinplatform64p: 62 616
+:matt/marble/thinplatform64p: 122 616
+:matt/marble/thinplatform64p: 184 616
+:matt/marble/thinplatform64p: 48 616
+:matt/marble/thinplatform64p: 316 1134 r
+:matt/marble/thinplatform64p: 316 1164 r
+:matt/marble/thinplatform64p: 314 1134 r
+:matt/marble/thinplatform64p: 314 1164 r
+:matt/marble/thinplatform64p: 48 614
+:matt/marble/thinplatform64p: 248 614
+:matt/marble/05c: 112 198 r
+:matt/marble/05c: 112 230 r
+:matt/marble/05c: 112 166 r
+:matt/marble/05c: 112 262 r
+:matt/marble/05c: 112 294 r
+:matt/marble/05c: 112 134 r
+:matt/marble/08c: 48 134
+:matt/marble/08c: 48 166
+:matt/marble/08c: 48 198
+:matt/marble/08c: 48 230
+:matt/marble/08c: 48 262
+:matt/marble/08c: 48 294
+:matt/marble/06b: 48 758 r
+:matt/marble/06b: 48 790 r
+:matt/marble/06b: 48 822 r
+:matt/marble/06b: 48 854 r
+:matt/marble/06b: 48 918 r
+:matt/marble/06b: 48 886 r
+:matt/marble/05b: 112 758 r
+:matt/marble/05b: 112 790 r
+:matt/marble/05b: 112 822 r
+:matt/marble/05b: 112 854 r
+:matt/marble/05b: 112 886 r
+:matt/marble/05b: 112 918 r
+:geoo/steel/32x32o.S: 48 214 r
+:geoo/steel/32x32o.S: 48 838 r
+:matt/marble/05c: 144 198 r
+:matt/marble/05c: 144 230 r
+:matt/marble/05c: 176 214 r
+:matt/marble/05b: 144 822 r
+:matt/marble/05b: 144 854 r
+:matt/marble/05b: 176 838 r
