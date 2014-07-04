@@ -146,8 +146,10 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
 {
     ua.suppress_unused_variable_warning();
 
-    int  old_ex           = l.get_ex();
-    int  old_ey           = l.get_ey();
+    const int old_ex = l.get_ex();
+    const int old_ey = l.get_ey();
+    const Lookup::LoNr old_enc_foot = l.get_foot_encounters();
+    const Lookup::LoNr old_enc_body = l.get_body_encounters();
 
     // Das erste Frame dient zur kurzen Pause, die die Lix vor dem
     // Weiterlaufen machen soll, wenn die Walker-Faehigkeit vom Benutzer
@@ -163,6 +165,8 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
     if (turn_after_all) {
         l.set_ex(old_ex);
         l.set_ey(old_ey);
+        l.set_foot_encounters(old_enc_foot);
+        l.set_body_encounters(old_enc_body);
         bool climbed_after_all = false;
 
         if (l.get_climber()) {
