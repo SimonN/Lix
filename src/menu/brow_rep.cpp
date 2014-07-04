@@ -90,6 +90,8 @@ void ReplayBrowser::calc_self()
                 // Extract exactly the replay, not the level it points to!
                 Level  l(get_current_file());
                 l.save_to_file(browser_save->get_current_file());
+                Sound::play_loud(Sound::DISKSAVE);
+
                 load_dir(get_current_file());
             }
             delete browser_save;

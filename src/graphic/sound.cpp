@@ -124,7 +124,7 @@ Sound::Sound()
 
     const std::string dds = gloB->dir_data_sound.get_rootful();
 
-    sample[SAVE]        = Sample(dds + "save.wav");
+    sample[DISKSAVE]    = Sample(dds + "disksave.wav");
     sample[JOIN]        = Sample(dds + "join.wav");
 
     sample[PANEL]       = Sample(dds + "panel.wav");

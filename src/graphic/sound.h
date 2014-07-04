@@ -55,7 +55,7 @@ public:
 
     enum Id {
         NOTHING,
-        SAVE,        // File gets saved. Not used right now.
+        DISKSAVE,    // Save a file to disk, from editor or replay
         JOIN,        // Someone joins the network
 
         PANEL,       // Choice of skill on the panel

@@ -279,6 +279,8 @@ void WindowGameplay::calc_self()
             if (browser_save->get_exit_with()) {
                 replay->save_to_file(browser_save->get_current_file(), level);
                 useR->replay_last_level = browser_save->get_current_file();
+                Sound::play_loud(Sound::DISKSAVE);
+
                 if (game_end) exit_with = MENU;
                 else          exit_with = RESUME;
                 Manager::remove_focus(this);

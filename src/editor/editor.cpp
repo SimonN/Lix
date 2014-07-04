@@ -376,6 +376,10 @@ void Editor::save_lists_and_level()
                 + gloB->ext_level);
         level.save_to_file(useR->single_last_level);
     }
+
+    // Play the sound always, not just when level != l.
+    // If the user forgets there was no change, he'll be irritaded otherwise.
+    Sound::play_loud(Sound::DISKSAVE);
 }
 
 
