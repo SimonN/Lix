@@ -448,6 +448,7 @@ void User::save() const
      << IO::LineHash  (gloB->user_screen_windowed,         screen_windowed)
      << IO::LineHash  (gloB->user_arrows_replay,           arrows_replay)
      << IO::LineHash  (gloB->user_arrows_network,          arrows_network)
+     << IO::LineHash  (gloB->user_gameplay_help,           gameplay_help)
      << IO::LineHash  (gloB->user_debris_amount,           debris_amount)
      << IO::LineHash  (gloB->user_debris_type,             debris_type)
      << IO::LineHash  (gloB->user_gui_color_red,           gui_color_red)
