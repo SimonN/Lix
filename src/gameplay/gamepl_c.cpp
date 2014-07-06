@@ -194,6 +194,7 @@ void Gameplay::calc_self()
         // Speichern
         if (pan.state_save.get_clicked()) {
             state_manager.save_user(cs, replay);
+            Sound::play_loud(Sound::DISKSAVE);
         }
 
         // Laden

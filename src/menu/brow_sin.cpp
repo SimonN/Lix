@@ -110,7 +110,9 @@ void SingleBrowser::calc_self()
             for (size_t i = 0; i < s.size(); ++i) if (s[i] == '/') s[i] = '-';
             s += ".png";
             l.export_image(Filename(s));
+
             button_export.set_text(Language::browser_export_image_done);
+            Sound::play_loud(Sound::DISKSAVE);
         }
         else if (button_delete.get_clicked()) {
             if (exists(get_current_file().get_rootful().c_str())) {
