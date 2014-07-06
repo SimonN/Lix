@@ -19,7 +19,7 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2014, 07, 02, 00)),
+    version              (CONCAT(2014, 07, 06, 00)),
     version_min          (CONCAT(2014, 07, 02, 00)),
     version_stable       (true),
 
