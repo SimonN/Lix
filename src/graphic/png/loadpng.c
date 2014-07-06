@@ -87,7 +87,6 @@ static BITMAP *really_load_png(png_structp png_ptr, png_infop info_ptr, RGB *pal
     double image_gamma, screen_gamma;
     int intent;
     int bpp, dest_bpp;
-    int tRNS_to_alpha = FALSE;
     int number_passes, pass;
 
     ASSERT(png_ptr && info_ptr && rgb);
@@ -113,7 +112,6 @@ static BITMAP *really_load_png(png_structp png_ptr, png_infop info_ptr, RGB *pal
      * in a tRNS chunk. */
     if (png_get_valid(png_ptr, info_ptr, PNG_INFO_tRNS)) {
 	png_set_tRNS_to_alpha(png_ptr);
-	tRNS_to_alpha = TRUE;
     }
 
     /* Convert 16-bits per colour component to 8-bits per colour component. */
@@ -141,18 +139,18 @@ static BITMAP *really_load_png(png_structp png_ptr, png_infop info_ptr, RGB *pal
 
     /* Turn on interlace handling. */
     number_passes = png_set_interlace_handling(png_ptr);
-    
+
     /* Call to gamma correct and add the background to the palette
      * and update info structure.
      */
     png_read_update_info(png_ptr, info_ptr);
-    
+
     /* Even if the user doesn't supply space for a palette, we want
      * one for the load process.
      */
     if (!pal)
 	pal = tmppal;
-    
+
     /* Palettes. */
     if (color_type & PNG_COLOR_MASK_PALETTE) {
 	int num_palette, i;
@@ -192,9 +190,9 @@ static BITMAP *really_load_png(png_structp png_ptr, png_infop info_ptr, RGB *pal
 	unsigned char *pc = (unsigned char *)&c;
 	if (pc[0] == 255)
 	    png_set_bgr(png_ptr);
-#ifdef ALLEGRO_BIG_ENDIAN	    
+#ifdef ALLEGRO_BIG_ENDIAN
 	png_set_swap_alpha(png_ptr);
-#endif	    
+#endif
     }
 
     /* Read the image, one line at a line (easier to debug!) */
@@ -396,6 +394,6 @@ BITMAP *load_memory_png(AL_CONST void *buffer, int bufsize, RGB *pal)
 
     /* Clean up after the read, and free any memory allocated. */
     png_destroy_read_struct(&png_ptr, &info_ptr, (png_infopp)NULL);
-    
+
     return bmp;
 }

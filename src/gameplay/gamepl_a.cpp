@@ -256,10 +256,8 @@ void Gameplay::calc_active()
           ||   pan.skill[skill_visible].get_number() == 0); ++skill_visible);
 
         // Dies fuer den Notfall, um sinniges Cursoroeffnen zu produzieren
-        bool skills_are_empty = false;
         if (skill_visible == gloB->skill_max) {
             skill_visible = malo->skill_sel;
-            skills_are_empty = true;
         }
 
         for (LixIt i = --trlo->lixvec.end(); i != --trlo->lixvec.begin();

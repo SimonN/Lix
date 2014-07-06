@@ -94,9 +94,7 @@ WindowGameplay::WindowGameplay(
     browser_save (0)
 {
     // This gets repeated in draw_self() for the big letters
-    int col_a = color[COL_TEXT];
     int col_b = color[COL_TEXT];
-    if (lix_saved > 0)             col_a = color[COL_TEXT_ON];
     if (lix_saved >= lix_required) col_b = color[COL_TEXT_ON];
 
     std::string c                         = Language::win_game_comment_none;
