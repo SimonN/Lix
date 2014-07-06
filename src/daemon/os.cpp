@@ -189,7 +189,7 @@ void update_timer(
 
 void signal_handler(int sig)
 {
-    sig = 0; // suppress warning due to unused parameters
+    static_cast <void> (sig); // suppress warning about unused parameters
     signal_received = true;
 }
 
