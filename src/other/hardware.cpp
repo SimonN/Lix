@@ -17,7 +17,9 @@ Hardware::Hardware()
     mouse_own_x    (LEMSCR_X/2),
     mouse_own_y    (LEMSCR_Y/2),
     mickey_x(0),
-    mickey_y(0)
+    mickey_y(0),
+    rest_x(0),
+    rest_y(0)
 {
     mouse_buffer[0]            = false;
     mouse_buffer[1]            = false;
@@ -34,6 +36,19 @@ Hardware::~Hardware() {}
 
 
 
+void Hardware::set_mouse_accel_on_windows(bool b)
+{
+    // According to this:
+    // https://www.allegro.cc/manual/4/api/configuration-routines/
+    // ... these values will only do something on Windows
+    const char *override_0 = "[mouse]\nmouse_accel_factor = 0\n";
+    const char *override_1 = "[mouse]\nmouse_accel_factor = 1\n";
+    if (b) ::override_config_data(override_1, ::ustrsize(override_1));
+    else   ::override_config_data(override_0, ::ustrsize(override_0));
+}
+
+
+
 void Hardware::center_mouse()
 {
     position_mouse(LEMSCR_X/2, LEMSCR_Y/2);
@@ -45,21 +60,18 @@ void Hardware::center_mouse()
 
 void Hardware::main_loop() {
 
-    static int restX = 0, restY = 0;
-
     //////////
     // Maus //
     //////////
 
     mickey_x = mouse_x - al_mouse_x_last;
     mickey_y = mouse_y - al_mouse_y_last;
+
     if (gloB->screen_fullscreen_now) {
-        mickey_x = (restX + mickey_x * (int) useR->mouse_speed);
-        mickey_y = (restY + mickey_y * (int) useR->mouse_speed);
-
-        restX = mickey_x % 20;
-        restY = mickey_y % 20;
-
+        mickey_x = (rest_x + mickey_x * (int) useR->mouse_speed);
+        mickey_y = (rest_y + mickey_y * (int) useR->mouse_speed);
+        rest_x = mickey_x % 20;
+        rest_y = mickey_y % 20;
         mickey_x /= 20;
         mickey_y /= 20;
     }

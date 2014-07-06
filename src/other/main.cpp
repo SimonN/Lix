@@ -54,6 +54,7 @@ struct MainArgs {
 static MainArgs parse_main_arguments(int, char*[]);
 static void     setenv_allegro_modules();
 static void     unsetenv_allegro_modules();
+static void     disable_mouse_accel_under_windows();
 
 
 
@@ -87,7 +88,7 @@ int main(int argc, char* argv[])
 
     // Allegro preparations, no graphics function are called yet
     install_keyboard();
-    set_config_int("mouse", "mouse_accel_factor", (int) useR->mouse_acceleration);
+    hardware.set_mouse_accel_on_windows(useR->mouse_acceleration);
     install_mouse();
     if (margs.sound_load_driver) Sound::initialize();
 

@@ -57,6 +57,8 @@ private:
     int      mouse_own_y;  //
     int      mickey_x;     // Wie weit mouse_own_xy veraendert seit dem letzten
     int      mickey_y;     // main_loop? Bei ruhender Maus z.B. null.
+    int      rest_x;       // against fluttering mouse due to centering
+    int      rest_y;
 
     bool     mouse_click  [3]; // gerade angeklickt
     bool     mouse_double [3]; // gerade doppelt geklickt
@@ -72,6 +74,7 @@ public:
     static const unsigned doubleclick_speed;
     static const unsigned doubleclick_for60;
 
+    void        set_mouse_accel_on_windows(bool);
     void        center_mouse();
 
     inline int  get_mickey_x()        { return mickey_x;         }
