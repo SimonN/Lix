@@ -101,6 +101,38 @@ Lix executable (./lix.exe unter Windows, ./bin/lix under Linux):
     debug crashes. To prevent loading the driver permanently, disable
     "load sound driver" in the sound options.
 
+--verify=replays/myreplay.txt
+--verify=replays/mydirectory
+    Starts Lix as a noninteractive replay verifier. No graphics window is
+    created. The game runs each of the given replays and determine the number
+    of lix saved. Results of these checks are output to the command line.
+    The game exits automatically after its work.
+
+    This is useful if you maintain a large level pack, and wish to check
+    automatically whether any solutions have been broken by revised physics
+    in an updated version of Lix, or by your own level editing. Create a
+    replay directory and fill it with one level-solving replay for each of
+    your levels. Whenever something might have changed with your levels or
+    the physics, verify that directory.
+
+    Each replay will be played using the level filename linked to from the
+    replay. Therefore, the replay will never be played with the level data
+    directly stored inside the replay file. If there is no level filename
+    set in the replay, the noninteractive verifier will skip that replay
+    and inform you about this, no matter whether there is level data stored
+    directly in the replay.
+
+    This is different from the game's interactive replay browser: The browser
+    prefers the level stored inside, and will only fall back to the linked
+    level if the stored level is missing or bad.
+
+    You can provide many replay filenames and many directory names in the
+    same run from the command line, like this:
+
+        bin/lix --verify=replays/adir --verify=replays/bdir
+
+    If you verify a directory, all subdirectories will be included recursively.
+
 --gfxmode=MODENAME
     Substitute one of the following all-caps names for MODENAME.
     This switch allows you to select a graphics mode manually on Windows

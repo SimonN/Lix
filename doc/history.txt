@@ -4,6 +4,25 @@
 \_____________________________________________________________________________/
 
 
+2014-12-12
+
+    Noninteractive replay verification
+        Level pack maintainers can now verify entire directories full of
+        replays to see whether they still work after physics updates or level
+        editing. To learn how to do this, please read about command line switch
+        "--verify=" documented in doc/readme.txt.
+
+    Editor save window bugfix
+        Chroda has sent in a bug report: The level save browser said
+        "filename" twice at the top, instead of "filename" and "level name".
+        This is now fixed.
+
+    Editor terrain browser RMB bugfix
+        The terrain browser now exits properly whenever you right-click
+        anywhere. Before, you had to right-click inside the image listing.
+
+
+
 2014-07-07
 
     Mouse code
@@ -22,6 +41,8 @@
 
     Amanda's multiplayer maps
         I forgot her maps in the release last week, now the maps are included.
+
+
 
 2014-07-02
 
