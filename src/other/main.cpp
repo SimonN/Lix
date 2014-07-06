@@ -54,7 +54,6 @@ struct MainArgs {
 static MainArgs parse_main_arguments(int, char*[]);
 static void     setenv_allegro_modules();
 static void     unsetenv_allegro_modules();
-static void     disable_mouse_accel_under_windows();
 
 
 
