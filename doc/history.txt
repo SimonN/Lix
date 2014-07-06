@@ -4,6 +4,25 @@
 \_____________________________________________________________________________/
 
 
+2014-07-07
+
+    Mouse code
+        sekti has send in better mouse code for Fullscreen. A hidden option
+        MOUSE_ACCELERATION 0 can be set to 1 in the user configuration to
+        choose mouse acceleration on Windows. It shouldn't have an effect
+        on other platforms.
+
+    Hotkey displaying bugfix
+        If the user disables displayed hotkeys during the game, this option
+        will now get saved to the configuration file properly.
+
+    Disk saving sound
+        A sound plays as feedback for writing levels, replays, or images to
+        disk, or when making a savestate during the game.
+
+    Amanda's multiplayer maps
+        I forgot her maps in the release last week, now the maps are included.
+
 2014-07-02
 
     Late steel cancelling
