@@ -190,6 +190,7 @@ Globals::Globals()
     user_option_group            ("OPTION_GROUP"),
 
     user_mouse_speed             ("MOUSE_SPEED"),
+    user_mouse_acceleration      ("MOUSE_ACCELERATION"),
     user_scroll_speed_edge       ("SCROLL_SPEED_EDGE"),
     user_scroll_speed_click      ("SCROLL_SPEED_CLICK"),
     user_scroll_edge             ("SCROLL_EDGE"),

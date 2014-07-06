@@ -75,6 +75,7 @@ public:
     bool replay_cancel;
     int  replay_cancel_at;
     int  mouse_speed;
+    bool mouse_acceleration;
     int  scroll_speed_edge;
     int  scroll_speed_click;
     int  scroll_torus_x;
