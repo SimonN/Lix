@@ -2,7 +2,7 @@
 # See ./doc/linux.txt if you want to compile yourself.
 
 CXX      ?= g++
-CXXFLAGS ?= -O2
+CXXFLAGS ?= -O2 -Wall -Wextra -pedantic
 LD       = libtool --tag=CXX --mode=link $(CXX)
 PKG_CONFIG ?= pkg-config
 
