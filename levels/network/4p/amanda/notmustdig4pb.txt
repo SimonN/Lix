@@ -1,6 +1,6 @@
 $BUILT 2014-04-15 20:25:15
 $AUTHOR Amanda
-$GERMAN Müssen Nicht Nur Graben (4p-b)
+$GERMAN
 $ENGLISH Mustn't Just Dig (4p-b)
 
 #SIZE_X 1824
