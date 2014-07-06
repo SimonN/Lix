@@ -1,6 +1,6 @@
 $BUILT 2014-04-07 23:23:51
 $AUTHOR Amanda
-$GERMAN
+$GERMAN Verkehrsinfarkt (3p)
 $ENGLISH Gridlock (3p)
 
 #SIZE_X 1344
