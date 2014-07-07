@@ -1,12 +1,13 @@
 Willkommen zu Lix!
 
-Die Tutorial-Levels werden noch
-ueberarbeitet. Spiele einfache
-Einzelspieler-Levels zum Lernen.
+Spielst du zum ersten Mal?
+Klicke auf den Ordner
+"tutorial" links oben.
 
 Lix enthaelt eine Vielfalt an
 Einzelspieler-Puzzle-Levels,
 von leicht bis ziemlich schwer.
-Waehle den Ordner "single".
+Wenn du die Grundlagen beherrschst,
+dann waehle den Ordner "single".
 
 Viel Spass!
