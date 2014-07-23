@@ -81,16 +81,9 @@ void BitmapBrowser::calc_self()
         list_bitmap.load_dir(dir_list.get_current_dir());
         set_subtitle(dir_list.get_current_dir().get_dir_rootless());
     }
-    else if (hardware.get_mr() && (dir_list.is_mouse_here()
-                             || list_bitmap.is_mouse_here())) {
-        // if (dir_list.get_current_dir() == dir_list.get_base_dir()) {
+    // always exit with RMB, never use this to change the directory
+    else if (hardware.get_mr()) {
         set_exit();
-        // }
-        // else {
-        //     dir_list   .set_current_dir_to_parent_dir();
-        //     list_bitmap.load_dir(dir_list.get_current_dir());
-        //     set_subtitle(dir_list.get_current_dir());
-        // }
     }
     // Dateibuttons angeklickt?
     else if (list_bitmap.get_clicked()) {
