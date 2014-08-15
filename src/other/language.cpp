@@ -595,7 +595,7 @@ void Language::set(const Language lang)
         editor_unsaved_question       = "Would you like to save the changes on this level?";
         editor_unsaved_question_new   = "Would you like to save this new level?";
         editor_file_name              = "File name:";
-        editor_level_name             = "Level name:";
+        editor_level_name             = "Level title:";
         editor_hotkey                 = "Hotkey:";
         editor_hotkey_hold            = "Hotkey: hold";
         editor_bar_at                 = "at";
@@ -1082,7 +1082,7 @@ eb[Editor::ADD_HAZARD]
         editor_unsaved_question       = "Moechtest du die Aenderungen an diesem Level speichern?";
         editor_unsaved_question_new   = "Moechtest du diesen neuen Level speichern?";
         editor_file_name              = "Dateiname:";
-        editor_level_name             = "Levelname:";
+        editor_level_name             = "Leveltitel:";
         editor_hotkey                 = "Hotkey:";
         editor_hotkey_hold            = "Hotkey: halte";
         editor_bar_at                 = "an";
