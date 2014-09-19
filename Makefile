@@ -6,7 +6,7 @@ CXXFLAGS ?= -O2 -Wall -Wextra
 LD       = libtool --tag=CXX --mode=link $(CXX)
 PKG_CONFIG ?= pkg-config
 
-LDALLEG  = $(shell allegro-config --libs)
+LDALLEG  = $(shell allegro-config --libs) -Wl,-rpath,./bin/lib:./lib
 LDENET   = $(shell $(PKG_CONFIG) --libs libenet 2>/dev/null || echo "-L/usr/local/lib -lenet")
 LDPNG    = $(shell $(PKG_CONFIG) --libs libpng zlib 2>/dev/null || echo "-lpng -lz")
 CPPFLAGS += $(shell $(PKG_CONFIG) --cflags libpng zlib libenet 2>/dev/null) $(shell allegro-config --cflags)
