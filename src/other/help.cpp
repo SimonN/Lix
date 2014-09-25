@@ -290,7 +290,8 @@ void find_tree
         al_findclose(&info);
     }
     // Nach Dateien suchen, die dem Suchkriterium entsprechen
-    find_files(fn_where, what, dostr, from);
+    Filename fn_where_with_slash(where);
+    find_files(fn_where_with_slash, what, dostr, from);
 }
 // Ende der Unterverzeichnis-einschlieﬂenden Dateisuche
 

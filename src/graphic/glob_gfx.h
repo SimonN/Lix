@@ -22,6 +22,7 @@
 #include <map>
 #include <vector>
 
+#include "gra_lib.h" // for the simple speed switch GraLib::RecolorLix
 #include "cutbit.h"
 #include "torbit.h"
 #include "../other/types.h"
@@ -88,7 +89,7 @@ extern FONT *font_big;
 
 // Und die Funktionen
 void make_all_colors();
-void load_all_bitmaps();
+void load_all_bitmaps(GraLib::RecolorLix); // speed switch for replay verify
 void destroy_all_bitmaps();
 
 extern bool clear_screen_at_next_blit;

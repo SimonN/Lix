@@ -110,7 +110,7 @@ void LMain::calc()
         {
         case Menu::START_LEVEL: {
             gameplay_started_with_replay = false;
-            gameplay = new Gameplay();
+            gameplay = new Gameplay(Gameplay::INTERACTIVE_MODE);
             gameplay->set_chat_type(menu->get_chat_type());
             gameplay->set_chat_on  (menu->get_chat_on  ());
             delete menu;
@@ -120,7 +120,7 @@ void LMain::calc()
         case Menu::START_REPLAY: {
             gameplay_started_with_replay = true;
             Replay r(useR->replay_last_level);
-            gameplay = new Gameplay(&r);
+            gameplay = new Gameplay(Gameplay::INTERACTIVE_MODE, &r);
             delete menu;
             menu = 0;
             break; }

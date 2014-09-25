@@ -26,6 +26,7 @@
 #include "../level/level.h"
 #include "../network/network.h"
 #include "../other/console.h"
+#include "../other/user.h" // returning game results
 
 class Gameplay {
 
@@ -37,6 +38,13 @@ public:
 
     static const int distance_safe_fall;
     static const int distance_float;
+
+    static const int updates_before_run_forever;
+
+    enum VerifyMode {
+        INTERACTIVE_MODE, // play or watch a replay from the normal game
+        VERIFY_MODE       // auto-abort sometime after replay, update very fast
+    };
 
 private:
 
@@ -50,9 +58,10 @@ private:
     const int mouse_max_lix_distance_u;
     const int mouse_max_lix_distance_d;
 
-    bool           exit;
-    const Filename filename;
-    const Level    level;
+    bool             exit;
+    const VerifyMode verify_mode;
+    const Filename   filename;
+    const Level      level;
 
     Tribe*         trlo; // Abkuerzung fuer cs.tribes[tribe_local]
     Tribe::Master* malo; // The master of cs.tribes[tribe_local] that
@@ -108,7 +117,8 @@ private:
 
     Replay::Data new_replay_data(); // Replay::Data() mit guten Standardinfos
 
-    const Filename& determine_filename(Replay* = 0);
+    const Filename& determine_filename(Replay*);
+    const Level     determine_level   ();
 
     void prepare_players(Replay*);
     void prepare_level  ();
@@ -145,7 +155,7 @@ public:
     // Der Konstruktor klaut sich seine paar Infos zusammen
     // aus Network und gloB - Spielerzahl, -daten und den Level.
     // Einzig ein Replay kann optional uebergeben werden.
-    Gameplay(Replay* = 0);
+    Gameplay(VerifyMode, Replay* = 0);
     ~Gameplay();
 
     inline bool            get_exit    () { return exit;             }
@@ -157,6 +167,9 @@ public:
     inline       bool         get_chat_on  () { return chat.get_type_on();  }
     inline void  set_chat_type(const std::string& s) { chat.set_text(s);    }
     inline void  set_chat_on  (bool b = true)        { chat.set_type_on(b); }
+
+    Result get_result();
+    bool   will_run_forever();
 
     void undraw();
     void calc();

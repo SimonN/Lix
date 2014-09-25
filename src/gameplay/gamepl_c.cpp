@@ -119,7 +119,12 @@ void Gameplay::calc_self()
     // the action keeps running in the background
     if (ec == 0 && !window_gameplay) {
         chat.set_type_off();
-        if (multiplayer && spectating && ! replaying) {
+        if (verify_mode == VERIFY_MODE) {
+            // Verifier object should ask this Gameplay about stats,
+            // then delete this Gameplay object
+            exit = true;
+        }
+        else if (multiplayer && spectating && ! replaying) {
             write_outcome_to_console();
             replay.save_as_auto_replay(&level);
             exit = true;
@@ -312,13 +317,19 @@ void Gameplay::calc_self()
 
 
     // Player may issue skills and do related things
-    if (!replaying && !chat.get_type_on()) calc_active();
+    if (verify_mode == INTERACTIVE_MODE && !replaying && !chat.get_type_on()) {
+        calc_active();
+    }
 
     // Jetzt die Schleife für ein Update, also eine Gameplay-Zeiteinheit
     // Dies prueft nicht die lokalen Ticks, sondern richtet sich nur nach
     // den vom Timer gezaehlten Ticks!
     if (!pan.pause.get_on()) {
-        if (pan.speed_turbo.get_on()) {
+        if (verify_mode == VERIFY_MODE) {
+            // update as fast as possilbe
+            update();
+        }
+        else if (pan.speed_turbo.get_on()) {
             if (Help::timer_ticks >= timer_tick_last_update
                                    + timer_ticks_for_update_fast)
              for (unsigned i = 0; i < turbo_times_faster_than_fast; ++i) {

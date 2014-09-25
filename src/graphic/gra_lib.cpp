@@ -10,12 +10,15 @@
 
 GraLib* GraLib::singleton = 0;
 
+// I think these magic numbers are only to separate between recoloring
+// lixes and recoloring icons. eidrecol behaves differently based on
+// the magic number. recolor_into_vector skips some rows based on them
 static const int magicnr_sheet = 1;
 static const int magicnr_icons = 2;
 
 
 
-GraLib::GraLib()
+GraLib::GraLib(RecolorLix recolor_lix)
 {
     // Die Verzeichnisse nach Bilddateien durchsuchen
     Help::find_tree(gloB->dir_data_bitmap, gloB->mask_anything,
@@ -60,9 +63,11 @@ GraLib::GraLib()
     }
     // Alle Pixel sind abgegrast.
 
-    // Prepare Lix sprites in multiple colors
-    recolor_into_vector(cb, style, magicnr_sheet);
-    recolor_into_vector(internal[gloB->file_bitmap_game_icon.
+    // Prepare Lix sprites in multiple colors and
+    // prepare panel icons in multiple colors. recolor_lix is a speed switch:
+    // In replay verify mode, there is no relocoring, only copying
+    recolor_into_vector(recolor_lix, cb, style, magicnr_sheet);
+    recolor_into_vector(recolor_lix, internal[gloB->file_bitmap_game_icon.
                         get_rootless_no_extension()], icons, magicnr_icons);
 
     // Make GUI elements have the correct colors
@@ -180,6 +185,7 @@ void GraLib::eidrecol_api(Cutbit& cutbit, int magicnr)
 
 
 void GraLib::recolor_into_vector(
+    RecolorLix            recolor_lix,
     const Cutbit&         cutbit,
     std::vector <Cutbit>& vector,
     int                   magicnr
@@ -191,6 +197,9 @@ void GraLib::recolor_into_vector(
 
     int col_break = getpixel(lix, lix->w - 1, 0);
     vector = std::vector <Cutbit> (LixEn::STYLE_MAX, cutbit);
+
+    if (recolor_lix == LOAD_WITHOUT_RECOLOR_LIX_FOR_SPEED) return;
+
     // The first row (y == 0) contains the source pixels. The first style
     // (garden) is at y == 1. Thus the recol->h - 1 is correct as we count
     // styles starting at 0.
@@ -258,9 +267,9 @@ GraLib::~GraLib()
 
 
 
-void GraLib::initialize()
+void GraLib::initialize(RecolorLix rcl)
 {
-    if (!singleton) singleton = new GraLib;
+    if (!singleton) singleton = new GraLib(rcl);
 }
 
 

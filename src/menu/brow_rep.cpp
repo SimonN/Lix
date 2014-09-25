@@ -169,50 +169,63 @@ void ReplayBrowser::calc_self()
 void ReplayBrowser::on_file_highlight(const Filename& filename)
 {
     Replay r(filename);
-    Level  l(r.get_level_filename());
-    set_preview(l);
 
     if (r.get_file_not_found()) {
         button_delete.hide();
         button_extract.hide();
         clear_preview();
+        return;
     }
-    else if (l.get_status() == Level::BAD_FILE_NOT_FOUND) {
-        button_delete.show();
-        button_extract.hide();
+
+    // from here, the replay file exists.
+    button_delete.show();
+
+    // Try both the contained level l and the pointed-to level.
+    // Use the contained level if possible.
+    Level l(filename);
+    if (l.get_good()) {
+        button_extract.show();
     }
     else {
-        const unsigned long over = gloB->version;
-        const unsigned long omin = gloB->version_min;
-        const unsigned long rmin = r.get_version_min();
-        const Date&         dlev = l.built;
-        const Date&         drep = r.get_built_required();
-        const bool   showcontain = r.get_holds_level()
-                                   && filename == r.get_level_filename();
-
-        std::string pl = Language::browser_info_player  + ' ';
-        std::string ti = Language::browser_info_version + ' ';
-        std::string bu = Language::browser_info_built   + ' ';
-        desc_info_player .set_text(pl);
-        desc_info_version.set_text(ti);
-        desc_info_built  .set_text(bu);
-
-        pl +=               r.get_player_local_name();
-        ti += rmin > over ? Language::browser_info_old
-            : rmin < omin ? Language::browser_info_new
-            :               Language::browser_info_same;
-        bu += showcontain ? Language::browser_info_holds_level
-            : drep > dlev ? Language::browser_info_old
-            : drep < dlev ? Language::browser_info_new
-            :               Language::browser_info_same;
-
-        label_info_player.set_text(pl);
-        label_info_version.set_text(ti);
-        label_info_built.set_text(bu);
-
-        button_delete.show();
-        button_extract.set_hidden(!r.get_holds_level());
+        button_extract.hide();
+        l = Level(r.get_level_filename());
+        if (! l.get_good()) {
+            clear_preview();
+            return;
+        }
     }
+
+    // From here, at least one level is good.
+    // If both levels are good, we have preferred the contained one.
+    // l is the pointed-to level only if the contained one is bad.
+    set_preview(l);
+
+    const unsigned long over = gloB->version;
+    const unsigned long omin = gloB->version_min;
+    const unsigned long rmin = r.get_version_min();
+    const Date&         dlev = l.built;
+    const Date&         drep = r.get_built_required();
+    const bool   showcontain = ! button_extract.get_hidden();
+
+    std::string pl = Language::browser_info_player  + ' ';
+    std::string ti = Language::browser_info_version + ' ';
+    std::string bu = Language::browser_info_built   + ' ';
+    desc_info_player .set_text(pl);
+    desc_info_version.set_text(ti);
+    desc_info_built  .set_text(bu);
+
+    pl +=               r.get_player_local_name();
+    ti += rmin > over ? Language::browser_info_old
+        : rmin < omin ? Language::browser_info_new
+        :               Language::browser_info_same;
+    bu += showcontain ? Language::browser_info_holds_level
+        : drep > dlev ? Language::browser_info_old
+        : drep < dlev ? Language::browser_info_new
+        :               Language::browser_info_same;
+
+    label_info_player.set_text(pl);
+    label_info_version.set_text(ti);
+    label_info_built.set_text(bu);
 }
 
 
@@ -220,11 +233,15 @@ void ReplayBrowser::on_file_highlight(const Filename& filename)
 void ReplayBrowser::on_file_select(const Filename& filename)
 {
     Replay r(filename);
-    Level  l(r.get_level_filename());
+    Level  l(filename);
 
-    if (l.get_status() == Level::GOOD) {
+    // like in on_file_highlight(), use l if good, use pointed only if l bad
+    if (! l.get_good()) {
+        l = Level(r.get_level_filename());
+    }
+    if (l.get_good()) {
         set_exit_with(EXIT_WITH_OKAY);
-        useR->replay_last_level = get_current_file();
+        useR->replay_last_level = filename;
     }
 }
 

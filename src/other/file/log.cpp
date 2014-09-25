@@ -111,3 +111,19 @@ void Log::log(Priority p, const std::string& s, int i) {
         singl->file << ' ' << s << ' ' << i << std::endl;
     }
 }
+
+void Log::log(Priority p, const std::string& s, const std::string& t) {
+    if ((singl->priority == ERROR && p == ERROR)
+     || (singl->priority == INFO  && p == ERROR)
+     || (singl->priority == INFO  && p == INFO)) {
+
+        char time[10];
+        sprintf(time, "%9.2f", (float) Help::timer_ticks
+                                     / Help::timer_ticks_per_second);
+        log_header_if_necessary();
+        singl->file << time << ' ';
+        if (p == ERROR) singl->file << Language::log_error;
+        else            singl->file << Language::log_info;
+        singl->file << ' ' << s << ' ' << t << std::endl;
+    }
+}

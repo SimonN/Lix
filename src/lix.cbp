@@ -370,6 +370,8 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="other/types.h" />
 		<Unit filename="other/user.cpp" />
 		<Unit filename="other/user.h" />
+		<Unit filename="other/verify.cpp" />
+		<Unit filename="other/verify.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -28,6 +28,13 @@
 
 class GraLib {
 
+public:
+
+    enum RecolorLix {
+        LOAD_WITH_RECOLOR_LIX,
+        LOAD_WITHOUT_RECOLOR_LIX_FOR_SPEED
+    };
+
 private:
 
     static GraLib* singleton;
@@ -47,7 +54,9 @@ private:
     // similar things that require both a GUI and a player color recoloring.
            void eidrecol_api       (const Filename&);
            void eidrecol_api       (Cutbit&, int = 0);
-           void recolor_into_vector(const Cutbit&, std::vector <Cutbit>&,
+           void recolor_into_vector(RecolorLix,
+                                    const Cutbit&,
+                                    std::vector <Cutbit>&,
                                     int = 0);
 
     // GraLib holds the strings which ObjLib uses to replace files
@@ -55,7 +64,7 @@ private:
            void add_replace        (const std::string&, const std::string&);
            void add_substr_replace (const std::string&, const std::string&);
 
-    GraLib();
+    GraLib(RecolorLix);
     ~GraLib();
 
     // Kopierverbot
@@ -64,7 +73,7 @@ private:
 
 public:
 
-    static void  initialize();
+    static void  initialize(RecolorLix);
     static void  deinitialize();
 
     static const Cutbit& get      (const Filename&);

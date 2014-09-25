@@ -90,7 +90,6 @@ public:
 private:
 
     bool              file_not_found; // Stammt aus nichtext. Datei?
-    bool              holds_level;    // Level im Replay?
 
     Ulng              version_min;
     Date              built_required; // Welche Version vom Level ist OK?
@@ -110,8 +109,7 @@ public:
     Replay(const Filename&);
     ~Replay();
 
-    inline void set_level_filename(const Filename& s) { level_filename = s;
-                                                        holds_level = false;}
+    inline void set_level_filename(const Filename& s) { level_filename = s; }
     inline const Filename& get_level_filename()      { return level_filename;}
     inline const std::set <Player>& get_players()    { return players;       }
            void  add_player(Uint pos, LixEn::Style s, const std::string& name);
@@ -129,7 +127,6 @@ public:
     inline Uint get_max_updates    () const        { return max_updates;     }
 
     inline bool get_file_not_found () const        { return file_not_found;  }
-    inline bool get_holds_level    () const        { return holds_level;     }
 
     bool        equal_before                   (const Replay&, Ulng) const;
 

@@ -294,6 +294,7 @@ bool fill_vector_from_stream(std::vector <Line>& v, std::istream& in)
 
 
 
+
 // This isn't just an exact copy of the function above, with just the string
 // instead of Line(string) pushed back. This actually cares about empty lines,
 // and is still compatible with any line ending.

@@ -10,16 +10,22 @@
 #include "../other/globals.h"
 #include "../other/hardware.h"
 #include "../other/help.h"
-#include "../other/user.h"
 
 // Statische Konstanten initialisieren
 const int Gameplay::block_s = 14; // Blocker-Abstand zur Seite
 const int Gameplay::block_u = 16; // nach oben
 const int Gameplay::block_d =  8; // nach unten
 
+// continue for 10 minutes in verifier mode before the gameplay aborts
+const int Gameplay::updates_before_run_forever = 15*60*10;
+
+
+
 // Standardkonstruktor
-Gameplay::Gameplay(Replay* rep)
-:
+Gameplay::Gameplay(
+    Gameplay::VerifyMode vrfm,
+    Replay* rep
+) :
     // Constants
     turbo_times_faster_than_fast (8),
     timer_ticks_for_update_fast  (Help::timer_ticks_per_second/60),
@@ -34,9 +40,9 @@ Gameplay::Gameplay(Replay* rep)
 
     // Variables
     exit                   (false),
+    verify_mode            (vrfm),
     filename               (determine_filename(rep)),
-    level                  (Network::get_started()
-                            ? Network::get_level() : filename),
+    level                  (determine_level()),
     trlo                   (0),
     malo                   (0),
     local_ticks            (0),
@@ -95,8 +101,18 @@ Gameplay::~Gameplay()
 
 const Filename& Gameplay::determine_filename(Replay* rep)
 {
-    if (rep) {
+    if (rep && verify_mode == VERIFY_MODE) {
+        // always use the contained level
         return rep->get_level_filename();
+    }
+    else if (rep && verify_mode == INTERACTIVE_MODE) {
+        // try the contained level, only then try the pointed-to level
+        Level l(useR->replay_last_level);
+        if (l.get_good()) return useR->replay_last_level;
+        else return rep->get_level_filename();
+        // we assume that at least one of these two possibilities has a
+        // good level. If neither does, the replay browser should have stopped
+        // us from entering Gameplay in the first place.
     }
     else if (Network::get_started()) {
         return gloB->empty_filename;
@@ -105,6 +121,17 @@ const Filename& Gameplay::determine_filename(Replay* rep)
     else {
         return useR->single_last_level;
     }
+}
+
+
+
+const Level Gameplay::determine_level() {
+    if (Network::get_started()) {
+        return Network::get_level();
+    }
+    // in determine_filename, we've set this to useR->replay_last_level
+    // or to the level filename contained in there, based on which level was OK
+    else return Level(filename);
 }
 
 
@@ -453,6 +480,14 @@ void Gameplay::on_hint_change_callback(void* v, const int hint_cur)
 
 
 
+Result Gameplay::get_result()
+{
+    return Result(level.built, trlo->lix_saved,
+        trlo->skills_used, update_last_exiter);
+}
+
+
+
 void Gameplay::save_result()
 {
     if (!trlo || !malo) return;
@@ -466,9 +501,14 @@ void Gameplay::save_result()
      && trlo->lix_saved >= level.required
      && malo->name      == gloB->user_name)
     {
-        Result res(level.built, trlo->lix_saved,
-         trlo->skills_used, update_last_exiter);
-        useR->set_level_result_force_this_built(filename, res);
+        useR->set_level_result_force_this_built(filename, get_result());
         useR->save();
     }
+}
+
+
+
+bool Gameplay::will_run_forever()
+{
+    return cs.update > replay.get_max_updates() + updates_before_run_forever;
 }

@@ -10,7 +10,7 @@
  *
  *   Lix -- a multiplayer-capable action-puzzle game
  *
- *   Written in 2006 to 2012 by Simon <eiderdaus@gmail.com> and others.
+ *   Written in 2006 to right now by Simon <eiderdaus@gmail.com> and others.
  *   See ./doc/copying.txt for the full credits for code, graphics, levels, ...
  *
  *   To the extent possible under law, the authors have dedicated all copyright
@@ -40,16 +40,17 @@
 
 #include "lmain.h" // Main object to manage the different parts of the program
 #include "user.h"
-
+#include "verify.h"
 #include "file/log.h"
-#include "../lix/lix_enum.h" // initialize strings
 
+#include "../lix/lix_enum.h" // initialize strings
 #include "../graphic/png/loadpng.h"
 
 struct MainArgs {
     std::string scr_m;
     int  scr_f, scr_x, scr_y;
     bool sound_load_driver;
+    std::vector <std::string> replays_to_verify;
 };
 static MainArgs parse_main_arguments(int, char*[]);
 static void     setenv_allegro_modules();
@@ -85,32 +86,43 @@ int main(int argc, char* argv[])
     useR->load();
     MainArgs margs = parse_main_arguments(argc, argv);
 
-    // Allegro preparations, no graphics function are called yet
-    install_keyboard();
-    hardware.set_mouse_accel_on_windows(useR->mouse_acceleration);
-    install_mouse();
-    if (margs.sound_load_driver) Sound::initialize();
+    // Graphics are needed both by interactive and noninteractive mode
+    ::set_color_depth(16);
 
-    // Allegro graphics
-    set_color_depth(16);
-    set_screen_mode(margs.scr_f, margs.scr_m, margs.scr_x, margs.scr_y);
-    set_window_title(Language::main_name_of_the_game.c_str());
+    if (margs.replays_to_verify.empty()) {
+        // interactive mode, i.e., no replay checking mode
 
-    load_all_bitmaps();
-    Network::initialize();
+        install_keyboard();
+        hardware.set_mouse_accel_on_windows(useR->mouse_acceleration);
+        install_mouse();
+        if (margs.sound_load_driver) Sound::initialize();
 
-    // Main loop. See other/lmain.cpp for this.
-    LMain* l_main = new LMain;
-    l_main->main_loop();
-    delete l_main;
+        set_screen_mode(margs.scr_f, margs.scr_m, margs.scr_x, margs.scr_y);
+        set_window_title(Language::main_name_of_the_game.c_str());
 
-    // Clean up
-    useR->save();
-    gloB->save();
+        load_all_bitmaps(GraLib::LOAD_WITH_RECOLOR_LIX);
+        Network::initialize();
 
-    Network::deinitialize();
-    destroy_all_bitmaps();
-    Sound::deinitialize();
+        // Main loop. See other/lmain.cpp for this.
+        LMain* l_main = new LMain;
+        l_main->main_loop();
+        delete l_main;
+
+        // Clean up
+        useR->save();
+        gloB->save();
+
+        destroy_all_bitmaps();
+
+        Network::deinitialize();
+        Sound::deinitialize();
+    }
+
+    else {
+        // noninteractive mode that checks replays
+        Verifier(margs.replays_to_verify);
+    }
+
     Log::deinitialize();
     Globals::deinitialize();
 
@@ -136,12 +148,17 @@ MainArgs parse_main_arguments(int argc, char *argv[])
     main_args.scr_x = 0;
     main_args.scr_y = 0;
     main_args.sound_load_driver = gloB->sound_load_driver;
+    main_args.replays_to_verify.clear();
 
     // Check all arguments for any occurence of the switch-defining letters
     for (int i = 1; i < argc; ++i) {
         std::string arg = argv[i];
         if (arg.substr(0, 10) == "--gfxmode=") {
             main_args.scr_m = arg.substr(10, std::string::npos);
+        }
+        else if (arg.substr(0, 9) == "--verify=") {
+            main_args.replays_to_verify.push_back(
+             arg.substr(9, std::string::npos));
         }
         else if (! arg.empty() && arg[0] == '-') {
             for (size_t pos = 1; pos < arg.size(); ++pos) switch (arg[pos]) {

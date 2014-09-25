@@ -77,10 +77,11 @@ public:
            static void log (Priority, int);
            static void log (Priority, const std::string&);
            static void log (Priority, const std::string&, int);
+           static void log (Priority, const std::string&, const std::string&);
     inline static void log (          int i)                       { log(INFO, i);    }
     inline static void log (          const std::string& s)        { log(INFO, s);    }
     inline static void log (          const std::string& s, int i) { log(INFO, s, i); }
-
-
+    inline static void log (          const std::string& s,
+                                      const std::string& t)        { log(INFO, s, t); }
 
 };

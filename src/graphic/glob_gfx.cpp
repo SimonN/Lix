@@ -33,7 +33,7 @@ void make_all_lix_colors();
 void make_lix_color(const LixEn::Style, const int = 0, const int = 0,
                                         const int = 0, const int = 0);
 
-void load_all_bitmaps()
+void load_all_bitmaps(GraLib::RecolorLix recolor_lix_speed_switch)
 {
     Api::Manager::initialize(LEMSCR_X, LEMSCR_Y);
     Torbit* osd = &Api::Manager::get_torbit();
@@ -64,7 +64,7 @@ void load_all_bitmaps()
     Lixxie::initialize_this_gets_called_from_glob_gfx_cpp();
 
     // Bilder laden und so Zeugs
-    GraLib::initialize();
+    GraLib::initialize(recolor_lix_speed_switch);
     ObjLib::initialize();
 
     // Schriftarten laden

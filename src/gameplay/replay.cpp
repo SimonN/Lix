@@ -16,7 +16,6 @@
 Replay::Replay()
 :
     file_not_found(false),
-    holds_level   (false),
     version_min   (gloB->version_min),
     built_required(gloB->empty_string),
     level_filename(gloB->empty_filename),
@@ -41,7 +40,6 @@ Replay::~Replay()
 void Replay::clear()
 {
     file_not_found = false;
-    holds_level    = false;
     version_min    = gloB->version_min;
     built_required = gloB->empty_string;
     level_filename = gloB->empty_filename;
@@ -278,8 +276,7 @@ void Replay::save_as_auto_replay(const Level* const lev)
 
 void Replay::save_to_file(const Filename& s, const Level* const lev)
 {
-    bool save_level_into_file = holds_level
-                             || level_filename == gloB->empty_filename
+    bool save_level_into_file = level_filename == gloB->empty_filename
                              || lev != 0;
 
     // We currently override the above check, and will always save a level
@@ -357,7 +354,6 @@ void Replay::load_from_file(const Filename& fn)
     std::vector <IO::Line> lines;
     if (!IO::fill_vector_from_file(lines, fn.get_rootful())) {
         file_not_found = true;
-        holds_level    = false;
         return;
     }
 
@@ -410,27 +406,5 @@ void Replay::load_from_file(const Filename& fn)
 
     // Variablen nach dem Laden zuweisen, damit add() nichts kaputtmacht
     version_min = vm;
-
-    // check whether the pointed-to level exists, otherwise use itself
-    // as a fallback level
-    Level pointedto(level_filename);
-    if (pointedto.get_status() == Level::BAD_FILE_NOT_FOUND
-     || pointedto.get_status() == Level::BAD_EMPTY) {
-        level_filename = fn;
-    }
-
-    // load the replay file itself as a level, to see whether there's a level
-    // in the file itself. This is important e.g. for the extract button.
-    Level itself(fn);
-    if (itself.get_status() == Level::BAD_FILE_NOT_FOUND
-     || itself.get_status() == Level::BAD_EMPTY) {
-        holds_level = false;
-    }
-    else {
-        holds_level = true;
-        if (level_filename == fn) {
-            built_required = Level::get_built(level_filename);
-        }
-    }
 
 }

@@ -875,7 +875,7 @@ void OptionMenu::calc_self()
         if (reload_gralib) {
             make_all_colors();
             GraLib::deinitialize();
-            GraLib::initialize();
+            GraLib::initialize(GraLib::LOAD_WITH_RECOLOR_LIX);
             // the mouse cursor must be recerated by the Menu class
         }
 
