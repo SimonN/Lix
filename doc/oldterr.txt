@@ -86,14 +86,14 @@ all else is small case (including the extension).
     ... a total of 12 of these ...
     ./images/orig/L2/Sports/Sports.dat
 
-Note that for CAVEMAN.DAT, this file must be named Cavelems.dat
-(not Caveman.dat) and its directory must also be called Cavelems.
+For CAVEMAN.DAT, this file must be named Cavelems.dat -- not Caveman.dat --
+and its directory must also be called Cavelems.
 
 Windows users can also run the following batch script which produces the L2
 folder with the required content instead to ease the process (create a file
 decompress.bat in your Lemmings 2 folder with the following content):
 
-	copy -r Styles L2
+	xcopy /I Styles L2
 	for %%b in (Classic Beach Circus Egyptian
 	Highland Medieval Outdoor Polar Shadow Space Sports) do (
 		md L2\%%b
@@ -103,7 +103,7 @@ decompress.bat in your Lemmings 2 folder with the following content):
 	md L2\Cavelems
 	move L2\Caveman.dat L2\Cavelems\Cavelems.dat
 
-Linux users probably know how to setup a shell script to do the work.
+Linux users probably know how to set up a shell script to do the work.
 
 Note that if you're going to include content from those Lemmings games,
 you shouldn't distribute your game directory as a whole any more.
