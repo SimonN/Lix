@@ -8,6 +8,7 @@
 
 #include <climits>
 #include "editor.h"
+#include "../level/level_me.h"
 #include "../level/obj_lib.h" // Suche nach Terrain/Spezialobjekten
 #include "../other/user.h"
 
@@ -255,7 +256,7 @@ Api::BoxMessage* Editor::new_box_unsaved_data(const Level& l)
         std::string s1 = Language::editor_file_name  + ' '
                        + useR->single_last_level.get_rootless();
         std::string s2 = Language::editor_level_name + ' '
-                       + Level::get_name(useR->single_last_level);
+                       + LevelMetaData(useR->single_last_level).get_name();
 
         box = new Api::BoxMessage(500, 3, Language::editor_unsaved_title);
         box->add_text(Language::editor_unsaved_question);

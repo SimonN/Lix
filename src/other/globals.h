@@ -357,6 +357,7 @@ public:
         file_bitmap_lix_recol,
         file_bitmap_lobby_spec,
         file_bitmap_menu_background,
+        file_bitmap_menu_checkmark,
         file_bitmap_mouse,
         file_bitmap_preview_icon,
 

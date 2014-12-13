@@ -342,6 +342,7 @@ Globals::Globals()
     file_bitmap_lix_recol        (dir_data_bitmap.get_dir_rootless() + "lixrecol.I"),
     file_bitmap_lobby_spec       (dir_data_bitmap.get_dir_rootless() + "lobby_sp.I"),
     file_bitmap_menu_background  (dir_data_bitmap.get_dir_rootless() + "menu_bg.I"),
+    file_bitmap_menu_checkmark   (dir_data_bitmap.get_dir_rootless() + "menu_chk.I"),
     file_bitmap_mouse            (dir_data_bitmap.get_dir_rootless() + "mouse.I"),
     file_bitmap_preview_icon     (dir_data_bitmap.get_dir_rootless() + "prev_ico.I"),
 

@@ -207,11 +207,9 @@ struct Level {
     void export_image    (const Filename&) const;
     void clear();
 
-    // Statische Funktionen ausser == und !=
-    static std::string get_name (const Filename&);
-    static std::string get_built(const Filename&);
-
 private:
+
+    friend class LevelMetaData;
 
     Status status;
 
@@ -229,10 +227,6 @@ private:
                           int, int, const std::string&);
     void record_missing_image      (const std::string&);
 
-    // Statisches Hilfszeug
-    static std::string get_name_ascii  (const Filename&);
-    static std::string get_name_binary (const Filename&);
-    static std::string get_name_lemmini(const Filename&);
     static FileFormat  get_file_format (const Filename&);
 
 };

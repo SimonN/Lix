@@ -1,7 +1,7 @@
 #include "brow_sav.h"
 #include "manager.h"
 
-#include "../level/level.h" // fuer die haeufig benutzte/beispielhafte Box
+#include "../level/level_me.h" // fuer die haeufig benutzte/beispielhafte Box
 #include "../other/help.h"
 #include "../other/user.h"
 
@@ -235,7 +235,7 @@ BoxMessage* SaveBrowser::new_box_overwrite_level(const Filename &filename)
     std::string s1 = Language::editor_file_name  + ' '
                    + filename.get_rootless();
     std::string s2 = Language::editor_level_name + ' '
-                   + Level::get_name(filename);
+                   + LevelMetaData(filename).get_name();
 
     Api::BoxMessage* box_overwrite = new Api::BoxMessage(500, 3,
                                      Language::save_box_overwrite_title);

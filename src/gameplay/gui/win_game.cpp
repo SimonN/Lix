@@ -12,7 +12,8 @@
 #include "../../other/help.h"
 #include "../../other/globals.h"
 #include "../../other/user.h"
-#include "../../level/level.h" // Minimalabmasse fuer Level fuer Fensterposition
+#include "../../level/level_me.h"
+#include "../../level/level.h" // minimal sizes of level for window position
 
 namespace Api {
 
@@ -306,7 +307,7 @@ void WindowGameplay::calc_self()
              new_box_overwrite, true); // true = benutze Replay-Style
             browser_save->set_info_filename(replay->get_level_filename());
             browser_save->set_info_level_name(
-             Level::get_name(replay->get_level_filename()));
+             LevelMetaData(replay->get_level_filename()).get_name());
             browser_save->set_texttype(replay->get_canonical_save_filename());
             Manager::add_focus(browser_save);
         }
@@ -344,7 +345,7 @@ Api::BoxMessage* WindowGameplay::new_box_overwrite(const Filename& file)
     r.load_from_file(file);
     std::string s1 = Language::editor_file_name + ' ' + file.get_rootless();
     std::string s2 = Language::editor_level_name
-                   + ' ' + Level::get_name(r.get_level_filename());
+                   + ' ' + LevelMetaData(r.get_level_filename()).get_name();
     Api::BoxMessage* box_overwrite = new Api::BoxMessage(500, 3,
                                      Language::win_game_overwrite_title);
     box_overwrite->add_text(Language::win_game_overwrite_question);

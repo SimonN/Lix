@@ -188,26 +188,3 @@ void Level::load_from_lemmini(const Filename& filename)
 
     load_finalize_binary_or_lemmini(filename);
 }
-
-
-
-std::string Level::get_name_lemmini(const Filename& filename)
-{
-    std::string ret;
-    std::ifstream file(filename.get_rootful().c_str());
-    if (! file.good()) return ret;
-
-    while (file >> ret) {
-        if (ret == "name") {
-            file >> ret; // parse the "=";
-            ret.clear();
-            char c;
-            while (file.get(c)) {
-                if (c == ' ' && ret.empty()) ; // discard the space
-                else if (c != '\n' && c != '\r') ret += c;
-            }
-            break; // done reading the rest of the line
-        }
-    }
-    return ret;
-}

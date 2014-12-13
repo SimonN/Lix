@@ -9,6 +9,7 @@
 
 #include "../api/manager.h"
 #include "../level/crunch.h"
+#include "../level/level_me.h"
 #include "../other/user.h"
 
 namespace Api {
@@ -117,9 +118,9 @@ void SingleBrowser::calc_self()
         else if (button_delete.get_clicked()) {
             if (exists(get_current_file().get_rootful().c_str())) {
                 std::string s1 = Language::editor_file_name
-                               + ' ' + get_current_file().get_rootless();
+                 + ' ' + get_current_file().get_rootless();
                 std::string s2 = Language::editor_level_name
-                               + ' ' + Level::get_name(get_current_file());
+                 + ' ' + LevelMetaData(get_current_file()).get_name();
                 box_delete = new Api::BoxMessage(500, 3,
                                        Language::browser_box_delete_tit_lev);
                 box_delete->add_text(Language::browser_box_delete_que_lev);

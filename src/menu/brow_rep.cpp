@@ -7,6 +7,7 @@
 
 #include "../api/manager.h"
 #include "../gameplay/replay.h"
+#include "../level/level_me.h"
 #include "../other/user.h"
 
 namespace Api {
@@ -135,8 +136,8 @@ void ReplayBrowser::calc_self()
                            Api::SaveBrowser::search_criterion_level,
                            Api::SaveBrowser::new_box_overwrite_level);
             browser_save->set_y(50); // mittig, nicht der Editor-Standard
-            browser_save->set_info_level_name(Level::get_name(
-                                            useR->replay_last_level));
+            browser_save->set_info_level_name(LevelMetaData(
+             useR->replay_last_level).get_name());
             browser_save->set_info_filename(useR->replay_last_level);
             Manager::add_focus(browser_save);
         }
@@ -144,9 +145,9 @@ void ReplayBrowser::calc_self()
             if (exists(get_current_file().get_rootful().c_str())) {
                 Replay r(get_current_file());
                 std::string s1 = Language::editor_file_name
-                               + ' ' + get_current_file().get_rootless();
+                 + ' ' + get_current_file().get_rootless();
                 std::string s2 = Language::editor_level_name
-                               + ' ' + Level::get_name(r.get_level_filename());
+                 + ' ' + LevelMetaData(r.get_level_filename()).get_name();
                 box_delete = new Api::BoxMessage(500, 3,
                                        Language::browser_box_delete_tit_rep);
                 box_delete->add_text(Language::browser_box_delete_que_rep);

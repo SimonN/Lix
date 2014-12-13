@@ -384,13 +384,3 @@ std::string read_level_name_bytes(std::ifstream& file)
 
     return ret;
 }
-
-
-
-std::string Level::get_name_binary(const Filename& filename)
-{
-    std::ifstream file(filename.get_rootful().c_str(), std::ios::binary);
-    std::string ret = read_level_name_bytes(file);
-    file.close();
-    return ret;
-}

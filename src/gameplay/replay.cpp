@@ -9,7 +9,7 @@
 #include "replay.h"
 
 #include "../level/level.h"
-
+#include "../level/level_me.h"
 #include "../other/file/io.h"
 #include "../other/language.h"
 
@@ -290,9 +290,12 @@ void Replay::save_to_file(const Filename& s, const Level* const lev)
     // now, and use the level in the replay as a fallback if there is nothing
     // at the pointed-to level position.
     if (true || !save_level_into_file) {
-        built_required = Level::get_built(level_filename);
+        LevelMetaData lmd(level_filename);
+        if (lmd.get_file_exists()) {
+            built_required = lmd.built;
+        }
         // Write the path to the level, but omit the leading (dir-levels)/
-        // This if is just against a crash in networking games.
+        // This "if" is just against a crash in networking games.
         if (level_filename.get_rootless().size()
          >  gloB->dir_levels.get_dir_rootless().size())
         {

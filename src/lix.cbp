@@ -269,6 +269,8 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="level/level_bi.cpp" />
 		<Unit filename="level/level_dr.cpp" />
 		<Unit filename="level/level_io.cpp" />
+		<Unit filename="level/level_me.cpp" />
+		<Unit filename="level/level_me.h" />
 		<Unit filename="level/level_ni.cpp" />
 		<Unit filename="level/obj_lib.cpp" />
 		<Unit filename="level/obj_lib.h" />
