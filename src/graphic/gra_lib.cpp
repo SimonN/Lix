@@ -85,6 +85,7 @@ GraLib::GraLib(RecolorLix recolor_lix)
     eidrecol_api(gloB->file_bitmap_game_spi_fix);
     eidrecol_api(gloB->file_bitmap_game_pause);
     eidrecol_api(gloB->file_bitmap_lobby_spec);
+    eidrecol_api(gloB->file_bitmap_menu_checkmark);
     eidrecol_api(gloB->file_bitmap_preview_icon);
 
     load_all_file_replacements();

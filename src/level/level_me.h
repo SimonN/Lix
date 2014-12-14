@@ -20,6 +20,7 @@ public:
 
     FileFormat  format;
     Date        built;
+    int         initial;
     int         required;
     std::string name_german;
     std::string name_english;

@@ -50,6 +50,7 @@ void LevelMetaData::read_metadata_lix(const Filename& fn)
         if (i->text1 == gloB->level_built)        built        = i->text2;
         if (i->text1 == gloB->level_name_german)  name_german  = i->text2;
         if (i->text1 == gloB->level_name_english) name_english = i->text2;
+        if (i->text1 == gloB->level_initial)      initial      = i->nr1;
         if (i->text1 == gloB->level_required)     required     = i->nr1;
     }
 }
@@ -66,7 +67,8 @@ void LevelMetaData::read_metadata_binary(const Filename& fn)
     std::ifstream file(fn.get_rootful().c_str(), std::ios::binary);
 
     // see level_bi.cpp for documentation of the L1 format
-    file.seekg(0x4);
+    file.seekg(0x2);
+    initial  = read_two_bytes_levelbi(file);
     required = read_two_bytes_levelbi(file);
     name_english = read_level_name_bytes(file);
     file.close();
@@ -92,6 +94,10 @@ void LevelMetaData::read_metadata_lemmini(const Filename& fn)
                 else s += c;
             }
             name_english = s;
+        }
+        else if (s == "numLemmings") {
+            file >> s; // parse the "="
+            file >> initial;
         }
         else if (s == "numToRescue") {
             file >> s; // parse the "="

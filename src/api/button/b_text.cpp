@@ -11,7 +11,7 @@ TextButton::TextButton(int x, int y, int xl, int yl, const std::string& str)
     text  (str),
     left  (false),
 
-    check_cutbit(&GraLib::get(gloB->file_bitmap_checkbox)),
+    check_cutbit(&GraLib::get(gloB->file_bitmap_menu_checkmark)),
     check_frame (0)
 {
 }

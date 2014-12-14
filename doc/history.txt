@@ -12,6 +12,11 @@
         editing. To learn how to do this, please read about command line switch
         "--verify=" documented in doc/readme.txt.
 
+    Singleplayer Results
+        The singleplayer level browser will now display a small dot next to
+        levels that have been tried, but not yet solved. Levels solved with
+        100 % saved lix are marked distinctly from other solved levels.
+
     Editor save window bugfix
         Chroda has sent in a bug report: The level save browser said
         "filename" twice at the top, instead of "filename" and "level name".
