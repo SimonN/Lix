@@ -69,7 +69,8 @@ void TextButton::draw_self()
         // Haken malen
         if (check_frame) check_cutbit->draw(get_ground(),
          xh + get_xl() - check_cutbit->get_xl(),
-         yh, check_frame, 2*get_on());
+         yh, check_frame, 2*(get_on() && ! get_down())
+        );
     }
 
 }
