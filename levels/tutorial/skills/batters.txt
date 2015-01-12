@@ -1,10 +1,10 @@
 $BUILT 2012-05-29 21:38:28
 $AUTHOR geoo
-$GERMAN 
+$GERMAN
 $ENGLISH Batters and Directional Force
 
-$TUTORIAL_ENGLISH A batter will launch everyone nearby forward into<br>the air. To ensure a skill gets assigned to a lix<br>facing left/right, hold S/F while clicking. Here you<br>can use this to control the direction to fling the lix into.
-$TUTORIAL_GERMAN Ein Batter schleudert jeden in der Naehe nach vorn<br>in die Luft. Um sicherzustelle, dass eine Faehigkeit<br>einer nach links/rechts laufenden Lix gegeben wird,<br>halte S/F beim klicken. Hier kannst du damit die<br>Richtung kontrollieren, in die<br>die anderen fliegen sollen.
+$TUTORIAL_ENGLISH A batter will launch everyone nearby forward into<br>the air. To ensure a skill gets assigned to a lix<br>facing left/right, hold <KEY_FORCE_LEFT>/<KEY_FORCE_RIGHT> while clicking. Here you<br>can use this to control the direction to fling the lix into.
+$TUTORIAL_GERMAN Ein Batter schleudert jeden in der Naehe nach vorn<br>in die Luft. Um zu garantieren, dass eine Faehigkeit<br>einer nach links/rechts laufenden Lix gegeben wird,<br>halte <KEY_FORCE_LEFT>/<KEY_FORCE_RIGHT> beim klicken. Hier kannst du damit die<br>Richtung kontrollieren, in die<br>die anderen fliegen sollen.
 
 #SIZE_X 640
 #SIZE_Y 400
