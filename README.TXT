@@ -17,7 +17,8 @@ Customizing the game:
 
 Miscellaneous information:
 
-    doc/history.txt  - version history of the game
+    doc/history.txt  - version history
+    doc/lixd.txt     - how to run a dedicated Lix server with lixd
     doc/techfaq.txt  - some older troubleshooting tips
 
 Have fun!
