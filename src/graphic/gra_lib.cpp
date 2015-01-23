@@ -103,7 +103,9 @@ GraLib::GraLib(RecolorLix recolor_lix)
 void GraLib::sort_string_into_internal(const Filename& fn, void* v) {
     // zweites Argument: Nur Schneideversuch unternehmen, wenn mit Prae-End.
     if (fn.has_image_extension()) {
-        const Cutbit c(fn, fn.get_pre_extension());
+        const char pre_ext = fn.get_pre_extension();
+        const bool cut = (pre_ext != 0 && pre_ext != gloB->pre_ext_steel[0]);
+        const Cutbit c(fn, cut);
         ((GraLib*) v)->internal.insert(
             std::make_pair(fn.get_rootless_no_extension(), c));
     }
