@@ -69,7 +69,6 @@ private:
                           // has player_local as its player number
 
     unsigned long local_ticks;
-    unsigned long update_last_exiter; // fuer Einspieler-Rekord
     unsigned long timer_tick_last_update;
     unsigned long timer_tick_last_F1;
     unsigned long timer_tick_last_F2;
@@ -147,6 +146,7 @@ private:
     void update_lix          (Lixxie&, const UpdateArgs&);
     void update_lix_blocker  (Lixxie&);
     void update_lix_goals    (Lixxie&, const UpdateArgs&);
+    void score_lix_for_tribe (Lixxie&, const UpdateArgs&, Tribe& tribe);
     void make_knockback_explosion(const unsigned long, const Tribe&,
                                   const unsigned,      const int, const int);
     void finally_fling       (Lixxie&);

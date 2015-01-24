@@ -106,7 +106,7 @@ void Gameplay::calc_self()
 
 
 
-    // ec kurz fuer exit_count
+    // ec kurz fuer exit_count. game ends when this is 0.
     unsigned ec = 0;
     for (Tribe::CIt t = cs.tribes.begin(); t != cs.tribes.end(); ++t)
         ec += t->lix_hatch + t->get_lix_out();
@@ -138,7 +138,7 @@ void Gameplay::calc_self()
             // Singleplayer
             window_gameplay = new Api::WindowGameplay(&replay, trlo,
                 // Eye candy when not saving anything, won't be saved anyway
-                (trlo->lix_saved > 0 ? update_last_exiter : cs.update),
+                (trlo->lix_saved > 0 ? trlo->update_saved : cs.update),
                 level.required, level.initial, level.get_name());
             Api::Manager::add_focus(window_gameplay);
         }

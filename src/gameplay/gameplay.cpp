@@ -47,7 +47,6 @@ Gameplay::Gameplay(
     trlo                   (0),
     malo                   (0),
     local_ticks            (0),
-    update_last_exiter     (0),
     timer_tick_last_update (Help::timer_ticks),
     timer_tick_last_F1     (0),
     timer_tick_last_F2     (0),
@@ -497,7 +496,7 @@ void Gameplay::on_hint_change_callback(void* v, const int hint_cur)
 Result Gameplay::get_result()
 {
     return Result(level.built, trlo->lix_saved,
-        trlo->skills_used, update_last_exiter);
+         trlo->skills_used, trlo->update_saved);
 }
 
 
@@ -514,7 +513,7 @@ void Gameplay::save_result()
     // Since 2014-12, we're saving results even if they have less lix than
     // required, to mark the level as having been looked at.
     if (! multiplayer
-     && malo->name      == gloB->user_name)
+     && malo->name == gloB->user_name)
     {
         useR->set_level_result_force_this_built(filename, get_result());
         useR->save();

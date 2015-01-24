@@ -59,6 +59,7 @@ struct Tribe {
 
     int         lix_hatch;
     int         lix_saved;
+    int         lix_saved_after_timelimit;
     int         lix_out; // change this only when killing/generating lixes.
     int         spawnint_slow;
     int         spawnint_fast;
@@ -66,6 +67,7 @@ struct Tribe {
     bool        nuke;
 
     unsigned long update_hatch;
+    unsigned long update_saved; // last lix saved within timelimit
     int           hatch_next;
 
     std::vector <Skill>  skill;
