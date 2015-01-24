@@ -82,7 +82,7 @@ void Gameplay::draw() {
     // Statusanzeige
     if (cs.clock > 0) pan.stats.set_use_countdown();
     pan.stats.set_countdown(cs.clock);
-    pan.stats.set_stopwatch(cs.update);
+    pan.stats.set_stopwatch(cs.update - state_manager.get_zero().update);
 
     Api::Manager::draw(); // draw all elements to its torbit
 
