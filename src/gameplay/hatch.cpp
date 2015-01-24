@@ -1,9 +1,9 @@
 #include "hatch.h"
 #include "../graphic/gra_lib.h"
 
-const unsigned long GameHatch::update_lets_go        (15);
-const unsigned long GameHatch::update_open           (30);
-const unsigned long GameHatch::update_blink_stop     (30);
+const unsigned long GameHatch::update_lets_go        (35);
+const unsigned long GameHatch::update_open           (50);
+const unsigned long GameHatch::update_blink_stop     (48);
 const unsigned long GameHatch::updates_blink_on      ( 4);
 const unsigned long GameHatch::updates_blink_off     ( 2);
 

@@ -352,6 +352,18 @@ void Gameplay::prepare_level()
         break;
     }
 
+    // faster start in singleplayer
+    if (! multiplayer || replaying) {
+        // ... but not in tutorials
+        const std::vector <std::string>& hi = lv.get_hints();
+        if (hi.empty() || hi[0].empty()) {
+            // faster start
+            cs.update = 30;
+        }
+    }
+
+    // now the initial state of the game is set. Save this, so the reload
+    // button can fetch it back later
     state_manager.save_zero(cs);
 }
 
