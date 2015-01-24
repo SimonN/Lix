@@ -4,6 +4,42 @@
 \_____________________________________________________________________________/
 
 
+2014-01-25
+
+    Soft time limit in singleplayer
+        When running out of time in singlepalyer, instead of nuking, the exits
+        will not add further saved lix to the saved score. Instead, such
+        lix will be added to a saved-too-late score that is ignored for the
+        solution. This allows the player to practise timed levels easier.
+        However, there is no time bonus from the nuke any more, which has
+        allowed late-spawned lix to walk on and exit after running out of time.
+
+    Exiters count immediately
+        When a lix reaches an exit, it's counted immediately towards the
+        score. The lix doesn't have to go through its animation first. The game
+        will wait until all exiters have gone through their animation before
+        exiting singleplayer or, in multiplayer, triggering overtime.
+
+    Faster first spawn
+        In singleplayer levels, tutorial or not, lixes spawn 2 seconds after
+        starting the level instead of 4 seconds. In multiplayer, they still
+        take 4 seconds. Singleplayer time limits, therefore, are more lenient
+        by 2 seconds now. This helps offsetting the missing nuke time bonus,
+        see the feature "Soft time limit in singleplayer" above. The quicker
+        spawn feels nice.
+
+    Steel image bugfix
+        The game tried to detect a graphics grid in steel objects, and
+        therefore cut such pieces into frames when the top left 2x2 pixel block
+        satisfied the grid condition. Now, steel is never cut into pieces.
+
+    Documentation to CRLF endings
+        The text files in doc/ and the main README.TXT have been changed back
+        to CRLF line endings instead of just LF. Windows Notepad users can now
+        enjoy the files.
+
+
+
 2014-01-19
 
     Walker bugfix
