@@ -91,8 +91,12 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
 
 
 
-    // Ziele
-    update_lix_goals(l, ua);
+    // Goals: If the goals are not locked due to out-of-time in singleplayer,
+    // then check whether the current lix can enter a goal and thus become
+    // an exiter
+    if (! cs.goals_locked) {
+        update_lix_goals(l, ua);
+    }
     // Ein Exiter, der seine Animation durchlaufen hat, verschwindet.
     // special_x = 1000 gibt gerade das an, see exiter.cpp
     if (l.get_ac() == LixEn::EXITER && l.get_special_x() == 1000) {

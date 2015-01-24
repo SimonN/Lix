@@ -7,11 +7,6 @@
  * Ferner bietet diese Klasse, aehnlich wie die anderen interaktiven Objekte,
  * eine Update-Methode zum Wechseln auf das naechste Frame.
  *
- * void draw(bool owners = false)
- *
- *   Wenn owners = true, dann werden die Besitzerfarben des Ausgangs mit-
- *   gezeichnet - dies macht nur Sinn bei mehreren Spielern.
- *
  */
 
 #pragma once
@@ -42,6 +37,7 @@ public:
     inline const TribeVec& get_tribes() const         { return tribes;       }
     inline void            add_tribe (const Tribe* t) { tribes.push_back(t); }
 
-    virtual void draw(bool = false);
+    //                draw owners, draw no-sign
+    virtual void draw(bool, bool);
 
 };

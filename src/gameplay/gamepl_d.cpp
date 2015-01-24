@@ -40,13 +40,19 @@ void Gameplay::draw() {
     for (HatchIt i = hatches.begin(); i != hatches.end(); ++i)
      if ( i->get_has_style()) i->draw();
 
-    if (! multiplayer)
-     for (Goal::It i = goal.begin(); i != goal.end(); ++i) i->draw(false);
+    if (! multiplayer) {
+        for (Goal::It i = goal.begin(); i != goal.end(); ++i) {
+            i->draw(false, cs.goals_locked);
+        }
+    }
     for (int type = Object::TERRAIN; type != Object::MAX; ++type)
      for (IacIt i =  special[Object::perm(type)].begin();
                 i != special[Object::perm(type)].end(); ++i) i->draw();
-    if (multiplayer)
-     for (Goal::It i = goal.begin(); i != goal.end();     ++i) i->draw(true);
+    if (multiplayer) {
+        for (Goal::It i = goal.begin(); i != goal.end();     ++i) {
+            i->draw(true, cs.goals_locked); // shouldn't ever be locked
+        }
+    }
     for (TrigIt i = cs.trap.begin();  i != cs.trap.end();  ++i) i->draw();
     for (TrigIt i = cs.fling.begin(); i != cs.fling.end(); ++i) i->draw();
     for (TrigIt i = cs.trampoline.begin(); i != cs.trampoline.end(); ++i)

@@ -30,11 +30,23 @@ bool Goal::has_tribe(const Tribe* t) const
 
 
 
-void Goal::draw(bool owners)
+void Goal::draw(bool draw_owners, bool draw_no_sign)
 {
     EdGraphic::draw();
     unsigned offset = 0; // for drawing several players
-    if (owners)
+
+    if (draw_no_sign) {
+        const Cutbit& c = GraLib::get(gloB->file_bitmap_mouse);
+        c.draw(get_ground(),
+         get_x() + get_object()->get_trigger_x()
+                 + get_object()->trigger_xl / 2
+                 - c           . get_xl()   / 2,
+         get_y() + get_object()->get_trigger_y()
+                 + get_object()->trigger_yl / 2
+                 - c           . get_yl(),
+         2, 2); // (2,2) are the (xf,yf) of the international "no"-sign
+    }
+    else if (draw_owners)
      for (TribeVec::const_iterator i = tribes.begin(); i != tribes.end(); ++i){
         const Cutbit& c = GraLib::get_lix((*i)->style);
         c.draw(get_ground(),

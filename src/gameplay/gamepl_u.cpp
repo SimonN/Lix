@@ -121,13 +121,14 @@ void Gameplay::update_cs_once()
     // Kurzer Einschub: Uhrendinge.
     if (level.seconds > 0) {
         if (cs.clock_running && cs.clock > 0) --cs.clock;
+        // Im Multiplayer:
         // Nuke durch die letzten Sekunden der Uhr. Dies loest
         // kein Netzwerk-Paket aus! Alle Spieler werden jeweils lokal genukt.
         // Dies fuehrt dennoch bei allen zum gleichen Spielverlauf, da jeder
         // Spieler das Zeitsetzungs-Paket zum gleichen Update erhalten.
         // Wir muessen dies nach dem Replayauswerten machen, um festzustellen,
         // dass noch kein Nuke-Ereignis im Replay ist.
-        if (cs.clock_running &&
+        if (multiplayer && cs.clock_running &&
          cs.clock <= (unsigned long) Lixxie::updates_for_bomb)
          for (Tribe::It tr = cs.tribes.begin(); tr != cs.tribes.end(); ++tr) {
             if (!tr->nuke) {
@@ -146,6 +147,13 @@ void Gameplay::update_cs_once()
                 }
                 effect.add_sound(upd, *tr, 0, Sound::NUKE);
             }
+        }
+        // Singleplayer:
+        // Upon running out of time entirely, shut all exits
+        if (! multiplayer && cs.clock_running && cs.clock == 0
+         && ! cs.goals_locked) {
+            cs.goals_locked = true;
+            effect.add_sound(upd, *trlo, 0, Sound::OVERTIME);
         }
         // Ebenfalls etwas Uhriges: Gibt es Spieler mit geretteten Lixen,
         // die aber keine Lixen mehr im Spiel haben oder haben werden? Dann

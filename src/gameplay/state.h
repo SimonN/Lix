@@ -27,6 +27,7 @@ public:
     Ulng     update;
     Ulng     clock;
     bool     clock_running;
+    bool     goals_locked;
 
     TribeVec tribes;
     TrigVec  trap;
