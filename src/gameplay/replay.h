@@ -131,6 +131,7 @@ public:
     bool        equal_before                   (const Replay&, Ulng) const;
 
     void        clear                          ();
+    void        increase_early_data_to_update  (const Ulng);
     void        erase_data_after_update        (const Ulng);
     void        erase_early_singleplayer_nukes ();
     bool        get_on_update_lix_clicked      (const Ulng, const Uint);

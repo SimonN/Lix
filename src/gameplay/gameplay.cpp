@@ -17,7 +17,8 @@ const int Gameplay::block_u = 16; // nach oben
 const int Gameplay::block_d =  8; // nach unten
 
 // continue for 10 minutes in verifier mode before the gameplay aborts
-const int Gameplay::updates_before_run_forever = 15*60*10;
+const int      Gameplay::updates_before_run_forever   = 15*60*10;
+const unsigned Gameplay::updates_to_skip_singleplayer = 30;
 
 
 
@@ -358,7 +359,8 @@ void Gameplay::prepare_level()
         const std::vector <std::string>& hi = lv.get_hints();
         if (hi.empty() || hi[0].empty()) {
             // faster start
-            cs.update = 30;
+            cs.update = updates_to_skip_singleplayer;
+            if (replaying) replay.increase_early_data_to_update(cs.update + 1);
         }
     }
 

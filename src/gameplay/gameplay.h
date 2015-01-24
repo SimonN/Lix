@@ -39,7 +39,8 @@ public:
     static const int distance_safe_fall;
     static const int distance_float;
 
-    static const int updates_before_run_forever;
+    static const int      updates_before_run_forever;
+    static const unsigned updates_to_skip_singleplayer;
 
     enum VerifyMode {
         INTERACTIVE_MODE, // play or watch a replay from the normal game

@@ -79,6 +79,21 @@ bool Replay::equal_before(const Replay& rhs, const Ulng before_update) const
 
 
 
+// this function is necessary to keep old replays working in new versions
+// that skip the first 30 or so updates, to get into the action faster.
+// The first spawn is still at update 60.
+void Replay::increase_early_data_to_update(const Ulng i)
+{
+    for (It itr = data.begin(); itr != data.end(); ++itr) {
+        if (itr->update < i) itr->update = i;
+        else break;
+        ++itr;
+    }
+    if (! data.empty()) max_updates = data.rbegin()->update;
+}
+
+
+
 void Replay::erase_data_after_update(const unsigned long i)
 {
     max_updates = 0;
