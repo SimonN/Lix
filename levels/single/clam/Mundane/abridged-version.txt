@@ -1,4 +1,4 @@
-$BUILT 2014-02-10 11:53:39
+$BUILT 2014-10-11 12:09:32
 $AUTHOR Clam
 $GERMAN 
 $ENGLISH Abridged Version
@@ -24,7 +24,7 @@ $ENGLISH Abridged Version
 #RUNNER 10
 #JUMPER 10
 #WALKER 10
-#EXPLODER 10
+#EXPLODER2 10
 #BLOCKER 10
 #BUILDER 10
 #PLATFORMER 10
@@ -113,6 +113,20 @@ $ENGLISH Abridged Version
 :matt/oriental/bridge_straight: 1 -24
 :matt/oriental/bridge_straight: -104 -24
 :matt/oriental/bridge_straight: -98 274 rrr
-:matt/oriental/bridge_straight: 634 30 rrr
-:matt/oriental/bridge_straight: -98 678 rrr
-:matt/oriental/bridge_straight: 634 434 rrr
+:matt/oriental/bridge_straight: 634 -2 rrr
+:matt/oriental/bridge_straight: -98 662 rrr
+:matt/oriental/bridge_straight: 634 386 rrr
+:matt/oriental/bridge_straight: -98 178 rrr
+:matt/oriental/bridge_straight: -98 82 rrr
+:matt/oriental/bridge_straight: -98 -14 rrr
+:matt/oriental/bridge_straight: -98 370 rrr
+:matt/oriental/bridge_straight: -98 466 rrr
+:matt/oriental/bridge_straight: -98 562 rrr
+:matt/oriental/bridge_straight: -98 758 rrr
+:matt/oriental/bridge_straight: 634 94 rrr
+:matt/oriental/bridge_straight: 634 190 rrr
+:matt/oriental/bridge_straight: 634 286 rrr
+:matt/oriental/bridge_straight: 634 482 rrr
+:matt/oriental/bridge_straight: 634 578 rrr
+:matt/oriental/bridge_straight: 634 690 rrr
+:matt/oriental/bridge_straight: 634 722 rrr

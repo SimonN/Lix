@@ -1,4 +1,4 @@
-$BUILT 2014-02-13 21:02:47
+$BUILT 2014-09-21 08:59:44
 $AUTHOR Clam
 $GERMAN 
 $ENGLISH Big Bang
@@ -32,7 +32,7 @@ $ENGLISH Big Bang
 
 :geoo/abstract/hatch.H: 80 80
 
-:geoo/abstract/goal.G: 528 336
+:geoo/abstract/goal.G: 544 344
 
 :geoo/construction/factory.T: 128 320
 
@@ -71,7 +71,7 @@ $ENGLISH Big Bang
 :geoo/abstract/pipes/central0: 210 264 rrr
 :geoo/abstract/pipes/central0: 150 264 rrr
 :geoo/abstract/pipes/central0: 144 264 rrr
-:geoo/abstract/pipes/ends0: 150 288 rrr
+:geoo/abstract/pipes/ends0: 150 296 rrr
 :geoo/abstract/pipes/central0: 156 264 rrr
 :geoo/abstract/pipes/central0: 128 264 rrr
 :geoo/abstract/pipes/central0: 132 264 rrr
@@ -100,7 +100,6 @@ $ENGLISH Big Bang
 :geoo/construction/rod_steel/straight32.S: 190 224
 :geoo/construction/rod_steel/straight32.S: 288 256
 :geoo/construction/rod_steel/straight32.S: 224 256
-:geoo/abstract/pipes/central0: 544 384
 :geoo/abstract/pipes/central0: 512 384
 :geoo/abstract/pipes/central0: 480 352
 :geoo/abstract/pipes/central0: 480 320
@@ -142,21 +141,16 @@ $ENGLISH Big Bang
 :geoo/abstract/pipes/central0: 576 392
 :geoo/abstract/pipes/central0: 608 384
 :geoo/abstract/pipes/central0: 608 392
-:geoo/abstract/pipes/central0: 512 320
-:geoo/abstract/pipes/central0: 512 288
 :geoo/abstract/pipes/central0: 544 320
 :geoo/abstract/pipes/central0: 544 288
 :geoo/construction/rod_steel/straight32.S: 512 256
 :geoo/construction/rod_steel/straight32.S: 544 256
 :geoo/abstract/pipes/central0: 512 224
 :geoo/abstract/pipes/central0: 544 224
-:geoo/construction/rod_steel/straight32.S: 504 264 rrr
-:geoo/construction/rod_steel/straight32.S: 504 296 rrr
-:geoo/construction/rod_steel/straight32.S: 504 328 rrr
-:geoo/construction/rod_steel/straight32.S: 128 296
-:geoo/construction/rod_steel/straight32.S: 132 296
-:geoo/construction/rod_steel/straight32.S: 186 296
-:geoo/construction/rod_steel/straight32.S: 190 296
+:geoo/construction/rod_steel/straight32.S: 128 304
+:geoo/construction/rod_steel/straight32.S: 132 304
+:geoo/construction/rod_steel/straight32.S: 186 304
+:geoo/construction/rod_steel/straight32.S: 190 304
 :geoo/abstract/pipes/central0: 64 256
 :geoo/construction/rod_steel/straight_diagu32.S: 252 288
 :geoo/abstract/pipes/central0: 288 384
@@ -164,7 +158,7 @@ $ENGLISH Big Bang
 :geoo/abstract/pipes/central0: 288 352
 :geoo/abstract/pipes/central0: 288 320
 :geoo/construction/rod_steel/link_du_h.S: 280 276
-:geoo/abstract/pipes/central0: 288 288
+:geoo/abstract/pipes/central0: 304 288
 :geoo/abstract/pipes/central0: 256 352
 :geoo/abstract/pipes/central0: 256 384
 :geoo/abstract/pipes/central0: 256 392
@@ -203,36 +197,38 @@ $ENGLISH Big Bang
 :geoo/construction/rod_steel/end_rect.S: 144 232 fr
 :geoo/construction/rod_steel/end_rect.S: 198 232 fr
 :geoo/construction/rod_steel/end_rect.S: 568 256 frr
-:geoo/construction/rod_steel/end_rect.S: 504 264 fr
-:geoo/construction/rod_steel/end_rect.S: 504 352 rrr
 :geoo/abstract/pipes/ends0: 296 288
-:geoo/abstract/pipes/ends0: 512 288
-:geoo/abstract/pipes/ends0: 512 320
-:geoo/abstract/pipes/ends0: 496 288 frr
-:geoo/abstract/pipes/ends0: 496 320 frr
-:geoo/abstract/pipes/ends0: 496 352 frr
 :geoo/construction/rod_steel/end_rect.S: 288 288 frr
 :geoo/abstract/pipes/junct0: 128 256 rr
 :geoo/abstract/pipes/corner0: 132 256 rr
-:geoo/abstract/pipes/ends0: 128 288 rrr
-:geoo/abstract/pipes/ends0: 132 288 rrr
-:geoo/abstract/pipes/ends0: 144 288 rrr
+:geoo/abstract/pipes/ends0: 128 296 rrr
+:geoo/abstract/pipes/ends0: 132 296 rrr
+:geoo/abstract/pipes/ends0: 144 296 rrr
 :geoo/abstract/pipes/ends0: 150 264 r
 :geoo/abstract/pipes/ends0: 156 264 r
 :geoo/abstract/pipes/ends0: 144 264 r
 :geoo/construction/rod_steel/end_rect.S: 144 256 rrr
 :geoo/construction/rod_steel/end_rect.S: 198 256 rrr
-:geoo/abstract/pipes/ends0: 156 288 rrr
+:geoo/abstract/pipes/ends0: 156 296 rrr
 :geoo/construction/rod_steel/end_rect.S: 210 256
 :geoo/abstract/pipes/ends0: 192 264 r
 :geoo/abstract/pipes/ends0: 198 264 r
 :geoo/abstract/pipes/ends0: 186 264 r
-:geoo/abstract/pipes/ends0: 192 288 rrr
-:geoo/abstract/pipes/ends0: 186 288 rrr
-:geoo/abstract/pipes/ends0: 198 288 rrr
-:geoo/abstract/pipes/ends0: 214 288 rrr
-:geoo/abstract/pipes/ends0: 210 288 rrr
+:geoo/abstract/pipes/ends0: 192 296 rrr
+:geoo/abstract/pipes/ends0: 186 296 rrr
+:geoo/abstract/pipes/ends0: 198 296 rrr
+:geoo/abstract/pipes/ends0: 214 296 rrr
+:geoo/abstract/pipes/ends0: 210 296 rrr
 :geoo/abstract/pipes/ends0: 214 264 r
 :geoo/abstract/pipes/ends0: 210 264 r
 :geoo/construction/rod_steel/straight_diagu32.S: 172 368
 :geoo/steel/16x32o.S: 576 240
+:geoo/abstract/pipes/central0: 512 288
+:geoo/abstract/pipes/central0: 512 320
+:geoo/abstract/pipes/central0: 512 352
+:geoo/abstract/pipes/corner0: 536 352 rrr
+:geoo/abstract/pipes/corner0: 536 344 r
+:geoo/abstract/pipes/central0: 544 344
+:geoo/abstract/pipes/ends0: 568 344 rr
+:geoo/abstract/pipes/ends0: 536 384 rr
+:geoo/abstract/pipes/ends0: 576 384 f
