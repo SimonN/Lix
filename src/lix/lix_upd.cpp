@@ -19,7 +19,7 @@ void Gameplay::score_lix_for_tribe(
 ) {
     // Increase amount saved, or add to the number of saved-too-late lixes.
     if (cs.goals_locked) {
-        ++tribe.lix_saved_after_timelimit;
+        ++tribe.lix_saved_late;
     }
     else {
         ++tribe.lix_saved;

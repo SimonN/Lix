@@ -95,7 +95,7 @@ void GameplayStats::PanelTribe::draw_local(
     }
 
     const int  in      = tr->lix_saved;
-    const int  in_late = tr->lix_saved_after_timelimit;
+    const int  in_late = tr->lix_saved_late;
     const int  out     = tr->lix_out + tr->lix_hatch;
     const bool green   = multi ? tr->lix_saved >= oppo_saved
                                : tr->required && in >= tr->required;

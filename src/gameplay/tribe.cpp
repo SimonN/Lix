@@ -7,19 +7,20 @@
 
 Tribe::Tribe()
 :
-    lix_hatch    (0),
-    lix_saved    (0), lix_saved_after_timelimit(0),
-    lix_out      (0),
-    spawnint_slow(32),
-    spawnint_fast( 4),
-    spawnint     (32),
-    nuke         (false),
-    update_hatch (0),
-    update_saved (0),
-    hatch_next   (0),
-    skill        (gloB->skill_max),
-    skills_used  (0),
-    style        (LixEn::GARDEN)
+    lix_hatch     (0),
+    lix_saved     (0),
+    lix_saved_late(0),
+    lix_out       (0),
+    spawnint_slow (32),
+    spawnint_fast ( 4),
+    spawnint      (32),
+    nuke          (false),
+    update_hatch  (0),
+    update_saved  (0),
+    hatch_next    (0),
+    skill         (gloB->skill_max),
+    skills_used   (0),
+    style         (LixEn::GARDEN)
 {
 }
 

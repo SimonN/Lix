@@ -59,7 +59,7 @@ struct Tribe {
 
     int         lix_hatch;
     int         lix_saved;
-    int         lix_saved_after_timelimit;
+    int         lix_saved_late; // after the goals have been locked
     int         lix_out; // change this only when killing/generating lixes.
     int         lix_exiting; // these have been scored, but keep game running
     int         spawnint_slow;
