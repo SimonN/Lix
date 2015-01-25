@@ -174,7 +174,10 @@ void GameplayStats::PanelTribe::draw_local(
         else {
             // display the number of lixes saved plus those saved too late
             // never draw this in green
-            str << (in + in_late) << "/" << tr->required;
+            str << (in + in_late);
+            // because space is limited, ignore tr->required with 3-digit-nrs
+            if (in + in_late < 100 && tr->required < 100)
+            str << "/" << tr->required;
         }
         Help::draw_shadow_text(*ground, font_med, str.str().c_str(),
          x_clock, y, color[COL_TEXT]);
