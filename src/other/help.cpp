@@ -299,10 +299,14 @@ void find_tree
 
 bool dir_exists(const Filename& fn)
 {
-    std::string dir = fn.get_dir_rootful();
+    std::string dir = fn.get_rootful();
     if (dir.size() > 0 && dir[dir.size() - 1] == '/')
         dir.erase(--dir.end());
-    return file_exists(dir.c_str(), FA_DIREC | FA_RDONLY | FA_ARCH, 0);
+    // Allegro's file_exits sucks, you have to check twice like the following
+    // if you want to find all directories, no matter whether FA_ARCH or not
+    const bool a = file_exists(dir.c_str(), FA_ALL, 0);
+    const bool b = file_exists(dir.c_str(), FA_ALL & ~ FA_DIREC, 0);
+    return a && ! b;
 }
 
 }
