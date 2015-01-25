@@ -94,10 +94,11 @@ void GameplayStats::PanelTribe::draw_local(
         xl_tarinf    = 12 * 40 - x_tarinf;
     }
 
-    const int  in    = tr->lix_saved;
-    const int  out   = tr->get_lix_out() + tr->lix_hatch;
-    const bool green = multi ? tr->lix_saved >= oppo_saved
-                             : tr->required && in >= tr->required;
+    const int  in      = tr->lix_saved;
+    const int  in_late = tr->lix_saved_after_timelimit;
+    const int  out     = tr->get_lix_out() + tr->lix_hatch;
+    const bool green   = multi ? tr->lix_saved >= oppo_saved
+                               : tr->required && in >= tr->required;
 
     // draw out count
     GraLib::get_icon(tr->style).draw(*ground, x_out_icon, y, frame_out,
@@ -130,7 +131,7 @@ void GameplayStats::PanelTribe::draw_local(
 
         // draw saved/required
         // this is the highest number possible when all yet living are saved
-        const int possible = out + in;
+        const int possible = out + in + in_late;
 
         if (possible < tr->required)
             GraLib::get_icon(tr->style).draw(*ground, x_in_icon, y,
@@ -145,6 +146,9 @@ void GameplayStats::PanelTribe::draw_local(
             GraLib::get_icon(tr->style).draw(*ground, x_in_icon, y,
              frame_in, frame_gray);
 
+        // draw the saved count
+        // those which have been saved too late are written on the clock,
+        // not on this counter here
         std::ostringstream str;
         str << in << "/" << tr->required;
         Help::draw_shadow_text(*ground, font_med, str.str().c_str(),
@@ -156,13 +160,22 @@ void GameplayStats::PanelTribe::draw_local(
         GraLib::get_icon(tr->style).draw(*ground, x_clock_icon, y,
          countd ? frame_countd : frame_stopw, frame_gray);
         std::ostringstream str;
-        const int  c = countd ? *countd + gloB->updates_per_second - 1
-                              : *stopw;
-        const int& u = gloB->updates_per_second;
-        str << c / (u * 60);
-        str << ':';
-        str << c % (u * 60) / (u * 10);
-        str << c % (u * 10) / (u     );
+
+        if (in_late == 0) {
+            // display timer or stopwatch normally
+            const int  c = countd ? *countd + gloB->updates_per_second - 1
+                                  : *stopw;
+            const int& u = gloB->updates_per_second;
+            str << c / (u * 60);
+            str << ':';
+            str << c % (u * 60) / (u * 10);
+            str << c % (u * 10) / (u     );
+        }
+        else {
+            // display the number of lixes saved plus those saved too late
+            // never draw this in green
+            str << (in + in_late) << "/" << tr->required;
+        }
         Help::draw_shadow_text(*ground, font_med, str.str().c_str(),
          x_clock, y, color[COL_TEXT]);
     }
