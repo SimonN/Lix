@@ -93,7 +93,7 @@ void EffectManager::add_sound_general(
     const unsigned  u,
     const Sound::Id id
 ) {
-    Effect effect(u, 0, static_cast <unsigned> (id));
+    Effect effect(u, 0, 0, id);
 
     if (sound.find(effect) == sound.end()) {
         sound.insert(effect);
@@ -109,7 +109,7 @@ void EffectManager::add_sound(
     const unsigned  l,
     const Sound::Id id
 ) {
-    Effect effect(u, &t, l);
+    Effect effect(u, &t, l, id);
 
     if (sound.find(effect) == sound.end()) {
         sound.insert(effect);
@@ -125,7 +125,7 @@ void EffectManager::add_sound_quiet(
     const unsigned  l,
     const Sound::Id id
 ) {
-    Effect effect(u, &t, l);
+    Effect effect(u, &t, l, id);
 
     if (sound.find(effect) == sound.end()) {
         sound.insert(effect);
@@ -141,7 +141,7 @@ void EffectManager::add_sound_if_trlo(
     const unsigned  l,
     const Sound::Id id
 ) {
-    Effect effect(u, &t, l);
+    Effect effect(u, &t, l, id);
 
     if (&t == trlo && sound.find(effect) == sound.end()) {
         sound.insert(effect);
@@ -155,6 +155,8 @@ void EffectManager::add_overtime
 (const unsigned u, const Tribe& t, const unsigned how_much)
 {
     if (overtime == 0) {
+        // This is the only effect that doesn't generate an instance of
+        // class Effect. The variable overtime is used for it exclusively.
         overtime = u;
 
         // Erste Zeile mit Namen und Ergebnis

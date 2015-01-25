@@ -35,18 +35,22 @@
 
 struct Effect {
 
-    const unsigned update;
-    const Tribe*   tribe;
-    const unsigned lixnr; // if not necessary, set to 0
+    const unsigned  update;
+    const Tribe*    tribe;
+    const unsigned  lixnr; // if not necessary, set to 0
+    const Sound::Id sound; // if not necessary, set to 0 == Sound::NOTHING
 
-    inline Effect(const unsigned u, const Tribe* t, const unsigned l = 0)
-           : update(u), tribe(t), lixnr (l) {}
+    inline Effect(const unsigned u, const Tribe* t, const unsigned l = 0,
+        const Sound::Id snd = Sound::NOTHING)
+        : update(u), tribe(t), lixnr(l), sound(snd) {}
     inline ~Effect() {}
 
     inline bool operator < (const Effect& e) const {
         return update <  e.update
          ||   (update == e.update && tribe <  e.tribe)
-         ||   (update == e.update && tribe == e.tribe && lixnr < e.lixnr);
+         ||   (update == e.update && tribe == e.tribe && lixnr <  e.lixnr)
+         ||   (update == e.update && tribe == e.tribe && lixnr == e.lixnr
+                                                      && sound <  e.sound);
     }
 };
 
