@@ -138,7 +138,9 @@ void Gameplay::calc_self()
             // Singleplayer
             window_gameplay = new Api::WindowGameplay(&replay, trlo,
                 // Eye candy when not saving anything, won't be saved anyway
-                (trlo->lix_saved > 0 ? trlo->update_saved : cs.update),
+                (trlo->lix_saved > 0
+                ? trlo->update_saved - state_manager.get_zero().update
+                : cs.update          - state_manager.get_zero().update),
                 level.required, level.initial, level.get_name());
             Api::Manager::add_focus(window_gameplay);
         }

@@ -495,8 +495,13 @@ void Gameplay::on_hint_change_callback(void* v, const int hint_cur)
 
 Result Gameplay::get_result()
 {
-    return Result(level.built, trlo->lix_saved,
-         trlo->skills_used, trlo->update_saved);
+    // a Result will save the spent updates, not the current updates.
+    // The main menu will convert the spent updates into seconds again.
+    return Result(level.built, trlo->lix_saved, trlo->skills_used,
+        trlo->update_saved > 0
+        ? trlo->update_saved - state_manager.get_zero().update
+        : cs.update - state_manager.get_zero().update
+    );
 }
 
 
