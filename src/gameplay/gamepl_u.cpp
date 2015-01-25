@@ -162,11 +162,10 @@ void Gameplay::update_cs_once()
         // gerade schon ausgelaufen ist.
         if (!cs.clock_running)
          for (Tribe::CIt i = cs.tribes.begin(); i != cs.tribes.end(); ++i)
-         if (i->lix_saved > 0
-          && i->get_lix_out() + i->lix_hatch == 0) {
+         if (i->lix_saved > 0 && ! i->get_still_playing()) {
             // Suche nach Ungenuktem
             for (Tribe::CIt j = cs.tribes.begin(); j != cs.tribes.end(); ++j)
-             if (!j->nuke && j->get_lix_out() + j->lix_hatch > 0) {
+             if (! j->nuke && j->get_still_playing()) {
                 cs.clock_running = true;
                 // Damit die Meldung nicht mehrmals kommt bei hoher Netzlast
                 effect.add_overtime(upd, *i, cs.clock);

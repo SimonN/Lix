@@ -96,7 +96,7 @@ void GameplayStats::PanelTribe::draw_local(
 
     const int  in      = tr->lix_saved;
     const int  in_late = tr->lix_saved_after_timelimit;
-    const int  out     = tr->get_lix_out() + tr->lix_hatch;
+    const int  out     = tr->lix_out + tr->lix_hatch;
     const bool green   = multi ? tr->lix_saved >= oppo_saved
                                : tr->required && in >= tr->required;
 
@@ -244,7 +244,7 @@ void GameplayStats::PanelTribe::draw_med
 {
     if (!tr) return;
     const int  in    = tr->lix_saved;
-    const int  out   = tr->get_lix_out() + tr->lix_hatch;
+    const int  out   = tr->lix_out + tr->lix_hatch;
     const bool green = required && in >= required;
     if (tr->initial >= 100) {
         GraLib::get_icon(tr->style).draw(*ground, x, y, frame_outopp,
@@ -303,8 +303,8 @@ bool GameplayStats::PanelTribe::operator > (const PanelTribe& rhs) const
     int out, rhs_out;
     if    (tr->lix_saved != rhs.tr->lix_saved)
     return tr->lix_saved > rhs.tr->lix_saved;
-    out     =     tr->lix_hatch +     tr->get_lix_out();
-    rhs_out = rhs.tr->lix_hatch + rhs.tr->get_lix_out();
+    out     =     tr->lix_hatch +     tr->lix_out;
+    rhs_out = rhs.tr->lix_hatch + rhs.tr->lix_out;
     if (out != rhs_out) return out > rhs_out;
     return false;
 }

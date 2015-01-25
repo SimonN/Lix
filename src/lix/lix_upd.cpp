@@ -18,12 +18,10 @@ void Gameplay::score_lix_for_tribe(
     Lixxie& l, const UpdateArgs& ua, Tribe& tribe
 ) {
     // Increase amount saved, or add to the number of saved-too-late lixes.
-    // See exiter.cpp for these magic numbers
-    if (l.get_special_x() == 3000) {
+    if (cs.goals_locked) {
         ++tribe.lix_saved_after_timelimit;
     }
     else {
-        // l.get_special_x() is 1000
         ++tribe.lix_saved;
         tribe.update_saved = cs.update;
         if (! multiplayer && l.get_tribe().lix_saved == level.required) {
@@ -117,18 +115,9 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
     update_lix_goals(l, ua);
     // Remove exiters that have been marked as having gone through their anim:
     // special_x == 1000 or special_x == 3000 means exactly that
-    if (l.get_ac() == LixEn::EXITER &&
-       (l.get_special_x() == 1000 || l.get_special_x() == 3000)) {
-        if (goal[l.get_special_y()].has_tribe(&l.get_tribe())) {
-            score_lix_for_tribe(l, ua, l.get_tribe());
-        }
-        else
-         for (Tribe::It atr = cs.tribes.begin(); atr != cs.tribes.end(); ++atr)
-         if (goal[l.get_special_y()].has_tribe(&*atr)) {
-            score_lix_for_tribe(l, ua, *atr);
-        }
+    if (l.get_ac() == LixEn::EXITER && l.get_special_x() == 1000) {
+        --l.get_tribe().lix_exiting;
         l.set_ac(LixEn::NOTHING);
-        --l.get_tribe().lix_out;
         return;
     }
 
@@ -266,7 +255,7 @@ void Gameplay::update_lix_goals(Lixxie& l, const UpdateArgs& ua)
      && l.get_priority(LixEn::EXITER, false) > 1)
      for (int i = 0; i < (int) goal.size(); ++i)
      if (l.get_in_trigger_area(goal[i])) {
-        // Lixxie soll ins Ziel gehen und sich merken, in welches
+        // become() will alter lix_out and lix_exiting accordingly
         l.become(LixEn::EXITER);
         l.set_special_y(i);
         // Mark for sidewards motion if the goal was entered near the side
@@ -277,14 +266,18 @@ void Gameplay::update_lix_goals(Lixxie& l, const UpdateArgs& ua)
         l.set_special_x(map.distance_x(goal[i].get_x()
          + ob.get_trigger_x() + ob.trigger_xl / 2, l.get_ex()));
         if (l.get_special_x() % 2 == 0) l.set_special_x(l.get_special_x() + 1);
-        // Add 2000 to the sideways motion if the goals are already locked.
-        // See initial comment in exiter.cpp for this magic number.
-        if (cs.goals_locked) {
-            l.set_special_x(l.get_special_x() + 2000);
+
+        // count the lixes for the proper players, the called function here
+        // checks whether the goals are locked
+        if (goal[l.get_special_y()].has_tribe(&l.get_tribe())) {
+            score_lix_for_tribe(l, ua, l.get_tribe());
         }
-        // Okay, let's play the sound even if the goals are locked.
-        // No sound is played if the player is not involved.
-        // The goal will get checked again later when the lix is scored.
+        else
+         for (Tribe::It atr = cs.tribes.begin(); atr != cs.tribes.end(); ++atr)
+         if (goal[l.get_special_y()].has_tribe(&*atr)) {
+            score_lix_for_tribe(l, ua, *atr);
+        }
+        // play the correct sound
         if (goal[i].has_tribe(trlo))
          effect.add_sound(ua.st.update, *trlo, ua.id, Sound::GOAL);
         else if (&l.get_tribe() == trlo)

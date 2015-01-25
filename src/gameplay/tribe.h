@@ -61,6 +61,7 @@ struct Tribe {
     int         lix_saved;
     int         lix_saved_after_timelimit;
     int         lix_out; // change this only when killing/generating lixes.
+    int         lix_exiting; // these have been scored, but keep game running
     int         spawnint_slow;
     int         spawnint_fast;
     int         spawnint;
@@ -83,9 +84,10 @@ struct Tribe {
     void        return_skills(const LixEn::Ac, const int);
     std::string get_name() const;
 
-    inline int get_lix_out()        const { return lix_out;   }
+    inline int get_still_playing()  const { return lix_out + lix_exiting
+                                                 + lix_hatch;}
     inline int get_score()          const { return lix_saved; }
     inline int get_score_expected() const { return lix_saved
-                                                   + lix_out + lix_hatch; }
+                                                 + lix_out + lix_hatch; }
 
 };
