@@ -79,7 +79,7 @@ Gameplay::Gameplay(
 
     prepare_players(rep);
     prepare_level();
-    prepare_panel();
+    if (verify_mode == INTERACTIVE_MODE) prepare_panel();
 
     Api::Manager::add_elder(&pan);
     Api::Manager::add_elder(&chat);
@@ -368,6 +368,9 @@ void Gameplay::prepare_level()
 
 void Gameplay::prepare_panel()
 {
+    // This function is not used when verifying from the command line.
+    // There was a crash from the uninitialized keyboard key names.
+
     pan.set_like_tribe(trlo, malo);
 
     pan.on_hint_change       = on_hint_change_callback;
