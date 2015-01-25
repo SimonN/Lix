@@ -4,7 +4,7 @@
 \_____________________________________________________________________________/
 
 
-2014-01-25
+2015-01-25
 
     Soft time limit in singleplayer
         When running out of time in singlepalyer, instead of nuking, the exits
@@ -40,7 +40,7 @@
 
 
 
-2014-01-19
+2015-01-19
 
     Walker bugfix
         Assume a water object covered by a steel block of the exact same size
@@ -56,11 +56,6 @@
         On Windows systems, the directory archive bit shouldn't affect anymore
         whether directories can be found from within the game.
 
-    100-% marks and little rings
-        The singleplayer level browser displays a 100-% sign instead of the
-        normal checkmark if a level has been solved with 100 %. It displays
-        a little ring next to levels that have been tried, but not yet beaten.
-
 
 
 2014-12-12
@@ -71,10 +66,10 @@
         editing. To learn how to do this, please read about command line switch
         "--verify=" documented in doc/readme.txt.
 
-    Singleplayer Results
-        The singleplayer level browser will now display a small dot next to
-        levels that have been tried, but not yet solved. Levels solved with
-        100 % saved lix are marked distinctly from other solved levels.
+    100-% marks and little rings
+        The singleplayer level browser displays a 100-% sign instead of the
+        normal checkmark if a level has been solved with 100 %. It displays
+        a little ring next to levels that have been tried, but not yet beaten.
 
     Editor save window bugfix
         Chroda has sent in a bug report: The level save browser said
