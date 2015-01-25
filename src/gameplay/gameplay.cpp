@@ -352,19 +352,15 @@ void Gameplay::prepare_level()
         break;
     }
 
-    // faster start in singleplayer
+    // faster start in singleplayer, with or without tutorials
     if (! multiplayer || replaying) {
-        // ... but not in tutorials
-        const std::vector <std::string>& hi = lv.get_hints();
-        if (hi.empty() || hi[0].empty()) {
-            // faster start
-            cs.update = updates_to_skip_singleplayer;
-            if (replaying) replay.increase_early_data_to_update(cs.update + 1);
-        }
+        cs.update = updates_to_skip_singleplayer;
+        if (replaying) replay.increase_early_data_to_update(cs.update + 1);
     }
 
     // now the initial state of the game is set. Save this, so the reload
-    // button can fetch it back later
+    // button can fetch it back later. Also, to determine the used time,
+    // we will compare with this state's updates, i.e., either 0 or 30.
     state_manager.save_zero(cs);
 }
 
