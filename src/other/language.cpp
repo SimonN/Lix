@@ -108,7 +108,8 @@ win_lobby_room_leave,
 // Spielfenster
 win_game_title,
 win_game_result,
-win_game_amount_saved,
+win_game_lix_saved,
+win_game_lix_saved_in_time,
 win_game_resume,
 win_game_restart,
 win_game_save_replay,
@@ -544,7 +545,8 @@ void Language::set(const Language lang)
         // Spielfenster
         win_game_title                = "Game Menu";
         win_game_result               = "Result";
-        win_game_amount_saved         = "Lix saved:";
+        win_game_lix_saved            = "Lix saved:";
+        win_game_lix_saved_in_time    = "Lix saved in time:";
         win_game_resume               = "Continue";
         win_game_restart              = "Restart level";
         win_game_save_replay          = "Save replay";
@@ -1031,7 +1033,8 @@ eb[Editor::ADD_HAZARD]
         // Spielfenster
         win_game_title                = "Spielmenue";
         win_game_result               = "Ergebnis";
-        win_game_amount_saved         = "Lix gerettet:";
+        win_game_lix_saved            = "Lix gerettet:";
+        win_game_lix_saved_in_time    = "Lix rechtzeitig gerettet:";
         win_game_resume               = "Weiterspielen";
         win_game_restart              = "Level neustarten";
         win_game_save_replay          = "Replay speichern";
