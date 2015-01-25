@@ -282,15 +282,13 @@ void Gameplay::update_lix_goals(Lixxie& l, const UpdateArgs& ua)
         if (cs.goals_locked) {
             l.set_special_x(l.get_special_x() + 2000);
         }
-        else {
-            // goals not locked? Play the correct sound for entering a goal
-            // No sound is played if the player is not involved.
-            // The goal will get checked again later when the lix is scored.
-            if (goal[i].has_tribe(trlo))
-             effect.add_sound(ua.st.update, *trlo, ua.id, Sound::GOAL);
-            else if (&l.get_tribe() == trlo)
-             effect.add_sound(ua.st.update, *trlo, ua.id, Sound::GOAL_BAD);
-        }
+        // Okay, let's play the sound even if the goals are locked.
+        // No sound is played if the player is not involved.
+        // The goal will get checked again later when the lix is scored.
+        if (goal[i].has_tribe(trlo))
+         effect.add_sound(ua.st.update, *trlo, ua.id, Sound::GOAL);
+        else if (&l.get_tribe() == trlo)
+         effect.add_sound(ua.st.update, *trlo, ua.id, Sound::GOAL_BAD);
     }
 }
 
