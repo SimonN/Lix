@@ -249,11 +249,26 @@ const Result* User::get_level_result(const Filename& filename) const
 
 
 
-void User::set_level_result_force_this_built(
-    const Filename& filename, const Result& r
+void User::set_level_result_carefully(
+    const Filename& filename, const Result& r, const int required
 ) {
     Result& saved_result = result[filename];
-    if (saved_result.built != r.built || saved_result < r) saved_result = r;
+    if (saved_result.built == r.built) {
+        // carefully means: if the level build times are the same, use the
+        // better result of these two
+        if (saved_result < r) saved_result = r;
+    }
+    else {
+        // carefully also means: when the bulid times differ, a non-solving
+        // result of a new version is worse than a solving result of the old
+        // version. Otherwise, the new version is always preferred.
+        // required should be supplied by Gameplay, it's the required count
+        // for the new Result r
+        if (saved_result.lix_saved >= required && r.lix_saved < required) {
+            // keep the old result
+        }
+        else saved_result = r;
+    }
 }
 
 

@@ -516,10 +516,9 @@ void Gameplay::save_result()
     // Wandernde soll man nicht aufhalten. :-)
     // Since 2014-12, we're saving results even if they have less lix than
     // required, to mark the level as having been looked at.
-    if (! multiplayer
-     && malo->name == gloB->user_name)
+    if (! multiplayer && malo->name == gloB->user_name)
     {
-        useR->set_level_result_force_this_built(filename, get_result());
+        useR->set_level_result_carefully(filename,get_result(),level.required);
         useR->save();
     }
 }
