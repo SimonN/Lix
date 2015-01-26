@@ -4,6 +4,29 @@
 \_____________________________________________________________________________/
 
 
+
+2015-01-26
+
+    Result preference
+        A singleplayer result from an old version of the level that saves
+        enough lix to reach the new level version's required number is
+        preferred over a result from the new version that doesn't solve.
+
+    Replay verifier output
+        This outputs the replay filename, the pointed-to level filename,
+        the player, the number of saved and required lix, the number of
+        skills used in total, and the number of updates, i.e., time units.
+
+    Replay verifier bugfix
+        The command-line replay verifier crashed when the user option to show
+        hotkeys on the skill bar was activated.
+
+    Directory checking bugfix
+        Normal files were confused with directories. This affected the
+        automatic replay verifier.
+
+
+
 2015-01-25
 
     Soft time limit in singleplayer
