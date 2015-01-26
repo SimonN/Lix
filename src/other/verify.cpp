@@ -26,6 +26,10 @@ Verifier::Verifier(const Verifier::Vec& v)
     load_all_bitmaps(GraLib::LOAD_WITHOUT_RECOLOR_LIX_FOR_SPEED);
     std::cout << "done." << std::endl;
 
+    // Print a CSV header line
+    std::cout << "Result,Replay filename,Level filename,"
+              << "Player,Saved,Required,Skills,Updates" << std::endl;
+
     for (VecCIt itr = v.begin(); itr != v.end(); ++itr) {
         examine_string(*itr);
     }
@@ -41,7 +45,7 @@ Verifier::Verifier(const Verifier::Vec& v)
      << std::endl;
 
     if (nr_not_naming_level > 0) std::cout << "  " << nr_not_naming_level
-     << "x (IGNORE): replay ignored, it doesn't name a level file."
+     << "x (NO-PTR): replay ignored, it doesn't name a level file."
      << std::endl;
 
     if (nr_level_not_found > 0) std::cout << "  " << nr_level_not_found
@@ -110,30 +114,32 @@ void Verifier::verify_filename(const Filename& f)
 
     if (r.get_file_not_found()) {
         ++nr_not_found;
-        std::cout << "(NO-REP) " << f_str << std::endl;
+        std::cout << "(NO-REP)," << f_str << std::endl;
         return;
     }
 
     if (f == r.get_level_filename()) {
         ++nr_not_naming_level;
-        std::cout << "(IGNORE) " << f_str << std::endl;
+        std::cout << "(NO-PTR)," << f_str << std::endl;
         return;
     }
 
     Level l(r.get_level_filename());
     if (l.get_status() == Level::BAD_FILE_NOT_FOUND) {
         ++nr_level_not_found;
-        std::cout << "(NO-LEV) "
-                  << f_str << " => " << r.get_level_filename().get_rootless()
-                  << " " << r.get_player_local_name()
+        std::cout << "(NO-LEV),"
+                  << f_str
+                  << "," << r.get_level_filename().get_rootless()
+                  << "," << r.get_player_local_name()
                   << std::endl;
         return;
     }
     else if (! l.get_good()) {
         ++nr_level_bad;
-        std::cout << "(BADLEV) ";
-        std::cout << f_str << " => " << r.get_level_filename().get_rootless()
-                  << " " << r.get_player_local_name()
+        std::cout << "(BADLEV),"
+                  << f_str
+                  << "," << r.get_level_filename().get_rootless()
+                  << "," << r.get_player_local_name()
                   << std::endl;
         return;
     }
@@ -149,18 +155,20 @@ void Verifier::verify_filename(const Filename& f)
 
     if (saved >= l.required) {
         ++nr_level_ok_solving;
-        std::cout << "(OK) ";
+        std::cout << "(OK),";
     }
     else {
         ++nr_level_ok_failing;
-        std::cout << "(FAIL) ";
+        std::cout << "(FAIL),";
     }
-    std::cout << f_str << " => " << r.get_level_filename().get_rootless()
-         << " " << r.get_player_local_name()
-         << " " << "saved: " << saved << " / " << l.required
-         << " " << "skills: " << result.skills_used
-         << " " << "updates: " << result.updates_used
-         << std::endl;
+    std::cout << f_str
+        << "," << r.get_level_filename().get_rootless()
+        << "," << r.get_player_local_name()
+        << "," << saved
+        << "," << l.required
+        << "," << result.skills_used
+        << "," << result.updates_used
+        << std::endl;
 
     delete gameplay;
 }
