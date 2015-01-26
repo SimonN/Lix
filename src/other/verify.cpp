@@ -88,7 +88,7 @@ void Verifier::examine_string(const std::string& str)
         Help::find_tree(f, gloB->mask_ext_replay, static_put_to_vec, this);
         if (filenames_from_find_tree.empty()) {
             ++nr_empty_dir;
-            std::cout << "(EMPTY) " << f.get_rootless() << std::endl;
+            std::cout << "(EMPTY), " << f.get_rootless() << std::endl;
         }
         else for (FVecCIt itr = filenames_from_find_tree.begin();
             itr != filenames_from_find_tree.end(); ++itr) {
@@ -123,12 +123,18 @@ void Verifier::verify_filename(const Filename& f)
     Level l(r.get_level_filename());
     if (l.get_status() == Level::BAD_FILE_NOT_FOUND) {
         ++nr_level_not_found;
-        std::cout << "(NO-LEV) " << f_str << std::endl;
+        std::cout << "(NO-LEV) "
+                  << f_str << " => " << r.get_level_filename().get_rootless()
+                  << " " << r.get_player_local_name()
+                  << std::endl;
         return;
     }
     else if (! l.get_good()) {
         ++nr_level_bad;
-        std::cout << "(BADLEV) " << f_str << std::endl;
+        std::cout << "(BADLEV) ";
+        std::cout << f_str << " => " << r.get_level_filename().get_rootless()
+                  << " " << r.get_player_local_name()
+                  << std::endl;
         return;
     }
 
@@ -143,15 +149,18 @@ void Verifier::verify_filename(const Filename& f)
 
     if (saved >= l.required) {
         ++nr_level_ok_solving;
-        std::cout << "(OK) " << f_str
-         << ", " << saved << "/" << l.required
-         << ", " << result.skills_used << " skills" << std::endl;
+        std::cout << "(OK) ";
     }
     else {
         ++nr_level_ok_failing;
-        std::cout << "(FAIL) " << f_str
-         << ", " << saved << "/" << l.required << std::endl;
+        std::cout << "(FAIL) ";
     }
+    std::cout << f_str << " => " << r.get_level_filename().get_rootless()
+         << " " << r.get_player_local_name()
+         << " " << "saved: " << saved << " / " << l.required
+         << " " << "skills: " << result.skills_used
+         << " " << "updates: " << result.updates_used
+         << std::endl;
 
     delete gameplay;
 }
