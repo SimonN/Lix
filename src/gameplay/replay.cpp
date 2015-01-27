@@ -87,7 +87,6 @@ void Replay::increase_early_data_to_update(const Ulng i)
     for (It itr = data.begin(); itr != data.end(); ++itr) {
         if (itr->update < i) itr->update = i;
         else break;
-        ++itr;
     }
     if (! data.empty()) max_updates = data.rbegin()->update;
 }
