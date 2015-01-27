@@ -5,6 +5,14 @@
 
 
 
+2015-01-27
+
+    #include order bugfix
+        Since the replay verifier, no Windows build could be made due to
+        a wrong #include order in the source. This is now fixed.
+
+
+
 2015-01-26
 
     Result preference

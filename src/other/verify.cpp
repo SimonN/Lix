@@ -1,10 +1,10 @@
 // other/verify.cpp
 
+#include "../gameplay/gameplay.h" // include this first because of myalleg.h
+
 #include "verify.h"
 #include "globals.h"
 #include "help.h"
-
-#include "../gameplay/gameplay.h"
 
 #include <iostream>
 
