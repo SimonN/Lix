@@ -11,6 +11,7 @@ Tribe::Tribe()
     lix_saved     (0),
     lix_saved_late(0),
     lix_out       (0),
+    lix_exiting   (0),
     spawnint_slow (32),
     spawnint_fast ( 4),
     spawnint      (32),
