@@ -5,6 +5,19 @@
 
 
 
+2015-01-28
+
+    End of multiplayer bugfix
+        The game didn't end automatically for everyone after there were
+        no more lix in play. It should end now.
+
+    Early replay data bugfix
+        Old replays from before 2015-01-25 were amended internally to move
+        all replay data from the skipped 2 seconds to the new beginning.
+        Some of that data was ignored, this is now fixed.
+
+
+
 2015-01-27
 
     #include order bugfix
