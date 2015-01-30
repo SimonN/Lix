@@ -8,6 +8,8 @@
 
 #include <climits>
 #include "editor.h"
+
+#include "../api/manager.h"
 #include "../level/level_me.h"
 #include "../level/obj_lib.h" // Suche nach Terrain/Spezialobjekten
 #include "../other/user.h"
@@ -366,4 +368,18 @@ void Editor::rotate_selection() {
         else if (i->l == &object[Object::HATCH])
             i->o->set_rotation(! i->o->get_rotation());
     }
+}
+
+
+
+void Editor::open_save_browser()
+{
+    browser_save = new Api::SaveBrowser(gloB->dir_levels,
+                   gloB->ext_level,
+                   useR->single_last_level,
+                   Api::SaveBrowser::search_criterion_level,
+                   Api::SaveBrowser::new_box_overwrite_level);
+    browser_save->set_info_level_name(level.get_name());
+    browser_save->set_info_filename(useR->single_last_level);
+    Api::Manager::add_focus(browser_save);
 }

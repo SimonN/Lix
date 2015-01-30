@@ -248,19 +248,13 @@ void Editor::calc() {
         unsigned i = box_unsaved_data->get_button_clicked();
         if (i == 1) {
             if (useR->single_last_level.get_file().empty()) {
-                browser_save = new Api::SaveBrowser(
-                 gloB->dir_levels,
-                 gloB->ext_level,
-                 useR->single_last_level,
-                 Api::SaveBrowser::search_criterion_level,
-                 Api::SaveBrowser::new_box_overwrite_level);
-                browser_save->set_info_level_name(level.get_name());
-                browser_save->set_info_filename  (useR->single_last_level);
                 delete box_unsaved_data;
                 box_unsaved_data = 0;
-                // Anhand des Status von panel[FILE_EXIT] erkennt der Code
-                // oben zum Speichern-unter-Dialog, ob anschliessend beendet
-                // werden muss.
+                open_save_browser();
+                // upon exit the save browser, the editor will check
+                // the on/off-status of panel[FILE_EXIT] and thereby determine
+                // whether the editor should be exited. That check is only
+                // made when the user has wanted to save from the save browser.
             }
             else {
                 save_lists_and_level();

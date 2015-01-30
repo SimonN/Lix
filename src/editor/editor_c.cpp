@@ -140,30 +140,15 @@ void Editor::calc_self()
 
         case FILE_SAVE:
             if (useR->single_last_level.get_file().empty()) {
-                // same as FILE_SAVE_AS
                 b.set_on();
-                browser_save = new Api::SaveBrowser(gloB->dir_levels,
-                               gloB->ext_level,
-                               useR->single_last_level,
-                               Api::SaveBrowser::search_criterion_level,
-                               Api::SaveBrowser::new_box_overwrite_level);
-                browser_save->set_info_level_name(level.get_name());
-                browser_save->set_info_filename(useR->single_last_level);
-                Api::Manager::add_focus(browser_save);
+                open_save_browser();
             }
             else save_lists_and_level();
             break;
 
         case FILE_SAVE_AS:
             b.set_on();
-            browser_save = new Api::SaveBrowser(gloB->dir_levels,
-                               gloB->ext_level,
-                               useR->single_last_level,
-                               Api::SaveBrowser::search_criterion_level,
-                               Api::SaveBrowser::new_box_overwrite_level);
-            browser_save->set_info_level_name(level.get_name());
-            browser_save->set_info_filename(useR->single_last_level);
-            Api::Manager::add_focus(browser_save);
+            open_save_browser();
             break;
 
         case GRID_2:
