@@ -112,6 +112,7 @@ Editor::Editor()
     panel[ADD_DECO]   .set_hotkey(useR->key_ed_add_deco);
     panel[ADD_HAZARD] .set_hotkey(useR->key_ed_add_hazard);
 
+    Api::Manager::add_elder(&bar);
     for (unsigned int i = 0; i < MAX; ++i) Api::Manager::add_elder(&panel[i]);
 
     // Use the specified grid.
