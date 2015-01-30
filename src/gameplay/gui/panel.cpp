@@ -5,6 +5,7 @@
 
 #include "../../other/language.h"
 #include "../../other/user.h"
+#include "../../other/help.h" // timer ticks for the nuke button
 
 GameplayPanel::GameplayPanel()
 :
@@ -34,6 +35,10 @@ GameplayPanel::GameplayPanel()
     on_hint_change_where(0),
 
     gapamode   (GM_NONE),
+
+    nuke_doubleclicked(false),
+    timer_tick_nuke_single(0),
+
     hint_size  (0),
     hint_cur   (0),
     hint_big   (GraLib::get(gloB->file_bitmap_game_panel),       40*13,    20),
@@ -313,6 +318,34 @@ void GameplayPanel::calc_self()
     if      (hint_big  .get_clicked()) set_hint_cur(hint_cur==0?1:hint_size-2);
     else if (hint_minus.get_clicked()) set_hint_cur(hint_cur - 1);
     else if (hint_plus .get_clicked()) set_hint_cur(hint_cur + 1);
+
+    // the nuke button
+    // Gameplay will try to not check the nuke button directly for clicking,
+    // but only call get_nuke_doubleclicked();
+    nuke_doubleclicked = false;
+
+    if (nuke_single.get_on() || nuke_multi.get_on()) {
+        // never report anything new
+        nuke_doubleclicked = false;
+    }
+    else {
+        // .get_clicked() guarantees that the button is visible upon true
+        if (nuke_single.get_clicked() || nuke_multi.get_clicked()) {
+            if (Help::timer_ticks - timer_tick_nuke_single
+             <= hardware.doubleclick_speed) {
+                nuke_doubleclicked = true;
+            }
+            else timer_tick_nuke_single = Help::timer_ticks;
+        }
+        // if not yet activated, show the button as pressed down, this is
+        // nice graphical feedback. get_clicked() may have been triggered
+        // by hotkey, which doesn't press the button down, so do it here.
+        if (hardware.key_hold(nuke_single.get_hotkey())) {
+            nuke_single.set_down();
+            nuke_multi .set_down();
+        }
+    }
+    // end of nuke
 
     if (useR->gameplay_help) {
         std::string str;

@@ -67,9 +67,8 @@ public:
     void set_skill_on     (const int);
 
            void set_hint_cur (const int);
-    inline int  get_hint_cur () { return hint_cur; }
-
-
+    inline int  get_hint_cur () const          { return hint_cur;           }
+    inline bool get_nuke_doubleclicked() const { return nuke_doubleclicked; }
 
 protected:
 
@@ -79,6 +78,9 @@ protected:
 private:
 
     GapaMode gapamode;
+
+    bool nuke_doubleclicked;
+    int  timer_tick_nuke_single;
 
     int hint_size; // including the tutorial hint
     int hint_cur;

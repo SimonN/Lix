@@ -170,34 +170,19 @@ void Gameplay::calc_active()
     // Restliche Buttons in der normalen Calculate-Funktion
 
     // Atombombe
-    if (!pan.nuke_single.get_on()
-     && !pan.nuke_multi .get_on()) {
-        if (pan.nuke_single.get_clicked()
-         || pan.nuke_multi .get_clicked()) {
-            if (Help::timer_ticks - timer_tick_last_F12
-             <= hardware.doubleclick_speed) {
-                // set_on() kommt zwar auch im Update, aber wenn wir das
-                // hier immer machen, sieht es besser aus. Gleiches gilt fuer
-                // den Sound, ist wie beim normalen Anklicken.
-                pan.nuke_single.set_on();
-                pan.nuke_multi .set_on();
-                pan.pause      .set_off();
-                Replay::Data data = new_replay_data();
-                data.action       = Replay::NUKE;
-                replay.add(data);
-                Network::send_replay_data(data);
-                effect.add_sound(cs.update + 1, *trlo, 0, Sound::NUKE);
-                Sound::play_loud(Sound::NUKE);
-            }
-            else timer_tick_last_F12 = Help::timer_ticks;
-        }
-        // Andrueck-Effekt nachholen bei Hotkey-Ausloesung
-        if (!pan.nuke_single.get_on()
-         && !pan.nuke_multi .get_on()
-         && hardware.key_hold(pan.nuke_single.get_hotkey())) {
-            pan.nuke_single.set_down();
-            pan.nuke_multi .set_down();
-        }
+    if (pan.get_nuke_doubleclicked()) {
+        // set_on() kommt zwar auch im Update, aber wenn wir das
+        // hier immer machen, sieht es besser aus. Gleiches gilt fuer
+        // den Sound, ist wie beim normalen Anklicken.
+        pan.nuke_single.set_on();
+        pan.nuke_multi .set_on();
+        pan.pause      .set_off();
+        Replay::Data data = new_replay_data();
+        data.action       = Replay::NUKE;
+        replay.add(data);
+        Network::send_replay_data(data);
+        effect.add_sound(cs.update + 1, *trlo, 0, Sound::NUKE);
+        Sound::play_loud(Sound::NUKE);
     }
 
 

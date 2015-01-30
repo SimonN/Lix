@@ -168,7 +168,13 @@ void Gameplay::calc_self()
          || pan.speed_slow .is_mouse_here()
          || pan.speed_fast .is_mouse_here()
          || pan.speed_turbo.is_mouse_here()
-         || pan.restart    .is_mouse_here())) abort_replay = true;
+         || pan.restart    .is_mouse_here()
+         || pan.nuke_single.is_mouse_here())) abort_replay = true;
+        // we ignore clicks on the nuke here, as we do with non-gamestate-
+        // -altering buttons like pause or fast forward. We'll come back
+        // to it right here:
+        if (pan.get_nuke_doubleclicked()) abort_replay = true;
+
         for (size_t i = 0; i < pan.skill.size(); ++i)
          if (pan.skill[i].get_clicked()) abort_replay = true;
         if (pan.rate_minus.get_clicked()
@@ -176,6 +182,7 @@ void Gameplay::calc_self()
          || hardware.key_hold(useR->key_rate_minus)
          || hardware.key_hold(useR->key_rate_plus)) abort_replay = true;
         // see comment in gamepl_a.cpp for why the rate doesn't have hotkeys.
+
         if (abort_replay) {
             replaying = false;
             replay.erase_data_after_update(cs.update);
