@@ -7,8 +7,6 @@
 
 #include "lix.h"
 
-#include "../gameplay/gameplay.h" // Abstand fuer Blocker zum Ziel
-#include "../gameplay/goal.h"     // Ebenso Blockerabstand
 #include "../other/user.h"
 
 unsigned Lixxie::get_priority(
