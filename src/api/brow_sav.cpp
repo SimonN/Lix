@@ -78,6 +78,7 @@ SaveBrowser::SaveBrowser(const Filename&    bdir,
 
     file_name.set_text(filename.get_file_no_ext_no_pre_ext());
     file_name.set_scroll();
+    file_name.set_on_enter(this, texttype_on_enter_callback);
 
     // Immediately start typing
     file_name.set_on();
@@ -133,24 +134,7 @@ void SaveBrowser::calc_self()
             if (!typing) set_exit();
         }
         else if (ok.get_clicked()) {
-            // generate random filename if empty, among other things
-            make_texttype_valid();
-
-            Filename complete_file_name(
-                dir_list.get_current_dir().get_dir_rootful()
-                + file_name.get_text() + extension);
-
-            // Testen, ob die Datei bereits exisitiert; ggf. box_overwrite new
-            if (exists(complete_file_name.get_rootful().c_str())) {
-                box_overwrite = new_box_overwrite(complete_file_name);
-                Manager::add_focus(box_overwrite);
-            }
-            // Datei exisitiert noch nicht
-            else {
-                exit_with = true; // Lass den Editor den Level speichern
-                set_exit();
-                Manager::remove_focus(this);
-            }
+            check_for_file_exist_and_maybe_save_and_exit();
         }
         if (cancel.get_clicked()) {
             set_exit();
@@ -207,6 +191,32 @@ void SaveBrowser::make_texttype_valid()
 
 
 
+// This is called when clicking OK, or when the user has hit enter after
+// typing something into the box
+void SaveBrowser::check_for_file_exist_and_maybe_save_and_exit()
+{
+    // generate random filename if empty, among other things
+    make_texttype_valid();
+
+    Filename complete_file_name(
+        dir_list.get_current_dir().get_dir_rootful()
+        + file_name.get_text() + extension);
+
+    // Testen, ob die Datei bereits exisitiert; ggf. box_overwrite new
+    if (exists(complete_file_name.get_rootful().c_str())) {
+        box_overwrite = new_box_overwrite(complete_file_name);
+        Manager::add_focus(box_overwrite);
+    }
+    // Datei exisitiert noch nicht
+    else {
+        exit_with = true; // Lass den Editor den Level speichern
+        set_exit();
+        Manager::remove_focus(this);
+    }
+}
+
+
+
 Filename SaveBrowser::get_current_file()
 {
     make_texttype_valid();
@@ -247,6 +257,14 @@ BoxMessage* SaveBrowser::new_box_overwrite_level(const Filename &filename)
     box_overwrite->add_button(Language::no,  useR->key_me_exit);
 
     return box_overwrite;
+}
+
+
+
+void SaveBrowser::texttype_on_enter_callback(void* browser_void)
+{
+    SaveBrowser* b = static_cast <SaveBrowser*> (browser_void);
+    b->check_for_file_exist_and_maybe_save_and_exit();
 }
 
 }
