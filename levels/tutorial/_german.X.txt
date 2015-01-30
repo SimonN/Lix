@@ -1,17 +1,14 @@
 Tutorial-Levels
 
 Versuche, diese Levels der Reihe nach
-durchzuspielen. Wenn du einmal nicht
-weiterkommst, dann ueberspringe den
-Level, und spiele den naechsten.
-
-Einige dieser Levels sind eher schwer,
-etwa das Batter-Tutorial. Wir arbeiten
-dran, denn diese Levels muessen
-leicht verstaendlich sein.
+durchzuspielen. Falls du einmal nicht
+weiter kommst, ueberspringe den
+Level und spiele den naechsten.
 
 Wir planen auch ein paar Levels,
 die den Mehrspieler-Modus erklaeren.
+
+Beginne im Ordner "skills".
 
 Wenn du das Tutorial durchgespielt
 hast, dann klicke auf "..",

@@ -5,12 +5,10 @@ in the given order. If you get
 stuck, you should skip a level and
 simply play the next one.
 
-Some levels are rather hard,
-e.g. the batter tutorial level.
-We're working on them.
-
 We also want to make a few levels
 which teach the multiplayer mode.
+
+Start in the directory "skills".
 
 If you've mastered the tutorials,
 click ".." to leave the directory.
