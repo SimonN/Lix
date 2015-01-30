@@ -5,6 +5,37 @@
 
 
 
+
+2015-01-30
+
+    Tutorial levels
+        We had agreed to ship them with the game, but I forgot to use them
+        in my release script. Now, they're shipped with the main release.
+
+    Nuke button on replays
+        Single-clicking the nuke button or hitting its hotkey once does not
+        cancel a replay anymore. Only double-clicking it, holding its hotkey
+        for a little while, or hitting the key twice cancel a replay.
+
+    Editor exit bugfix
+        The following behavior is now fixed: In a directory in which no level
+        is selected, you could press Edit to start a new blank level. After
+        some changes and pressing "exit editor", Lix asked about saving to
+        a new file. Upon entering and saving, Lix crashed or locked up.
+
+    Editor graphics bugfix
+        In the editor's save browser, after typing in a filename and
+        leaving focus of the type field, the editor status bar vanished until
+        the browser was closed. This is now fixed.
+
+    Save browser made easier
+        After typing in a filename and hitting enter, the save browser now
+        saves the file immediately and exits. Before, hitting enter only
+        disabled the type field, and the user had to click OK or hit its
+        hotkey manually.
+
+
+
 2015-01-28
 
     End of multiplayer bugfix
