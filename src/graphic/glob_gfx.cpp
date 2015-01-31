@@ -72,6 +72,10 @@ void load_all_bitmaps(GraLib::RecolorLix recolor_lix_speed_switch)
     font_med = load_font(gloB->file_bitmap_font_med.get_rootful().c_str(),0,0);
     font_nar = load_font(gloB->file_bitmap_font_nar.get_rootful().c_str(),0,0);
     font_big = load_font(gloB->file_bitmap_font_big.get_rootful().c_str(),0,0);
+    // set the glyph to display for characters not covered in our font
+    // For our current fonts, ASCII 0x7F gets mapped to a square, which
+    // is one standard representation for "undisplayble character".
+    allegro_404_char = 0x7F;
 
     // Falls Datei nicht gefunden, Standardfont nutzen, damit das Programm
     // nicht abstuerzt

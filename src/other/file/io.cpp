@@ -18,6 +18,28 @@ Line::Line(const std::string& src)
     nr3(0)
 {
     std::string::const_iterator i = src.begin();
+
+    // UTF-8 BOM handling
+    //     [see http://en.wikipedia.org/wiki/Byte_order_mark
+    //      for explanation of BOM]
+    // Certain text editors (Window's Notepad) may add the
+    // Unicode BOM character at start of text file to indicate
+    // which format the text file is encoded with (eg. ANSI vs
+    // UTF-8 vs UTF-16LE etc.).  Since some of Lix's input
+    // files (particularly translate.txt) are expected to be
+    // UTF-8, we should accomodate this behavior and skip over
+    // a UTF-8 BOM character at start of line.
+    // (Usually it's just at start of file, but no big deal
+    // doing it on every line instead.)
+
+    int firstCharUtf8 = ugetat(src.c_str(), 0);
+    if (firstCharUtf8 == 0xFEFF) {
+        int numBytes = ucwidth(firstCharUtf8);
+        if ((src.end() - src.begin()) >= numBytes) {
+            i += numBytes;
+        }
+    }
+
     if (i != src.end()) type = *i++;
 
     bool minus1 = false;

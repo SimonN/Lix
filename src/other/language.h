@@ -18,6 +18,7 @@ enum Language {
     NONE,
     ENGLISH,
     GERMAN,
+    CUSTOM,
     MAX
 };
 
@@ -25,6 +26,9 @@ enum Language {
 void     set(const Language);
 void     set(const unsigned);
 Language get();
+
+bool try_load_custom_language(bool load_language_name_only);
+void write_translations_dump_for_current_language();
 
 // language_name[GERMAN] ist etwa "Deutsch", bei ENGLISH "English".
 extern std::vector <std::string> language_name;

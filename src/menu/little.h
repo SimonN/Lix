@@ -50,6 +50,7 @@ private:
     Language::Language       exit_with;
 
     std::vector <TextButton> button;
+    std::vector <Language::Language> corresponding_language;
 
 public:
 

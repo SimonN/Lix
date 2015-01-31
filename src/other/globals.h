@@ -336,6 +336,9 @@ public:
         file_log,
         file_level_network,
 
+        file_translations,
+        file_translations_dump,
+
         file_bitmap_api_number,
         file_bitmap_checkbox,
         file_bitmap_debris,

@@ -896,8 +896,20 @@ void OptionMenu::calc_self()
 
     case GROUP_GENERAL:
         if (language.get_clicked()) {
-            if (++language_nr == Language::MAX)
-             language_nr       = Language::ENGLISH;
+            ++language_nr;
+
+            if (language_nr == Language::MAX) {
+                language_nr = Language::ENGLISH;
+            } else if (language_nr == Language::CUSTOM) {
+                // argument of true means only try to load
+                // the custom language's display name
+                if (!Language::try_load_custom_language(true)) {
+                    // reach here means unable to load custom
+                    // language (eg. no data/translate.txt)
+                    // go back to English
+                    language_nr = Language::ENGLISH;
+                }
+            }
             language.set_text(Language::language_name[language_nr]);
         }
         break;
