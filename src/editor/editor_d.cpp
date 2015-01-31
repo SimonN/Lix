@@ -68,8 +68,16 @@ void Editor::draw()
                 i != object[Object::HATCH].end(); ++i)
      draw_object_with_numbers(i, ++n, object[Object::HATCH].size());
 
-    update_bar_text();
-    bar.draw();
+    if (browser_bitmap) {
+        // the browser is so large that it covers the status bar
+        bar.hide();
+    }
+    else {
+        bar.show();
+        bar.set_down(false); // it's managed by Api::Manager and thus calced
+        update_bar_text();
+    }
+    Api::Manager::draw();
 
     // Mouse cursor on top
     // The mouse positioning code is here as well, as Editor::calc_self()

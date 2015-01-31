@@ -134,6 +134,7 @@ private:
     void delete_everything(); // Neu-Button
 
     void update_bar_text();
+    void open_save_browser();
 
     void draw_selection_borders();
     void draw_selection_border   (const Selection&, const int);

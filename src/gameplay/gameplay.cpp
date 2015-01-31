@@ -50,7 +50,6 @@ Gameplay::Gameplay(
     timer_tick_last_update (Help::timer_ticks),
     timer_tick_last_F1     (0),
     timer_tick_last_F2     (0),
-    timer_tick_last_F12    (0),
     timer_ticks_for_update_client(timer_ticks_for_update_normal),
 
     bg_color               (makecol(level.bg_red,

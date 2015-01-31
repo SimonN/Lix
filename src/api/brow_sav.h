@@ -61,6 +61,9 @@ private:
     static const int file_list_xl;
 
     void make_texttype_valid();
+    void check_for_file_exist_and_maybe_save_and_exit();
+
+    static void texttype_on_enter_callback(void*);
 
 public:
 

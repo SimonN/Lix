@@ -1,4 +1,4 @@
-$BUILT 2012-04-28 15:11:53
+$BUILT 2015-01-30 07:54:22
 $AUTHOR geoo
 $GERMAN Explodierer
 $ENGLISH Exploders
@@ -17,8 +17,8 @@ $TUTORIAL_ENGLISH Knockback exploders are fun!<br>Assign some and watch<br>the r
 #SECONDS 0
 #INITIAL 80
 #REQUIRED 1
-#SPAWN_INTERVAL 8
-#SPAWN_INTERVAL_FAST 4
+#SPAWN_INTERVAL 3
+#SPAWN_INTERVAL_FAST 3
 
 #NOTHING 0
 #NOTHING 0
@@ -33,6 +33,7 @@ $TUTORIAL_ENGLISH Knockback exploders are fun!<br>Assign some and watch<br>the r
 #NOTHING 0
 #NOTHING 0
 
+:geoo/abstract/hatch.H: 144 96
 :geoo/abstract/hatch.H: 344 96
 
 :geoo/abstract/goal.G: 272 320
@@ -204,15 +205,12 @@ $TUTORIAL_ENGLISH Knockback exploders are fun!<br>Assign some and watch<br>the r
 :geoo/abstract/pipes/central3: 264 256 rrr
 :geoo/abstract/pipes/central3: 248 248 rrr
 :geoo/abstract/pipes/central3: 272 248 rrr
-:geoo/steel/64x32o.S: 256 264
-:geoo/steel/64x32o.S: 320 264
 :geoo/construction/concrete/podium_16: 416 128 rr
 :simon/tapir/032h: 384 264
 :simon/tapir/032h: 448 264
 :simon/tapir/032h: 512 264
 :geoo/abstract/pipes/central3: 192 240 rrr
 :geoo/abstract/pipes/central3: 240 240 rrr
-:geoo/steel/64x32o.S: 192 264
 :simon/tapir/016v: 288 48
 :geoo/abstract/cvblocks/030: 256 48
 :geoo/abstract/cvblocks/030: 304 32
@@ -271,7 +269,6 @@ $TUTORIAL_ENGLISH Knockback exploders are fun!<br>Assign some and watch<br>the r
 :geoo/abstract/pipes/ends2: 432 224 rr
 :geoo/abstract/pipes/endr3: 232 256 rrr
 :simon/tapir/032h: 64 264
-:simon/tapir/032h: 128 264
 :geoo/abstract/pipes/central3: 104 360 rrr
 :geoo/abstract/pipes/central3: 88 368 rrr
 :geoo/abstract/pipes/central3: 112 368 rrr
@@ -314,16 +311,21 @@ $TUTORIAL_ENGLISH Knockback exploders are fun!<br>Assign some and watch<br>the r
 :geoo/abstract/pipes/central3: 32 344 rrr
 :geoo/steel/64x32o.S: 0 368
 :simon/tapir/032h: 464 336
-:simon/tapir/032v: 592 312
+:simon/tapir/032h: 584 328
 :simon/tapir/032h: 536 352
+:simon/tapir/032v: 592 312
 :geoo/steel/64x32o.S: 576 368
 :simon/tapir/032h: 496 344
 :geoo/steel/64x32o.S: 512 368
 :simon/tapir/032h: 400 352
-:simon/tapir/032h: 584 328
 :geoo/steel/32x64o.S: 608 304
 :simon/tapir/032h: 352 360
 :simon/tapir/032h: 440 360
 :geoo/steel/64x32o.S: 384 368
 :geoo/steel/64x32o.S: 448 368
 :geoo/steel/64x32o.S: 320 368
+:geoo/steel/16x16o.S: 352 160
+:simon/tapir/032h: 320 264
+:simon/tapir/032h: 256 264
+:geoo/steel/64x32o.S: 192 264
+:geoo/steel/64x32o.S: 128 264
