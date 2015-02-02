@@ -61,9 +61,11 @@ SERVER_DEPS = $(subst $(SRCDIR)/,$(DEPDIR)/,$(SERVER_SRCS:%.cpp=%.d))
 # Replacement variables for cross-compiling Lix on Linux for Windows.
 # All variable names for cross-compilation are prefixed with CRO_.
 # Some non-CRO variables are used in both the Linux and the Windows target.
+# CRO_WINDRES is used to compile the icon into an object file.
 
-CRO_CXX = i586-mingw32msvc-g++
-CRO_LD  = i586-mingw32msvc-g++
+CRO_CXX     = i586-mingw32msvc-g++
+CRO_LD      = i586-mingw32msvc-g++
+CRO_WINDRES = i586-mingw32msvc-windres
 
 # change CRO_MINGW_BASE to your MinGW's "i586-..." directory.
 # It should sit inside /usr or /usr/local.
@@ -80,8 +82,11 @@ CRO_BINDIR   = $(BINDIR)/binwin
 CRO_CLIENT_BIN  = $(CRO_BINDIR)/lix.exe
 CRO_SERVER_BIN  = $(CRO_BINDIR)/lixserv.exe
 
+CRO_ICON_SRC    = $(SRCDIR)/icon.rc
+
 CRO_CLIENT_OBJS = $(subst $(SRCDIR)/,$(CRO_OBJDIR)/,$(CLIENT_CSRC:%.c=%.o)) \
                   $(subst $(SRCDIR)/,$(CRO_OBJDIR)/,$(CLIENT_SRCS:%.cpp=%.o))
+CRO_ICON_OBJ    = $(CRO_OBJDIR)/icon.res
 CRO_SERVER_OBJS = $(subst $(SRCDIR)/,$(CRO_OBJDIR)/,$(SERVER_SRCS:%.cpp=%.o))
 
 
@@ -144,12 +149,12 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 
 # Cross-compilation on Linux for Windows
 
-$(CRO_CLIENT_BIN): $(CRO_CLIENT_OBJS)
+$(CRO_CLIENT_BIN): $(CRO_CLIENT_OBJS) $(CRO_ICON_OBJ)
 	$(Q)$(MKDIR) $(CRO_BINDIR)
 	@echo Linking the cross-compiled game \`$(CRO_CLIENT_BIN)\' with \
 		$(CRO_LDALLEG) $(CRO_LDENET) $(CRO_LDPNG)
 	$(Q)$(CRO_LD) -o $(CRO_CLIENT_BIN) \
-		$(CRO_CLIENT_OBJS) \
+		$(CRO_CLIENT_OBJS) $(CRO_ICON_OBJ) \
 		$(CRO_LDALLEG) $(CRO_LDENET) $(CRO_LDPNG) \
 		> /dev/null
 	$(Q)$(STRIP) $(CRO_CLIENT_BIN)
@@ -175,3 +180,7 @@ $(CRO_OBJDIR)/%.o: $(SRCDIR)/%.cpp
 $(CRO_OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CRO_MAKEFROMSOURCE)
 
+$(CRO_ICON_OBJ): $(CRO_ICON_SRC)
+	$(Q)$(MKDIR) `dirname $@`
+	@echo $<
+	$(Q)$(CRO_WINDRES) $< -O coff -o $(CRO_ICON_OBJ)
