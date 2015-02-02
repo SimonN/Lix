@@ -78,8 +78,11 @@ CRO_OBJDIR   = $(OBJDIR)/objwin
 CRO_BINDIR   = $(BINDIR)/binwin
 
 CRO_CLIENT_BIN  = $(CRO_BINDIR)/lix.exe
+CRO_SERVER_BIN  = $(CRO_BINDIR)/lixserv.exe
+
 CRO_CLIENT_OBJS = $(subst $(SRCDIR)/,$(CRO_OBJDIR)/,$(CLIENT_CSRC:%.c=%.o)) \
                   $(subst $(SRCDIR)/,$(CRO_OBJDIR)/,$(CLIENT_SRCS:%.cpp=%.o))
+CRO_SERVER_OBJS = $(subst $(SRCDIR)/,$(CRO_OBJDIR)/,$(SERVER_SRCS:%.cpp=%.o))
 
 
 
@@ -95,7 +98,7 @@ clean:
 	$(RM) $(OBJDIR)
 	$(RM) $(DEPDIR)
 
-cross: $(CRO_CLIENT_BIN)
+cross: $(CRO_CLIENT_BIN) $(CRO_SERVER_BIN)
 
 
 
@@ -107,16 +110,16 @@ $(CLIENT_BIN): $(CLIENT_OBJS)
 	$(Q)$(MKDIR) $(BINDIR)
 	@echo Linking the game \`$(CLIENT_BIN)\' with \
 		$(LDALLEG) $(LDENET) $(LDPNG)
-	$(Q)$(LD) $(CXXFLAGS) $(CPPFLAGS) $(LDALLEG) $(LDENET) $(LDPNG) $(CLIENT_OBJS) -o $(CLIENT_BIN) \
-		> /dev/null
+	$(Q)$(LD) $(CXXFLAGS) $(CPPFLAGS) $(LDALLEG) $(LDENET) $(LDPNG) \
+		$(CLIENT_OBJS) -o $(CLIENT_BIN) > /dev/null
 	$(Q)$(STRIP) $(CLIENT_BIN)
 
 $(SERVER_BIN): $(SERVER_OBJS)
 	$(Q)$(MKDIR) $(BINDIR)
 	@echo Linking the server daemon \`$(SERVER_BIN)\' with \
 		$(LDENET)
-	$(Q)$(LD) $(CXXFLAGS) $(CPPFLAGS) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN) \
-		> /dev/null
+	$(Q)$(LD) $(CXXFLAGS) $(CPPFLAGS) $(LDENET) $(SERVER_OBJS) \
+		-o $(SERVER_BIN) > /dev/null
 	$(Q)$(STRIP) $(SERVER_BIN)
 
 define MAKEFROMSOURCE
@@ -150,6 +153,14 @@ $(CRO_CLIENT_BIN): $(CRO_CLIENT_OBJS)
 		$(CRO_LDALLEG) $(CRO_LDENET) $(CRO_LDPNG) \
 		> /dev/null
 	$(Q)$(STRIP) $(CRO_CLIENT_BIN)
+
+$(CRO_SERVER_BIN): $(CRO_SERVER_OBJS)
+	$(Q)$(MKDIR) $(CRO_BINDIR)
+	@echo Linking the cross-compiled server daemon \`$(CRO_SERVER_BIN)\' with \
+		$(CRO_LDENET)
+	$(Q)$(CRO_LD) -o $(CRO_SERVER_BIN) $(CRO_SERVER_OBJS) $(CRO_LDENET) \
+		> /dev/null
+	$(Q)$(STRIP) $(CRO_SERVER_BIN)
 
 define CRO_MAKEFROMSOURCE
 $(Q)$(MKDIR) `dirname $@` `dirname $(DEPDIR)/$*.d`
