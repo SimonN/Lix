@@ -5,6 +5,21 @@
 
 
 
+2015-02-03
+
+    Cross-compilation
+        The makefile got a target "cross" to generate Windows binaries from
+        a Linux-hosted installation of MinGW. I've documented extensively
+        how to set up the cross compiler. The Windows downloadable on my
+        website contains a cross-compiled binary from this setup, so users
+        are encouraged to test it for possible oddities.
+
+    Torus drawing bugfix
+        Drawing trigger area rectangles were mistakenly torus-drawn in both
+        directions even if the map wrapped around only horizontally. This is
+        now fixed.
+
+
 
 2015-01-30
 
