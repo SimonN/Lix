@@ -58,7 +58,34 @@ SERVER_DEPS = $(subst $(SRCDIR)/,$(DEPDIR)/,$(SERVER_SRCS:%.cpp=%.d))
 
 ###############################################################################
 
-.PHONY: all clean
+# Replacement variables for cross-compiling Lix on Linux for Windows.
+# All variable names for cross-compilation are prefixed with CRO_.
+# Some non-CRO variables are used in both the Linux and the Windows target.
+
+CRO_CXX = i586-mingw32msvc-g++
+CRO_LD  = i586-mingw32msvc-g++
+
+# change CRO_MINGW_BASE to your MinGW's "i586-..." directory.
+# It should sit inside /usr or /usr/local.
+CRO_MINGDIR  = /usr/i586-mingw32msvc
+
+CRO_LDALLEG  = -L$(CRO_MINGW_BASE)/lib -lalleg44.dll
+CRO_LDENET   = -L$(CRO_MINGW_BASE)/lib -lenet -lws2_32 -lwinmm
+CRO_LDPNG    = -L$(CRO_MINGW_BASE)/lib -lpng -lz
+CRO_CPPFLAGS = -I$(CRO_MINGW_BASE)/include
+
+CRO_OBJDIR   = $(OBJDIR)/objwin
+CRO_BINDIR   = $(BINDIR)/binwin
+
+CRO_CLIENT_BIN  = $(CRO_BINDIR)/lix.exe
+CRO_CLIENT_OBJS = $(subst $(SRCDIR)/,$(CRO_OBJDIR)/,$(CLIENT_CSRC:%.c=%.o)) \
+                  $(subst $(SRCDIR)/,$(CRO_OBJDIR)/,$(CLIENT_SRCS:%.cpp=%.o))
+
+
+
+###############################################################################
+
+.PHONY: all clean cross
 
 all: $(CLIENT_BIN) $(SERVER_BIN)
 
@@ -68,11 +95,19 @@ clean:
 	$(RM) $(OBJDIR)
 	$(RM) $(DEPDIR)
 
+cross: $(CRO_CLIENT_BIN)
+
+
+
+###############################################################################
+
+# Linux native compilation
+
 $(CLIENT_BIN): $(CLIENT_OBJS)
 	$(Q)$(MKDIR) $(BINDIR)
 	@echo Linking the game \`$(CLIENT_BIN)\' with \
 		$(LDALLEG) $(LDENET) $(LDPNG)
-	$(Q)$(LD) $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS) $(LDALLEG) $(LDENET) $(LDPNG) $(CLIENT_OBJS) -o $(CLIENT_BIN) \
+	$(Q)$(LD) $(CXXFLAGS) $(CPPFLAGS) $(LDALLEG) $(LDENET) $(LDPNG) $(CLIENT_OBJS) -o $(CLIENT_BIN) \
 		> /dev/null
 	$(Q)$(STRIP) $(CLIENT_BIN)
 
@@ -80,7 +115,7 @@ $(SERVER_BIN): $(SERVER_OBJS)
 	$(Q)$(MKDIR) $(BINDIR)
 	@echo Linking the server daemon \`$(SERVER_BIN)\' with \
 		$(LDENET)
-	$(Q)$(LD) $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN) \
+	$(Q)$(LD) $(CXXFLAGS) $(CPPFLAGS) $(LDENET) $(SERVER_OBJS) -o $(SERVER_BIN) \
 		> /dev/null
 	$(Q)$(STRIP) $(SERVER_BIN)
 
@@ -99,4 +134,33 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 
 -include $(CLIENT_DEPS)
 -include $(SERVER_DEPS)
+
+
+
+###############################################################################
+
+# Cross-compilation on Linux for Windows
+
+$(CRO_CLIENT_BIN): $(CRO_CLIENT_OBJS)
+	$(Q)$(MKDIR) $(CRO_BINDIR)
+	@echo Linking the cross-compiled game \`$(CRO_CLIENT_BIN)\' with \
+		$(CRO_LDALLEG) $(CRO_LDENET) $(CRO_LDPNG)
+	$(Q)$(CRO_LD) -o $(CRO_CLIENT_BIN) \
+		$(CRO_CLIENT_OBJS) \
+		$(CRO_LDALLEG) $(CRO_LDENET) $(CRO_LDPNG) \
+		> /dev/null
+	$(Q)$(STRIP) $(CRO_CLIENT_BIN)
+
+define CRO_MAKEFROMSOURCE
+$(Q)$(MKDIR) `dirname $@` `dirname $(DEPDIR)/$*.d`
+@echo $<
+$(Q)$(CRO_CXX) $(CXXFLAGS) $(CRO_CPPFLAGS) -c $< -o $@
+@printf "%s/%s" `dirname $@` "`$(DEPGEN) $<`" > $(DEPDIR)/$*.d
+endef
+
+$(CRO_OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	$(CRO_MAKEFROMSOURCE)
+
+$(CRO_OBJDIR)/%.o: $(SRCDIR)/%.c
+	$(CRO_MAKEFROMSOURCE)
 
