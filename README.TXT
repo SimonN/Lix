@@ -6,8 +6,8 @@ It has a networked multiplayer mode, a level editor, and also single-player.
 Read these files in the doc/ directory:
 
     doc/readme.txt   - the main readme file, usage tips, contact information
-    doc/linux.txt    - how to run/compile the game on Linux machines
     doc/copying.txt  - the public domain dedication and fallback license
+    doc/build/*.txt  - how to compile and run the game on Linux or Windows
 
 Customizing the game:
 
