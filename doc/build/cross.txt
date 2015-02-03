@@ -181,17 +181,19 @@ BUILDING LIX
 The Lix makefile has a target "cross" to make the binaries. Make sure you
 have all the libraries installed first.
 
-If your MinGW directory is not the same as mine, you have to edit the Lix
-makefile. Edit the following line to match your MinGW directory:
-
-    CRO_MINGDIR  = /usr/i586-mingw32msvc
-
-When your makefile is correct, invoke make from the Lix root directory:
+Run from the Lix root directory:
 
     make cross
 
-This builds the Windows game executable "./bin/binwin/lix.exe" and the
-server application "./bin/binwin/lixserv.exe". You can run them in Wine.
+Even if your MinGW directory is different from mine, MinGW should know its
+own library directory and find all libraries in it. If you get undefined
+references nonetheless, edit the following line in the Lix makefile to match
+your MinGW directory:
+
+    CRO_MINGDIR  = /usr/i586-mingw32msvc
+
+The makefile builds the Windows game executable "./bin/binwin/lix.exe" and the
+server application "./bin/binwin/lixserv.exe". To test them, run them in Wine.
 
 The default makefile target "all" doesn't imply "cross". You have to
 specify "cross" separately. If you wish to build both the Linux and Windows

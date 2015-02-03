@@ -67,14 +67,15 @@ CRO_CXX     = i586-mingw32msvc-g++
 CRO_LD      = i586-mingw32msvc-g++
 CRO_WINDRES = i586-mingw32msvc-windres
 
-# change CRO_MINGW_BASE to your MinGW's "i586-..." directory.
+# change CRO_MINGDIR to your MinGW's "i586-..." directory.
 # It should sit inside /usr or /usr/local.
+# Maybe you don't have to change it, because $(CRO_LD) will know it by itself.
 CRO_MINGDIR  = /usr/i586-mingw32msvc
 
-CRO_LDALLEG  = -L$(CRO_MINGW_BASE)/lib --subsystem,windows -mwindows -lalleg44.dll
-CRO_LDENET   = -L$(CRO_MINGW_BASE)/lib -lenet -lws2_32 -lwinmm
-CRO_LDPNG    = -L$(CRO_MINGW_BASE)/lib -lpng -lz
-CRO_CPPFLAGS = -I$(CRO_MINGW_BASE)/include
+CRO_LDALLEG  = -L$(CRO_MINGDIR)/lib --subsystem,windows -mwindows -lalleg44.dll
+CRO_LDENET   = -L$(CRO_MINGDIR)/lib -lenet -lws2_32 -lwinmm
+CRO_LDPNG    = -L$(CRO_MINGDIR)/lib -lpng -lz
+CRO_CPPFLAGS = -I$(CRO_MINGDIR)/include
 
 CRO_OBJDIR   = $(OBJDIR)/objwin
 CRO_BINDIR   = $(BINDIR)/binwin
