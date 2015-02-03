@@ -71,7 +71,7 @@ CRO_WINDRES = i586-mingw32msvc-windres
 # It should sit inside /usr or /usr/local.
 CRO_MINGDIR  = /usr/i586-mingw32msvc
 
-CRO_LDALLEG  = -L$(CRO_MINGW_BASE)/lib -lalleg44.dll
+CRO_LDALLEG  = -L$(CRO_MINGW_BASE)/lib --subsystem,windows -mwindows -lalleg44.dll
 CRO_LDENET   = -L$(CRO_MINGW_BASE)/lib -lenet -lws2_32 -lwinmm
 CRO_LDPNG    = -L$(CRO_MINGW_BASE)/lib -lpng -lz
 CRO_CPPFLAGS = -I$(CRO_MINGW_BASE)/include
