@@ -134,6 +134,17 @@ bool PlayerData::operator != (const PlayerData& rhs) const
 
 void PlayerData::set_name(const char* na)
 {
+    // TODO: handle the potential truncation in a UTF-8 aware
+    // manner.  We *think* for the most part things should
+    // still work okay as-is even if we cut off name in the
+    // middle of a multi-byte UTF-8 encoding sequence.
+    // (Moreover that should not have happened in the first
+    // place for network packets originating from "proper"
+    // versions of Lix servers/clients.)
+    //
+    // If you do decide to do the TODO, remember that this file
+    // is shared with lixserv, and therefore you should not
+    // be using Allegro's Unicode functions here.
     strncpy(name, na, name_max_length);
 }
 

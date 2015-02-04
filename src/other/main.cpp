@@ -42,6 +42,7 @@
 #include "user.h"
 #include "verify.h"
 #include "file/log.h"
+#include "language.h"
 
 #include "../lix/lix_enum.h" // initialize strings
 #include "../graphic/png/loadpng.h"
@@ -105,6 +106,17 @@ int main(int argc, char* argv[])
         //
         // (should main_name_of_the_game even be allowed for translation?)
         set_window_title(Language::main_name_of_game_English);
+
+        if (useR->language == Language::NONE || useR->language >= Language::MAX) {
+            // This is for the "initial use" case where there is no
+            // user profile and therefore no language set.
+            //
+            // It is preferrable in that case to try loading the custom language
+            // if it exists, so that we display the "loading..." texts (inside
+            // load_all_bitmaps() below) text in the language the user probably
+            // wants (the custom one if it exists, otherwise English)
+            static_cast<void>(Language::try_load_custom_language(false));
+        }
 
         load_all_bitmaps(GraLib::LOAD_WITH_RECOLOR_LIX);
         Network::initialize();

@@ -277,8 +277,33 @@ void User::load()
 {
     result.clear();
 
-    if (ustrlen(gloB->user_name.c_str()) > PlayerData::name_max_length)
-     gloB->user_name.resize(uoffset(gloB->user_name.c_str(), PlayerData::name_max_length));
+    // note: PlayerData::name_max_length defines the buffer size of
+    // (ie. maximum number of bytes) in the network data protocol.
+    // Therefore we really need to use size() here rather than
+    // number of UTF-8 characters in string.
+    if (gloB->user_name.size() > (std::string::size_type)PlayerData::name_max_length) {
+        // truncate in a UTF-8 aware manner
+        std::string& name = gloB->user_name;
+        std::string::const_iterator iter = name.begin() + PlayerData::name_max_length;
+        Help::move_iterator_utf8(name, iter, -1);
+        std::string::const_iterator iter2 = iter;
+        Help::move_iterator_utf8(name, iter2, +1);
+
+        // if iter is right on starting byte of a UTF8-char, then
+        // moving backwards will go back to previous UTF8-char. Then
+        // going forward again should put us back to right where we
+        // started (ie. name_max_length)
+        //
+        // if iter is in middle of a multi-byte UTF8 sequence, then
+        // moving backwards will land it on the starting byte of that
+        // sequence.  Then moving forwards will put it past end of
+        // sequence and hence beyond name_max_length.
+        if (iter2 <= name.begin() + PlayerData::name_max_length) {
+            name.resize(iter2 - name.begin());
+        } else {
+            name.resize(iter - name.begin());
+        }
+    }
 
     Filename filename(gloB->dir_data_user.get_dir_rootful()
                       + gloB->user_name + gloB->ext_level);
