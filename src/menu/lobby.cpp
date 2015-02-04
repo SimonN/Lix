@@ -59,7 +59,8 @@ Lobby::Lobby()
     start_central(start_but_x, start_but_y,                  start_but_xl),
     start_server(start_but_x, start_but_y + 1*start_but_ys, start_but_xl),
     start_client(start_but_x, start_but_y + 2*start_but_ys, start_but_xl/2),
-    start_ip    (LEMSCR_X/2,  start_but_y + 2*start_but_ys, start_but_xl/2),
+    start_ip    (LEMSCR_X/2,  start_but_y + 2*start_but_ys, start_but_xl/2,
+                 "", false), // no Unicode allowed for this Texttype
 
     chat        (20, console_y, console_xl),
     chat_type   (chat_type_x, chat_type_y,

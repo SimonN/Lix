@@ -22,6 +22,10 @@ enum Language {
     MAX
 };
 
+// long story short, below is needed for a workaround; see
+// comment at set_window_text() in main() in other\main.cpp
+extern char const* const main_name_of_game_English;
+
 // Laden und abrufen
 void     set(const Language);
 void     set(const unsigned);

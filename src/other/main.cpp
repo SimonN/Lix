@@ -98,7 +98,13 @@ int main(int argc, char* argv[])
         if (margs.sound_load_driver) Sound::initialize();
 
         set_screen_mode(margs.scr_f, margs.scr_m, margs.scr_x, margs.scr_y);
-        set_window_title(Language::main_name_of_the_game.c_str());
+
+        // BUG: in Windows, setting the window title with non-ASCII UTF-8
+        // string does not seem to work (Allegro bug?)--non-ASCII characters
+        // turn into ^.  Workaround by forcing use of English string here.
+        //
+        // (should main_name_of_the_game even be allowed for translation?)
+        set_window_title(Language::main_name_of_game_English);
 
         load_all_bitmaps(GraLib::LOAD_WITH_RECOLOR_LIX);
         Network::initialize();

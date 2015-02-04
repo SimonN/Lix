@@ -277,8 +277,8 @@ void User::load()
 {
     result.clear();
 
-    if ((int) gloB->user_name.size() > PlayerData::name_max_length)
-     gloB->user_name.resize(PlayerData::name_max_length);
+    if (ustrlen(gloB->user_name.c_str()) > PlayerData::name_max_length)
+     gloB->user_name.resize(uoffset(gloB->user_name.c_str(), PlayerData::name_max_length));
 
     Filename filename(gloB->dir_data_user.get_dir_rootful()
                       + gloB->user_name + gloB->ext_level);

@@ -37,6 +37,7 @@ private:
 
     bool        invisible;    // Keinen Button zeichnen, nur den Eingabetext
     bool        scroll;       // Mehr Text eingebbar, als das Feld lang ist
+    bool        unicode_ok;   // whether to allow non-ASCII characters
 
     std::string text;
     std::string text_backup;  // Bei ESC/Rechtsklick wird Zurueckgeschrieben
@@ -51,7 +52,7 @@ private:
 
 public:
 
-    Texttype(const int, const int, const int, const std::string& = "");
+    Texttype(const int, const int, const int, const std::string& = "", bool = true);
     Texttype(Texttype&);
     virtual ~Texttype();
 

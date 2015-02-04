@@ -13,6 +13,10 @@
 // Alles nochmal deklarieren, weil es im Header als extern markiert ist
 namespace Language {
 
+// see comment on set_window_text() in main() in other/main.cpp
+// for why we need this string constant
+char const* const main_name_of_game_English = "Lix";
+
 // Geheime Variable
 
 // +1 because unlike other vectors, we'll have an element
@@ -453,9 +457,11 @@ static char const* const special_varname_for_language = "TRANSLATION_LANGUAGE";
 // called during initialization of static variables.  But in
 // doing so please note the following:
 //
+// http://www.parashift.com/c++-faq-lite/static-init-order.html
+//
 // currently all references to global/static variables inside
-// this function are initialized in this same source file and
-// before the initialization expression calling this function,
+// below function are initialized in this same source file and
+// before the initialization expression calling below function,
 // so linked-to issue above does not apply.
 static int add_all_vector_elements_to_translation_map() {
     static_cast<void>(add_to_translation_map(special_varname_for_language,
@@ -548,7 +554,7 @@ void Language::set(const Language lang)
 
     case NONE:
         // Grundlegende Dinge
-        main_name_of_the_game         = "Lix";
+        main_name_of_the_game         = main_name_of_game_English;
         main_loading_1                = "---------- Loading Lix ----------";
         main_loading_2                = "---------- Please Wait ----------";
         main_version                  = "Version:";
@@ -564,7 +570,7 @@ void Language::set(const Language lang)
     case ENGLISH:
 
         // Grundlegende Dinge
-        main_name_of_the_game         = "Lix";
+        main_name_of_the_game         = main_name_of_game_English;
         main_loading_1                = "---------- Loading Lix ----------";
         main_loading_2                = "---------- Please Wait ----------";
         main_version                  = "Version:";
@@ -1052,7 +1058,7 @@ eb[Editor::ADD_HAZARD]
     case GERMAN:
 
         // Grundlegende Dinge
-        main_name_of_the_game         = "Lix";
+        main_name_of_the_game         = main_name_of_game_English; // "Lix"
         main_loading_1                = "------- Lix wird geladen -------";
         main_loading_2                = "--------- Bitte warten ---------";
         main_version                  = "Version:";
@@ -1637,12 +1643,10 @@ void Language::write_translations_dump_for_current_language() {
 
     std::ofstream file(gloB->file_translations_dump.get_rootful().c_str());
     // Some text editors like Windows Notepad may rely on having a
-    // Unicode BOM character add to start of text file to accurately
+    // Unicode BOM character add to start of text file to reliably
     // determine file is UTF-8.  So we'll insert one here for benefit
     // of translators.  See http://en.wikipedia.org/wiki/Byte_order_mark
-    file << static_cast<char>(0xEF)
-         << static_cast<char>(0xBB)
-         << static_cast<char>(0xBF)
+    file << Help::make_utf8_seq(Help::utf8_bom)
          << std::endl;
 
     // special case: always write out special_varname_for_language first,

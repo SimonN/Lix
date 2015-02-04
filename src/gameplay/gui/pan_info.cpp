@@ -43,16 +43,21 @@ void GameplayStats::add_tribe(const Tribe& t)
      for (int i = 0; i < (int) tribes.size(); ++i) {
         std::string& str = tribes[i].name_short;
         std::string& med = tribes[i].name_medium;
+        int len = ustrlen(str.c_str());
         while (text_length(font_med, str.c_str())
          > PanelTribe::name_short_width
-         && str.size() > 1) {
-            str.resize(str.size() - 1);
+         && len > 1) {
+            Help::remove_last_utf8_char(str);
+            len--;
         }
+        len = ustrlen(med.c_str());
         while (text_length(font_med, med.c_str())
          > PanelTribe::name_medium_width
-         && med.size() > 2) {
-            med.resize(med.size() - 2);
+         && len > 2) {
+            Help::remove_last_utf8_char(med);
+            Help::remove_last_utf8_char(med);
             med += '.';
+            len--;
         }
     }
     set_draw_required();

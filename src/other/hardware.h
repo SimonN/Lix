@@ -112,11 +112,12 @@ private:
     bool key_buffer[KEY_MAX]; // fuer key_release
 
     int  key_from_buffer;
-    int  key_from_buffer_ascii;
+    int  key_from_buffer_ascii; // despite "_ascii" ending, can actually be Unicode char
 
 public:
 
     inline int  get_key()       { return key_from_buffer;       }
+    // despite "_ascii" ending, can actually be Unicode char
     inline int  get_key_ascii() { return key_from_buffer_ascii; }
 
     inline bool key_once   (int i)   { return key_from_buffer == i;  }

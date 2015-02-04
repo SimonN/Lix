@@ -127,7 +127,7 @@ void string_to_nice_case(std::string& s) {
 void string_shorten(std::string& s, const FONT* ft, const int length) {
     if (text_length(ft, s.c_str()) > length) {
         while (text_length(ft, s.c_str()) > length - text_length(ft, "..."))
-         s.resize(s.size() - 1);
+         Help::remove_last_utf8_char(s);
         s += "...";
     }
 }
@@ -141,6 +141,53 @@ bool string_ends_with(const std::string& s, const std::string& tail)
 }
 
 
+void move_iterator_utf8(std::string const& str,
+                        std::string::const_iterator& iter,
+                        int num_chars)
+{
+    if (num_chars > 0) {
+        std::string::difference_type num_bytes_to_end = str.end() - iter;
+        while (num_chars > 0 && iter != str.end()) {
+            int num_bytes = uwidth(&*iter);
+            if (num_bytes <= num_bytes_to_end) {
+                iter += num_bytes;
+                num_bytes_to_end -= num_bytes;
+            } else {
+                iter = str.end();
+            }
+            num_chars--;
+        }
+    }
+    else if (num_chars < 0) {
+        // Allegro's Unicode-handling functions do not efficiently
+        // handle iterating backwards in UTF-8, which is rather
+        // common for our needs (eg. truncating text being displayed)
+        // so we'll do our own thing here.
+        while (num_chars < 0 && iter != str.begin()) {
+            --iter;
+            char byte = *iter;
+            // a valid UTF-8 encoding of a character always start with
+            // bit-pattern 0xxxxxxx or 11xxxxxx in first byte
+            if ((byte & 0x80) == 0 || (byte & 0xC0) == 0xC0) {
+                num_chars++;
+            }
+        }
+    }
+}
+
+void remove_last_utf8_char(std::string& str) {
+    std::string::const_iterator iter = str.end();
+    move_iterator_utf8(str, iter, -1);
+    str.resize(iter - str.begin());
+}
+
+std::string make_utf8_seq(int codepoint) {
+    int num_bytes = ucwidth(codepoint);
+    char byte_sequence[num_bytes + 1]; // +1 for terminating 0
+    usetc(byte_sequence, codepoint);
+    byte_sequence[num_bytes] = 0;
+    return std::string(byte_sequence);
+}
 
 
 
@@ -174,6 +221,9 @@ void draw_shadow_fixed_number(
     draw_shadow_fixed_text(bmp,
      f, s.str(), x, y, c, right_to_left, sc);
 }
+// TODO: proper handling of UTF-8 string
+// Currently no callers of draw_shadow_fixed_text() pass in
+// non-ASCII string, so TODO can be deferred.
 void draw_shadow_fixed_text(
  Torbit& bmp, FONT* f, const std::string& s, int x, int y,
  int c, bool right_to_left, int sc) {
@@ -211,11 +261,6 @@ void draw_shadow_fixed_updates_used(
     draw_shadow_fixed_text(bmp, f, s.str(), x, y, c, right_left, sc);
 }
 // Ende der Schattentexte
-
-
-
-
-
 
 
 

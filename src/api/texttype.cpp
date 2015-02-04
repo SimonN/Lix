@@ -6,11 +6,13 @@
 namespace Api {
 
 Texttype::Texttype(const int x,  const int y,
-                   const int xl, const std::string& t)
+                   const int xl, const std::string& t,
+                   bool is_unicode_allowed)
 :
     Button(x, y, xl, 20), // 20 ist generell bei Textelementen richtig
     invisible    (false),
     scroll       (false),
+    unicode_ok   (is_unicode_allowed),
     on_enter_void(0),
     on_esc_void  (0),
     on_enter     (0),
@@ -42,7 +44,7 @@ bool Texttype::get_too_long(const std::string t)
 void Texttype::set_text(const std::string& t)
 {
     text = t;
-    while (!scroll && get_too_long(text))          text.resize(text.size()-1);
+    while (!scroll && get_too_long(text)) Help::remove_last_utf8_char(text);
     while (text.size()>0 && *text.rbegin() == ' ') text.resize(text.size()-1);
     set_draw_required();
 }
@@ -96,12 +98,13 @@ void Texttype::calc_self()
         }
         // Oder doch noch im Schreibmodus bleiben? Dann Tastatur lesen.
         else {
-            int  k      = hardware.get_key();
-            char kascii = hardware.get_key_ascii();
+            int k      = hardware.get_key();
+            // despite var name, can actually be Unicode character
+            int kascii = hardware.get_key_ascii();
 
             // Zeichen verarbeiten
             if (k == KEY_BACKSPACE && text.size() > 0) {
-                text.resize(text.size()-1);
+                Help::remove_last_utf8_char(text);
             }
             else if (kascii < 1) return;
             else if ((k >= KEY_A     && k <= KEY_9    )  || k == KEY_SPACE
@@ -109,10 +112,14 @@ void Texttype::calc_self()
              || k == KEY_STOP      || k == KEY_COMMA     || k == KEY_COLON
              || k == KEY_MINUS     || k == KEY_PLUS_PAD  || k == KEY_EQUALS
              || k == KEY_QUOTE     || k == KEY_SLASH     || k == KEY_CLOSEBRACE
-             || k == KEY_OPENBRACE || k == KEY_SEMICOLON || k == KEY_ASTERISK)
+             || k == KEY_OPENBRACE || k == KEY_SEMICOLON || k == KEY_ASTERISK
+             || kascii > 127)
             {
-                text += kascii;
-                if (!scroll && get_too_long(text)) text.resize(text.size()-1);
+                if (unicode_ok || kascii <= 127) {
+                    std::string::size_type oldsize = text.size();
+                    text += Help::make_utf8_seq(kascii);
+                    if (!scroll && get_too_long(text)) text.resize(oldsize);
+                }
             }
             // Ende Tastenverarbeitung
         }
@@ -139,9 +146,12 @@ void Texttype::draw_self()
 
     if (scroll && get_too_long(text)) {
         align_right = true;
-        int i = text.size() - 1;
-        while (!get_too_long(td) && i >= 0) td = text.substr(i--);
-        td.erase(0, 1);
+        std::string::const_iterator iter = text.end();
+        while(!get_too_long(td) && iter != text.begin()) {
+            Help::move_iterator_utf8(text, iter, -1);
+            td = text.substr(iter - text.begin());
+        }
+        td.erase(0, uwidth(td.c_str()));
     }
     else td = text;
 

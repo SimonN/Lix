@@ -105,9 +105,9 @@ void Hardware::main_loop() {
 
     // Check for text typing
     if (keypressed()) {
-        key_from_buffer       = readkey();
-        key_from_buffer_ascii = key_from_buffer & 0xff;
-        key_from_buffer       = key_from_buffer >> 8;
+        // "_ascii" is misnomer, we can accept Unicode typing here if
+        // Allegro can handle it with the current keyboard layout
+        key_from_buffer_ascii = ureadkey(&key_from_buffer);
     }
     // Also check for modifiers. This is good for the hotkey assignment menu.
     // key_from_buffer_ascii will never be > -1, but maybe key_from_buffer.
