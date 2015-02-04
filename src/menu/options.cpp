@@ -79,7 +79,7 @@ OptionMenu::OptionMenu()
     desc_replay_auto_multi(check_nx, 220, Language::option_replay_auto_multi),
     desc_replay_auto_max  (other_nx, 190, Language::option_replay_auto_max),
 
-    mouse_speed           (other_x, 100, button_xl, 2, 1, 40),
+    mouse_speed           (other_x, 100, button_xl, 2, 1, 80),
     scroll_speed_edge     (other_x, 130, button_xl, 2, 1, 40),
     scroll_speed_click    (other_x, 160, button_xl, 2, 1, 60),
     scroll_edge           (check_x, 100),

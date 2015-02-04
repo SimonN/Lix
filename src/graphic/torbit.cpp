@@ -185,7 +185,7 @@ void Torbit::draw_rectangle_private(
     const int   y2 = y - bitmap->h;
                             func(bitmap, x,  y,  x  + xl-1, y  + yl-1, col);
     if (torus_x)            func(bitmap, x2, y,  x2 + xl-1, y  + yl-1, col);
-    if (torus_x)            func(bitmap, x , y2, x  + xl-1, y2 + yl-1, col);
+    if (torus_y)            func(bitmap, x , y2, x  + xl-1, y2 + yl-1, col);
     if (torus_x && torus_y) func(bitmap, x2, y2, x2 + xl-1, y2 + yl-1, col);
 }
 
@@ -221,7 +221,7 @@ void Torbit::replace_color_in_rect(
     const int y2 = y - bitmap->h;
                             rcir_at(x,  y,  xl, yl, c_old, c_new);
     if (torus_x)            rcir_at(x2, y,  xl, yl, c_old, c_new);
-    if (torus_x)            rcir_at(x,  y2, xl, yl, c_old, c_new);
+    if (torus_y)            rcir_at(x,  y2, xl, yl, c_old, c_new);
     if (torus_x && torus_y) rcir_at(x2, y2, xl, yl, c_old, c_new);
 }
 

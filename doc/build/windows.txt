@@ -1,0 +1,29 @@
+ _____________________________________________________________________________
+/                                                                             \
+|   Lix                                            Compiling Lix on Windows   |
+\_____________________________________________________________________________/
+
+
+
+This file should describe how to compile Lix on Windows. Since I have't done
+this in a while, I don't remember the details. I can only provide the basic
+ideas, you have to work from there. :-)
+
+If you get stuck, come to irc.quakenet.org #lix, and ask.
+
+What you should install:
+
+    * install MinGW to get a C/C++ compiler
+    * install the libraries: enet, libz, libpng, Allegro 4.x
+    * install Codeblocks, an IDE
+
+Then, run the Codeblocks project in Lix's src directory and build the
+Windows release target.
+
+I'm sure you can do it without Codeblocks somehow, but you have to edit the
+makefile. Maybe you can use the cross-compiling section of the makefile
+with only slight modifications -- that secton is designed to work with
+MinGW on Linux to build Windows executables.
+
+You can probably do it with a different compiler than MinGW, but I have
+no experience with others.

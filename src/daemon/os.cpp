@@ -249,6 +249,8 @@ bool kill_daemon(const std::string& lf)
 
     // not implemented
 
+    return false; // nothing to kill
+
 #endif
 #ifdef __unix__
 
