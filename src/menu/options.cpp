@@ -65,7 +65,7 @@ OptionMenu::OptionMenu()
     button_cancel         (LEMSCR_X/2 +  10, 440, button_xl),
     pointers              (GROUP_MAX),
 
-    user_name             (other_x, 100, button_xl),
+    user_name             (other_x, 100, button_xl, "", false),  // TODO: for now block non-ASCII chars in username
     user_name_ask         (check_x, 100),
     language              (other_x, 130, button_xl),
     language_nr           (useR->language),
