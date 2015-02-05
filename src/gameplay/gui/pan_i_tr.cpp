@@ -228,10 +228,14 @@ void GameplayStats::PanelTribe::draw_local(
             if (tarinf->get_floater()) ab += 'F';
             ab += ')';
         }
+
+        int num_chars = ustrlen(str.c_str());
         while (text_length(font_med, (str + ab).c_str()) > xl_tarinf
-         && str.size() > 1) {
-            str.resize(str.size() - 2);
+         && num_chars > 1) {
+            Help::remove_last_utf8_char(str);
+            Help::remove_last_utf8_char(str);
             str += '.';
+            num_chars--;
         }
         Help::draw_shadow_text(*ground, font_med,
          (str + ab).c_str(), x_tarinf, y);

@@ -54,6 +54,18 @@ namespace Help {
     void string_shorten         (std::string&, const FONT*, const int);
     bool string_ends_with       (const std::string&, const std::string&);
 
+    // UTF-8 helpers
+    void move_iterator_utf8     (std::string const&,
+                                 std::string::const_iterator&,
+                                 int);
+    void remove_last_utf8_char  (std::string&);
+    std::string make_utf8_seq   (int codepoint);
+
+    extern const char utf8_to_ascii_escape_char;
+    std::string escape_utf8_with_ascii(const std::string&);
+
+    int const  utf8_bom = 0xFEFF;
+
     void draw_shaded_text         (Torbit&, FONT*, const char*,
                                    int, int, int, int, int);
     void draw_shadow_text         (Torbit&, FONT*, const char*,
@@ -68,6 +80,8 @@ namespace Help {
                                    int, int, int = color[COL_TEXT],
                                    int = color[COL_API_SHADOW]);
 
+    // TODO: proper UTF-8 string handling
+    // work deferred as not required by any current callers
     void draw_shadow_fixed_number (Torbit&, FONT*,
                                    int, int, int, int=color[COL_TEXT],
                                    bool = false, int=color[COL_API_SHADOW]);
@@ -77,8 +91,6 @@ namespace Help {
     void draw_shadow_fixed_updates_used(Torbit&, FONT*,
                                    int, int, int, int=color[COL_TEXT],
                                    bool = false,  int=color[COL_API_SHADOW]);
-
-
 
     // Funktionszeigertypendefinition für die kommenden Suchfunktionen
     typedef void (*DoStr)(const Filename&, void*);

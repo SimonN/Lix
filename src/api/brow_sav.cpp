@@ -34,8 +34,9 @@ SaveBrowser::SaveBrowser(const Filename&    bdir,
     level_list(2 * frame_offset + dir_list_xl,
      dir_list_y, file_list_xl, dir_list_yl),
 
-    file_name(2*frame_offset + dir_list_xl,
-     dir_list_y + dir_list_yl + frame_offset, 140),
+    file_name(2 * frame_offset + dir_list_xl,
+              dir_list_y + dir_list_yl + frame_offset,
+              140, Texttype::ALLOW_ONLY_FILENAME),
 
     ok    (file_name.get_x() + 160, file_name.get_y(),  80),
     cancel(file_name.get_x() + 260, file_name.get_y(), 100),
@@ -165,7 +166,15 @@ void SaveBrowser::set_texttype(const std::string& s)
 }
 
 
-
+// note: this doesn't "correctly" handle file_name having
+// UTF-8 text--each non-ASCII character will be replaced by
+// 2 or more '-' (rather than just 1) depending on how many
+// bytes it takes to encode the character.  This behavior is
+// ultimately benign though.
+//
+// Supporting non-ASCII characters in filename is debatable,
+// for now we opt to disallow them altogether, blocking them
+// at keyboard-entry level.
 void SaveBrowser::make_texttype_valid()
 {
     std::string str = file_name.get_text();

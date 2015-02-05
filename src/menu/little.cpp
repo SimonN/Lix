@@ -13,7 +13,7 @@ NewPlayerMenu::NewPlayerMenu()
 :
     Window(190, 170, 260, 140, Language::option_new_player_title),
     exit  (false),
-    name  ( 60, 100, 140),
+    name  ( 60, 100, 140, Texttype::ALLOW_UNICODE),
     desc_hello(get_xl()/2, 40, Language::option_new_player_first,
                 Label::CENTERED),
     desc_name (get_xl()/2, 60, Language::option_new_player_second,
@@ -80,11 +80,32 @@ LanguageMenu::LanguageMenu()
            Language::main_name_of_the_game),
     exit  (false)
 {
-    for (unsigned i = 0; i < Language::MAX; ++i)
-     button.push_back(TextButton(20, 10 + 30 * i, 100, 20,
-                                 Language::language_name[i]));
+    static Language::Language const orderedLanguages[] = {
+        Language::CUSTOM,
+        Language::ENGLISH,
+        Language::GERMAN,
+    };
 
-    for (unsigned i = 1; i < button.size(); ++i)
+    size_t const displayOrderLength = sizeof(orderedLanguages) /
+                                      sizeof(orderedLanguages[0]);
+    unsigned displayOrderStart = 0;
+    // argument true means only load the custom language's name
+    if (!Language::try_load_custom_language(true)) {
+        // reach here if no custom language (data/translate.txt) installed
+        // drop the button for that from UI and resize window accordingly
+        displayOrderStart = 1;
+        set_y (LEMSCR_Y/2 - 15 * (Language::MAX) +  5);
+        set_yl(             30 * (Language::MAX) - 10);
+    }
+
+    for (unsigned i = displayOrderStart; i < displayOrderLength; ++i) {
+        button.push_back(TextButton(20, 10 + 30 * (i - displayOrderStart + 1),
+                                    100, 20,
+                                    Language::language_name[orderedLanguages[i]]));
+        corresponding_language.push_back(orderedLanguages[i]);
+    }
+
+    for (unsigned i = 0; i < button.size(); ++i)
      add_child(button[i]);
 
     // Dies verhindert den pinken Hintergrund. Wir muessen dies tun, denn
@@ -102,10 +123,10 @@ LanguageMenu::~LanguageMenu()
 
 void LanguageMenu::calc_self()
 {
-    std::vector <TextButton> ::iterator i = button.begin();
-    for (++i; i != button.end(); ++i)
+    std::vector <TextButton> ::const_iterator i = button.begin();
+    for (; i != button.end(); ++i)
      if (i->get_clicked()) {
-        exit_with = static_cast <Language::Language> (i - button.begin());
+        exit_with = corresponding_language[i - button.begin()];
         exit = true;
     }
 }

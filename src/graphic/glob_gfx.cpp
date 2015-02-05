@@ -33,11 +33,40 @@ void make_all_lix_colors();
 void make_lix_color(const LixEn::Style, const int = 0, const int = 0,
                                         const int = 0, const int = 0);
 
+// similar to a straight load_font(), but will try out a priotized sequence
+// of slightly different filenames to allow for (advanced) users to provide
+// an alternate custom font or supplement the included one
+static FONT* load_font_for_lix(Filename const& filename) {
+    FONT* result = 0;
+    std::string baseparts_rootless = filename.get_dir_rootless() +
+                                     filename.get_file_no_ext_no_pre_ext();
+    // sequence to try:
+    //   (.txt provides best flexibility, while .png and .bmp
+    //    have wider software support than .pcx and .tga)
+    static char const* const seq[] = {
+        ".txt", ".fnt", ".I.png", ".I.bmp", ".I.pcx", ".I.tga",
+    };
+    static size_t const n = sizeof(seq) / sizeof(seq[0]);
+
+    for(size_t i = 0; 0 == result && i < n; i++) {
+        std::string fullpath = Filename(baseparts_rootless + seq[i]).get_rootful();
+        if (exists(fullpath.c_str()))
+            result = load_font(fullpath.c_str(), 0, 0);
+    }
+
+    return result;
+}
+
 void load_all_bitmaps(GraLib::RecolorLix recolor_lix_speed_switch)
 {
     Api::Manager::initialize(LEMSCR_X, LEMSCR_Y);
     Torbit* osd = &Api::Manager::get_torbit();
     osd->clear_to_color(0);
+
+    // Set the glyph to display for characters not covered in our font.
+    // For the loading screen we're using Allegro's built-in font. We
+    // will use ? for undisplayable characters.
+    allegro_404_char = '?';
 
     // Anzeige, dass geladen wird
     textout_centre_ex(osd->get_al_bitmap(), font,
@@ -47,7 +76,7 @@ void load_all_bitmaps(GraLib::RecolorLix recolor_lix_speed_switch)
      Language::main_loading_2.c_str(),
      LEMSCR_X/2, 8, makecol(255, 255, 255), -1);
 
-    const int txtlen = 8 * Language::main_loading_1.size();
+    const int txtlen = 8 * ustrlen(Language::main_loading_1.c_str());
     const int factor = SCREEN_W/txtlen;
     stretch_blit(osd->get_al_bitmap(), screen,
                  LEMSCR_X/2 - txtlen/2, 0, txtlen, 16,
@@ -68,10 +97,14 @@ void load_all_bitmaps(GraLib::RecolorLix recolor_lix_speed_switch)
     ObjLib::initialize();
 
     // Schriftarten laden
-    font_sml = load_font(gloB->file_bitmap_font_sml.get_rootful().c_str(),0,0);
-    font_med = load_font(gloB->file_bitmap_font_med.get_rootful().c_str(),0,0);
-    font_nar = load_font(gloB->file_bitmap_font_nar.get_rootful().c_str(),0,0);
-    font_big = load_font(gloB->file_bitmap_font_big.get_rootful().c_str(),0,0);
+    font_sml = load_font_for_lix(gloB->file_bitmap_font_sml);
+    font_med = load_font_for_lix(gloB->file_bitmap_font_med);
+    font_nar = load_font_for_lix(gloB->file_bitmap_font_nar);
+    font_big = load_font_for_lix(gloB->file_bitmap_font_big);
+
+    // For our current fonts, ASCII 0x7F gets mapped to a square, which
+    // is a more standard representation for "undisplayble character".
+    allegro_404_char = 0x7F;
 
     // Falls Datei nicht gefunden, Standardfont nutzen, damit das Programm
     // nicht abstuerzt

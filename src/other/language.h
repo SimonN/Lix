@@ -18,13 +18,21 @@ enum Language {
     NONE,
     ENGLISH,
     GERMAN,
+    CUSTOM,
     MAX
 };
+
+// long story short, below is needed for a workaround; see
+// comment at set_window_text() in main() in other\main.cpp
+extern char const* const main_name_of_game_English;
 
 // Laden und abrufen
 void     set(const Language);
 void     set(const unsigned);
 Language get();
+
+bool try_load_custom_language(bool load_language_name_only);
+void write_translations_dump_for_current_language();
 
 // language_name[GERMAN] ist etwa "Deutsch", bei ENGLISH "English".
 extern std::vector <std::string> language_name;

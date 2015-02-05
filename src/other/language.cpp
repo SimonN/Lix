@@ -5,28 +5,73 @@
 
 #include "language.h"
 #include "user.h"
-
 #include "../editor/editor.h"
+#include "./file/io.h"
+#include <map>
+#include <algorithm>
 
 // Alles nochmal deklarieren, weil es im Header als extern markiert ist
 namespace Language {
 
+// see comment on set_window_text() in main() in other/main.cpp
+// for why we need this string constant
+char const* const main_name_of_game_English = "Lix";
+
 // Geheime Variable
-std::vector <std::string> language_name( 4);
-std::vector <std::string> option_group ( 7);
+
+// +1 because unlike other vectors, we'll have an element
+// here for Language::MAX too
+std::vector <std::string> language_name(Language::MAX + 1);
+
+namespace Option {
+    enum OptionGroupNames {
+        GENERAL,
+        CONTROLS,
+        HOTKEYS,
+        EDITOR,
+        MENU,
+        GRAPHICS,
+        SOUND,
+
+        MAX
+    };
+};
+std::vector <std::string> option_group(Option::MAX);
+
 std::vector <std::string> editor_button(Editor::MAX);
 std::vector <std::string>& eb = editor_button; // nur intern in language.cpp
 
-std::string
+typedef std::map<std::string, std::string*> translate_map_type;
+static translate_map_type map_vars_to_translate;
+
+// a dummy "" is returned to enable following usage:
+//    std::string myVar = add_to_translation_map("myVar", myVar);
+static char const* add_to_translation_map(char const *const varname, std::string &ref_var) {
+    map_vars_to_translate[varname] = &ref_var;
+    return "";
+}
+
+#define DECL_VARIABLE_FOR_TRANSLATION(varname) \
+    std::string varname = add_to_translation_map( #varname , varname)
+
+// For new std::string global variables in namespace Language for a new
+// string that can be translated, just copy the DECL_VARIABLE_... line
+// and change the macro argument to name of the new variable.
+//
+// For the strings stored in eb (editor_button) vector or similar,
+// refer to add_all_vector_elements_to_translation_map() further below.
 
 // Grundlegende Dinge
-main_name_of_the_game,
-main_loading_1,
-main_loading_2,
-main_version,
-main_website,
+DECL_VARIABLE_FOR_TRANSLATION(main_name_of_the_game);
+DECL_VARIABLE_FOR_TRANSLATION(main_loading_1);
+DECL_VARIABLE_FOR_TRANSLATION(main_loading_2);
+DECL_VARIABLE_FOR_TRANSLATION(main_version);
+DECL_VARIABLE_FOR_TRANSLATION(main_website);
 
-// Logging
+// Logging - mostly for developer use, so
+// probably should not be exposed for translation
+std::string
+
 log_error,
 log_info,
 log_program_start_1,
@@ -39,367 +84,437 @@ log_file_not_found,
 log_bitmap_bad,
 
 log_level_unknown_bitmap,
-log_level_file_saved,
+log_level_file_saved;
 
 // Verschiedene Dialoge
-ok, cancel, yes, no, back, exit,
-dir_parent,
-dir_flip_page,
+DECL_VARIABLE_FOR_TRANSLATION(ok);
+DECL_VARIABLE_FOR_TRANSLATION(cancel);
+DECL_VARIABLE_FOR_TRANSLATION(yes);
+DECL_VARIABLE_FOR_TRANSLATION(no);
+DECL_VARIABLE_FOR_TRANSLATION(back);
+DECL_VARIABLE_FOR_TRANSLATION(exit);
+DECL_VARIABLE_FOR_TRANSLATION(dir_parent);
+DECL_VARIABLE_FOR_TRANSLATION(dir_flip_page);
 
 // Browser
-browser_single_title,
-browser_network_title,
-browser_replay_title,
-browser_play,
-browser_edit,
-browser_replay,
-browser_delete,
-browser_extract,
-browser_export_image,
-browser_export_image_done,
+DECL_VARIABLE_FOR_TRANSLATION(browser_single_title);
+DECL_VARIABLE_FOR_TRANSLATION(browser_network_title);
+DECL_VARIABLE_FOR_TRANSLATION(browser_replay_title);
+DECL_VARIABLE_FOR_TRANSLATION(browser_play);
+DECL_VARIABLE_FOR_TRANSLATION(browser_edit);
+DECL_VARIABLE_FOR_TRANSLATION(browser_replay);
+DECL_VARIABLE_FOR_TRANSLATION(browser_delete);
+DECL_VARIABLE_FOR_TRANSLATION(browser_extract);
+DECL_VARIABLE_FOR_TRANSLATION(browser_export_image);
+DECL_VARIABLE_FOR_TRANSLATION(browser_export_image_done);
 
-browser_info_author,
-browser_info_initgoal,
-browser_info_initial,
-browser_info_hatches,
-browser_info_goals,
-browser_info_skills,
-browser_info_clock_2,
-browser_info_author_none,
-browser_info_clock_none,
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_author);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_initgoal);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_initial);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_hatches);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_goals);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_skills);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_clock_2);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_author_none);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_clock_none);
 
-browser_info_result_saved,
-browser_info_result_skills,
-browser_info_result_time,
-browser_info_result_old_1,
-browser_info_result_old_2,
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_result_saved);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_result_skills);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_result_time);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_result_old_1);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_result_old_2);
 
-browser_info_player,
-browser_info_version,
-browser_info_built,
-browser_info_new,
-browser_info_same,
-browser_info_old,
-browser_info_holds_level,
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_player);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_version);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_built);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_new);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_same);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_old);
+DECL_VARIABLE_FOR_TRANSLATION(browser_info_holds_level);
 
-browser_box_delete_tit_rep,
-browser_box_delete_que_rep,
-browser_box_delete_tit_lev,
-browser_box_delete_que_lev,
+DECL_VARIABLE_FOR_TRANSLATION(browser_box_delete_tit_rep);
+DECL_VARIABLE_FOR_TRANSLATION(browser_box_delete_que_rep);
+DECL_VARIABLE_FOR_TRANSLATION(browser_box_delete_tit_lev);
+DECL_VARIABLE_FOR_TRANSLATION(browser_box_delete_que_lev);
 
 // Lobby
-win_lobby_title,
-win_lobby_title_lobby,
-win_lobby_title_room,
-win_lobby_exit,
-win_lobby_unstable_central,
-win_lobby_start_central,
-win_lobby_start_server,
-win_lobby_start_client,
-win_lobby_chat,
-win_lobby_select_level,
-win_lobby_ready,
-win_lobby_room_number,
-win_lobby_room_player,
-win_lobby_room_players,
-win_lobby_room_create,
-win_lobby_room_leave,
+DECL_VARIABLE_FOR_TRANSLATION(win_lobby_title);
+DECL_VARIABLE_FOR_TRANSLATION(win_lobby_title_lobby);
+DECL_VARIABLE_FOR_TRANSLATION(win_lobby_title_room);
+DECL_VARIABLE_FOR_TRANSLATION(win_lobby_exit);
+DECL_VARIABLE_FOR_TRANSLATION(win_lobby_unstable_central);
+DECL_VARIABLE_FOR_TRANSLATION(win_lobby_start_central);
+DECL_VARIABLE_FOR_TRANSLATION(win_lobby_start_server);
+DECL_VARIABLE_FOR_TRANSLATION(win_lobby_start_client);
+DECL_VARIABLE_FOR_TRANSLATION(win_lobby_chat);
+DECL_VARIABLE_FOR_TRANSLATION(win_lobby_select_level);
+DECL_VARIABLE_FOR_TRANSLATION(win_lobby_ready);
+DECL_VARIABLE_FOR_TRANSLATION(win_lobby_room_number);
+DECL_VARIABLE_FOR_TRANSLATION(win_lobby_room_player);
+DECL_VARIABLE_FOR_TRANSLATION(win_lobby_room_players);
+DECL_VARIABLE_FOR_TRANSLATION(win_lobby_room_create);
+DECL_VARIABLE_FOR_TRANSLATION(win_lobby_room_leave);
 
 // Spielfenster
-win_game_title,
-win_game_result,
-win_game_lix_saved,
-win_game_lix_saved_in_time,
-win_game_resume,
-win_game_restart,
-win_game_save_replay,
-win_game_menu,
-win_game_comment_perfect,
-win_game_comment_more,
-win_game_comment_exactly,
-win_game_comment_less,
-win_game_comment_none,
-win_game_result_skills,
-win_game_result_time,
-win_game_net_first,
-win_game_net_second,
-win_game_net_middle,
-win_game_net_last,
-win_game_net_first_tie,
-win_game_net_last_tie,
-win_game_net_all_tie,
-win_game_net_zero,
-win_game_net_all_zero,
-win_game_replay_win_one,
-win_game_replay_win_team,
-win_game_replay_tie,
-win_game_overwrite_title,
-win_game_overwrite_question,
+DECL_VARIABLE_FOR_TRANSLATION(win_game_title);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_result);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_lix_saved);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_lix_saved_in_time);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_resume);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_restart);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_save_replay);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_menu);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_comment_perfect);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_comment_more);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_comment_exactly);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_comment_less);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_comment_none);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_result_skills);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_result_time);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_net_first);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_net_second);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_net_middle);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_net_last);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_net_first_tie);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_net_last_tie);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_net_all_tie);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_net_zero);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_net_all_zero);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_replay_win_one);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_replay_win_team);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_replay_tie);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_overwrite_title);
+DECL_VARIABLE_FOR_TRANSLATION(win_game_overwrite_question);
 
 // Help texts inside the game
-gameplay_rate_minus,
-gameplay_rate_plus,
-gameplay_pause,
-gameplay_zoom,
-gameplay_speed_slow,
-gameplay_speed_fast,
-gameplay_speed_turbo,
-gameplay_state_save,
-gameplay_state_load,
-gameplay_restart,
-gameplay_nuke,
-gameplay_hint_first,
-gameplay_hint_next,
-gameplay_hint_prev,
-gameplay_hint_off,
-gameplay_spec_tribe,
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_rate_minus);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_rate_plus);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_pause);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_zoom);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_speed_slow);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_speed_fast);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_speed_turbo);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_state_save);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_state_load);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_restart);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_nuke);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_hint_first);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_hint_next);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_hint_prev);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_hint_off);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_spec_tribe);
 
 // Editor allgemein
-editor_unsaved_title,
-editor_unsaved_title_new,
-editor_unsaved_question,
-editor_unsaved_question_new,
-editor_file_name,
-editor_level_name,
-editor_hotkey,
-editor_hotkey_hold,
-editor_bar_at,
-editor_bar_hover,
-editor_bar_selection,
-editor_bar_movekeys_long,
-editor_bar_movekeys_short,
-editor_bar_movekeys_mid,
-editor_bar_movekeys_end,
+DECL_VARIABLE_FOR_TRANSLATION(editor_unsaved_title);
+DECL_VARIABLE_FOR_TRANSLATION(editor_unsaved_title_new);
+DECL_VARIABLE_FOR_TRANSLATION(editor_unsaved_question);
+DECL_VARIABLE_FOR_TRANSLATION(editor_unsaved_question_new);
+DECL_VARIABLE_FOR_TRANSLATION(editor_file_name);
+DECL_VARIABLE_FOR_TRANSLATION(editor_level_name);
+DECL_VARIABLE_FOR_TRANSLATION(editor_hotkey);
+DECL_VARIABLE_FOR_TRANSLATION(editor_hotkey_hold);
+DECL_VARIABLE_FOR_TRANSLATION(editor_bar_at);
+DECL_VARIABLE_FOR_TRANSLATION(editor_bar_hover);
+DECL_VARIABLE_FOR_TRANSLATION(editor_bar_selection);
+DECL_VARIABLE_FOR_TRANSLATION(editor_bar_movekeys_long);
+DECL_VARIABLE_FOR_TRANSLATION(editor_bar_movekeys_short);
+DECL_VARIABLE_FOR_TRANSLATION(editor_bar_movekeys_mid);
+DECL_VARIABLE_FOR_TRANSLATION(editor_bar_movekeys_end);
 
 // SaveBrowser
-save_browser_title,
-save_filename,
-save_box_overwrite_title,
-save_box_overwrite_question,
+DECL_VARIABLE_FOR_TRANSLATION(save_browser_title);
+DECL_VARIABLE_FOR_TRANSLATION(save_filename);
+DECL_VARIABLE_FOR_TRANSLATION(save_box_overwrite_title);
+DECL_VARIABLE_FOR_TRANSLATION(save_box_overwrite_question);
 
 // BitmapBrowser
-add_terrain,
-add_steel,
-add_hatch,
-add_goal,
-add_deco,
-add_hazard,
+DECL_VARIABLE_FOR_TRANSLATION(add_terrain);
+DECL_VARIABLE_FOR_TRANSLATION(add_steel);
+DECL_VARIABLE_FOR_TRANSLATION(add_hatch);
+DECL_VARIABLE_FOR_TRANSLATION(add_goal);
+DECL_VARIABLE_FOR_TRANSLATION(add_deco);
+DECL_VARIABLE_FOR_TRANSLATION(add_hazard);
 
 // Kartengroesse
-win_size_title,
-win_size_l,
-win_size_r,
-win_size_u,
-win_size_d,
-win_size_x,
-win_size_y,
-win_size_hex,
-win_size_torus_x,
-win_size_torus_y,
+DECL_VARIABLE_FOR_TRANSLATION(win_size_title);
+DECL_VARIABLE_FOR_TRANSLATION(win_size_l);
+DECL_VARIABLE_FOR_TRANSLATION(win_size_r);
+DECL_VARIABLE_FOR_TRANSLATION(win_size_u);
+DECL_VARIABLE_FOR_TRANSLATION(win_size_d);
+DECL_VARIABLE_FOR_TRANSLATION(win_size_x);
+DECL_VARIABLE_FOR_TRANSLATION(win_size_y);
+DECL_VARIABLE_FOR_TRANSLATION(win_size_hex);
+DECL_VARIABLE_FOR_TRANSLATION(win_size_torus_x);
+DECL_VARIABLE_FOR_TRANSLATION(win_size_torus_y);
 
 // Karten-Startausschnitt
-win_scroll_title,
-win_scroll_manual,
-win_scroll_x,
-win_scroll_y,
-win_scroll_r,
-win_scroll_g,
-win_scroll_b,
-win_scroll_jump,
-win_scroll_current,
+DECL_VARIABLE_FOR_TRANSLATION(win_scroll_title);
+DECL_VARIABLE_FOR_TRANSLATION(win_scroll_manual);
+DECL_VARIABLE_FOR_TRANSLATION(win_scroll_x);
+DECL_VARIABLE_FOR_TRANSLATION(win_scroll_y);
+DECL_VARIABLE_FOR_TRANSLATION(win_scroll_r);
+DECL_VARIABLE_FOR_TRANSLATION(win_scroll_g);
+DECL_VARIABLE_FOR_TRANSLATION(win_scroll_b);
+DECL_VARIABLE_FOR_TRANSLATION(win_scroll_jump);
+DECL_VARIABLE_FOR_TRANSLATION(win_scroll_current);
 
 // Variablenfenster
-win_var_title,
-win_var_author,
-win_var_name_german,
-win_var_name_english,
-win_var_initial,
-win_var_required,
-win_var_spawnint_slow,
-win_var_spawnint_fast,
-win_var_clock,
+DECL_VARIABLE_FOR_TRANSLATION(win_var_title);
+DECL_VARIABLE_FOR_TRANSLATION(win_var_author);
+DECL_VARIABLE_FOR_TRANSLATION(win_var_name_german);
+DECL_VARIABLE_FOR_TRANSLATION(win_var_name_english);
+DECL_VARIABLE_FOR_TRANSLATION(win_var_initial);
+DECL_VARIABLE_FOR_TRANSLATION(win_var_required);
+DECL_VARIABLE_FOR_TRANSLATION(win_var_spawnint_slow);
+DECL_VARIABLE_FOR_TRANSLATION(win_var_spawnint_fast);
+DECL_VARIABLE_FOR_TRANSLATION(win_var_clock);
 
 // Faehigkeits-Fenster
-win_skill_title,
-win_skill_clear,
-win_skill_classic_8,
-win_skill_classic_12,
-win_skill_all_to,
+DECL_VARIABLE_FOR_TRANSLATION(win_skill_title);
+DECL_VARIABLE_FOR_TRANSLATION(win_skill_clear);
+DECL_VARIABLE_FOR_TRANSLATION(win_skill_classic_8);
+DECL_VARIABLE_FOR_TRANSLATION(win_skill_classic_12);
+DECL_VARIABLE_FOR_TRANSLATION(win_skill_all_to);
 
 // Exporting a level into a file
-export_single_lix,
-export_single_spawnint,
-export_single_clock,
-export_multi_lix,
-export_multi_spawnint,
-export_multi_clock,
+DECL_VARIABLE_FOR_TRANSLATION(export_single_lix);
+DECL_VARIABLE_FOR_TRANSLATION(export_single_spawnint);
+DECL_VARIABLE_FOR_TRANSLATION(export_single_clock);
+DECL_VARIABLE_FOR_TRANSLATION(export_multi_lix);
+DECL_VARIABLE_FOR_TRANSLATION(export_multi_spawnint);
+DECL_VARIABLE_FOR_TRANSLATION(export_multi_clock);
 
 // Netzwerk-Chatnachrichten
-net_chat_welcome_1,
-net_chat_welcome_2,
-net_chat_unstable_1,
-net_chat_unstable_2,
-net_chat_start_server,
-net_chat_start_client,
-net_chat_start_cancel,
-net_chat_disconnection,
-net_chat_we_too_old,
-net_chat_we_too_new,
-net_chat_someone_old,
-net_chat_someone_new,
-net_chat_named_guy_old,
-net_chat_version_yours,
-net_chat_version_server,
-net_chat_server_update,
-net_chat_please_download,
-net_chat_we_connected,
-net_chat_we_in_room,
-net_chat_we_in_room_2,
-net_chat_we_in_lobby,
-net_chat_player_in_room,
-net_chat_player_in_room_2,
-net_chat_player_in_lobby,
-net_chat_player_out_room,
-net_chat_player_out_room_2,
-net_chat_player_out_lobby,
-net_chat_level_change,
-net_game_start,
-net_game_how_to_chat_1,
-net_game_how_to_chat_2,
-net_game_end,
-net_game_end_result,
-net_game_overtime_1,
-net_game_overtime_2,
-net_game_overtime_2_one,
-net_game_overtime_3,
-net_game_overtime_4,
-net_game_overtime_4_one,
-net_game_overtime_4_sec,
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_welcome_1);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_welcome_2);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_unstable_1);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_unstable_2);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_start_server);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_start_client);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_start_cancel);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_disconnection);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_we_too_old);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_we_too_new);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_someone_old);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_someone_new);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_named_guy_old);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_version_yours);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_version_server);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_server_update);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_please_download);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_we_connected);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_we_in_room);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_we_in_room_2);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_we_in_lobby);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_player_in_room);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_player_in_room_2);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_player_in_lobby);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_player_out_room);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_player_out_room_2);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_player_out_lobby);
+DECL_VARIABLE_FOR_TRANSLATION(net_chat_level_change);
+DECL_VARIABLE_FOR_TRANSLATION(net_game_start);
+DECL_VARIABLE_FOR_TRANSLATION(net_game_how_to_chat_1);
+DECL_VARIABLE_FOR_TRANSLATION(net_game_how_to_chat_2);
+DECL_VARIABLE_FOR_TRANSLATION(net_game_end);
+DECL_VARIABLE_FOR_TRANSLATION(net_game_end_result);
+DECL_VARIABLE_FOR_TRANSLATION(net_game_overtime_1);
+DECL_VARIABLE_FOR_TRANSLATION(net_game_overtime_2);
+DECL_VARIABLE_FOR_TRANSLATION(net_game_overtime_2_one);
+DECL_VARIABLE_FOR_TRANSLATION(net_game_overtime_3);
+DECL_VARIABLE_FOR_TRANSLATION(net_game_overtime_4);
+DECL_VARIABLE_FOR_TRANSLATION(net_game_overtime_4_one);
+DECL_VARIABLE_FOR_TRANSLATION(net_game_overtime_4_sec);
 
 // Optionsfenster
-option_title,
-option_user_name,
-option_user_name_ask,
-option_language,
-option_replay_auto_max,
-option_replay_auto_single,
-option_replay_auto_multi,
-option_replay_cancel,
-option_replay_cancel_at,
-option_mouse_speed,
-option_scroll_speed_edge,
-option_scroll_speed_click,
-option_scroll_edge,
-option_scroll_right,
-option_scroll_middle,
-option_scroll_torus_x,
-option_scroll_torus_y,
-option_scroll_torus_never,
-option_scroll_torus_big,
-option_scroll_torus_always,
-option_multiple_builders,
-option_batter_priority,
-option_prioinv_middle,
-option_prioinv_right,
-option_screen_resolution,
-option_screen_windowed_res,
-option_screen_windowed,
-option_screen_scaling,
-option_screen_scaling_stretch,
-option_screen_scaling_aspect,
-option_screen_scaling_integer,
-option_screen_border_colored,
-option_screen_vsync,
-option_arrows_replay,
-option_arrows_network,
-option_gameplay_help,
-option_debris_amount,
-option_debris_amount_none,
-option_debris_amount_own,
-option_debris_amount_all,
-option_debris_type,
-option_debris_type_stars,
-option_debris_type_pixels,
-option_gui_color_red,
-option_gui_color_green,
-option_gui_color_blue,
-option_info,
-option_gfx_zero,
-option_sound_load_driver,
-option_sound_volume,
-option_info_sound,
+DECL_VARIABLE_FOR_TRANSLATION(option_title);
+DECL_VARIABLE_FOR_TRANSLATION(option_user_name);
+DECL_VARIABLE_FOR_TRANSLATION(option_user_name_ask);
+DECL_VARIABLE_FOR_TRANSLATION(option_language);
+DECL_VARIABLE_FOR_TRANSLATION(option_replay_auto_max);
+DECL_VARIABLE_FOR_TRANSLATION(option_replay_auto_single);
+DECL_VARIABLE_FOR_TRANSLATION(option_replay_auto_multi);
+DECL_VARIABLE_FOR_TRANSLATION(option_replay_cancel);
+DECL_VARIABLE_FOR_TRANSLATION(option_replay_cancel_at);
+DECL_VARIABLE_FOR_TRANSLATION(option_mouse_speed);
+DECL_VARIABLE_FOR_TRANSLATION(option_scroll_speed_edge);
+DECL_VARIABLE_FOR_TRANSLATION(option_scroll_speed_click);
+DECL_VARIABLE_FOR_TRANSLATION(option_scroll_edge);
+DECL_VARIABLE_FOR_TRANSLATION(option_scroll_right);
+DECL_VARIABLE_FOR_TRANSLATION(option_scroll_middle);
+DECL_VARIABLE_FOR_TRANSLATION(option_scroll_torus_x);
+DECL_VARIABLE_FOR_TRANSLATION(option_scroll_torus_y);
+DECL_VARIABLE_FOR_TRANSLATION(option_scroll_torus_never);
+DECL_VARIABLE_FOR_TRANSLATION(option_scroll_torus_big);
+DECL_VARIABLE_FOR_TRANSLATION(option_scroll_torus_always);
+DECL_VARIABLE_FOR_TRANSLATION(option_multiple_builders);
+DECL_VARIABLE_FOR_TRANSLATION(option_batter_priority);
+DECL_VARIABLE_FOR_TRANSLATION(option_prioinv_middle);
+DECL_VARIABLE_FOR_TRANSLATION(option_prioinv_right);
+DECL_VARIABLE_FOR_TRANSLATION(option_screen_resolution);
+DECL_VARIABLE_FOR_TRANSLATION(option_screen_windowed_res);
+DECL_VARIABLE_FOR_TRANSLATION(option_screen_windowed);
+DECL_VARIABLE_FOR_TRANSLATION(option_screen_scaling);
+DECL_VARIABLE_FOR_TRANSLATION(option_screen_scaling_stretch);
+DECL_VARIABLE_FOR_TRANSLATION(option_screen_scaling_aspect);
+DECL_VARIABLE_FOR_TRANSLATION(option_screen_scaling_integer);
+DECL_VARIABLE_FOR_TRANSLATION(option_screen_border_colored);
+DECL_VARIABLE_FOR_TRANSLATION(option_screen_vsync);
+DECL_VARIABLE_FOR_TRANSLATION(option_arrows_replay);
+DECL_VARIABLE_FOR_TRANSLATION(option_arrows_network);
+DECL_VARIABLE_FOR_TRANSLATION(option_gameplay_help);
+DECL_VARIABLE_FOR_TRANSLATION(option_debris_amount);
+DECL_VARIABLE_FOR_TRANSLATION(option_debris_amount_none);
+DECL_VARIABLE_FOR_TRANSLATION(option_debris_amount_own);
+DECL_VARIABLE_FOR_TRANSLATION(option_debris_amount_all);
+DECL_VARIABLE_FOR_TRANSLATION(option_debris_type);
+DECL_VARIABLE_FOR_TRANSLATION(option_debris_type_stars);
+DECL_VARIABLE_FOR_TRANSLATION(option_debris_type_pixels);
+DECL_VARIABLE_FOR_TRANSLATION(option_gui_color_red);
+DECL_VARIABLE_FOR_TRANSLATION(option_gui_color_green);
+DECL_VARIABLE_FOR_TRANSLATION(option_gui_color_blue);
+DECL_VARIABLE_FOR_TRANSLATION(option_info);
+DECL_VARIABLE_FOR_TRANSLATION(option_gfx_zero);
+DECL_VARIABLE_FOR_TRANSLATION(option_sound_load_driver);
+DECL_VARIABLE_FOR_TRANSLATION(option_sound_volume);
+DECL_VARIABLE_FOR_TRANSLATION(option_info_sound);
 
-option_key_unassigned,
-option_key_force_left,
-option_key_force_right,
-option_key_scroll,
-option_key_priority,
-option_key_rate_minus,
-option_key_rate_plus,
-option_key_pause,
-option_key_speed_slow,
-option_key_speed_fast,
-option_key_speed_turbo,
-option_key_restart,
-option_key_state_load,
-option_key_state_save,
-option_key_zoom,
-option_key_chat,
-option_key_spec_tribe,
-option_key_nuke,
-option_key_info_1,
-option_key_info_2,
-option_key_info_3,
+DECL_VARIABLE_FOR_TRANSLATION(option_key_unassigned);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_force_left);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_force_right);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_scroll);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_priority);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_rate_minus);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_rate_plus);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_pause);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_speed_slow);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_speed_fast);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_speed_turbo);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_restart);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_state_load);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_state_save);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_zoom);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_chat);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_spec_tribe);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_nuke);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_info_1);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_info_2);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_info_3);
 
-option_key_me_okay,
-option_key_me_edit,
-option_key_me_export,
-option_key_me_delete,
-option_key_me_up_dir,
-option_key_me_up_1,
-option_key_me_up_5,
-option_key_me_down_1,
-option_key_me_down_5,
-option_key_me_exit,
+DECL_VARIABLE_FOR_TRANSLATION(option_key_me_okay);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_me_edit);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_me_export);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_me_delete);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_me_up_dir);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_me_up_1);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_me_up_5);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_me_down_1);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_me_down_5);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_me_exit);
 
-option_ed_left,
-option_ed_right,
-option_ed_up,
-option_ed_down,
-option_ed_copy,
-option_ed_delete,
-option_ed_grid,
-option_ed_sel_all,
-option_ed_sel_frame,
-option_ed_sel_add,
-option_ed_foreground,
-option_ed_background,
-option_ed_mirror,
-option_ed_rotate,
-option_ed_dark,
-option_ed_noow,
-option_ed_zoom,
-option_ed_help,
-option_ed_menu_size,
-option_ed_menu_vars,
-option_ed_menu_skills,
-option_ed_add_terrain,
-option_ed_add_steel,
-option_ed_add_hatch,
-option_ed_add_goal,
-option_ed_add_deco,
-option_ed_add_hazard,
-option_ed_grid_custom,
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_left);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_right);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_up);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_down);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_copy);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_delete);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_grid);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_sel_all);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_sel_frame);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_sel_add);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_foreground);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_background);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_mirror);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_rotate);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_dark);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_noow);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_zoom);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_help);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_menu_size);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_menu_vars);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_menu_skills);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_add_terrain);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_add_steel);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_add_hatch);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_add_goal);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_add_deco);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_add_hazard);
+DECL_VARIABLE_FOR_TRANSLATION(option_ed_grid_custom);
 
 // Neuen Spieler begruessen (Mini-Dialog)
-option_new_player_title,
-option_new_player_first,
-option_new_player_second,
+DECL_VARIABLE_FOR_TRANSLATION(option_new_player_title);
+DECL_VARIABLE_FOR_TRANSLATION(option_new_player_first);
+DECL_VARIABLE_FOR_TRANSLATION(option_new_player_second);
 
-last_string;
+std::string last_string;
 
+static char const* const special_varname_for_language = "TRANSLATION_LANGUAGE";
+
+#define INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(vector, enumValue ) \
+    (static_cast<void>(add_to_translation_map( #enumValue , vector[enumValue])))
+
+// a dummy return value is provided to allow the function be
+// called during initialization of static variables.  But in
+// doing so please note the following:
+//
+// http://www.parashift.com/c++-faq-lite/static-init-order.html
+//
+// currently all references to global/static variables inside
+// below function are initialized in this same source file and
+// before the initialization expression calling below function,
+// so linked-to issue above does not apply.
+static int add_all_vector_elements_to_translation_map() {
+    static_cast<void>(add_to_translation_map(special_varname_for_language,
+                                             language_name[CUSTOM]));
+
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(option_group, Option::GENERAL);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(option_group, Option::CONTROLS);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(option_group, Option::HOTKEYS);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(option_group, Option::EDITOR);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(option_group, Option::MENU);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(option_group, Option::GRAPHICS);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(option_group, Option::SOUND);
+
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::FILE_NEW);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::FILE_EXIT);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::FILE_SAVE);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::FILE_SAVE_AS);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::GRID_2);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::GRID_CUSTOM);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::GRID_16);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::SELECT_ALL);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::SELECT_FRAME);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::SELECT_ADD);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::SELECT_COPY);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::SELECT_DELETE);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::SELECT_MINUS);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::SELECT_PLUS);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::SELECT_BACK);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::SELECT_FRONT);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::SELECT_FLIP);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::SELECT_ROTATE);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::SELECT_DARK);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::SELECT_NOOW);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::VIEW_ZOOM);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::HELP);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::MENU_SIZE);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::MENU_SCROLL);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::MENU_VARS);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::MENU_SKILL);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::ADD_TERRAIN);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::ADD_STEEL);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::ADD_HATCH);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::ADD_GOAL);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::ADD_DECO);
+    INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(eb, Editor::ADD_HAZARD);
+
+    return 0;
 }
 
+static int dummy_variable_finish_setting_up_translation_map =
+    add_all_vector_elements_to_translation_map();
+
+}  // namespace Language
 
 // Rueckgabewert   Funktion
 Language::Language Language::get()
@@ -428,6 +543,9 @@ void Language::set(const Language lang)
     language_name[NONE]    = "None";
     language_name[GERMAN]  = "Deutsch";
     language_name[ENGLISH] = "English";
+    if (language_name[CUSTOM].empty()) {
+        language_name[CUSTOM]  = "(custom)";
+    }
     language_name[MAX]     = "Max";
 
     if (lang < MAX) useR->language = lang;
@@ -436,7 +554,7 @@ void Language::set(const Language lang)
 
     case NONE:
         // Grundlegende Dinge
-        main_name_of_the_game         = "Lix";
+        main_name_of_the_game         = main_name_of_game_English;
         main_loading_1                = "---------- Loading Lix ----------";
         main_loading_2                = "---------- Please Wait ----------";
         main_version                  = "Version:";
@@ -446,10 +564,13 @@ void Language::set(const Language lang)
     case MAX:
         break; // Sollte nicht vorkommen, es wird bei Spielstart gefragt
 
+    // custom language will always load English first, for proper
+    // fallback behavior (eg. missing entries in translation file)
+    case CUSTOM:
     case ENGLISH:
 
         // Grundlegende Dinge
-        main_name_of_the_game         = "Lix";
+        main_name_of_the_game         = main_name_of_game_English;
         main_loading_1                = "---------- Loading Lix ----------";
         main_loading_2                = "---------- Please Wait ----------";
         main_version                  = "Version:";
@@ -937,7 +1058,7 @@ eb[Editor::ADD_HAZARD]
     case GERMAN:
 
         // Grundlegende Dinge
-        main_name_of_the_game         = "Lix";
+        main_name_of_the_game         = main_name_of_game_English; // "Lix"
         main_loading_1                = "------- Lix wird geladen -------";
         main_loading_2                = "--------- Bitte warten ---------";
         main_version                  = "Version:";
@@ -1390,5 +1511,161 @@ eb[Editor::ADD_HAZARD]   = "Gefahr: Eine Falle, Wasser oder Feuer platzieren.";
         break;
     }
     // Switch
+
+    if (CUSTOM == useR->language) {
+        // false in argument means load the full set of translations.
+        // We are intentionally ignoring return value--even if it
+        // completely fails to load, let's keep user on their selected
+        // custom language anyway; they can fix it by updating their
+        // translate.txt file later and there's no reason to force
+        // them to have to change the language setting back to their
+        // custom language afterwards.  Since we always have
+        // fallback to English for anything missing, the UI is
+        // never completely empty of text.
+        static_cast<void>(try_load_custom_language(false));
+    }
+
+    if (::exists(gloB->file_translations_dump.get_rootful().c_str())) {
+        write_translations_dump_for_current_language();
+    }
 }
 // Language::set()
+
+bool Language::try_load_custom_language(bool load_language_name_only) {
+    std::vector <IO::Line> lines;
+    IO::fill_vector_from_file(lines, gloB->file_translations.get_rootful());
+
+    bool has_at_least_one_translation_loaded = false;
+    for (IO::LineIt i = lines.begin(); i != lines.end(); ++i) {
+        switch(i->type) {
+        case '$':
+            {
+                std::string const &varname = i->text1;
+                std::string const &value_in_line = i->text2;
+
+                if (!load_language_name_only ||
+                    varname == special_varname_for_language) {
+
+                    translate_map_type::const_iterator map_entry = map_vars_to_translate.find(varname);
+                    if (map_entry != map_vars_to_translate.end()) {
+
+                        std::string &actualStringVariable = *(map_entry->second);
+                        std::string::size_type const value_in_line_length = value_in_line.size();
+                        // translation text in file must start and end with " character,
+                        // which are stripped to get the actual text to use
+                        if (value_in_line_length >= 2 &&
+                            '\"' == value_in_line[0] &&
+                            '\"' == value_in_line[value_in_line_length - 1]) {
+
+                            actualStringVariable =
+                                value_in_line.substr(1, value_in_line_length - 2);
+                            has_at_least_one_translation_loaded = true;
+                        } else {
+                            // TODO: log a warning? translator probably
+                            // forgot the quotes?
+                        }
+                    } else {
+                        // TODO: log a warning maybe? translator might have
+                        // misspelled name of variable?
+                    }
+                }
+            }
+            break;
+
+        default:
+            // TODO: maybe log a warning? although translator might've
+            // purposely put an inert comment in the file
+            ;
+        } // switch
+
+        if (load_language_name_only && has_at_least_one_translation_loaded) {
+            break;
+        }
+    } // for
+
+    return has_at_least_one_translation_loaded;
+}
+
+// this type should've stayed inside write_translate_file_for_current_language(),
+// but doing so apparently does not work with template instantiation for
+// std::sort inside that function :(
+namespace Language {
+    class KeyComparer {
+    public:
+        inline bool operator()(Language::translate_map_type::const_iterator const& entry1,
+                               Language::translate_map_type::const_iterator const& entry2) {
+            return entry1->first < entry2->first;
+        }
+    };
+}
+
+void Language::write_translations_dump_for_current_language() {
+    // In future, the underlying map type may change to one that doesn't
+    // guarantee an iteration order (eg. hash-table based).  But for
+    // usability we want to write the lines out in sorted order of
+    // variable names (ie. map keys) no matter what.  So we'll do some
+    // extra sorting work here even if it seems redundant in current
+    // implementation.
+
+    std::string::size_type max_variable_length_seen = 0;
+    typedef translate_map_type::const_iterator map_entry_iter_type;
+    typedef std::vector<map_entry_iter_type> entries_vector_type;
+    entries_vector_type entries(map_vars_to_translate.size());
+    map_entry_iter_type mapIt = map_vars_to_translate.begin();
+    for(int i = 0; mapIt != map_vars_to_translate.end(); ++mapIt, ++i) {
+        entries[i] = mapIt;
+        max_variable_length_seen = std::max(max_variable_length_seen,
+                                            mapIt->first.size());
+    }
+
+    std::sort(entries.begin(), entries.end(), KeyComparer());
+
+    class {
+    public:
+        inline void operator()(std::ofstream& file,
+                               std::string::size_type const max_variable_length_seen,
+                               std::string const& varname,
+                               std::string const& translated_text) {
+            std::string varname_padded = varname;
+            for (std::string::size_type i = varname.size();
+                 i < max_variable_length_seen;
+                 i++) {
+                varname_padded += " ";
+            }
+
+            std::string translated_text_quoted = "\"";
+            translated_text_quoted += translated_text;
+            translated_text_quoted += "\"";
+
+            file << IO::LineDollar(varname_padded, translated_text_quoted);
+        }
+    } writeLine;
+
+    std::ofstream file(gloB->file_translations_dump.get_rootful().c_str());
+    // Some text editors like Windows Notepad may rely on having a
+    // Unicode BOM character add to start of text file to reliably
+    // determine file is UTF-8.  So we'll insert one here for benefit
+    // of translators.  See http://en.wikipedia.org/wiki/Byte_order_mark
+    file << Help::make_utf8_seq(Help::utf8_bom)
+         << std::endl;
+
+    // special case: always write out special_varname_for_language first,
+    // and use the name of the user's current language
+    writeLine(file, max_variable_length_seen,
+              std::string(special_varname_for_language), language_name[useR->language]);
+    file << std::endl;
+
+    for(entries_vector_type::const_iterator entryIt = entries.begin();
+        entryIt != entries.end();
+        ++entryIt) {
+
+        map_entry_iter_type map_entry = *entryIt;
+        if (map_entry->first != special_varname_for_language) {
+
+            writeLine(file, max_variable_length_seen,
+                      map_entry->first, *(map_entry->second));
+        }
+    }
+
+    file.close();
+}

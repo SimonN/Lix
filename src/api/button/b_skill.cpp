@@ -60,7 +60,15 @@ void SkillButton::set_style(const LixEn::Style st)
 void SkillButton::set_hotkey_label(const std::string& s)
 {
     hotkey_label = s;
-    if (hotkey_label.size() > 3) hotkey_label.resize(3);
+    if (ustrlen(hotkey_label.c_str()) > 3) {
+        hotkey_label.resize(uoffset(hotkey_label.c_str(), 3));
+    }
+
+    // note: if the hotkey label text has an initial non-ASCII
+    // character we won't be able to capitalize it. Oh well.
+    // Not sure that ever happens for real?
+    // Anyway, this allows us to work below as if the first
+    // character only takes one byte.
     if (hotkey_label.size() > 0) {
         int c = hotkey_label[0];
         if (c >= 'a' && c <= 'z') hotkey_label[0] = c + 'A' - 'a';
@@ -79,6 +87,8 @@ void SkillButton::draw_self()
         icon.draw();
 
         // draw the number
+        // note: some calculations below assume all chars in s
+        // are ASCII which is currently the case.
         std::ostringstream s;
         if      (number == LixEn::infinity) s << "*";
         else if (number == 0); // write nothing

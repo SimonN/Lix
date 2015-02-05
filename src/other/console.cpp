@@ -49,13 +49,18 @@ void Console::push_back(const std::string& t, const bool w)
         std::string line;
         std::string::const_iterator i = t.begin();
         while (i != t.end()) {
-            line += *i;
+            std::string::size_type old_size_in_bytes = line.size();
+            std::string::const_iterator old_i = i;
+            int numBytesInUtf8Char = uwidth(&*i);
+            for(int n = 0; n < numBytesInUtf8Char && i != t.end() ; ++n, ++i) {
+                line += *i;
+            }
             if (text_length(font_med, line.c_str()) > con.lines_maxl) {
-                line.erase(--line.end());
+                line.resize(old_size_in_bytes);
+                i = old_i;
                 con.line.push_back(Line(line, w));
                 line = "  ";
             }
-            else ++i;
         }
         con.line.push_back(Line(line, w));
     }
@@ -105,8 +110,8 @@ void Console::break_lines(
             // break after the last letter before the current word of
             // line-length has reached its end
             else if (itr > (line_start + 1)) {
-                vec.push_back(std::string(line_start, itr - 1));
-                itr       -= 1;
+                Help::move_iterator_utf8(source, itr, -1);
+                vec.push_back(std::string(line_start, itr));
                 line_start = itr;
                 word_start = itr;
             }
@@ -121,7 +126,7 @@ void Console::break_lines(
         // increment the iterator in any case
         else {
             bool cur_was_space = (*itr == ' ');
-            ++itr;
+            Help::move_iterator_utf8(source, itr, +1);
             if (itr < source.end() && cur_was_space && *itr != ' ') {
                 word_start = itr;
             }

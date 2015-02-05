@@ -321,6 +321,13 @@ Globals::Globals()
     file_log                     (dir_data.get_dir_rootless() + "log.txt"),
     file_level_network           (dir_data.get_dir_rootless() + "netlevel.txt"),
 
+    // file to load custom language translations from
+    file_translations            (dir_data.get_dir_rootless() + "translate.txt"),
+    // file to dump current set of translation strings loaded (including
+    // from build-in languages like English), to provide a starting file
+    // for translators to turn into the final translate.txt.
+    file_translations_dump       ("translations_dump.txt"),
+
     file_bitmap_api_number       (dir_data_bitmap.get_dir_rootless() + "api_numb.I"),
     file_bitmap_checkbox         (dir_data_bitmap.get_dir_rootless() + "checkbox.I"),
     file_bitmap_debris           (dir_data_bitmap.get_dir_rootless() + "debris.I"),

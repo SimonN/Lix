@@ -65,7 +65,7 @@ OptionMenu::OptionMenu()
     button_cancel         (LEMSCR_X/2 +  10, 440, button_xl),
     pointers              (GROUP_MAX),
 
-    user_name             (other_x, 100, button_xl),
+    user_name             (other_x, 100, button_xl, Texttype::ALLOW_UNICODE),
     user_name_ask         (check_x, 100),
     language              (other_x, 130, button_xl),
     language_nr           (useR->language),
@@ -240,10 +240,10 @@ OptionMenu::OptionMenu()
     desc_me_main_replay   (key_t2, 160, Language::browser_replay_title),
     desc_me_main_options  (key_t2, 190, Language::option_title),
 
-    screen_resolution_x   (other_x, 100, button_xl/2),
-    screen_resolution_y   (370,     100, button_xl/2),
-    screen_windowed_x     (other_x, 130, button_xl/2),
-    screen_windowed_y     (370,     130, button_xl/2),
+    screen_resolution_x   (other_x, 100, button_xl/2, Texttype::ALLOW_ONLY_ASCII),
+    screen_resolution_y   (370,     100, button_xl/2, Texttype::ALLOW_ONLY_ASCII),
+    screen_windowed_x     (other_x, 130, button_xl/2, Texttype::ALLOW_ONLY_ASCII),
+    screen_windowed_y     (370,     130, button_xl/2, Texttype::ALLOW_ONLY_ASCII),
     screen_windowed       (check_x, 130),
     screen_scaling        (other_x, 160, button_xl),
     screen_border_colored (check_x, 160),
@@ -896,8 +896,20 @@ void OptionMenu::calc_self()
 
     case GROUP_GENERAL:
         if (language.get_clicked()) {
-            if (++language_nr == Language::MAX)
-             language_nr       = Language::ENGLISH;
+            ++language_nr;
+
+            if (language_nr == Language::MAX) {
+                language_nr = Language::ENGLISH;
+            } else if (language_nr == Language::CUSTOM) {
+                // argument of true means only try to load
+                // the custom language's display name
+                if (!Language::try_load_custom_language(true)) {
+                    // reach here means unable to load custom
+                    // language (eg. no data/translate.txt)
+                    // go back to English
+                    language_nr = Language::ENGLISH;
+                }
+            }
             language.set_text(Language::language_name[language_nr]);
         }
         break;

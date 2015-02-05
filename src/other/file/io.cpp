@@ -7,6 +7,7 @@
 #include <sstream>
 
 #include "io.h"
+#include "../help.h"    // for UTF8 helper functions
 
 namespace IO {
 
@@ -18,6 +19,23 @@ Line::Line(const std::string& src)
     nr3(0)
 {
     std::string::const_iterator i = src.begin();
+
+    // UTF-8 BOM handling
+    //     [see http://en.wikipedia.org/wiki/Byte_order_mark
+    //      for explanation of BOM]
+    // Certain text editors (Window's Notepad) may add the
+    // Unicode BOM character at start of text file to indicate
+    // which format the text file is encoded with (eg. ANSI vs
+    // UTF-8 vs UTF-16LE etc.).  Since some of Lix's input
+    // files (particularly translate.txt) are expected to be
+    // UTF-8, we should accomodate this behavior and skip over
+    // a UTF-8 BOM character at start of line.
+    // (Usually it's just at start of file, but no big deal
+    // doing it on every line instead.)
+    if (Help::utf8_bom == ugetc(&*i)) {
+        Help::move_iterator_utf8(src, i, +1);
+    }
+
     if (i != src.end()) type = *i++;
 
     bool minus1 = false;
@@ -208,7 +226,7 @@ std::ostream& operator << (std::ostream& original_stream, const Line& ld)
 
     switch (ld.type) {
     case '$':
-        o << ld.text1; pad(o, 70 - ld.text2.size());
+        o << ld.text1; pad(o, 70 - ustrlen(ld.text2.c_str()));
         o << ld.text2;
         break;
 
@@ -232,7 +250,7 @@ std::ostream& operator << (std::ostream& original_stream, const Line& ld)
         o << ld.text1; pad(o, 20 - digits(ld.nr2));
         o << ld.nr1;
         o << ' ';
-        o << ld.text2; pad(o, 70 - ld.text3.size());
+        o << ld.text2; pad(o, 70 - ustrlen(ld.text3.c_str()));
         o << ld.text3;
         break;
 
@@ -249,7 +267,7 @@ std::ostream& operator << (std::ostream& original_stream, const Line& ld)
         o << '>';      pad(o, 60 - digits(ld.nr1));
         o << ld.nr1;   pad(o, 65 - digits(ld.nr2));
         o << ld.nr2;   pad(o, 72 - digits(ld.nr3));
-        o << ld.nr3;   pad(o, 95 - ld.text2.size());
+        o << ld.nr3;   pad(o, 95 - ustrlen(ld.text2.c_str()));
         o << ld.text2;
         break;
 

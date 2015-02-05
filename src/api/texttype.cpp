@@ -6,17 +6,18 @@
 namespace Api {
 
 Texttype::Texttype(const int x,  const int y,
-                   const int xl, const std::string& t)
+                   const int xl,
+                   AllowChars allow_ch)
 :
     Button(x, y, xl, 20), // 20 ist generell bei Textelementen richtig
     invisible    (false),
     scroll       (false),
+    allow_chars  (allow_ch),
     on_enter_void(0),
     on_esc_void  (0),
     on_enter     (0),
     on_esc       (0)
 {
-    set_text(t);
 }
 
 
@@ -42,7 +43,7 @@ bool Texttype::get_too_long(const std::string t)
 void Texttype::set_text(const std::string& t)
 {
     text = t;
-    while (!scroll && get_too_long(text))          text.resize(text.size()-1);
+    while (!scroll && get_too_long(text)) Help::remove_last_utf8_char(text);
     while (text.size()>0 && *text.rbegin() == ' ') text.resize(text.size()-1);
     set_draw_required();
 }
@@ -96,23 +97,30 @@ void Texttype::calc_self()
         }
         // Oder doch noch im Schreibmodus bleiben? Dann Tastatur lesen.
         else {
-            int  k      = hardware.get_key();
-            char kascii = hardware.get_key_ascii();
+            int k      = hardware.get_key();
+            // despite var name, can actually be Unicode character
+            int kascii = hardware.get_key_ascii();
 
-            // Zeichen verarbeiten
+            // use the key and/or unicode value
             if (k == KEY_BACKSPACE && text.size() > 0) {
-                text.resize(text.size()-1);
+                Help::remove_last_utf8_char(text);
             }
-            else if (kascii < 1) return;
-            else if ((k >= KEY_A     && k <= KEY_9    )  || k == KEY_SPACE
-             ||      (k >= KEY_0_PAD && k <= KEY_9_PAD)  || k == KEY_DEL_PAD
-             || k == KEY_STOP      || k == KEY_COMMA     || k == KEY_COLON
-             || k == KEY_MINUS     || k == KEY_PLUS_PAD  || k == KEY_EQUALS
-             || k == KEY_QUOTE     || k == KEY_SLASH     || k == KEY_CLOSEBRACE
-             || k == KEY_OPENBRACE || k == KEY_SEMICOLON || k == KEY_ASTERISK)
+            else if (kascii < 0x20) {
+                // anything under 0x20 are control characters -- tab, etc.,
+                // and I believe this also prevents keys like cursor-left
+                // that don't generate letters
+                return;
+            }
+            else if ((allow_chars == ALLOW_UNICODE)
+                  || (allow_chars == ALLOW_ONLY_ASCII    && kascii <= 0xFF)
+                  || (allow_chars == ALLOW_ONLY_FILENAME && kascii <= 0xFF
+                     && kascii != '/' && kascii != '\\' && kascii != ':'
+                     && kascii != '*' && kascii != '?'  && kascii != '"'
+                     && kascii != '<' && kascii != '>'  && kascii != '|'))
             {
-                text += kascii;
-                if (!scroll && get_too_long(text)) text.resize(text.size()-1);
+                std::string::size_type oldsize = text.size();
+                text += Help::make_utf8_seq(kascii);
+                if (!scroll && get_too_long(text)) text.resize(oldsize);
             }
             // Ende Tastenverarbeitung
         }
@@ -139,9 +147,12 @@ void Texttype::draw_self()
 
     if (scroll && get_too_long(text)) {
         align_right = true;
-        int i = text.size() - 1;
-        while (!get_too_long(td) && i >= 0) td = text.substr(i--);
-        td.erase(0, 1);
+        std::string::const_iterator iter = text.end();
+        while(!get_too_long(td) && iter != text.begin()) {
+            Help::move_iterator_utf8(text, iter, -1);
+            td = text.substr(iter - text.begin());
+        }
+        td.erase(0, uwidth(td.c_str()));
     }
     else td = text;
 

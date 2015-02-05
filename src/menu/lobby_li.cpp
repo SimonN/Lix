@@ -42,7 +42,7 @@ void LobbyList::LobbyDataButton::read_from_pldatcit(
     cutbit = &GraLib::get_icon(style);
     name   = itr->name;
     while ((unsigned) text_length(font_med, name.c_str()) > text_xl)
-     name.erase(--name.end());
+     Help::remove_last_utf8_char(name);
     set_draw_required();
 }
 

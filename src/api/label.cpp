@@ -51,7 +51,7 @@ Label::Label(
 void Label::set_text(const std::string& s)
 {
     text = s;
-    if (align == BLOCKY) set_xl(10 * text.size());
+    if (align == BLOCKY) set_xl(10 * ustrlen(text.c_str()));
     else                 set_xl(::text_length(font, text.c_str()));
     set_draw_required();
 }
@@ -100,7 +100,7 @@ int Label::get_number() const
 void Label::set_align(const Align& a)
 {
     align = a;
-    if (align == BLOCKY) set_xl(10 * text.size());
+    if (align == BLOCKY) set_xl(10 * ustrlen(text.c_str()));
     else                 set_xl(::text_length(font, text.c_str()));
     set_draw_required();
 }
@@ -130,12 +130,13 @@ void Label::draw_self()
          drawn_x_here, get_y_here(), color, ::color[COL_API_SHADOW]);
     }
     else {
-        drawn_xl     = text.length() * 10;
+        drawn_xl     = ustrlen(text.c_str()) * 10;
         drawn_x_here = get_x_here() - drawn_xl;
-        char one_digit[2] = " ";
-        for (int i = 0; i < (int) text.size(); ++i) {
-            one_digit[0] = text[text.size() - 1 - i];
-            Help::draw_shadow_text(get_ground(), font, one_digit,
+        std::string::const_iterator iter = text.end();
+        for (int i = 0; iter != text.begin(); ++i) {
+            Help::move_iterator_utf8(text, iter, -1);
+            Help::draw_shadow_text(get_ground(), font,
+             Help::make_utf8_seq(ugetc(&*iter)).c_str(),
              get_x_here() - 10*(i+1), get_y_here(),
              color, ::color[COL_API_SHADOW]);
         }
