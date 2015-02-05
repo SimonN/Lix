@@ -105,10 +105,11 @@ void Texttype::calc_self()
             if (k == KEY_BACKSPACE && text.size() > 0) {
                 Help::remove_last_utf8_char(text);
             }
-            else if (kascii < 0x20) {
+            else if (kascii < 0x20 || kascii == 0x7F) {
                 // anything under 0x20 are control characters -- tab, etc.,
                 // and I believe this also prevents keys like cursor-left
                 // that don't generate letters
+                // 0x7F is the delete control character
                 return;
             }
             else if ((allow_chars == ALLOW_UNICODE)
