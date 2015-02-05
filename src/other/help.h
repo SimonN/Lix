@@ -53,12 +53,15 @@ namespace Help {
     void string_to_nice_case    (std::string&); // Alle ausser 1. Bch.
     void string_shorten         (std::string&, const FONT*, const int);
     bool string_ends_with       (const std::string&, const std::string&);
+
     // UTF-8 helpers
     void move_iterator_utf8     (std::string const&,
                                  std::string::const_iterator&,
                                  int);
     void remove_last_utf8_char  (std::string&);
     std::string make_utf8_seq   (int codepoint);
+    std::string escape_utf8_with_ascii(const std::string&);
+
     int const utf8_bom = 0xFEFF;
 
     void draw_shaded_text         (Torbit&, FONT*, const char*,

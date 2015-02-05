@@ -203,6 +203,41 @@ std::string make_utf8_seq(int codepoint) {
 
 
 
+std::string escape_utf8_with_ascii(const std::string& str)
+{
+    std::string ret;
+    for (std::string::const_iterator itr = str.begin();
+     itr != str.end(); move_iterator_utf8(str, itr, 1))
+    {
+        // we escape everything that is not ASCII, and even some ASCII that
+        // doesn't fall into our range of acceptable filename characters
+        const bool nice = (*itr >= 'a' && *itr <= 'z')
+                       || (*itr >= 'A' && *itr <= 'Z')
+                       || (*itr >= '0' && *itr <= '9');
+        if (nice) {
+            // add the ASCII char
+            ret += *itr;
+        }
+        else {
+            ret += '_';
+            // print bytes in little endian, as they appear in the string
+            const int len = ::uwidth(&*itr);
+            if (len <= str.end() - itr)
+             for (int i = 0; i < len; ++i) {
+                // print each byte as a big-endian two-letter string
+                const unsigned char byte = *(itr + i);
+                ret += single_hex_char(byte / 0x10);
+                ret += single_hex_char(byte % 0x10);
+            }
+        }
+        // end else (! nice)
+    }
+    // end for itr, move_iterator_utf8
+    return ret;
+}
+
+
+
 void draw_shaded_text(Torbit& bmp, FONT* f, const char* s,
  int x, int y, int r, int g, int b) {
     textout_ex(bmp.get_al_bitmap(), f, s, x+2, y+2, makecol(r/4, g/4, b/4),-1);
