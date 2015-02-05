@@ -65,7 +65,7 @@ OptionMenu::OptionMenu()
     button_cancel         (LEMSCR_X/2 +  10, 440, button_xl),
     pointers              (GROUP_MAX),
 
-    user_name             (other_x, 100, button_xl, "", false),  // TODO: for now block non-ASCII chars in username
+    user_name             (other_x, 100, button_xl, Texttype::ALLOW_ONLY_FILENAME),
     user_name_ask         (check_x, 100),
     language              (other_x, 130, button_xl),
     language_nr           (useR->language),
@@ -240,11 +240,10 @@ OptionMenu::OptionMenu()
     desc_me_main_replay   (key_t2, 160, Language::browser_replay_title),
     desc_me_main_options  (key_t2, 190, Language::option_title),
 
-    // false to disallow Unicode text entry in the resolution-related Texttypes
-    screen_resolution_x   (other_x, 100, button_xl/2, "", false),
-    screen_resolution_y   (370,     100, button_xl/2, "", false),
-    screen_windowed_x     (other_x, 130, button_xl/2, "", false),
-    screen_windowed_y     (370,     130, button_xl/2, "", false),
+    screen_resolution_x   (other_x, 100, button_xl/2, Texttype::ALLOW_ONLY_ASCII),
+    screen_resolution_y   (370,     100, button_xl/2, Texttype::ALLOW_ONLY_ASCII),
+    screen_windowed_x     (other_x, 130, button_xl/2, Texttype::ALLOW_ONLY_ASCII),
+    screen_windowed_y     (370,     130, button_xl/2, Texttype::ALLOW_ONLY_ASCII),
     screen_windowed       (check_x, 130),
     screen_scaling        (other_x, 160, button_xl),
     screen_border_colored (check_x, 160),

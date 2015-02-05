@@ -33,14 +33,22 @@
 namespace Api {
 class Texttype : public Button {
 
+public:
+
+    enum AllowChars {
+        ALLOW_UNICODE,
+        ALLOW_ONLY_ASCII,
+        ALLOW_ONLY_FILENAME
+    };
+
 private:
 
-    bool        invisible;    // Keinen Button zeichnen, nur den Eingabetext
-    bool        scroll;       // Mehr Text eingebbar, als das Feld lang ist
-    bool        unicode_ok;   // whether to allow non-ASCII characters
+    bool        invisible;   // Keinen Button zeichnen, nur den Eingabetext
+    bool        scroll;      // Mehr Text eingebbar, als das Feld lang ist
+    AllowChars  allow_chars; // whether to allow non-ASCII characters
 
     std::string text;
-    std::string text_backup;  // Bei ESC/Rechtsklick wird Zurueckgeschrieben
+    std::string text_backup; // Bei ESC/Rechtsklick wird Zurueckgeschrieben
 
     void*       on_enter_void;
     void*       on_esc_void;
@@ -52,7 +60,7 @@ private:
 
 public:
 
-    Texttype(const int, const int, const int, const std::string& = "", bool = true);
+    Texttype(const int, const int, const int, AllowChars = ALLOW_UNICODE);
     Texttype(Texttype&);
     virtual ~Texttype();
 

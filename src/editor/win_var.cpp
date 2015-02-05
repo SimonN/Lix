@@ -18,9 +18,9 @@ WindowVariables::WindowVariables(Level& l)
     Window       (LEMSCR_X/2 - this_xl/2,
                   LEMSCR_Y/2 - this_yl/2 - 30,
                    this_xl, this_yl, Language::win_var_title),
-    author       (160,  40, 300,   l.author),
-    name_german  (160,  70, 300,   l.name_german),
-    name_english (160, 100, 300,   l.name_english),
+    author       (160,  40, 300),
+    name_german  (160,  70, 300),
+    name_english (160, 100, 300),
 
     initial      (160, 130, 180, 3, 1, 999,   l.initial,  true),
     required     (160, 160, 180, 3, 1, 999,   l.required, true),
@@ -55,6 +55,10 @@ WindowVariables::WindowVariables(Level& l)
     seconds.set_step_big(60);
     seconds.set_step_med(10);
     seconds.set_step_sml( 1);
+
+    author      .set_text(l.author);
+    name_german .set_text(l.name_german);
+    name_english.set_text(l.name_english);
 
     add_child(author);
     add_child(name_german);

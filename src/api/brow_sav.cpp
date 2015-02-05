@@ -34,9 +34,9 @@ SaveBrowser::SaveBrowser(const Filename&    bdir,
     level_list(2 * frame_offset + dir_list_xl,
      dir_list_y, file_list_xl, dir_list_yl),
 
-    file_name(2*frame_offset + dir_list_xl,
-     dir_list_y + dir_list_yl + frame_offset, 140, "",
-     false),  // for simplicity, disallow Unicode entry for filenames for now?
+    file_name(2 * frame_offset + dir_list_xl,
+              dir_list_y + dir_list_yl + frame_offset,
+              140, Texttype::ALLOW_ONLY_FILENAME),
 
     ok    (file_name.get_x() + 160, file_name.get_y(),  80),
     cancel(file_name.get_x() + 260, file_name.get_y(), 100),

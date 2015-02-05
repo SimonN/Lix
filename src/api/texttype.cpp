@@ -6,19 +6,18 @@
 namespace Api {
 
 Texttype::Texttype(const int x,  const int y,
-                   const int xl, const std::string& t,
-                   bool is_unicode_allowed)
+                   const int xl,
+                   AllowChars allow_ch)
 :
     Button(x, y, xl, 20), // 20 ist generell bei Textelementen richtig
     invisible    (false),
     scroll       (false),
-    unicode_ok   (is_unicode_allowed),
+    allow_chars  (allow_ch),
     on_enter_void(0),
     on_esc_void  (0),
     on_enter     (0),
     on_esc       (0)
 {
-    set_text(t);
 }
 
 
@@ -113,9 +112,15 @@ void Texttype::calc_self()
              || k == KEY_MINUS     || k == KEY_PLUS_PAD  || k == KEY_EQUALS
              || k == KEY_QUOTE     || k == KEY_SLASH     || k == KEY_CLOSEBRACE
              || k == KEY_OPENBRACE || k == KEY_SEMICOLON || k == KEY_ASTERISK
-             || kascii > 127)
+             || kascii > 0xFF)
             {
-                if (unicode_ok || kascii <= 127) {
+                if ((allow_chars == ALLOW_UNICODE)
+                 || (allow_chars == ALLOW_ONLY_ASCII    && kascii <= 0xFF)
+                 || (allow_chars == ALLOW_ONLY_FILENAME && kascii <= 0xFF
+                     && kascii != '/' && kascii != '\\' && kascii != ':'
+                     && kascii != '*' && kascii != '?'  && kascii != '"'
+                     && kascii != '<' && kascii != '>'  && kascii != '|'))
+                {
                     std::string::size_type oldsize = text.size();
                     text += Help::make_utf8_seq(kascii);
                     if (!scroll && get_too_long(text)) text.resize(oldsize);
