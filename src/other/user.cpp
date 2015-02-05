@@ -306,7 +306,8 @@ void User::load()
     }
 
     Filename filename(gloB->dir_data_user.get_dir_rootful()
-                      + gloB->user_name + gloB->ext_level);
+                      + Help::escape_utf8_with_ascii(gloB->user_name)
+                      + gloB->ext_level);
     std::vector <IO::Line> lines;
     IO::fill_vector_from_file(lines, filename.get_rootful());
 
@@ -458,7 +459,8 @@ void User::load()
 void User::save() const
 {
     std::string filename = gloB->dir_data_user.get_rootful()
-                         + gloB->user_name + gloB->ext_level;
+                         + Help::escape_utf8_with_ascii(gloB->user_name)
+                         + gloB->ext_level;
     std::ofstream file(filename.c_str());
 
     file

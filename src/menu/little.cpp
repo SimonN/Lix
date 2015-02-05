@@ -13,7 +13,7 @@ NewPlayerMenu::NewPlayerMenu()
 :
     Window(190, 170, 260, 140, Language::option_new_player_title),
     exit  (false),
-    name  ( 60, 100, 140, Texttype::ALLOW_ONLY_FILENAME),
+    name  ( 60, 100, 140, Texttype::ALLOW_UNICODE),
     desc_hello(get_xl()/2, 40, Language::option_new_player_first,
                 Label::CENTERED),
     desc_name (get_xl()/2, 60, Language::option_new_player_second,
