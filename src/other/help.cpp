@@ -203,6 +203,8 @@ std::string make_utf8_seq(int codepoint) {
 
 
 
+const char utf8_to_ascii_escape_char = '_';
+
 std::string escape_utf8_with_ascii(const std::string& str)
 {
     std::string ret;
@@ -219,7 +221,7 @@ std::string escape_utf8_with_ascii(const std::string& str)
             ret += *itr;
         }
         else {
-            ret += '_';
+            ret += utf8_to_ascii_escape_char;
             // print bytes in little endian, as they appear in the string
             const int len = ::uwidth(&*itr);
             if (len <= str.end() - itr)

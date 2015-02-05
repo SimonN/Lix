@@ -60,9 +60,11 @@ namespace Help {
                                  int);
     void remove_last_utf8_char  (std::string&);
     std::string make_utf8_seq   (int codepoint);
+
+    extern const char utf8_to_ascii_escape_char;
     std::string escape_utf8_with_ascii(const std::string&);
 
-    int const utf8_bom = 0xFEFF;
+    int const  utf8_bom = 0xFEFF;
 
     void draw_shaded_text         (Torbit&, FONT*, const char*,
                                    int, int, int, int, int);
