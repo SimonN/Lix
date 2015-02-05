@@ -101,30 +101,26 @@ void Texttype::calc_self()
             // despite var name, can actually be Unicode character
             int kascii = hardware.get_key_ascii();
 
-            // Zeichen verarbeiten
+            // use the key and/or unicode value
             if (k == KEY_BACKSPACE && text.size() > 0) {
                 Help::remove_last_utf8_char(text);
             }
-            else if (kascii < 1) return;
-            else if ((k >= KEY_A     && k <= KEY_9    )  || k == KEY_SPACE
-             ||      (k >= KEY_0_PAD && k <= KEY_9_PAD)  || k == KEY_DEL_PAD
-             || k == KEY_STOP      || k == KEY_COMMA     || k == KEY_COLON
-             || k == KEY_MINUS     || k == KEY_PLUS_PAD  || k == KEY_EQUALS
-             || k == KEY_QUOTE     || k == KEY_SLASH     || k == KEY_CLOSEBRACE
-             || k == KEY_OPENBRACE || k == KEY_SEMICOLON || k == KEY_ASTERISK
-             || kascii > 0xFF)
-            {
-                if ((allow_chars == ALLOW_UNICODE)
-                 || (allow_chars == ALLOW_ONLY_ASCII    && kascii <= 0xFF)
-                 || (allow_chars == ALLOW_ONLY_FILENAME && kascii <= 0xFF
+            else if (kascii < 0x20) {
+                // anything under 0x20 are control characters -- tab, etc.,
+                // and I believe this also prevents keys like cursor-left
+                // that don't generate letters
+                return;
+            }
+            else if ((allow_chars == ALLOW_UNICODE)
+                  || (allow_chars == ALLOW_ONLY_ASCII    && kascii <= 0xFF)
+                  || (allow_chars == ALLOW_ONLY_FILENAME && kascii <= 0xFF
                      && kascii != '/' && kascii != '\\' && kascii != ':'
                      && kascii != '*' && kascii != '?'  && kascii != '"'
                      && kascii != '<' && kascii != '>'  && kascii != '|'))
-                {
-                    std::string::size_type oldsize = text.size();
-                    text += Help::make_utf8_seq(kascii);
-                    if (!scroll && get_too_long(text)) text.resize(oldsize);
-                }
+            {
+                std::string::size_type oldsize = text.size();
+                text += Help::make_utf8_seq(kascii);
+                if (!scroll && get_too_long(text)) text.resize(oldsize);
             }
             // Ende Tastenverarbeitung
         }
