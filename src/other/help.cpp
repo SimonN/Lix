@@ -93,6 +93,14 @@ std::string scancode_to_string(const int sc)
 
 
 
+static char single_hex_char(int i)
+{
+    if (i < 0xA) return '0' + i;
+    else         return 'A' + i - 0xA;
+}
+
+
+
 std::string int_to_hex(int i)
 {
     std::string ret;
@@ -103,9 +111,8 @@ std::string int_to_hex(int i)
     }
     if (i == 0) ret += '0';
     else while (i > 0) {
-        int digit = i % 0x10;
-        ret.insert(ret.begin(), digit >= 0 && digit <= 9 ? '0' + digit
-                                                         : 'A' + digit - 0xA);
+        const int digit = i % 0x10;
+        ret.insert(ret.begin(), single_hex_char(digit));
         i /= 0x10;
     }
     ret = (negative ? "-0x" : "0x") + ret;
@@ -139,6 +146,7 @@ bool string_ends_with(const std::string& s, const std::string& tail)
     return s.size() >= tail.size()
      && std::string(s.end() - tail.size(), s.end()) == tail;
 }
+
 
 
 void move_iterator_utf8(std::string const& str,
@@ -175,11 +183,15 @@ void move_iterator_utf8(std::string const& str,
     }
 }
 
+
+
 void remove_last_utf8_char(std::string& str) {
     std::string::const_iterator iter = str.end();
     move_iterator_utf8(str, iter, -1);
     str.resize(iter - str.begin());
 }
+
+
 
 std::string make_utf8_seq(int codepoint) {
     int num_bytes = ucwidth(codepoint);
