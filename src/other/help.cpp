@@ -224,21 +224,23 @@ std::string escape_utf8_with_ascii(const std::string& str)
         // doesn't fall into our range of acceptable filename characters
         const bool nice = (*itr >= 'a' && *itr <= 'z')
                        || (*itr >= 'A' && *itr <= 'Z')
-                       || (*itr >= '0' && *itr <= '9');
+                       || (*itr >= '0' && *itr <= '9')
+                       ||  *itr == ' ' || *itr == '-' || *itr == '\'';
         if (nice) {
             // add the ASCII char
             ret += *itr;
         }
         else {
-            ret += utf8_to_ascii_escape_char;
-            // print bytes in little endian, as they appear in the string
             const int len = ::uwidth(&*itr);
-            if (len <= str.end() - itr)
-             for (int i = 0; i < len; ++i) {
-                // print each byte as a big-endian two-letter string
-                const unsigned char byte = *(itr + i);
-                ret += single_hex_char(byte / 0x10);
-                ret += single_hex_char(byte % 0x10);
+            if (len <= str.end() - itr) {
+                ret += utf8_to_ascii_escape_char;
+                // print bytes in little endian, as they appear in the string
+                for (int i = 0; i < len; ++i) {
+                    // print each byte as a big-endian two-letter string
+                    const unsigned char byte = *(itr + i);
+                    ret += single_hex_char(byte / 0x10);
+                    ret += single_hex_char(byte % 0x10);
+                }
             }
         }
         // end else (! nice)
