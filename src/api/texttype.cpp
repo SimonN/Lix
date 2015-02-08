@@ -113,8 +113,8 @@ void Texttype::calc_self()
                 return;
             }
             else if ((allow_chars == ALLOW_UNICODE)
-                  || (allow_chars == ALLOW_ONLY_ASCII    && kascii <= 0xFF)
-                  || (allow_chars == ALLOW_ONLY_FILENAME && kascii <= 0xFF
+                  || (allow_chars == ALLOW_ONLY_ASCII    && kascii <= 0x7F)
+                  || (allow_chars == ALLOW_ONLY_FILENAME && kascii <= 0x7F
                      && kascii != '/' && kascii != '\\' && kascii != ':'
                      && kascii != '*' && kascii != '?'  && kascii != '"'
                      && kascii != '<' && kascii != '>'  && kascii != '|'))
