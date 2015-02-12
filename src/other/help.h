@@ -58,6 +58,10 @@ namespace Help {
     void move_iterator_utf8     (std::string const&,
                                  std::string::const_iterator&,
                                  int);
+    // overload needed due to casting issues
+    void move_iterator_utf8     (std::string const&,
+                                 std::string::iterator&,
+                                 int);
     void remove_last_utf8_char  (std::string&);
     std::string make_utf8_seq   (int codepoint);
 

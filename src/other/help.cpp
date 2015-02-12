@@ -148,6 +148,15 @@ bool string_ends_with(const std::string& s, const std::string& tail)
 }
 
 
+// overload needed due to casting issues...
+void move_iterator_utf8(std::string const& str,
+                        std::string::iterator& iter,
+                        int num_chars)
+{
+    std::string::const_iterator temp = iter;
+    move_iterator_utf8(str, temp, num_chars);
+    iter += (temp - iter);   // sigh......
+}
 
 void move_iterator_utf8(std::string const& str,
                         std::string::const_iterator& iter,

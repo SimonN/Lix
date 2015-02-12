@@ -163,31 +163,57 @@ void SaveBrowser::set_info_level_name(const std::string& s)
 void SaveBrowser::set_texttype(const std::string& s)
 {
     file_name.set_text(s);
+    make_texttype_valid();
 }
 
 
-// note: this doesn't "correctly" handle file_name having
-// UTF-8 text--each non-ASCII character will be replaced by
-// 2 or more '-' (rather than just 1) depending on how many
-// bytes it takes to encode the character.  This behavior is
-// ultimately benign though.
-//
-// Supporting non-ASCII characters in filename is debatable,
-// for now we opt to disallow them altogether, blocking them
-// at keyboard-entry level.
 void SaveBrowser::make_texttype_valid()
 {
     std::string str = file_name.get_text();
-    for (int i = str.size() - 1; i >= 0; --i) {
-        const char& c = str[i];
-        if (c == ' ')
-            str.erase(i, 1);
-        else if (! ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
-         ||         (c >= '0' && c <= '9')
-         ||          c == '.' || c == ',' || c == '-' || c == '_' || c == '+'))
+    std::string::iterator itr = str.end();
+    while (itr != str.begin()) {
+        const std::string::iterator itr_char_encoding_end = itr;
+        Help::move_iterator_utf8(str, itr, -1);
+        const int c = ::ugetc(&*itr);
+        if (! ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
+         ||    (c >= '0' && c <= '9')
+         ||     c == '.' || c == ',' || c == '-' || c == '_' || c == '+'))
         {
-            if (i == (int) str.size() - 1) str.erase(i, 1);
-            else                           str[i] = '-';
+            // Unicode block of mostly Latin letters with diacritics
+            // [up to Latin Extended-A]
+            if (0x00C0 <= c && c <= 0x017F) {
+                // each line of string captures 16 chars starting from U+00C0
+                // we set aside 2 chars per codepoint as a few codepoints'
+                // closest non-diacritic equivalents are digraphs (ae, oe,
+                // ij, etc.).  The rest mapping to single characters will have
+                // ' ' as placeholder 2nd character.
+                static char const mapping[] = "A A A A A A AEC E E E E I I I I "
+                                              "D N O O O O O x O U U U U Y Thss"
+                                              "a a a a a a aec e e e e i i i i "
+                                              "d n o o o o o - o u u u u y thy "
+                                              "A a A a A a C c C c C c C c D d "
+                                              "D d E e E e E e E e E e G g G g "
+                                              "G g G g H h H h I i I i I i I i "
+                                              "I i IJijJ j K k q L l L l L l L "
+                                              "l L l N n N n N n -nNgngO o O o "
+                                              "O o OEoeR r R r R r S s S s S s "
+                                              "S s T t T t T t U u U u U u U u "
+                                              "U u U u W w Y y Y Z z Z z Z z s ";
+                const int index = (c - 0x00C0) * 2;
+                *itr = mapping[index];
+                ++itr;
+                if (mapping[index+1] != ' ') {
+                    *itr = mapping[index+1];
+                    ++itr;
+                }
+            }
+            else if (c != ' ' && itr_char_encoding_end != str.end()) {
+                *itr = '-';
+                ++itr;
+            }
+
+            if (itr < itr_char_encoding_end)
+                itr = str.erase(itr, itr_char_encoding_end);
         }
     }
     // if all else fails, generate random filename
