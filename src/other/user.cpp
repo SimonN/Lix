@@ -305,11 +305,20 @@ void User::load()
         }
     }
 
+    std::vector <IO::Line> lines;
+
+    // Try loading the correctly escaped filename first
     Filename filename(gloB->dir_data_user.get_dir_rootful()
                       + Help::escape_utf8_with_ascii(gloB->user_name)
                       + gloB->ext_level);
-    std::vector <IO::Line> lines;
-    IO::fill_vector_from_file(lines, filename.get_rootful());
+    if (! IO::fill_vector_from_file(lines, filename.get_rootful())) {
+        // A return of false from IO::fill... means the file doesn't exist.
+        // Legacy support for non-UTF-8 versions before 2015-04:
+        // Try loading the unescaped file
+        Filename filename_unesc(gloB->dir_data_user.get_dir_rootful()
+                                + gloB->user_name + gloB->ext_level);
+        IO::fill_vector_from_file(lines, filename_unesc.get_rootful());
+    }
 
     for (IO::LineIt i = lines.begin(); i != lines.end(); ++i) switch(i->type) {
 

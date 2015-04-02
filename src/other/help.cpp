@@ -224,8 +224,7 @@ std::string escape_utf8_with_ascii(const std::string& str)
         // doesn't fall into our range of acceptable filename characters
         const bool nice = (*itr >= 'a' && *itr <= 'z')
                        || (*itr >= 'A' && *itr <= 'Z')
-                       || (*itr >= '0' && *itr <= '9')
-                       ||  *itr == ' ' || *itr == '-' || *itr == '\'';
+                       || (*itr >= '0' && *itr <= '9');
         if (nice) {
             // add the ASCII char
             ret += *itr;
