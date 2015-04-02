@@ -56,13 +56,10 @@ public:
 
     enum Mode {
         NORMAL,
-        NOOW,
-        DARK,
-        NOOW_EDITOR,
-        DARK_EDITOR,
-        DARK_SHOW_NOOW, // only for some steel mask internal drawing
-        STEEL,
-        STEEL_NOOW
+        NOOW, // no-overwrite, draw only the pixels falling on transparent bg
+        DARK, // instead of drawing a pixel, erase a pixel from the bg
+        NOOW_EDITOR, // Like NOOW, but treats the editor's NOOW color as transp
+        DARK_EDITOR, // like DARK, but draw a dark color, not transparent
     };
 
     Cutbit();

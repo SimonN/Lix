@@ -285,25 +285,11 @@ void Cutbit::draw(
                      target_torbit.set_pixel(x + ix, y + iy, e);
             }   }
             else if (mode == DARK
-                  || mode == DARK_EDITOR
-                  || mode == DARK_SHOW_NOOW) {
+                  || mode == DARK_EDITOR) {
                 for  (int ix = 0; ix < size; ++ix)
                  for (int iy = 0; iy < size; ++iy)
-                 if (excerpt      .get_pixel(  ix,   iy) != PINK
-                 && (target_torbit.get_pixel(x+ix, y+iy) == PINK
-                                                 || mode != DARK_SHOW_NOOW))
-                 target_torbit.set_pixel(x+ix, y+iy,
-                 mode == DARK ? PINK : GREY);
-            }
-            else if (mode == STEEL || mode == STEEL_NOOW) {
-                // Fuer stahlfarbiges Zeichnen auf pinken Hintergrund
-                for  (int ix = 0; ix < size; ++ix)
-                 for (int iy = 0; iy < size; ++iy)
-                 if (excerpt      .get_pixel(  ix,   iy) != PINK
-                 && (target_torbit.get_pixel(x+ix, y+iy) == PINK
-                                                 || mode != STEEL_NOOW))
-                     target_torbit.set_pixel(x+ix, y+iy,
-                      color[COL_STEEL_MASK]);
+                 if (excerpt.get_pixel(ix, iy) != PINK)
+                 target_torbit.set_pixel(x+ix, y+iy, mode==DARK ? PINK : GREY);
             }
         }
         // Fertig
