@@ -160,7 +160,11 @@ void Level::load_from_binary(const Filename& filename)
         // 	note: can be any value in the specified range
         spe.y = read_two_bytes_levelbi(file);
         if (spe.y >= 0xFFD7) spe.y -= 0x10000;
-        spe.y -= spe.y % 4;
+
+        // L1 has a bug where special objects must be at a certain multiple
+        // in x-direction, I think it's 8. I think there is no such condition
+        // in y-direction. So, let's disable this: the following line.
+        // spe.y -= spe.y % 4;
 
         // obj id : min 0x0000, max 0x000F.  the object id is different in each
         // 	graphics set, however 0x0000 is always an exit and 0x0001 is
