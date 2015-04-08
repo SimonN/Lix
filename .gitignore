@@ -10,10 +10,9 @@ bin/*
 *.layout
 *.depend
 
-# exclude the user data, log and config files in data/
-data/user/*.txt
-data/config.txt
-data/log.txt
+# exclude the user data, log and config files, user translations in data/
+/data/user/*.txt
+/data/*.txt
 
 # exclude replays, but track replay/ and replay/auto/ via a dummy file
 replays/*
