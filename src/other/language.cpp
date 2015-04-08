@@ -448,7 +448,7 @@ DECL_VARIABLE_FOR_TRANSLATION(option_new_player_second);
 
 std::string last_string;
 
-static char const* const special_varname_for_language = "TRANSLATION_LANGUAGE";
+static char const* const special_varname_for_language = "main_name_of_language";
 
 #define INCLUDE_VECTOR_ELEMENT_FOR_TRANSLATION(vector, enumValue ) \
     (static_cast<void>(add_to_translation_map( #enumValue , vector[enumValue])))
