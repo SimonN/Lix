@@ -25,8 +25,8 @@ GRAPHIC FILE GRIDS
 ------------------
 
 Some of Lix's graphic files define animations instead of regular pictures.
-The game still uses BMP, TGA or PCX for these animations, and expects there
-to be a grid with equally sized cells.
+The game still uses the PNG image format for these animations, and expects
+there to be a grid with equally sized cells.
 
 If a graphic contains an animation of XF frames aligned horizontally in the
 grid, YF frames aligned vertically, and each frame is of width W and height
@@ -60,9 +60,10 @@ You can draw your own terrain graphics and include them in Lix.
 All terrain files should be in ./bitmap/ or a subdirectory thereof. If you're
 going to make several pieces of terrain, consider making your own subdirectory.
 
-The game can read BMP, TGA and PCX files. Try to give the correct extension
-to your file. The color depth can be anything, because the game converts the
-graphic to its own depth (usually 16 bit) when the graphic file gets loaded.
+The game can read PNG, BMP, TGA, and PCX files. Give the correct extension
+to your file, in lowercase (e.g., myfile.png). The color depth can be anything,
+because the game converts the graphic to its own depth (usually 16 bit) when
+the graphic file gets loaded.
 
 Each file contains exactly one terrain piece, and this piece will be generated
 from all the pixels in the file. You don't draw a 1x1 grid into the file first.

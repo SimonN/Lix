@@ -8,7 +8,7 @@
 This file contains lots of general information about the game. There are other
 files about special topics in this directory.
 
-If you're looking for info about compiling the game, see linux.txt.
+If want to compile the game, read doc/build/*.txt.
 
 
 
@@ -44,6 +44,8 @@ If you own some of the Lemmings games, you can add their graphics and levels
 to Lix. Read the corresponding chapter below for how to do it.
 
 If you encounter any problems, read techfaq.txt in this directory.
+
+If want to compile the game yourself, read doc/build/*.txt.
 
 
 

@@ -1,0 +1,55 @@
+ _____________________________________________________________________________
+/                                                                             \
+|   Lix                                           How to translate the game   |
+\_____________________________________________________________________________/
+
+
+
+There are several things that can be translated, but not everything is
+implemented.
+
+*   The user interface          -- this can be done, read on.
+*   Level titles                -- only possible for English and German.
+*   Level directory intro files -- only possible for English and German.
+
+We don't yet have a good solution for translating level titles, or level
+directory intro files.
+
+
+
+TRANSLATING THE USER INTERFACE
+------------------------------
+
+To obtain all the strings from the user interface, create this blank file:
+
+    data/translate_dump.txt
+
+i.e., go into the data/ directory, and create a new file translate_dump.txt,
+or copy an existing .txt file and name the copy translate_dump.txt. Its
+contents do not matter right now, they will be overwritten.
+
+Start Lix, and exit Lix again immediately.
+
+Rename translate_dump.txt to:
+
+    translate.txt
+
+It should still be in the data/ directory. If you didn't rename it, your edits
+to the file would be overwritten upon starting Lix again.
+
+Edit translate.txt, replacing the strings in-between the quotes. You can use
+unicode letters (like ä é à þ ß etc.), so you're not limited to the English
+alphabet.
+
+In particular, replace "English" at the top of the file with your language's
+name. You shouldn't translate your langauge name to English, e.g., write
+"Français", not "French".
+
+Save translate.txt, and run Lix. Enter the options dialogue, and select
+your custom language. Leave the options dialogue. Check if everything looks
+correct.
+
+If you'd like your translation to be part of the Lix main release, email
+your translate.txt to Simon <eiderdaus@gmail.com>.
+
+Have fun!
