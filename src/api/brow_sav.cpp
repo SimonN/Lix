@@ -74,8 +74,8 @@ SaveBrowser::SaveBrowser(const Filename&    bdir,
 
     ok    .set_hotkey(useR->key_me_okay);
     cancel.set_hotkey(useR->key_me_exit);
-    ok    .set_text  (Language::ok);
-    cancel.set_text  (Language::cancel);
+    ok    .set_text  (Language::common_ok);
+    cancel.set_text  (Language::common_cancel);
 
     file_name.set_text(filename.get_file_no_ext_no_pre_ext());
     file_name.set_scroll();
@@ -288,8 +288,8 @@ BoxMessage* SaveBrowser::new_box_overwrite_level(const Filename &filename)
     box_overwrite->add_text(Language::save_box_overwrite_question);
     box_overwrite->add_text(s1);
     box_overwrite->add_text(s2);
-    box_overwrite->add_button(Language::yes, useR->key_me_okay);
-    box_overwrite->add_button(Language::no,  useR->key_me_exit);
+    box_overwrite->add_button(Language::common_yes, useR->key_me_okay);
+    box_overwrite->add_button(Language::common_no,  useR->key_me_exit);
 
     return box_overwrite;
 }

@@ -48,8 +48,8 @@ WindowVariables::WindowVariables(Level& l)
 
     ok     .set_hotkey(useR->key_me_okay);
     cancel .set_hotkey(useR->key_me_exit);
-    ok     .set_text  (Language::ok);
-    cancel .set_text  (Language::cancel);
+    ok     .set_text  (Language::common_ok);
+    cancel .set_text  (Language::common_cancel);
 
     seconds.set_format_time();
     seconds.set_step_big(60);

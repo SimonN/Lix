@@ -90,8 +90,8 @@ WindowSkill::WindowSkill(Level& l)
     classic8 .set_text(Language::win_skill_classic_8);
     classic12.set_text(Language::win_skill_classic_12);
     all_to   .set_text(Language::win_skill_all_to);
-    ok       .set_text(Language::ok);
-    cancel   .set_text(Language::cancel);
+    ok       .set_text(Language::common_ok);
+    cancel   .set_text(Language::common_cancel);
 
     ok     .set_hotkey(useR->key_me_okay);
     cancel .set_hotkey(useR->key_me_exit);

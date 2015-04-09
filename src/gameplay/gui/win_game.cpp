@@ -237,7 +237,7 @@ WindowGameplay::WindowGameplay(
 
     common_constructor();
 
-    menu.set_text  (Language::ok);
+    menu.set_text  (Language::common_ok);
     on_key_me_okay = MENU;
 }
 
@@ -353,8 +353,8 @@ Api::BoxMessage* WindowGameplay::new_box_overwrite(const Filename& file)
     box_overwrite->add_text(Language::win_game_overwrite_question);
     box_overwrite->add_text(s1);
     box_overwrite->add_text(s2);
-    box_overwrite->add_button(Language::yes, useR->key_me_okay);
-    box_overwrite->add_button(Language::no,  useR->key_me_exit);
+    box_overwrite->add_button(Language::common_yes, useR->key_me_okay);
+    box_overwrite->add_button(Language::common_no,  useR->key_me_exit);
     return box_overwrite;
 }
 

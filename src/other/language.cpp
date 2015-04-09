@@ -87,14 +87,14 @@ log_level_unknown_bitmap,
 log_level_file_saved;
 
 // Verschiedene Dialoge
-DECL_VARIABLE_FOR_TRANSLATION(ok);
-DECL_VARIABLE_FOR_TRANSLATION(cancel);
-DECL_VARIABLE_FOR_TRANSLATION(yes);
-DECL_VARIABLE_FOR_TRANSLATION(no);
-DECL_VARIABLE_FOR_TRANSLATION(back);
-DECL_VARIABLE_FOR_TRANSLATION(exit);
-DECL_VARIABLE_FOR_TRANSLATION(dir_parent);
-DECL_VARIABLE_FOR_TRANSLATION(dir_flip_page);
+DECL_VARIABLE_FOR_TRANSLATION(common_ok);
+DECL_VARIABLE_FOR_TRANSLATION(common_cancel);
+DECL_VARIABLE_FOR_TRANSLATION(common_yes);
+DECL_VARIABLE_FOR_TRANSLATION(common_no);
+DECL_VARIABLE_FOR_TRANSLATION(common_back);
+DECL_VARIABLE_FOR_TRANSLATION(common_exit);
+DECL_VARIABLE_FOR_TRANSLATION(common_dir_parent);
+DECL_VARIABLE_FOR_TRANSLATION(common_dir_flip_page);
 
 // Browser
 DECL_VARIABLE_FOR_TRANSLATION(browser_single_title);
@@ -592,14 +592,14 @@ void Language::set(const Language lang)
         log_level_file_saved          = "File written:";
 
         // Verschiedene Dialoge
-        ok                            = "Okay";
-        cancel                        = "Cancel";
-        yes                           = "Yes";
-        no                            = "No";
-        back                          = "Back";
-        exit                          = "Exit";
-        dir_parent                    = "..",
-        dir_flip_page                 = "(more...)",
+        common_ok                     = "Okay";
+        common_cancel                 = "Cancel";
+        common_yes                    = "Yes";
+        common_no                     = "No";
+        common_back                   = "Back";
+        common_exit                   = "Exit";
+        common_dir_parent             = "..",
+        common_dir_flip_page          = "(more...)",
 
         // Browser
         browser_single_title          = "Single Player";
@@ -1080,14 +1080,14 @@ eb[Editor::ADD_HAZARD]
         log_level_file_saved          = "Datei geschrieben:";
 
         // Verschiedene Dialoge
-        ok                            = "Okay";
-        cancel                        = "Abbrechen";
-        yes                           = "Ja";
-        no                            = "Nein";
-        back                          = "Zurueck";
-        exit                          = "Beenden";
-        dir_parent                    = "..",
-        dir_flip_page                 = "(weitere...)",
+        common_ok                     = "Okay";
+        common_cancel                 = "Abbrechen";
+        common_yes                    = "Ja";
+        common_no                     = "Nein";
+        common_back                   = "Zurueck";
+        common_exit                   = "Beenden";
+        common_dir_parent             = "..",
+        common_dir_flip_page          = "(weitere...)",
 
         // Browser
         browser_single_title          = "Einzelspieler";

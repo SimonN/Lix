@@ -110,7 +110,7 @@ void ListLevel::add_flip_button()
     TextButton* t = new TextButton(0,
      get_bottom_button()*20, // 20 ist die Hoehe eines Buttons
      get_xl(), 20);
-    t->set_text(Language::dir_flip_page);
+    t->set_text(Language::common_dir_flip_page);
     button_push_back(t);
 }
 

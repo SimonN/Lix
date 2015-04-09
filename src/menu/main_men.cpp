@@ -61,7 +61,7 @@ MainMenuWindow::MainMenuWindow()
     options(130, 40 + 2 * (button_yl + button_y_spacing),
      button_xl/2 - 10, button_yl, Language::option_title),
     exit   (20, 40 + 3 * (button_yl + button_y_spacing),
-     button_xl, button_yl, Language::exit),
+     button_xl, button_yl, Language::common_exit),
     version(window_xl / 2, window_yl - 60, "", Label::CENTERED),
     website(window_xl / 2, window_yl - 40, "", Label::CENTERED)
 {

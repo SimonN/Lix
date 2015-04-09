@@ -39,7 +39,7 @@ NetworkBrowser::NetworkBrowser()
     info_skills .set_undraw_color(color[COL_API_M]);
     info_clock  .set_undraw_color(color[COL_API_M]);
 
-    set_button_play_text(Language::ok);
+    set_button_play_text(Language::common_ok);
     on_file_highlight(get_current_file());
 }
 

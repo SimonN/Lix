@@ -347,7 +347,7 @@ void Replay::save_to_file(const Filename& s, const Level* const lev)
          : itr->action == Replay::ASSIGN       ? gloB->replay_assign_any
          : itr->action == Replay::ASSIGN_LEFT  ? gloB->replay_assign_left
          : itr->action == Replay::ASSIGN_RIGHT ? gloB->replay_assign_right
-                                               : Language::cancel,
+                                               : Language::common_cancel,
          itr->what);
     }
 

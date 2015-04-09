@@ -179,7 +179,7 @@ void Lobby::set_mode(const Mode& mo)
     preview.clear();
 
     set_subtitle(gloB->empty_string);
-    button_exit.set_text(Language::cancel);
+    button_exit.set_text(Language::common_cancel);
 
     if (mo == NOT_CONNECTED) {
         if (gloB->version_stable) start_central.show();

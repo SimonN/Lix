@@ -208,7 +208,7 @@ OptionMenu::OptionMenu()
     desc_ed_add_goal      (key_t3, 240, Language::option_ed_add_goal),
     desc_ed_add_deco      (key_t3, 260, Language::option_ed_add_deco),
     desc_ed_add_hazard    (key_t3, 280, Language::option_ed_add_hazard),
-    desc_ed_exit          (key_t3, 320, Language::exit),
+    desc_ed_exit          (key_t3, 320, Language::common_exit),
     desc_ed_grid_custom   (key_b1 + button_xl + 20, 320, Language::option_ed_grid_custom),
 
     me_okay               (key_b1, 100, key_xl),
@@ -281,8 +281,8 @@ OptionMenu::OptionMenu()
     desc_sound_info       (20,       400, Language::option_info_sound)
 {
     // Standardwerte fuer alle Checkboxes und Buttons
-    button_okay           .set_text(Language::ok);
-    button_cancel         .set_text(Language::cancel);
+    button_okay           .set_text(Language::common_ok);
+    button_cancel         .set_text(Language::common_cancel);
     button_okay           .set_hotkey(useR->key_me_okay);
     button_cancel         .set_hotkey(useR->key_me_exit);
 

@@ -93,7 +93,7 @@ void DirList::load_current_dir() {
 
     // Hochwechsler
     if (current_dir != base_dir) {
-        add_button(0, Language::dir_parent);
+        add_button(0, Language::common_dir_parent);
         (**--buttons.end()).set_hotkey(useR->key_me_up_dir);
     }
     // Verzeichnisbuttons erstellen
@@ -115,7 +115,7 @@ void DirList::load_current_dir() {
     }
     // Das hier ist der Blaetter-Button
     else if (next_from_dir_list < dir_list.size() || page > 0) {
-        add_button(bottom_button, Language::dir_flip_page);
+        add_button(bottom_button, Language::common_dir_flip_page);
     }
 }
 
@@ -171,7 +171,7 @@ void DirList::calc_self() {
         if (buttons[i]->get_clicked()) {
             TextButton& t = *buttons[i];
             // Obersten Button angeklickt und es ist Hochwechsler?
-            if (t.get_text() == Language::dir_parent) {
+            if (t.get_text() == Language::common_dir_parent) {
                 // Ins uebergeordnete Verzeichnis wechseln:
                 // Slash löschen, außerdem so lange weitere Buchstaben im
                 // Pfadnamen, bis ein neuer Schrägstrich erreicht ist
@@ -184,7 +184,7 @@ void DirList::calc_self() {
                 load_path_after_loop = true;
             }
             // Seitenwechsel-Button angeklickt?
-            else if (t.get_text() == Language::dir_flip_page){
+            else if (t.get_text() == Language::common_dir_flip_page){
                 ++page;
                 if (page * real_buttons_per_page >= dir_list.size()) page = 0;
                 load_path_after_loop = true;

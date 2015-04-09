@@ -126,8 +126,8 @@ void SingleBrowser::calc_self()
                 box_delete->add_text(Language::browser_box_delete_que_lev);
                 box_delete->add_text(s1);
                 box_delete->add_text(s2);
-                box_delete->add_button(Language::yes, useR->key_me_okay);
-                box_delete->add_button(Language::no,  useR->key_me_exit);
+                box_delete->add_button(Language::common_yes,useR->key_me_okay);
+                box_delete->add_button(Language::common_no, useR->key_me_exit);
                 Manager::add_focus(box_delete);
             }
         }

@@ -51,7 +51,7 @@ BitmapBrowser::BitmapBrowser(
     add_child(list_bitmap);
     add_child(cancel);
 
-    cancel.set_text  (Language::cancel);
+    cancel.set_text  (Language::common_cancel);
     cancel.set_hotkey(useR->key_me_exit);
 
     load_dir(cdir, initial_page);

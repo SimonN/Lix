@@ -265,9 +265,9 @@ Api::BoxMessage* Editor::new_box_unsaved_data(const Level& l)
         box->add_text(s1);
         box->add_text(s2);
     }
-    box->add_button(Language::yes,    useR->key_me_okay);
-    box->add_button(Language::no,     useR->key_me_delete);
-    box->add_button(Language::cancel, useR->key_me_exit);
+    box->add_button(Language::common_yes,    useR->key_me_okay);
+    box->add_button(Language::common_no,     useR->key_me_delete);
+    box->add_button(Language::common_cancel, useR->key_me_exit);
 
     return box;
 }

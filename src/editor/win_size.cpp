@@ -93,8 +93,8 @@ WindowSize::WindowSize(Level& lv, Map& mp)
     torus_x.set_checked(level.torus_x);
     torus_y.set_checked(level.torus_y);
 
-    ok    .set_text(Language::ok);
-    cancel.set_text(Language::cancel);
+    ok    .set_text(Language::common_ok);
+    cancel.set_text(Language::common_cancel);
     ok     .set_hotkey(useR->key_me_okay);
     cancel .set_hotkey(useR->key_me_exit);
 }

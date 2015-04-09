@@ -64,9 +64,14 @@ log_level_unknown_bitmap,
 log_level_file_saved,
 
 // Verschiedene Dialoge
-ok, cancel, yes, no, back, exit,
-dir_parent,
-dir_flip_page,
+common_ok,
+common_cancel,
+common_yes,
+common_no,
+common_back,
+common_exit,
+common_dir_parent,
+common_dir_flip_page,
 
 // Browser
 browser_single_title,

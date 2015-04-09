@@ -62,7 +62,7 @@ BrowserBig::BrowserBig(const std::string& wintitle,
 
     button_play.set_hotkey(useR->key_me_okay);
 
-    button_exit.set_text(Language::back);
+    button_exit.set_text(Language::common_back);
     button_exit.set_hotkey(useR->key_me_exit);
 
     // second argument == false:

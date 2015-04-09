@@ -87,8 +87,8 @@ WindowScroll::WindowScroll(Level& l, Map& m)
     bg_b.set_macro_color(level.bg_blue);
     jump   .set_text(Language::win_scroll_jump   );
     current.set_text(Language::win_scroll_current);
-    ok     .set_text(Language::ok                );
-    cancel .set_text(Language::cancel            );
+    ok     .set_text(Language::common_ok         );
+    cancel .set_text(Language::common_cancel     );
     ok     .set_hotkey(useR->key_me_okay);
     cancel .set_hotkey(useR->key_me_exit);
 }
