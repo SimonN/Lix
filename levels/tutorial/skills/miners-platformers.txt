@@ -3,7 +3,7 @@ $AUTHOR Simon
 $GERMAN Hacker und Platformer
 $ENGLISH Miners and Platformers
 
-$TUTORIAL_GERMAN Hacker graben diagonal, Platformer bauen horizontal.
+$TUTORIAL_GERMAN Hacker graben diagonal, Plattformer bauen horizontal.
 $TUTORIAL_ENGLISH Miners dig diagonally, platformers build horizontally.
 
 #SIZE_X 640

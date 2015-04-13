@@ -3,7 +3,7 @@ $AUTHOR Simon
 $GERMAN Vertikalgraeber
 $ENGLISH Diggers
 
-$TUTORIAL_GERMAN Klicke eine Lix an, um sie vertikal nach unten graben zu lassen.<br>Stahl kann nicht zerstoert werden, aber durch alles andere kannst du graben.
+$TUTORIAL_GERMAN Klicke eine Lix an, um sie vertikal nach unten graben zu lassen.<br>Stahl kann nicht zerstört werden, aber durch alles andere kannst du graben.
 $TUTORIAL_ENGLISH Click a lix to assign her the digger skill. She will dig a vertical hole.<br>Steel cannot be destroyed, but you can dig through anything else.
 
 #SIZE_X 640

@@ -3,7 +3,7 @@ $AUTHOR geoo
 $GERMAN Springer
 $ENGLISH Jumpers
 
-$TUTORIAL_GERMAN Nutze Springer, um ueber die Luecken zu springen.<br>Der Stern beim Springer in der Menueleiste bedeutet,<br>dass deren Anzahl unbeschraenkt ist.<br>Um den Explodierer am Ende auszuwaehlen,<br>klicke auf den Explodierer in<br>der Menueleiste unten, oder<br>druecke seinen Hotkey <EXPLODER2>.
+$TUTORIAL_GERMAN Nutze Springer, um ueber die Luecken zu springen.<br>Der Stern beim Springer in der Menüleiste bedeutet,<br>dass deren Anzahl unbeschränkt ist.<br>Um den Explodierer am Ende auszuwählen,<br>klicke auf den Explodierer in<br>der Menüleiste unten, oder<br>drücke seinen Hotkey <EXPLODER2>.
 $TUTORIAL_ENGLISH Jumpers make a small leap forward.<br>Try to cross the gaps by jumping over them.<br>The star in the skill panel indicates an infinite amount of jumpers.<br>To use the exploder skill at the end, click the exploder button<br>in the panel at the bottom,<br>or press its hotkey <EXPLODER2>.
 
 #SIZE_X 640

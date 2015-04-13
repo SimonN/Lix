@@ -3,7 +3,7 @@ $AUTHOR Rubix
 $GERMAN Kletterer und Fallschirme
 $ENGLISH Climbers and Floaters
 
-$TUTORIAL_GERMAN Kletterer koennen senkrechte Waende erklimmen.<br>Fallschirmspringer ueberleben jeden Fall.<br>Diese Faehigkeiten sind permanent, die Lix behaelt sie bis Levelende.
+$TUTORIAL_GERMAN Kletterer koennen senkrechte Wände erklimmen.<br>Fallschirmspringer überleben jeden Fall.<br>Diese Fähigkeiten sind permanent, die Lix behält sie bis Levelende.
 $TUTORIAL_ENGLISH Climbers can scale vertical walls. Floaters survive falls from any height.<br>These skills are permanent, the lix will remember them throughout the level.
 
 #SIZE_X 640

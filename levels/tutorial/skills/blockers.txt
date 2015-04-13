@@ -1,9 +1,9 @@
-$BUILT 2015-01-30 07:43:56
+$BUILT 2015-04-13 02:27:37
 $AUTHOR Simon
 $GERMAN Blocker gegen Gefahren
 $ENGLISH Blockers against hazards
 
-$TUTORIAL_GERMAN Klicke auf die Pause-Taste (Pfoten), um dies in Ruhe zu lesen.<br>Benutze Blocker, um andere Lix daran zu hindern, in die Saeure zu fallen.<br>Du musst nicht alle Lix retten, sondern nur die geforderte Anzahl (5 von 30).<br>Wenn du genug gerettet hast oder irgendwo stecken bleibst,<br>klicke doppelt auf die Atombomben-Taste.
+$TUTORIAL_GERMAN Klicke auf die Pause-Taste (Pfoten), um dies in Ruhe zu lesen.<br>Benutze Blocker, um andere Lix daran zu hindern, in die Säure zu fallen.<br>Du musst nicht alle Lix retten, sondern nur die geforderte Anzahl (5 von 30).<br>Wenn du genug gerettet hast oder irgendwo stecken bleibst,<br>klicke doppelt auf den Atompilz unten rechts.
 $TUTORIAL_ENGLISH Press the pause button (paws) to read this without hurries.<br>Use the blocker skill to prevent other lixes from falling into the acid.<br>You don't have to save all lix, but only the required amount (5 out of 30).<br>If you have saved enough or got stuck, double-click the nuke button.
 
 #SIZE_X 640
@@ -17,7 +17,7 @@ $TUTORIAL_ENGLISH Press the pause button (paws) to read this without hurries.<br
 #SECONDS 0
 #INITIAL 30
 #REQUIRED 5
-#SPAWN_INTERVAL 48
+#SPAWN_INTERVAL 55
 #SPAWN_INTERVAL_FAST 4
 
 #NOTHING 0
@@ -90,8 +90,8 @@ $TUTORIAL_ENGLISH Press the pause button (paws) to read this without hurries.<br
 :matt/beach/nighttime/01: 506 330
 :matt/earth/07: 424 182
 :matt/earth/06: 410 186
-:geoo/construction/wall/small_square: 400 192
 :geoo/construction/wall/small_64x64: 352 144
+:geoo/construction/wall/small_square: 400 192
 :geoo/construction/wall/small_square: 352 192
 :geoo/construction/wall/small_square: 400 160
 :geoo/construction/wall/small_square: 352 160
@@ -189,3 +189,24 @@ $TUTORIAL_ENGLISH Press the pause button (paws) to read this without hurries.<br
 :geoo/construction/wall/small_brick3: 384 336
 :matt/earth/09: 416 202
 :matt/earth/18: 508 210 d
+:proxima/tile/spheres/goldsmall: 499 79
+:geoo/steel/32x32o.S: 482 62 d
+:geoo/steel/32x32o.S: 516 62 d
+:geoo/steel/32x32o.S: 482 96 d
+:geoo/steel/32x32o.S: 516 96 d
+:proxima/tile/spheres/goldsmall: 581 103
+:geoo/steel/32x32o.S: 564 86 d
+:geoo/steel/32x32o.S: 598 86 d
+:geoo/steel/32x32o.S: 564 120 d
+:geoo/steel/32x32o.S: 598 120 d
+:proxima/tile/spheres/goldsmall: 593 191
+:geoo/steel/32x32o.S: 576 174 d
+:geoo/steel/32x32o.S: 610 174 d
+:geoo/steel/32x32o.S: 576 208 d
+:geoo/steel/32x32o.S: 610 208 d
+:proxima/tile/spheres/goldsmall: 525 141
+:geoo/steel/32x32o.S: 508 124 d
+:geoo/steel/32x32o.S: 542 124 d
+:geoo/steel/32x32o.S: 508 158 d
+:geoo/steel/32x32o.S: 542 158 d
+:matt/earth/07b: 456 224

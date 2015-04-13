@@ -3,7 +3,7 @@ $AUTHOR Simon
 $GERMAN Bau eine Treppe
 $ENGLISH Build a bridge
 
-$TUTORIAL_GERMAN Willkommen zu Lix! Hilf den Lix zum Ziel in jedem Level.<br>Klicke eine Lix an, um sie eine Treppe bauen zu lassen.<br>Bau ueber das Hindernis und anschliessend hinauf zum Ziel.
+$TUTORIAL_GERMAN Willkommen zu Lix! Hilf den Lix zum Ziel in jedem Level.<br>Klicke eine Lix an, um sie eine Treppe bauen zu lassen.<br>Bau über das Hindernis und anschließend hinauf zum Ziel.
 $TUTORIAL_ENGLISH Welcome to Lix! Guide the lix to the exit on each level.<br>Click on a lix to assign her the builder skill. She will construct a bridge.<br>Build over the obstacle and then up to the exit.
 
 #SIZE_X 640

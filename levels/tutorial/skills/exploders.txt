@@ -3,7 +3,7 @@ $AUTHOR geoo
 $GERMAN Explodierer
 $ENGLISH Exploders
 
-$TUTORIAL_GERMAN Explodierer mit Rueckstoss<br>machen Spass! Benutze sie<br>und schau, was passiert.
+$TUTORIAL_GERMAN Explodierer mit Rückstoß<br>machen Spaß! Benutze sie<br>und schau, was passiert.
 $TUTORIAL_ENGLISH Knockback exploders are fun!<br>Assign some and watch<br>the resulting carnage.
 
 #SIZE_X 640

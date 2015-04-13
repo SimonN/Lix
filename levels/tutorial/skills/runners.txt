@@ -3,7 +3,7 @@ $AUTHOR Simon
 $GERMAN Renner
 $ENGLISH Runners
 
-$TUTORIAL_GERMAN Renner sind schnell! Ihre Spruenge sind viel hoeher und weiter.<br>Wenn ein Kletterer gegen eine glatte Wand springt,<br>wird sie sich daran festhalten und hinaufklettern.
+$TUTORIAL_GERMAN Renner sind schnell! Ihre Sprünge sind viel höher und weiter.<br>Wenn ein Kletterer gegen eine glatte Wand springt,<br>wird sich die Lix festhalten und hinaufklettern.
 $TUTORIAL_ENGLISH Runners are fast! Their jumps are much higher and further.<br>If a climber jumps against a straight wall,<br>it will hold onto it and climb up.
 
 #SIZE_X 640
