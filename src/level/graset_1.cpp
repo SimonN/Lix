@@ -155,7 +155,7 @@ void GraphicSetL1::read_palette(std::ifstream& defin)
         int g = read_byte(defin);
         int b = read_byte(defin);
         int c = make_0x3F_color(r, g, b);
-        if (c == color[COL_BLACK]) c = makecol(0x00, 0x0A, 0x16);
+        if (c == color[COL_BLACK]) c = makecol(0x00, 0x18, 0x24);
         palette.push_back(c);
         // palette[7]: So you don't get an additional color to specify,
         // since it is just a duplicate of one of your pickable colors.
