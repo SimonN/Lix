@@ -38,6 +38,8 @@
  *
  */
 
+#include <iostream>
+
 #include "lmain.h" // Main object to manage the different parts of the program
 #include "user.h"
 #include "verify.h"
@@ -48,19 +50,40 @@
 #include "../graphic/png/loadpng.h"
 
 struct MainArgs {
-    std::string scr_m;
-    int  scr_f, scr_x, scr_y;
-    bool sound_load_driver;
+    bool print_version_and_exit;
+    bool print_help_and_exit;
+    bool input_user_name;
+    std::string graphics_driver;
+    bool resolution_or_fullscreen_suggested_via_args;
+    bool fullscreen;
+    int  screen_xl;
+    int  screen_yl;
+    bool suppress_sound_driver;
     std::vector <std::string> replays_to_verify;
 };
 static MainArgs parse_main_arguments(int, char*[]);
 static void     setenv_allegro_modules();
 static void     unsetenv_allegro_modules();
+static void     print_usage();
 
 
 
 int main(int argc, char* argv[])
 {
+    MainArgs margs = parse_main_arguments(argc, argv);
+
+    if (margs.print_version_and_exit) {
+        std::cout << Help::version_to_string(Globals::version) << std::endl;
+        return 0;
+    }
+    else if (margs.print_help_and_exit) {
+        print_usage();
+        return 0;
+    }
+
+    // From here, load either the game or the interactive replay checker.
+    // This will depend on existing dirs later on.
+
     setenv_allegro_modules();
     allegro_init();
     unsetenv_allegro_modules();
@@ -84,8 +107,10 @@ int main(int argc, char* argv[])
     }
 
     gloB->load();
+    if (margs.input_user_name) {
+        gloB->user_name = "";
+    }
     useR->load();
-    MainArgs margs = parse_main_arguments(argc, argv);
 
     // Graphics are needed both by interactive and noninteractive mode
     ::set_color_depth(16);
@@ -96,9 +121,15 @@ int main(int argc, char* argv[])
         install_keyboard();
         hardware.set_mouse_accel_on_windows(useR->mouse_acceleration);
         install_mouse();
-        if (margs.sound_load_driver) Sound::initialize();
+        if (! margs.suppress_sound_driver && gloB->sound_load_driver)
+            Sound::initialize();
 
-        set_screen_mode(margs.scr_f, margs.scr_m, margs.scr_x, margs.scr_y);
+        if (margs.resolution_or_fullscreen_suggested_via_args)
+            set_screen_mode(margs.fullscreen, margs.graphics_driver,
+                            margs.screen_xl,  margs.screen_yl);
+        else
+            set_screen_mode(! useR->screen_windowed,
+                            margs.graphics_driver, 0, 0);
 
         // BUG: in Windows, setting the window title with non-ASCII UTF-8
         // string does not seem to work (Allegro bug?)--non-ASCII characters
@@ -107,11 +138,12 @@ int main(int argc, char* argv[])
         // (should main_name_of_the_game even be allowed for translation?)
         set_window_title(Language::main_name_of_game_English);
 
-        if (useR->language == Language::NONE || useR->language >= Language::MAX) {
+        if (useR->language == Language::NONE
+         || useR->language >= Language::MAX) {
             // This is for the "initial use" case where there is no
             // user profile and therefore no language set.
             //
-            // It is preferrable in that case to try loading the custom language
+            // It is preferrable in that case to load the custom language
             // if it exists, so that we display the "loading..." texts (inside
             // load_all_bitmaps() below) text in the language the user probably
             // wants (the custom one if it exists, otherwise English)
@@ -162,40 +194,56 @@ END_OF_MAIN()
 MainArgs parse_main_arguments(int argc, char *argv[])
 {
     MainArgs main_args;
-    main_args.scr_m = "";
-    main_args.scr_f = !useR->screen_windowed;
-    main_args.scr_x = 0;
-    main_args.scr_y = 0;
-    main_args.sound_load_driver = gloB->sound_load_driver;
+    main_args.print_version_and_exit = false;
+    main_args.print_help_and_exit = false;
+    main_args.graphics_driver = "";
+    main_args.input_user_name = false;
+    main_args.resolution_or_fullscreen_suggested_via_args = false;
+    main_args.fullscreen = true;
+    main_args.screen_xl = 0;
+    main_args.screen_yl = 0;
+    main_args.suppress_sound_driver = false;
     main_args.replays_to_verify.clear();
 
     // Check all arguments for any occurence of the switch-defining letters
     for (int i = 1; i < argc; ++i) {
         std::string arg = argv[i];
         if (arg.substr(0, 10) == "--gfxmode=") {
-            main_args.scr_m = arg.substr(10, std::string::npos);
+            main_args.graphics_driver = arg.substr(10, std::string::npos);
+        }
+        else if (arg.substr(0, 6) == "--help") {
+            main_args.print_help_and_exit = true;
         }
         else if (arg.substr(0, 9) == "--verify=") {
             main_args.replays_to_verify.push_back(
              arg.substr(9, std::string::npos));
         }
-        else if (! arg.empty() && arg[0] == '-') {
+        else if (arg.substr(0, 9) == "--version") {
+            main_args.print_version_and_exit = true;
+        }
+        else if (arg.size() >= 2 && arg[0] == '-' && arg[1] != '-') {
             for (size_t pos = 1; pos < arg.size(); ++pos) switch (arg[pos]) {
             case 'w':
-                main_args.scr_f = false;
-                main_args.scr_x = LEMSCR_X;
-                main_args.scr_y = LEMSCR_Y;
+                main_args.resolution_or_fullscreen_suggested_via_args = true;
+                main_args.fullscreen = false;
+                main_args.screen_xl = LEMSCR_X;
+                main_args.screen_yl = LEMSCR_Y;
+                break;
+
+            case 'h':
+                main_args.print_help_and_exit = true;
                 break;
 
             case 'n':
-                // The global config file and the user file have already been loaded.
-                // To enable the question for the user name, we remove some data again.
-                gloB->user_name = "";
-                useR->load();
+                main_args.input_user_name = true;
                 break;
 
             case 'o':
-                main_args.sound_load_driver = false;
+                main_args.suppress_sound_driver = false;
+                break;
+
+            case 'v':
+                main_args.print_version_and_exit = true;
                 break;
 
             default:
@@ -206,6 +254,25 @@ MainArgs parse_main_arguments(int argc, char *argv[])
     return main_args;
 }
 // end of parse_main_arguments()
+
+
+
+void print_usage()
+{
+    // this is always in English, because we don't load the user language
+    // until much later.
+    std::cout << "Lix version " << Help::version_to_string(Globals::version)
+<< " command line arguments:" << std::endl
+<< "-v or --version     print version and exit\n"
+<< "-h or --help        print this help and exit\n"
+<< "-w                  force 640x480 windowed mode\n"
+<< "-n                  always ask for player's name at startup\n"
+<< "-o                  suppress loading the sound driver\n"
+<< "--gfxmode=MODE      on Windows, suggest a gfx driver, see doc/readme.txt\n"
+<< "--verify=file.txt   verify a single replay file, see doc/readme.txt\n"
+<< "--verify=directory  verify all replay files recursively in directory"
+<< std::endl;
+}
 
 
 

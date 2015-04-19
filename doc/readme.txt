@@ -89,6 +89,14 @@ you can send me a personal message there. My username is Simon.
 Under all operating systems, the following switches are available for the
 Lix executable (./lix.exe unter Windows, ./bin/lix under Linux):
 
+-v
+--version
+    Print game version and exit.
+
+-h
+--help
+    List supported command line arguments and exit.
+
 -w
     Run Lix in a window with a resolution of 640 x 480. If you use this switch,
     the in-game options for resolution and windowed mode are overridden for

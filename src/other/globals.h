@@ -33,9 +33,9 @@ public:
     // featuring the same game mechanics as the current one, so it's the
     // oldest version that we can netplay with.
     // If the version is stable, playing on the central server is allowed
-    const unsigned long version;
-    const unsigned long version_min;
-    const bool          version_stable;
+    static const unsigned long version;
+    static const unsigned long version_min;
+    static const bool          version_stable;
 
     const int   updates_per_second;
 

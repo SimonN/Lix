@@ -15,14 +15,15 @@
 
 Globals* gloB(0);
 
+const unsigned long Globals::version       (CONCAT(2015, 08, 01, 02));
+const unsigned long Globals::version_min   (CONCAT(2015, 08, 01, 02));
+const bool          Globals::version_stable(false);
+
+
 
 
 Globals::Globals()
 :
-    version              (CONCAT(2015, 08, 01, 02)),
-    version_min          (CONCAT(2015, 08, 01, 02)),
-    version_stable       (false),
-
     updates_per_second   (globals_updates_per_second),
     panel_gameplay_yl    (80),
     panel_editor_yl      (80),
