@@ -1104,7 +1104,7 @@ eb[Editor::ADD_HAZARD]
         common_cancel                 = "Abbrechen";
         common_yes                    = "Ja";
         common_no                     = "Nein";
-        common_back                   = "Zurueck";
+        common_back                   = "Zurück";
         common_exit                   = "Beenden";
         common_dir_parent             = "..",
         common_dir_flip_page          = "(weitere...)",
@@ -1116,7 +1116,7 @@ eb[Editor::ADD_HAZARD]
         browser_play                  = "Spielen";
         browser_edit                  = "Editieren";
         browser_replay                = "Abspielen";
-        browser_delete                = "Loeschen";
+        browser_delete                = "Löschen";
         browser_extract               = "Level extrah.";
         browser_export_image          = "Bild export.";
         browser_export_image_done     = "Fertig.";
@@ -1125,14 +1125,14 @@ eb[Editor::ADD_HAZARD]
         browser_info_initgoal         = "Ziel:";
         browser_info_initial          = "Anzahl Lix:";
         browser_info_hatches          = "Klappen:";
-        browser_info_goals            = "Ausgaenge:";
-        browser_info_skills           = "Faehigktn.:";
+        browser_info_goals            = "Ausgänge:";
+        browser_info_skills           = "Fähigkeiten:";
         browser_info_clock_2          = "Nachzeit:";
         browser_info_author_none      = "?";
         browser_info_clock_none       = "--";
 
         browser_info_result_saved     = "Gerettet:";
-        browser_info_result_skills    = "Faehigktn.:";
+        browser_info_result_skills    = "Fähigkeiten:";
         browser_info_result_time      = "Dauer:";
         browser_info_result_old_1     = "Der Level wurde";
         browser_info_result_old_2     = "seitdem editiert.";
@@ -1145,12 +1145,12 @@ eb[Editor::ADD_HAZARD]
         browser_info_old              = "ist zu alt";
         browser_info_holds_level      = "enthalten";
 
-        browser_box_delete_tit_rep    = "Replay loeschen?";
+        browser_box_delete_tit_rep    = "Replay löschen?";
         browser_box_delete_que_rep    = "Soll dieses Replay wirklich "
-                                        "geloescht werden?";
-        browser_box_delete_tit_lev    = "Level loeschen?";
+                                        "gelöscht werden?";
+        browser_box_delete_tit_lev    = "Level löschen?";
         browser_box_delete_que_lev    = "Soll dieser Level wirklich "
-                                        "geloescht werden?";
+                                        "gelöscht werden?";
 
         // Lobby
         win_lobby_title               = "Netzwerkspiel";
@@ -1168,11 +1168,11 @@ eb[Editor::ADD_HAZARD]
         win_lobby_room_number         = "Raum Nr. ";
         win_lobby_room_player         = "Spieler";
         win_lobby_room_players        = "Spieler";
-        win_lobby_room_create         = "Neuen Raum eroeffnen";
+        win_lobby_room_create         = "Neuen Raum eröffnen";
         win_lobby_room_leave          = "Raum verlassen";
 
         // Spielfenster
-        win_game_title                = "Spielmenue";
+        win_game_title                = "Spielmenü";
         win_game_result               = "Ergebnis";
         win_game_lix_saved            = "Lix gerettet:";
         win_game_lix_saved_in_time    = "Lix rechtzeitig gerettet:";
@@ -1185,7 +1185,7 @@ eb[Editor::ADD_HAZARD]
         win_game_comment_exactly      = "Ziel haargenau erreicht!";
         win_game_comment_less         = "Das sind leider zu wenige.";
         win_game_comment_none         = "Das war wohl nix. Nochmal?";
-        win_game_result_skills        = "Faehigkeiten:";
+        win_game_result_skills        = "Fähigkeiten:";
         win_game_result_time          = "Gebrauchte Zeit:";
         win_game_net_first            = "Ein hervorragender Sieg!";
         win_game_net_second           = "Fein, guter zweiter Platz.";
@@ -1199,8 +1199,8 @@ eb[Editor::ADD_HAZARD]
         win_game_replay_win_one       = "hat gewonnen!";
         win_game_replay_win_team      = "haben gewonnen!";
         win_game_replay_tie           = "Das Spiel ist unentschieden.";
-        win_game_overwrite_title      = "Replay ueberschreiben?";
-        win_game_overwrite_question   = "Soll dieses Replay wirklich ueberschrieben werden?";
+        win_game_overwrite_title      = "Replay überschreiben?";
+        win_game_overwrite_question   = "Soll dieses Replay wirklich überschrieben werden?";
 
         // Help texts inside the game
         gameplay_rate_minus           = "Fall-Intervall: Lix erscheinen langsamer.";
@@ -1215,16 +1215,16 @@ eb[Editor::ADD_HAZARD]
         gameplay_restart              = "Level neustarten.";
         gameplay_nuke                 = "Atombombe. Aktivierung durch Doppelklick.";
         gameplay_hint_first           = "Einen Tipp fuer diesen Level lesen.";
-        gameplay_hint_next            = "Den naechsten Tipp lesen.";
+        gameplay_hint_next            = "Den nächsten Tipp lesen.";
         gameplay_hint_prev            = "Den vorherigen Tipp lesen.";
         gameplay_hint_off             = "Den Tipp ausblenden.";
-        gameplay_spec_tribe           = "Faehigkeiten eines anderen Teams ansehen.";
+        gameplay_spec_tribe           = "Fähigkeiten eines anderen Teams ansehen.";
 
         // Editor allgemein
-        editor_unsaved_title          = "Aenderungen speichern?";
+        editor_unsaved_title          = "Änderungen speichern?";
         editor_unsaved_title_new      = "Level speichern?";
-        editor_unsaved_question       = "Moechtest du die Aenderungen an diesem Level speichern?";
-        editor_unsaved_question_new   = "Moechtest du diesen neuen Level speichern?";
+        editor_unsaved_question       = "Möchtest du die Änderungen an diesem Level speichern?";
+        editor_unsaved_question_new   = "Möchtest du diesen neuen Level speichern?";
         editor_file_name              = "Dateiname:";
         editor_level_name             = "Leveltitel:";
         editor_hotkey                 = "Hotkey:";
@@ -1240,16 +1240,16 @@ eb[Editor::ADD_HAZARD]
         // SaveBrowser
         save_browser_title            = "Speichern unter";
         save_filename                 = "Dateiname:";
-        save_box_overwrite_title      = "Level ueberschreiben?";
-        save_box_overwrite_question   = "Soll dieser Level wirklich ueberschrieben werden?";
+        save_box_overwrite_title      = "Level überschreiben?";
+        save_box_overwrite_question   = "Soll dieser Level wirklich überschrieben werden?";
 
         // BitmapBrowser
-        add_terrain                   = "Terrain hinzufuegen";
-        add_steel                     = "Stahl hinzufuegen";
-        add_hatch                     = "Klappe hinzufuegen";
-        add_goal                      = "Ziel hinzufuegen";
-        add_deco                      = "Dekoration hinzufuegen";
-        add_hazard                    = "Gefahr hinzufuegen";
+        add_terrain                   = "Terrain hinzufügen";
+        add_steel                     = "Stahl hinzufügen";
+        add_hatch                     = "Klappe hinzufügen";
+        add_goal                      = "Ziel hinzufügen";
+        add_deco                      = "Dekoration hinzufügen";
+        add_hazard                    = "Gefahr hinzufügen";
 
         // Kartengroesse
         win_size_title                = "Level-Abmessungen";
@@ -1258,7 +1258,7 @@ eb[Editor::ADD_HAZARD]
         win_size_u                    = "Oben:";
         win_size_d                    = "Unten:";
         win_size_x                    = "Breite:";
-        win_size_y                    = "Hoehe:";
+        win_size_y                    = "Höhe:";
         win_size_hex                  = "Hexadezimal anzeigen";
         win_size_torus_x              = "Horizontal rundumgehend";
         win_size_torus_y              = "Vertikal rundumgehend";
@@ -1270,7 +1270,7 @@ eb[Editor::ADD_HAZARD]
         win_scroll_x                  = "X-Koordinate (0 = links)";
         win_scroll_y                  = "Y-Koordinate (0 = oben)";
         win_scroll_r                  = "Hintergrund Rot";
-        win_scroll_g                  = "Hintergrund Gruen";
+        win_scroll_g                  = "Hintergrund Grün";
         win_scroll_b                  = "Hintergrund Blau";
         win_scroll_jump               = "Dorthin scrollen";
         win_scroll_current            = "Aktuelle Position";
@@ -1287,11 +1287,11 @@ eb[Editor::ADD_HAZARD]
         win_var_clock                 = "Zeit/Nachspielz.";
 
         // Faehigkeits-Fenster
-        win_skill_title               = "Faehigkeits-Einstellungen";
-        win_skill_clear               = "Alle loeschen";
+        win_skill_title               = "Fähigkeits-Einstellungen";
+        win_skill_clear               = "Alle löschen";
         win_skill_classic_8           = "Alte 8";
         win_skill_classic_12          = "Moderne 12";
-        win_skill_all_to              = "Alle aendern:";
+        win_skill_all_to              = "Alle ändern:";
 
         // Exporting a level into a file
         export_single_lix             = "Ziel:";
@@ -1302,41 +1302,39 @@ eb[Editor::ADD_HAZARD]
         export_multi_clock            = "Nachspielzeit:";
 
         // Netzwerk-Chatnachrichten
-        net_chat_welcome_1            = "Verbinde zum Zentralserver, eroeffne "
+        net_chat_welcome_1            = "Verbinde zum Zentralserver, eröffne "
                                         "selbst ein Spiel oder gib";
         net_chat_welcome_2            = "eine IP-Adresse/einen Rechnernamen "
-                                        "ein und waehle \""
+                                        "ein und wähle \""
                                         + win_lobby_start_client + "\".";
         net_chat_unstable_1           = "Diese Version ist experimentell. "
-                                        "Eroeffne selbst ein Spiel oder gib";
+                                        "Eröffne selbst ein Spiel oder gib";
         net_chat_unstable_2           = net_chat_welcome_2;
         net_chat_start_server         = "Du bist der Server. Andere Spieler "
-                                        "koennen zu dir verbinden.";
+                                        "können zu dir verbinden.";
         net_chat_start_client         = "Suche Server unter";
         net_chat_start_cancel         = "Verbindungsaufbau abgebrochen.";
         net_chat_disconnection        = " hat das Netzwerk verlassen.";
         net_chat_we_too_old           = "Deine Lix-Version ist zu alt, "
-                                        "um verbinden zu koennen.";
+                                        "um verbinden zu können.";
         net_chat_we_too_new           = "Deine Lix-Version ist zu neu,"
-                                        "um verbinden zu koennen.";
+                                        "um verbinden zu können.";
         net_chat_someone_old          = "Jemand wollte verbinden, aber seine "
                                         "Lix-Version war zu alt.";
         net_chat_someone_new          = "Jemand wollte verbinden, aber seine "
                                         "Lix-Version war zu neu.";
-        net_chat_named_guy_old        = " muss zunaechst seine Lix-Version "
+        net_chat_named_guy_old        = " muss zunächst seine Lix-Version "
                                         "aktualisieren.";
-        net_chat_server_update        = "The server should always run the "
-                                        "most recent Lix version.";
         net_chat_version_yours        = "Your version is ";
         net_chat_version_server       = ", the server has ";
         net_chat_please_download      = "Download the newest version from: "
                                       + main_website;
         net_chat_we_connected         = "Du hast das Netzwerk betreten. "
-                                        "Waehle einen Raum zum Spielen.";
+                                        "Wähle einen Raum zum Spielen.";
         net_chat_we_in_room           = "Du hast Raum Nr. ";
         net_chat_we_in_room_2         = " betreten.";
         net_chat_we_in_lobby          = "Du bist in die Lobby "
-                                        "zurueckgegangen.";
+                                        "zurückgegangen.";
         net_chat_player_in_room       = " hat Raum Nr. ";
         net_chat_player_in_room_2     = " betreten.";
         net_chat_player_in_lobby      = " hat die Lobby betreten.";
@@ -1349,7 +1347,7 @@ eb[Editor::ADD_HAZARD]
                                         "aktualisieren.";
         net_chat_please_download      = "Lade die neueste Version herunter: "
                                       + main_website;
-        net_chat_level_change         = "hat diesen Level gewaehlt:";
+        net_chat_level_change         = "hat diesen Level gewählt:";
         net_game_start                = "Das Spiel beginnt.";
         net_game_how_to_chat_1        = " Du kannst mit [";
         net_game_how_to_chat_2        = "] chatten.";
@@ -1369,7 +1367,7 @@ eb[Editor::ADD_HAZARD]
         option_group[1]               = "Steuerg.";
         option_group[2]               = "Hotkeys";
         option_group[3]               = "Editor";
-        option_group[4]               = "Menue";
+        option_group[4]               = "Menü";
         option_group[5]               = "Grafik";
         option_group[6]               = "Audio";
         option_user_name              = "Spielername";
@@ -1388,41 +1386,41 @@ eb[Editor::ADD_HAZARD]
         option_scroll_torus_x         = "Torus-Scrollen (horz.)";
         option_scroll_torus_y         = "Torus-Scrollen (vert.)";
         option_scroll_torus_never     = "Niemals";
-        option_scroll_torus_big       = "Grosse Level";
+        option_scroll_torus_big       = "Große Level";
         option_scroll_torus_always    = "Immer";
         option_multiple_builders      = "Builder mehrm. klickbar";
         option_batter_priority        = "Exploder -> Batter vermeiden";
-        option_prioinv_middle         = "Mittl. Taste invert. Prioritaet";
-        option_prioinv_right          = "Rechte Taste invert. Prioritaet";
+        option_prioinv_middle         = "Mittl. Taste invert. Priorität";
+        option_prioinv_right          = "Rechte Taste invert. Priorität";
 
         option_screen_windowed        = "Fenstermodus*";
-        option_screen_resolution      = "Vollbild-Aufloesung**";
-        option_screen_windowed_res    = "Fenster-Aufloesung";
-        option_screen_scaling         = "Vergroesserung";
+        option_screen_resolution      = "Vollbild-Auflösung**";
+        option_screen_windowed_res    = "Fenster-Auflösung";
+        option_screen_scaling         = "Vergrößerung";
         option_screen_scaling_stretch = "Gestreckt";
-        option_screen_scaling_aspect  = "Seitenverhaeltnis";
+        option_screen_scaling_aspect  = "Seitenverhältnis";
         option_screen_scaling_integer = "Ganzzahlig";
         option_screen_border_colored  = "Bildschirmrand farbig";
         option_screen_vsync           = "V-Sync abwarten";
         option_arrows_replay          = "Pfeile im Replay";
         option_arrows_network         = "Pfeile im Netzwerkspiel";
         option_gameplay_help          = "Spiel-Hotkeys anzeigen";
-        option_debris_amount          = "Truemmer-Anzahl";
+        option_debris_amount          = "Trümmer-Anzahl";
         option_debris_amount_none     = "Keine";
         option_debris_amount_own      = "Lokaler Spieler";
         option_debris_amount_all      = "Alle";
-        option_debris_type            = "Truemmer-Aussehen";
+        option_debris_type            = "Trümmer-Aussehen";
         option_debris_type_stars      = "Sterne, Wolken";
         option_debris_type_pixels     = "Pixel";
-        option_gui_color_red          = "Menuefarbe Rot";
-        option_gui_color_green        = "Menuefarbe Gruen";
-        option_gui_color_blue         = "Menuefarbe Blau";
+        option_gui_color_red          = "Menüfarbe Rot";
+        option_gui_color_green        = "Menüfarbe Grün";
+        option_gui_color_blue         = "Menüfarbe Blau";
         option_info                   = "*) [Alt] + [Enter] wechselt jederzeit"
                                        " zwischen Fenster- und Vollbildmodus.";
         option_gfx_zero               = "**) Setze beides auf 0, um deine norm"
-                                        "ale Desktop-Aufloesung zu nutzen.";
+                                        "ale Desktop-Auflösung zu nutzen.";
         option_sound_load_driver      = "Audiotreiber laden*";
-        option_sound_volume           = "Klanglautstaerke";
+        option_sound_volume           = "Klanglautstärke";
         option_language               = "Sprache/Language";
         option_info_sound             = "*) Diese Einstellung gilt erst nach "
                                         "einem Programmneustart.";
@@ -1447,11 +1445,11 @@ eb[Editor::ADD_HAZARD]
         option_key_nuke               = "Atombombe";
         option_key_info_1             = "Ein mehrfach zugewiesener";
         option_key_info_2             = "Hotkey alterniert zwischen";
-        option_key_info_3             = "seinen Faehigkeiten.";
+        option_key_info_3             = "seinen Fähigkeiten.";
 
         option_key_f1_to_f12          = "F1-F12 wie in Leiste";
-        option_key_f1_to_f12_1        = "F1 bis F12 sind nun Hotkeys fuer die";
-        option_key_f1_to_f12_2        = "12 Faehigk.-Buttons in ihrer Reihe.";
+        option_key_f1_to_f12_1        = "F1 bis F12 sind nun Hotkeys für die";
+        option_key_f1_to_f12_2        = "12 Fähigkeit-Buttons in ihrer Folge.";
         option_key_f1_to_f12_3        = "Jeder Level hat andere Reihenfolge!";
         option_key_f1_to_f12_4        = "Ich rate davon ab, es ist langsam.";
         option_key_f1_to_f12_5        = "";
@@ -1459,23 +1457,23 @@ eb[Editor::ADD_HAZARD]
         option_key_f1_to_f12_7        = "lege Neustart und Stand laden/spei.";
         option_key_f1_to_f12_8        = "auf andere Tasten als die F-Tasten.";
 
-        option_key_me_okay            = "Okay/ja";
+        option_key_me_okay            = "Okay/Ja";
         option_key_me_edit            = "Editieren";
         option_key_me_export          = "Exportieren";
-        option_key_me_delete          = "Loesch./nein";
+        option_key_me_delete          = "Lösch./Nein";
         option_key_me_up_dir          = "Ordner ..";
         option_key_me_up_1            = "Rauf um 1";
         option_key_me_up_5            = "Rauf um 5";
         option_key_me_down_1          = "Runter um 1";
         option_key_me_down_5          = "Runter um 5";
-        option_key_me_exit            = "Zurueck/abbr.";
+        option_key_me_exit            = "Zurück/Abbr.";
 
         option_ed_left                = "Nach links";
         option_ed_right               = "Nach rechts";
         option_ed_up                  = "Nach oben";
         option_ed_down                = "Nach unten";
         option_ed_copy                = "Kopieren";
-        option_ed_delete              = "Loeschen";
+        option_ed_delete              = "Löschen";
         option_ed_grid                = "Raster";
         option_ed_sel_all             = "Alles ausw.";
         option_ed_sel_frame           = "Rahmen";
@@ -1485,19 +1483,19 @@ eb[Editor::ADD_HAZARD]
         option_ed_mirror              = "Spiegeln";
         option_ed_rotate              = "Drehen";
         option_ed_dark                = "Schwarz";
-        option_ed_noow                = "Ni. ueberschr.";
+        option_ed_noow                = "Ni. überschr.";
         option_ed_zoom                = "Zoom";
         option_ed_help                = "Hilfe zeigen";
-        option_ed_menu_size           = "Levelgroesse";
-        option_ed_menu_vars           = "Allg. Menue";
-        option_ed_menu_skills         = "Faehigkeiten";
+        option_ed_menu_size           = "Levelgröße";
+        option_ed_menu_vars           = "Allg. Menü";
+        option_ed_menu_skills         = "Fähigkeiten";
         option_ed_add_terrain         = "Terrain hinzuf.";
         option_ed_add_steel           = "Stahl hinzuf.";
         option_ed_add_hatch           = "Klappe hinzuf.";
         option_ed_add_goal            = "Ziel hinzuf.";
         option_ed_add_deco            = "Deko hinzuf.";
         option_ed_add_hazard          = "Gefahr hinzuf.";
-        option_ed_grid_custom         = "Benutzerdef. Rastergroesse";
+        option_ed_grid_custom         = "Benutzerdef. Rastergröße";
 
         // Neuen Spieler begruessen (Mini-Dialog)
         option_new_player_title       = "Lix";
@@ -1506,31 +1504,31 @@ eb[Editor::ADD_HAZARD]
 
 // Editorhilfe
 eb[Editor::FILE_NEW]     = "Neu: Karte leeren und einen ganz neuen Level bauen.";
-eb[Editor::FILE_EXIT]    = "Beenden: Editor verlassen, auf Wunsch Aenderungen speichern.";
+eb[Editor::FILE_EXIT]    = "Beenden: Editor verlassen, auf Wunsch Änderungen speichern.";
 eb[Editor::FILE_SAVE]    = "Speichern: Level unter dem bisherigen Dateinamen abspeichern.";
 eb[Editor::FILE_SAVE_AS] = "Speichern unter: Level unter einem neuen Dateinamen abspeichern.";
 eb[Editor::GRID_2]       = "Raster 2: Objekt-Koordinaten beim Umherziehen auf 2er runden.";
-eb[Editor::GRID_CUSTOM]  = "Benutzerdef. Raster: In den Hauptmenue-Optionen verstellbar.";
+eb[Editor::GRID_CUSTOM]  = "Benutzerdef. Raster: In den Hauptmenü-Optionen verstellbar.";
 eb[Editor::GRID_16]      = "Raster 16: Objekt-Koordinaten beim Umherziehen auf 16er runden.";
 eb[Editor::SELECT_ALL]   = "Alles: Alle Objekte auf dem Bildschirm in die Auswahl setzen.";
 eb[Editor::SELECT_FRAME] = "Rahmen: Mehrfachauswahl von Objekten durch Rahmenziehen.";
-eb[Editor::SELECT_ADD]   = "Hinzufuegen: Neue Objekte auswaehlen, ohne alte abzuwaehlen.";
-eb[Editor::SELECT_COPY]  = "Kopieren: Ausgewaehlte Objekte klonen.";
-eb[Editor::SELECT_DELETE]= "Loeschen: Ausgewaehlte Objekte loeschen.";
-eb[Editor::SELECT_MINUS] = "Zurueck: Ausgewaehlte Objekte hinter einige andere setzen.";
-eb[Editor::SELECT_PLUS]  = "Hervor: Ausgewaehlte Objekte vor einige andere holen.";
-eb[Editor::SELECT_BACK]  = "Hintergrund: Ausgewaehlte Objekte ganz nach hinten setzen.";
-eb[Editor::SELECT_FRONT] = "Vordergrund: Ausgewaehlte Objekte ganz nach vorn holen.";
-eb[Editor::SELECT_FLIP]  = "Spiegeln: Ausgewaehltes Terrain horizontal spiegeln.";
-eb[Editor::SELECT_ROTATE]= "Drehen: Ausgewaehltes Terrain um ein Viertel drehen.";
-eb[Editor::SELECT_DARK]  = "Dunkel: Ausgewaehltes Terrain im Spiel schwarz zeichnen.";
-eb[Editor::SELECT_NOOW]  = "Nicht ueberschreiben: Ausgew. Ter. ueberschr. nur dunkles Ter.";
-eb[Editor::VIEW_ZOOM]    = "Zoom: Vergroesserung der Karte ein- oder ausschalten.";
+eb[Editor::SELECT_ADD]   = "Hinzufügen: Neue Objekte auswählen, ohne alte abzuwählen.";
+eb[Editor::SELECT_COPY]  = "Kopieren: Ausgewählte Objekte klonen.";
+eb[Editor::SELECT_DELETE]= "Löschen: Ausgewählte Objekte löschen.";
+eb[Editor::SELECT_MINUS] = "Hinter: Ausgewählte Objekte hinter einige andere setzen.";
+eb[Editor::SELECT_PLUS]  = "Hervor: Ausgewählte Objekte vor einige andere holen.";
+eb[Editor::SELECT_BACK]  = "Hintergrund: Ausgewählte Objekte ganz nach hinten setzen.";
+eb[Editor::SELECT_FRONT] = "Vordergrund: Ausgewählte Objekte ganz nach vorn holen.";
+eb[Editor::SELECT_FLIP]  = "Spiegeln: Ausgewähltes Terrain horizontal spiegeln.";
+eb[Editor::SELECT_ROTATE]= "Drehen: Ausgewähltes Terrain um ein Viertel drehen.";
+eb[Editor::SELECT_DARK]  = "Dunkel: Ausgewähltes Terrain im Spiel schwarz zeichnen.";
+eb[Editor::SELECT_NOOW]  = "Nicht überschreiben: Ausgew. Ter. überschr. nur dunkles Ter.";
+eb[Editor::VIEW_ZOOM]    = "Zoom: Vergrößerung der Karte ein- oder ausschalten.";
 eb[Editor::HELP]         = "(dies macht derzeit nichts)";
-eb[Editor::MENU_SIZE]    = "Abmessungen: Festlegen der Groesse und Topologie des Levels.";
+eb[Editor::MENU_SIZE]    = "Abmessungen: Festlegen der Größe und Topologie des Levels.";
 eb[Editor::MENU_SCROLL]  = "Aussehen: Festlegen der Startposition und Hintergrundfarbe.";
-eb[Editor::MENU_VARS]    = "Variablen: Festlegen grundsaetzlicher Level-Variablen.";
-eb[Editor::MENU_SKILL]   = "Faehigkeiten: Festlegen der nutzbaren Lix-Faehigkeiten.";
+eb[Editor::MENU_VARS]    = "Variablen: Festlegen grundsätzlicher Level-Variablen.";
+eb[Editor::MENU_SKILL]   = "Fähigkeiten: Festlegen der nutzbaren Lix-Fähigkeiten.";
 eb[Editor::ADD_TERRAIN]  = "Terrain: Ein durchgrabbares Terrain-Object platzieren.";
 eb[Editor::ADD_STEEL]    = "Stahl: Ein nicht durchgrabbares Stahlobjekt platzieren.";
 eb[Editor::ADD_HATCH]    = "Klappe: Eine Lix-Eingangsklappe platzieren.";
