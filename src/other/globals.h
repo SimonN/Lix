@@ -267,6 +267,7 @@ public:
         user_key_spec_tribe,
         user_key_chat,
         user_key_ga_exit,
+        user_f1_to_f12,
 
         user_key_me_okay,
         user_key_me_edit,

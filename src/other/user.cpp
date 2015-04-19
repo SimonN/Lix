@@ -137,6 +137,7 @@ User::User()
     editor_grid_custom    (8),
 
     key_skill              (LixEn::AC_MAX, 0),
+    f1_to_f12  (false),
 
     single_last_level      (gloB->dir_levels_single),
     network_last_level     (gloB->dir_levels_network),
@@ -395,6 +396,7 @@ void User::load()
         else if (i->text1 == gloB->user_key_spec_tribe         ) key_spec_tribe         = i->nr1;
         else if (i->text1 == gloB->user_key_chat               ) key_chat               = i->nr1;
         else if (i->text1 == gloB->user_key_ga_exit            ) key_ga_exit            = i->nr1;
+        else if (i->text1 == gloB->user_f1_to_f12              ) f1_to_f12              = i->nr1;
 
         else if (i->text1 == gloB->user_key_me_okay            ) key_me_okay            = i->nr1;
         else if (i->text1 == gloB->user_key_me_edit            ) key_me_edit            = i->nr1;
@@ -546,7 +548,10 @@ void User::save() const
      << IO::LineHash  (gloB->user_key_nuke,        key_nuke)
      << IO::LineHash  (gloB->user_key_spec_tribe,  key_spec_tribe)
      << IO::LineHash  (gloB->user_key_chat,        key_chat)
-     << IO::LineHash  (gloB->user_key_ga_exit,     key_ga_exit);
+     << IO::LineHash  (gloB->user_key_ga_exit,     key_ga_exit)
+     << IO::LineHash  (gloB->user_f1_to_f12,       f1_to_f12)
+     << std::endl;
+
     for (size_t i = 0; i < key_skill.size(); ++i)
      if (key_skill[i] != 0) file << IO::LineHash(
      LixEn::ac_to_string(static_cast <LixEn::Ac> (i)), key_skill[i]);

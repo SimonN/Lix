@@ -401,6 +401,16 @@ DECL_VARIABLE_FOR_TRANSLATION(option_key_info_1);
 DECL_VARIABLE_FOR_TRANSLATION(option_key_info_2);
 DECL_VARIABLE_FOR_TRANSLATION(option_key_info_3);
 
+DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12_1);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12_2);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12_3);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12_4);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12_5);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12_6);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12_7);
+DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12_8);
+
 DECL_VARIABLE_FOR_TRANSLATION(option_key_me_okay);
 DECL_VARIABLE_FOR_TRANSLATION(option_key_me_edit);
 DECL_VARIABLE_FOR_TRANSLATION(option_key_me_export);
@@ -934,6 +944,16 @@ void Language::set(const Language lang)
         option_key_info_2             = "multiple skills will";
         option_key_info_3             = "alternate between them.";
 
+        option_key_f1_to_f12          = "F1-F12 as in panel";
+        option_key_f1_to_f12_1        = "F1 through F12 are now mapped to";
+        option_key_f1_to_f12_2        = "the 12 skill buttons in their order.";
+        option_key_f1_to_f12_3        = "Each level has a different order!";
+        option_key_f1_to_f12_4        = "I discourage using this, it's slow.";
+        option_key_f1_to_f12_5        = "";
+        option_key_f1_to_f12_6        = "If you want it still, please map";
+        option_key_f1_to_f12_7        = "restart/save/load to different keys";
+        option_key_f1_to_f12_8        = "than the F-keys, to avoid clashes.";
+
         option_key_me_okay            = "Okay/yes";
         option_key_me_edit            = "Edit";
         option_key_me_export          = "Export";
@@ -1428,6 +1448,16 @@ eb[Editor::ADD_HAZARD]
         option_key_info_1             = "Ein mehrfach zugewiesener";
         option_key_info_2             = "Hotkey alterniert zwischen";
         option_key_info_3             = "seinen Faehigkeiten.";
+
+        option_key_f1_to_f12          = "F1-F12 wie in Leiste";
+        option_key_f1_to_f12_1        = "F1 bis F12 sind nun Hotkeys fuer die";
+        option_key_f1_to_f12_2        = "12 Faehigk.-Buttons in ihrer Reihe.";
+        option_key_f1_to_f12_3        = "Jeder Level hat andere Reihenfolge!";
+        option_key_f1_to_f12_4        = "Ich rate davon ab, es ist langsam.";
+        option_key_f1_to_f12_5        = "";
+        option_key_f1_to_f12_6        = "Wenn du es trotzdem so willst, dann";
+        option_key_f1_to_f12_7        = "lege Neustart und Stand laden/spei.";
+        option_key_f1_to_f12_8        = "auf andere Tasten als die F-Tasten.";
 
         option_key_me_okay            = "Okay/ja";
         option_key_me_edit            = "Editieren";

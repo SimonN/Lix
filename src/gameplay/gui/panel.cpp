@@ -197,7 +197,11 @@ void GameplayPanel::set_like_tribe(const Tribe* tr, const Tribe::Master* ma)
 {
     if (!tr) return;
     for (size_t i = 0; i < skill.size(); ++i) {
-        const int key = useR->key_skill[tr->skill[i].ac];
+
+        // positional keys or direct keys?
+        const int key = useR->f1_to_f12
+            ? KEY_F1 + i
+            : useR->key_skill[tr->skill[i].ac];
         skill[i].set_style (tr->style);
         skill[i].set_skill (tr->skill[i].ac);
         skill[i].set_number(tr->skill[i].nr);

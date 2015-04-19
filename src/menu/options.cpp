@@ -126,6 +126,7 @@ OptionMenu::OptionMenu()
     key_ga_exit           (key_b3,  310, key_xl),
     key_scroll            (key_b3,  250, key_xl),
     key_priority          (key_b3,  280, key_xl),
+    f1_to_f12             (key_b3,  400),
 
     // Some of the following buttons will be moved again.
     key_skill             (LixEn::AC_MAX, KeyButton(9999, 9999, key_xl)),
@@ -151,6 +152,16 @@ OptionMenu::OptionMenu()
     desc_key_info_1       (key_b3, 340, Language::option_key_info_1),
     desc_key_info_2       (key_b3, 360, Language::option_key_info_2),
     desc_key_info_3       (key_b3, 380, Language::option_key_info_3),
+
+    desc_f1_to_f12   (40 + key_b3, 400, Language::option_key_f1_to_f12),
+    desc_f1_to_f12_1      (key_t2,  85, Language::option_key_f1_to_f12_1),
+    desc_f1_to_f12_2      (key_t2, 100, Language::option_key_f1_to_f12_2),
+    desc_f1_to_f12_3      (key_t2, 115, Language::option_key_f1_to_f12_3),
+    desc_f1_to_f12_4      (key_t2, 130, Language::option_key_f1_to_f12_4),
+    desc_f1_to_f12_5      (key_t2, 145, Language::option_key_f1_to_f12_5),
+    desc_f1_to_f12_6      (key_t2, 160, Language::option_key_f1_to_f12_6),
+    desc_f1_to_f12_7      (key_t2, 175, Language::option_key_f1_to_f12_7),
+    desc_f1_to_f12_8      (key_t2, 190, Language::option_key_f1_to_f12_8),
 
     ed_left               (key_b1, 100, key_xl),
     ed_right              (key_b1, 120, key_xl),
@@ -365,6 +376,7 @@ OptionMenu::OptionMenu()
     pointers[GROUP_HOTKEYS ].push_back(&key_ga_exit);
     pointers[GROUP_HOTKEYS ].push_back(&key_scroll);
     pointers[GROUP_HOTKEYS ].push_back(&key_priority);
+    pointers[GROUP_HOTKEYS ].push_back(&f1_to_f12);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_force_left);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_force_right);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_rate_minus);
@@ -386,6 +398,15 @@ OptionMenu::OptionMenu()
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_1);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_2);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_3);
+    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12);
+    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12_1);
+    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12_2);
+    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12_3);
+    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12_4);
+    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12_5);
+    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12_6);
+    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12_7);
+    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12_8);
     add_skill_to_hotkey_dialogue(LixEn::WALKER);
     add_skill_to_hotkey_dialogue(LixEn::RUNNER);
     add_skill_to_hotkey_dialogue(LixEn::JUMPER);
@@ -611,6 +632,7 @@ void OptionMenu::reset_elements()
     key_ga_exit          .set_scancode(useR->key_ga_exit);
     key_scroll           .set_scancode(useR->key_scroll);
     key_priority         .set_scancode(useR->key_priority);
+    f1_to_f12            .set_checked (useR->f1_to_f12);
     for (size_t i = 0; i < key_skill.size(); ++i)
      key_skill[i]        .set_scancode(useR->key_skill[i]);
 
@@ -701,7 +723,28 @@ void OptionMenu::show_group(const OptionGroup grp)
         else          (**itr).set_hidden(true);
     }
 
-    // Korrekten Button gedrueckt darstellen
+    // in the game hotkey tab, show either the normal/direct skill keys,
+    // or the warning for the f1_to_f12 option
+    if (grp == GROUP_HOTKEYS) {
+        if (f1_to_f12.get_checked()) {
+            for (size_t i = 0; i < key_skill.size(); ++i) {
+                key_skill     [i].set_hidden();
+                desc_key_skill[i].set_hidden();
+            }
+        }
+        else {
+            desc_f1_to_f12_1.set_hidden();
+            desc_f1_to_f12_2.set_hidden();
+            desc_f1_to_f12_3.set_hidden();
+            desc_f1_to_f12_4.set_hidden();
+            desc_f1_to_f12_5.set_hidden();
+            desc_f1_to_f12_6.set_hidden();
+            desc_f1_to_f12_7.set_hidden();
+            desc_f1_to_f12_8.set_hidden();
+        }
+    }
+
+    // show the current tab button as pressed down
     for (std::vector <TextButton> ::iterator itr = button_group.begin();
      itr != button_group.end(); ++itr) itr->set_off();
     button_group[grp].set_on();
@@ -723,6 +766,10 @@ void OptionMenu::calc_self()
         useR->option_group = GROUP_GENERAL; // da sind wir ja
         reset_elements();
     }
+
+    // Reload the tab when switching to f1_to_f12 keys
+    if (f1_to_f12.get_clicked())
+        show_group(GROUP_HOTKEYS);
 
     /////////////////////////
     // Angeklickte Buttons //
@@ -796,6 +843,7 @@ void OptionMenu::calc_self()
         useR->key_ga_exit     = key_ga_exit    .get_scancode();
         useR->key_scroll      = key_scroll     .get_scancode();
         useR->key_priority    = key_priority   .get_scancode();
+        useR->f1_to_f12       = f1_to_f12      .get_checked();
         for (size_t i = 0; i < key_skill.size(); ++i)
          useR->key_skill[i]   = key_skill[i]   .get_scancode();
         // There's only the Exploder hotkey in the options menu, but

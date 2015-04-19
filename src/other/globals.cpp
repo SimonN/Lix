@@ -253,6 +253,7 @@ Globals::Globals()
     user_key_spec_tribe          ("KEY_SPECTATE_NEXT_PLAYER"),
     user_key_chat                ("KEY_CHAT"),
     user_key_ga_exit             ("KEY_GAME_EXIT"),
+    user_f1_to_f12               ("F1_TO_F12_AS_IN_PANEL"),
 
     user_key_me_okay             ("KEY_MENU_OKAY"),
     user_key_me_edit             ("KEY_MENU_EDIT"),

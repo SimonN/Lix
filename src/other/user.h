@@ -123,6 +123,7 @@ public:
     int  key_spec_tribe;
     int  key_chat;
     int  key_ga_exit; // game exit menu
+    bool f1_to_f12;
 
     int  key_me_okay; // start levels, answer with yes
     int  key_me_edit;
