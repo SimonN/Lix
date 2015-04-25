@@ -1,0 +1,79 @@
+$BUILT 2013-06-26 01:15:33
+$AUTHOR geoo
+$GERMAN 
+$ENGLISH Cornerstone
+
+#SIZE_X 640
+#SIZE_Y 400
+#TORUS_X 0
+#TORUS_Y 0
+#BACKGROUND_RED 0
+#BACKGROUND_GREEN 0
+#BACKGROUND_BLUE 0
+
+#SECONDS 0
+#INITIAL 40
+#REQUIRED 37
+#SPAWN_INTERVAL 12
+#SPAWN_INTERVAL_FAST 4
+
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#BUILDER 2
+#EXPLODER 3
+#BASHER 5
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+#NOTHING 0
+
+:geoo/construction/Hatch.H: 336 48
+
+:geoo/construction/Goal2.G: 368 304
+
+:geoo/construction/wall/small_64x64: 336 160
+:geoo/construction/wall/small_64x64: 368 160
+:geoo/construction/wall/small_64x64: 496 160
+:geoo/construction/wall/small_brick3: 560 160
+:geoo/construction/wall/small_brick3: 592 160
+:geoo/construction/wall/small_brick3: 544 208
+:geoo/construction/wall/small_brick3: 576 208
+:geoo/construction/wall/small_64x64: 192 208
+:geoo/construction/wall/small_64x64: 224 208
+:geoo/construction/wall/small_64x64: 288 208
+:geoo/construction/wall/small_brick3: 160 208
+:geoo/construction/wall/small_brick3: 128 208
+:geoo/construction/wall/small_64x64: 432 160
+:geoo/construction/wall/small_64x64: -16 240
+:geoo/construction/wall/small_64x64: -16 176
+:geoo/construction/wall/small_64x64: -16 112
+:geoo/construction/wall/small_64x64: -16 304
+:geoo/construction/wall/small_64x64: -16 368
+:geoo/construction/wall/small_64x64: -16 48
+:geoo/construction/wall/small_64x64: -16 -16
+:geoo/construction/wall/small_brick3: 112 256
+:geoo/construction/wall/small_brick3: 144 256
+:geoo/construction/wall/small_brick3: 176 256
+:geoo/construction/wall/small_brick3: 32 288
+:geoo/construction/wall/small_brick3: 272 256 d
+:geoo/construction/wall/small_64x64: 224 368
+:geoo/construction/wall/small_64x64: 288 368
+:geoo/construction/wall/small_64x64: 352 368
+:geoo/construction/wall/small_64x64: 416 368
+:geoo/construction/wall/small_64x64: 480 368
+:geoo/construction/wall/small_brick3: 320 176
+:geoo/construction/wall/small_brick3: 336 224
+:geoo/construction/wall/small_brick3: 544 176
+:geoo/construction/wall/small_brick3: 176 224
+:geoo/construction/wall/small_brick3: 208 384
+:geoo/construction/wall/small_brick3: 528 384 d
+:geoo/construction/wall/small_brick3: 96 208
+:geoo/construction/wall/small_brick3: 336 256
+:geoo/construction/wall/small_brick3: 352 240
+:geoo/construction/wall/small_brick3: 368 224
+:geoo/construction/wall/small_brick3: 384 240
+:geoo/construction/wall/small_brick3: 400 224
+:geoo/construction/wall/small_brick3: 496 384 d
