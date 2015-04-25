@@ -5,6 +5,45 @@
 
 
 
+2015-04-25
+
+    lemforum, the pack by lemmingsforums.net
+        The new singleplayer pack lemforum is a joint work by many forum users
+        from lemmingsforums.com. It has been in the making since 2012.
+
+        Many thanks to our ingenious level designers! The most active authors:
+        Insane Steve, Michael, geoo, mobius, Nortaneous.
+
+    Unicode support
+        Lix now allows Unicode characters (German umlauts, French/Hungarian
+        accented letters, etc.) in the user interface. The German texts
+        have been amended with umlauts. If you would like to translate the
+        game to your language, please read doc/transl.txt.
+
+        Many thanks to ccexplore for implementing this feature!
+
+    F1-F12 positional hotkeys
+        Some people might like to have the 12 F-keys mapped to the 12 skill
+        keys, even though levels have different skills, differently ordered.
+        There's a user option now to map the F-keys to the displayed skills
+
+        I believe this to be too slow in multiplayer, and instead
+        recommend to learn a per-skill keyboard layout that doesn't change
+        between levels. It can be the default layout, or a custom one.
+
+    Rubix's multiplayer maps
+        I've merged in a couple of multiplayer map amendments by Rubix.
+
+    Lemmings 1 level import bugfix
+        In .LVL levels from Lemmings 1, interactive objects were moved to a
+        multiple of 4 in the y-direction. This was wrong and is no longer so.
+
+    Lemmigns 1 Crystal set colors
+        The Crystal set gets its solid black replaced with a lighter
+        turquoise than before, but it's still darker than any other set color.
+
+
+
 2015-02-03
 
     Cross-compilation
