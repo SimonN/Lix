@@ -1,21 +1,15 @@
 Willkommen zu Clams Lix-Levelset!
-Dieses Set enthaelt 100 Levels
-in fuenf Schwierigkeitsstufen:
+Dieses Set hat fünf Stufen:
 
-Flower: Anfaengergeeignete Level mit
-vielen verschiedenen Faehigkeiten.
-Humane: Mittelschwere Puzzles,
-nicht zu unterschaetzen.
-Arcane: Ernsthaft schwierige Puzzles,
-ein echter Test deiner Spielstaerke.
-Insane: Meine haertesten Levels, die
-selbst die besten Spieler fordern.
-Flingsane: Hier kommen Rueckstoss-
-Exploder zum vielfaeltigen Einsatz.
+Flower: Anfängergeeignete Level.
+Humane: Mittelschwere Puzzles.
+Arcane: Ernsthaft schwierige Puzzles.
+Insane: Herausforderungen für Profis.
+Flingsane: Benutze Rückstoß-Exploder!
 
 Du kannst mich im Lix-IRC-Channel
 erreichen (irc.quakenet.org #lix)
 oder in den Lemmings Forums
-(lemmingsforums.com).
+(lemmingsforums.net).
 
 -- Clam

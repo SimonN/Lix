@@ -1,11 +1,9 @@
 Single Player Levels
 
-The levels are sorted by author.
-Each author has further sorted
-his levels by difficulty.
+Our flagship pack "lemforum"
+has 240 levels, designed by
+various authors. Enjoy!
 
 Rubix and Clam have designed
-entire level packs for Lix.
-A community project by members of
-lemmingsforums.com is currently
-in the works. Stay tuned!
+additional level packs for Lix
+on their own.
