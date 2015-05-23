@@ -114,7 +114,7 @@ User::User()
     scroll_torus_x         (2),
     scroll_torus_y         (2),
     multiple_builders      (true),
-    batter_priority        (true),
+    batter_priority        (false),
     prioinv_middle         (true),
     prioinv_right          (true),
 
@@ -137,7 +137,7 @@ User::User()
     editor_grid_custom    (8),
 
     key_skill              (LixEn::AC_MAX, 0),
-    f1_to_f12  (false),
+    f1_to_f12              (false),
 
     single_last_level      (gloB->dir_levels_single),
     network_last_level     (gloB->dir_levels_network),
