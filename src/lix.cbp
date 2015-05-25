@@ -12,7 +12,7 @@
 
 Absturz bei Shift+Esc aus Spielraum, nicht Lobby
 
---------- In Arbeit: 
+--------- In Arbeit:
 
 Hatches gehen zu und machen dabei Krach. Hatches gehen derzeit zu weit auf (lila) und das Zumach-Frame wird noch nicht gesetzt. Hatches sollten sehr wahrscheinlich Bestandteil des aktuellen Standes sein!
 
@@ -304,7 +304,6 @@ Man untersuche, ob statt #ifdef _WIN32 #include <winalleg.h> auch das hier geht:
 		<Unit filename="lix/lix_upd.cpp" />
 		<Unit filename="lix/miner.cpp" />
 		<Unit filename="lix/platform.cpp" />
-		<Unit filename="lix/roper.cpp" />
 		<Unit filename="lix/runner.cpp" />
 		<Unit filename="lix/stunner.cpp" />
 		<Unit filename="lix/tumbler.cpp" />

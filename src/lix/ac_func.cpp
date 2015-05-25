@@ -15,10 +15,8 @@ Lixxie::AcFunc::AcFunc()
     pass_top (false),
     leaving  (false),
     blockable(true),
-    aiming   (false),
     sound_assign(Sound::ASSIGN),
     sound_become(Sound::NOTHING),
-    sound_aim   (Sound::NOTHING),
     assclk(0),
     become(0),
     update(0)

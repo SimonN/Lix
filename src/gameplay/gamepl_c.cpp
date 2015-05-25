@@ -98,11 +98,8 @@ void Gameplay::calc_self()
     mouse_cursor.set_x_frame(0);
     mouse_cursor.set_y_frame(0);
 
-    if (malo && malo->aiming == 2) {
-        mouse_cursor.set_x_frame(1);
-        mouse_cursor.set_y_frame(2);
-    }
-    else if (map.get_scrolling_now()) mouse_cursor.set_x_frame(3);
+    if (map.get_scrolling_now())
+        mouse_cursor.set_x_frame(3);
 
 
 

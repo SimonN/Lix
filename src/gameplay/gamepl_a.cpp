@@ -195,7 +195,7 @@ void Gameplay::calc_active()
 
 
     // mouse on the playing field, lixes are selectable
-    if (!mouse_on_panel && malo->aiming != 2 && trlo) {
+    if (! mouse_on_panel && trlo) {
         // Bestimmte Richtung anwählen?
         bool only_dir_l = false;
         bool only_dir_r = false;
@@ -344,37 +344,5 @@ void Gameplay::calc_active()
 
     }
     // Ende von: Maus im Spielfeld ohne Zielen
-
-    // Zielen
-    else if (malo->aiming == 2) {
-        // Hingucken der Lixen wird im Update der Lixen erledigt. Hier
-        // geht es nur darum, einen Klick und dessen Koordinaten zu
-        // registrieren. Es wird entsprechend auch ein Netzwerkpaket versandt.
-        if (hardware.get_ml() && !pan.pause.is_mouse_here())
-         for (LixIt lem = trlo->lixvec.begin();
-         lem != trlo->lixvec.end(); ++lem) if (lem->get_aiming()) {
-            pan.pause.set_off();
-            // Klick sauber vormerken fuers naechste Update und verschicken.
-            Replay::Data data = new_replay_data();
-            data.action       = Replay::AIM;
-            data.what         = (my * level.initial * map.get_xl())
-                              + (mx * level.initial)
-                              + lem - trlo->lixvec.begin(); // siehe replay.h
-            replay.add(data);
-            Network::send_replay_data(data);
-
-            // Gegen zweimaliges Schiessen pro Update
-            malo->aiming = 1;
-
-            // Sound in der Effektliste speichern, damit er nicht beim Update
-            // nochmal ertoent, und zusatzlich wird er hier nochmals gespielt,
-            // damit wir sicher gehen, dass er auf jeden Fall beim Klick kommt.
-            Sound::play_loud(lem->get_sound_aim());
-            effect.add_sound(cs.update + 1, *trlo, lem - trlo->lixvec.begin(),
-                                                   lem->get_sound_aim());
-            break;
-        }
-    }
-    // end of: aiming
 
 }

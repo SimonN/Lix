@@ -193,7 +193,6 @@ public:
         replay_update,
         replay_spawnint,
         replay_skill,
-        replay_aim,
         replay_nuke,
         replay_assign_any,
         replay_assign_left,

@@ -342,7 +342,6 @@ void Replay::save_to_file(const Filename& s, const Level* const lev)
         file << IO::LineBang(itr->update, itr->player,
            itr->action == Replay::SPAWNINT     ? gloB->replay_spawnint
          : itr->action == Replay::SKILL        ? gloB->replay_skill
-         : itr->action == Replay::AIM          ? gloB->replay_aim
          : itr->action == Replay::NUKE         ? gloB->replay_nuke
          : itr->action == Replay::ASSIGN       ? gloB->replay_assign_any
          : itr->action == Replay::ASSIGN_LEFT  ? gloB->replay_assign_left
@@ -412,7 +411,6 @@ void Replay::load_from_file(const Filename& fn)
                  : i->text1 == gloB->replay_assign_any   ? ASSIGN
                  : i->text1 == gloB->replay_assign_left  ? ASSIGN_LEFT
                  : i->text1 == gloB->replay_assign_right ? ASSIGN_RIGHT
-                 : i->text1 == gloB->replay_aim          ? AIM
                  : i->text1 == gloB->replay_nuke         ? NUKE : NOTHING;
         add(d);
         break; }

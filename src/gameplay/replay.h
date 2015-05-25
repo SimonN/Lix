@@ -66,7 +66,6 @@ public:
         ASSIGN,
         ASSIGN_LEFT,
         ASSIGN_RIGHT,
-        AIM,
         NUKE
     };
 

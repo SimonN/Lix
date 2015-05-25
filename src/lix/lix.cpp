@@ -24,8 +24,6 @@ bool           Lixxie::any_new_flingers = false;
 const int Lixxie::distance_safe_fall   = 126;
 const int Lixxie::distance_float       =  60;
 const int Lixxie::updates_for_bomb     =  75;
-const int Lixxie::updates_roper_before =  75;
-const int Lixxie::updates_roper_after  =  15;
 
 
 
@@ -383,6 +381,7 @@ void Lixxie::draw_frame_to_map
 }
 
 
+
 void Lixxie::play_sound(const UpdateArgs& ua, Sound::Id sound_id)
 {
     if (effect) effect->add_sound(ua.st.update, *tribe, ua.id, sound_id);
@@ -416,14 +415,6 @@ void Lixxie::next_frame(int loop)
     if (is_last_frame() || frame + 3 == loop) frame = 0;
     else frame++;
 }
-
-
-
-
-
-
-
-
 
 
 

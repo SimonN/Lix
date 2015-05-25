@@ -166,7 +166,6 @@ User::User()
     key_skill[LixEn::CLIMBER]    = KEY_B;
     key_skill[LixEn::FLOATER]    = KEY_Q;
     key_skill[LixEn::JUMPER]     = KEY_R;
-    key_skill[LixEn::ROPER]      = KEY_C;
     key_skill[LixEn::BATTER]     = KEY_C;
 
     key_force_left             = KEY_S;

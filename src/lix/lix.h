@@ -160,9 +160,6 @@
  *
  *   Wechselt die Aktion, macht auch noch mehr als nur set_ac(const Ac).
  *
- *   Dass der Roper den Spieler dazu bringt, zu zielen, wird hier nicht
- *   geregelt. Dazu ist evaluate_click() gut.
- *
  * bool get_pass_top()
  *
  *   Liefert true, wenn die Lix auf Nicht-Walzenkarten oben aus dem
@@ -174,13 +171,6 @@
  *   erwischen soll. Ist nur in wenigen Faellen nicht so, etwa, wenn
  *   die Lix gerade schon stirbt. Auch das Weggeschleudere bei Explosionen
  *   betrifft nur nukbare Lix.
- *
- * bool get_aiming()
- *
- *   Liefert, ob die Faehigkeit grundsaetzlich zielen kann && ob die Lix
- *   es gerade tut. Ob sie gerade zielt, haengt per Konvention von special_x
- *   ab! Wenn special_x == 0 ist, so zielt die Lix bzw. bereitet sich
- *   darauf vor; in jedem Fall ist die Maus nun das Zielgeraet.
  *
  */
 
@@ -212,10 +202,8 @@ public:
         bool      pass_top;
         bool      leaving;
         bool      blockable;
-        bool      aiming;
         Sound::Id sound_assign;
         Sound::Id sound_become;
-        Sound::Id sound_aim;
         void (*assclk)(Lixxie&);
         void (*become)(Lixxie&);
         void (*update)(Lixxie&, const UpdateArgs&);
@@ -274,8 +262,6 @@ public:
     static const int distance_safe_fall;
     static const int distance_float;
     static const int updates_for_bomb;
-    static const int updates_roper_before;
-    static const int updates_roper_after;
 
     Lixxie(Tribe* = 0, int = 0, int = 0); // tribe == 0 ? NOTHING : FALLER
     ~Lixxie();
@@ -316,11 +302,9 @@ public:
     inline bool      get_pass_top () const { return ac_func[ac].pass_top;  }
     inline bool      get_leaving  () const { return ac_func[ac].leaving;   }
     inline bool      get_blockable() const { return ac_func[ac].blockable; }
-    inline bool      get_aiming   () const { return ac_func[ac].aiming
-                                                    && special_x == 0;     }
+
     inline Sound::Id get_sound_assign() const{return ac_func[ac].sound_assign;}
     inline Sound::Id get_sound_become() const{return ac_func[ac].sound_become;}
-    inline Sound::Id get_sound_aim   () const{return ac_func[ac].sound_aim;   }
 
     inline static const AcFunc& get_ac_func(LixEn::Ac a) { return ac_func[a]; }
 

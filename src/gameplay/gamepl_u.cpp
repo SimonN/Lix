@@ -235,16 +235,7 @@ void Gameplay::update_cs_once()
 
 
     // Lixen updaten
-    // Reaktionen auf Aiming wurden bereits beim Auswerten der Replaydaten
-    // umgesetzt. Fuer diese Lixen wird also zweimal die Update-Funktion
-    // aufgerufen, einmal dort und einmal hier. Die dortige Funktion
-    // ruft allerdings nur Lixxie::update() auf, nicht
-    // Gameplay::update_lixvec(). Es werden also Sachen wie Hochzaehlen
-    // des Bomben-Countdowns oder das Laufen ins Ziel nicht ueberprueft.
     UpdateArgs ua(cs);
-    ua.aim_x = map.get_mouse_x(); // Alle schauen zum Cursor, macht nix,
-    ua.aim_y = map.get_mouse_y(); // weil das nur Augenzucker sein darf.
-    ua.aim_c = false;
 
     // Erster Durchlauf: Nur die Arbeitstiere bearbeiten und markieren!
     for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
@@ -384,21 +375,6 @@ void Gameplay::update_cs_one_data(Tribe& t, Tribe::Master* m, Replay::It i)
             pan.skill[m->skill_sel].set_number(psk.nr);
         }
     }
-    else if (i->action == Replay::AIM) {
-        // Ob weiterhin gezielt werden muss, wird fuer die kommenden Ticks
-        // am Ende von Gameplay::update() geprueft.
-        size_t lem_id = (int) i->what % level.initial;
-        if (lem_id < t.lixvec.size()) {
-            Lixxie& lix = t.lixvec[lem_id];
-            UpdateArgs ua(cs);
-            ua.id    = lem_id;
-            ua.aim_x = (i->what / level.initial) % map.get_xl();
-            ua.aim_y = i->what / (map.get_xl() * level.initial);
-            ua.aim_c = true;
-            lix.update(ua);
-            effect.add_sound(upd, t, lem_id, lix.get_sound_aim());
-        }
-    }
-    // end of AIM
+
 }
 // end of update_cs_one_data

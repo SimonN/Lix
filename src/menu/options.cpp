@@ -421,7 +421,6 @@ OptionMenu::OptionMenu()
     add_skill_to_hotkey_dialogue(LixEn::BASHER);
     add_skill_to_hotkey_dialogue(LixEn::MINER);
     add_skill_to_hotkey_dialogue(LixEn::DIGGER);
-    // add_skill_to_hotkey_dialogue(LixEn::ROPER);
 
     pointers[GROUP_EDITOR  ].push_back(&ed_left);
     pointers[GROUP_EDITOR  ].push_back(&ed_right);

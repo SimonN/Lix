@@ -179,7 +179,6 @@ Globals::Globals()
     replay_update                ("UPDATE"),
     replay_spawnint              ("SPAWNINT"),
     replay_skill                 ("SKILL"),
-    replay_aim                   ("AIM"),
     replay_nuke                  ("NUKE"),
     replay_assign_any            ("ASSIGN"),
     replay_assign_left           ("ASSIGN_LEFT"),

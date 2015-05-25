@@ -56,18 +56,13 @@ void update_digger(Lixxie& l, const UpdateArgs& ua)
         // This 'if' is entered iff the lix does not cancel due to steel later.
         if (! steel_pixels_hit || l.get_special_y() == 0) {
             l.move_down(4);
-            // Kludge/fixme/todo: update the spritesheet and remove l.set_y
-            // We haven't updated the large spritesheet yet. Instaed:
-            l.set_y(l.get_y() - 4);
         }
         break;
     case 3:
-        // to remedy the kludge in case 2
-        l.set_ey(l.get_ey());
+        // Since we have moved down, we call with the new y coordinates
         steel_pixels_hit += l.remove_rectangle(-4, -2, -1, 1);
         break;
     case 4:
-        // Since we have moved down, we must adjust the y coordinates
         steel_pixels_hit += l.remove_rectangle(-6, -2, -5, 1);
         break;
     case 5:

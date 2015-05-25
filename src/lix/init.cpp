@@ -59,7 +59,6 @@ void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
     ac_func     [LixEn::MINER]     .update = update_miner;
     ac_func     [LixEn::DIGGER]    .update = update_digger;
     ac_func     [LixEn::JUMPER]    .update = update_jumper;
-    ac_func     [LixEn::ROPER]     .update = update_roper;
     ac_func     [LixEn::BATTER]    .update = update_batter;
     ac_func     [LixEn::CUBER]     .update = update_cuber;
 
@@ -81,9 +80,6 @@ void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
     ac_func     [LixEn::EXITER]    .leaving =
     ac_func     [LixEn::EXPLODER]  .leaving =
     ac_func     [LixEn::CUBER]     .leaving = true;
-
-    ac_func     [LixEn::ROPER]     .aiming    = true;
-    ac_func     [LixEn::ROPER]     .sound_aim = Sound::ROPER;
 
     ac_func     [LixEn::SPLATTER]  .sound_become = Sound::SPLAT;
     ac_func     [LixEn::BURNER]    .sound_become = Sound::FIRE;

@@ -38,8 +38,6 @@ WindowSkill::WindowSkill(Level& l)
     unsigned int i = 0;
     typedef PossibleSkill PosSk;
 
-    // possible.push_back(PosSk(px(i), py(i), LixEn::ROPER));      ++i;
-
     possible.push_back(PosSk(px(i), py(i), LixEn::WALKER));     ++i;
     possible.push_back(PosSk(px(i), py(i), LixEn::RUNNER));     ++i;
     possible.push_back(PosSk(px(i), py(i), LixEn::JUMPER));     ++i;

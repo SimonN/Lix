@@ -83,8 +83,6 @@ public:
         STEEL,       // Ground remover hits steel and stops
         JUMPER,      // Jumper assignment
         CLIMBER,     // Jumper sticks against the wall and starts to climb
-        ROPER,       // Roper shoots
-        ROPER_HIT,   // Roper hook hits terrain
         BATTER_MISS, // Batter doesn't hit anything
         BATTER_HIT,  // Batter hits something
 

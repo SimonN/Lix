@@ -149,7 +149,6 @@ Sound::Sound()
     sample[OHNO]        = Sample(dds + "ohno.wav");
     sample[POP]         = Sample(dds + "pop.wav");
     sample[BRICK]       = Sample(dds + "brick.wav");
-    sample[ROPER]       = Sample(dds + "roper.wav");
     sample[STEEL]       = Sample(dds + "steel.wav");
     sample[JUMPER]      = Sample(dds + "jumper.wav");
     sample[CLIMBER]     = Sample(dds + "climber.wav");

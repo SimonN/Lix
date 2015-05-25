@@ -46,7 +46,6 @@ namespace LixEn {
         DIGGER,
 
         JUMPER,
-        ROPER,
         BATTER,
         CUBER,
 
