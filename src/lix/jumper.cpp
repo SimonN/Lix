@@ -17,6 +17,7 @@ void become_jumper(Lixxie& l)
     if (l.get_runner()) {
         l.set_special_x(  8); // X-speed
         l.set_special_y(-12); // Y-speed
+        l.set_frame(12);
     }
     else {
         l.set_special_x( 6); // X-speed
@@ -132,7 +133,10 @@ void update_jumper(Lixxie& l, const UpdateArgs& ua)
         }
         else {
             // we are a jumper
-            if (l.is_last_frame()) l.set_frame(l.get_frame() - 1);
+            if (l.is_last_frame()) {
+                if (l.get_runner()) l.set_frame(12);
+                else                l.set_frame(l.get_frame() - 1);
+            }
             else l.next_frame();
         }
     }
