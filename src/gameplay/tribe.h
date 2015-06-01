@@ -29,7 +29,6 @@
 
 #include "../network/net_t.h" // net types: PlNr
 #include "../lix/lix.h"
-#include "../other/globals.h"
 
 struct Tribe {
 

@@ -298,7 +298,7 @@ void Gameplay::prepare_level()
         t.spawnint_slow   = lv.spawnint_slow;
         t.spawnint_fast   = lv.spawnint_fast;
         t.spawnint        = lv.spawnint_slow;
-        for (int a = 0; a < gloB->skill_max; ++a) {
+        for (size_t a = 0; a < t.skill.size() && a < lv.skill.size(); ++a) {
             t.skill[a].ac = lv.skill[a].ac;
             t.skill[a].nr = lv.skill[a].nr;
         }

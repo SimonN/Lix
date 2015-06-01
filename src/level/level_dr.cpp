@@ -152,7 +152,7 @@ void Level::export_image(const Filename& filename) const
     Torbit& osd = Api::Manager::get_torbit();
     osd.clear_to_color(color[COL_PINK]);
 
-    for (int i = 0; i < gloB->skill_max; ++i) {
+    for (size_t i = 0; i < skill.size(); ++i) {
        skill_button.set_skill (skill[i].ac);
        skill_button.set_number(skill[i].nr);
        skill_button.draw();
@@ -187,7 +187,7 @@ void Level::export_image(const Filename& filename) const
     info_initial .draw();
     info_spawnint.draw();
     info_clock   .draw();
-    osd.draw(canvas, skill_button.get_xl() * gloB->skill_max, size_y);
+    osd.draw(canvas, skill_button.get_xl() * skill.size(), size_y);
 
     // Draw torus information, copied from menu/preview.cpp
     Graphic icon_torus(GraLib::get(gloB->file_bitmap_preview_icon), canvas);

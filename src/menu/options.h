@@ -105,8 +105,6 @@ private:
     Checkbox   scroll_edge;
     Checkbox   scroll_right;
     Checkbox   scroll_middle;
-    EnumButton scroll_torus_x;
-    EnumButton scroll_torus_y;
     Checkbox   replay_cancel;
     Number     replay_cancel_at;
     Checkbox   multiple_builders;
@@ -119,8 +117,6 @@ private:
                desc_scroll_edge,
                desc_scroll_right,
                desc_scroll_middle,
-               desc_scroll_torus_x,
-               desc_scroll_torus_y,
                desc_replay_cancel,
                desc_replay_cancel_at,
                desc_multiple_builders,
@@ -146,7 +142,6 @@ private:
     KeyButton  key_ga_exit;
     KeyButton  key_scroll;
     KeyButton  key_priority;
-    Checkbox   f1_to_f12;
     std::vector <KeyButton> key_skill;
     std::vector <Label>     desc_key_skill;
     Label      desc_key_force_left,
@@ -169,16 +164,7 @@ private:
                desc_key_priority,
                desc_key_info_1,
                desc_key_info_2,
-               desc_key_info_3,
-               desc_f1_to_f12,
-               desc_f1_to_f12_1,
-               desc_f1_to_f12_2,
-               desc_f1_to_f12_3,
-               desc_f1_to_f12_4,
-               desc_f1_to_f12_5,
-               desc_f1_to_f12_6,
-               desc_f1_to_f12_7,
-               desc_f1_to_f12_8;
+               desc_key_info_3;
 
     KeyButton  ed_left;
     KeyButton  ed_right;

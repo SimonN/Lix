@@ -8,6 +8,7 @@
 #include "../graphic/gra_lib.h"
 #include "../other/help.h"
 #include "../other/language.h"
+#include "../other/user.h" // length of skill vector
 
 const int Level::min_xl (160);
 const int Level::min_yl (160);
@@ -66,7 +67,7 @@ void Level::clear()
 
     skill = std::vector <Skill> (gloB->skill_max);
 
-    for (int i = 0; i < gloB->skill_max; ++i) {
+    for (size_t i = 0; i < skill.size(); ++i) {
         skill[i].ac = LixEn::NOTHING;
         skill[i].nr = 0;
     }
@@ -108,7 +109,7 @@ bool Level::operator == (const Level& l) const
     for (int i = Object::TERRAIN; i != Object::MAX; ++i)
      if (pos[i]            != l.pos[i]) return false;
 
-    for (int i = 0; i < (int) gloB->skill_max; ++i)
+    for (size_t i = 0; i < skill.size(); ++i)
      if (this->skill[i].ac != l.skill[i].ac
      ||  this->skill[i].nr != l.skill[i].nr) return false;
 

@@ -27,7 +27,6 @@ Globals::Globals()
     skill_max            (12),
     panel_gameplay_yl    (80),
     panel_editor_yl      (80),
-    scroll_torus_max     (2),
 
     user_name            (""),
     user_name_ask        (false),
@@ -195,8 +194,6 @@ Globals::Globals()
     user_scroll_edge             ("SCROLL_EDGE"),
     user_scroll_right            ("SCROLL_RIGHT"),
     user_scroll_middle           ("SCROLL_MIDDLE"),
-    user_scroll_torus_x          ("SCROLL_TORUS_X"),
-    user_scroll_torus_y          ("SCROLL_TORUS_Y"),
     user_replay_cancel           ("REPLAY_CANCEL"),
     user_replay_cancel_at        ("REPLAY_CANCEL_AT"),
     user_multiple_builders       ("MULTIPLE_BUILDERS"),
@@ -234,6 +231,8 @@ Globals::Globals()
     user_editor_last_dir_deco    ("EDITOR_LAST_DIR_DECO"),
     user_editor_last_dir_hazard  ("EDITOR_LAST_DIR_HAZARD"),
 
+    user_sorted_skills           ("SKILL_ORDER_IN_PANEL"),
+
     user_key_force_left          ("KEY_FORCE_LEFT"),
     user_key_force_right         ("KEY_FORCE_RIGHT"),
     user_key_scroll              ("KEY_SCROLL"),
@@ -252,7 +251,6 @@ Globals::Globals()
     user_key_spec_tribe          ("KEY_SPECTATE_NEXT_PLAYER"),
     user_key_chat                ("KEY_CHAT"),
     user_key_ga_exit             ("KEY_GAME_EXIT"),
-    user_f1_to_f12               ("F1_TO_F12_AS_IN_PANEL"),
 
     user_key_me_okay             ("KEY_MENU_OKAY"),
     user_key_me_edit             ("KEY_MENU_EDIT"),

@@ -57,7 +57,7 @@ WindowSkill::WindowSkill(Level& l)
     possible.push_back(PosSk(px(i), py(i), LixEn::DIGGER));     ++i;
 
     // Tatsaechliche Faehigkeiten
-    for (int i = 0; i < gloB->skill_max; ++i) {
+    for (size_t i = 0; i < sbwb.size(); ++i) {
         sbwb[i] = new SkillButtonWithButtons;
         sbwb[i]->set_x(20 + i*40);
         sbwb[i]->set_y(y_sbwb);
@@ -97,7 +97,7 @@ WindowSkill::WindowSkill(Level& l)
 
 WindowSkill::~WindowSkill()
 {
-    for (int i = 0; i < gloB->skill_max; ++i) delete sbwb[i];
+    for (size_t i = 0; i < sbwb.size(); ++i) delete sbwb[i];
 }
 
 
@@ -201,7 +201,7 @@ void WindowSkill::calc_self()
 
     if (ok.get_clicked() || hardware.get_mr()) {
         // Daten in das Levelobjekt des Editors schreiben
-        for (int i = 0; i < gloB->skill_max; ++i) {
+        for (size_t i = 0; i < sbwb.size(); ++i) {
             level->skill[i].ac = sbwb[i]->skill.get_skill();
             level->skill[i].nr = sbwb[i]->skill.get_number();
         }
@@ -279,7 +279,7 @@ void WindowSkill::calc_self()
         }
     }
     else if (all_to.get_clicked()) {
-        for (int i = 0; i < gloB->skill_max; ++i)
+        for (size_t i = 0; i < sbwb.size(); ++i)
          sbwb[i]->skill.set_number(all_to_n.get_number());
     }
 }

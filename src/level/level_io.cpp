@@ -81,7 +81,7 @@ static void load_hint(std::vector <std::string>& into, const std::string& s)
 
 void Level::load_from_vector(const std::vector <IO::Line>& lines)
 {
-    int sk = 0;
+    size_t sk = 0;
 
     for (IO::LineIt i = lines.begin(); i != lines.end(); ++i) switch(i->type) {
     // Strings setzen
@@ -138,7 +138,7 @@ void Level::load_from_vector(const std::vector <IO::Line>& lines)
         // Auswertung der Fähigkeits-Anzahl und Erhöhung der Array-Füllzahl
         // Dies kann nicht durchlaufen werden, wenn die Fähigkeits-Slots
         // bereits voll sind.
-        else if (sk < gloB->skill_max) {
+        else if (sk < skill.size()) {
             skill[sk].ac = LixEn::string_to_ac(i->text1);
             if (skill[sk].ac != LixEn::AC_MAX) {
                 skill[sk].nr = i->nr1;
@@ -343,7 +343,7 @@ std::ostream& operator << (std::ostream& out, const Level& l)
 
      << std::endl;
 
-    for (int i = 0; i < gloB->skill_max; ++i) out
+    for (size_t i = 0; i < l.skill.size(); ++i) out
      << IO::LineHash  (LixEn::ac_to_string(l.skill[i].ac), l.skill[i].nr);
 
     // Erst Spezialobjekte, dann Terrain

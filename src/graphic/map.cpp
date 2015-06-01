@@ -77,35 +77,19 @@ bool Map::get_scrollable()
 }
 bool Map::get_scrollable_up()
 {
-    if (screen_y > min_screen_y
-     || (get_torus_y() && (useR->scroll_torus_y == 2
-     || (useR->scroll_torus_y == 1 && get_yl() > screen_yl)) ) )
-     return true;
-    else return false;
+    return (screen_y > min_screen_y || get_torus_y());
 }
 bool Map::get_scrollable_right()
 {
-    if (screen_x < max_screen_x
-     || (get_torus_x() && (useR->scroll_torus_x == 2
-     || (useR->scroll_torus_x == 1 && get_xl() > screen_xl)) ) )
-     return true;
-    else return false;
+    return (screen_x < max_screen_x || get_torus_x());
 }
 bool Map::get_scrollable_down()
 {
-    if (screen_y < max_screen_y
-     || (get_torus_y() && (useR->scroll_torus_y == 2
-     || (useR->scroll_torus_y == 1 && get_yl() > screen_yl)) ) )
-     return true;
-    else return false;
+    return (screen_y < max_screen_y || get_torus_y());
 }
 bool Map::get_scrollable_left()
 {
-    if (screen_x > min_screen_x
-     || (get_torus_x() && (useR->scroll_torus_x == 2
-     || (useR->scroll_torus_x == 1 && get_xl() > screen_xl)) ) )
-     return true;
-    else return false;
+    return (screen_x > min_screen_x || get_torus_x());
 }
 
 
@@ -113,8 +97,7 @@ bool Map::get_scrollable_left()
 void Map::set_screen_x(const int x)
 {
     screen_x = x;
-    if (get_torus_x() && (useR->scroll_torus_x == 2
-     || (useR->scroll_torus_x == 1 && get_xl() > screen_xl))) {
+    if (get_torus_x()) {
         screen_x = Help::mod(screen_x, get_xl());
     }
     else {
@@ -126,11 +109,7 @@ void Map::set_screen_x(const int x)
 void Map::set_screen_y(const int y)
 {
     screen_y = y;
-    if (get_torus_y() && (useR->scroll_torus_y == 2
-     || (useR->scroll_torus_y == 1 && get_yl() > screen_yl))) {
-        // If-Abfrage war: > min_h*3/2, aber der ADmiral und ich meinen
-        // beide, dass es nur auf Einbildschirmkarten sinnig ist. Sonst
-        // geht zu viel Vorteil verloren gegenueber der besseren Uebersicht.
+    if (get_torus_y()) {
         screen_y = Help::mod(screen_y, get_yl());
     }
     else {
@@ -156,7 +135,7 @@ void Map::set_zoom(const bool b)
     max_screen_y = get_yl() - screen_yl + zoom*screen_yl/4;
     if (max_screen_x < min_screen_x) max_screen_x = min_screen_x;
     if (max_screen_y < min_screen_y) max_screen_y = min_screen_y;
-    // Verhindern, dass ueber den Rand gescrollt ist
+    // prevent scrolling across the edge
     set_screen_x(screen_x);
     set_screen_y(screen_y);
 }

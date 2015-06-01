@@ -3,6 +3,8 @@
  *
  */
 
+#include <sstream>
+
 #include "myalleg.h" // KEY_*
 #include "user.h"
 #include "language.h"
@@ -111,8 +113,6 @@ User::User()
     mouse_acceleration     (0),
     scroll_speed_edge      (5),
     scroll_speed_click     (6),
-    scroll_torus_x         (2),
-    scroll_torus_y         (2),
     multiple_builders      (true),
     batter_priority        (false),
     prioinv_middle         (true),
@@ -132,12 +132,11 @@ User::User()
 
     sound_volume           (10),
 
-    editor_hex_level_size (false),
-    editor_grid_selected  (1),
-    editor_grid_custom    (8),
+    editor_hex_level_size  (false),
+    editor_grid_selected   (1),
+    editor_grid_custom     (8),
 
     key_skill              (LixEn::AC_MAX, 0),
-    f1_to_f12              (false),
 
     single_last_level      (gloB->dir_levels_single),
     network_last_level     (gloB->dir_levels_network),
@@ -151,6 +150,21 @@ User::User()
     editor_last_dir_deco   (gloB->dir_bitmap),
     editor_last_dir_hazard (gloB->dir_bitmap)
 {
+    skill_sort.push_back(LixEn::WALKER);
+    skill_sort.push_back(LixEn::JUMPER);
+    skill_sort.push_back(LixEn::RUNNER);
+    skill_sort.push_back(LixEn::CLIMBER);
+    skill_sort.push_back(LixEn::FLOATER);
+    skill_sort.push_back(LixEn::EXPLODER2);
+    skill_sort.push_back(LixEn::BATTER);
+    skill_sort.push_back(LixEn::BLOCKER);
+    skill_sort.push_back(LixEn::CUBER);
+    skill_sort.push_back(LixEn::BUILDER);
+    skill_sort.push_back(LixEn::PLATFORMER);
+    skill_sort.push_back(LixEn::BASHER);
+    skill_sort.push_back(LixEn::MINER);
+    skill_sort.push_back(LixEn::DIGGER);
+
     key_skill[LixEn::WALKER]     = KEY_D;
     key_skill[LixEn::RUNNER]     = KEY_LSHIFT;
     key_skill[LixEn::BASHER]     = KEY_E;
@@ -273,6 +287,35 @@ void User::set_level_result_carefully(
 
 
 
+void
+User::string_to_skill_sort(const std::string& text)
+{
+    std::istringstream stream(text);
+    std::string s;
+    size_t pos = 0;
+    while (stream >> s && pos < skill_sort.size()) {
+        LixEn::Ac ac = LixEn::string_to_ac(s);
+        if (ac == LixEn::AC_MAX)
+            continue;
+        // sort the skills like this:
+        // find the specified skill in the vector and swap with vector[pos],
+        // then increase pos to be ready for the next loop iteration
+        size_t named = pos; // because everything < pos is sorted
+        while (named < skill_sort.size() && skill_sort[named] != ac)
+            ++named;
+        if (named == skill_sort.size())
+            continue;
+        else {
+            skill_sort[named] = skill_sort[pos];
+            skill_sort[pos] = ac;
+            ++pos;
+        }
+    }
+}
+
+
+
+
 void User::load()
 {
     result.clear();
@@ -333,12 +376,12 @@ void User::load()
         else if (i->text1 == gloB->user_editor_last_dir_goal   ) editor_last_dir_goal    = Filename(i->text2);
         else if (i->text1 == gloB->user_editor_last_dir_deco   ) editor_last_dir_deco    = Filename(i->text2);
         else if (i->text1 == gloB->user_editor_last_dir_hazard ) editor_last_dir_hazard  = Filename(i->text2);
+
+        else if (i->text1 == gloB->user_sorted_skills          ) string_to_skill_sort(i->text2);
         break;
 
     case '#':
-        if      (i->text1 == gloB->user_language               ) {
-            language               = i->nr1;
-        }
+        if      (i->text1 == gloB->user_language               ) language               = i->nr1;
         else if (i->text1 == gloB->user_option_group           ) option_group           = i->nr1;
 
         else if (i->text1 == gloB->user_mouse_speed            ) mouse_speed            = i->nr1;
@@ -348,8 +391,6 @@ void User::load()
         else if (i->text1 == gloB->user_scroll_edge            ) scroll_edge            = i->nr1;
         else if (i->text1 == gloB->user_scroll_right           ) scroll_right           = i->nr1;
         else if (i->text1 == gloB->user_scroll_middle          ) scroll_middle          = i->nr1;
-        else if (i->text1 == gloB->user_scroll_torus_x         ) scroll_torus_x         = i->nr1;
-        else if (i->text1 == gloB->user_scroll_torus_y         ) scroll_torus_y         = i->nr1;
         else if (i->text1 == gloB->user_replay_cancel          ) replay_cancel          = i->nr1;
         else if (i->text1 == gloB->user_replay_cancel_at       ) replay_cancel_at       = i->nr1;
         else if (i->text1 == gloB->user_multiple_builders      ) multiple_builders      = i->nr1;
@@ -395,7 +436,6 @@ void User::load()
         else if (i->text1 == gloB->user_key_spec_tribe         ) key_spec_tribe         = i->nr1;
         else if (i->text1 == gloB->user_key_chat               ) key_chat               = i->nr1;
         else if (i->text1 == gloB->user_key_ga_exit            ) key_ga_exit            = i->nr1;
-        else if (i->text1 == gloB->user_f1_to_f12              ) f1_to_f12              = i->nr1;
 
         else if (i->text1 == gloB->user_key_me_okay            ) key_me_okay            = i->nr1;
         else if (i->text1 == gloB->user_key_me_edit            ) key_me_edit            = i->nr1;
@@ -485,8 +525,6 @@ void User::save() const
      << IO::LineHash  (gloB->user_scroll_edge,             scroll_edge)
      << IO::LineHash  (gloB->user_scroll_right,            scroll_right)
      << IO::LineHash  (gloB->user_scroll_middle,           scroll_middle)
-     << IO::LineHash  (gloB->user_scroll_torus_x,          scroll_torus_x)
-     << IO::LineHash  (gloB->user_scroll_torus_y,          scroll_torus_y)
      << IO::LineHash  (gloB->user_replay_cancel,           replay_cancel)
      << IO::LineHash  (gloB->user_replay_cancel_at,        replay_cancel_at)
      << IO::LineHash  (gloB->user_multiple_builders,       multiple_builders)
@@ -548,7 +586,29 @@ void User::save() const
      << IO::LineHash  (gloB->user_key_spec_tribe,  key_spec_tribe)
      << IO::LineHash  (gloB->user_key_chat,        key_chat)
      << IO::LineHash  (gloB->user_key_ga_exit,     key_ga_exit)
-     << IO::LineHash  (gloB->user_f1_to_f12,       f1_to_f12)
+     << std::endl;
+
+    // DEBUGGING: make a user option for it.
+    file
+     << "// Defining a custom order of the skills in the panel:"
+     << std::endl
+     << "// The game allows it, but the options menu doesn't support it yet."
+     << std::endl
+     << "// Edit the following line directly. Don't use EXPLODER, instead use"
+     << std::endl
+     << "// EXPLODER2 only. It will define the panel for both exploders."
+     << std::endl
+     << "// To reset: Delete the line, start and exit the game once."
+     << std::endl
+     << std::endl;
+
+    std::ostringstream skill_sort_stream;
+    for (size_t i = 0; i < skill_sort.size(); ++i) {
+        if (i != 0) skill_sort_stream << " ";
+        skill_sort_stream << ac_to_string(skill_sort[i]);
+    }
+    file
+     << IO::LineDollar(gloB->user_sorted_skills, skill_sort_stream.str())
      << std::endl;
 
     for (size_t i = 0; i < key_skill.size(); ++i)

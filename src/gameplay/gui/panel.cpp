@@ -26,7 +26,7 @@ GameplayPanel::GameplayPanel()
 :
     Element    (0, LEMSCR_Y - gloB->panel_gameplay_yl,
                    LEMSCR_X,  gloB->panel_gameplay_yl),
-    skill      (14, Api::SkillButton()), // TODO: allow for 14 skills generally
+    skill      (useR->skill_sort.size(), Api::SkillButton()),
     rate_minus (BMP_PAN_2, x_zzz,  0, xl_tec, 20),
     rate_plus  (BMP_PAN_2, x_fwd,  0, xl_tec, 20),
     rate_fixed (BMP_PAN_F, x_zzz,  0, 2 * xl_tec, 20),
@@ -220,25 +220,15 @@ void GameplayPanel::set_like_tribe(const Tribe* tr, const Tribe::Master* ma)
 
     // Create, then sort buttons. Hotkeys will be done after sorting
     for (size_t i = 0; i < tr->skill.size(); ++i) {
-        size_t j = skill.size();
-        switch (tr->skill[i].ac) {
-            case LixEn::WALKER: j = 0; break;
-            case LixEn::JUMPER: j = 1; break;
-            case LixEn::RUNNER: j = 2; break;
-            case LixEn::CLIMBER: j = 3; break;
-            case LixEn::FLOATER: j = 4; break;
-            case LixEn::EXPLODER: j = 5; break; // panel 5
-            case LixEn::EXPLODER2: j = 5; break; // same panel 5
-            case LixEn::BATTER: j = 6; break;
-            case LixEn::BLOCKER: j = 7; break;
-            case LixEn::CUBER: j = 8; break;
-            case LixEn::BUILDER: j = 9; break;
-            case LixEn::PLATFORMER: j = 10; break;
-            case LixEn::BASHER: j = 11; break;
-            case LixEn::MINER: j = 12; break;
-            case LixEn::DIGGER: j = 13; break;
-            default: break;
-        }
+        size_t j = 0;
+        while (j < skill.size() && j < useR->skill_sort.size()
+               && useR->skill_sort[j] != tr->skill[i].ac
+               && ! (useR->skill_sort[j] == LixEn::EXPLODER2
+                      && tr->skill[i].ac == LixEn::EXPLODER))
+            // Exploder and Exploder2 are both defined by Exploder2 in
+            // the user's sorted skill vector
+            ++j;
+
         if (j != skill.size()) {
             skill[j].set_style (tr->style);
             skill[j].set_skill (tr->skill[i].ac);

@@ -4,6 +4,7 @@
  */
 
 #include "tribe.h"
+#include "../other/user.h"
 
 Tribe::Tribe()
 :
@@ -36,7 +37,7 @@ Tribe::~Tribe()
 
 void Tribe::return_skills(const LixEn::Ac ac, const int amount)
 {
-    for (int i = 0; i < gloB->skill_max; ++i)
+    for (size_t i = 0; i < skill.size(); ++i)
      if (skill[i].ac == ac && skill[i].nr != LixEn::infinity) {
         skill[i].nr += amount;
         skills_used -= amount;

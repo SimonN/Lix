@@ -85,8 +85,6 @@ OptionMenu::OptionMenu()
     scroll_edge           (check_x, 100),
     scroll_right          (check_x, 130),
     scroll_middle         (check_x, 160),
-    scroll_torus_x        (other_x, 250, button_xl),
-    scroll_torus_y        (other_x, 280, button_xl),
     replay_cancel         (check_x, 190),
     replay_cancel_at      (other_x, 190, button_xl, 2, 0, 90),
     multiple_builders     (check_x, 250),
@@ -99,8 +97,6 @@ OptionMenu::OptionMenu()
     desc_scroll_edge      (check_nx, 100, Language::option_scroll_edge),
     desc_scroll_right     (check_nx, 130, Language::option_scroll_right),
     desc_scroll_middle    (check_nx, 160, Language::option_scroll_middle),
-    desc_scroll_torus_x   (other_nx, 250, Language::option_scroll_torus_x),
-    desc_scroll_torus_y   (other_nx, 280, Language::option_scroll_torus_y),
     desc_replay_cancel    (check_nx, 190, Language::option_replay_cancel),
     desc_replay_cancel_at (other_nx, 190, Language::option_replay_cancel_at),
     desc_multiple_builders(check_nx, 250, Language::option_multiple_builders),
@@ -126,7 +122,6 @@ OptionMenu::OptionMenu()
     key_ga_exit           (key_b3,  310, key_xl),
     key_scroll            (key_b3,  250, key_xl),
     key_priority          (key_b3,  280, key_xl),
-    f1_to_f12             (key_b3,  400),
 
     // Some of the following buttons will be moved again.
     key_skill             (LixEn::AC_MAX, KeyButton(9999, 9999, key_xl)),
@@ -152,16 +147,6 @@ OptionMenu::OptionMenu()
     desc_key_info_1       (key_b3, 340, Language::option_key_info_1),
     desc_key_info_2       (key_b3, 360, Language::option_key_info_2),
     desc_key_info_3       (key_b3, 380, Language::option_key_info_3),
-
-    desc_f1_to_f12   (40 + key_b3, 400, Language::option_key_f1_to_f12),
-    desc_f1_to_f12_1      (key_t2,  85, Language::option_key_f1_to_f12_1),
-    desc_f1_to_f12_2      (key_t2, 100, Language::option_key_f1_to_f12_2),
-    desc_f1_to_f12_3      (key_t2, 115, Language::option_key_f1_to_f12_3),
-    desc_f1_to_f12_4      (key_t2, 130, Language::option_key_f1_to_f12_4),
-    desc_f1_to_f12_5      (key_t2, 145, Language::option_key_f1_to_f12_5),
-    desc_f1_to_f12_6      (key_t2, 160, Language::option_key_f1_to_f12_6),
-    desc_f1_to_f12_7      (key_t2, 175, Language::option_key_f1_to_f12_7),
-    desc_f1_to_f12_8      (key_t2, 190, Language::option_key_f1_to_f12_8),
 
     ed_left               (key_b1, 100, key_xl),
     ed_right              (key_b1, 120, key_xl),
@@ -323,20 +308,12 @@ OptionMenu::OptionMenu()
     pointers[GROUP_GENERAL ].push_back(&desc_replay_auto_multi);
     pointers[GROUP_GENERAL ].push_back(&desc_replay_auto_max);
 
-    scroll_torus_x          .add_text   (Language::option_scroll_torus_never);
-    scroll_torus_x          .add_text   (Language::option_scroll_torus_big);
-    scroll_torus_x          .add_text   (Language::option_scroll_torus_always);
-    scroll_torus_y          .add_text   (Language::option_scroll_torus_never);
-    scroll_torus_y          .add_text   (Language::option_scroll_torus_big);
-    scroll_torus_y          .add_text   (Language::option_scroll_torus_always);
     pointers[GROUP_CONTROLS].push_back(&scroll_edge);
     pointers[GROUP_CONTROLS].push_back(&scroll_right);
     pointers[GROUP_CONTROLS].push_back(&scroll_middle);
     pointers[GROUP_CONTROLS].push_back(&mouse_speed);
     pointers[GROUP_CONTROLS].push_back(&scroll_speed_edge);
     pointers[GROUP_CONTROLS].push_back(&scroll_speed_click);
-    pointers[GROUP_CONTROLS].push_back(&scroll_torus_x);
-    pointers[GROUP_CONTROLS].push_back(&scroll_torus_y);
     pointers[GROUP_CONTROLS].push_back(&replay_cancel);
     pointers[GROUP_CONTROLS].push_back(&replay_cancel_at);
     pointers[GROUP_CONTROLS].push_back(&multiple_builders);
@@ -349,8 +326,6 @@ OptionMenu::OptionMenu()
     pointers[GROUP_CONTROLS].push_back(&desc_scroll_edge);
     pointers[GROUP_CONTROLS].push_back(&desc_scroll_right);
     pointers[GROUP_CONTROLS].push_back(&desc_scroll_middle);
-    pointers[GROUP_CONTROLS].push_back(&desc_scroll_torus_x);
-    pointers[GROUP_CONTROLS].push_back(&desc_scroll_torus_y);
     pointers[GROUP_CONTROLS].push_back(&desc_replay_cancel);
     pointers[GROUP_CONTROLS].push_back(&desc_replay_cancel_at);
     pointers[GROUP_CONTROLS].push_back(&desc_multiple_builders);
@@ -376,7 +351,6 @@ OptionMenu::OptionMenu()
     pointers[GROUP_HOTKEYS ].push_back(&key_ga_exit);
     pointers[GROUP_HOTKEYS ].push_back(&key_scroll);
     pointers[GROUP_HOTKEYS ].push_back(&key_priority);
-    pointers[GROUP_HOTKEYS ].push_back(&f1_to_f12);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_force_left);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_force_right);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_rate_minus);
@@ -398,15 +372,6 @@ OptionMenu::OptionMenu()
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_1);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_2);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_3);
-    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12);
-    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12_1);
-    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12_2);
-    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12_3);
-    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12_4);
-    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12_5);
-    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12_6);
-    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12_7);
-    pointers[GROUP_HOTKEYS ].push_back(&desc_f1_to_f12_8);
     add_skill_to_hotkey_dialogue(LixEn::WALKER);
     add_skill_to_hotkey_dialogue(LixEn::RUNNER);
     add_skill_to_hotkey_dialogue(LixEn::JUMPER);
@@ -604,8 +569,6 @@ void OptionMenu::reset_elements()
     mouse_speed          .set_number (useR->mouse_speed);
     scroll_speed_edge    .set_number (useR->scroll_speed_edge);
     scroll_speed_click   .set_number (useR->scroll_speed_click);
-    scroll_torus_x       .set_number (useR->scroll_torus_x);
-    scroll_torus_y       .set_number (useR->scroll_torus_y);
     replay_cancel        .set_checked(useR->replay_cancel);
     replay_cancel_at     .set_number (useR->replay_cancel_at);
     multiple_builders    .set_checked(useR->multiple_builders);
@@ -631,7 +594,6 @@ void OptionMenu::reset_elements()
     key_ga_exit          .set_scancode(useR->key_ga_exit);
     key_scroll           .set_scancode(useR->key_scroll);
     key_priority         .set_scancode(useR->key_priority);
-    f1_to_f12            .set_checked (useR->f1_to_f12);
     for (size_t i = 0; i < key_skill.size(); ++i)
      key_skill[i]        .set_scancode(useR->key_skill[i]);
 
@@ -722,27 +684,6 @@ void OptionMenu::show_group(const OptionGroup grp)
         else          (**itr).set_hidden(true);
     }
 
-    // in the game hotkey tab, show either the normal/direct skill keys,
-    // or the warning for the f1_to_f12 option
-    if (grp == GROUP_HOTKEYS) {
-        if (f1_to_f12.get_checked()) {
-            for (size_t i = 0; i < key_skill.size(); ++i) {
-                key_skill     [i].set_hidden();
-                desc_key_skill[i].set_hidden();
-            }
-        }
-        else {
-            desc_f1_to_f12_1.set_hidden();
-            desc_f1_to_f12_2.set_hidden();
-            desc_f1_to_f12_3.set_hidden();
-            desc_f1_to_f12_4.set_hidden();
-            desc_f1_to_f12_5.set_hidden();
-            desc_f1_to_f12_6.set_hidden();
-            desc_f1_to_f12_7.set_hidden();
-            desc_f1_to_f12_8.set_hidden();
-        }
-    }
-
     // show the current tab button as pressed down
     for (std::vector <TextButton> ::iterator itr = button_group.begin();
      itr != button_group.end(); ++itr) itr->set_off();
@@ -765,10 +706,6 @@ void OptionMenu::calc_self()
         useR->option_group = GROUP_GENERAL; // da sind wir ja
         reset_elements();
     }
-
-    // Reload the tab when switching to f1_to_f12 keys
-    if (f1_to_f12.get_clicked())
-        show_group(GROUP_HOTKEYS);
 
     /////////////////////////
     // Angeklickte Buttons //
@@ -815,8 +752,6 @@ void OptionMenu::calc_self()
         useR->scroll_edge       = scroll_edge       .get_checked();
         useR->scroll_right      = scroll_right      .get_checked();
         useR->scroll_middle     = scroll_middle     .get_checked();
-        useR->scroll_torus_x    = scroll_torus_x    .get_number();
-        useR->scroll_torus_y    = scroll_torus_y    .get_number();
         useR->replay_cancel     = replay_cancel     .get_checked();
         useR->replay_cancel_at  = replay_cancel_at  .get_number();
         useR->multiple_builders = multiple_builders .get_checked();
@@ -842,7 +777,6 @@ void OptionMenu::calc_self()
         useR->key_ga_exit     = key_ga_exit    .get_scancode();
         useR->key_scroll      = key_scroll     .get_scancode();
         useR->key_priority    = key_priority   .get_scancode();
-        useR->f1_to_f12       = f1_to_f12      .get_checked();
         for (size_t i = 0; i < key_skill.size(); ++i)
          useR->key_skill[i]   = key_skill[i]   .get_scancode();
         // There's only the Exploder hotkey in the options menu, but

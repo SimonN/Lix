@@ -43,8 +43,6 @@ public:
     const int   panel_gameplay_yl;
     const int   panel_editor_yl;
 
-    const int   scroll_torus_max;
-
     std::string user_name;
     bool        user_name_ask;
 
@@ -209,8 +207,6 @@ public:
         user_scroll_edge,
         user_scroll_right,
         user_scroll_middle,
-        user_scroll_torus_x,
-        user_scroll_torus_y,
         user_replay_cancel,
         user_replay_cancel_at,
         user_multiple_builders,
@@ -248,6 +244,8 @@ public:
         user_editor_last_dir_deco,
         user_editor_last_dir_hazard,
 
+        user_sorted_skills,
+
         user_key_force_left,
         user_key_force_right,
         user_key_scroll,
@@ -266,7 +264,6 @@ public:
         user_key_spec_tribe,
         user_key_chat,
         user_key_ga_exit,
-        user_f1_to_f12,
 
         user_key_me_okay,
         user_key_me_edit,

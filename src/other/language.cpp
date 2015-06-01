@@ -342,11 +342,6 @@ DECL_VARIABLE_FOR_TRANSLATION(option_scroll_speed_click);
 DECL_VARIABLE_FOR_TRANSLATION(option_scroll_edge);
 DECL_VARIABLE_FOR_TRANSLATION(option_scroll_right);
 DECL_VARIABLE_FOR_TRANSLATION(option_scroll_middle);
-DECL_VARIABLE_FOR_TRANSLATION(option_scroll_torus_x);
-DECL_VARIABLE_FOR_TRANSLATION(option_scroll_torus_y);
-DECL_VARIABLE_FOR_TRANSLATION(option_scroll_torus_never);
-DECL_VARIABLE_FOR_TRANSLATION(option_scroll_torus_big);
-DECL_VARIABLE_FOR_TRANSLATION(option_scroll_torus_always);
 DECL_VARIABLE_FOR_TRANSLATION(option_multiple_builders);
 DECL_VARIABLE_FOR_TRANSLATION(option_batter_priority);
 DECL_VARIABLE_FOR_TRANSLATION(option_prioinv_middle);
@@ -401,15 +396,7 @@ DECL_VARIABLE_FOR_TRANSLATION(option_key_info_1);
 DECL_VARIABLE_FOR_TRANSLATION(option_key_info_2);
 DECL_VARIABLE_FOR_TRANSLATION(option_key_info_3);
 
-DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12);
-DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12_1);
-DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12_2);
-DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12_3);
-DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12_4);
-DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12_5);
-DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12_6);
-DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12_7);
-DECL_VARIABLE_FOR_TRANSLATION(option_key_f1_to_f12_8);
+DECL_VARIABLE_FOR_TRANSLATION(option_sorted_skills);
 
 DECL_VARIABLE_FOR_TRANSLATION(option_key_me_okay);
 DECL_VARIABLE_FOR_TRANSLATION(option_key_me_edit);
@@ -881,11 +868,6 @@ void Language::set(const Language lang)
         option_mouse_speed            = "Mouse speed";
         option_scroll_speed_edge      = "Edge scroll speed";
         option_scroll_speed_click     = "Right/mid. scroll spd.";
-        option_scroll_torus_x         = "Torus scrolling (horz.)";
-        option_scroll_torus_y         = "Torus scrolling (vert.)";
-        option_scroll_torus_never     = "Never";
-        option_scroll_torus_big       = "On big maps";
-        option_scroll_torus_always    = "Always";
         option_multiple_builders      = "Builders: multiple clicks";
         option_batter_priority        = "Avoid Exploder -> Batter";
         option_prioinv_middle         = "Middle button inverts priority";
@@ -944,15 +926,8 @@ void Language::set(const Language lang)
         option_key_info_2             = "multiple skills will";
         option_key_info_3             = "alternate between them.";
 
-        option_key_f1_to_f12          = "F1-F12 as in panel";
-        option_key_f1_to_f12_1        = "F1 through F12 are now mapped to";
-        option_key_f1_to_f12_2        = "the 12 skill buttons in their order.";
-        option_key_f1_to_f12_3        = "Each level has a different order!";
-        option_key_f1_to_f12_4        = "I discourage using this, it's slow.";
-        option_key_f1_to_f12_5        = "";
-        option_key_f1_to_f12_6        = "If you want it still, please map";
-        option_key_f1_to_f12_7        = "restart/save/load to different keys";
-        option_key_f1_to_f12_8        = "than the F-keys, to avoid clashes.";
+        option_sorted_skills          = "Click two images to swap their"
+                                        " position in the game's panel.";
 
         option_key_me_okay            = "Okay/yes";
         option_key_me_edit            = "Edit";
@@ -1383,11 +1358,6 @@ eb[Editor::ADD_HAZARD]
         option_mouse_speed            = "Mausgeschwindigkeit";
         option_scroll_speed_edge      = "Scrollgeschw. am Rand";
         option_scroll_speed_click     = "Scrollgeschw. bei Klick";
-        option_scroll_torus_x         = "Torus-Scrollen (horz.)";
-        option_scroll_torus_y         = "Torus-Scrollen (vert.)";
-        option_scroll_torus_never     = "Niemals";
-        option_scroll_torus_big       = "Große Level";
-        option_scroll_torus_always    = "Immer";
         option_multiple_builders      = "Builder mehrm. klickbar";
         option_batter_priority        = "Exploder -> Batter vermeiden";
         option_prioinv_middle         = "Mittl. Taste invert. Priorität";
@@ -1447,15 +1417,9 @@ eb[Editor::ADD_HAZARD]
         option_key_info_2             = "Hotkey alterniert zwischen";
         option_key_info_3             = "seinen Fähigkeiten.";
 
-        option_key_f1_to_f12          = "F1-F12 wie in Leiste";
-        option_key_f1_to_f12_1        = "F1 bis F12 sind nun Hotkeys für die";
-        option_key_f1_to_f12_2        = "12 Fähigkeit-Buttons in ihrer Folge.";
-        option_key_f1_to_f12_3        = "Jeder Level hat andere Reihenfolge!";
-        option_key_f1_to_f12_4        = "Ich rate davon ab, es ist langsam.";
-        option_key_f1_to_f12_5        = "";
-        option_key_f1_to_f12_6        = "Wenn du es trotzdem so willst, dann";
-        option_key_f1_to_f12_7        = "lege Neustart und Stand laden/spei.";
-        option_key_f1_to_f12_8        = "auf andere Tasten als die F-Tasten.";
+        option_sorted_skills          = "Klicke zwei Bilder an, "
+                                        "um ihre Reihenfolge in der "
+                                        "Spielleiste zu tauschen.";
 
         option_key_me_okay            = "Okay/Ja";
         option_key_me_edit            = "Editieren";

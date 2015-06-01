@@ -27,6 +27,7 @@
 #include <map>
 #include <vector>
 
+#include "../lix/lix_enum.h"
 #include "./file/date.h"
 #include "./file/filename.h"
 
@@ -60,6 +61,9 @@ private:
 
     std::map <Filename, Result> result;
 
+    void string_to_skill_sort(const std::string&);
+
+
 public:
 
     ////////////
@@ -78,8 +82,6 @@ public:
     bool mouse_acceleration;
     int  scroll_speed_edge;
     int  scroll_speed_click;
-    int  scroll_torus_x;
-    int  scroll_torus_y;
     bool multiple_builders;
     bool batter_priority;
     bool prioinv_middle;
@@ -103,6 +105,7 @@ public:
     int  editor_grid_selected;
     int  editor_grid_custom;
 
+    std::vector <LixEn::Ac> skill_sort;
     std::vector <int> key_skill;
 
     int  key_force_left;
@@ -123,7 +126,6 @@ public:
     int  key_spec_tribe;
     int  key_chat;
     int  key_ga_exit; // game exit menu
-    bool f1_to_f12;
 
     int  key_me_okay; // start levels, answer with yes
     int  key_me_edit;

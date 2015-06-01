@@ -275,7 +275,7 @@ void Gameplay::update_cs_once()
                 i->inc_updates_since_bomb();
                 // Which exploder shall be assigned?
                 if (cs.tribes.size() > 1) i->set_exploder_knockback();
-                else for (int j = 0; j < gloB->skill_max; ++j)
+                else for (size_t j = 0; j < pan.skill.size(); ++j)
                  if (t->skill[j].ac == LixEn::EXPLODER2) {
                     i->set_exploder_knockback();
                     break;
