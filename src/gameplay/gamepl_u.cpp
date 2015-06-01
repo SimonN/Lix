@@ -372,7 +372,8 @@ void Gameplay::update_cs_one_data(Tribe& t, Tribe::Master* m, Replay::It i)
         if (m && &t == trlo) {
             // Wird ohne Replay naemlich extra schon vorher gemacht,
             // damit es schoener aussieht bei langsamen Spieltempi.
-            pan.skill[m->skill_sel].set_number(psk.nr);
+            GameplayPanel::SkBIt b = pan.button_by_replay_id(m->skill_sel);
+            if (b != pan.skill.end()) b->set_number(psk.nr);
         }
     }
 

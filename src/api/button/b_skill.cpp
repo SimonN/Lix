@@ -8,15 +8,14 @@
 
 namespace Api {
 
-SkillButton::SkillButton(const unsigned nx, const unsigned ny,
- const LixEn::Ac ac, const int nr, const LixEn::Style style)
+SkillButton::SkillButton(const int nx, const int ny, const int nxl)
 :
-    Button (nx, ny, 40, 60),
-    icon(GraLib::get_lix(style), get_ground(),
-     get_x_here() + 3, get_y_here() + 23)
+    Button (nx, ny, nxl, 60),
+    replay_id(-1),
+    icon(GraLib::get_lix(LixEn::GARDEN), get_ground(),
+     get_x_here() + get_xl()/2 - 17, get_y_here() + 23)
 {
-    set_skill(ac);
-    set_number(nr);
+    set_skill(LixEn::NOTHING);
 }
 
 SkillButton::~SkillButton()
@@ -52,6 +51,7 @@ void SkillButton::set_number(const int nr)
 
 void SkillButton::set_style(const LixEn::Style st)
 {
+    set_draw_required();
     icon.set_cutbit(GraLib::get_lix(st));
 }
 
@@ -82,7 +82,7 @@ void SkillButton::draw_self()
 {
     Button::draw_self();
     if (skill != LixEn::NOTHING) {
-        icon.set_x(get_x_here() +  3);
+        icon.set_x(get_x_here() + get_xl()/2 - 17);
         icon.set_y(get_y_here() + 23);
         icon.draw();
 
@@ -99,7 +99,7 @@ void SkillButton::draw_self()
         // because they weren't properly centered otherwise.
         Help::draw_shadow_centered_text(get_ground(),
          (s.str().size() > 2 ? font_nar : font_big),
-         s.str().c_str(), get_x_here() + 20 + (s.str().size() > 2 ? -1 : 0),
+         s.str().c_str(), get_x_here() + get_xl()/2 + (s.str().size()>2?-1:0),
          get_y_here() + 4,
          color[COL_TEXT_ON], color[COL_API_SHADOW]);
 
@@ -112,6 +112,7 @@ void SkillButton::draw_self()
                 color[COL_TEXT], color[COL_API_SHADOW]
             );
         }
+        // end drawing hotkey
     }
 }
 

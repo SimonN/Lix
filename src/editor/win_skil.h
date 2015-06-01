@@ -117,9 +117,7 @@ struct SkillButtonWithButtons : public Element {
     BitmapButton down_med;
     BitmapButton down_sml;
 
-             SkillButtonWithButtons(const unsigned = 0, const unsigned = 0,
-                                    const LixEn::Ac = LixEn::NOTHING,
-                                    const int = 0);
+             SkillButtonWithButtons(const unsigned = 0, const unsigned = 0);
     virtual ~SkillButtonWithButtons();
 
 protected:

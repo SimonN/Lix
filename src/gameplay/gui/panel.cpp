@@ -7,29 +7,44 @@
 #include "../../other/user.h"
 #include "../../other/help.h" // timer ticks for the nuke button
 
+static const int xl_tec = 34;
+static const int x_tec = 14*36; // skill buttons wider than technical buttons
+
+static const int x_pau = x_tec + 3*xl_tec;
+static const int x_zzz = x_tec + 0*xl_tec;
+static const int x_fwd = x_tec + 1*xl_tec;
+static const int x_nuk = x_tec + 2*xl_tec;
+
+#define BMP_PANEL GraLib::get(gloB->file_bitmap_game_panel)
+#define BMP_PAN_2 GraLib::get(gloB->file_bitmap_game_panel_2)
+#define BMP_PAN_F GraLib::get(gloB->file_bitmap_game_spi_fix)
+#define BMP_PAUSE GraLib::get(gloB->file_bitmap_game_pause)
+#define BMP_NUKE  GraLib::get(gloB->file_bitmap_game_nuke)
+#define BMP_HINTS GraLib::get(gloB->file_bitmap_game_panel_hints)
+
 GameplayPanel::GameplayPanel()
 :
     Element    (0, LEMSCR_Y - gloB->panel_gameplay_yl,
                    LEMSCR_X,  gloB->panel_gameplay_yl),
-    skill      (gloB->skill_max, Api::SkillButton()),
-    rate_minus (GraLib::get(gloB->file_bitmap_game_panel_2), 40*12,  0),
-    rate_plus  (GraLib::get(gloB->file_bitmap_game_panel_2), 40*13,  0),
-    rate_fixed (GraLib::get(gloB->file_bitmap_game_spi_fix), 40*12,  0),
-    pause      (GraLib::get(gloB->file_bitmap_game_pause  ), 40*12, 20),
-    zoom       (GraLib::get(gloB->file_bitmap_game_panel  ), 40*13, 20),
-    speed_slow (GraLib::get(gloB->file_bitmap_game_panel  ), 40*13, 50),
-    speed_fast (GraLib::get(gloB->file_bitmap_game_panel  ), 40*14, 20),
-    speed_turbo(GraLib::get(gloB->file_bitmap_game_panel  ), 40*14, 50),
-    state_save (GraLib::get(gloB->file_bitmap_game_panel_2), 40*14,  0),
-    state_load (GraLib::get(gloB->file_bitmap_game_panel_2), 40*15,  0),
-    restart    (GraLib::get(gloB->file_bitmap_game_panel  ), 40*15, 20),
-    nuke_single(GraLib::get(gloB->file_bitmap_game_panel  ), 40*15, 50),
-    nuke_multi (GraLib::get(gloB->file_bitmap_game_nuke   ), 40*12, 60),
-    spec_tribe (40*12, 60, 40*4),
+    skill      (14, Api::SkillButton()), // TODO: allow for 14 skills generally
+    rate_minus (BMP_PAN_2, x_zzz,  0, xl_tec, 20),
+    rate_plus  (BMP_PAN_2, x_fwd,  0, xl_tec, 20),
+    rate_fixed (BMP_PAN_F, x_zzz,  0, 2 * xl_tec, 20),
+    pause      (BMP_PAUSE, x_pau, 20, xl_tec, 60),
+    zoom       (BMP_PANEL, x_zzz, 20, xl_tec, 30),
+    speed_slow (BMP_PANEL, x_zzz, 50, xl_tec, 30),
+    speed_fast (BMP_PANEL, x_fwd, 20, xl_tec, 30),
+    speed_turbo(BMP_PANEL, x_fwd, 50, xl_tec, 30),
+    state_save (BMP_PAN_2, x_nuk,  0, xl_tec, 20),
+    state_load (BMP_PAN_2, x_pau,  0, xl_tec, 20),
+    restart    (BMP_PANEL, x_nuk, 20, xl_tec, 30),
+    nuke_single(BMP_PANEL, x_nuk, 50, xl_tec, 30),
+    nuke_multi (BMP_NUKE , x_tec, 60, 4 * xl_tec, 20),
+    spec_tribe (x_pau, 60, 4 * xl_tec), // will be reset below
     stats      (),
-    rate_slow  (rate_minus.get_x() + 27, rate_minus.get_y()),
-    rate_cur   (rate_plus .get_x() + 27, rate_plus .get_y()),
-    rate_fast  (rate_fixed.get_x() + 57, rate_fixed.get_y()),
+    rate_slow  (rate_minus.get_x()+rate_minus.get_xl()-13, rate_minus.get_y()),
+    rate_cur   (rate_plus .get_x()+rate_minus.get_xl()-13, rate_plus .get_y()),
+    rate_fast  (rate_fixed.get_x()+rate_fixed.get_xl()-18, rate_fixed.get_y()),
 
     on_hint_change(0),
     on_hint_change_where(0),
@@ -41,9 +56,9 @@ GameplayPanel::GameplayPanel()
 
     hint_size  (0),
     hint_cur   (0),
-    hint_big   (GraLib::get(gloB->file_bitmap_game_panel),       40*13,    20),
-    hint_plus  (GraLib::get(gloB->file_bitmap_game_panel_hints), 40*13+20, 20),
-    hint_minus (GraLib::get(gloB->file_bitmap_game_panel_hints), 40*13,    20)
+    hint_big   (BMP_PANEL, x_zzz,            20, xl_tec, 20),
+    hint_plus  (BMP_HINTS, x_zzz + xl_tec/2, 20, xl_tec, 20),
+    hint_minus (BMP_HINTS, x_zzz,            20, xl_tec, 20)
 {
     for (SkBIt itr = skill.begin(); itr != skill.end(); ++itr) add_child(*itr);
     add_child(rate_minus);
@@ -71,7 +86,7 @@ GameplayPanel::GameplayPanel()
     add_child(hint_minus);
 
     for (unsigned i = 0; i < skill.size(); ++i) {
-        skill[i].set_x(i * 40);
+        skill[i].set_x(i * skill[i].get_xl());
         skill[i].set_y(20);
     }
 
@@ -154,9 +169,9 @@ void GameplayPanel::set_gapamode_and_hints(const GapaMode m, const int hs)
         rate_cur  .hide();
         rate_fast .hide();
         nuke_multi.hide(); // we use most of the singleplayer interface
-        spec_tribe.set_x(40*12);
+        spec_tribe.set_x(x_tec);
         spec_tribe.set_y(0);
-        spec_tribe.set_xl(40*2);
+        spec_tribe.set_xl(2*xl_tec);
     }
     else if (gapamode == GM_PLAY_MULTI
      ||      gapamode == GM_SPEC_MULTI) {
@@ -178,9 +193,9 @@ void GameplayPanel::set_gapamode_and_hints(const GapaMode m, const int hs)
         if (gapamode == GM_PLAY_MULTI) spec_tribe.hide();
         else {
             nuke_multi.hide();
-            spec_tribe.set_x(40*12);
+            spec_tribe.set_x(x_tec);
             spec_tribe.set_y(60);
-            spec_tribe.set_xl(40*4);
+            spec_tribe.set_xl(4*xl_tec);
         }
     }
 
@@ -196,20 +211,52 @@ void GameplayPanel::set_gapamode_and_hints(const GapaMode m, const int hs)
 void GameplayPanel::set_like_tribe(const Tribe* tr, const Tribe::Master* ma)
 {
     if (!tr) return;
+
+    // clear all panels
     for (size_t i = 0; i < skill.size(); ++i) {
+        skill[i].set_skill(LixEn::NOTHING);
+        skill[i].set_replay_id(-1);
+    }
 
-        // positional keys or direct keys?
-        const int key = useR->f1_to_f12
-            ? KEY_F1 + i
-            : useR->key_skill[tr->skill[i].ac];
-        skill[i].set_style (tr->style);
-        skill[i].set_skill (tr->skill[i].ac);
-        skill[i].set_number(tr->skill[i].nr);
+    // Create, then sort buttons. Hotkeys will be done after sorting
+    for (size_t i = 0; i < tr->skill.size(); ++i) {
+        size_t j = skill.size();
+        switch (tr->skill[i].ac) {
+            case LixEn::WALKER: j = 0; break;
+            case LixEn::JUMPER: j = 1; break;
+            case LixEn::RUNNER: j = 2; break;
+            case LixEn::CLIMBER: j = 3; break;
+            case LixEn::FLOATER: j = 4; break;
+            case LixEn::EXPLODER: j = 5; break; // panel 5
+            case LixEn::EXPLODER2: j = 5; break; // same panel 5
+            case LixEn::BATTER: j = 6; break;
+            case LixEn::BLOCKER: j = 7; break;
+            case LixEn::CUBER: j = 8; break;
+            case LixEn::BUILDER: j = 9; break;
+            case LixEn::PLATFORMER: j = 10; break;
+            case LixEn::BASHER: j = 11; break;
+            case LixEn::MINER: j = 12; break;
+            case LixEn::DIGGER: j = 13; break;
+            default: break;
+        }
+        if (j != skill.size()) {
+            skill[j].set_style (tr->style);
+            skill[j].set_skill (tr->skill[i].ac);
+            skill[j].set_number(tr->skill[i].nr);
+            skill[j].set_replay_id(i);
+        }
+    }
+
+    // Hotkeys depend on the shown order, not on the replay-internal order.
+    // So, we don't have to examine (skill button).replay_id here.
+    for (size_t i = 0; i < skill.size(); ++i) {
+        const int key = useR->key_skill[skill[i].get_skill()];
         skill[i].set_hotkey(key);
-
         if (useR->gameplay_help && key != 0)
             skill[i].set_hotkey_label(Help::scancode_to_string(key));
+        skill[i].set_draw_required();
     }
+
     if (ma) set_skill_on(ma->skill_sel);
 
     stats.set_tribe_local(tr);
@@ -226,19 +273,35 @@ void GameplayPanel::set_like_tribe(const Tribe* tr, const Tribe::Master* ma)
 
 
 
-void GameplayPanel::set_skill_numbers(const Tribe& tr)
+GameplayPanel::SkBIt GameplayPanel::button_by_replay_id(const int id)
 {
-    for (size_t i = 0; i < skill.size(); ++i)
-     skill[i].set_number(tr.skill[i].nr);
+    for (SkBIt itr = skill.begin(); itr != skill.end(); ++itr)
+        if (itr->get_replay_id() == id)
+            return itr;
+    return skill.end();
 }
 
 
 
-void GameplayPanel::set_skill_on(const int which)
+void GameplayPanel::set_skill_numbers(const Tribe& tr)
 {
-    if (which < 0 || which >= (int) skill.size()) return;
-    for (size_t i = 0; i < skill.size(); ++i) skill[i].set_off();
-    if (skill[which].get_number() != 0) skill[which].set_on();
+    for (size_t i = 0; i < skill.size(); ++i) {
+        int repid = skill[i].get_replay_id();
+        if (repid >= 0 && repid < static_cast <int> (tr.skill.size()))
+            skill[i].set_number(tr.skill[repid].nr);
+    }
+}
+
+
+
+void GameplayPanel::set_skill_on(const int id)
+{
+    for (size_t i = 0; i < skill.size(); ++i)
+        skill[i].set_off();
+
+    SkBIt b = button_by_replay_id(id);
+    if (b != skill.end() && b->get_number() != 0)
+        b->set_on();
 }
 
 

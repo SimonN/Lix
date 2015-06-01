@@ -90,22 +90,18 @@ void Gameplay::calc_active()
         // This starts at the next button and breaks immediately if one is
         // pressed. This enables a hotkey to cycle through its skills.
         // We don't read malo->skill_sel, this is only updated after a
-        // gameplay physics update. Switching skills is nicer when paused
-        // if we use the following variable instead.
-        size_t current_button = malo->skill_sel;
-        if (current_button >= pan.skill.size()) current_button = 0;
-        for (size_t i = 0; i < pan.skill.size(); ++i)
-         if (pan.skill[i].get_on()) {
-            current_button = i;
-            break;
-        }
+        // gameplay physics update.
         // This next if makes that an overloaded hotkey will select the skill
         // that's more to the left always, unless a skill with the same
         // hotkey is already selected. If the if wasn't there, sometimes the
         // first hit of a new skillkey would select a different than the
         // leftmost occurence, based on where the skills are.
-        if (!pan.skill[current_button].get_clicked())
-            current_button = gloB->skill_max - 1;
+        GameplayPanel::SkBIt cur_but
+            = pan.button_by_replay_id(malo->skill_sel);
+        int pan_vec_id = cur_but - pan.skill.begin();
+        if (cur_but == pan.skill.end() || ! cur_but->get_clicked())
+            pan_vec_id = pan.skill.size() - 1;
+        // we don't need cur_but from here on anymore, only the panel ID
 
         // Scan for hotkey presses of empty/nonpresent skills
         // if this is still false later, iterate over nonpresent skills
@@ -113,30 +109,32 @@ void Gameplay::calc_active()
         bool some_panel_action = false;
 
         for (size_t j = 0; j < pan.skill.size(); ++j) {
-            size_t i = (current_button + j + 1) % pan.skill.size();
+            size_t i = (pan_vec_id + j + 1) % pan.skill.size();
             if (pan.skill[i].get_number() != 0
              && pan.skill[i].get_clicked()
-             && !pan.skill[i].get_on()) {
-                // Dies wird zwar auch beim naechsten Update erledigt, aber
-                // so sieht der Button viel antwortfreudiger aus!
-                pan.set_skill_on(i);
+             && ! pan.skill[i].get_on())
+            {
+                int rep_id = pan.skill[i].get_replay_id();
+
+                // This will be done during the next physics update, but
+                // we'll do it now, to make the button seem more responsive
+                pan.set_skill_on(rep_id);
                 // Das hier ist das eigentlich Wichtige
                 Replay::Data data = new_replay_data();
                 data.action       = Replay::SKILL;
-                data.what         = i;
+                data.what         = rep_id;
                 replay.add(data);
                 Network::send_replay_data(data);
                 // Jetzt schon den Klang abspielen, dafuer beim Update nicht.
                 // Es wird also der Effekt gesichert und zusaetzlich manuell
                 // der Effekt vorgemerkt, falls jemand in der Pause wechselt.
-                effect.add_sound(cs.update + 1, *trlo, i, Sound::PANEL);
+                effect.add_sound(cs.update + 1, *trlo, rep_id, Sound::PANEL);
                 Sound::play_loud(Sound::PANEL);
                 // Don't check any more buttons, see comment before the loop.
                 some_panel_action = true;
                 break;
             }
         }
-
 
         if (! some_panel_action) {
             // check for empty clicked panel icons
@@ -231,31 +229,34 @@ void Gameplay::calc_active()
         int mmld_u = mouse_max_lix_distance_u - mouse_cursor_offset/2*zoom;
         int mmld_d = mouse_max_lix_distance_d - mouse_cursor_offset/2*zoom;
 
-        // trlo->skill_sel wird erst beim naechsten Update gesetzt.
-        // Also suchen wir manuell, welche Faehigkeit der Spieler durch
-        // Anklicken gewaehlt hat.
-        int skill_visible;
-        for (skill_visible = 0; skill_visible < gloB->skill_max
-         && ( !pan.skill[skill_visible].get_on()
-          || trlo->skill[skill_visible].nr == 0
-          ||   pan.skill[skill_visible].get_number() == 0); ++skill_visible);
+        // trlo->skill_sel is only set during next update to what's clicked.
+        // Therefore, look manually through the panel to see what has been
+        // clicked most recently.
+        GameplayPanel::SkBIt skill_visible = pan.skill.begin();
+        while (skill_visible != pan.skill.end()
+            && (! skill_visible->get_on()
+                // panel has reordered skills. trlo and the replay don't
+                || trlo->skill[skill_visible->get_replay_id()].nr == 0
+                || skill_visible->get_number() == 0))
+            ++skill_visible;
 
-        // Dies fuer den Notfall, um sinniges Cursoroeffnen zu produzieren
-        if (skill_visible == gloB->skill_max) {
-            skill_visible = malo->skill_sel;
-        }
+        // this is only for emergencies, to make the cursor open properly
+        if (skill_visible == pan.skill.end())
+            skill_visible = pan.button_by_replay_id(malo->skill_sel);
 
-        for (LixIt i = --trlo->lixvec.end(); i != --trlo->lixvec.begin();
-         --i) {
+        if (skill_visible != pan.skill.end())
+            for (LixIt i =  --trlo->lixvec.end();
+                       i != --trlo->lixvec.begin(); --i)
+        {
             if (map.distance_x(i->get_ex(), mx) <=  mmld_x
              && map.distance_x(i->get_ex(), mx) >= -mmld_x
              && map.distance_y(i->get_ey(), my) <=  mmld_d
-             && map.distance_y(i->get_ey(), my) >= -mmld_u) {
-
+             && map.distance_y(i->get_ey(), my) >= -mmld_u)
+            {
                 // Hypot geht von (ex|ey+etwas) aus
                 // true = Beachte persoenliche Einschraenkungen wie !MultBuild
                 int priority = i->get_priority(
-                 trlo->skill[skill_visible].ac, true);
+                    trlo->skill[skill_visible->get_replay_id()].ac, true);
 
                 // Invert priority if a corresponding mouse button is held
                 if ((hardware.get_mrh() && useR->prioinv_right)
@@ -297,12 +298,13 @@ void Gameplay::calc_active()
         pan.stats.set_tarinf(tarinf == trlo->lixvec.end() ? 0 : &*tarinf);
         pan.stats.set_tarcnt(tarcnt);
 
-        // Auswertung von target
-        // Wir kontrollieren auch die angezeigte Zahl, siehe Kommentar zur
-        // sichtbaren Zahl wegen Schokolade fuer's Auge
+        // Resolving target
+        // target == trlo->lixvec.end() if there was nobody under the cursor,
+        // or if skill_visible is somehow pan.skill.end(), shouldn't happen
+        // we're also checking the displayed number, look at comment about the
+        // visible number due to eye candy/making button seem more responsive
         if (target != trlo->lixvec.end() && hardware.get_ml()) {
-
-            if (pan.skill[skill_visible].get_number() != 0) {
+            if (skill_visible->get_number() != 0) {
                 // assign
                 const int lem_id = target - trlo->lixvec.begin();
                 pan.pause.set_off();
@@ -325,15 +327,14 @@ void Gameplay::calc_active()
                 // erscheint die Nummernaenderung eben erst beim kommenden Upd.
                 // Auch der Sound (s.u.) wird dann nicht gespielt.
                 if (!replay.get_on_update_lix_clicked(cs.update + 1, lem_id)
-                 && pan.skill[skill_visible].get_number() != LixEn::infinity) {
-                    pan.skill[skill_visible].set_number(
-                    pan.skill[skill_visible].get_number() - 1);
+                 && skill_visible->get_number() != LixEn::infinity) {
+                    skill_visible->set_number(skill_visible->get_number() - 1);
                 }
                 // Sound in der Effektliste speichern, damit er nicht beim Upd.
                 // nochmal ertoent, und dazu wird er hier nochmals gespielt,
                 // damit wir sicher gehen, dass er beim Klick kommt.
-                Sound::Id snd = Lixxie::get_ac_func(pan.skill[skill_visible]
-                                .get_skill()).sound_assign;
+                Sound::Id snd = Lixxie::get_ac_func(skill_visible
+                                ->get_skill()).sound_assign;
                 effect.add_sound(cs.update + 1, *trlo, lem_id, snd);
                 Sound::play_loud(snd);
             }
@@ -343,6 +344,6 @@ void Gameplay::calc_active()
         }
 
     }
-    // Ende von: Maus im Spielfeld ohne Zielen
+    // end of: mouse in the playing field, no aiming
 
 }

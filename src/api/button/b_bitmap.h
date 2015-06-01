@@ -35,8 +35,8 @@ private:
 public:
 
     // Konstruktoren, Destruktor
-             //           Grund,   Bild,          x,       y
-             BitmapButton(const Cutbit&, int = 0, int = 0);
+             BitmapButton(const Cutbit&, int = 0, int = 0); // bitmap's size
+             BitmapButton(const Cutbit&, int, int, int, int); // custom size
     virtual ~BitmapButton();
 
     inline  int  get_x_frame() const      { return x_frame;                }

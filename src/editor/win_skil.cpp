@@ -39,17 +39,17 @@ WindowSkill::WindowSkill(Level& l)
     typedef PossibleSkill PosSk;
 
     possible.push_back(PosSk(px(i), py(i), LixEn::WALKER));     ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::RUNNER));     ++i;
     possible.push_back(PosSk(px(i), py(i), LixEn::JUMPER));     ++i;
+    possible.push_back(PosSk(px(i), py(i), LixEn::RUNNER));     ++i;
+    possible.push_back(PosSk(px(i), py(i), LixEn::EXPLODER2));  ++i;
     possible.push_back(PosSk(px(i), py(i), LixEn::BATTER));     ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::PLATFORMER)); ++i;
     possible.push_back(PosSk(px(i), py(i), LixEn::CUBER));      ++i;
+    possible.push_back(PosSk(px(i), py(i), LixEn::PLATFORMER)); ++i;
     possible.push_back(PosSk(px(i), py(i), LixEn::NOTHING));    ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::EXPLODER));   ++i;
 
     possible.push_back(PosSk(px(i), py(i), LixEn::CLIMBER));    ++i;
     possible.push_back(PosSk(px(i), py(i), LixEn::FLOATER));    ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::EXPLODER2));  ++i;
+    possible.push_back(PosSk(px(i), py(i), LixEn::EXPLODER));   ++i;
     possible.push_back(PosSk(px(i), py(i), LixEn::BLOCKER));    ++i;
     possible.push_back(PosSk(px(i), py(i), LixEn::BUILDER));    ++i;
     possible.push_back(PosSk(px(i), py(i), LixEn::BASHER));     ++i;
@@ -255,8 +255,8 @@ void WindowSkill::calc_self()
         sbwb[2]->skill.set_skill(LixEn::CLIMBER);
         sbwb[3]->skill.set_skill(LixEn::FLOATER);
         sbwb[4]->skill.set_skill(LixEn::EXPLODER2);
-        sbwb[5]->skill.set_skill(LixEn::BLOCKER);
-        sbwb[6]->skill.set_skill(LixEn::BATTER);
+        sbwb[5]->skill.set_skill(LixEn::BATTER);
+        sbwb[6]->skill.set_skill(LixEn::BLOCKER);
         sbwb[7]->skill.set_skill(LixEn::BUILDER);
         sbwb[8]->skill.set_skill(LixEn::PLATFORMER);
         sbwb[9]->skill.set_skill(LixEn::BASHER);
@@ -268,8 +268,8 @@ void WindowSkill::calc_self()
              || i->ac == LixEn::CLIMBER
              || i->ac == LixEn::FLOATER
              || i->ac == LixEn::EXPLODER2
-             || i->ac == LixEn::BLOCKER
              || i->ac == LixEn::BATTER
+             || i->ac == LixEn::BLOCKER
              || i->ac == LixEn::BUILDER
              || i->ac == LixEn::PLATFORMER
              || i->ac == LixEn::BASHER
@@ -341,11 +341,12 @@ void PossibleSkill::draw_self()
 
 
 
-SkillButtonWithButtons::SkillButtonWithButtons(const unsigned nx,
- const unsigned ny, const LixEn::Ac ac, const int nr)
-:
+SkillButtonWithButtons::SkillButtonWithButtons(
+    const unsigned nx,
+    const unsigned ny
+) :
     Element (nx, ny, 40, 60+60),
-    skill   (0, 60, ac, nr, LixEn::GARDEN),
+    skill   (0, 60, 40),
     up_big  (GraLib::get(gloB->file_bitmap_api_number),  0,  0),
     up_med  (GraLib::get(gloB->file_bitmap_api_number),  0, 20),
     up_sml  (GraLib::get(gloB->file_bitmap_api_number),  0, 40),

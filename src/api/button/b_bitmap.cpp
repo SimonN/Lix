@@ -18,6 +18,18 @@ BitmapButton::BitmapButton(const Cutbit& c, int x, int y)
 {
 }
 
+
+
+BitmapButton::BitmapButton(const Cutbit& c, int x, int y, int xl, int yl)
+:
+    Button (x, y, xl, yl),
+    cutbit (&c),
+    x_frame(0)
+{
+}
+
+
+
 BitmapButton::~BitmapButton()
 {
 }
@@ -28,7 +40,10 @@ void BitmapButton::draw_self()
 {
     int y_frame = get_on() && !get_down() ? 1 : 0; // Button::draw setzt down
     Button::draw_self();
-    cutbit->draw(get_ground(), get_x_here(), get_y_here(), x_frame, y_frame);
+    cutbit->draw(get_ground(),
+        get_x_here() + get_xl()/2 - cutbit->get_xl()/2,
+        get_y_here() + get_yl()/2 - cutbit->get_yl()/2,
+        x_frame, y_frame);
 }
 
 

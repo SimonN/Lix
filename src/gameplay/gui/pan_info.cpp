@@ -96,10 +96,9 @@ void GameplayStats::calc_self()
 
 void GameplayStats::draw_self()
 {
-    // Zunaechst alle alten Aufschriften loeschen: Das Setzen der X-Koordinate
-    // und der Laenge setzt draw_required per Element-Basisfunktionen.
+    // Force clear of the bar
     stats_bar.set_x(0);
-    stats_bar.set_xl(12 * 40);
+    stats_bar.set_xl(14 * 36);
 
     stats_bar.set_draw_required();
     stats_bar.draw();
@@ -172,8 +171,8 @@ void GameplayStats::draw_self()
     }
 
     if (table) {
-        stats_multi.set_x (12 * 40);
-        stats_multi.set_xl( 4 * 40);
+        stats_multi.set_x (stats_bar.get_xl());
+        stats_multi.set_xl(4 * 34);
         stats_multi.show  ();
         stats_multi.set_draw_required();
         stats_multi.draw();
