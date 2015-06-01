@@ -5,6 +5,36 @@
 
 
 
+2015-06-02
+
+    14 skills in panel
+        During the game, the skill panel displays all 14 implemented skills.
+        To maintain backward compatibility, only 12 skills can be used per
+        level. The two exploders still aren't differentiated enough.
+
+    User-sortable skills
+        The skills are automatically sorted when a level starts. The player
+        can define a custom sort order. This doesn't have a dialog in the
+        user options yet. If you want to sort the skills, start and exit the
+        game once, then edit your user config file (data/config/yourname.txt).
+        Instructions are written into that file.
+
+    Colored multiplayer score graph
+        During the multiplayer game, the panel displays a bar graph with each
+        team's current score and potential score. Before this version, the
+        panel displayed two cups with similar information. Very few people
+        have looked at that. The bar graph is simpler and faster to interpret.
+
+    Runner rolls into a ball
+        A running jumper has a new animation now, it rolls into a ball during
+        the jump. The physics are exactly the same as before.
+
+    Avoid batter -> exploder off by default
+        The user option "avoid batter -> exploder" is off by default now.
+        The default should match a new player's expectation.
+
+
+
 2015-04-25
 
     lemforum, the pack by lemmingsforums.net
