@@ -12,6 +12,7 @@ GameplayStats::GameplayStats()
     Element    (0, 0, 0, 20),
     stats_bar  (0, 0, 20, 20),
     stats_multi(0, 0, 20, 60),
+    frame_around_scores(0, 0, 20, 60),
     gapamode   (GM_NONE),
     show_countd(false),
     tarcnt     (0),
@@ -22,6 +23,7 @@ GameplayStats::GameplayStats()
 {
     add_child(stats_bar);
     add_child(stats_multi);
+    add_child(frame_around_scores);
     add_child(help);
 }
 
@@ -105,111 +107,81 @@ void GameplayStats::draw_self()
 
     if (tribes.empty()) return;
 
-    bool         cup_colored     = false;
-    LixEn::Style cup_style       = tribes[0].tr->style; // maybe for 1-player
-    int          oppo_saved      = 0;
-    int          leader_saved    = 0;
+    int oppo_saved = 0;
 
-    bool         cupall_colored  = false;
-    LixEn::Style cupall_style    = tribes[0].tr->style; // maybe for 1-player
-    int          oppo_expected   = 0;
-    int          leader_expected = 0;
+    const bool print_horiz_bars = gapamode == GM_PLAY_MULTI
+                               || gapamode == GM_SPEC_MULTI;
+                                       // not GM_REPLAY_MULTI!
 
-    const bool table = (gapamode == GM_PLAY_MULTI || gapamode==GM_SPEC_MULTI);
-    const bool cups  = (gapamode == GM_REPLAY_MULTI || table);
-
-    if (cups) {
-        // How many lix did the best opponent save? --> oppo_saved.
-        // ``required'' remembers which scores should be green, which are
-        // those of the leading players among all players.
-        for (std::vector <PanelTribe> ::const_iterator itr = tribes.begin();
-         itr != tribes.end(); ++itr) {
-            if (itr->tr->get_score() > leader_saved)
-             leader_saved = itr->tr->get_score();
-            if (itr->tr->get_score_expected() > leader_expected)
-             leader_expected = itr->tr->get_score_expected();
-            if (!itr->white) {
-                if (itr->tr->get_score() > oppo_saved)
-                 oppo_saved = itr->tr->get_score();
-                if (itr->tr->get_score_expected() > oppo_expected)
-                 oppo_expected = itr->tr->get_score_expected();
-            }
+    // How many lix did the best opponent save? --> oppo_saved.
+    // ``required'' remembers which scores should be green, which are
+    // those of the leading players among all players.
+    for (std::vector <PanelTribe> ::const_iterator itr = tribes.begin();
+     itr != tribes.end(); ++itr) {
+        if (!itr->white) {
+            if (itr->tr->get_score() > oppo_saved)
+             oppo_saved = itr->tr->get_score();
         }
-        // Color the cup if there is exactly one leading player
-        cup_colored    = true;
-        cupall_colored = true;
-        int leader_saved_count    = 0;
-        int leader_expected_count = 0;
-        for (std::vector <PanelTribe> ::const_iterator itr = tribes.begin();
-         itr != tribes.end(); ++itr) {
-            if (itr->tr->get_score() == leader_saved) {
-                ++leader_saved_count;
-                cup_style = itr->tr->style;
-            }
-            if (itr->tr->get_score_expected() == leader_expected) {
-                ++leader_expected_count;
-                cupall_style = itr->tr->style;
-            }
-        }
-        if (leader_saved_count    > 1) cup_colored    = false;
-        if (leader_expected_count > 1) cupall_colored = false;
     }
 
-    // Zunaechst den Spieler mit weisser Schrift nach links malen
+    // draw the local player
     if (help.get_text().empty()) {
         for (std::vector <PanelTribe> ::const_iterator itr = tribes.begin();
          itr != tribes.end(); ++itr)
          if (itr->white) {
-            itr->draw_local(get_x_here(), get_y_here(), cups,
+            itr->draw_local(get_x_here(), get_y_here(), tribes.size() > 1,
                show_countd ? &countd : 0,
              ! show_countd ? &stopw  : 0,
-             tarinf, tarcnt,
-             cup_style,    cup_colored,    oppo_saved,
-             cupall_style, cupall_colored, oppo_expected);
+             tarinf, tarcnt, oppo_saved);
             break;
         }
     }
 
-    if (table) {
+    if (print_horiz_bars) {
         stats_multi.set_x (stats_bar.get_xl());
         stats_multi.set_xl(4 * 34);
         stats_multi.show  ();
         stats_multi.set_draw_required();
         stats_multi.draw();
 
-        int x = stats_multi.get_x_here();
-        int plus_x = 40;
+        // all the horiz-bar drawing occurs in the following rectangle
+        // we're computing real screen drawing coordinates here
+        const int bar_x  = stats_multi.get_x_here() + 4;
+        const int bar_xl = stats_multi.get_xl() - 8;
+        const int bar_y  = stats_multi.get_y_here() + 4;
+        const int bar_yl = stats_multi.get_yl() - 8;
 
-        if (tribes.size() == 2) {
-            x      += 30;
-            plus_x =  60;
-        }
-        else if (tribes.size() == 3) {
-            x      += 10;
-            plus_x =  50;
-        }
+        frame_around_scores.set_x (bar_x - this->get_x_here());
+        frame_around_scores.set_xl(bar_xl);
+        frame_around_scores.set_y (bar_y - this->get_y_here());
+        frame_around_scores.set_yl(bar_yl);
+        frame_around_scores.show  ();
+        frame_around_scores.set_draw_required();
+        frame_around_scores.draw();
 
-        // Draw the local player first for reference.
-        // He will be drawn twice in multiplyaer, because his main stats
-        // are also in the panel's top bar.
-        for (std::vector <PanelTribe> ::const_iterator itr = tribes.begin();
-         itr != tribes.end(); ++itr)
-         if (itr->white) {
-            itr->draw_med(x, stats_multi.get_y_here(), leader_saved);
-            x += plus_x;
-            break;
-        }
+        BITMAP* g = get_ground().get_al_bitmap();
+        rectfill(g, bar_x, bar_y, bar_x+bar_xl-1, bar_y+bar_yl-1,
+            color[COL_BLACK]);
 
-        // Sort the other players with a stable sort.
-        typedef std::list <const PanelTribe*>            PtrList;
-        typedef std::list <const PanelTribe*> ::iterator PtrItr;
+        // Sort all players, including the local (white) one,
+        // with a stable sort. While doing so, collect the info about the
+        // highest potential (expected score) among all players
+        int highest_expected = 1; // don't crash when dividing by this
 
-        PtrList sorted;
+        typedef std::list   <const PanelTribe*>            PtrList;
+        typedef std::list   <const PanelTribe*> ::iterator PtrItr;
+        typedef std::vector <const PanelTribe*>            PtrVec;
+
+        PtrVec  sorted;
         PtrList candidates;
         for (std::vector <PanelTribe> ::const_iterator itr = tribes.begin();
-         itr != tribes.end(); ++itr)
-         if (!itr->white) candidates.push_back(&*itr);
-        while (!candidates.empty() && sorted.size() < 3) {
+         itr != tribes.end(); ++itr) {
+            candidates.push_back(&*itr);
+            if (itr->tr->get_score_expected() > highest_expected) {
+                highest_expected = itr->tr->get_score_expected();
+            }
+        }
+        while (!candidates.empty()) {
             PtrItr best = candidates.begin();
             for (PtrItr better = ++candidates.begin();
              better != candidates.end(); ++better) {
@@ -220,13 +192,69 @@ void GameplayStats::draw_self()
         }
         // end of sort
 
-        for (PtrItr itr = sorted.begin(); itr != sorted.end(); ++itr) {
-            (**itr).draw_med(x, stats_multi.get_y_here(), leader_saved);
-            x += plus_x;
+        // draw a bar for each player found
+        const int ssize = static_cast <int> (sorted.size());
+        for (int i = 0; i < ssize; ++i) {
+            const int saved = sorted[i]->tr->get_score();
+            const int expec = sorted[i]->tr->get_score_expected();
+            const int x  = bar_x;
+            const int y  = bar_y + i * bar_yl / ssize;
+            const int yl =     (i+1) * bar_yl / ssize - i * bar_yl / ssize;
+            const int xl =     saved * bar_xl / highest_expected;
+            // p stands for potential
+            const int py  = y + (yl+1)/3;
+            const int pyl = yl - 2 * (py - y);
+            const int px  = x; // really (x + xl), but with (x), it comes out
+            const int pxl = (expec * bar_xl / highest_expected); // - xl;
+            if (expec > saved) {
+                draw_clones_bar(px, py, pxl, pyl, sorted[i]->tr->style);
+            }
+            if (saved) {
+                // draw this after the first bar, to partially overwrite it
+                draw_clones_bar(x, y, xl, yl, sorted[i]->tr->style);
+            }
         }
+
         draw_button_connection();
     }
-    else stats_multi.hide();
+    else {
+        stats_multi.hide();
+        frame_around_scores.hide();
+    }
+}
+
+
+
+// this takes values in absolute screen coordinates already
+void GameplayStats::draw_clones_bar(
+    int x, int y, int xl, int yl,
+    LixEn::Style style)
+{
+    BITMAP* g     = get_ground().get_al_bitmap();
+    const int& x1 = x;
+    const int& y1 = y;
+    const int  x2 = x + xl - 1;
+    const int  y2 = y + yl - 1;
+
+    // bad: manual retrieval of the colors from the recoloring pallette
+    // when porting to D, cache the colors instead in GraLib and offer
+    // an interface to query colors by style
+    const Cutbit& cb = GraLib::get(gloB->file_bitmap_lix_recol);
+    const int col_l = cb.get_pixel(6, style + 1);
+    const int col_m = cb.get_pixel(7, style + 1);
+    const int col_d = cb.get_pixel(8, style + 1);
+
+    rectfill(g, x1, y1, x2, y2, col_m);
+
+    // drawing the border until we don't have room anymore, or we have
+    // drawn the usual border thickness of 2;
+    for (int bor = 0; bor < xl/2 && bor < yl/2 && bor < 2; ++bor) {
+        // +/-0 instead of +/-1 means: this draws the corner pixels too
+        hline(g, x1 + bor + 0, y1 + bor,     x2 - bor - 1, col_l);
+        hline(g, x1 + bor + 1, y2 - bor,     x2 - bor - 0, col_d);
+        vline(g, x1 + bor,     y1 + bor + 1, y2 - bor - 1, col_l);
+        vline(g, x2 - bor,     y1 + bor + 1, y2 - bor - 1, col_d);
+    }
 }
 
 

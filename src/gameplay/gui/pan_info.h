@@ -12,6 +12,7 @@
 
 #include "../../api/button/button.h"
 #include "../../api/label.h"
+#include "../../api/frame.h"
 #include "../../lix/lix_enum.h" // Farben und Tarinf
 
  // Gameplay panel mode
@@ -62,10 +63,7 @@ private:
         // der PanelTribe-Zeichenausgabe an, nicht den linken Rand!
         void draw_local(int, int, bool,
            const int*, const int*,
-           const Lixxie*, int,
-           const LixEn::Style, const bool, const int,
-           const LixEn::Style, const bool, const int) const;
-        void draw_med(int, int, int = 0) const;
+           const Lixxie*, int, const int) const;
 
         bool operator > (const PanelTribe&) const;
 
@@ -77,8 +75,9 @@ private:
     };
     // Ende Klasse PanelTribe
 
-    Api::Button stats_bar;   // The extra space at the right
+    Api::Button stats_bar;   // The long horizon bar over the skill panel
     Api::Button stats_multi; // The extra space at the right
+    Api::Frame  frame_around_scores;
 
     std::vector <PanelTribe> tribes;
     GapaMode gapamode;   // show the multiplayer stats
@@ -91,7 +90,8 @@ private:
 
     Api::Label    help; // if nonempty, show this instead of regular stuff
 
-    void          draw_button_connection(); // for multiplayer eye candy
+    void draw_clones_bar(int, int, int, int, LixEn::Style); // abs x, y, xl, yl
+    void draw_button_connection(); // for multiplayer eye candy
 
     void draw_self_play_single();
     void draw_self_play_multi();
