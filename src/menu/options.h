@@ -19,6 +19,7 @@
 
 #include "../api/button/b_enum.h"
 #include "../api/button/b_key.h"
+#include "../api/button/b_skill.h"
 #include "../api/button/b_text.h"
 #include "../api/label.h"
 #include "../api/number.h"
@@ -124,47 +125,47 @@ private:
                desc_prioinv_middle,
                desc_prioinv_right;
 
+    std::vector <SkillButton> img_skill;
+    std::vector <KeyButton>   key_skill;
+
     KeyButton  key_force_left;
     KeyButton  key_force_right;
-    KeyButton  key_rate_minus;
-    KeyButton  key_rate_plus;
     KeyButton  key_pause;
     KeyButton  key_speed_slow;
     KeyButton  key_speed_fast;
     KeyButton  key_speed_turbo;
+    KeyButton  key_rate_minus;
+    KeyButton  key_rate_plus;
     KeyButton  key_restart;
     KeyButton  key_state_load;
     KeyButton  key_state_save;
+    KeyButton  key_nuke;
+    KeyButton  key_ga_exit;
     KeyButton  key_zoom;
     KeyButton  key_chat;
     KeyButton  key_spec_tribe;
-    KeyButton  key_nuke;
-    KeyButton  key_ga_exit;
     KeyButton  key_scroll;
     KeyButton  key_priority;
-    std::vector <KeyButton> key_skill;
-    std::vector <Label>     desc_key_skill;
-    Label      desc_key_force_left,
-               desc_key_force_right,
-               desc_key_rate_minus,
-               desc_key_rate_plus,
-               desc_key_pause,
-               desc_key_speed_slow,
-               desc_key_speed_fast,
-               desc_key_speed_turbo,
-               desc_key_restart,
-               desc_key_state_load,
-               desc_key_state_save,
-               desc_key_zoom,
-               desc_key_chat,
-               desc_key_spec_tribe,
-               desc_key_nuke,
-               desc_key_ga_exit,
-               desc_key_scroll,
-               desc_key_priority,
-               desc_key_info_1,
-               desc_key_info_2,
-               desc_key_info_3;
+
+    Label
+        desc_key_force_left,
+        desc_key_force_right,
+        desc_key_pause,
+        desc_key_speed_slow,
+        desc_key_speed_fast,
+        desc_key_speed_turbo,
+        desc_key_rate_minus,
+        desc_key_rate_plus,
+        desc_key_restart,
+        desc_key_state_load,
+        desc_key_state_save,
+        desc_key_nuke,
+        desc_key_ga_exit,
+        desc_key_zoom,
+        desc_key_chat,
+        desc_key_spec_tribe,
+        desc_key_scroll,
+        desc_key_priority;
 
     KeyButton  ed_left;
     KeyButton  ed_right;
@@ -293,7 +294,6 @@ private:
                desc_sound_volume,
                desc_sound_info;
 
-    void add_skill_to_hotkey_dialogue(const LixEn::Ac&);
     void reset_elements();
     void show_group (const OptionGroup);
 

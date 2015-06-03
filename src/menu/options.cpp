@@ -34,26 +34,6 @@ const unsigned OptionMenu::key_t3    = 440 + OptionMenu::key_xl;
 
 
 
-void OptionMenu::add_skill_to_hotkey_dialogue(const LixEn::Ac& ac)
-{
-    KeyButton* tb = &key_skill[ac];
-    tb->set_x(hotkey_add_counter < 10 ? key_b2 : key_b3);
-    tb->set_y(100 + (hotkey_add_counter % 10) * 30);
-    pointers[GROUP_HOTKEYS].push_back(tb);
-
-    Label* l = &desc_key_skill[ac];
-    l->set_x(tb->get_x() + tb->get_xl() + 20);
-    l->set_y(tb->get_y());
-    std::string s = LixEn::ac_to_string(ac);
-    Help::string_to_nice_case(s);
-    l->set_text(s);
-    pointers[GROUP_HOTKEYS].push_back(l);
-
-    ++hotkey_add_counter;
-}
-
-
-
 OptionMenu::OptionMenu()
 :
     Window(0, 0, LEMSCR_X, LEMSCR_Y, Language::option_title),
@@ -104,49 +84,51 @@ OptionMenu::OptionMenu()
     desc_prioinv_middle   (check_nx, 310, Language::option_prioinv_middle),
     desc_prioinv_right    (check_nx, 340, Language::option_prioinv_right),
 
-    key_force_left        (key_b1,  100, key_xl),
-    key_force_right       (key_b1,  120, key_xl),
-    key_rate_minus        (key_b1,  150, key_xl),
-    key_rate_plus         (key_b1,  170, key_xl),
-    key_pause             (key_b1,  200, key_xl),
-    key_speed_slow        (key_b1,  220, key_xl),
-    key_speed_fast        (key_b1,  240, key_xl),
-    key_speed_turbo       (key_b1,  260, key_xl),
-    key_restart           (key_b1,  290, key_xl),
-    key_state_load        (key_b1,  310, key_xl),
-    key_state_save        (key_b1,  330, key_xl),
-    key_zoom              (key_b1,  360, key_xl),
-    key_chat              (key_b1,  380, key_xl),
-    key_spec_tribe        (key_b1,  400, key_xl),
-    key_nuke              (key_b3,  220, key_xl),
-    key_ga_exit           (key_b3,  310, key_xl),
-    key_scroll            (key_b3,  250, key_xl),
-    key_priority          (key_b3,  280, key_xl),
-
     // Some of the following buttons will be moved again.
-    key_skill             (LixEn::AC_MAX, KeyButton(9999, 9999, key_xl)),
-    desc_key_skill        (LixEn::AC_MAX, Label    (9999, 9999)),
-    desc_key_force_left   (key_t1, 100, Language::option_key_force_left),
-    desc_key_force_right  (key_t1, 120, Language::option_key_force_right),
-    desc_key_rate_minus   (key_t1, 150, Language::option_key_rate_minus),
-    desc_key_rate_plus    (key_t1, 170, Language::option_key_rate_plus),
-    desc_key_pause        (key_t1, 200, Language::option_key_pause),
-    desc_key_speed_slow   (key_t1, 220, Language::option_key_speed_slow),
-    desc_key_speed_fast   (key_t1, 240, Language::option_key_speed_fast),
-    desc_key_speed_turbo  (key_t1, 260, Language::option_key_speed_turbo),
-    desc_key_restart      (key_t1, 290, Language::option_key_restart),
-    desc_key_state_load   (key_t1, 310, Language::option_key_state_load),
-    desc_key_state_save   (key_t1, 330, Language::option_key_state_save),
-    desc_key_zoom         (key_t1, 360, Language::option_key_zoom),
-    desc_key_chat         (key_t1, 380, Language::option_key_chat),
-    desc_key_spec_tribe   (key_t1, 400, Language::option_key_spec_tribe),
-    desc_key_nuke         (key_t3, 220, Language::option_key_nuke),
-    desc_key_ga_exit      (key_t3, 310, Language::win_game_title),
-    desc_key_scroll       (key_t3, 250, Language::option_key_scroll),
-    desc_key_priority     (key_t3, 280, Language::option_key_priority),
-    desc_key_info_1       (key_b3, 340, Language::option_key_info_1),
-    desc_key_info_2       (key_b3, 360, Language::option_key_info_2),
-    desc_key_info_3       (key_b3, 380, Language::option_key_info_3),
+    img_skill(useR->skill_sort.size(), SkillButton(9999, 9999, 40)),
+    key_skill(useR->skill_sort.size(), KeyButton  (9999, 9999, 40)),
+
+    key_force_left        (key_b1, 200, key_xl),
+    key_force_right       (key_b1, 220, key_xl),
+    key_pause             (key_b1, 260, key_xl),
+    key_speed_slow        (key_b1, 280, key_xl),
+    key_speed_fast        (key_b1, 300, key_xl),
+    key_speed_turbo       (key_b1, 320, key_xl),
+
+    key_rate_minus        (key_b2, 200, key_xl),
+    key_rate_plus         (key_b2, 220, key_xl),
+    key_restart           (key_b2, 260, key_xl),
+    key_state_load        (key_b2, 280, key_xl),
+    key_state_save        (key_b2, 300, key_xl),
+
+    key_nuke              (key_b3, 200, key_xl),
+    key_ga_exit           (key_b3, 220, key_xl),
+    key_zoom              (key_b3, 260, key_xl),
+    key_chat              (key_b3, 280, key_xl),
+    key_spec_tribe        (key_b3, 300, key_xl),
+    key_scroll            (key_b3, 320, key_xl),
+    key_priority          (key_b3, 340, key_xl),
+
+    desc_key_force_left   (key_t1, 200, Language::option_key_force_left),
+    desc_key_force_right  (key_t1, 220, Language::option_key_force_right),
+    desc_key_pause        (key_t1, 260, Language::option_key_pause),
+    desc_key_speed_slow   (key_t1, 280, Language::option_key_speed_slow),
+    desc_key_speed_fast   (key_t1, 300, Language::option_key_speed_fast),
+    desc_key_speed_turbo  (key_t1, 320, Language::option_key_speed_turbo),
+
+    desc_key_rate_minus   (key_t2, 200, Language::option_key_rate_minus),
+    desc_key_rate_plus    (key_t2, 220, Language::option_key_rate_plus),
+    desc_key_restart      (key_t2, 260, Language::option_key_restart),
+    desc_key_state_load   (key_t2, 280, Language::option_key_state_load),
+    desc_key_state_save   (key_t2, 300, Language::option_key_state_save),
+
+    desc_key_nuke         (key_t3, 200, Language::option_key_nuke),
+    desc_key_ga_exit      (key_t3, 220, Language::win_game_title),
+    desc_key_zoom         (key_t3, 260, Language::option_key_zoom),
+    desc_key_chat         (key_t3, 280, Language::option_key_chat),
+    desc_key_spec_tribe   (key_t3, 300, Language::option_key_spec_tribe),
+    desc_key_scroll       (key_t3, 320, Language::option_key_scroll),
+    desc_key_priority     (key_t3, 340, Language::option_key_priority),
 
     ed_left               (key_b1, 100, key_xl),
     ed_right              (key_b1, 120, key_xl),
@@ -369,23 +351,25 @@ OptionMenu::OptionMenu()
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_ga_exit);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_scroll);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_priority);
-    pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_1);
-    pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_2);
-    pointers[GROUP_HOTKEYS ].push_back(&desc_key_info_3);
-    add_skill_to_hotkey_dialogue(LixEn::WALKER);
-    add_skill_to_hotkey_dialogue(LixEn::RUNNER);
-    add_skill_to_hotkey_dialogue(LixEn::JUMPER);
-    add_skill_to_hotkey_dialogue(LixEn::BATTER);
-    add_skill_to_hotkey_dialogue(LixEn::CLIMBER);
-    add_skill_to_hotkey_dialogue(LixEn::FLOATER);
-    add_skill_to_hotkey_dialogue(LixEn::EXPLODER);
-    add_skill_to_hotkey_dialogue(LixEn::BLOCKER);
-    add_skill_to_hotkey_dialogue(LixEn::CUBER);
-    add_skill_to_hotkey_dialogue(LixEn::BUILDER);
-    add_skill_to_hotkey_dialogue(LixEn::PLATFORMER);
-    add_skill_to_hotkey_dialogue(LixEn::BASHER);
-    add_skill_to_hotkey_dialogue(LixEn::MINER);
-    add_skill_to_hotkey_dialogue(LixEn::DIGGER);
+
+    // here, we rely on useR->skill_sort to have exactly one of each
+    // displayable and keybinable skill
+    for (size_t i = 0; i < useR->skill_sort.size(); ++i) {
+        img_skill[i].set_x(40 + 40*i);
+        img_skill[i].set_y(100);
+        img_skill[i].set_skill(useR->skill_sort[i]);
+        img_skill[i].set_number(LixEn::infinity);
+
+        // Kludge, this disables displaying it down.
+        // There should be a differently-worded method for it.
+        img_skill[i].set_hot();
+
+        key_skill[i].set_x(img_skill[i].get_x());
+        key_skill[i].set_y(img_skill[i].get_y() + img_skill[i].get_yl());
+
+        pointers[GROUP_HOTKEYS].push_back(&img_skill[i]);
+        pointers[GROUP_HOTKEYS].push_back(&key_skill[i]);
+    }
 
     pointers[GROUP_EDITOR  ].push_back(&ed_left);
     pointers[GROUP_EDITOR  ].push_back(&ed_right);
@@ -594,8 +578,11 @@ void OptionMenu::reset_elements()
     key_ga_exit          .set_scancode(useR->key_ga_exit);
     key_scroll           .set_scancode(useR->key_scroll);
     key_priority         .set_scancode(useR->key_priority);
-    for (size_t i = 0; i < key_skill.size(); ++i)
-     key_skill[i]        .set_scancode(useR->key_skill[i]);
+
+    for (size_t i = 0; i < useR->skill_sort.size(); ++i) {
+        LixEn::Ac ac = img_skill[i].get_skill();
+        key_skill[i].set_scancode(useR->key_skill[ac]);
+    }
 
     ed_left              .set_scancode(useR->key_ed_left);
     ed_right             .set_scancode(useR->key_ed_right);
@@ -777,12 +764,19 @@ void OptionMenu::calc_self()
         useR->key_ga_exit     = key_ga_exit    .get_scancode();
         useR->key_scroll      = key_scroll     .get_scancode();
         useR->key_priority    = key_priority   .get_scancode();
-        for (size_t i = 0; i < key_skill.size(); ++i)
-         useR->key_skill[i]   = key_skill[i]   .get_scancode();
-        // There's only the Exploder hotkey in the options menu, but
-        // it shall control both hotkeys.
-        useR->key_skill[LixEn::EXPLODER2]
-         = key_skill[LixEn::EXPLODER].get_scancode();
+
+        for (size_t i = 0; i < useR->skill_sort.size(); ++i) {
+            LixEn::Ac ac = img_skill[i].get_skill();
+            // set the user's sorting to the skill panel's order here
+            useR->skill_sort[i] = ac;
+            useR->key_skill[ac] = key_skill[i].get_scancode();
+            // There's only the EXPLODER2 hotkey in the options menu, but
+            // it shall control both hotkeys. This is a design barnacle,
+            // the skills should be treated interally more like they were
+            // only one. To the player, they should appear very different.
+            if (ac == LixEn::EXPLODER2)
+                useR->key_skill[LixEn::EXPLODER] = key_skill[i].get_scancode();
+        }
 
         useR->key_ed_left        = ed_left       .get_scancode();
         useR->key_ed_right       = ed_right      .get_scancode();

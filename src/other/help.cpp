@@ -131,12 +131,12 @@ void string_to_nice_case(std::string& s) {
 
 
 
-void string_shorten(std::string& s, const FONT* ft, const int length) {
-    if (text_length(ft, s.c_str()) > length) {
-        while (text_length(ft, s.c_str()) > length - text_length(ft, "..."))
-         Help::remove_last_utf8_char(s);
-        s += "...";
-    }
+void string_shorten(std::string& s, const FONT* ft, const int len) {
+    if (text_length(ft, s.c_str()) < len) return;
+    const std::string append = (len >= 100 ? "..." : ".");
+    while (! s.empty() && text_length(ft, (s + append).c_str()) > len)
+        Help::remove_last_utf8_char(s);
+    s += append;
 }
 
 

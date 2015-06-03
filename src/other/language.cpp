@@ -392,9 +392,6 @@ DECL_VARIABLE_FOR_TRANSLATION(option_key_zoom);
 DECL_VARIABLE_FOR_TRANSLATION(option_key_chat);
 DECL_VARIABLE_FOR_TRANSLATION(option_key_spec_tribe);
 DECL_VARIABLE_FOR_TRANSLATION(option_key_nuke);
-DECL_VARIABLE_FOR_TRANSLATION(option_key_info_1);
-DECL_VARIABLE_FOR_TRANSLATION(option_key_info_2);
-DECL_VARIABLE_FOR_TRANSLATION(option_key_info_3);
 
 DECL_VARIABLE_FOR_TRANSLATION(option_sorted_skills);
 
@@ -920,11 +917,8 @@ void Language::set(const Language lang)
         option_key_state_save         = "Save state";
         option_key_zoom               = "Zoom";
         option_key_chat               = "Chat";
-        option_key_spec_tribe         = "Cycle spectated teams";
+        option_key_spec_tribe         = "Cycle teams";
         option_key_nuke               = "Nuke";
-        option_key_info_1             = "A hotkey assigned to";
-        option_key_info_2             = "multiple skills will";
-        option_key_info_3             = "alternate between them.";
 
         option_sorted_skills          = "Click two images to swap their"
                                         " position in the game's panel.";
@@ -1399,7 +1393,7 @@ eb[Editor::ADD_HAZARD]
         option_key_force_left         = "Nur links";
         option_key_force_right        = "Nur rechts";
         option_key_scroll             = "Scrollen";
-        option_key_priority           = "Priorit. inv.";
+        option_key_priority           = "Priorität inv.";
         option_key_rate_minus         = "Rate runter";
         option_key_rate_plus          = "Rate rauf";
         option_key_pause              = "Pause";
@@ -1411,11 +1405,8 @@ eb[Editor::ADD_HAZARD]
         option_key_state_save         = "Stand spei.";
         option_key_zoom               = "Zoom";
         option_key_chat               = "Chat";
-        option_key_spec_tribe         = "Anderem Team zuschauen";
+        option_key_spec_tribe         = "Team ansehen";
         option_key_nuke               = "Atombombe";
-        option_key_info_1             = "Ein mehrfach zugewiesener";
-        option_key_info_2             = "Hotkey alterniert zwischen";
-        option_key_info_3             = "seinen Fähigkeiten.";
 
         option_sorted_skills          = "Klicke zwei Bilder an, "
                                         "um ihre Reihenfolge in der "

@@ -369,9 +369,6 @@ option_key_zoom,
 option_key_chat,
 option_key_spec_tribe,
 option_key_nuke,
-option_key_info_1,
-option_key_info_2,
-option_key_info_3,
 
 option_sorted_skills,
 
