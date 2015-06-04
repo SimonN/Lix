@@ -272,9 +272,9 @@ DECL_VARIABLE_FOR_TRANSLATION(win_var_clock);
 // Faehigkeits-Fenster
 DECL_VARIABLE_FOR_TRANSLATION(win_skill_title);
 DECL_VARIABLE_FOR_TRANSLATION(win_skill_clear);
-DECL_VARIABLE_FOR_TRANSLATION(win_skill_classic_8);
-DECL_VARIABLE_FOR_TRANSLATION(win_skill_classic_12);
+DECL_VARIABLE_FOR_TRANSLATION(win_skill_classic_8_to);
 DECL_VARIABLE_FOR_TRANSLATION(win_skill_all_to);
+DECL_VARIABLE_FOR_TRANSLATION(win_skill_use_fling);
 
 // Exporting a level into a file
 DECL_VARIABLE_FOR_TRANSLATION(export_single_lix);
@@ -775,9 +775,9 @@ void Language::set(const Language lang)
         // Faehigkeits-Fenster
         win_skill_title               = "Skill Settings";
         win_skill_clear               = "Clear all";
-        win_skill_classic_8           = "Classic 8";
-        win_skill_classic_12          = "Modern 12";
+        win_skill_classic_8_to        = "Adjust classic 8 to:";
         win_skill_all_to              = "Adjust all:";
+        win_skill_use_fling           = "Use knockback exploder";
 
         // Exporting a level into a file
         export_single_lix             = "Save:";
@@ -1258,9 +1258,9 @@ eb[Editor::ADD_HAZARD]
         // Faehigkeits-Fenster
         win_skill_title               = "Fähigkeits-Einstellungen";
         win_skill_clear               = "Alle löschen";
-        win_skill_classic_8           = "Alte 8";
-        win_skill_classic_12          = "Moderne 12";
+        win_skill_classic_8_to        = "Klassische 8 ändern:";
         win_skill_all_to              = "Alle ändern:";
+        win_skill_use_fling           = "Rückstoß-Explodierer";
 
         // Exporting a level into a file
         export_single_lix             = "Ziel:";

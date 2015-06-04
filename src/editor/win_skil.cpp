@@ -11,89 +11,95 @@
 
 namespace Api {
 
-const int WindowSkill::y_sbwb(140);
-const int WindowSkill::this_xl(520);
-const int WindowSkill::this_yl(y_sbwb + 210);
+const int WindowSkill::y_sbwb(40);
+const int WindowSkill::this_xl(40*14 + 40);
+const int WindowSkill::this_yl(y_sbwb + 210 + 60); // debugging +60, see .h
+
+static int x_a  = 20;
+static int x_a2 = 150;
+static int xl_a = 110;
+static int x_b  = 280;
+static int xl_b = 180;
+static int x_c  = 600 - 120;
+static int xl_c = 100;
 
 WindowSkill::WindowSkill(Level& l)
 :
-    Window(LEMSCR_X/2 - this_xl/2, LEMSCR_Y/2 - this_yl/2 - 30,
+    Window(LEMSCR_X/2 - this_xl/2, LEMSCR_Y/2 - this_yl/2 - 40,
      this_xl, this_yl, Language::win_skill_title),
 
     level(&l),
-    sbwb (gloB->skill_max),
+    sbwb (useR->skill_sort.size()),
 
-    cur_pos (0),
-    cur_sbwb(0),
+    clear      (x_a,  this_yl - 40, xl_a),
+    classic8_to(x_b,  this_yl - 70, xl_b),
+    all_to     (x_a2, this_yl - 40, xl_a),
+    all_to_n   (x_b,  this_yl - 40, xl_b, 3, -1, LixEn::skill_nr_max, 0, true),
 
-    clear    ( 20, this_yl - 70, 180),
-    classic8 ( 20, this_yl - 40,  80),
-    classic12(100, this_yl - 40, 100),
-    all_to  (220, this_yl - 70, 160),
-    all_to_n(220, this_yl - 40, 160, 3, -1, LixEn::skill_nr_max, 0, true),
-    ok      (this_xl - 120, this_yl - 70, 100),
-    cancel  (this_xl - 120, this_yl - 40, 100)
+    use_fling     (20, this_yl - 70),
+    desc_use_fling(60, this_yl - 70, Language::win_skill_use_fling),
+
+    ok      (x_c, this_yl - 70, xl_c),
+    cancel  (x_c, this_yl - 40, xl_c),
+
+    debugging_1(20, this_yl-130,
+        "The current level format can save only up to 12 different skills!"),
+    debugging_2(20, this_yl-110,
+        "This restriction will be removed in the upcoming days/weeks.")
 {
-    // Moegliche Faehigkeiten
-    unsigned int i = 0;
-    typedef PossibleSkill PosSk;
+    // choose which exploder to use
+    use_fling.set_checked(true);
+    for (size_t lv_sk = 0; lv_sk < level->skill.size(); ++lv_sk) {
+        if (level->skill[lv_sk].ac == LixEn::EXPLODER) {
+            use_fling.set_checked(false);
+            break;
+        }
+    }
 
-    possible.push_back(PosSk(px(i), py(i), LixEn::WALKER));     ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::JUMPER));     ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::RUNNER));     ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::EXPLODER2));  ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::BATTER));     ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::CUBER));      ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::PLATFORMER)); ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::NOTHING));    ++i;
-
-    possible.push_back(PosSk(px(i), py(i), LixEn::CLIMBER));    ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::FLOATER));    ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::EXPLODER));   ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::BLOCKER));    ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::BUILDER));    ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::BASHER));     ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::MINER));      ++i;
-    possible.push_back(PosSk(px(i), py(i), LixEn::DIGGER));     ++i;
-
-    // Tatsaechliche Faehigkeiten
+    // make skill buttons accordingly
     for (size_t i = 0; i < sbwb.size(); ++i) {
         sbwb[i] = new SkillButtonWithButtons;
         sbwb[i]->set_x(20 + i*40);
         sbwb[i]->set_y(y_sbwb);
-        sbwb[i]->skill.set_skill (level->skill[i].ac);
-        sbwb[i]->skill.set_number(level->skill[i].nr);
+        sbwb[i]->skill.set_hot(); // kludge, this is so it's never down
+        LixEn::Ac ac = useR->skill_sort[i];
+        if (ac == LixEn::EXPLODER2 && ! use_fling.get_checked())
+            ac = LixEn::EXPLODER;
+        sbwb[i]->skill.set_skill(ac);
         add_child(*sbwb[i]);
+
+        for (size_t lv_sk = 0; lv_sk < level->skill.size(); ++lv_sk) {
+            if (level->skill[lv_sk].ac == sbwb[i]->skill.get_skill()) {
+                sbwb[i]->skill.set_number(level->skill[lv_sk].nr);
+                break;
+            }
+        }
     }
 
-    // Add children
-    for (std::vector <PossibleSkill> ::iterator i = possible.begin();
-     i != possible.end(); ++i) add_child(*i);
     add_child(clear);
-    add_child(classic8);
-    add_child(classic12);
+    add_child(classic8_to);
     add_child(all_to);
     add_child(all_to_n);
+    add_child(use_fling);
+    add_child(desc_use_fling);
     add_child(ok);
     add_child(cancel);
-
-    // Eventuell bei den moeglichen was ausgrauen?
-    for (PosIt i = possible.begin(); i != possible.end(); ++i)
-     for (SbwbIt j = sbwb.begin();   j != sbwb    .end(); ++j)
-      if (i->ac == (**j).skill.get_skill()) i->set_color(false);
+    add_child(debugging_1);
+    add_child(debugging_2);
 
     all_to_n.set_minus_one_char('*');
 
-    clear    .set_text(Language::win_skill_clear);
-    classic8 .set_text(Language::win_skill_classic_8);
-    classic12.set_text(Language::win_skill_classic_12);
-    all_to   .set_text(Language::win_skill_all_to);
-    ok       .set_text(Language::common_ok);
-    cancel   .set_text(Language::common_cancel);
+    clear      .set_text(Language::win_skill_clear);
+    classic8_to.set_text(Language::win_skill_classic_8_to);
+    all_to     .set_text(Language::win_skill_all_to);
+    ok         .set_text(Language::common_ok);
+    cancel     .set_text(Language::common_cancel);
 
     ok     .set_hotkey(useR->key_me_okay);
     cancel .set_hotkey(useR->key_me_exit);
 }
+
+
 
 WindowSkill::~WindowSkill()
 {
@@ -102,108 +108,18 @@ WindowSkill::~WindowSkill()
 
 
 
-void WindowSkill::swap_sbwbs(SkillButtonWithButtons* a,
-                             SkillButtonWithButtons* b)
-{
-    if (a == b) return;
-    LixEn::Ac tempa = a->skill.get_skill ();
-    unsigned    tempi = a->skill.get_number();
-    a->skill.set_skill (b->skill.get_skill ());
-    a->skill.set_number(b->skill.get_number());
-    b->skill.set_skill (tempa);
-    b->skill.set_number(tempi);
-}
-
-void WindowSkill::assign_sbwb_pos(SkillButtonWithButtons* b,
-                                  PossibleSkill* p)
-{
-    LixEn::Ac bac = b->skill.get_skill();
-    if (bac == p->ac || p->ac == LixEn::NOTHING) {
-        for (PosIt i = possible.begin(); i != possible.end(); ++i)
-         if (i->ac == bac) {
-            i->set_color(true);
-            break;
-        }
-        b->skill.set_skill(LixEn::NOTHING);
-    }
-    else {
-        bool swapped = false;
-        for (SbwbIt i = sbwb.begin(); i != sbwb.end(); ++i)
-         if (*i != b && (**i).skill.get_skill() == p->ac) {
-            swapped = true;
-            swap_sbwbs(b, *i);
-            break;
-        }
-        if (!swapped) {
-            // Bisherigen Inhalt des Sbwbs oben wieder farbig machen
-            for (PosIt i = possible.begin(); i != possible.end(); ++i)
-             if (i->ac == bac) {
-                i->set_color(true);
-                break;
-            }
-            b->skill.set_skill(p->ac);
-            p->set_color(false);
-        }
-    }
-}
-
-
-
 void WindowSkill::calc_self()
 {
-    for (PosIt  i = possible.begin(); i != possible.end(); ++i) {
-        if (i->get_clicked()) {
-            if (cur_sbwb != 0) {
-                assign_sbwb_pos(cur_sbwb, &*i);
-                cur_sbwb->skill.set_off();
-                cur_sbwb = 0;
-            }
-            else if (cur_pos != 0) {
-                cur_pos->set_off();
-                cur_pos = (&*i != cur_pos ? &*i : 0);
-                if (cur_pos) cur_pos->set_on();
-            }
-            else {
-                cur_pos = &*i;
-                cur_pos->set_on();
-            }
-        }
-    }
-    for (SbwbIt i = sbwb.begin(); i != sbwb.end(); ++i) {
-        if ((**i).skill.get_clicked()) {
-            if (cur_pos != 0) {
-                assign_sbwb_pos(*i, cur_pos);
-                cur_pos->set_off();
-                cur_pos = 0;
-            }
-            else if (cur_sbwb != 0
-             && cur_sbwb->skill.get_skill() == LixEn::NOTHING
-             && (**i)    .skill.get_skill() == LixEn::NOTHING) {
-                cur_sbwb->skill.set_off();
-                if (cur_sbwb != *i) {
-                    cur_sbwb = *i;
-                    cur_sbwb->skill.set_on();
-                }
-                else cur_sbwb = 0;
-            }
-            else if (cur_sbwb != 0) {
-                swap_sbwbs(*i, cur_sbwb);
-                cur_sbwb->skill.set_off();
-                cur_sbwb = 0;
-            }
-            else {
-                cur_sbwb = *i;
-                cur_sbwb->skill.set_on();
-            }
-        }
-    }
-    // Ende vom Faehigkeitenzuweisen
-
     if (ok.get_clicked() || hardware.get_mr()) {
-        // Daten in das Levelobjekt des Editors schreiben
-        for (size_t i = 0; i < sbwb.size(); ++i) {
-            level->skill[i].ac = sbwb[i]->skill.get_skill();
-            level->skill[i].nr = sbwb[i]->skill.get_number();
+        // write data into the level struct that's loaded in the editor
+        size_t level_skill_id = 0;
+        for (size_t i = 0; i < sbwb.size()
+         &&   level_skill_id < level->skill.size(); ++i) {
+            if (sbwb[i]->skill.get_number() != 0) {
+                level->skill[level_skill_id].ac = sbwb[i]->skill.get_skill();
+                level->skill[level_skill_id].nr = sbwb[i]->skill.get_number();
+                ++level_skill_id;
+            }
         }
         set_exit();
     }
@@ -211,126 +127,51 @@ void WindowSkill::calc_self()
         set_exit();
     }
     else if (clear.get_clicked()) {
-        for (SbwbIt i = sbwb.begin(); i != sbwb.end(); ++i)
-         (**i).skill.set_skill(LixEn::NOTHING);
-        for (PosIt i = possible.begin(); i != possible.end(); ++i)
-         i->set_color(true);
-        if (cur_sbwb) {
-            cur_sbwb->skill.set_off();
-            cur_sbwb = 0;
-        }
-        if (cur_pos) {
-            cur_pos->set_off();
-            cur_pos = 0;
+        for (SbwbIt itr = sbwb.begin(); itr != sbwb.end(); ++itr) {
+            (**itr).skill.set_number(0);
+            if ((**itr).skill.get_skill() == LixEn::EXPLODER) {
+                (**itr).skill.set_skill(LixEn::EXPLODER2);
+                use_fling.set_checked(true);
+            }
         }
     }
-    else if (classic8.get_clicked()) {
-        sbwb[0]->skill.set_skill(LixEn::CLIMBER);
-        sbwb[1]->skill.set_skill(LixEn::FLOATER);
-        sbwb[2]->skill.set_skill(LixEn::EXPLODER);
-        sbwb[3]->skill.set_skill(LixEn::BLOCKER);
-        sbwb[4]->skill.set_skill(LixEn::BUILDER);
-        sbwb[5]->skill.set_skill(LixEn::BASHER);
-        sbwb[6]->skill.set_skill(LixEn::MINER);
-        sbwb[7]->skill.set_skill(LixEn::DIGGER);
-        sbwb[8]->skill.set_skill(LixEn::NOTHING);
-        sbwb[9]->skill.set_skill(LixEn::NOTHING);
-        sbwb[10]->skill.set_skill(LixEn::NOTHING);
-        sbwb[11]->skill.set_skill(LixEn::NOTHING);
-        for (PosIt i = possible.begin(); i != possible.end(); ++i) {
-            if (i->ac == LixEn::CLIMBER
-             || i->ac == LixEn::FLOATER
-             || i->ac == LixEn::EXPLODER
-             || i->ac == LixEn::BLOCKER
-             || i->ac == LixEn::BUILDER
-             || i->ac == LixEn::BASHER
-             || i->ac == LixEn::MINER
-             || i->ac == LixEn::DIGGER) i->set_color(false);
-            else                        i->set_color(true);
+    else if (use_fling.get_clicked()) {
+        for (SbwbIt itr = sbwb.begin(); itr != sbwb.end(); ++itr) {
+            LixEn::Ac ac = (**itr).skill.get_skill();
+            if (ac == LixEn::EXPLODER || ac == LixEn::EXPLODER2) {
+                (**itr).skill.set_skill(use_fling.get_checked()
+                    ? LixEn::EXPLODER2 : LixEn::EXPLODER);
+                break;
+            }
         }
     }
-    else if (classic12.get_clicked()) {
-        sbwb[0]->skill.set_skill(LixEn::WALKER);
-        sbwb[1]->skill.set_skill(LixEn::JUMPER);
-        sbwb[2]->skill.set_skill(LixEn::CLIMBER);
-        sbwb[3]->skill.set_skill(LixEn::FLOATER);
-        sbwb[4]->skill.set_skill(LixEn::EXPLODER2);
-        sbwb[5]->skill.set_skill(LixEn::BATTER);
-        sbwb[6]->skill.set_skill(LixEn::BLOCKER);
-        sbwb[7]->skill.set_skill(LixEn::BUILDER);
-        sbwb[8]->skill.set_skill(LixEn::PLATFORMER);
-        sbwb[9]->skill.set_skill(LixEn::BASHER);
-        sbwb[10]->skill.set_skill(LixEn::MINER);
-        sbwb[11]->skill.set_skill(LixEn::DIGGER);
-        for (PosIt i = possible.begin(); i != possible.end(); ++i) {
-            if (i->ac == LixEn::WALKER
-             || i->ac == LixEn::JUMPER
-             || i->ac == LixEn::CLIMBER
-             || i->ac == LixEn::FLOATER
-             || i->ac == LixEn::EXPLODER2
-             || i->ac == LixEn::BATTER
-             || i->ac == LixEn::BLOCKER
-             || i->ac == LixEn::BUILDER
-             || i->ac == LixEn::PLATFORMER
-             || i->ac == LixEn::BASHER
-             || i->ac == LixEn::MINER
-             || i->ac == LixEn::DIGGER) i->set_color(false);
-            else                        i->set_color(true);
+    else if (classic8_to.get_clicked()) {
+        for (SbwbIt itr = sbwb.begin(); itr != sbwb.end(); ++itr) {
+            switch ((**itr).skill.get_skill()) {
+            case LixEn::EXPLODER2:
+                (**itr).skill.set_skill(LixEn::EXPLODER);
+                use_fling.set_checked(false);
+                // falls through
+            case LixEn::CLIMBER:
+            case LixEn::FLOATER:
+            case LixEn::EXPLODER:
+            case LixEn::BLOCKER:
+            case LixEn::BUILDER:
+            case LixEn::BASHER:
+            case LixEn::MINER:
+            case LixEn::DIGGER:
+                (**itr).skill.set_number(all_to_n.get_number());
+                break;
+            default:
+                (**itr).skill.set_number(0);
+                break;
+            }
         }
     }
     else if (all_to.get_clicked()) {
-        for (size_t i = 0; i < sbwb.size(); ++i)
-         sbwb[i]->skill.set_number(all_to_n.get_number());
+        for (SbwbIt itr = sbwb.begin(); itr != sbwb.end(); ++itr)
+            (**itr).skill.set_number(all_to_n.get_number());
     }
-}
-
-
-
-// ############################################################################
-// ############################################################################
-// ############################################################################
-
-
-
-const unsigned PossibleSkill::this_length(40);
-
-PossibleSkill::PossibleSkill(
- const int nx, const int ny, const LixEn::Ac nac, const LixEn::Style sk)
-:
-    Button(nx, ny, this_length, this_length),
-    icon   (GraLib::get_lix(sk), get_ground()),
-    ac    (nac)
-{
-    if (ac != LixEn::NOTHING) icon.set_y_frame(ac - 1);
-    else                    icon.set_y_frame(0);
-}
-
-PossibleSkill::~PossibleSkill()
-{
-}
-
-
-
-bool PossibleSkill::get_color()
-{
-    set_draw_required();
-    return !icon.get_x_frame();
-}
-
-void PossibleSkill::set_color(const bool b)
-{
-    icon.set_x_frame(b ? 0 : 1);
-    set_draw_required();
-}
-
-
-
-void PossibleSkill::draw_self()
-{
-    Button::draw_self();
-    icon.set_x(get_x_here() + 2);
-    icon.set_y(get_y_here() + 3);
-    icon.draw();
 }
 
 

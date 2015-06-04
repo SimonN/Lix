@@ -249,9 +249,9 @@ win_var_clock,
 // Faehigkeits-Fenster
 win_skill_title,
 win_skill_clear,
-win_skill_classic_8,
-win_skill_classic_12,
+win_skill_classic_8_to,
 win_skill_all_to,
+win_skill_use_fling,
 
 // Exporting a level into a file
 export_single_lix,
