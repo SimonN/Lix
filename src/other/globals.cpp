@@ -19,9 +19,9 @@ Globals* gloB(0);
 
 Globals::Globals()
 :
-    version              (CONCAT(2015, 06, 04, 00)),
-    version_min          (CONCAT(2015, 01, 25, 00)),
-    version_stable       (true),
+    version              (CONCAT(2015, 06, 24, 00)),
+    version_min          (CONCAT(2015, 06, 24, 00)),
+    version_stable       (false),
 
     updates_per_second   (globals_updates_per_second),
     panel_gameplay_yl    (80),

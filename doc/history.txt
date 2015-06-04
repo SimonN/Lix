@@ -5,6 +5,37 @@
 
 
 
+2015-06-24
+
+    (experimental version, please don't play on the central server)
+
+    Untimed singleplayer exploders
+        Exploders, both flinging and non-flinging, are untimed in singleplayer
+        now. Older replays are loaded and played back correctly.
+
+    Detonator animation
+        The non-flinging exploder has a longer animation now, 8 frames instead
+        of 4. Feedback is welcome. We need to make obvious that this can be
+        assigned in mid-air and will explode instantly there -- the detonator
+        animation doesn't make it obvious.
+
+    Replay format
+        Switching skills is no longer a part of replays. Each assignment
+        carries the appropriate skill instead. Old replays are loaded
+        correctly. You can switch skills without cancelling a running replay.
+
+    Tooltips
+        Allegedly undiscoverable features of the game have tooltips now.
+        There's an option to switch off all of these tooltips, since they
+        can get annoying over time. We have tooltips for:
+
+        * queuing builders and platformers,
+        * selecting lix walking left/right,
+        * inverting priority,
+        * right-click scrolling.
+
+
+
 2015-06-04
 
     Skill panel in options menu
@@ -38,9 +69,17 @@
         A running jumper has a new animation now, it rolls into a ball during
         the jump. The physics are exactly the same as before.
 
-    Avoid batter -> exploder off by default
-        The user option "avoid batter -> exploder" is off by default now.
+    Avoid exploder -> batter off by default
+        The user option "avoid exploder -> batter" is off by default now.
         The default should match a new player's expectation.
+
+        You can hold RMB (right mouse button) to invert priority during skill
+        assignment. Walking exploders have higher priority than normal walkers.
+        Since it's often more useful to bat exploders, than to have the
+        exploder bat non-exploders, the option inverted the exploder priority
+        when batter was the selected skill. The option was on by default, but
+        it has always confused new players. The option is still there now,
+        but switched off in a fresh installation.
 
 
 
