@@ -342,7 +342,7 @@ void Gameplay::prepare_level()
 
     // Faehigkeit auswaehlen: Das muss in einer separaten Schleife geschehen,
     // weil durch Neuallokation die Adressen in der ersten sich ggf. aendern.
-    for (int i = 0; i < gloB->skill_max; ++i)
+    for (size_t i = 0; i < useR->skill_sort.size(); ++i)
      if (lv.skill[i].nr != 0) {
         for  (Tribe::It  t = cs.tribes.begin();  t != cs.tribes.end();  ++t)
          for (Tribe::MIt m = t->masters.begin(); m != t->masters.end(); ++m) {

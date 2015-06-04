@@ -103,11 +103,13 @@ void Level::load_from_vector(const std::vector <IO::Line>& lines)
 
     // Ganzzahlwert setzen
     case '#':
-        if      (i->text1 == gloB->level_start_x ) {
+        if (i->text1 == gloB->level_players_intended) players_intended =i->nr1;
+
+        if (i->text1 == gloB->level_start_x) {
             start_manual = true;
             start_x      = i->nr1;
         }
-        else if (i->text1 == gloB->level_start_y ) {
+        else if (i->text1 == gloB->level_start_y) {
             start_manual = true;
             start_y      = i->nr1;
         }
@@ -300,10 +302,12 @@ std::ostream& operator << (std::ostream& out, const Level& l)
     if (l.built < Date("2011-01-08 00:00:00")) best_built = Date("");
 
     out
-     << IO::LineDollar(gloB->level_built,        best_built    )
-     << IO::LineDollar(gloB->level_author,       l.author      )
-     << IO::LineDollar(gloB->level_name_german,  l.name_german )
-     << IO::LineDollar(gloB->level_name_english, l.name_english)
+     << IO::LineDollar(gloB->level_built,            best_built        )
+//   players_intended shouldn't be yet written, game doesn't admit to set it
+//   << IO::LineHash  (gloB->level_players_intended, l.players_intended)
+     << IO::LineDollar(gloB->level_author,           l.author          )
+     << IO::LineDollar(gloB->level_name_german,      l.name_german     )
+     << IO::LineDollar(gloB->level_name_english,     l.name_english    )
 
      << std::endl;
 

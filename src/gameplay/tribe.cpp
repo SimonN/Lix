@@ -20,7 +20,7 @@ Tribe::Tribe()
     update_hatch  (0),
     update_saved  (0),
     hatch_next    (0),
-    skill         (gloB->skill_max),
+    skill         (useR->skill_sort.size()),
     skills_used   (0),
     style         (LixEn::GARDEN)
 {

@@ -13,7 +13,7 @@ namespace Api {
 
 const int WindowSkill::y_sbwb(40);
 const int WindowSkill::this_xl(40*14 + 40);
-const int WindowSkill::this_yl(y_sbwb + 210 + 60); // debugging +60, see .h
+const int WindowSkill::this_yl(y_sbwb + 210);
 
 static int x_a  = 20;
 static int x_a2 = 150;
@@ -40,12 +40,7 @@ WindowSkill::WindowSkill(Level& l)
     desc_use_fling(60, this_yl - 70, Language::win_skill_use_fling),
 
     ok      (x_c, this_yl - 70, xl_c),
-    cancel  (x_c, this_yl - 40, xl_c),
-
-    debugging_1(20, this_yl-130,
-        "The current level format can save only up to 12 different skills!"),
-    debugging_2(20, this_yl-110,
-        "This restriction will be removed in the upcoming days/weeks.")
+    cancel  (x_c, this_yl - 40, xl_c)
 {
     // choose which exploder to use
     use_fling.set_checked(true);
@@ -84,8 +79,6 @@ WindowSkill::WindowSkill(Level& l)
     add_child(desc_use_fling);
     add_child(ok);
     add_child(cancel);
-    add_child(debugging_1);
-    add_child(debugging_2);
 
     all_to_n.set_minus_one_char('*');
 

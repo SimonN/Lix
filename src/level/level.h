@@ -146,6 +146,7 @@ struct Level {
     static const int spawnint_max;
 
     Date        built;
+    int         players_intended;
 
     std::string author;
     std::string name_german;

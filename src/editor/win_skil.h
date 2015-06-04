@@ -52,9 +52,6 @@ private:
     TextButton ok;
     TextButton cancel;
 
-    Label debugging_1; // debugging: only set 12 skills. this will be removed
-    Label debugging_2; // once the level format allows 14 skills.
-
     // Kopierverbot
     WindowSkill(const WindowSkill&);
     void operator = (const WindowSkill&);

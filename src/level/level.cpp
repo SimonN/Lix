@@ -35,10 +35,13 @@ void Level::clear()
 {
     status = BAD_EMPTY;
 
-    built         = "";
+    built            = "";
+    players_intended = 1;
+
     author        = "";
     name_german   = "";
     name_english  = "";
+
     hints_german  . clear();
     hints_english . clear();
     size_x        = LEMSCR_X;
@@ -65,7 +68,7 @@ void Level::clear()
 
     for (int i = Object::TERRAIN; i != Object::MAX; ++i) pos[i].clear();
 
-    skill = std::vector <Skill> (gloB->skill_max);
+    skill = std::vector <Skill> (useR->skill_sort.size());
 
     for (size_t i = 0; i < skill.size(); ++i) {
         skill[i].ac = LixEn::NOTHING;
@@ -77,7 +80,9 @@ void Level::clear()
 
 bool Level::operator == (const Level& l) const
 {
-    if (this->author        != l.author
+    // "built" is ignored for equality
+    if (this->players_intended != l.players_intended
+     || this->author        != l.author
      || this->name_german   != l.name_german
      || this->name_english  != l.name_english
      || this->hints_german  != l.hints_german

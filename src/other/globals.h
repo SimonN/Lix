@@ -38,7 +38,6 @@ public:
     const bool          version_stable;
 
     const int   updates_per_second;
-    const int   skill_max;
 
     const int   panel_gameplay_yl;
     const int   panel_editor_yl;
@@ -125,6 +124,7 @@ public:
 
         // Leveldatei-Schluessel
         level_built,
+        level_players_intended,
         level_author,
         level_name_german,
         level_name_english,

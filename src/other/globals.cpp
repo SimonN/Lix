@@ -24,7 +24,6 @@ Globals::Globals()
     version_stable       (true),
 
     updates_per_second   (globals_updates_per_second),
-    skill_max            (12),
     panel_gameplay_yl    (80),
     panel_editor_yl      (80),
 
@@ -114,6 +113,7 @@ Globals::Globals()
 
     // Leveldatei-Schluessel
     level_built                  ("BUILT"),
+    level_players_intended       ("PLAYERS_INTENDED"),
     level_author                 ("AUTHOR"),
     level_name_german            ("GERMAN"),
     level_name_english           ("ENGLISH"),
