@@ -54,8 +54,13 @@ GameplayPanel::GameplayPanel()
     nuke_doubleclicked(false),
     timer_tick_nuke_single(0),
 
+    tooltip_scrolling(false),
+    tooltip_force_dir(false),
+    tooltip_priority (false),
+
     hint_size  (0),
     hint_cur   (0),
+
     hint_big   (BMP_PANEL, x_zzz,            20, xl_tec, 20),
     hint_plus  (BMP_HINTS, x_zzz + xl_tec/2, 20, xl_tec, 20),
     hint_minus (BMP_HINTS, x_zzz,            20, xl_tec, 20)
@@ -242,7 +247,7 @@ void GameplayPanel::set_like_tribe(const Tribe* tr, const Tribe::Master* ma)
     for (size_t i = 0; i < skill.size(); ++i) {
         const int key = useR->key_skill[skill[i].get_skill()];
         skill[i].set_hotkey(key);
-        if (useR->gameplay_help && key != 0)
+        if (useR->game_show_skill_keys && key != 0)
             skill[i].set_hotkey_label(Help::scancode_to_string(key));
         skill[i].set_draw_required();
     }
@@ -404,7 +409,7 @@ void GameplayPanel::calc_self()
     }
     // end of nuke
 
-    if (useR->gameplay_help) {
+    if (useR->game_show_tooltips) {
         std::string str;
         int         key = 0;
         using namespace Language;
@@ -434,8 +439,52 @@ void GameplayPanel::calc_self()
             str += Help::scancode_to_string(key);
             str += "]";
         }
-        if (! str.empty()) stats.set_help(str);
-        else stats.set_help();
+        if (! str.empty())
+            // do nothing, but don't consider printing a suggested tooltip
+            ;
+        else if (tooltip_scrolling
+         && (useR->scroll_right || useR->scroll_middle)) {
+            // these non-button tooltips are less important than the button
+            // descriptions, therefore they're in the else
+            str += ::Language::gameplay_scroll_right_1;
+            str += useR->scroll_right ? gameplay_rmb : gameplay_mmb;
+            str += ::Language::gameplay_scroll_right_2;
+        }
+        else if (tooltip_force_dir) {
+            str += ::Language::gameplay_force_dir_1;
+            str += Help::scancode_to_string(useR->key_force_left);
+            str += ::Language::gameplay_force_dir_2;
+            str += Help::scancode_to_string(useR->key_force_right);
+            str += ::Language::gameplay_force_dir_3;
+        }
+        else if (tooltip_priority) {
+            str += ::Language::gameplay_priority_1;
+            if      (useR->prioinv_right ) str += gameplay_rmb;
+            else if (useR->prioinv_middle) str += gameplay_mmb;
+            else {
+                str += "[";
+                str += Help::scancode_to_string(useR->key_priority);
+                str += "]";
+            }
+            str += ::Language::gameplay_priority_2;
+        }
+        else if (tooltip_builders && useR->allow_builder_queuing) {
+            str += ::Language::gameplay_queue_builders;
+        }
+        else if (tooltip_platformers && useR->allow_builder_queuing) {
+            str += ::Language::gameplay_queue_platformers;
+        }
+
+        if (str.empty())
+            stats.set_help();
+        else {
+            stats.set_help(str);
+            tooltip_scrolling   = false;
+            tooltip_force_dir   = false;
+            tooltip_priority    = false;
+            tooltip_builders    = false;
+            tooltip_platformers = false;
+        }
     }
 }
 

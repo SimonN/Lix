@@ -36,7 +36,7 @@ unsigned Lixxie::get_priority(
         case LixEn::BLOCKER:
             if (new_ac == LixEn::WALKER
              || new_ac == LixEn::EXPLODER
-             || new_ac == LixEn::EXPLODER2) p = 5000;
+             || new_ac == LixEn::EXPLODER2) p = 6000;
             else return 1;
             break;
 
@@ -79,24 +79,27 @@ unsigned Lixxie::get_priority(
             p = 3000;
             break;
 
-        // Builder kann selbstzuweisen, Ausnahme vom Default-Wert erforderlich
-        // Mit verneinter Einstellung oder im Mehrspielermodus
-        // wird's allerdings wird's wie Default behandelt.
         case LixEn::BUILDER:
         case LixEn::PLATFORMER:
-            if      (new_ac == ac
-                && (!personal || useR->multiple_builders)) p = 1000;
-            else if (new_ac != ac)                         p = 4000;
-            else                                           return 1;
+            if (new_ac != ac)
+                p = 5000;
+            else if (personal && ! useR->allow_builder_queuing)
+                // user explicitly doesn't want builder queuing
+                return 1;
+
+            else
+                // allow builder queuing with more priority than walkers,
+                // or less priority than walkers, as the user wants
+                p = useR->avoid_builder_queuing ? 1000 : 4000;
             break;
 
         // Usually, anything different from the current activity can be assign.
         default:
-            if (new_ac != ac) p = 4000;
+            if (new_ac != ac) p = 5000;
             else return 1;
 
     }
-    p += (new_ac == LixEn::BATTER && useR->batter_priority
+    p += (new_ac == LixEn::BATTER && useR->avoid_batter_to_exploder
           ? -updates_since_bomb : updates_since_bomb);
     p += 400 * runner + 200 * climber + 100 * floater;
     return p;

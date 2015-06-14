@@ -113,8 +113,9 @@ User::User()
     mouse_acceleration     (0),
     scroll_speed_edge      (5),
     scroll_speed_click     (6),
-    multiple_builders      (true),
-    batter_priority        (false),
+    allow_builder_queuing  (true),
+    avoid_builder_queuing  (false),
+    avoid_batter_to_exploder(false),
     prioinv_middle         (true),
     prioinv_right          (true),
 
@@ -123,7 +124,8 @@ User::User()
     screen_windowed        (false),
     arrows_replay          (true),
     arrows_network         (true),
-    gameplay_help          (true),
+    game_show_tooltips     (true),
+    game_show_skill_keys   (true),
     debris_amount          (2),
     debris_type            (1),
     gui_color_red          (0x70),
@@ -393,8 +395,9 @@ void User::load()
         else if (i->text1 == gloB->user_scroll_middle          ) scroll_middle          = i->nr1;
         else if (i->text1 == gloB->user_replay_cancel          ) replay_cancel          = i->nr1;
         else if (i->text1 == gloB->user_replay_cancel_at       ) replay_cancel_at       = i->nr1;
-        else if (i->text1 == gloB->user_multiple_builders      ) multiple_builders      = i->nr1;
-        else if (i->text1 == gloB->user_batter_priority        ) batter_priority        = i->nr1;
+        else if (i->text1 == gloB->user_allow_builder_queuing  ) allow_builder_queuing  = i->nr1;
+        else if (i->text1 == gloB->user_avoid_builder_queuing  ) avoid_builder_queuing  = i->nr1;
+        else if (i->text1 == gloB->user_avoid_batter_to_exploder)avoid_batter_to_exploder=i->nr1;
         else if (i->text1 == gloB->user_prioinv_middle         ) prioinv_middle         = i->nr1;
         else if (i->text1 == gloB->user_prioinv_right          ) prioinv_right          = i->nr1;
 
@@ -403,7 +406,8 @@ void User::load()
         else if (i->text1 == gloB->user_screen_windowed        ) screen_windowed        = i->nr1;
         else if (i->text1 == gloB->user_arrows_replay          ) arrows_replay          = i->nr1;
         else if (i->text1 == gloB->user_arrows_network         ) arrows_network         = i->nr1;
-        else if (i->text1 == gloB->user_gameplay_help          ) gameplay_help          = i->nr1;
+        else if (i->text1 == gloB->user_game_show_tooltips     ) game_show_tooltips     = i->nr1;
+        else if (i->text1 == gloB->user_game_show_skill_keys   ) game_show_skill_keys   = i->nr1;
         else if (i->text1 == gloB->user_debris_amount          ) debris_amount          = i->nr1;
         else if (i->text1 == gloB->user_debris_type            ) debris_type            = i->nr1;
         else if (i->text1 == gloB->user_gui_color_red          ) gui_color_red          = i->nr1;
@@ -527,8 +531,9 @@ void User::save() const
      << IO::LineHash  (gloB->user_scroll_middle,           scroll_middle)
      << IO::LineHash  (gloB->user_replay_cancel,           replay_cancel)
      << IO::LineHash  (gloB->user_replay_cancel_at,        replay_cancel_at)
-     << IO::LineHash  (gloB->user_multiple_builders,       multiple_builders)
-     << IO::LineHash  (gloB->user_batter_priority,         batter_priority)
+     << IO::LineHash  (gloB->user_allow_builder_queuing,   allow_builder_queuing)
+     << IO::LineHash  (gloB->user_avoid_builder_queuing,   avoid_builder_queuing)
+     << IO::LineHash  (gloB->user_avoid_batter_to_exploder,avoid_batter_to_exploder)
      << IO::LineHash  (gloB->user_prioinv_middle,          prioinv_middle)
      << IO::LineHash  (gloB->user_prioinv_right,           prioinv_right)
      << std::endl
@@ -538,7 +543,8 @@ void User::save() const
      << IO::LineHash  (gloB->user_screen_windowed,         screen_windowed)
      << IO::LineHash  (gloB->user_arrows_replay,           arrows_replay)
      << IO::LineHash  (gloB->user_arrows_network,          arrows_network)
-     << IO::LineHash  (gloB->user_gameplay_help,           gameplay_help)
+     << IO::LineHash  (gloB->user_game_show_tooltips,      game_show_tooltips)
+     << IO::LineHash  (gloB->user_game_show_skill_keys,    game_show_skill_keys)
      << IO::LineHash  (gloB->user_debris_amount,           debris_amount)
      << IO::LineHash  (gloB->user_debris_type,             debris_type)
      << IO::LineHash  (gloB->user_gui_color_red,           gui_color_red)

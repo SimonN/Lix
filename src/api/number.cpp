@@ -118,13 +118,11 @@ void Number::set_six_buttons(const bool b)
 void Number::set_macro_color(const int init)
 {
     digits  = 4;
-    set_six_buttons(true);
     minimum = 0;
     maximum = 0xFF;
     set_number(init);
     step_sml =    1;
     step_med = 0x10;
-    step_big = 0x40;
     set_format_time(false);
     set_format_hex(true);
 }

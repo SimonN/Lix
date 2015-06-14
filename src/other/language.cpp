@@ -204,6 +204,18 @@ DECL_VARIABLE_FOR_TRANSLATION(gameplay_hint_prev);
 DECL_VARIABLE_FOR_TRANSLATION(gameplay_hint_off);
 DECL_VARIABLE_FOR_TRANSLATION(gameplay_spec_tribe);
 
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_rmb);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_mmb);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_scroll_right_1);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_scroll_right_2);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_force_dir_1);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_force_dir_2);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_force_dir_3);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_priority_1);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_priority_2);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_queue_builders);
+DECL_VARIABLE_FOR_TRANSLATION(gameplay_queue_platformers);
+
 // Editor allgemein
 DECL_VARIABLE_FOR_TRANSLATION(editor_unsaved_title);
 DECL_VARIABLE_FOR_TRANSLATION(editor_unsaved_title_new);
@@ -342,8 +354,9 @@ DECL_VARIABLE_FOR_TRANSLATION(option_scroll_speed_click);
 DECL_VARIABLE_FOR_TRANSLATION(option_scroll_edge);
 DECL_VARIABLE_FOR_TRANSLATION(option_scroll_right);
 DECL_VARIABLE_FOR_TRANSLATION(option_scroll_middle);
-DECL_VARIABLE_FOR_TRANSLATION(option_multiple_builders);
-DECL_VARIABLE_FOR_TRANSLATION(option_batter_priority);
+DECL_VARIABLE_FOR_TRANSLATION(option_allow_builder_queuing);
+DECL_VARIABLE_FOR_TRANSLATION(option_avoid_builder_queuing);
+DECL_VARIABLE_FOR_TRANSLATION(option_avoid_batter_to_exploder);
 DECL_VARIABLE_FOR_TRANSLATION(option_prioinv_middle);
 DECL_VARIABLE_FOR_TRANSLATION(option_prioinv_right);
 DECL_VARIABLE_FOR_TRANSLATION(option_screen_resolution);
@@ -357,7 +370,8 @@ DECL_VARIABLE_FOR_TRANSLATION(option_screen_border_colored);
 DECL_VARIABLE_FOR_TRANSLATION(option_screen_vsync);
 DECL_VARIABLE_FOR_TRANSLATION(option_arrows_replay);
 DECL_VARIABLE_FOR_TRANSLATION(option_arrows_network);
-DECL_VARIABLE_FOR_TRANSLATION(option_gameplay_help);
+DECL_VARIABLE_FOR_TRANSLATION(option_game_show_tooltips);
+DECL_VARIABLE_FOR_TRANSLATION(option_game_show_skill_keys);
 DECL_VARIABLE_FOR_TRANSLATION(option_debris_amount);
 DECL_VARIABLE_FOR_TRANSLATION(option_debris_amount_none);
 DECL_VARIABLE_FOR_TRANSLATION(option_debris_amount_own);
@@ -706,11 +720,24 @@ void Language::set(const Language lang)
         gameplay_hint_off             = "Hide the hint.";
         gameplay_spec_tribe           = "Examine the skills of a different team.";
 
+        gameplay_rmb                  = "right mouse button";
+        gameplay_mmb                  = "middle mouse button";
+        gameplay_scroll_right_1       = "To scroll, hold ";
+        gameplay_scroll_right_2       = ", move mouse around.";
+        gameplay_force_dir_1          = "Hold [";
+        gameplay_force_dir_2          = "] or [";
+        gameplay_force_dir_3          = "] to select a lix looking left or right.";
+        gameplay_priority_1           = "Hold ";
+        gameplay_priority_2           = " to assign to the walker.";
+        gameplay_queue_builders       = "Click the Lix again to queue several builders.";
+        gameplay_queue_platformers    = "Click the Lix again to queue several platformers.";
+
+
         // Editor allgemein
         editor_unsaved_title          = "Save changes?";
         editor_unsaved_title_new      = "Save level?";
-        editor_unsaved_question       = "Would you like to save the changes on this level?";
-        editor_unsaved_question_new   = "Would you like to save this new level?";
+        editor_unsaved_question       = "Save the changes on this level?";
+        editor_unsaved_question_new   = "Save this new level?";
         editor_file_name              = "File name:";
         editor_level_name             = "Level title:";
         editor_hotkey                 = "Hotkey:";
@@ -865,8 +892,9 @@ void Language::set(const Language lang)
         option_mouse_speed            = "Mouse speed";
         option_scroll_speed_edge      = "Edge scroll speed";
         option_scroll_speed_click     = "Right/mid. scroll spd.";
-        option_multiple_builders      = "Builders: multiple clicks";
-        option_batter_priority        = "Avoid Exploder -> Batter";
+        option_allow_builder_queuing  = "Builders: allow queuing";
+        option_avoid_builder_queuing  = "Builders: avoid queuing";
+        option_avoid_batter_to_exploder="Avoid assigning batter to exploder";
         option_prioinv_middle         = "Middle button inverts priority";
         option_prioinv_right          = "Right button inverts priority";
 
@@ -881,7 +909,8 @@ void Language::set(const Language lang)
         option_screen_vsync           = "Wait for V-sync";
         option_arrows_replay          = "Arrows during replays";
         option_arrows_network         = "Arrows in network games";
-        option_gameplay_help          = "Display game hotkeys";
+        option_game_show_tooltips     = "Tooltips during game";
+        option_game_show_skill_keys   = "Show hotkeys on skills";
         option_debris_amount          = "Debris amount";
         option_debris_amount_none     = "None";
         option_debris_amount_own      = "Own";
@@ -1189,11 +1218,23 @@ eb[Editor::ADD_HAZARD]
         gameplay_hint_off             = "Den Tipp ausblenden.";
         gameplay_spec_tribe           = "Fähigkeiten eines anderen Teams ansehen.";
 
+        gameplay_rmb                  = "rechte Maustaste";
+        gameplay_mmb                  = "mittlere Maustaste";
+        gameplay_scroll_right_1       = "Scrollen: Halte ";
+        gameplay_scroll_right_2       = ", bewege die Maus umher.";
+        gameplay_force_dir_1          = "Halte [";
+        gameplay_force_dir_2          = "] oder [";
+        gameplay_force_dir_3          = "], um die Lix nach links oder rechts zu wählen.";
+        gameplay_priority_1           = "Halte ";
+        gameplay_priority_2           = ", um die Geherin zu wählen.";
+        gameplay_queue_builders       = "Klicke die Lix erneut an, um längere Treppen zu bauen.";
+        gameplay_queue_platformers    = "Klicke die Lix erneut an, um längere Plattformen zu bauen.";
+
         // Editor allgemein
         editor_unsaved_title          = "Änderungen speichern?";
         editor_unsaved_title_new      = "Level speichern?";
-        editor_unsaved_question       = "Möchtest du die Änderungen an diesem Level speichern?";
-        editor_unsaved_question_new   = "Möchtest du diesen neuen Level speichern?";
+        editor_unsaved_question       = "Änderungen an diesem Level speichern?";
+        editor_unsaved_question_new   = "Neuen Level speichern?";
         editor_file_name              = "Dateiname:";
         editor_level_name             = "Leveltitel:";
         editor_hotkey                 = "Hotkey:";
@@ -1352,8 +1393,9 @@ eb[Editor::ADD_HAZARD]
         option_mouse_speed            = "Mausgeschwindigkeit";
         option_scroll_speed_edge      = "Scrollgeschw. am Rand";
         option_scroll_speed_click     = "Scrollgeschw. bei Klick";
-        option_multiple_builders      = "Builder mehrm. klickbar";
-        option_batter_priority        = "Exploder -> Batter vermeiden";
+        option_allow_builder_queuing  = "Builder: Mehrfach-Klicks erlauben";
+        option_avoid_builder_queuing  = "Builder: Mehrfach-Klicks vermeiden";
+        option_avoid_batter_to_exploder="Exploder -> Batter vermeiden";
         option_prioinv_middle         = "Mittl. Taste invert. Priorität";
         option_prioinv_right          = "Rechte Taste invert. Priorität";
 
@@ -1368,7 +1410,8 @@ eb[Editor::ADD_HAZARD]
         option_screen_vsync           = "V-Sync abwarten";
         option_arrows_replay          = "Pfeile im Replay";
         option_arrows_network         = "Pfeile im Netzwerkspiel";
-        option_gameplay_help          = "Spiel-Hotkeys anzeigen";
+        option_game_show_tooltips     = "Tooltips im Spiel";
+        option_game_show_skill_keys   = "Fähgkt.-Hotkeys anzeigen";
         option_debris_amount          = "Trümmer-Anzahl";
         option_debris_amount_none     = "Keine";
         option_debris_amount_own      = "Lokaler Spieler";

@@ -219,9 +219,12 @@ void Gameplay::calc_active()
         LixIt  tarinf = trlo->lixvec.end(); // Nicht unb. klickbar mit Prior.
         int    tarcnt = 0; // Anzahl Lixen unter Cursor
         int    target_priority = 0;
+        int    target_prio_min = 100000; // if (< target_prio) => tooltip
         int    tarinf_priority = 0;
         double target_hypot = 1000;
         double tarinf_hypot = 1000;
+        bool   tooltip_l_elig = false; // if both true => tooltip
+        bool   tooltip_r_elig = false; // is there a l/r walker considered?
 
         // Bei Zoom diese Variablen veraendern
         int zoom   = map.get_zoom();
@@ -268,25 +271,45 @@ void Gameplay::calc_active()
                                           i->get_ey() + ((mmld_d - mmld_u)/2)
                                           );
                 if (priority > 0 && priority < 100000) {
-                    // Die Anforderungen den offenen Mauscursur
-                    // und das Schreiben des Strings auf die Info...
-                    ++tarcnt;
-                    if (priority >  tarinf_priority
-                     ||(priority == tarinf_priority && hypot < tarinf_hypot)) {
-                        tarinf = i;
-                        tarinf_priority = priority;
-                        tarinf_hypot    = hypot;
-                    }
-                    // ...sind geringer als die für Anklick-Inbetrachtnahme!
-                    if ((priority > 1 && priority < 99999)
-                     && (priority >  target_priority
-                     || (priority == target_priority && hypot < target_hypot))
-                     && !(only_dir_l && i->get_dir() ==  1)
-                     && !(only_dir_r && i->get_dir() == -1)) {
-                        target          = i;
-                        target_priority = priority;
-                        target_hypot    = hypot;
-                    }
+// This is horrible code. 9 indentation levels imply a severe problem,
+// we should use more functions. Will fix this in the D port.
+
+// Die Anforderungen den offenen Mauscursur
+// und das Schreiben des Strings auf die Info...
+++tarcnt;
+if (priority >  tarinf_priority
+ ||(priority == tarinf_priority && hypot < tarinf_hypot)) {
+    tarinf = i;
+    tarinf_priority = priority;
+    tarinf_hypot    = hypot;
+}
+// ...sind geringer als die für Anklick-Inbetrachtnahme!
+if (priority > 1 && priority < 99999) {
+    if (!(only_dir_l && i->get_dir() ==  1)
+     && !(only_dir_r && i->get_dir() == -1)) {
+        // consider this clickable and eligible for tooltip
+        if  (priority >  target_priority
+         || (priority == target_priority && hypot < target_hypot)) {
+            if (target_priority != 0)
+                pan.suggest_tooltip_priority();
+            target          = i;
+            target_priority = priority;
+            target_hypot    = hypot;
+            if (priority < target_prio_min)
+                target_prio_min = priority;
+        }
+        else if (priority <  target_prio_min
+             || (priority == target_prio_min && hypot >= target_hypot)) {
+            if (target_prio_min != 100000)
+                pan.suggest_tooltip_priority();
+            target_prio_min = priority;
+        }
+    }
+    if (i->get_dir() ==  1) tooltip_r_elig = true;
+    if (i->get_dir() == -1) tooltip_l_elig = true;
+    if (tooltip_r_elig && tooltip_l_elig)
+        pan.suggest_tooltip_force_dir();
+}
                 }
             }
         }
@@ -297,6 +320,17 @@ void Gameplay::calc_active()
         }
         pan.stats.set_tarinf(tarinf == trlo->lixvec.end() ? 0 : &*tarinf);
         pan.stats.set_tarcnt(tarcnt);
+
+        // tooltips for queuing builders/platformers
+        if (target != trlo->lixvec.end()
+         && skill_visible->get_number() != 0) {
+            if (target->get_ac() == LixEn::BUILDER
+             && skill_visible->get_skill() == LixEn::BUILDER)
+                pan.suggest_tooltip_builders();
+            else if (target->get_ac() == LixEn::PLATFORMER
+             && skill_visible->get_skill() == LixEn::PLATFORMER)
+                pan.suggest_tooltip_platformers();
+        }
 
         // Resolving target
         // target == trlo->lixvec.end() if there was nobody under the cursor,

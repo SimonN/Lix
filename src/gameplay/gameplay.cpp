@@ -78,10 +78,15 @@ Gameplay::Gameplay(
 
     prepare_players(rep);
     prepare_level();
-    if (verify_mode == INTERACTIVE_MODE) prepare_panel();
 
-    Api::Manager::add_elder(&pan);
-    Api::Manager::add_elder(&chat);
+    if (verify_mode == INTERACTIVE_MODE) {
+        prepare_panel();
+        Api::Manager::add_elder(&pan);
+        Api::Manager::add_elder(&chat);
+        // don't add the panel as an elder in noninteractive mode,
+        // because we'd get a crash on scancode_to_string with uninitialized
+        // keyboard during calcing the panel.
+    }
 }
 
 

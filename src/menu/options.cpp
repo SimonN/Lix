@@ -67,10 +67,11 @@ OptionMenu::OptionMenu()
     scroll_middle         (check_x, 160),
     replay_cancel         (check_x, 190),
     replay_cancel_at      (other_x, 190, button_xl, 2, 0, 90),
-    multiple_builders     (check_x, 250),
-    batter_priority       (check_x, 280),
-    prioinv_middle        (check_x, 310),
-    prioinv_right         (check_x, 340),
+    allow_builder_queuing (check_x, 250),
+    avoid_builder_queuing (check_x, 280),
+  avoid_batter_to_exploder(check_x, 310),
+    prioinv_middle        (check_x, 340),
+    prioinv_right         (check_x, 370),
     desc_mouse_speed      (other_nx, 100, Language::option_mouse_speed),
     desc_scroll_speed_edge(other_nx, 130, Language::option_scroll_speed_edge),
     desc_scroll_speed_click(other_nx,160, Language::option_scroll_speed_click),
@@ -79,10 +80,11 @@ OptionMenu::OptionMenu()
     desc_scroll_middle    (check_nx, 160, Language::option_scroll_middle),
     desc_replay_cancel    (check_nx, 190, Language::option_replay_cancel),
     desc_replay_cancel_at (other_nx, 190, Language::option_replay_cancel_at),
-    desc_multiple_builders(check_nx, 250, Language::option_multiple_builders),
-    desc_batter_priority  (check_nx, 280, Language::option_batter_priority),
-    desc_prioinv_middle   (check_nx, 310, Language::option_prioinv_middle),
-    desc_prioinv_right    (check_nx, 340, Language::option_prioinv_right),
+    desc_allow_builder_queuing   (check_nx, 250, Language::option_allow_builder_queuing),
+    desc_avoid_builder_queuing   (check_nx, 280, Language::option_avoid_builder_queuing),
+    desc_avoid_batter_to_exploder(check_nx, 310, Language::option_avoid_batter_to_exploder),
+    desc_prioinv_middle   (check_nx, 340, Language::option_prioinv_middle),
+    desc_prioinv_right    (check_nx, 370, Language::option_prioinv_right),
 
     // Some of the following buttons will be moved again.
     img_skill(useR->skill_sort.size(), SkillButton(9999, 9999, 40)),
@@ -228,21 +230,23 @@ OptionMenu::OptionMenu()
     screen_vsync          (check_x, 100),
     arrows_replay         (check_x, 220),
     arrows_network        (check_x, 250),
-    gameplay_help         (check_x, 280),
+    game_show_tooltips    (check_x, 280),
+    game_show_skill_keys  (check_x, 310),
     debris_amount         (other_x, 220, button_xl),
     debris_type           (other_x, 250, button_xl),
-    gui_color_red         (other_x - 40, 280, button_xl + 40),
-    gui_color_green       (other_x - 40, 310, button_xl + 40),
-    gui_color_blue        (other_x - 40, 340, button_xl + 40),
+    gui_color_red         (other_x, 280, button_xl),
+    gui_color_green       (other_x, 310, button_xl),
+    gui_color_blue        (other_x, 340, button_xl),
     desc_screen_resolution(other_nx, 100, Language::option_screen_resolution),
-    desc_screen_windowed_res(other_nx,130, Language::option_screen_windowed_res),
+  desc_screen_windowed_res(other_nx, 130, Language::option_screen_windowed_res),
     desc_screen_windowed  (check_nx, 130, Language::option_screen_windowed),
     desc_screen_scaling   (other_nx, 160, Language::option_screen_scaling),
-    desc_screen_border_colored(check_nx,160,Language::option_screen_border_colored),
+desc_screen_border_colored(check_nx, 160, Language::option_screen_border_colored),
     desc_screen_vsync     (check_nx, 100, Language::option_screen_vsync),
     desc_arrows_replay    (check_nx, 220, Language::option_arrows_replay),
     desc_arrows_network   (check_nx, 250, Language::option_arrows_network),
-    desc_gameplay_help    (check_nx, 280, Language::option_gameplay_help),
+   desc_game_show_tooltips(check_nx, 280, Language::option_game_show_tooltips),
+ desc_game_show_skill_keys(check_nx, 310, Language::option_game_show_skill_keys),
     desc_debris_amount    (other_nx, 220, Language::option_debris_amount),
     desc_debris_type      (other_nx, 250, Language::option_debris_type),
     desc_gui_color_red    (other_nx, 280, Language::option_gui_color_red),
@@ -298,8 +302,9 @@ OptionMenu::OptionMenu()
     pointers[GROUP_CONTROLS].push_back(&scroll_speed_click);
     pointers[GROUP_CONTROLS].push_back(&replay_cancel);
     pointers[GROUP_CONTROLS].push_back(&replay_cancel_at);
-    pointers[GROUP_CONTROLS].push_back(&multiple_builders);
-    pointers[GROUP_CONTROLS].push_back(&batter_priority);
+    pointers[GROUP_CONTROLS].push_back(&allow_builder_queuing);
+    pointers[GROUP_CONTROLS].push_back(&avoid_builder_queuing);
+    pointers[GROUP_CONTROLS].push_back(&avoid_batter_to_exploder);
     pointers[GROUP_CONTROLS].push_back(&prioinv_middle);
     pointers[GROUP_CONTROLS].push_back(&prioinv_right);
     pointers[GROUP_CONTROLS].push_back(&desc_mouse_speed);
@@ -310,8 +315,9 @@ OptionMenu::OptionMenu()
     pointers[GROUP_CONTROLS].push_back(&desc_scroll_middle);
     pointers[GROUP_CONTROLS].push_back(&desc_replay_cancel);
     pointers[GROUP_CONTROLS].push_back(&desc_replay_cancel_at);
-    pointers[GROUP_CONTROLS].push_back(&desc_multiple_builders);
-    pointers[GROUP_CONTROLS].push_back(&desc_batter_priority);
+    pointers[GROUP_CONTROLS].push_back(&desc_allow_builder_queuing);
+    pointers[GROUP_CONTROLS].push_back(&desc_avoid_builder_queuing);
+    pointers[GROUP_CONTROLS].push_back(&desc_avoid_batter_to_exploder);
     pointers[GROUP_CONTROLS].push_back(&desc_prioinv_middle);
     pointers[GROUP_CONTROLS].push_back(&desc_prioinv_right);
 
@@ -477,7 +483,8 @@ OptionMenu::OptionMenu()
     pointers[GROUP_GRAPHICS].push_back(&screen_vsync);
     pointers[GROUP_GRAPHICS].push_back(&arrows_replay);
     pointers[GROUP_GRAPHICS].push_back(&arrows_network);
-    pointers[GROUP_GRAPHICS].push_back(&gameplay_help);
+    pointers[GROUP_GRAPHICS].push_back(&game_show_tooltips);
+    pointers[GROUP_GRAPHICS].push_back(&game_show_skill_keys);
     pointers[GROUP_GRAPHICS].push_back(&debris_amount);
     pointers[GROUP_GRAPHICS].push_back(&debris_type);
     pointers[GROUP_GRAPHICS].push_back(&gui_color_red);
@@ -491,7 +498,8 @@ OptionMenu::OptionMenu()
     pointers[GROUP_GRAPHICS].push_back(&desc_screen_vsync);
     pointers[GROUP_GRAPHICS].push_back(&desc_arrows_replay);
     pointers[GROUP_GRAPHICS].push_back(&desc_arrows_network);
-    pointers[GROUP_GRAPHICS].push_back(&desc_gameplay_help);
+    pointers[GROUP_GRAPHICS].push_back(&desc_game_show_tooltips);
+    pointers[GROUP_GRAPHICS].push_back(&desc_game_show_skill_keys);
     pointers[GROUP_GRAPHICS].push_back(&desc_debris_amount);
     pointers[GROUP_GRAPHICS].push_back(&desc_debris_type);
     pointers[GROUP_GRAPHICS].push_back(&desc_gui_color_red);
@@ -555,8 +563,9 @@ void OptionMenu::reset_elements()
     scroll_speed_click   .set_number (useR->scroll_speed_click);
     replay_cancel        .set_checked(useR->replay_cancel);
     replay_cancel_at     .set_number (useR->replay_cancel_at);
-    multiple_builders    .set_checked(useR->multiple_builders);
-    batter_priority      .set_checked(useR->batter_priority);
+    allow_builder_queuing   .set_checked(useR->allow_builder_queuing);
+    avoid_builder_queuing   .set_checked(useR->avoid_builder_queuing);
+    avoid_batter_to_exploder.set_checked(useR->avoid_batter_to_exploder);
     prioinv_middle       .set_checked(useR->prioinv_middle);
     prioinv_right        .set_checked(useR->prioinv_right);
 
@@ -644,7 +653,8 @@ void OptionMenu::reset_elements()
     screen_vsync         .set_checked(gloB->screen_vsync);
     arrows_replay        .set_checked(useR->arrows_replay);
     arrows_network       .set_checked(useR->arrows_network);
-    gameplay_help        .set_checked(useR->gameplay_help);
+    game_show_tooltips   .set_checked(useR->game_show_tooltips);
+    game_show_skill_keys .set_checked(useR->game_show_skill_keys);
     debris_amount        .set_number (useR->debris_amount);
     debris_type          .set_number (useR->debris_type);
     gui_color_red        .set_number (useR->gui_color_red);
@@ -741,10 +751,11 @@ void OptionMenu::calc_self()
         useR->scroll_middle     = scroll_middle     .get_checked();
         useR->replay_cancel     = replay_cancel     .get_checked();
         useR->replay_cancel_at  = replay_cancel_at  .get_number();
-        useR->multiple_builders = multiple_builders .get_checked();
-        useR->batter_priority   = batter_priority   .get_checked();
-        useR->prioinv_middle    = prioinv_middle    .get_checked();
-        useR->prioinv_right     = prioinv_right     .get_checked();
+        useR->allow_builder_queuing   = allow_builder_queuing   .get_checked();
+        useR->avoid_builder_queuing   = avoid_builder_queuing   .get_checked();
+        useR->avoid_batter_to_exploder= avoid_batter_to_exploder.get_checked();
+        useR->prioinv_middle          = prioinv_middle          .get_checked();
+        useR->prioinv_right           = prioinv_right           .get_checked();
 
         useR->key_force_left  = key_force_left .get_scancode();
         useR->key_force_right = key_force_right.get_scancode();
@@ -828,7 +839,8 @@ void OptionMenu::calc_self()
         useR->screen_border_colored = screen_border_colored.get_checked();
         useR->arrows_replay         = arrows_replay        .get_checked();
         useR->arrows_network        = arrows_network       .get_checked();
-        useR->gameplay_help         = gameplay_help        .get_checked();
+        useR->game_show_tooltips    = game_show_tooltips   .get_checked();
+        useR->game_show_skill_keys  = game_show_skill_keys .get_checked();
         useR->debris_amount         = debris_amount        .get_number();
         useR->debris_type           = debris_type          .get_number();
         useR->gui_color_red         = gui_color_red        .get_number();

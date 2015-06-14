@@ -82,8 +82,9 @@ public:
     bool mouse_acceleration;
     int  scroll_speed_edge;
     int  scroll_speed_click;
-    bool multiple_builders;
-    bool batter_priority;
+    bool allow_builder_queuing;
+    bool avoid_builder_queuing;
+    bool avoid_batter_to_exploder;
     bool prioinv_middle;
     bool prioinv_right;
 
@@ -92,7 +93,8 @@ public:
     bool screen_windowed;
     bool arrows_replay;
     bool arrows_network;
-    bool gameplay_help;
+    bool game_show_tooltips;
+    bool game_show_skill_keys;
     int  debris_amount;
     int  debris_type;
     int  gui_color_red;

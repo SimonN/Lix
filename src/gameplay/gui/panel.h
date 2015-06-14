@@ -72,6 +72,12 @@ public:
     inline int  get_hint_cur () const          { return hint_cur;           }
     inline bool get_nuke_doubleclicked() const { return nuke_doubleclicked; }
 
+    inline void suggest_tooltip_scrolling()   { tooltip_scrolling   = true; }
+    inline void suggest_tooltip_force_dir()   { tooltip_force_dir   = true; }
+    inline void suggest_tooltip_priority()    { tooltip_priority    = true; }
+    inline void suggest_tooltip_builders()    { tooltip_builders    = true; }
+    inline void suggest_tooltip_platformers() { tooltip_platformers = true; }
+
 protected:
 
     virtual void calc_self();
@@ -83,6 +89,12 @@ private:
 
     bool nuke_doubleclicked;
     int  timer_tick_nuke_single;
+
+    bool tooltip_scrolling;
+    bool tooltip_force_dir;
+    bool tooltip_priority;
+    bool tooltip_builders;
+    bool tooltip_platformers;
 
     int hint_size; // including the tutorial hint
     int hint_cur;

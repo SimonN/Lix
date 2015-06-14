@@ -108,8 +108,9 @@ private:
     Checkbox   scroll_middle;
     Checkbox   replay_cancel;
     Number     replay_cancel_at;
-    Checkbox   multiple_builders;
-    Checkbox   batter_priority;
+    Checkbox   allow_builder_queuing;
+    Checkbox   avoid_builder_queuing;
+    Checkbox   avoid_batter_to_exploder;
     Checkbox   prioinv_middle;
     Checkbox   prioinv_right;
     Label      desc_mouse_speed,
@@ -120,8 +121,9 @@ private:
                desc_scroll_middle,
                desc_replay_cancel,
                desc_replay_cancel_at,
-               desc_multiple_builders,
-               desc_batter_priority,
+               desc_allow_builder_queuing,
+               desc_avoid_builder_queuing,
+               desc_avoid_batter_to_exploder,
                desc_prioinv_middle,
                desc_prioinv_right;
 
@@ -265,7 +267,8 @@ private:
     Checkbox   screen_vsync;
     Checkbox   arrows_replay;
     Checkbox   arrows_network;
-    Checkbox   gameplay_help;
+    Checkbox   game_show_tooltips;
+    Checkbox   game_show_skill_keys;
     EnumButton debris_amount;
     EnumButton debris_type;
     Number     gui_color_red;
@@ -279,7 +282,8 @@ private:
                desc_screen_vsync,
                desc_arrows_replay,
                desc_arrows_network,
-               desc_gameplay_help,
+               desc_game_show_tooltips,
+               desc_game_show_skill_keys,
                desc_debris_amount,
                desc_debris_type,
                desc_gui_color_red,

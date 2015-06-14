@@ -101,7 +101,13 @@ void Gameplay::calc_self()
     if (map.get_scrolling_now())
         mouse_cursor.set_x_frame(3);
 
-
+    // encourage user to scroll with right-click if he's not doing it
+    if ((map.get_scrollable_left() || map.get_scrollable_right())
+     && (hardware.get_mx() == 0 || hardware.get_mx() == LEMSCR_X - 1))
+        pan.suggest_tooltip_scrolling();
+    if ((map.get_scrollable_up() || map.get_scrollable_down())
+     && (hardware.get_my() == 0 || hardware.get_my() == LEMSCR_Y - 1))
+        pan.suggest_tooltip_scrolling();
 
     // ec kurz fuer exit_count. game ends when this is 0.
     unsigned ec = 0;
