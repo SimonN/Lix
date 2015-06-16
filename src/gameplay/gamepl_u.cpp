@@ -79,7 +79,6 @@ void Gameplay::update()
     // Alle Faehigkeitszahlen einmal neu schreiben.
     if (trlo) {
         pan.set_skill_numbers(*trlo);
-        if (malo) pan.set_skill_on(malo->skill_sel);
     }
 }
 // Ende des cs.update inkl. Neuladerei und Nachberechnung
@@ -319,14 +318,6 @@ void Gameplay::update_cs_one_data(Tribe& t, Tribe::Master* m, Replay::It i)
             if (&t == trlo) pan.rate_cur.set_number(t.spawnint);
         }
     }
-    else if (i->action == Replay::SKILL) {
-        if (!m) return;
-        const int& nr = m->skill_sel = i->what;
-        if (m == malo) {
-            pan.set_skill_on(nr);
-            effect.add_sound(upd, *trlo, nr, Sound::PANEL);
-        }
-    }
     else if (i->action == Replay::NUKE) {
         if (!t.nuke) {
             t.lix_hatch = 0;
@@ -342,7 +333,18 @@ void Gameplay::update_cs_one_data(Tribe& t, Tribe::Master* m, Replay::It i)
           || i->action == Replay::ASSIGN_LEFT
           || i->action == Replay::ASSIGN_RIGHT) {
         if (!m) return;
-        Tribe::Skill& psk = t.skill[m->skill_sel];
+
+        // This might be made more beautiful once we don't rely anymore
+        // on the skill order in Tribe. It's not even legacy support.
+        size_t skill_rep_id = 0;
+        while (skill_rep_id < t.skill.size() && t.skill[skill_rep_id].ac
+                                             != i->skill)
+            ++skill_rep_id;
+        if (skill_rep_id == t.skill.size())
+            // should never happen
+            return;
+
+        Tribe::Skill& psk = t.skill[skill_rep_id];
         if (i->what < t.lixvec.size()) {
             Lixxie& lix = t.lixvec[i->what];
             // false: Do not respect the user's options like
@@ -372,7 +374,7 @@ void Gameplay::update_cs_one_data(Tribe& t, Tribe::Master* m, Replay::It i)
         if (m && &t == trlo) {
             // Wird ohne Replay naemlich extra schon vorher gemacht,
             // damit es schoener aussieht bei langsamen Spieltempi.
-            GameplayPanel::SkBIt b = pan.button_by_replay_id(m->skill_sel);
+            GameplayPanel::SkBIt b = pan.button_by_replay_id(skill_rep_id);
             if (b != pan.skill.end()) b->set_number(psk.nr);
         }
     }

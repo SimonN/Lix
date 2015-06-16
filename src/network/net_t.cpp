@@ -188,6 +188,7 @@ ReplayData::ReplayData(const char a)
 :
     player(0),
     action(a),
+    skill (0),
     update(0),
     what  (0)
 {
@@ -199,6 +200,7 @@ bool ReplayData::operator == (const ReplayData& rhs) const
 {
     return player == rhs.player
      &&    action == rhs.action
+     &&    skill  == rhs.skill
      &&    update == rhs.update
      &&    what   == rhs.what;
 }
@@ -214,12 +216,13 @@ bool ReplayData::operator != (const ReplayData& rhs) const
 
 ENetPacket* ReplayData::create_packet() const
 {
-    ENetPacket* pck = enet_packet_create(0, 11, ENET_PACKET_FLAG_RELIABLE);
+    ENetPacket* pck = enet_packet_create(0, 12, ENET_PACKET_FLAG_RELIABLE);
     pck->data[0] = LEMNET_REPLAY_DATA;
     pck->data[1] = player;
     pck->data[2] = action;
-    Uint32 temp = htonl(update); memmove(pck->data + 3, &temp, 4);
-           temp = htonl(what);   memmove(pck->data + 7, &temp, 4);
+    pck->data[3] = skill;
+    Uint32 temp = htonl(update); memmove(pck->data + 4, &temp, 4);
+           temp = htonl(what);   memmove(pck->data + 8, &temp, 4);
     return pck;
 }
 
@@ -229,8 +232,9 @@ void ReplayData::read_from(ENetPacket* pck)
 {
     player = pck->data[1];
     action = pck->data[2];
-    update = ntohl(*(Uint32*) (pck->data + 3));
-    what   = ntohl(*(Uint32*) (pck->data + 7));
+    skill  = pck->data[3];
+    update = ntohl(*(Uint32*) (pck->data + 4));
+    what   = ntohl(*(Uint32*) (pck->data + 8));
 }
 
 

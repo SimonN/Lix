@@ -123,8 +123,9 @@ struct ReplayData {
 
     char   player;
     char   action;
+    char   skill; // only != 0 when action == ASSIGN or ASSIGN_LEFT or _RIGHT
     Uint32 update;
-    Uint32 what;
+    Uint32 what; // assign to which lix, or change rate to how much
 
     ReplayData(const char = 0); // value for action
 

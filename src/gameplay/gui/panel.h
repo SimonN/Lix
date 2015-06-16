@@ -64,7 +64,7 @@ public:
 
     SkBIt button_by_replay_id(const int);
 
-    void set_like_tribe   (const Tribe*, const Tribe::Master*);
+    void set_like_tribe   (const Tribe*);
     void set_skill_numbers(const Tribe&);
     void set_skill_on     (const int);
 

@@ -345,16 +345,8 @@ void Gameplay::prepare_level()
         map.set_screen_y(lv.start_y);
     }
 
-    // Faehigkeit auswaehlen: Das muss in einer separaten Schleife geschehen,
-    // weil durch Neuallokation die Adressen in der ersten sich ggf. aendern.
-    for (size_t i = 0; i < useR->skill_sort.size(); ++i)
-     if (lv.skill[i].nr != 0) {
-        for  (Tribe::It  t = cs.tribes.begin();  t != cs.tribes.end();  ++t)
-         for (Tribe::MIt m = t->masters.begin(); m != t->masters.end(); ++m) {
-            m->skill_sel = i;
-        }
-        break;
-    }
+    // a hack from 2015-06-17
+    replay.fix_legacy_replays_according_to_current_state(cs);
 
     // faster start in singleplayer, with or without tutorials
     if (! multiplayer || replaying) {
@@ -375,7 +367,7 @@ void Gameplay::prepare_panel()
     // This function is not used when verifying from the command line.
     // There was a crash from the uninitialized keyboard key names.
 
-    pan.set_like_tribe(trlo, malo);
+    pan.set_like_tribe(trlo);
 
     pan.on_hint_change       = on_hint_change_callback;
     pan.on_hint_change_where = this;
@@ -390,6 +382,14 @@ void Gameplay::prepare_panel()
         if (spectating) gm = GM_REPLAY_MULTI;
         else            gm = GM_PLAY_SINGLE;
     }
+
+    // activate the leftmost nonzero panel
+    if (gm == GM_PLAY_SINGLE || gm == GM_PLAY_MULTI || gm == GM_REPLAY_SINGLE)
+        for (size_t i = 0; i < pan.skill.size(); ++i)
+            if (pan.skill[i].get_number() != 0) {
+                pan.set_skill_on(i);
+                break;
+            }
 
     pan.set_gapamode_and_hints(gm, level.get_hints().size());
 }

@@ -41,9 +41,7 @@ struct Tribe {
     struct Master {
         PlNr        number;
         std::string name;
-        int         skill_sel;
-        inline Master()
-         : number(0), skill_sel(0) {}
+        inline Master() : number(0) {}
     };
 
     typedef std::vector <Tribe>  ::iterator       It;

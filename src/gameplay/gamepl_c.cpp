@@ -86,6 +86,85 @@ void Gameplay::calc_window()
 
 
 
+void Gameplay::check_skill_buttons() {
+    // This starts at the next button and breaks immediately if one is
+    // pressed. This enables a hotkey to cycle through its skills.
+    // This next if makes that an overloaded hotkey will select the skill
+    // that's more to the left always, unless a skill with the same
+    // hotkey is already selected. If the if wasn't there, sometimes the
+    // first hit of a new skillkey would select a different than the
+    // leftmost occurence, based on where the skills are.
+
+    // find current button in case it has been clicked exactly this calc
+    GameplayPanel::SkBIt cur_but = pan.skill.begin();
+    while (cur_but != pan.skill.end() && ! cur_but->get_on())
+        ++cur_but;
+    int pan_vec_id = cur_but - pan.skill.begin();
+    if (cur_but == pan.skill.end() || ! cur_but->get_clicked())
+        pan_vec_id = pan.skill.size() - 1;
+    // we don't need cur_but from here on anymore, only the panel ID
+
+    // Scan for hotkey presses of empty/nonpresent skills
+    // if this is still false later, iterate over nonpresent skills
+    // and play the empty-skill sound if a key for them was pressed
+    bool some_panel_action = false;
+
+    for (size_t j = 0; j < pan.skill.size(); ++j) {
+        size_t i = (pan_vec_id + j + 1) % pan.skill.size();
+        if (pan.skill[i].get_number() != 0
+         && pan.skill[i].get_clicked()
+         && ! pan.skill[i].get_on())
+        {
+            int rep_id = pan.skill[i].get_replay_id();
+
+            // This will be done during the next physics update, but
+            // we'll do it now, to make the button seem more responsive
+            pan.set_skill_on(rep_id);
+            Sound::play_loud(Sound::PANEL);
+            // Don't check any more buttons, see comment before the loop.
+            some_panel_action = true;
+            break;
+        }
+    }
+
+    if (! some_panel_action) {
+        // check for empty clicked panel icons
+        for (size_t i = 0; i < pan.skill.size(); ++i)
+         if (pan.skill[i].get_clicked()
+         &&  pan.skill[i].get_skill() != LixEn::NOTHING) {
+            if (! pan.skill[i].get_on()) {
+                if (hardware.get_ml()) {
+                    Sound::play_loud(Sound::PANEL_EMPTY);
+                }
+                // else play no sound -- we're holding the mouse button
+                // over a wrong skill, that's not notify-necessary, but
+                // leave open the possibility to play a sound later
+            }
+            // we've clicked on an activated skill, that's all good,
+            // never play a sound even if a hotkey was used
+            else some_panel_action = true;
+        }
+        // check for hotkeys of present/nonpresent skills:
+        // if the hotkey is of an available skill, we wouldn't have ended
+        // up in this if (! some_panel_action)
+        if (! some_panel_action)
+         for (size_t i = 0; i < LixEn::AC_MAX; ++i) {
+            const int key = useR->key_skill[i];
+            if (key != 0 && hardware.key_once(key))
+             Sound::play_loud(Sound::PANEL_EMPTY);
+        }
+    }
+
+}
+
+
+
+// ############################################################################
+// ############################################################################
+// ############################################################################
+
+
+
 void Gameplay::calc_self()
 {
     // Berechnungen, die in jedem Tick, nicht nur in jedem Update
@@ -163,23 +242,25 @@ void Gameplay::calc_self()
         bool abort_replay = false;
 
         if (csu >= max || max == 0) abort_replay = true;
-        if (hardware.get_ml() &&
-         ! (pan.state_save .is_mouse_here()
-         || pan.state_load .is_mouse_here()
-         || pan.pause      .is_mouse_here()
-         || pan.zoom       .is_mouse_here()
-         || pan.speed_slow .is_mouse_here()
-         || pan.speed_fast .is_mouse_here()
-         || pan.speed_turbo.is_mouse_here()
-         || pan.restart    .is_mouse_here()
-         || pan.nuke_single.is_mouse_here())) abort_replay = true;
+        if (hardware.get_ml() && abort_replay == false) {
+            abort_replay = true;
+            if (pan.state_save .is_mouse_here()
+             || pan.state_load .is_mouse_here()
+             || pan.pause      .is_mouse_here()
+             || pan.zoom       .is_mouse_here()
+             || pan.speed_slow .is_mouse_here()
+             || pan.speed_fast .is_mouse_here()
+             || pan.speed_turbo.is_mouse_here()
+             || pan.restart    .is_mouse_here()
+             || pan.nuke_single.is_mouse_here()) abort_replay = false;
+            for (size_t i = 0; i < pan.skill.size(); ++i)
+                if (pan.skill[i].get_clicked())
+                    abort_replay = false;
+        }
         // we ignore clicks on the nuke here, as we do with non-gamestate-
         // -altering buttons like pause or fast forward. We'll come back
         // to it right here:
         if (pan.get_nuke_doubleclicked()) abort_replay = true;
-
-        for (size_t i = 0; i < pan.skill.size(); ++i)
-         if (pan.skill[i].get_clicked()) abort_replay = true;
         if (pan.rate_minus.get_clicked()
          || pan.rate_plus .get_clicked()
          || hardware.key_hold(useR->key_rate_minus)
@@ -208,6 +289,9 @@ void Gameplay::calc_self()
     // and without said variable, the console would be opened again upon
     // sending text with enter or the menu would open on cancelling typing.
     if (!chat.get_type_on()) {
+
+        check_skill_buttons();
+
         // Speichern
         if (pan.state_save.get_clicked()) {
             state_manager.save_user(cs, replay);
@@ -281,7 +365,7 @@ void Gameplay::calc_self()
                         trlo = &*(++itr); break;
                     }
                 }
-                pan.set_like_tribe(trlo, malo);
+                pan.set_like_tribe(trlo);
                 effect.set_trlo   (trlo);
             }
         }
@@ -402,7 +486,7 @@ void Gameplay::load_state(const GameState& state)
         // Replay nicht laden, sondern das derzeitige ab dort abspielen
         replaying = cs.update < replay.get_max_updates();
         // Panel aktualisieren
-        if (trlo) pan.set_like_tribe(trlo, malo);
+        if (trlo) pan.set_like_tribe(trlo);
         // Sauberputzen
         effect.delete_after(cs.update);
         for (HatchIt i = hatches.begin(); i != hatches.end(); ++i)

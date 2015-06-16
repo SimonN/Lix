@@ -139,6 +139,7 @@ private:
     void write_outcome_to_console();
 
     // Update-Subroutinen
+    void check_skill_buttons ();
     void update();           // Normalerweise 15x pro Sek., ruft auf:
     void update_cs_once      ();
     void update_cs_one_data  (Tribe&, Tribe::Master*, Replay::It);

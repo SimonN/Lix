@@ -52,6 +52,7 @@
 #include "../other/types.h"
 
 class Level;
+class GameState;
 
 class Replay {
 
@@ -62,7 +63,7 @@ public:
     enum Action {
         NOTHING,
         SPAWNINT,
-        SKILL,
+        SKILL_LEGACY_SUPPORT, // only while reading files, never used after
         ASSIGN,
         ASSIGN_LEFT,
         ASSIGN_RIGHT,
@@ -99,7 +100,9 @@ private:
 
     Vec               data;
     Uint              max_updates;
-
+    LixEn::Ac         first_skill_bc; // bc = backwards compatibility skill,
+                                      // what skill to assign if no SKILL
+                                      // command has occured yet
     PlNr              player_local;
 
 public:
@@ -140,12 +143,15 @@ public:
     void        add                            (const Data&);
     void        add                            (const Vec&);
 
+    // call this after loading the replay from a file, after knowing what
+    // the first non-zero skill has been in the level.
+    void fix_legacy_replays_according_to_current_state(const GameState&);
+
     std::string get_canonical_save_filename    ();
 
     void        save_as_auto_replay            (const Level* const = 0);
     void        save_to_file                   (const Filename&,
                                                 const Level* const = 0);
     void        load_from_file                 (const Filename&);
-
 
 };

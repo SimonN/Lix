@@ -8,6 +8,9 @@
 
 #include "replay.h"
 
+#include "state.h" // for legacy replay fixing
+#include "../lix/lix.h" // for legacy replay fixing
+
 #include "../level/level.h"
 #include "../level/level_me.h"
 #include "../other/file/io.h"
@@ -20,6 +23,7 @@ Replay::Replay()
     built_required(gloB->empty_string),
     level_filename(gloB->empty_filename),
     max_updates   (0),
+    first_skill_bc(LixEn::NOTHING),
     player_local  (-1)
 {
 }
@@ -45,6 +49,7 @@ void Replay::clear()
     level_filename = gloB->empty_filename;
     player_local   = -1;
     max_updates    = 0;
+    first_skill_bc = LixEn::NOTHING;
     players        .clear();
     permu          = Permu();
     data           .clear();
@@ -169,7 +174,9 @@ bool Replay::get_on_update_lix_clicked(const unsigned long u,
                                        const unsigned      lem_id)
 {   Replay::Vec vec = get_data_for_update(u);
     for (ConstIt it = vec.begin(); it != vec.end(); ++it)
-     if (it->action == ASSIGN && it->what == lem_id) return true;
+     if ((it->action == ASSIGN
+      ||  it->action == ASSIGN_LEFT
+      ||  it->action == ASSIGN_RIGHT) && it->what == lem_id) return true;
     return false;
 }
 
@@ -182,7 +189,7 @@ inline static int compare_data(const Replay::Data& a, const Replay::Data& b)
     if (a.player < b.player) return -1;
     if (a.player > b.player) return 1;
     // do not order by action:
-    // assign, force, skill -- all of these are equal, and the sort must be
+    // assign, force, nuke -- all of these are equal, and the sort must be
     // stable later. Keep these in the replay in whatever order the player
     // has input them.
     return 0;
@@ -339,15 +346,19 @@ void Replay::save_to_file(const Filename& s, const Level* const lev)
 
     // Die einzelnen Aktionen schreiben
     for (It itr = data.begin(); itr != data.end(); ++itr) {
-        file << IO::LineBang(itr->update, itr->player,
-           itr->action == Replay::SPAWNINT     ? gloB->replay_spawnint
-         : itr->action == Replay::SKILL        ? gloB->replay_skill
+        std::string word
+         = itr->action == Replay::SPAWNINT     ? gloB->replay_spawnint
          : itr->action == Replay::NUKE         ? gloB->replay_nuke
          : itr->action == Replay::ASSIGN       ? gloB->replay_assign_any
          : itr->action == Replay::ASSIGN_LEFT  ? gloB->replay_assign_left
          : itr->action == Replay::ASSIGN_RIGHT ? gloB->replay_assign_right
-                                               : Language::common_cancel,
-         itr->what);
+                                               : Language::common_cancel;
+        if (itr->action == ASSIGN || itr->action == ASSIGN_LEFT
+                                  || itr->action == ASSIGN_RIGHT) {
+            word += "=";
+            word += LixEn::ac_to_string(static_cast <LixEn::Ac> (itr->skill));
+        }
+        file << IO::LineBang(itr->update, itr->player, word, itr->what);
     }
 
     if (save_level_into_file) {
@@ -402,16 +413,34 @@ void Replay::load_from_file(const Filename& fn)
         break;
 
     case '!': {
+        // replays contain ASSIGN=BASHER or ASSIGN_RIGHT=BUILDER.
+        // cut these strings into a left and right part, none contains '='.
+        std::string part1 = i->text1;
+        std::string part2 = "";
+        size_t pos   = 0;
+        while (pos < part1.size() && part1[pos] != '=')
+            ++pos;
+        if (pos < part1.size()) {
+            part1 = i->text1.substr(0, pos);
+            part2 = i->text1.substr(pos + 1, std::string::npos);
+        }
+
         Data d;
         d.update = i->nr1; // d.player ist zwar ein char, aber wir lesen ja
         d.player = i->nr2; // nicht aktiv longs ein, sondern weisen nur zu.
         d.what   = i->nr3;
-        d.action = i->text1 == gloB->replay_spawnint     ? SPAWNINT
-                 : i->text1 == gloB->replay_skill        ? SKILL
-                 : i->text1 == gloB->replay_assign_any   ? ASSIGN
-                 : i->text1 == gloB->replay_assign_left  ? ASSIGN_LEFT
-                 : i->text1 == gloB->replay_assign_right ? ASSIGN_RIGHT
-                 : i->text1 == gloB->replay_nuke         ? NUKE : NOTHING;
+        d.action = part1 == gloB->replay_spawnint     ? SPAWNINT
+                 : part1 == gloB->replay_skill        ? SKILL_LEGACY_SUPPORT
+                 : part1 == gloB->replay_assign_any   ? ASSIGN
+                 : part1 == gloB->replay_assign_left  ? ASSIGN_LEFT
+                 : part1 == gloB->replay_assign_right ? ASSIGN_RIGHT
+                 : part1 == gloB->replay_nuke         ? NUKE : NOTHING;
+        if (part2.size() > 0) {
+            d.skill = LixEn::string_to_ac(part2);
+            if (d.skill == LixEn::AC_MAX)
+                d.skill =  LixEn::NOTHING; // some default value, but important
+                                           // for legacy fixing, see func below
+        }
         add(d);
         break; }
 
@@ -421,5 +450,53 @@ void Replay::load_from_file(const Filename& fn)
 
     // Variablen nach dem Laden zuweisen, damit add() nichts kaputtmacht
     version_min = vm;
+}
 
+
+
+
+void Replay::fix_legacy_replays_according_to_current_state(const GameState& cs)
+{
+    LixEn::Ac cur_skill = LixEn::NOTHING;
+
+    for (size_t i = 0; i < cs.tribes[0].skill.size(); ++i)
+        if (cs.tribes[0].skill[i].nr != 0) {
+            cur_skill = cs.tribes[0].skill[i].ac;
+            break;
+        }
+
+    for (size_t i = 0; i < data.size(); ++i) {
+        if (data[i].action == SKILL_LEGACY_SUPPORT) {
+            if (data[i].what < cs.tribes[0].skill.size())
+                cur_skill = cs.tribes[0].skill[data[i].what].ac;
+            data.erase(data.begin() + i);
+            --i;
+        }
+        else if (data[i].action == ASSIGN || data[i].action == ASSIGN_LEFT
+                                          || data[i].action == ASSIGN_RIGHT) {
+            if (data[i].skill != LixEn::NOTHING) {
+                // This is a replay recorded with 2015-06-17 or newer.
+                // Don't mess with any assignments. Each assignment has its
+                // skill information in the same packet.
+                continue;
+            }
+            data[i].skill = cur_skill;
+/*
+ * comment this back in once we have untimed exploders in singleplayer
+ *
+            if ((cur_skill == LixEn::EXPLODER || cur_skill == LixEN::EXPLODER2)
+             && cs.tribes.size() == 1) {
+                // Singleplayer was played with timed exploders until
+                // 2015-06-17. Every old singleplayer replay must have the
+                // exploder assignment delayed to match the current version.
+                Data d = data[i];
+                d.update += Lixxie::updates_for_bomb;
+                data.erase(data.begin() + i);
+                add(d);
+                --i;
+            }
+*/
+        }
+    }
+    if (! data.empty()) max_updates = data.rbegin()->update;
 }

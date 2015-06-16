@@ -85,87 +85,8 @@ void Gameplay::calc_active()
         }
     }
 
-    // Check skill buttons
-    if (malo) {
-        // This starts at the next button and breaks immediately if one is
-        // pressed. This enables a hotkey to cycle through its skills.
-        // We don't read malo->skill_sel, this is only updated after a
-        // gameplay physics update.
-        // This next if makes that an overloaded hotkey will select the skill
-        // that's more to the left always, unless a skill with the same
-        // hotkey is already selected. If the if wasn't there, sometimes the
-        // first hit of a new skillkey would select a different than the
-        // leftmost occurence, based on where the skills are.
-        GameplayPanel::SkBIt cur_but
-            = pan.button_by_replay_id(malo->skill_sel);
-        int pan_vec_id = cur_but - pan.skill.begin();
-        if (cur_but == pan.skill.end() || ! cur_but->get_clicked())
-            pan_vec_id = pan.skill.size() - 1;
-        // we don't need cur_but from here on anymore, only the panel ID
-
-        // Scan for hotkey presses of empty/nonpresent skills
-        // if this is still false later, iterate over nonpresent skills
-        // and play the empty-skill sound if a key for them was pressed
-        bool some_panel_action = false;
-
-        for (size_t j = 0; j < pan.skill.size(); ++j) {
-            size_t i = (pan_vec_id + j + 1) % pan.skill.size();
-            if (pan.skill[i].get_number() != 0
-             && pan.skill[i].get_clicked()
-             && ! pan.skill[i].get_on())
-            {
-                int rep_id = pan.skill[i].get_replay_id();
-
-                // This will be done during the next physics update, but
-                // we'll do it now, to make the button seem more responsive
-                pan.set_skill_on(rep_id);
-                // Das hier ist das eigentlich Wichtige
-                Replay::Data data = new_replay_data();
-                data.action       = Replay::SKILL;
-                data.what         = rep_id;
-                replay.add(data);
-                Network::send_replay_data(data);
-                // Jetzt schon den Klang abspielen, dafuer beim Update nicht.
-                // Es wird also der Effekt gesichert und zusaetzlich manuell
-                // der Effekt vorgemerkt, falls jemand in der Pause wechselt.
-                effect.add_sound(cs.update + 1, *trlo, rep_id, Sound::PANEL);
-                Sound::play_loud(Sound::PANEL);
-                // Don't check any more buttons, see comment before the loop.
-                some_panel_action = true;
-                break;
-            }
-        }
-
-        if (! some_panel_action) {
-            // check for empty clicked panel icons
-            for (size_t i = 0; i < pan.skill.size(); ++i)
-             if (pan.skill[i].get_clicked()
-             &&  pan.skill[i].get_skill() != LixEn::NOTHING) {
-                if (! pan.skill[i].get_on()) {
-                    if (hardware.get_ml()) {
-                        Sound::play_loud(Sound::PANEL_EMPTY);
-                    }
-                    // else play no sound -- we're holding the mouse button
-                    // over a wrong skill, that's not notify-necessary, but
-                    // leave open the possibility to play a sound later
-                }
-                // we've clicked on an activated skill, that's all good,
-                // never play a sound even if a hotkey was used
-                else some_panel_action = true;
-            }
-            // check for hotkeys of present/nonpresent skills:
-            // if the hotkey is of an available skill, we wouldn't have ended
-            // up in this if (! some_panel_action)
-            if (! some_panel_action)
-             for (size_t i = 0; i < LixEn::AC_MAX; ++i) {
-                const int key = useR->key_skill[i];
-                if (key != 0 && hardware.key_once(key))
-                 Sound::play_loud(Sound::PANEL_EMPTY);
-            }
-
-        }
-    }
-    // Restliche Buttons in der normalen Calculate-Funktion
+    // Selection of skills in the panel aren't checked here anymore.
+    // They aren't replay data, so that check went into gamepl_c.cpp.
 
     // Atombombe
     if (pan.get_nuke_doubleclicked()) {
@@ -232,9 +153,7 @@ void Gameplay::calc_active()
         int mmld_u = mouse_max_lix_distance_u - mouse_cursor_offset/2*zoom;
         int mmld_d = mouse_max_lix_distance_d - mouse_cursor_offset/2*zoom;
 
-        // trlo->skill_sel is only set during next update to what's clicked.
-        // Therefore, look manually through the panel to see what has been
-        // clicked most recently.
+        // find current skill of the local player via the GUI
         GameplayPanel::SkBIt skill_visible = pan.skill.begin();
         while (skill_visible != pan.skill.end()
             && (! skill_visible->get_on()
@@ -242,10 +161,6 @@ void Gameplay::calc_active()
                 || trlo->skill[skill_visible->get_replay_id()].nr == 0
                 || skill_visible->get_number() == 0))
             ++skill_visible;
-
-        // this is only for emergencies, to make the cursor open properly
-        if (skill_visible == pan.skill.end())
-            skill_visible = pan.button_by_replay_id(malo->skill_sel);
 
         if (skill_visible != pan.skill.end())
             for (LixIt i =  --trlo->lixvec.end();
@@ -290,7 +205,8 @@ if (priority > 1 && priority < 99999) {
         // consider this clickable and eligible for tooltip
         if  (priority >  target_priority
          || (priority == target_priority && hypot < target_hypot)) {
-            if (target_priority != 0)
+            if (target_priority != 0
+             && target_priority < priority)
                 pan.suggest_tooltip_priority();
             target          = i;
             target_priority = priority;
@@ -300,7 +216,8 @@ if (priority > 1 && priority < 99999) {
         }
         else if (priority <  target_prio_min
              || (priority == target_prio_min && hypot >= target_hypot)) {
-            if (target_prio_min != 100000)
+            if (target_prio_min != 100000
+             && target_prio_min > priority)
                 pan.suggest_tooltip_priority();
             target_prio_min = priority;
         }
@@ -347,6 +264,7 @@ if (priority > 1 && priority < 99999) {
                 data.action       = only_dir_l ? Replay::ASSIGN_LEFT
                                   : only_dir_r ? Replay::ASSIGN_RIGHT
                                   : Replay::ASSIGN;
+                data.skill        = skill_visible->get_skill();
                 data.what         = lem_id;
                 replay.add(data);
                 Network::send_replay_data(data);

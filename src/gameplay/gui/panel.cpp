@@ -213,12 +213,16 @@ void GameplayPanel::set_gapamode_and_hints(const GapaMode m, const int hs)
 
 
 
-void GameplayPanel::set_like_tribe(const Tribe* tr, const Tribe::Master* ma)
+void GameplayPanel::set_like_tribe(const Tribe* tr)
 {
     if (!tr) return;
 
+    int skill_on_before = -1;
+
     // clear all panels
     for (size_t i = 0; i < skill.size(); ++i) {
+        if (skill[i].get_on())
+            skill_on_before = i;
         skill[i].set_skill(LixEn::NOTHING);
         skill[i].set_replay_id(-1);
     }
@@ -252,8 +256,6 @@ void GameplayPanel::set_like_tribe(const Tribe* tr, const Tribe::Master* ma)
         skill[i].set_draw_required();
     }
 
-    if (ma) set_skill_on(ma->skill_sel);
-
     stats.set_tribe_local(tr);
 
     rate_slow  .set_number(tr->spawnint_slow);
@@ -262,6 +264,9 @@ void GameplayPanel::set_like_tribe(const Tribe* tr, const Tribe::Master* ma)
     nuke_single.set_on    (tr->nuke);
     nuke_multi .set_on    (tr->nuke);
     spec_tribe .set_text  (tr->get_name());
+
+    if (skill_on_before >= 0)
+        set_skill_on(skill_on_before);
 
     set_draw_required();
 }
