@@ -157,8 +157,8 @@ User::User()
     skill_sort.push_back(LixEn::RUNNER);
     skill_sort.push_back(LixEn::CLIMBER);
     skill_sort.push_back(LixEn::FLOATER);
-    skill_sort.push_back(LixEn::EXPLODER2);
     skill_sort.push_back(LixEn::BATTER);
+    skill_sort.push_back(LixEn::EXPLODER2);
     skill_sort.push_back(LixEn::BLOCKER);
     skill_sort.push_back(LixEn::CUBER);
     skill_sort.push_back(LixEn::BUILDER);
