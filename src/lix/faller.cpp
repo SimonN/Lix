@@ -43,12 +43,16 @@ void update_faller(Lixxie& l, const UpdateArgs& ua)
 
             // Schirm in letzter Sekunde?
             if (l.get_special_x() > Lixxie::distance_safe_fall
-             && !l.get_floater()) {
+                && !l.get_floater()
+            ) {
                 l.become(LixEn::SPLATTER);
                 l.play_sound(ua, Sound::SPLAT);
                 // Nicht explodieren lassen, das täte er bei 76 :-)
-                if (l.get_updates_since_bomb() == 75)
-                 l.set_updates_since_bomb(0);
+                if (l.get_updates_since_bomb() == 75
+                    || ua.st.tribes.size() <= 1 // singleplayer
+                ) {
+                    l.set_updates_since_bomb(0);
+                }
             }
             else if ((l.get_special_x() <= 9 && l.get_frame() < 1)
              ||       l.get_special_x() == 0) {

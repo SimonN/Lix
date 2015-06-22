@@ -40,11 +40,23 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
     l.set_no_encounters();
 
     // Exploder-Dinge separat!
-    // 76 statt 75 Updates sind nötig, weil 0->1->2 im selben Tick passiert.
     if (l.get_updates_since_bomb() > 0 && l.get_ac() != LixEn::EXPLODER) {
         l.inc_updates_since_bomb();
+
+        // updates to trigger the explosion: 76, not 75.
+
+        // When the lix is clicked in between two updates, 0 is set to 1.
+        // The current function increments upon the update before any check,
+        // so 0->1->2 happens during the same update.
+        // Instant exploders in singleplayer are realized by setting
+        // updates_since_bomb to 75 and have this function increment it to 76.
+        const int upd_for_bomb = cs.tribes.size() > 1 ?
+            (Lixxie::updates_for_bomb + 1) : 2;
+
         // Exploder a la L2 mit Knockback und sofortigem Tod
-        if (l.get_updates_since_bomb() == 76 && l.get_exploder_knockback()) {
+        if (l.get_updates_since_bomb() >= upd_for_bomb
+            && l.get_exploder_knockback()
+        ) {
             // Der Wert -6 (etwas ueber Fusshoehe) stammt aus L2-Screenshots
             make_knockback_explosion(ua.st.update, l.get_tribe(),
              ua.id, l.get_ex(), l.get_ey() - 6);
@@ -55,7 +67,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
             // Death, don't do anything else now
         }
         // Normaler Exploder
-        else if (l.get_updates_since_bomb() == 76)
+        else if (l.get_updates_since_bomb() >= upd_for_bomb)
         {
             l.set_updates_since_bomb(0);
             // Sowohl Climber als auch Ascender sollen entweder beide herunter
@@ -78,14 +90,15 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
                 if (!l.get_tribe().nuke) l.play_sound(ua, Sound::OHNO);
             }
         }
-        // Fuse still visible
+        // Fuse still visible -- this can only be entered when
+        // upd_for_bomb is higher than 2
         else {
             if (l.get_leaving()) {
                 // Make it burn down faster if the lix is going to be dead
                 // anyway without exploding
                 l.set_updates_since_bomb(l.get_updates_since_bomb()
                                          + l.get_frame() + 1);
-                if (l.get_updates_since_bomb() >= 75)
+                if (l.get_updates_since_bomb() >= Lixxie::updates_for_bomb)
                     l.set_updates_since_bomb(0);
             }
         }

@@ -466,6 +466,9 @@ void Replay::fix_legacy_replays_according_to_current_state(const GameState& cs)
         }
 
     for (size_t i = 0; i < data.size(); ++i) {
+
+        bool move_to_future = false;
+
         if (data[i].action == SKILL_LEGACY_SUPPORT) {
             if (data[i].what < cs.tribes[0].skill.size())
                 cur_skill = cs.tribes[0].skill[data[i].what].ac;
@@ -473,7 +476,8 @@ void Replay::fix_legacy_replays_according_to_current_state(const GameState& cs)
             --i;
         }
         else if (data[i].action == ASSIGN || data[i].action == ASSIGN_LEFT
-                                          || data[i].action == ASSIGN_RIGHT) {
+                                          || data[i].action == ASSIGN_RIGHT
+        ) {
             if (data[i].skill != LixEn::NOTHING) {
                 // This is a replay recorded with 2015-06-17 or newer.
                 // Don't mess with any assignments. Each assignment has its
@@ -481,21 +485,25 @@ void Replay::fix_legacy_replays_according_to_current_state(const GameState& cs)
                 continue;
             }
             data[i].skill = cur_skill;
-/*
- * comment this back in once we have untimed exploders in singleplayer
- *
-            if ((cur_skill == LixEn::EXPLODER || cur_skill == LixEN::EXPLODER2)
-             && cs.tribes.size() == 1) {
+
+            if ((cur_skill == LixEn::EXPLODER || cur_skill == LixEn::EXPLODER2)
+                && cs.tribes.size() == 1
+            ) {
                 // Singleplayer was played with timed exploders until
                 // 2015-06-17. Every old singleplayer replay must have the
                 // exploder assignment delayed to match the current version.
-                Data d = data[i];
-                d.update += Lixxie::updates_for_bomb;
-                data.erase(data.begin() + i);
-                add(d);
-                --i;
+                move_to_future = true;
             }
-*/
+        }
+        else if (data[i].action == NUKE && cs.tribes.size() == 1)
+            move_to_future = true; // like singleplayer exploders above
+
+        if (move_to_future) {
+            Data d = data[i];
+            d.update += Lixxie::updates_for_bomb - 1; // see lix_upd.cpp
+            data.erase(data.begin() + i);             // for why 74, not 75
+            add(d);
+            --i;
         }
     }
     if (! data.empty()) max_updates = data.rbegin()->update;
