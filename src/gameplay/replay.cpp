@@ -472,7 +472,7 @@ void Replay::fix_legacy_replays_according_to_current_state(
     if (cs.tribes.empty())
         return;
 
-    LixEn::Ac cur_skill = LixEn::NOTHING;
+    std::vector <LixEn::Ac> cur_skill(cs.tribes.size(), LixEn::NOTHING);
 
     for (size_t i = 0; i < legacy_ac_vec.size(); ++i) {
         LixEn::Ac ac = legacy_ac_vec[i];
@@ -483,7 +483,7 @@ void Replay::fix_legacy_replays_according_to_current_state(
             // got 0 of that skill
             continue;
         // this was the first skill back in 2015-05
-        cur_skill = ac;
+        cur_skill = std::vector <LixEn::Ac>(cs.tribes.size(), ac);
         break;
     }
 
@@ -500,17 +500,23 @@ void Replay::fix_legacy_replays_according_to_current_state(
         bool discard_from_replay = false;
 
         if (itr->action == SKILL_LEGACY_SUPPORT) {
-            if (itr->what < legacy_ac_vec.size()) {
+            if (   itr->what   < legacy_ac_vec.size()
+                && itr->player < static_cast <int> (cur_skill.size())
+            ) {
                 // in the old format, (what) held the skill ID, not (skill)
-                cur_skill = legacy_ac_vec[itr->what];
+                cur_skill[itr->player] = legacy_ac_vec[itr->what];
             }
             discard_from_replay = true;
         }
         else if (itr->action == ASSIGN || itr->action == ASSIGN_LEFT
                                        || itr->action == ASSIGN_RIGHT
         ) {
-            if (itr->skill == LixEn::NOTHING)
-                itr->skill = cur_skill;
+            // for pre-2015-07-00 replays, add the skill field to the record
+            if (   itr->skill == LixEn::NOTHING
+                && itr->player < static_cast <int> (cur_skill.size())
+            ) {
+                itr->skill = cur_skill[itr->player];
+            }
 
             if (legacy_version_min < 2015070000L) {
                 if ((  itr->skill == LixEn::EXPLODER
