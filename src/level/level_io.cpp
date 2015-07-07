@@ -138,9 +138,13 @@ void Level::load_from_vector(const std::vector <IO::Line>& lines)
         // otherwise, add a skill
         else {
             LixEn::Ac ac = LixEn::string_to_ac(i->text1);
-            if (ac != LixEn::AC_MAX)
+            if (ac != LixEn::AC_MAX) {
                 // if it's zero, it'll be removed again in finalize()
                 skills[ac] = i->nr1;
+
+                // this is never removed, and it should be like that
+                legacy_ac_vec.push_back(ac);
+            }
         }
         break;
 

@@ -343,6 +343,10 @@ void Gameplay::prepare_level()
         map.set_screen_y(lv.start_y);
     }
 
+    // a hack from 2015-07
+    // This doesn't write to the file.
+    replay.fix_legacy_replays_according_to_current_state(cs, lv.legacy_ac_vec);
+
     // faster start in singleplayer, with or without tutorials
     if (! multiplayer || replaying) {
         cs.update = updates_to_skip_singleplayer;

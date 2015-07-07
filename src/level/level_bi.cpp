@@ -84,6 +84,8 @@ void Level::load_from_binary(const Filename& filename)
         }
         skills[ac] = read_two_bytes_levelbi(file);
         // skill slots with 0 skills will be culled in the finalize function
+
+        legacy_ac_vec.push_back(ac);
     }
 
     // ORIGHACK: If a two-player level is loaded, make the given calculation

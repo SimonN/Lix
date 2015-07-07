@@ -70,6 +70,7 @@ void Level::clear()
         pos[i].clear();
 
     skills.clear();
+    legacy_ac_vec.clear();
 }
 
 

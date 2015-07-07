@@ -119,6 +119,15 @@ void Level::load_from_lemmini(const Filename& filename)
     skills[LixEn::DIGGER]   = lines["numDiggers"].nr;
     // skill slots with 0 skills will be culled in the finalize function
 
+    legacy_ac_vec.push_back(LixEn::CLIMBER);
+    legacy_ac_vec.push_back(LixEn::FLOATER);
+    legacy_ac_vec.push_back(LixEn::EXPLODER);
+    legacy_ac_vec.push_back(LixEn::BLOCKER);
+    legacy_ac_vec.push_back(LixEn::BUILDER);
+    legacy_ac_vec.push_back(LixEn::BASHER);
+    legacy_ac_vec.push_back(LixEn::MINER);
+    legacy_ac_vec.push_back(LixEn::DIGGER);
+
     int graphics_set = 0;
     std::string sty = lines["style"].str;
     Help::string_to_nice_case(sty);

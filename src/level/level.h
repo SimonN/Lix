@@ -184,6 +184,7 @@ struct Level {
     typedef std::map <LixEn::Ac, int> ::const_iterator CSkIt;
 
     std::map <LixEn::Ac, int> skills;
+    std::vector <LixEn::Ac>   legacy_ac_vec; // never saved, only loaded
 
     Level(const Filename& = gloB->empty_filename);
     ~Level();
