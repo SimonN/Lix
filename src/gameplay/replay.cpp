@@ -300,35 +300,24 @@ void Replay::save_as_auto_replay(const Level* const lev)
 
 void Replay::save_to_file(const Filename& s, const Level* const lev)
 {
-    bool save_level_into_file = level_filename == gloB->empty_filename
-            || (lev != 0 && lev->get_good());
-
-    // We currently override the above check, and will always save a level
-    // into the replay, thus have the replay never point back into the level
-    // tree.
-    save_level_into_file = true;
-
     std::ofstream file(s.get_rootful().c_str());
 
-    // Also override NOT saving the filename. Always save the filename right
-    // now, and use the level in the replay as a fallback if there is nothing
-    // at the pointed-to level position.
-    if (true || !save_level_into_file) {
-        LevelMetaData lmd(level_filename);
-        if (lmd.get_file_exists()) {
-            built_required = lmd.built;
-        }
-        // Write the path to the level, but omit the leading (dir-levels)/
-        // This "if" is just against a crash in networking games.
-        if (level_filename.get_rootless().size()
-         >  gloB->dir_levels.get_dir_rootless().size())
-        {
-             file << IO::LineDollar(gloB->replay_level_filename,
-                               level_filename.get_rootless().substr(
-                               gloB->dir_levels.get_dir_rootless().size()))
-             << IO::LineDollar(gloB->replay_built_required, built_required);
-        }
+    // Always save the filename right now
+    LevelMetaData lmd(level_filename);
+    if (lmd.get_file_exists()) {
+        built_required = lmd.built;
     }
+    // Write the path to the level, but omit the leading (dir-levels)/
+    // This "if" is just against a crash in networking games.
+    if (level_filename.get_rootless().size()
+     >  gloB->dir_levels.get_dir_rootless().size())
+    {
+         file << IO::LineDollar(gloB->replay_level_filename,
+                           level_filename.get_rootless().substr(
+                           gloB->dir_levels.get_dir_rootless().size()))
+         << IO::LineDollar(gloB->replay_built_required, built_required);
+    }
+
     file << IO::LineHash(gloB->replay_version_min, version_min)
          << std::endl;
 
@@ -364,9 +353,17 @@ void Replay::save_to_file(const Filename& s, const Level* const lev)
         file << IO::LineBang(itr->update, itr->player, word, itr->what);
     }
 
-    if (save_level_into_file) {
+    // save level into replay
+    if (lev && lev->get_good()) {
         file << std::endl;
-        file << (lev ? *lev : Level(level_filename));
+        file << *lev;
+    }
+    else {
+        Level lev2(level_filename);
+        if (lev2.get_good()) {
+            file << std::endl;
+            file << lev2;
+        }
     }
 
     file.close();
