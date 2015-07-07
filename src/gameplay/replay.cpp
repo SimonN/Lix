@@ -119,9 +119,6 @@ void Replay::erase_early_singleplayer_nukes()
 {
     if (players.size() != 1) return;
 
-    file_not_found = false;
-    version_min    = gloB->version_min;
-
     // Erase nukes in singleplayer before the first spawned lix.
     // The number of the spawn update is 60, it's hardcoded here and in
     // gamepl_u.cpp. The nuke is performed before the lix spawns in the same
@@ -131,6 +128,8 @@ void Replay::erase_early_singleplayer_nukes()
         if (it->action == NUKE) {
             data.erase(it);
             it = data.begin();
+            file_not_found = false;
+            version_min    = gloB->version_min;
         }
         else ++it;
     }
@@ -302,7 +301,7 @@ void Replay::save_as_auto_replay(const Level* const lev)
 void Replay::save_to_file(const Filename& s, const Level* const lev)
 {
     bool save_level_into_file = level_filename == gloB->empty_filename
-                             || lev != 0;
+            || (lev != 0 && lev->get_good());
 
     // We currently override the above check, and will always save a level
     // into the replay, thus have the replay never point back into the level
@@ -458,11 +457,21 @@ void Replay::load_from_file(const Filename& fn)
 
 
 
-
 void Replay::fix_legacy_replays_according_to_current_state(
     const GameState& cs,
     const std::vector <LixEn::Ac>& legacy_ac_vec
 ) {
+    // If recorded newer than the last time we changed the replay format,
+    // skip this function
+    if (version_min >= 2015070000L)
+        return;
+
+    const unsigned long legacy_version_min = version_min;
+    // legacy_version_min is only used in this function and never written
+    // to this->version_min. This is different from what we did
+    // in the load function. Changed replays should require the new version
+    // when they're saved again. They won't be compatible with an older game.
+
     if (cs.tribes.empty())
         return;
 
@@ -481,47 +490,68 @@ void Replay::fix_legacy_replays_according_to_current_state(
         break;
     }
 
-    for (size_t i = 0; i < data.size(); ++i) {
+    std::vector <Data> legacy_data = data;
 
-        bool move_to_future = false;
+    // data will be filled anew with the processed legacy data,
+    // so we don't move the same packet into the future again and again
+    data.clear();
+    max_updates = 0;
 
-        if (data[i].action == SKILL_LEGACY_SUPPORT) {
-            if (data[i].what < legacy_ac_vec.size())
+    for (std::vector <Data> ::iterator itr = legacy_data.begin();
+        itr != legacy_data.end(); ++itr
+    ) {
+        bool discard_from_replay = false;
+
+        if (itr->action == SKILL_LEGACY_SUPPORT) {
+            if (itr->what < legacy_ac_vec.size()) {
                 // in the old format, (what) held the skill ID, not (skill)
-                cur_skill = legacy_ac_vec[data[i].what];
-            data.erase(data.begin() + i);
-            --i;
+                cur_skill = legacy_ac_vec[itr->what];
+            }
+            discard_from_replay = true;
         }
-        else if (data[i].action == ASSIGN || data[i].action == ASSIGN_LEFT
-                                          || data[i].action == ASSIGN_RIGHT
+        else if (itr->action == ASSIGN || itr->action == ASSIGN_LEFT
+                                       || itr->action == ASSIGN_RIGHT
         ) {
-            if (data[i].skill != LixEn::NOTHING) {
-                // This is a replay recorded with 2015-06-17 or newer.
-                // Don't mess with any assignments. Each assignment has its
-                // skill information in the same packet.
-                continue;
-            }
-            data[i].skill = cur_skill;
+            if (itr->skill == LixEn::NOTHING)
+                itr->skill = cur_skill;
 
-            if ((cur_skill == LixEn::EXPLODER || cur_skill == LixEn::EXPLODER2)
-                && cs.tribes.size() == 1
-            ) {
-                // Singleplayer was played with timed exploders until
-                // 2015-06-17. Every old singleplayer replay must have the
-                // exploder assignment delayed to match the current version.
-                move_to_future = true;
+            if (legacy_version_min < 2015070000L) {
+                if ((  itr->skill == LixEn::EXPLODER
+                    || itr->skill == LixEn::EXPLODER2)
+                    && cs.tribes.size() == 1
+                ) {
+                    // Singleplayer was played with timed exploders until
+                    // 2015-06-17. Every old singleplayer replay must have the
+                    // exploder assignment delayed to match the current version.
+                    itr->update += Lixxie::updates_for_bomb - 1;
+                }
             }
         }
-        else if (data[i].action == NUKE && cs.tribes.size() == 1)
-            move_to_future = true; // like singleplayer exploders above
-
-        if (move_to_future) {
-            Data d = data[i];
-            d.update += Lixxie::updates_for_bomb - 1; // see lix_upd.cpp
-            data.erase(data.begin() + i);             // for why 74, not 75
-            add(d);
-            --i;
+        else if (itr->action == NUKE) {
+            if (legacy_version_min < 2015070000L) {
+                // Similar to singleplayer direct exploder assignments above,
+                // add the skipped time. However, we have changed nuke physics,
+                // now nuking between frame N and N+1 makes the timer go
+                // from 0 in frame N to 2 after updating physics for N+1,
+                // not from 0 to 1 as before. This is consistent with manual
+                // exploder assignments. To compensate for the faster nuke,
+                // move the nuke replay data by 1 further to the future
+                // than we would do with an exploder assignment.
+                if (cs.tribes.size() == 1)
+                    itr->update += Lixxie::updates_for_bomb;
+                else
+                    // Multiplayer nukes are off by 1 due to the described
+                    // physics change of where exactly to nuke.
+                    itr->update += 1;
+            }
         }
+        else {
+            // any other packets are used as-is
+        }
+
+        if (! discard_from_replay)
+            // copy from legacy_data to data
+            add(*itr);
     }
     if (! data.empty()) max_updates = data.rbegin()->update;
 }

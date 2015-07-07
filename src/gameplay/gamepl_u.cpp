@@ -189,7 +189,7 @@ void Gameplay::update_cs_once()
 
 
     // Main iteration over players:
-    // Create lix, update lix, nuke
+    // Create lix, nuke existing lixes, update lixes
     // No evaluation of replay/network data, that has already happened
     for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t)
     {
@@ -231,6 +231,33 @@ void Gameplay::update_cs_once()
 
 
 
+    // Do the nuke even before the normal physics update.
+    // Instant nuke should not display a countdown fuse in any frame.
+    for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
+        // Assign exploders in case of nuke
+        if (t->nuke == true)
+         for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
+            if (i->get_updates_since_bomb() == 0 && ! i->get_leaving()) {
+                i->inc_updates_since_bomb();
+                // Which exploder shall be assigned?
+                if (cs.tribes.size() > 1) {
+                    i->set_exploder_knockback();
+                }
+                else for (Level::CSkIt itr =  t->skills.begin();
+                                       itr != t->skills.end(); ++itr
+                ) {
+                    if (itr->first == LixEn::EXPLODER2) {
+                        i->set_exploder_knockback();
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+    }
+
+
+
     // Lixen updaten
     UpdateArgs ua(cs);
 
@@ -263,29 +290,7 @@ void Gameplay::update_cs_once()
         }
     }
 
-    // Fourth pass: the nuke
-    for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
-        // Assign exploders in case of nuke
-        if (t->nuke == true)
-         for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
-            if (i->get_updates_since_bomb() == 0 && ! i->get_leaving()) {
-                i->inc_updates_since_bomb();
-                // Which exploder shall be assigned?
-                if (cs.tribes.size() > 1) {
-                    i->set_exploder_knockback();
-                }
-                else for (Level::CSkIt itr =  t->skills.begin();
-                                       itr != t->skills.end(); ++itr
-                ) {
-                    if (itr->first == LixEn::EXPLODER2) {
-                        i->set_exploder_knockback();
-                        break;
-                    }
-                }
-                break;
-            }
-        }
-    }
+
 
 
 
