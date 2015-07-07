@@ -66,14 +66,10 @@ void Level::clear()
     count_neutrals_only = false;
     transfer_skills     = false;
 
-    for (int i = Object::TERRAIN; i != Object::MAX; ++i) pos[i].clear();
+    for (int i = Object::TERRAIN; i != Object::MAX; ++i)
+        pos[i].clear();
 
-    skill = std::vector <Skill> (useR->skill_sort.size());
-
-    for (size_t i = 0; i < skill.size(); ++i) {
-        skill[i].ac = LixEn::NOTHING;
-        skill[i].nr = 0;
-    }
+    skills.clear();
 }
 
 
@@ -114,9 +110,7 @@ bool Level::operator == (const Level& l) const
     for (int i = Object::TERRAIN; i != Object::MAX; ++i)
      if (pos[i]            != l.pos[i]) return false;
 
-    for (size_t i = 0; i < skill.size(); ++i)
-     if (this->skill[i].ac != l.skill[i].ac
-     ||  this->skill[i].nr != l.skill[i].nr) return false;
+    if (this->skills != l.skills) return false;
 
     return true;
 }

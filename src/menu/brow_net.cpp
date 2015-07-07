@@ -20,23 +20,19 @@ NetworkBrowser::NetworkBrowser()
     info_hatches(but_x, get_info_y(),       but_xl),
     info_goals  (but_x, get_info_y() +  20, but_xl),
     info_initial(but_x, get_info_y() +  40, but_xl),
-    info_skills (but_x, get_info_y() +  60, but_xl),
-    info_clock  (but_x, get_info_y() + 100, but_xl)
+    info_clock  (but_x, get_info_y() +  60, but_xl)
 {
     add_child(info_hatches);
     add_child(info_goals);
     add_child(info_initial);
-    add_child(info_skills);
     add_child(info_clock);
     info_hatches.set_desc(Language::browser_info_hatches);
     info_goals  .set_desc(Language::browser_info_goals);
     info_initial.set_desc(Language::browser_info_initial);
-    info_skills .set_desc(Language::browser_info_skills);
     info_clock  .set_desc(Language::browser_info_clock_2);
     info_hatches.set_undraw_color(color[COL_API_M]);
     info_goals  .set_undraw_color(color[COL_API_M]);
     info_initial.set_undraw_color(color[COL_API_M]);
-    info_skills .set_undraw_color(color[COL_API_M]);
     info_clock  .set_undraw_color(color[COL_API_M]);
 
     set_button_play_text(Language::common_ok);
@@ -71,7 +67,6 @@ void NetworkBrowser::on_file_highlight(const Filename& filename)
     info_hatches.hide();
     info_goals  .hide();
     info_initial.hide();
-    info_skills .hide();
     info_clock  .hide();
 
     // Wir gucken dies hier nach und nicht in BrowserBig, weil dort nicht
@@ -85,18 +80,14 @@ void NetworkBrowser::on_file_highlight(const Filename& filename)
 
     int hatches = l.pos[Object::HATCH].size();
     int goals   = l.pos[Object::GOAL] .size();
-    int skills  = 0;
-    for (unsigned i = 0; i != 8; ++i) skills += l.skill[i].nr;
 
     info_hatches.show();
     info_goals  .show();
     info_initial.show();
-    info_skills .show();
     info_clock  .show();
     info_hatches.set_value(hatches);
     info_goals  .set_value(goals);
     info_initial.set_value(l.initial);
-    info_skills .set_value(skills);
     info_clock  .set_value_seconds_as_time(l.seconds);
 }
 

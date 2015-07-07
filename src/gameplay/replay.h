@@ -136,7 +136,8 @@ public:
     void        increase_early_data_to_update  (const Ulng);
     void        erase_data_after_update        (const Ulng);
     void        erase_early_singleplayer_nukes ();
-    bool        get_on_update_lix_clicked      (const Ulng, const Uint);
+    bool        get_on_update_lix_clicked      (const Ulng, const Uint,
+                                                const LixEn::Ac);
     Vec         get_and_erase_data_until_update(const Ulng);
     Vec         get_data_for_update            (const Ulng) const;
     inline const Vec& get_data                 () { return data; }
@@ -145,7 +146,8 @@ public:
 
     // call this after loading the replay from a file, after knowing what
     // the first non-zero skill has been in the level.
-    void fix_legacy_replays_according_to_current_state(const GameState&);
+    void fix_legacy_replays_according_to_current_state(
+        const GameState&, const std::vector <LixEn::Ac>& legacy_ac_vec);
 
     std::string get_canonical_save_filename    ();
 

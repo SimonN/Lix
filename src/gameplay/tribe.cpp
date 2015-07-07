@@ -20,7 +20,6 @@ Tribe::Tribe()
     update_hatch  (0),
     update_saved  (0),
     hatch_next    (0),
-    skill         (useR->skill_sort.size()),
     skills_used   (0),
     style         (LixEn::GARDEN)
 {
@@ -37,12 +36,10 @@ Tribe::~Tribe()
 
 void Tribe::return_skills(const LixEn::Ac ac, const int amount)
 {
-    for (size_t i = 0; i < skill.size(); ++i)
-     if (skill[i].ac == ac && skill[i].nr != LixEn::infinity) {
-        skill[i].nr += amount;
-        skills_used -= amount;
-        break;
-    }
+    if (skills.find(ac) == skills.end())
+        return;
+    skills[ac]  += amount;
+    skills_used -= amount;
 }
 
 

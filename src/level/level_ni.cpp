@@ -109,23 +109,15 @@ void Level::load_from_lemmini(const Filename& filename)
     spawnint_slow = 4 + Help::even(99 - lines["releaseRate"].nr) / 2;
     spawnint_fast = 4;
 
-    skill[0].ac = LixEn::CLIMBER;
-    skill[1].ac = LixEn::FLOATER;
-    skill[2].ac = LixEn::EXPLODER;
-    skill[3].ac = LixEn::BLOCKER;
-    skill[4].ac = LixEn::BUILDER;
-    skill[5].ac = LixEn::BASHER;
-    skill[6].ac = LixEn::MINER;
-    skill[7].ac = LixEn::DIGGER;
-
-    skill[0].nr = lines["numClimbers"].nr;
-    skill[1].nr = lines["numFloaters"].nr;
-    skill[2].nr = lines["numBombers"].nr;
-    skill[3].nr = lines["numBlockers"].nr;
-    skill[4].nr = lines["numBuilders"].nr;
-    skill[5].nr = lines["numBashers"].nr;
-    skill[6].nr = lines["numMiners"].nr;
-    skill[7].nr = lines["numDiggers"].nr;
+    skills[LixEn::CLIMBER]  = lines["numClimbers"].nr;
+    skills[LixEn::FLOATER]  = lines["numFloaters"].nr;
+    skills[LixEn::EXPLODER] = lines["numBombers"].nr;
+    skills[LixEn::BLOCKER]  = lines["numBlockers"].nr;
+    skills[LixEn::BUILDER]  = lines["numBuilders"].nr;
+    skills[LixEn::BASHER]   = lines["numBashers"].nr;
+    skills[LixEn::MINER]    = lines["numMiners"].nr;
+    skills[LixEn::DIGGER]   = lines["numDiggers"].nr;
+    // skill slots with 0 skills will be culled in the finalize function
 
     int graphics_set = 0;
     std::string sty = lines["style"].str;

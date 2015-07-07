@@ -217,32 +217,32 @@ void GameplayPanel::set_like_tribe(const Tribe* tr)
 {
     if (!tr) return;
 
-    int skill_on_before = -1;
+    LixEn::Ac skill_on_before = LixEn::NOTHING;
 
     // clear all panels
     for (size_t i = 0; i < skill.size(); ++i) {
         if (skill[i].get_on())
-            skill_on_before = i;
+            skill_on_before = skill[i].get_skill();
         skill[i].set_skill(LixEn::NOTHING);
-        skill[i].set_replay_id(-1);
     }
 
     // Create, then sort buttons. Hotkeys will be done after sorting
-    for (size_t i = 0; i < tr->skill.size(); ++i) {
+    for (Level::CSkIt itr =  tr->skills.begin();
+                      itr != tr->skills.end(); ++itr
+    ) {
         size_t j = 0;
         while (j < skill.size() && j < useR->skill_sort.size()
-               && useR->skill_sort[j] != tr->skill[i].ac
+               && useR->skill_sort[j] != itr->first
                && ! (useR->skill_sort[j] == LixEn::EXPLODER2
-                      && tr->skill[i].ac == LixEn::EXPLODER))
+                           && itr->first == LixEn::EXPLODER))
             // Exploder and Exploder2 are both defined by Exploder2 in
             // the user's sorted skill vector
             ++j;
 
         if (j != skill.size()) {
             skill[j].set_style (tr->style);
-            skill[j].set_skill (tr->skill[i].ac);
-            skill[j].set_number(tr->skill[i].nr);
-            skill[j].set_replay_id(i);
+            skill[j].set_skill (itr->first);
+            skill[j].set_number(itr->second);
         }
     }
 
@@ -265,41 +265,31 @@ void GameplayPanel::set_like_tribe(const Tribe* tr)
     nuke_multi .set_on    (tr->nuke);
     spec_tribe .set_text  (tr->get_name());
 
-    if (skill_on_before >= 0)
-        set_skill_on(skill_on_before);
+    set_skill_on(skill_on_before);
 
     set_draw_required();
 }
 
 
 
-GameplayPanel::SkBIt GameplayPanel::button_by_replay_id(const int id)
+GameplayPanel::SkBIt GameplayPanel::button_by_skill(const LixEn::Ac ac)
 {
     for (SkBIt itr = skill.begin(); itr != skill.end(); ++itr)
-        if (itr->get_replay_id() == id)
+        if (itr->get_skill() == ac)
             return itr;
     return skill.end();
 }
 
 
 
-void GameplayPanel::set_skill_numbers(const Tribe& tr)
+void GameplayPanel::set_skill_on(const LixEn::Ac ac)
 {
-    for (size_t i = 0; i < skill.size(); ++i) {
-        int repid = skill[i].get_replay_id();
-        if (repid >= 0 && repid < static_cast <int> (tr.skill.size()))
-            skill[i].set_number(tr.skill[repid].nr);
-    }
-}
-
-
-
-void GameplayPanel::set_skill_on(const int id)
-{
+    if (ac == LixEn::NOTHING)
+        return;
     for (size_t i = 0; i < skill.size(); ++i)
         skill[i].set_off();
 
-    SkBIt b = button_by_replay_id(id);
+    SkBIt b = button_by_skill(ac);
     if (b != skill.end() && b->get_number() != 0)
         b->set_on();
 }

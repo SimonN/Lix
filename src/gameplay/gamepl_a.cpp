@@ -158,7 +158,9 @@ void Gameplay::calc_active()
         while (skill_visible != pan.skill.end()
             && (! skill_visible->get_on()
                 // panel has reordered skills. trlo and the replay don't
-                || trlo->skill[skill_visible->get_replay_id()].nr == 0
+                || trlo->skills.find(skill_visible->get_skill()) ==
+                   trlo->skills.end()
+                || trlo->skills[skill_visible->get_skill()] == 0
                 || skill_visible->get_number() == 0))
             ++skill_visible;
 
@@ -166,15 +168,18 @@ void Gameplay::calc_active()
             for (LixIt i =  --trlo->lixvec.end();
                        i != --trlo->lixvec.begin(); --i)
         {
-            if (map.distance_x(i->get_ex(), mx) <=  mmld_x
-             && map.distance_x(i->get_ex(), mx) >= -mmld_x
-             && map.distance_y(i->get_ey(), my) <=  mmld_d
-             && map.distance_y(i->get_ey(), my) >= -mmld_u)
-            {
+            // (skill_visible) is now a skill with (trlo has != 0 of it).
+            // In particular, it appears in trlo->skills as a key.
+
+            if (   map.distance_x(i->get_ex(), mx) <=  mmld_x
+                && map.distance_x(i->get_ex(), mx) >= -mmld_x
+                && map.distance_y(i->get_ey(), my) <=  mmld_d
+                && map.distance_y(i->get_ey(), my) >= -mmld_u
+            ) {
                 // Hypot geht von (ex|ey+etwas) aus
                 // true = Beachte persoenliche Einschraenkungen wie !MultBuild
-                int priority = i->get_priority(
-                    trlo->skill[skill_visible->get_replay_id()].ac, true);
+                int priority
+                    = i->get_priority(skill_visible->get_skill(), true);
 
                 // Invert priority if a corresponding mouse button is held
                 if ((hardware.get_mrh() && useR->prioinv_right)
@@ -256,8 +261,29 @@ if (priority > 1 && priority < 99999) {
         // visible number due to eye candy/making button seem more responsive
         if (target != trlo->lixvec.end() && hardware.get_ml()) {
             if (skill_visible->get_number() != 0) {
-                // assign
+
                 const int lem_id = target - trlo->lixvec.begin();
+
+                // put sound into effect manager, so that it's not played
+                // again when the next update is computed
+                Sound::Id snd = Lixxie::get_ac_func(skill_visible
+                                ->get_skill()).sound_assign;
+                effect.add_sound(cs.update + 1, *trlo, lem_id, snd);
+
+                // Die sichtbare Zahl hinabsetzen geschieht nur fuer's Auge,
+                // in Wirklichkeit geschieht dies erst beim Update. Das Augen-
+                // spielzeug verabreichen wir allerdings nur, wenn nicht z.B.
+                // zweimal auf dieselbe Lix mit derselben Faehigkeit
+                // geklickt wurde.
+                if (!replay.get_on_update_lix_clicked(
+                    cs.update + 1, lem_id, skill_visible->get_skill())
+                    && skill_visible->get_number() != LixEn::infinity
+                ) {
+                    skill_visible->set_number(skill_visible->get_number() - 1);
+                    Sound::play_loud(snd);
+                }
+
+                // assign
                 pan.pause.set_off();
 
                 Replay::Data data = new_replay_data();
@@ -268,27 +294,6 @@ if (priority > 1 && priority < 99999) {
                 data.what         = lem_id;
                 replay.add(data);
                 Network::send_replay_data(data);
-
-                // Die sichtbare Zahl hinabsetzen geschieht nur fuer's Auge,
-                // in Wirklichkeit geschieht dies erst beim Update. Das Augen-
-                // spielzeug verabreichen wir allerdings nur, wenn nicht z.B.
-                // zweimal auf dieselbe Lix mit derselben Faehigkeit
-                // geklickt wurde. Den unwahrscheinlichen Fall, dass man
-                // zweimal mit beide Male anwendbaren Faehigkeiten auf dieselbe
-                // Lix geklickt hat, koennen wir vernachlaessigen - dann
-                // erscheint die Nummernaenderung eben erst beim kommenden Upd.
-                // Auch der Sound (s.u.) wird dann nicht gespielt.
-                if (!replay.get_on_update_lix_clicked(cs.update + 1, lem_id)
-                 && skill_visible->get_number() != LixEn::infinity) {
-                    skill_visible->set_number(skill_visible->get_number() - 1);
-                }
-                // Sound in der Effektliste speichern, damit er nicht beim Upd.
-                // nochmal ertoent, und dazu wird er hier nochmals gespielt,
-                // damit wir sicher gehen, dass er beim Klick kommt.
-                Sound::Id snd = Lixxie::get_ac_func(skill_visible
-                                ->get_skill()).sound_assign;
-                effect.add_sound(cs.update + 1, *trlo, lem_id, snd);
-                Sound::play_loud(snd);
             }
             else {
                 Sound::play_loud(Sound::PANEL_EMPTY);

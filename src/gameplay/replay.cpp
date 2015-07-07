@@ -171,12 +171,16 @@ Replay::Vec Replay::get_data_for_update(const unsigned long i) const
 
 
 bool Replay::get_on_update_lix_clicked(const unsigned long u,
-                                       const unsigned      lem_id)
-{   Replay::Vec vec = get_data_for_update(u);
+                                       const unsigned      lem_id,
+                                       const LixEn::Ac     ac
+) {
+    Replay::Vec vec = get_data_for_update(u);
     for (ConstIt it = vec.begin(); it != vec.end(); ++it)
-     if ((it->action == ASSIGN
-      ||  it->action == ASSIGN_LEFT
-      ||  it->action == ASSIGN_RIGHT) && it->what == lem_id) return true;
+     if (  (it->action == ASSIGN
+        ||  it->action == ASSIGN_LEFT
+        ||  it->action == ASSIGN_RIGHT)
+        && it->what  == lem_id
+        && it->skill == ac) return true;
     return false;
 }
 
@@ -455,23 +459,36 @@ void Replay::load_from_file(const Filename& fn)
 
 
 
-void Replay::fix_legacy_replays_according_to_current_state(const GameState& cs)
-{
+void Replay::fix_legacy_replays_according_to_current_state(
+    const GameState& cs,
+    const std::vector <LixEn::Ac>& legacy_ac_vec
+) {
+    if (cs.tribes.empty())
+        return;
+
     LixEn::Ac cur_skill = LixEn::NOTHING;
 
-    for (size_t i = 0; i < cs.tribes[0].skill.size(); ++i)
-        if (cs.tribes[0].skill[i].nr != 0) {
-            cur_skill = cs.tribes[0].skill[i].ac;
-            break;
-        }
+    for (size_t i = 0; i < legacy_ac_vec.size(); ++i) {
+        LixEn::Ac ac = legacy_ac_vec[i];
+        if (ac == LixEn::NOTHING)
+            continue;
+        Level::CSkIt itr = cs.tribes[0].skills.find(ac);
+        if (itr == cs.tribes[0].skills.end() || itr->second == 0)
+            // got 0 of that skill
+            continue;
+        // this was the first skill back in 2015-05
+        cur_skill = ac;
+        break;
+    }
 
     for (size_t i = 0; i < data.size(); ++i) {
 
         bool move_to_future = false;
 
         if (data[i].action == SKILL_LEGACY_SUPPORT) {
-            if (data[i].what < cs.tribes[0].skill.size())
-                cur_skill = cs.tribes[0].skill[data[i].what].ac;
+            if (data[i].what < legacy_ac_vec.size())
+                // in the old format, (what) held the skill ID, not (skill)
+                cur_skill = legacy_ac_vec[data[i].what];
             data.erase(data.begin() + i);
             --i;
         }

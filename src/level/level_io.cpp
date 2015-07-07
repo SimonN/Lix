@@ -81,8 +81,6 @@ static void load_hint(std::vector <std::string>& into, const std::string& s)
 
 void Level::load_from_vector(const std::vector <IO::Line>& lines)
 {
-    size_t sk = 0;
-
     for (IO::LineIt i = lines.begin(); i != lines.end(); ++i) switch(i->type) {
     // Strings setzen
     case '$':
@@ -137,17 +135,12 @@ void Level::load_from_vector(const std::vector <IO::Line>& lines)
             spawnint_slow = 4 + (99 - i->nr1) / 2;
         }
 
-        // Auswertung der Fähigkeits-Anzahl und Erhöhung der Array-Füllzahl
-        // Dies kann nicht durchlaufen werden, wenn die Fähigkeits-Slots
-        // bereits voll sind.
-        else if (sk < skill.size()) {
-            skill[sk].ac = LixEn::string_to_ac(i->text1);
-            if (skill[sk].ac != LixEn::AC_MAX) {
-                skill[sk].nr = i->nr1;
-                ++sk;
-            }
-            // Nur Kaese wurde eingelesen, nicht einmal ein Faehigkeitsname?
-            else skill[sk].ac = LixEn::NOTHING;
+        // otherwise, add a skill
+        else {
+            LixEn::Ac ac = LixEn::string_to_ac(i->text1);
+            if (ac != LixEn::AC_MAX)
+                // if it's zero, it'll be removed again in finalize()
+                skills[ac] = i->nr1;
         }
         break;
 
@@ -172,10 +165,8 @@ void Level::load_from_vector(const std::vector <IO::Line>& lines)
      && built <  Date("2009-08-23 00:00:00")) pos[Object::TERRAIN].reverse();
     if (built != Date("")
      && built <  Date("2011-01-08 00:00:00")) {
-        for (std::vector <Skill> ::iterator
-         itr = skill.begin(); itr != skill.end(); ++itr) {
-            if (itr->nr == 100) itr->nr = LixEn::infinity;
-        }
+        for (SkIt itr = skills.begin(); itr != skills.end(); ++itr)
+            if (itr->first == 100) itr->second = LixEn::infinity;
     }
 }
 
@@ -228,7 +219,6 @@ void Level::record_missing_image(
 
 void Level::load_finalize()
 {
-
     // Einige Standards setzen, wenn die Ladewerte komisch sind
     if (size_x   < min_xl)              size_x   = min_xl;
     if (size_y   < min_yl)              size_y   = min_yl;
@@ -247,6 +237,18 @@ void Level::load_finalize()
 
     if (torus_x) start_x = Help::mod(start_x, size_x);
     if (torus_y) start_y = Help::mod(start_y, size_y);
+
+    // remove skills with zero uses
+    bool another_iteration = true;
+    while (another_iteration) {
+        another_iteration = false;
+        for (SkIt itr = skills.begin(); itr != skills.end(); ++itr)
+            if (itr->second == 0) {
+                skills.erase(itr);
+                another_iteration = true;
+                break; // break the for, do another one of while
+            }
+    }
 
     // Einige Fehler setzen
     // FNF wurde oben schon mit Abbrechen der Funktion gesetzt
@@ -347,8 +349,11 @@ std::ostream& operator << (std::ostream& out, const Level& l)
 
      << std::endl;
 
-    for (size_t i = 0; i < l.skill.size(); ++i) out
-     << IO::LineHash  (LixEn::ac_to_string(l.skill[i].ac), l.skill[i].nr);
+    for (Level::CSkIt itr = l.skills.begin(); itr != l.skills.end(); ++itr) {
+        if (itr->first == LixEn::NOTHING || itr->second == 0)
+            continue;
+        out << IO::LineHash(LixEn::ac_to_string(itr->first), itr->second);
+    }
 
     // Erst Spezialobjekte, dann Terrain
     for (int type = Object::TERRAIN; type != Object::MAX; ++type) {

@@ -303,10 +303,8 @@ void Gameplay::prepare_level()
         t.spawnint_slow   = lv.spawnint_slow;
         t.spawnint_fast   = lv.spawnint_fast;
         t.spawnint        = lv.spawnint_slow;
-        for (size_t a = 0; a < t.skill.size() && a < lv.skill.size(); ++a) {
-            t.skill[a].ac = lv.skill[a].ac;
-            t.skill[a].nr = lv.skill[a].nr;
-        }
+
+        t.skills          = lv.skills; // copies the entire map
 
         // Ausga(e)ng(e) zuweisen - dies ist etwas geklauter Code vom
         // Klappen zuweisen, der direkt hierunter steht
@@ -344,9 +342,6 @@ void Gameplay::prepare_level()
         map.set_screen_x(lv.start_x);
         map.set_screen_y(lv.start_y);
     }
-
-    // a hack from 2015-06-17
-    replay.fix_legacy_replays_according_to_current_state(cs);
 
     // faster start in singleplayer, with or without tutorials
     if (! multiplayer || replaying) {
@@ -387,7 +382,7 @@ void Gameplay::prepare_panel()
     if (gm == GM_PLAY_SINGLE || gm == GM_PLAY_MULTI || gm == GM_REPLAY_SINGLE)
         for (size_t i = 0; i < pan.skill.size(); ++i)
             if (pan.skill[i].get_number() != 0) {
-                pan.set_skill_on(i);
+                pan.set_skill_on(pan.skill[i].get_skill());
                 break;
             }
 

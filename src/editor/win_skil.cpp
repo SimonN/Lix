@@ -42,14 +42,10 @@ WindowSkill::WindowSkill(Level& l)
     ok      (x_c, this_yl - 70, xl_c),
     cancel  (x_c, this_yl - 40, xl_c)
 {
-    // choose which exploder to use
-    use_fling.set_checked(true);
-    for (size_t lv_sk = 0; lv_sk < level->skill.size(); ++lv_sk) {
-        if (level->skill[lv_sk].ac == LixEn::EXPLODER) {
-            use_fling.set_checked(false);
-            break;
-        }
-    }
+    // Choose which exploder to use.
+    // Choose the flingploder by default.
+    use_fling.set_checked(level->skills.find(LixEn::EXPLODER)
+                       == level->skills.end());
 
     // make skill buttons accordingly
     for (size_t i = 0; i < sbwb.size(); ++i) {
@@ -63,9 +59,11 @@ WindowSkill::WindowSkill(Level& l)
         sbwb[i]->skill.set_skill(ac);
         add_child(*sbwb[i]);
 
-        for (size_t lv_sk = 0; lv_sk < level->skill.size(); ++lv_sk) {
-            if (level->skill[lv_sk].ac == sbwb[i]->skill.get_skill()) {
-                sbwb[i]->skill.set_number(level->skill[lv_sk].nr);
+        for (Level::CSkIt itr =  level->skills.begin();
+                          itr != level->skills.end(); ++itr
+        ) {
+            if (itr->first == sbwb[i]->skill.get_skill()) {
+                sbwb[i]->skill.set_number(itr->second);
                 break;
             }
         }
@@ -105,15 +103,11 @@ void WindowSkill::calc_self()
 {
     if (ok.get_clicked() || hardware.get_mr()) {
         // write data into the level struct that's loaded in the editor
-        size_t level_skill_id = 0;
-        for (size_t i = 0; i < sbwb.size()
-         &&   level_skill_id < level->skill.size(); ++i) {
-            if (sbwb[i]->skill.get_number() != 0) {
-                level->skill[level_skill_id].ac = sbwb[i]->skill.get_skill();
-                level->skill[level_skill_id].nr = sbwb[i]->skill.get_number();
-                ++level_skill_id;
-            }
-        }
+        level->skills.clear();
+        for (size_t i = 0; i < sbwb.size(); ++i)
+            if (sbwb[i]->skill.get_number() != 0)
+                level->skills[sbwb[i]->skill.get_skill()]
+                            = sbwb[i]->skill.get_number();
         set_exit();
     }
     else if (cancel.get_clicked()) {

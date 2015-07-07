@@ -75,11 +75,9 @@ void Gameplay::update()
     for (HatchIt  i = hatches.begin(); i != hatches.end(); ++i)
      i->animate(effect, cs.update);
 
-    // Gegen negative Effekte von Player::return_skills:
-    // Alle Faehigkeitszahlen einmal neu schreiben.
-    if (trlo) {
-        pan.set_skill_numbers(*trlo);
-    }
+    if (trlo)
+        // To counter leftover misinformation after Player::return_skills
+        pan.set_like_tribe(trlo);
 }
 // Ende des cs.update inkl. Neuladerei und Nachberechnung
 
@@ -273,11 +271,16 @@ void Gameplay::update_cs_once()
             if (i->get_updates_since_bomb() == 0 && ! i->get_leaving()) {
                 i->inc_updates_since_bomb();
                 // Which exploder shall be assigned?
-                if (cs.tribes.size() > 1) i->set_exploder_knockback();
-                else for (size_t j = 0; j < pan.skill.size(); ++j)
-                 if (t->skill[j].ac == LixEn::EXPLODER2) {
+                if (cs.tribes.size() > 1) {
                     i->set_exploder_knockback();
-                    break;
+                }
+                else for (Level::CSkIt itr =  t->skills.begin();
+                                       itr != t->skills.end(); ++itr
+                ) {
+                    if (itr->first == LixEn::EXPLODER2) {
+                        i->set_exploder_knockback();
+                        break;
+                    }
                 }
                 break;
             }
@@ -334,49 +337,39 @@ void Gameplay::update_cs_one_data(Tribe& t, Tribe::Master* m, Replay::It i)
           || i->action == Replay::ASSIGN_RIGHT) {
         if (!m) return;
 
-        // This might be made more beautiful once we don't rely anymore
-        // on the skill order in Tribe. It's not even legacy support.
-        size_t skill_rep_id = 0;
-        while (skill_rep_id < t.skill.size() && t.skill[skill_rep_id].ac
-                                             != i->skill)
-            ++skill_rep_id;
-        if (skill_rep_id == t.skill.size())
+        Level::SkIt psk = t.skills.find(static_cast <LixEn::Ac> (i->skill));
+        if (psk == t.skills.end())
             // should never happen
             return;
 
-        Tribe::Skill& psk = t.skill[skill_rep_id];
         if (i->what < t.lixvec.size()) {
             Lixxie& lix = t.lixvec[i->what];
             // false: Do not respect the user's options like
             // disabling the multiple builder feature
-            if (lix.get_priority(psk.ac, false) > 1 && psk.nr != 0
+            if (lix.get_priority(psk->first, false) > 1 && psk->second != 0
              && ! (lix.get_dir() ==  1 && i->action == Replay::ASSIGN_LEFT)
              && ! (lix.get_dir() == -1 && i->action == Replay::ASSIGN_RIGHT)
             ) {
                 ++(t.skills_used);
-                if (psk.nr != LixEn::infinity) --psk.nr;
-                lix.evaluate_click(psk.ac);
+                if (psk->second != LixEn::infinity) --(psk->second);
+                lix.evaluate_click(psk->first);
                 // Draw arrow if necessary, read arrow.h/effect.h for info
                 if ((useR->arrows_replay  && replaying)
                  || (useR->arrows_network && (multiplayer && ! replaying)
                                           && m != malo)) {
                     Arrow arr(map, t.style, lix.get_ex(), lix.get_ey(),
-                     psk.ac, upd, i->what);
+                        psk->first, upd, i->what);
                     effect.add_arrow(upd, t, i->what, arr);
                 }
-                Sound::Id snd = Lixxie::get_ac_func(psk.ac).sound_assign;
+                Sound::Id snd = Lixxie::get_ac_func(psk->first).sound_assign;
                 if (m == malo)
                     effect.add_sound      (upd, t, i->what, snd);
                 else if (&t == trlo)
                     effect.add_sound_quiet(upd, t, i->what, snd);
             }
         }
-        if (m && &t == trlo) {
-            // Wird ohne Replay naemlich extra schon vorher gemacht,
-            // damit es schoener aussieht bei langsamen Spieltempi.
-            GameplayPanel::SkBIt b = pan.button_by_replay_id(skill_rep_id);
-            if (b != pan.skill.end()) b->set_number(psk.nr);
-        }
+        // we will reset all skill numbers on the panel anyway after
+        // this function has finished
     }
 
 }

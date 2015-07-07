@@ -71,17 +71,19 @@ void Level::load_from_binary(const Filename& filename)
     // Num of skills	: max 0x00FA.  order is Climber, Floater, Bomber,
     // 		  Blocker,Builder, Basher, Miner, Digger
     for (int i = 0; i < 8; ++i) {
+        LixEn::Ac ac = LixEn::NOTHING;
         switch (i) {
-            case 0: skill[i].ac = LixEn::CLIMBER;  break; // 0x0008 und 09
-            case 1: skill[i].ac = LixEn::FLOATER;  break; // 0x000A ...
-            case 2: skill[i].ac = LixEn::EXPLODER; break; // 0x000C
-            case 3: skill[i].ac = LixEn::BLOCKER;  break; // 0x000E
-            case 4: skill[i].ac = LixEn::BUILDER;  break; // 0x0010
-            case 5: skill[i].ac = LixEn::BASHER;   break; // 0x0012
-            case 6: skill[i].ac = LixEn::MINER;    break; // 0x0014 ...
-            case 7: skill[i].ac = LixEn::DIGGER;   break; // 0x0016 und 17
+            case 0: ac = LixEn::CLIMBER;  break; // 0x0008 und 09
+            case 1: ac = LixEn::FLOATER;  break; // 0x000A ...
+            case 2: ac = LixEn::EXPLODER; break; // 0x000C
+            case 3: ac = LixEn::BLOCKER;  break; // 0x000E
+            case 4: ac = LixEn::BUILDER;  break; // 0x0010
+            case 5: ac = LixEn::BASHER;   break; // 0x0012
+            case 6: ac = LixEn::MINER;    break; // 0x0014 ...
+            case 7: ac = LixEn::DIGGER;   break; // 0x0016 und 17
         }
-        skill[i].nr = read_two_bytes_levelbi(file);
+        skills[ac] = read_two_bytes_levelbi(file);
+        // skill slots with 0 skills will be culled in the finalize function
     }
 
     // ORIGHACK: If a two-player level is loaded, make the given calculation
@@ -90,7 +92,10 @@ void Level::load_from_binary(const Filename& filename)
     // is out of lixes, but has some saved.
     // Also: Use knockback exploders instead of L1-style exploders.
     if (filename.get_rootful().find("network/") != std::string::npos) {
-        skill[2].ac = LixEn::EXPLODER2;
+        if (skills.find(LixEn::EXPLODER) != skills.end()) {
+            skills      [LixEn::EXPLODER2] = skills[LixEn::EXPLODER];
+            skills.erase(LixEn::EXPLODER);
+        }
         seconds = (seconds / 2) - 30;
         if (seconds <= 0) seconds = 15;
     }

@@ -11,7 +11,6 @@ namespace Api {
 SkillButton::SkillButton(const int nx, const int ny, const int nxl)
 :
     Button (nx, ny, nxl, 60),
-    replay_id(-1),
     icon(GraLib::get_lix(LixEn::GARDEN), get_ground(),
      get_x_here() + get_xl()/2 - 17, get_y_here() + 23)
 {

@@ -34,7 +34,6 @@ class SkillButton : public Button {
 private:
 
     int         number;
-    int         replay_id;
     LixEn::Ac   skill;
 
     Graphic     icon;
@@ -48,11 +47,9 @@ public:
 
     inline LixEn::Ac get_skill()     const { return skill;     }
     inline int       get_number()    const { return number;    }
-    inline int       get_replay_id() const { return replay_id; }
 
            void set_skill       (const LixEn::Ac a);
            void set_number      (const int);
-    inline void set_replay_id   (const int id) { replay_id = id; }
            void set_style       (const LixEn::Style);
            void set_hotkey_label(const std::string& s);
 

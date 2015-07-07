@@ -32,12 +32,6 @@
 
 struct Tribe {
 
-    struct Skill {
-        LixEn::Ac  ac;
-        int        nr;
-        inline Skill() : ac(LixEn::NOTHING), nr(0) {}
-    };
-
     struct Master {
         PlNr        number;
         std::string name;
@@ -66,8 +60,10 @@ struct Tribe {
     unsigned long update_saved; // last lix saved within timelimit
     int           hatch_next;
 
-    std::vector <Skill>  skill;
-    int                  skills_used;
+    // for iterators over this, use Level::SkIt and Level::CSkIt
+    std::map <LixEn::Ac, int> skills;
+
+    int skills_used;
 
     LixEn::Style         style;
     std::vector <Lixxie> lixvec;

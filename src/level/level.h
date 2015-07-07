@@ -88,6 +88,7 @@
 
 #include <list>
 #include <string>
+#include <map>
 
 #include "object.h"
 
@@ -130,12 +131,6 @@ struct Level {
         Pos();
         bool operator == (const Pos& t) const;
         bool operator != (const Pos& t) const { return !(*this == t); }
-    };
-
-    struct Skill {
-        LixEn::Ac ac;
-        int     nr;
-        inline Skill() : ac(LixEn::NOTHING), nr(0) {}
     };
 
     static const int min_xl;
@@ -185,7 +180,10 @@ struct Level {
 
     std::vector <PosLi> pos;
 
-    std::vector <Skill> skill;
+    typedef std::map <LixEn::Ac, int> ::iterator       SkIt;
+    typedef std::map <LixEn::Ac, int> ::const_iterator CSkIt;
+
+    std::map <LixEn::Ac, int> skills;
 
     Level(const Filename& = gloB->empty_filename);
     ~Level();

@@ -115,11 +115,9 @@ void Gameplay::check_skill_buttons() {
          && pan.skill[i].get_clicked()
          && ! pan.skill[i].get_on())
         {
-            int rep_id = pan.skill[i].get_replay_id();
-
             // This will be done during the next physics update, but
             // we'll do it now, to make the button seem more responsive
-            pan.set_skill_on(rep_id);
+            pan.set_skill_on(pan.skill[i].get_skill());
             Sound::play_loud(Sound::PANEL);
             // Don't check any more buttons, see comment before the loop.
             some_panel_action = true;

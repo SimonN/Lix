@@ -55,7 +55,7 @@ class NetworkBrowser : public BrowserBig {
 
 private:
 
-    LabelTwo info_hatches, info_goals, info_initial, info_skills, info_clock;
+    LabelTwo info_hatches, info_goals, info_initial, info_clock;
 
     NetworkBrowser  (const NetworkBrowser&);
     void operator = (const NetworkBrowser&);

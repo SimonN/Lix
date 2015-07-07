@@ -22,6 +22,7 @@
 
 #include "../other/language.h"     // export
 #include "../other/help.h"
+#include "../other/user.h" // draw according to the user's skill sort order
 
 
 
@@ -152,11 +153,18 @@ void Level::export_image(const Filename& filename) const
     Torbit& osd = Api::Manager::get_torbit();
     osd.clear_to_color(color[COL_PINK]);
 
-    for (size_t i = 0; i < skill.size(); ++i) {
-       skill_button.set_skill (skill[i].ac);
-       skill_button.set_number(skill[i].nr);
-       skill_button.draw();
-       osd.draw(canvas, skill_button.get_xl() * i, size_y);
+    for (size_t i = 0; i < useR->skill_sort.size(); ++i) {
+        CSkIt itr = skills.find(useR->skill_sort[i]);
+        if (itr != skills.end()) {
+            skill_button.set_skill (itr->first);
+            skill_button.set_number(itr->second);
+        }
+        else {
+            skill_button.set_skill (LixEn::NOTHING);
+            skill_button.set_number(0);
+        }
+        skill_button.draw();
+        osd.draw(canvas, skill_button.get_xl() * i, size_y);
     }
 
     osd.clear_to_color(color[COL_PINK]);
@@ -187,7 +195,7 @@ void Level::export_image(const Filename& filename) const
     info_initial .draw();
     info_spawnint.draw();
     info_clock   .draw();
-    osd.draw(canvas, skill_button.get_xl() * skill.size(), size_y);
+    osd.draw(canvas, skill_button.get_xl() * useR->skill_sort.size(), size_y);
 
     // Draw torus information, copied from menu/preview.cpp
     Graphic icon_torus(GraLib::get(gloB->file_bitmap_preview_icon), canvas);
