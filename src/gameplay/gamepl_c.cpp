@@ -216,12 +216,11 @@ void Gameplay::calc_self()
         }
         else {
             // Singleplayer
-            window_gameplay = new Api::WindowGameplay(&replay, trlo,
+            window_gameplay = new Api::WindowGameplay(&replay, &level, trlo,
                 // Eye candy when not saving anything, won't be saved anyway
                 (trlo->lix_saved > 0
                 ? trlo->update_saved - state_manager.get_zero().update
-                : cs.update          - state_manager.get_zero().update),
-                level.required, level.initial, level.get_name());
+                : cs.update          - state_manager.get_zero().update));
             Api::Manager::add_focus(window_gameplay);
         }
         return;
@@ -387,8 +386,8 @@ void Gameplay::calc_self()
         if (hardware.key_once(useR->key_ga_exit)
          && !chat.get_type_on_last_frame()
          && !window_gameplay) {
-            window_gameplay = new Api::WindowGameplay(&replay,
-                               Network::get_started() ? &level : 0);
+            window_gameplay = new Api::WindowGameplay(&replay, &level,
+                                                      cs.tribes.size());
             Api::Manager::add_focus(window_gameplay);
             return;
         }

@@ -29,17 +29,19 @@ const unsigned WindowGameplay::y_saved   (70);
 const unsigned WindowGameplay::y_comment(100);
 const unsigned WindowGameplay::y_button (200);
 
-WindowGameplay::WindowGameplay(Replay* rep, const Level* const lev)
-:
+WindowGameplay::WindowGameplay(Replay* rep,
+    const Level* const lev,
+    int num_players
+) :
     Window(
-     LEMSCR_X/2 - this_xl_no_results/2,
-     (LEMSCR_Y - gloB->panel_gameplay_yl)/2
-     - (lev ? this_yl_net_no_results : this_yl_no_results)/2,
-     this_xl_no_results, lev ? this_yl_net_no_results : this_yl_no_results,
-     Language::win_game_title),
-
+        LEMSCR_X/2 - this_xl_no_results/2,
+        (LEMSCR_Y - gloB->panel_gameplay_yl)/2
+        - (num_players > 1 ? this_yl_net_no_results : this_yl_no_results)/2,
+        this_xl_no_results,
+        num_players > 1 ? this_yl_net_no_results : this_yl_no_results,
+        Language::win_game_title),
     game_end(false),
-    game_net(lev ? true : false),
+    game_net(num_players > 1),
     exit_with    (NOTHING),
     resume       (20, top_item     , this_xl_no_results-40),
     restart      (20, top_item + 30, this_xl_no_results-40),
@@ -69,29 +71,31 @@ WindowGameplay::WindowGameplay(Replay* rep, const Level* const lev)
 
 WindowGameplay::WindowGameplay(
     Replay*            rep,
+    const Level* const lev,
     const Tribe*       trlo,
-    int                updates_used,
-    int                _lix_required,
-    int                _lix_at_start,
-    const std::string& tit
+    int                updates_used
 ) :
+//    int                _lix_required,
+//    int                _lix_at_start,
+//    const std::string& tit
     Window(
-     LEMSCR_X/2                             - this_xl_single_results/2,
-     (LEMSCR_Y - gloB->panel_gameplay_yl)/2 - this_yl_single_results/2,
-     this_xl_single_results, this_yl_single_results, tit),
+        LEMSCR_X/2                             - this_xl_single_results/2,
+        (LEMSCR_Y - gloB->panel_gameplay_yl)/2 - this_yl_single_results/2,
+        this_xl_single_results, this_yl_single_results,
+        lev ? lev->get_name() : Language::win_game_title),
 
     game_end(true),
     game_net(false),
     exit_with    (NOTHING),
     lix_saved    (trlo ? trlo->lix_saved : 0),
-    lix_required (_lix_required),
-    lix_at_start (_lix_at_start),
+    lix_required (lev ? lev->required : 0),
+    lix_at_start (lev ? lev->initial  : 0),
     resume       (20, y_button     , this_xl_single_results-40),
     restart      (20, y_button     , this_xl_single_results-40),
     save_replay  (20, y_button + 30, this_xl_single_results-40),
     menu         (20, y_button + 60, this_xl_single_results-40),
     replay       (rep),
-    level        (0),
+    level        (lev),
     browser_save (0)
 {
     // This gets repeated in draw_self() for the big letters
