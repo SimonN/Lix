@@ -113,24 +113,26 @@ inline static int get_fuse_y(const Lixxie& l)
 
 
 
-void Lixxie::set_ex(const int n) {
-    ex = Help::even(n);
-    set_x(ex - LixEn::ex_offset);
-    if (ground_map->get_torus_x()) ex = Help::mod(ex, land->get_xl());
+void Lixxie::record_encounters()
+{
     enc_foot |= lookup->get(ex, ey);
     enc_body |= enc_foot
              |  lookup->get(ex, ey - 4)
              |  lookup->get(get_fuse_x(*this), get_fuse_y(*this));
 }
 
+void Lixxie::set_ex(const int n) {
+    ex = Help::even(n);
+    set_x(ex - LixEn::ex_offset);
+    if (ground_map->get_torus_x()) ex = Help::mod(ex, land->get_xl());
+    record_encounters();
+}
+
 void Lixxie::set_ey(const int n) {
     ey = n;
     set_y(ey - LixEn::ey_offset);
     if (ground_map->get_torus_y()) ey = Help::mod(ey, land->get_yl());
-    enc_foot |= lookup->get(ex, ey);
-    enc_body |= enc_foot
-             |  lookup->get(ex, ey - 4)
-             |  lookup->get(get_fuse_x(*this), get_fuse_y(*this));
+    record_encounters();
 }
 
 void Lixxie::move_ahead(int plus_x)

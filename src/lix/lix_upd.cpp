@@ -39,6 +39,10 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
 
     l.set_no_encounters();
 
+    // record encounters at the current position. This fixes the bug where
+    // you could block in front of exits after stunners got up.
+    l.record_encounters();
+
     // Exploder-Dinge separat!
     if (l.get_updates_since_bomb() > 0 && l.get_ac() != LixEn::EXPLODER) {
         l.inc_updates_since_bomb();

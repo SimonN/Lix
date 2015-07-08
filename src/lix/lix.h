@@ -371,6 +371,7 @@ public:
     inline void         set_no_encounters()      { enc_body = enc_foot = 0; }
     inline void         set_body_encounters(Lookup::LoNr n) { enc_body = n; }
     inline void         set_foot_encounters(Lookup::LoNr n) { enc_foot = n; }
+           void         record_encounters();
 
            void assclk        (const LixEn::Ac);
            void become        (const LixEn::Ac);

@@ -5,13 +5,45 @@
 
 
 
-2015-06-24
+2015-07-08
 
     (experimental version, please don't play on the central server)
 
+    Blocker/goal bugfix
+
+        It's not possible anymore to assign skills to lix that would exit
+        immediately when not assigned anything. Before, it was possible to
+        wait for a stunned lix inside a goal trigger area to get up, then
+        assign blocker. The blocker would prevent others from exiting and
+        not exit herself.
+
+
+
+2015-07-07
+
+    Level format ignores skill order
+        The editor will not save skills in any particular order anymore,
+        and the game doesn't care about the order of skills in a level. It
+        will display the skills in the default level-independent order.
+
+        Level pack maintainers: The batch replay checker (--verify=path/to/dir)
+        will continue to work with old replays that depend on the skill order.
+        Only when a level updates and becomes order-independent, such old
+        replays break. Workaround: While you still have the order-dependent
+        level, open the replay and save it with the current Lix version.
+        This converts the replay to become independent of skill order, and it
+        will work with both level versions.
+
+
+
+2015-06-24
+
     Untimed singleplayer exploders
-        Exploders, both flinging and non-flinging, are untimed in singleplayer
-        now. Older replays are loaded and played back correctly.
+        Both the flinging and non-flinging exploders activate instantly
+        after assignment, without the 5-second fuse. Multiplayer plays exactly
+        as before, with the fuse. Nukes behave like the exploder in the
+        current game mode. Old replays are loaded correctly, exploder and
+        nuke assignments in singleplayer are shifted correctly.
 
     Detonator animation
         The non-flinging exploder has a longer animation now, 8 frames instead
