@@ -44,7 +44,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
     l.record_encounters();
 
     // Exploder-Dinge separat!
-    if (l.get_updates_since_bomb() > 0 && l.get_ac() != LixEn::EXPLODER) {
+    if (l.get_updates_since_bomb() > 0) {
         l.inc_updates_since_bomb();
 
         // updates to trigger the explosion: 76, not 75.
@@ -74,25 +74,15 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
         else if (l.get_updates_since_bomb() >= upd_for_bomb)
         {
             l.set_updates_since_bomb(0);
-            // Sowohl Climber als auch Ascender sollen entweder beide herunter
-            // fallen oder beide in der Wand Oh-no-en.
+            // Ascender are already inside the wall. The climber should
+            // also explode inside the wall, and therefore we move it inside.
+            // Without an exploder anim, this isn't necessary for the visuals.
+            // We still do it to preserve compatibility with older replays.
             if (l.get_ac() == LixEn::CLIMBER)  l.move_ahead(2);
-            // Alles, was in der Luft ist, soll sofort explodieren
-            if (l.get_ac() == LixEn::FALLER
-             || l.get_ac() == LixEn::TUMBLER
-             ||(l.get_ac() == LixEn::STUNNER && l.get_frame() < 13)
-             || l.get_ac() == LixEn::FLOATER
-             || l.get_ac() == LixEn::JUMPER) {
-                l.become(LixEn::EXPLODER);
-                l.set_frame(15);
-            }
-            else {
-                bool b = (l.get_ac() == LixEn::BLOCKER);
-                l.become(LixEn::EXPLODER);
-                l.set_frame(-1); // weil assign immer auf Frame 2 setzt
-                if (b) l.set_special_x(1); // Damit der Exploder weiterblockt
-                if (!l.get_tribe().nuke) l.play_sound(ua, Sound::OHNO);
-            }
+            // Always explode instantly -- this is done in the exploder's
+            // update function, which we enter immediately here after
+            // the top-level 'if'
+            l.become(LixEn::EXPLODER);
         }
         // Fuse still visible -- this can only be entered when
         // upd_for_bomb is higher than 2
