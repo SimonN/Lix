@@ -22,6 +22,8 @@ namespace Help {
 volatile Uint32 timer_ticks            =  0;
 const    int    timer_ticks_per_second = 60;
 
+bool interactive_mode = true;
+
 void timer_increment_ticks() {
     ++timer_ticks;
 }
@@ -80,6 +82,10 @@ std::string version_to_string(const unsigned long nr) {
 
 std::string scancode_to_string(const int sc)
 {
+    // segfault prevention, can't touch ::scancode_to_name otherwise
+    if (! interactive_mode)
+        return "";
+
     std::string ret = ::scancode_to_name(sc);
     string_to_nice_case(ret);
     for (size_t i = 0; i < ret.size(); ++i) {

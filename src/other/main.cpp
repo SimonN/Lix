@@ -138,6 +138,7 @@ int main(int argc, char* argv[])
 
     else {
         // noninteractive mode that checks replays
+        Help::interactive_mode = false;
         Verifier(margs.replays_to_verify);
     }
 

@@ -29,6 +29,10 @@ namespace Help {
     extern volatile Uint32 timer_ticks;
     extern const    int    timer_ticks_per_second;
 
+    extern bool interactive_mode; // if false, can't get hotkey names etc.,
+                                  // should prevent A4 segfaults without gfx
+                                  // should only be modified my main()
+
     void     timer_start();
     unsigned get_timer_ticks_per_draw();
 
