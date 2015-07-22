@@ -1,6 +1,6 @@
 $BUILT 2014-06-29 04:11:38
 $AUTHOR Amanda
-$GERMAN 
+$GERMAN
 $ENGLISH Skulls, Sludge, and Steel
 
 #SIZE_X 960
@@ -22,7 +22,7 @@ $ENGLISH Skulls, Sludge, and Steel
 #CLIMBER 3
 #BUILDER 4
 #MINER 4
-#BURNER -1
+#EXPLODER 2
 #NOTHING 0
 #NOTHING 0
 #NOTHING 0
