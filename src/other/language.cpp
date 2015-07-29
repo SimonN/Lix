@@ -21,7 +21,7 @@ char const* const main_name_of_game_English = "Lix";
 
 // +1 because unlike other vectors, we'll have an element
 // here for Language::MAX too
-std::vector <std::string> language_name(Language::MAX + 1);
+std::vector <std::string> language_name(MAX + 1);
 
 namespace Option {
     enum OptionGroupNames {
@@ -1575,8 +1575,8 @@ bool Language::try_load_custom_language(bool load_language_name_only) {
 namespace Language {
     class KeyComparer {
     public:
-        inline bool operator()(Language::translate_map_type::const_iterator const& entry1,
-                               Language::translate_map_type::const_iterator const& entry2) {
+        inline bool operator()(translate_map_type::const_iterator const& entry1,
+                               translate_map_type::const_iterator const& entry2) {
             return entry1->first < entry2->first;
         }
     };
