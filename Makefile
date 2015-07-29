@@ -13,7 +13,7 @@ CPPFLAGS += $(shell $(PKG_CONFIG) --cflags libpng zlib libenet 2>/dev/null) $(sh
 
 STRIP    = strip
 
-DEPGEN   = $(CXX) -MM
+DEPGEN   = $(CXX) $(CPPFLAGS) -MM
 RM       = rm -rf
 MKDIR    = mkdir -p
 
