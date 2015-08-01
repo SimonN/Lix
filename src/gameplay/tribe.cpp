@@ -38,7 +38,9 @@ void Tribe::return_skills(const LixEn::Ac ac, const int amount)
 {
     if (skills.find(ac) == skills.end())
         return;
-    skills[ac]  += amount;
+    if (skills[ac] != LixEn::infinity)
+        skills[ac] += amount;
+    // skills_used must be updated even for infinite skills
     skills_used -= amount;
 }
 
