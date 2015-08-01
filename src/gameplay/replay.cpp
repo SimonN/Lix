@@ -527,6 +527,9 @@ void Replay::fix_legacy_replays_according_to_current_state(
                     // 2015-06-17. Every old singleplayer replay must have the
                     // exploder assignment delayed to match the current version.
                     itr->update += Lixxie::updates_for_bomb - 1;
+                    // Since the assignment will now happen at a different
+                    // position of the lix, ignore directional force.
+                    itr->action = ASSIGN;
                 }
             }
         }
