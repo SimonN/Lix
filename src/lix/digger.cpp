@@ -1,15 +1,10 @@
 /*
  * lix/digger.cpp
  *
- * special_x
+ *  special_x
  *
- *   This is 1 if the digger has just been activated. Some earth will
- *   be dug away over its head on the first swing.
- *
- * special_y
- *
- *   This is 1 if the lix shall stop digging on hitting a single steel pixel.
- *   This is 0 otherwise. See also the comment near set_special_y(1).
+ *      Is 1 immediately after becoming digger. Is set to 0 upon first swing.
+ *      When 1, the first swing clears out extra terrain over his feet.
  *
  */
 
@@ -25,74 +20,42 @@ void become_digger(Lixxie& l)
 
 void update_digger(Lixxie& l, const UpdateArgs& ua)
 {
-    int steel_pixels_hit = 0;
+    // there's only one frame with all the digging action
+    if (l.get_frame() != 11) {
+        l.next_frame();
+        return;
+    }
 
-    switch (l.get_frame()) {
-    case 0:
-        // This is the only steel check in the whole cycle of 16 frames.
+    // we're in frame 11, where the action happens
+    for (int y = 0; y < 4; ++y) {
         // Stop digging if there is steel to the left as well as to the right
         // of the digger's center, or in the 3 double pixels of the center.
-        if (l.count_steel(-8, 2, 3, 5)
-         && l.count_steel(-2, 2, 9, 5)) {
-            l.set_special_y(1);
-        }
-        steel_pixels_hit += l.remove_rectangle(6, 2, 9, 3);
-        steel_pixels_hit += l.remove_rectangle(7, 4, 9, 4);
-        steel_pixels_hit += l.remove_rectangle(8, 5, 9, 5);
-        break;
-    case 1:
-        steel_pixels_hit += l.remove_rectangle(3, 2, 5, 2);
-        steel_pixels_hit += l.remove_rectangle(4, 3, 5, 3);
-        steel_pixels_hit += l.remove_rectangle(5, 4, 6, 4); // miner-cancel fix
-        steel_pixels_hit += l.remove_rectangle(6, 5, 7, 5);
-        break;
-    case 2:
-        steel_pixels_hit += l.remove_rectangle(0, 2, 2, 2);
-        steel_pixels_hit += l.remove_rectangle(0, 3, 3, 3);
-        steel_pixels_hit += l.remove_rectangle(0, 4, 4, 4); // miner-cancel fix
-        steel_pixels_hit += l.remove_rectangle(0, 5, 5, 5);
+        // The following two rectangles overlap, that implements the center.
+        int steel_left   = l.count_steel(-8, 2, 3, 2);
+        int steel_right  = l.count_steel(-2, 2, 9, 2);
 
-        // This is the only frame with possible downward motion.
-        // This 'if' is entered iff the lix does not cancel due to steel later.
-        if (! steel_pixels_hit || l.get_special_y() == 0) {
-            l.move_down(4);
+        if (steel_left > 0 && steel_right > 0) {
+            l.become(LixEn::WALKER);
+            l.play_sound(ua, Sound::STEEL);
+            return; // from update_digger() entirely
+            // if steel cancelling happens on the very first swing, the upswing
+            // (next if) doesn't happen
         }
-        break;
-    case 3:
-        // Since we have moved down, we call with the new y coordinates
-        steel_pixels_hit += l.remove_rectangle(-4, -2, -1, 1);
-        break;
-    case 4:
-        steel_pixels_hit += l.remove_rectangle(-6, -2, -5, 1);
-        break;
-    case 5:
-        steel_pixels_hit += l.remove_rectangle(-8, -2, -7, 1);
-        break;
-    }
-    // done with the switch across the different frames
-
-    if (steel_pixels_hit && l.get_special_y() == 1) {
-        // Steel was hit and we actually want to stop
-        // Continue walking in the same direction.
-        l.become(LixEn::WALKER);
-        l.set_frame(1);
-        l.play_sound(ua, Sound::STEEL);
-    }
-    else if (l.get_frame() > 5 &&
-             ! l.is_solid() && ! l.is_solid(-2, 2) && ! l.is_solid(2, 2)) {
-        // geoo and Clam like the l.get_frame() > 5 requirement, even if
-        // it makes the sprite float in midair. This way, the digger doesn't
-        // leave a ledge when digging out of a horizontal surface.
-        l.become(LixEn::FALLER);
-    }
-    else {
-        // Stay digger
-        l.next_frame();
-        // Remove some earth over the foot if the lix was assigned recently
+        l.remove_rectangle(-8, 2, 9, 2);
         if (l.get_special_x() == 1) {
+            // Remove extra earth upon first swing: four hi-res rows, like L1.
+            l.remove_rectangle(-8, -2, 9, 1);
             l.set_special_x(0);
-            l.remove_rectangle(-8, -4, 9, 1);
+        }
+        l.move_down(1);
+
+        if (! l.is_solid(-2, 2)
+         && ! l.is_solid( 0, 2)
+         && ! l.is_solid( 2, 2)
+        ) {
+            l.become(LixEn::FALLER);
+            return;
         }
     }
-
+    l.next_frame();
 }
