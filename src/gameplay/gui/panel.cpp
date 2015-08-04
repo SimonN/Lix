@@ -219,11 +219,12 @@ void GameplayPanel::set_like_tribe(const Tribe* tr)
 
     LixEn::Ac skill_on_before = LixEn::NOTHING;
 
-    // clear all panels
-    for (size_t i = 0; i < skill.size(); ++i) {
+    // instead of clearing all panels, set them to the greyed-out skill,
+    // even if 0 skills will be available throughout the level
+    for (size_t i = 0; i < skill.size() && i < useR->skill_sort.size(); ++i) {
         if (skill[i].get_on())
             skill_on_before = skill[i].get_skill();
-        skill[i].set_skill(LixEn::NOTHING);
+        skill[i].set_skill(useR->skill_sort[i]);
     }
 
     // Create, then sort buttons. Hotkeys will be done after sorting
