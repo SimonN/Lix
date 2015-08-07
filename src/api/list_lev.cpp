@@ -93,8 +93,9 @@ void ListLevel::add_file_button(const int nr, const int which_from_file)
     if (checkmark_style) {
         const Result* result = useR->get_level_result(f);
         if (result) {
-            if      (result->built     != lev.built)    t->set_check_frame(3);
-            else if (result->lix_saved == lev.initial)  t->set_check_frame(1);
+            // we don't display 100 % anymore, this will display the checkmark
+            if      (lev.built.different_from_zero()
+                  && result->built     != lev.built)    t->set_check_frame(3);
             else if (result->lix_saved >= lev.required) t->set_check_frame(2);
             else                                        t->set_check_frame(4);
         }

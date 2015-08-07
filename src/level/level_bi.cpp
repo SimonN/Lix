@@ -299,6 +299,7 @@ void Level::load_from_binary(const Filename& filename)
 
 void Level::load_finalize_binary_or_lemmini(const Filename& filename)
 {
+    built = Date("0");
     start_manual = true;
 
     // Ueble Machenschaften, die den Level gar nicht so sehr wie das Original

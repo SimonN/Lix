@@ -51,6 +51,8 @@ public:
     bool operator <= (const Date&) const;
     bool operator >= (const Date&) const;
 
+    bool different_from_zero() const;
+
 };
 
 std::ostream& operator << (std::ostream&, const Date&);

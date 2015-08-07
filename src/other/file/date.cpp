@@ -145,3 +145,15 @@ bool Date::operator >= (const Date& d) const
     return *this == d
      ||    *this >  d;
 }
+
+
+
+bool Date::different_from_zero() const
+{
+    return year   != 0
+     ||    month  != 0
+     ||    day    != 0
+     ||    hour   != 0
+     ||    minute != 0
+     ||    second != 0;
+}

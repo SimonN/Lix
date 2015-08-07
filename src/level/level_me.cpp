@@ -19,6 +19,9 @@ LevelMetaData::LevelMetaData(const Filename& fn)
     if      (format == FORMAT_LIX)     read_metadata_lix    (fn);
     else if (format == FORMAT_BINARY)  read_metadata_binary (fn);
     else if (format == FORMAT_LEMMINI) read_metadata_lemmini(fn);
+
+    if (format == FORMAT_BINARY || format == FORMAT_LEMMINI)
+        built = Date("0");
 }
 
 
