@@ -5,12 +5,37 @@
 
 
 
+2015-08-09
+
+    Snappier terrain removal
+        Basher, miner, and digger all remove terrin in a single frame during
+        their animation. This prevents mid-stroke cancelling and basher
+        staircases. Basher and digger have received entirelly new animations.
+
+    Untimed singleplayer exploders
+        Singleplayer exploder assignments will immediately make an explosion
+        and not use the 5-second countdown anymore. Older replays are amended
+        for this, but will likely break still due to the terrain removal
+        changes explained above.
+
+        Multiplayer exploders are still timed for balancing.
+
+    Clam's levels
+        Clam has updated many of his singleplayer levels.
+
+    Many more changes
+        I will document these later. If you like details right now,
+        look at my github commit log:
+
+        https://github.com/SimonN/Lix/commits/master
+
+
+
 2015-07-08
 
     (experimental version, please don't play on the central server)
 
     Blocker/goal bugfix
-
         It's not possible anymore to assign skills to lix that would exit
         immediately when not assigned anything. Before, it was possible to
         wait for a stunned lix inside a goal trigger area to get up, then
