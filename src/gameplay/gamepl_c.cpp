@@ -257,12 +257,12 @@ void Gameplay::calc_self()
         // we ignore clicks on the nuke here, as we do with non-gamestate-
         // -altering buttons like pause or fast forward. We'll come back
         // to it right here:
-        if (pan.get_nuke_doubleclicked()) abort_replay = true;
-        if (pan.rate_minus.get_clicked()
-         || pan.rate_plus .get_clicked()
-         || hardware.key_hold(useR->key_rate_minus)
-         || hardware.key_hold(useR->key_rate_plus)) abort_replay = true;
-        // see comment in gamepl_a.cpp for why the rate doesn't have hotkeys.
+        if    (pan.get_nuke_doubleclicked()
+            || pan.spawnint_slow.get_clicked()
+            || pan.spawnint_cur .get_clicked()
+        ) {
+            abort_replay = true;
+        }
 
         if (abort_replay) {
             replaying = false;

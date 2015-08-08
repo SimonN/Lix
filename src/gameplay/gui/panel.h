@@ -16,6 +16,7 @@
 #include "../../api/button/b_bitmap.h"
 #include "../../api/button/b_text.h"
 #include "../../api/button/b_skill.h"
+#include "../../api/button/b_spawn.h"
 
 struct GameplayPanel : public Api::Element {
 
@@ -28,9 +29,10 @@ public:
 
     SkBVec skill;
 
-    BiB rate_minus,
-        rate_plus,
-        rate_fixed,
+    Api::SpawnIntervalButton spawnint_slow;
+    Api::SpawnIntervalButton spawnint_cur;
+
+    BiB spawnint_fixed,
         pause,
         zoom,
         speed_slow,
@@ -46,9 +48,7 @@ public:
 
     GameplayStats stats;
 
-    Api::Label rate_slow;
-    Api::Label rate_cur;
-    Api::Label rate_fast;
+    Api::Label rate_fixed;
 
     void (*on_hint_change)(void*, const int); // int = new hint number
     void* on_hint_change_where; // first arg to give to above function

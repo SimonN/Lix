@@ -19,29 +19,37 @@ Button::Button(int nx, int ny, int xl, int yl)
 
 
 
+void Button::check_whether_to_appear_down()
+{
+    // Cold buttons: can appear down whether on or off
+    // Warm buttons: can appear down while off
+    // Hot buttons: cannot appear down
+    if (hot)
+        return;
+
+    if (is_mouse_here() && hardware.get_mlh() && (!warm || !on)) {
+        if (!down) set_draw_required();
+        down = true;
+    }
+    else {
+        if (down) set_draw_required();
+        down = false;
+    }
+}
+
+
+
 // Liefert nur true, wenn der Button gerade fertig angeklickt wurde
 void Button::calc_self()
 {
-    bool mouse_here = is_mouse_here();
-
     if (get_hidden()) {
         clicked_last_calc = false;
     }
     else {
-        // Eingedrueckt erscheinen? Nur im kalten Modus oder bei ausgeschalt.
-        // Buttons auch im warmen Modus kontrollieren, nie im heissen Modus.
-        if (!hot) {
-            if (mouse_here && hardware.get_mlh() && (!warm || !on)) {
-                if (!down) set_draw_required();
-                down = true;
-            }
-            else {
-                if (down) set_draw_required();
-                down = false;
-            }
-        }
-        // Aktives Anklicken pruefen
+        check_whether_to_appear_down();
+        // Shall the buttons now fire callbacks or believe to be clicked?
         // KEY_ENTER als Hotkey laesst auch KEY_ENTER_PAD zu!
+        bool mouse_here = is_mouse_here();
         bool b =
             (!warm && !hot && mouse_here && hardware.get_mlr())
          || ( warm && !hot && mouse_here && hardware.get_ml ())

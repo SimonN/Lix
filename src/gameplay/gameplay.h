@@ -70,8 +70,6 @@ private:
 
     unsigned long local_ticks;
     unsigned long timer_tick_last_update;
-    unsigned long timer_tick_last_F1;
-    unsigned long timer_tick_last_F2;
     int           timer_ticks_for_update_client;
 
     int           bg_color;

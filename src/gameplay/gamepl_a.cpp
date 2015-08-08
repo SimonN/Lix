@@ -18,6 +18,8 @@ Replay::Data Gameplay::new_replay_data()
     return data;
 }
 
+
+
 void Gameplay::calc_active()
 {
     if (!malo) return;
@@ -31,58 +33,25 @@ void Gameplay::calc_active()
     // Remedies the bug: displays "N nothings" after level restart
     pan.stats.set_tarcnt(0);
 
-    // Panels ueberpruefen. Zuerst Singleplayer-Panels.
+    // Spawn interval buttons
     if (cs.tribes.size() == 1) {
-        // Plus und Minus werden nicht auf "clicked" geprueft, sondern aktiv,
-        // wenn gehalten. Dennoch benutzen wir Button::clicked(), um Halten
-        // zu ermoeglichen.
-        // Doppelklicks auf F1 oder F2 werden leider nicht erkannt, im Gegen-
-        // satz zu Doppelklicks auf F12 fuer die Nuke. Das liegt daran, dass
-        // die Tasten nach etwas gedrueckt gehaltener Zeit immer wieder
-        // key_once() ausloesen und es somit auch beim Gedrueckthalten unbe-
-        // absichtigt zur Max-/Min-Einstellung kaeme.
-        // Dies aendert nur die angezeigte Zahl. Die Ratenaenderung wird erst,
-        // wenn ein Update ansteht, zum Replay geschickt. Das spart Ballast,
-        // da alle bis auf die letzte Aenderung pro Update egal sind.
-        // Modulo 2 rechnen wir bei den Help::timer_ticks, weil Frank die
-        // Aenderung der Rate auch bei 60 /sec zu rasant war.
-        bool minus_clicked = pan.rate_minus.get_clicked()
-                          || hardware.key_release(useR->key_rate_minus);
-        bool plus_clicked  = pan.rate_plus .get_clicked()
-                          || hardware.key_release(useR->key_rate_plus);
-        if (hardware.key_hold(useR->key_rate_minus)) pan.rate_minus.set_down();
-        if (hardware.key_hold(useR->key_rate_plus))  pan.rate_plus.set_down();
-        if (pan.rate_minus.get_down() || minus_clicked) {
-            // Doppelklick?
-            if (minus_clicked && Help::timer_ticks - timer_tick_last_F1
-             <= hardware.doubleclick_speed) {
-                pan.rate_cur.set_number(trlo->spawnint_slow);
-            }
-            else if (minus_clicked) timer_tick_last_F1 = Help::timer_ticks;
-            else {
-                // Normales Halten
-                if (pan.rate_cur.get_number() < trlo->spawnint_slow) {
-                    if (Help::timer_ticks % 3 == 0)
-                     pan.rate_cur.set_number(pan.rate_cur.get_number() + 1);
-                }
-                else pan.rate_minus.set_down(false);
-            }
-        }
-        // Plus
-        if (pan.rate_plus.get_down() || plus_clicked) {
-            if (plus_clicked && Help::timer_ticks - timer_tick_last_F2
-             <= hardware.doubleclick_speed) {
-                pan.rate_cur.set_number(trlo->spawnint_fast);
-            }
-            else if (plus_clicked) timer_tick_last_F2 = Help::timer_ticks;
-            else {
-                if (pan.rate_cur.get_number() > trlo->spawnint_fast) {
-                    if (Help::timer_ticks % 3 == 0)
-                     pan.rate_cur.set_number(pan.rate_cur.get_number() - 1);
-                }
-                else pan.rate_plus.set_down(false);
-            }
-        }
+        Tribe& tribe = cs.tribes[0];
+
+        int cur = pan.spawnint_cur .get_spawnint();
+
+        if (cur == tribe.spawnint_slow)
+            ;
+        else if (pan.spawnint_slow.get_execute_right())
+            pan.spawnint_cur.set_spawnint(tribe.spawnint_slow);
+        else if (pan.spawnint_slow.get_execute_left())
+            pan.spawnint_cur.set_spawnint(cur + 1);
+
+        if (cur == tribe.spawnint_fast)
+            ;
+        else if (pan.spawnint_cur .get_execute_right())
+            pan.spawnint_cur.set_spawnint(tribe.spawnint_fast);
+        else if (pan.spawnint_cur.get_execute_left())
+            pan.spawnint_cur.set_spawnint(cur - 1);
     }
 
     // Selection of skills in the panel aren't checked here anymore.

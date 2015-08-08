@@ -55,13 +55,13 @@ class Button : public Element {
 
 private:
 
-    bool warm;       // Direkt beim aktiven Klicken anspringen?
-    bool hot;        // Sogar schon beim Gedrueckthalten ganz anspringen?
+    bool warm;       // if true, activate upon mouse up, not on mouserelease
+    bool hot;        // if true, activate upon mouse down, not on mouse up
     int  hotkey;     // Standardmaessig = 0, kann gesetzt werden
                      // Klicks und Hotkeys werden vom Fenster abgefragt
     bool clicked_last_calc;
-    bool down;
-    bool on;
+    bool down;       // if the button appear down visually
+    bool on;         // if the button's function is being executed???
 
     int  color_1;    // Buttonfarbe oben links
     int  color_2;    // Buttonfarbe in der Mitte
@@ -98,9 +98,11 @@ public:
 
 protected:
 
-    virtual void calc_self();
+    virtual void calc_self(); // computes (on), called every frame
     virtual void draw_self();
 
+    virtual void check_whether_to_appear_down(); // computes (down), called
+                                                 // from (calc_self);
 };
 
 } // Api

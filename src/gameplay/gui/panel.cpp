@@ -27,9 +27,11 @@ GameplayPanel::GameplayPanel()
     Element    (0, LEMSCR_Y - gloB->panel_gameplay_yl,
                    LEMSCR_X,  gloB->panel_gameplay_yl),
     skill      (useR->skill_sort.size(), Api::SkillButton()),
-    rate_minus (BMP_PAN_2, x_zzz,  0, xl_tec, 20),
-    rate_plus  (BMP_PAN_2, x_fwd,  0, xl_tec, 20),
-    rate_fixed (BMP_PAN_F, x_zzz,  0, 2 * xl_tec, 20),
+
+    spawnint_slow (x_zzz, 0),
+    spawnint_cur  (x_fwd, 0),
+    spawnint_fixed(BMP_PAN_F, x_zzz,  0, 2 * xl_tec, 20),
+
     pause      (BMP_PAUSE, x_pau, 20, xl_tec, 60),
     zoom       (BMP_PANEL, x_zzz, 20, xl_tec, 30),
     speed_slow (BMP_PANEL, x_zzz, 50, xl_tec, 30),
@@ -42,9 +44,7 @@ GameplayPanel::GameplayPanel()
     nuke_multi (BMP_NUKE , x_tec, 60, 4 * xl_tec, 20),
     spec_tribe (x_pau, 60, 4 * xl_tec), // will be reset below
     stats      (),
-    rate_slow  (rate_minus.get_x()+rate_minus.get_xl()-13, rate_minus.get_y()),
-    rate_cur   (rate_plus .get_x()+rate_minus.get_xl()-13, rate_plus .get_y()),
-    rate_fast  (rate_fixed.get_x()+rate_fixed.get_xl()-18, rate_fixed.get_y()),
+    rate_fixed (spawnint_fixed.get_x() + spawnint_fixed.get_xl() - 18, 0),
 
     on_hint_change(0),
     on_hint_change_where(0),
@@ -66,9 +66,9 @@ GameplayPanel::GameplayPanel()
     hint_minus (BMP_HINTS, x_zzz,            20, xl_tec, 20)
 {
     for (SkBIt itr = skill.begin(); itr != skill.end(); ++itr) add_child(*itr);
-    add_child(rate_minus);
-    add_child(rate_plus);
-    add_child(rate_fixed);
+    add_child(spawnint_slow);
+    add_child(spawnint_cur);
+    add_child(spawnint_fixed);
     add_child(pause);
     add_child(zoom);
     add_child(speed_slow);
@@ -82,9 +82,7 @@ GameplayPanel::GameplayPanel()
     add_child(spec_tribe);
 
     add_child(stats);
-    add_child(rate_slow);
-    add_child(rate_cur);
-    add_child(rate_fast);
+    add_child(rate_fixed);
 
     add_child(hint_big);
     add_child(hint_plus);
@@ -95,8 +93,8 @@ GameplayPanel::GameplayPanel()
         skill[i].set_y(20);
     }
 
-    rate_minus.set_x_frame(0);
-    rate_plus .set_x_frame(1);
+    spawnint_slow.set_x_frame(0);
+    spawnint_cur .set_x_frame(1);
     state_save.set_x_frame(2);
     state_load.set_x_frame(3);
 
@@ -131,14 +129,10 @@ GameplayPanel::GameplayPanel()
     nuke_multi .set_hotkey(useR->key_nuke);
     spec_tribe .set_hotkey(useR->key_spec_tribe);
 
-    rate_slow.set_align(Api::Label::CENTERED);
-    rate_cur .set_align(Api::Label::CENTERED);
-    rate_fast.set_align(Api::Label::CENTERED);
-    rate_slow.set_undraw_color(0);
-    rate_cur .set_undraw_color(0);
-    rate_fast.set_undraw_color(0);
-
-
+    spawnint_slow.set_hotkey(useR->key_rate_minus);
+    spawnint_cur .set_hotkey(useR->key_rate_plus);
+    rate_fixed.set_align(Api::Label::CENTERED);
+    rate_fixed.set_undraw_color(0);
 }
 
 
@@ -155,24 +149,20 @@ void GameplayPanel::set_gapamode_and_hints(const GapaMode m, const int hs)
      || gapamode == GM_REPLAY_SINGLE) {
         nuke_multi.hide();
         spec_tribe.hide();
-        if (rate_slow.get_text() == rate_fast.get_text()) {
-            rate_minus.hide();
-            rate_plus .hide();
-            rate_slow .hide();
-            rate_cur  .hide();
+        if (spawnint_slow.get_spawnint() == rate_fixed.get_number()) {
+            spawnint_slow .hide();
+            spawnint_cur  .hide();
         }
         else {
-            rate_fixed.hide();
-            rate_fast .hide();
+            spawnint_fixed.hide();
+            rate_fixed    .hide();
         }
     }
     else if (gapamode == GM_REPLAY_MULTI) {
-        rate_minus.hide();
-        rate_plus .hide();
-        rate_fixed.hide();
-        rate_slow .hide();
-        rate_cur  .hide();
-        rate_fast .hide();
+        spawnint_slow .hide();
+        spawnint_cur  .hide();
+        spawnint_fixed.hide();
+        rate_fixed    .hide();
         nuke_multi.hide(); // we use most of the singleplayer interface
         spec_tribe.set_x(x_tec);
         spec_tribe.set_y(0);
@@ -180,12 +170,10 @@ void GameplayPanel::set_gapamode_and_hints(const GapaMode m, const int hs)
     }
     else if (gapamode == GM_PLAY_MULTI
      ||      gapamode == GM_SPEC_MULTI) {
-        rate_minus .hide();
-        rate_plus  .hide();
-        rate_fixed .hide();
-        rate_slow  .hide();
-        rate_cur   .hide();
-        rate_fast  .hide();
+        spawnint_slow .hide();
+        spawnint_cur  .hide();
+        spawnint_fixed.hide();
+        rate_fixed    .hide();
         pause      .hide();
         zoom       .hide();
         speed_slow .hide();
@@ -259,12 +247,13 @@ void GameplayPanel::set_like_tribe(const Tribe* tr)
 
     stats.set_tribe_local(tr);
 
-    rate_slow  .set_number(tr->spawnint_slow);
-    rate_cur   .set_number(tr->spawnint);
-    rate_fast  .set_number(tr->spawnint_fast);
-    nuke_single.set_on    (tr->nuke);
-    nuke_multi .set_on    (tr->nuke);
-    spec_tribe .set_text  (tr->get_name());
+    spawnint_slow.set_spawnint(tr->spawnint_slow);
+    spawnint_cur .set_spawnint(tr->spawnint);
+    rate_fixed   .set_number  (tr->spawnint_fast);
+
+    nuke_single.set_on  (tr->nuke);
+    nuke_multi .set_on  (tr->nuke);
+    spec_tribe .set_text(tr->get_name());
 
     set_skill_on(skill_on_before);
 
@@ -364,14 +353,7 @@ static void fhs(
 
 void GameplayPanel::calc_self()
 {
-    rate_fixed.set_down(false);
-
-    rate_minus.set_draw_required();
-    rate_plus .set_draw_required();
-    rate_fixed.set_draw_required();
-    rate_slow .set_draw_required();
-    rate_cur  .set_draw_required();
-    rate_fast .set_draw_required();
+    spawnint_fixed.set_down(false);
 
     if      (hint_big  .get_clicked()) set_hint_cur(hint_cur==0?1:hint_size-2);
     else if (hint_minus.get_clicked()) set_hint_cur(hint_cur - 1);
@@ -409,8 +391,8 @@ void GameplayPanel::calc_self()
         std::string str;
         int         key = 0;
         using namespace Language;
-        fhs(str, key, rate_minus,  gameplay_rate_minus,  useR->key_rate_minus);
-        fhs(str, key, rate_plus,   gameplay_rate_plus,   useR->key_rate_plus);
+        fhs(str, key, spawnint_slow,gameplay_rate_minus, useR->key_rate_minus);
+        fhs(str, key, spawnint_cur,gameplay_rate_plus,   useR->key_rate_plus);
         fhs(str, key, pause,       gameplay_pause,       useR->key_pause);
         fhs(str, key, zoom,        gameplay_zoom,        useR->key_zoom);
         fhs(str, key, speed_slow,  gameplay_speed_slow,  useR->key_speed_slow);
