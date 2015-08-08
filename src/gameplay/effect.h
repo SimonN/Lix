@@ -74,11 +74,14 @@ private:
     const Tribe* trlo; // Wenn beim Sound p != 0 und p != trlo,
                        // dann den Sound leise abspielen statt laut
     const unsigned timer_ticks_for_explosion;
+    const unsigned timer_ticks_for_implosion;
     long  unsigned timer_tick_last_explosion;
+    long  unsigned timer_tick_last_implosion;
 
     // Vektoren mit den Infos ueber die Effekte
     std::set <Effect> arrow;
     std::set <Effect> explosion;
+    std::set <Effect> implosion;
     std::set <Effect> debris;
     std::set <Effect> sound;
     unsigned          overtime;
@@ -86,6 +89,7 @@ private:
     // Vektoren mit den tatsaechlichen Grafiken
     std::list <Arrow>   obj_arrow;
     std::list <Graphic> obj_explosion;
+    std::list <Graphic> obj_implosion;
     std::list <Debris>  obj_debris;
 
     // Hilfsfunktion fuer calc()
@@ -107,6 +111,7 @@ public:
     // add_sound_if_ spielt laut ab, wenn Tribe == trlo, sonst gar nicht.
     void add_arrow        (Uint, const Tribe&, Uint, const Arrow&);
     void add_explosion    (Uint, const Tribe&, Uint, int, int);
+    void add_implosion    (Uint, const Tribe&, Uint, int, int);
     void add_pickaxe      (Uint, const Tribe&, Uint, int, int, int);
     void add_sound_general(Uint,                     const Sound::Id);
     void add_sound        (Uint, const Tribe&, Uint, const Sound::Id);

@@ -51,7 +51,7 @@ void update_exploder(Lixxie& l, const UpdateArgs& ua)
     l.remove_rectangle( -5,  17,   4,  17);
 
     l.play_sound(ua, Sound::POP);
-    l.get_ef()->add_explosion(
+    l.get_ef()->add_implosion(
         ua.st.update, l.get_tribe(), ua.id, l.get_ex(), l.get_ey());
 
     l.become(LixEn::NOTHING); // kill it

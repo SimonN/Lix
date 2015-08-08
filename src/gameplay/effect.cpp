@@ -21,7 +21,9 @@ EffectManager::EffectManager(Map& m)
     map     (m),
     trlo    (0),
     timer_ticks_for_explosion(Help::timer_ticks_per_second / 60),
+    timer_ticks_for_implosion(Help::timer_ticks_per_second / 15),
     timer_tick_last_explosion(Help::timer_ticks),
+    timer_tick_last_implosion(Help::timer_ticks),
     overtime(0)
 {
 }
@@ -70,6 +72,37 @@ void EffectManager::add_explosion
              obj_debris.push_back(
              useR->debris_type == 0 ? Debris(map, x, y)
                                             : Debris(map, x, y, t.style));
+        }
+    }
+}
+
+
+
+// this is a bad hack, ctrl+c+v from above
+void EffectManager::add_implosion
+(const unsigned u, const Tribe& t, const unsigned l,
+ const int      x, const int y)
+{
+    Effect effect(u, &t, l);
+    if (implosion.find(effect) == implosion.end()) {
+        implosion.insert(effect);
+        Graphic e(GraLib::get(gloB->file_bitmap_implosion), map);
+        e.set_x(x - e.get_xl() / 2);
+        e.set_y(y - e.get_yl() / 2);
+        obj_implosion.push_back(e);
+
+        // Haengt von der Option mit den Sternen ab.
+        // Je nach Anzahl der bereits vorhandenen Truemmer im Spiel weniger
+        // neue Sternchen, Rauchwoelkchen, ... erzeugen.
+        if (useR->debris_amount == 2
+         ||(useR->debris_amount == 1 && &t == trlo)) {
+            int count = 40;
+            count -= obj_debris.size() / 13;
+            if (useR->debris_type == 1) count = count * 2;
+            for (int i = 0; i < count; ++i)
+             obj_debris.push_back(
+             useR->debris_type == 0 ? Debris(map, x, y)
+                                    : Debris(map, x, y, t.style));
         }
     }
 }
@@ -200,6 +233,10 @@ void EffectManager::delete_after(const unsigned u)
         if (itr->update > u) explosion.erase(itr++);
         else ++itr;
     }
+    for (itr = implosion.begin(); itr != implosion.end(); ) {
+        if (itr->update > u) implosion.erase(itr++);
+        else ++itr;
+    }
     for (itr = sound.begin(); itr != sound.end(); ) {
         if (itr->update > u) sound.erase(itr++);
         else ++itr;
@@ -231,6 +268,7 @@ void EffectManager::calc(const unsigned current_update)
     if (current_update > (unsigned) max_updates_history) {
         delete_before(arrow,     current_update - max_updates_history);
         delete_before(explosion, current_update - max_updates_history);
+        delete_before(implosion, current_update - max_updates_history);
         delete_before(debris,    current_update - max_updates_history);
         delete_before(sound,     current_update - max_updates_history);
     }
@@ -257,16 +295,32 @@ void EffectManager::calc(const unsigned current_update)
 
     // Explosionen
     if (Help::timer_ticks - timer_ticks_for_explosion
-     >= timer_tick_last_explosion) {
+        >= timer_tick_last_explosion
+    ) {
         timer_tick_last_explosion = Help::timer_ticks;
-        const int anim_speed = useR->debris_type == 0 ? 1 : 2;
         for (std::list <Graphic> ::iterator
          itr = obj_explosion.begin(); itr != obj_explosion.end(); ++itr) {
-            itr->set_x_frame(itr->get_x_frame() + anim_speed);
+            itr->set_x_frame(itr->get_x_frame() + 1);
             if (itr->get_x_frame() >= itr->get_x_frames()) {
                 std::list <Graphic> ::iterator j = itr;
                 --itr;
                 obj_explosion.erase(j);
+            }
+        }
+    }
+
+    // Implosions
+    if (Help::timer_ticks - timer_ticks_for_implosion
+        >= timer_tick_last_implosion
+    ) {
+        timer_tick_last_implosion = Help::timer_ticks;
+        for (std::list <Graphic> ::iterator
+         itr = obj_implosion.begin(); itr != obj_implosion.end(); ++itr) {
+            itr->set_x_frame(itr->get_x_frame() + 1);
+            if (itr->get_x_frame() >= itr->get_x_frames()) {
+                std::list <Graphic> ::iterator j = itr;
+                --itr;
+                obj_implosion.erase(j);
             }
         }
     }
@@ -292,6 +346,7 @@ int  EffectManager::get_effects()
 {
     return obj_arrow    .size()
          + obj_explosion.size()
+         + obj_implosion.size()
          + obj_debris   .size();
 }
 
@@ -301,6 +356,7 @@ int  EffectManager::get_effects_without_debris()
 {
     return obj_arrow    .size()
          + obj_explosion.size();
+         + obj_implosion.size();
 }
 
 
@@ -313,6 +369,9 @@ void EffectManager::draw()
     for (std::list <Graphic> ::iterator
      itr =  obj_explosion.begin();
      itr != obj_explosion.end(); ++itr) itr->draw();
+    for (std::list <Graphic> ::iterator
+     itr =  obj_implosion.begin();
+     itr != obj_implosion.end(); ++itr) itr->draw();
     for (std::list <Debris> ::iterator
      itr =  obj_debris   .begin();
      itr != obj_debris   .end(); ++itr) itr->draw();
@@ -324,5 +383,6 @@ void EffectManager::clear_all_lists()
 {
     obj_arrow    .clear();
     obj_explosion.clear();
+    obj_implosion.clear();
     obj_debris   .clear();
 }

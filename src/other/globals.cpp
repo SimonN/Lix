@@ -335,6 +335,7 @@ Globals::Globals()
     file_bitmap_edit_hatch       (dir_data_bitmap.get_dir_rootless() + "edit_hat.I"),
     file_bitmap_edit_panel       (dir_data_bitmap.get_dir_rootless() + "edit_pan.I"),
     file_bitmap_explosion        (dir_data_bitmap.get_dir_rootless() + "explode.I"),
+    file_bitmap_implosion        (dir_data_bitmap.get_dir_rootless() + "implode.I"),
     file_bitmap_fuse_flame       (dir_data_bitmap.get_dir_rootless() + "fuse_fla.I"),
     file_bitmap_game_arrow       (dir_data_bitmap.get_dir_rootless() + "game_arr.I"),
     file_bitmap_game_icon        (dir_data_bitmap.get_dir_rootless() + "game_ico.I"),

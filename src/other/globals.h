@@ -345,6 +345,7 @@ public:
         file_bitmap_edit_hatch,
         file_bitmap_edit_panel,
         file_bitmap_explosion,
+        file_bitmap_implosion,
         file_bitmap_fuse_flame,
         file_bitmap_game_arrow,
         file_bitmap_game_icon,
