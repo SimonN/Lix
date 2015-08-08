@@ -1,15 +1,6 @@
 /*
  * lix/miner.cpp
  *
- * special_x
- *
- *   0 until steel was hit for the first time, then 1 forever after.
- *
- *   The lix will stop and throw the axe after she has finished a cycle with
- *   this set to 1. The ground removing is very fast, so the sound plays only
- *   upon throwing the axe. For comparison, the basher plays the steel sound
- *   upon making contact with steel, then cancels later.
- *
  */
 
 #include "ac.h"
@@ -21,7 +12,9 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
     bool allow_one_air_under_foot = false; // make the terrain check as coarse
                                            // as before commit 4fc7b0b1ab9
     switch (l.get_frame()) {
-    case 0:
+    case 1:
+        // This is the only frame with terrain removal
+
         steel_hit += l.remove_rectangle(  3, -20,  7, -20);
         steel_hit += l.remove_rectangle(  1, -19,  9, -19);
 
@@ -31,12 +24,6 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
         steel_hit += l.remove_rectangle(  0, -16, 12, -15);
         steel_hit += l.remove_rectangle(  0, -14, 13, -11);
 
-        if (steel_hit) l.set_special_x(1);
-        break;
-
-    case 1:
-        // Nach diesem Frame ist die Hacke unten,
-        // dann wird auch der Hauptteil der Erde entfernt.
         steel_hit += l.remove_pixel    (11, -18);
         steel_hit += l.remove_rectangle(12, -17, 13, -17);
 
@@ -55,8 +42,7 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
         steel_hit += l.remove_rectangle( 6,   4, 13,   4);
         steel_hit += l.remove_rectangle( 8,   5, 11,   5);
 
-        if (steel_hit) l.set_special_x(1);
-        if (l.get_special_x() == 1) {
+        if (steel_hit > 0) {
             // Hacke muss je nach Frame und Drehung, die noch nicht stattfand,
             // richtig positioniert und gedreht werden (0 = Hackenkopf unten
             // rechts, ferner +1 = Drehung um 90 Grad nach rechts).
