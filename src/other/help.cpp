@@ -42,8 +42,7 @@ unsigned int get_timer_ticks_per_draw() {
         if (i > 0) return i;
         else       return 1;
     }
-    // Dies nimmt notfalls an, dass der Monitor 60 Hz hat bei 120 Ticks/Sek.
-    else return gloB->screen_vsync + 1;
+    else return 1; // was previously gloB->screen_vsync + 1;
 }
 // Ende der Timer-Funktionen
 
