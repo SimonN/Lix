@@ -1,4 +1,4 @@
-$BUILT 2014-06-08 16:04:16
+$BUILT 2015-08-08 18:44:12
 $AUTHOR Clam
 $GERMAN 
 $ENGLISH Lazy Gypsy Bums
@@ -19,20 +19,11 @@ $ENGLISH Lazy Gypsy Bums
 #SPAWN_INTERVAL 12
 #SPAWN_INTERVAL_FAST 4
 
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#CLIMBER 1
-#BATTER 99
 #EXPLODER2 4
 #BLOCKER 5
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
+#BATTER 99
 
-:matt/carnival/Hatch.H: 32 224
+:matt/carnival/Hatch.H: 352 48
 :matt/carnival/Hatch.H: 480 -16
 
 :matt/carnival/Goal.G: 480 176
@@ -42,18 +33,15 @@ $ENGLISH Lazy Gypsy Bums
 :geoo/construction/sawblade_small.F: 56 336
 :geoo/construction/sawblade_small.F: 72 336
 
-:geoo/construction/steam_right.T: 128 144
 :geoo/abstract/tbeam_down.T: 480 160
 :geoo/abstract/tbeam_down.T: 512 160
 
 :geoo/construction/rod_steel/straight8.S: 502 136
 :geoo/construction/rod_steel/straight32.S: 408 152
-:geoo/construction/rod_steel/edge_lu.S: 510 136
 :geoo/construction/rod_steel/edge_ru.S: 500 136
-:geoo/construction/rod_steel/end_rect.S: 320 152
+:geoo/construction/rod_steel/end_rect.S: 192 152
 :geoo/construction/rod_steel/straight32.S: 376 152
 :geoo/construction/rod_steel/straight32.S: 344 152
-:matt/carnival/02: 128 240
 :matt/carnival/02: 720 176
 :matt/carnival/02: 544 176
 :matt/carnival/02: 544 144
@@ -227,9 +215,7 @@ $ENGLISH Lazy Gypsy Bums
 :matt/carnival/02: 672 576
 :matt/carnival/02: 0 176
 :matt/carnival/02: 32 176
-:matt/carnival/02: 96 208
 :matt/carnival/02: 32 208
-:matt/carnival/02: 96 240
 :matt/carnival/33: 512 240
 :matt/carnival/46: 512 240
 :matt/carnival/33: 448 240 frr
@@ -286,8 +272,6 @@ $ENGLISH Lazy Gypsy Bums
 :matt/carnival/14: 608 352
 :matt/carnival/14: 608 368
 :matt/carnival/14: 624 368
-:matt/carnival/02: 160 240
-:matt/carnival/02: 192 240
 :matt/carnival/02: 192 336
 :matt/carnival/46: 32 416
 :matt/carnival/46: 64 448
@@ -321,24 +305,19 @@ $ENGLISH Lazy Gypsy Bums
 :matt/carnival/45: 592 240
 :matt/carnival/02: 896 160
 :matt/carnival/02: 896 128
-:matt/carnival/02: 96 144
 :geoo/construction/rod_steel/straight_diagu8.S: 496 142
-:geoo/construction/rod_steel/straight32.S: 512 122 rrrd
 :geoo/construction/rod_steel/straight32.S: 440 152
 :geoo/construction/rod_steel/straight32.S: 456 152
 :geoo/construction/rod_steel/link_h_du.S: 488 150
 :geoo/construction/rod_steel/straight8.S: 500 128 rrr
-:geoo/construction/rod_steel/straight8.S: 510 128 rrr
-:geoo/construction/rod_steel/edge_ld.S: 510 120
-:geoo/construction/rod_steel/straight32.S: 512 120 rrrd
-:geoo/construction/rod_steel/straight8.S: 502 120
-:geoo/construction/rod_steel/edge_rd.S: 500 120
+:geoo/construction/rod_steel/straight32.S: 512 122 rrrd
+:geoo/construction/rod_steel/straight8.S: 502 122
+:geoo/construction/rod_steel/edge_rd.S: 500 122
 :matt/carnival/14: 448 160
 :matt/carnival/14: 464 160
 :matt/carnival/02: 448 208
 :matt/carnival/02: 544 208
 :matt/carnival/45: 656 176
-:matt/carnival/02: 96 176
 :matt/carnival/02: 0 144
 :matt/carnival/02: 32 144
 :matt/carnival/02: 896 96
@@ -347,8 +326,6 @@ $ENGLISH Lazy Gypsy Bums
 :matt/carnival/43: 816 208
 :matt/carnival/45: 784 112
 :matt/carnival/02: 784 144
-:matt/carnival/45: 864 256
-:matt/carnival/43: 848 176
 :matt/carnival/02: 816 144
 :matt/carnival/02: 816 176
 :matt/carnival/02: 688 208
@@ -371,11 +348,10 @@ $ENGLISH Lazy Gypsy Bums
 :matt/carnival/44: 672 32
 :matt/carnival/02: 736 32
 :matt/carnival/44: 704 64
-:matt/carnival/43: 736 64
-:matt/carnival/43: 768 32
-:matt/carnival/44: 832 32
-:matt/carnival/44: 864 64
-:matt/carnival/02: 864 32
+:matt/carnival/43: 768 64
+:matt/carnival/44: 832 64
+:matt/carnival/44: 864 96
+:matt/carnival/02: 864 64
 :matt/carnival/44: 416 32
 :matt/carnival/43: 448 32
 :matt/carnival/02: 256 32
@@ -421,3 +397,28 @@ $ENGLISH Lazy Gypsy Bums
 :matt/carnival/02: 32 64
 :matt/carnival/43: 480 0
 :matt/carnival/44: 512 0
+:geoo/construction/platform.S: 510 122 fr
+:geoo/construction/platform.S: 510 90 fr
+:geoo/construction/platform.S: 510 58 fr
+:geoo/construction/platform.S: 510 26 fr
+:geoo/construction/platform.S: 510 -6 fr
+:geoo/steel/32x16o.S: 448 136
+:geoo/steel/32x32o.S: 192 208
+:geoo/steel/32x32o.S: 192 176
+:geoo/steel/32x16o.S: 192 160
+:geoo/construction/rod_steel/straight32.S: 200 152
+:geoo/construction/rod_steel/straight32.S: 232 152
+:geoo/construction/rod_steel/straight32.S: 264 152
+:geoo/construction/rod_steel/straight32.S: 296 152
+:geoo/steel/32x32o.S: 192 240
+:geoo/steel/32x32o.S: 160 240
+:geoo/steel/32x32o.S: 128 240
+:geoo/steel/32x32o.S: 96 240
+:matt/carnival/02: 864 192
+:matt/carnival/02: 864 224
+:matt/carnival/02: 864 256
+:matt/carnival/02: 736 64
+:matt/carnival/02: 768 32
+:matt/carnival/02: 800 32
+:matt/carnival/02: 832 32
+:matt/carnival/02: 864 32

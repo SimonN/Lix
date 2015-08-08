@@ -1,4 +1,4 @@
-$BUILT 2014-06-08 15:48:50
+$BUILT 2015-08-03 20:19:37
 $AUTHOR Clam
 $GERMAN 
 $ENGLISH Wall Crawler
@@ -53,7 +53,6 @@ $ENGLISH Wall Crawler
 :geoo/sandstone/64x32: 328 256
 :geoo/sandstone/64x32: 264 256
 :geoo/sandstone/64x32: 200 256
-:geoo/steel/32x64o.S: 464 96
 :geoo/sandstone/64x32: 496 0
 :geoo/sandstone/32x64: 560 32
 :geoo/sandstone/32x64: 560 96
@@ -84,3 +83,4 @@ $ENGLISH Wall Crawler
 :geoo/sandstone/32x64: 136 32
 :geoo/sandstone/32x64: 136 96
 :geoo/sandstone/64x32: 240 288
+:geoo/sandstone/32x64: 464 96

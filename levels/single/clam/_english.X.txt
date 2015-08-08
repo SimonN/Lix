@@ -1,18 +1,19 @@
 Welcome to ClamLix!
-This pack contains 150 levels
+This pack contains 100 levels
 (note: still a work-in-progress!)
-across five ratings:
+across four ratings:
 
-Mundane: Tutorials and tame levels.
-Humane: Simple but serious puzzles.
+Humane: Simple puzzles.
 Arcane: Hard puzzles.
 Insane: Harrrrrrd puzzles.
-Flingsane: Use exploder flinging!
+Flingsane: Exploder flinging puzzles!
+
+For more levels check out TameLix
+and the ClamLix Outtakes pack.
 
 You can contact me via the Lix
 IRC channel (irc.quakenet.org #lix),
-or the Lemmings Forums
-(lemmingsforums.com).
+or lemmingsforums.com.
 
 Thanks to the LF regulars
 for playtesting!

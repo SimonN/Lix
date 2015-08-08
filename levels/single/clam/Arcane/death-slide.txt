@@ -1,4 +1,4 @@
-$BUILT 2014-06-08 16:05:18
+$BUILT 2015-06-08 06:47:38
 $AUTHOR Clam
 $GERMAN 
 $ENGLISH Death Slide
@@ -78,12 +78,6 @@ $ENGLISH Death Slide
 :geoo/sandstone/32x32: 448 320
 :geoo/sandstone/slopes/32x32rt: 448 352
 :geoo/sandstone/32x32: 480 352
-:geoo/sandstone/slopes/32x32rt: 480 32
-:geoo/sandstone/slopes/32x32rt: 448 0
-:geoo/sandstone/32x32: 480 0
-:geoo/sandstone/32x32: 128 352
-:geoo/sandstone/slopes/32x32lb: 128 320
-:geoo/sandstone/slopes/32x32lb: 160 352
 :geoo/sandstone/32x32: 192 64
 :geoo/sandstone/64x64: 512 288
 :geoo/sandstone/64x64: 512 224
@@ -99,3 +93,34 @@ $ENGLISH Death Slide
 :geoo/sandstone/64x32: 64 352
 :geoo/sandstone/64x32: 512 0
 :geoo/sandstone/64x32: 512 352
+:geoo/sandstone/32x32: 128 224
+:geoo/sandstone/slopes/32x32lb: 160 224
+:geoo/sandstone/slopes/32x32rt: 128 256
+:geoo/sandstone/32x32: 160 256
+:geoo/sandstone/slopes/32x32lb: 192 256
+:geoo/sandstone/slopes/32x32rt: 160 288
+:geoo/sandstone/32x32: 192 288
+:geoo/sandstone/slopes/32x32lb: 224 288
+:geoo/sandstone/slopes/32x32rt: 192 320
+:geoo/sandstone/32x32: 224 320
+:geoo/sandstone/slopes/32x32lb: 256 320
+:geoo/sandstone/slopes/32x32rt: 224 352
+:geoo/sandstone/32x32: 256 352
+:geoo/sandstone/slopes/32x32lb: 288 352
+:geoo/sandstone/slopes/32x32lb: 128 192
+:geoo/sandstone/slopes/32x32rt: 320 0
+:geoo/sandstone/32x32: 352 0
+:geoo/sandstone/slopes/32x32rt: 352 32
+:geoo/sandstone/slopes/32x32lb: 352 0
+:geoo/sandstone/32x32: 384 32
+:geoo/sandstone/slopes/32x32rt: 384 64
+:geoo/sandstone/slopes/32x32lb: 384 0
+:geoo/sandstone/32x32: 416 64
+:geoo/sandstone/slopes/32x32rt: 416 96
+:geoo/sandstone/slopes/32x32lb: 416 32
+:geoo/sandstone/32x32: 448 96
+:geoo/sandstone/slopes/32x32rt: 448 128
+:geoo/sandstone/slopes/32x32lb: 448 64
+:geoo/sandstone/32x32: 480 128
+:geoo/sandstone/slopes/32x32rt: 480 160
+:geoo/sandstone/slopes/32x32lb: 480 96

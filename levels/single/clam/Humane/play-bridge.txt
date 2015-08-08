@@ -1,4 +1,4 @@
-$BUILT 2014-06-08 15:46:24
+$BUILT 2015-08-08 16:50:14
 $AUTHOR Clam
 $GERMAN 
 $ENGLISH Play Bridge
@@ -19,25 +19,14 @@ $ENGLISH Play Bridge
 #SPAWN_INTERVAL 60
 #SPAWN_INTERVAL_FAST 4
 
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#CLIMBER 2
-#FLOATER 2
-#BUILDER 20
-#BASHER 2
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
+#BUILDER 25
 
 :matt/marble/Hatch.H: 512 100
 
 :matt/marble/Goal.G: 512 240
 
-:geoo/construction/squisher.T: 944 144
-:geoo/construction/squisher.T: 112 144
+:geoo/construction/squisher.T: 960 144
+:geoo/construction/squisher.T: 96 144
 
 :matt/water.W: 256 320
 :matt/water.W: 352 320
@@ -62,20 +51,16 @@ $ENGLISH Play Bridge
 :matt/marble/08b: 400 208
 :matt/marble/08b: 624 144
 :matt/marble/08b: 624 208
-:matt/marble/06: 864 224
 :matt/marble/21: 864 208
 :matt/marble/21: 896 208
 :matt/marble/21: 864 128
 :matt/marble/21: 896 128
-:matt/marble/06: 864 64
 :matt/marble/08c: 736 80
 :matt/marble/08c: 288 80
-:matt/marble/06: 192 224
 :matt/marble/21: 128 208
 :matt/marble/21: 160 208
 :matt/marble/21: 128 128
 :matt/marble/21: 160 128
-:matt/marble/06: 192 64
 :matt/marble/08a: 512 80
 :matt/marble/09: 128 0
 :matt/marble/09: 192 0
@@ -109,10 +94,6 @@ $ENGLISH Play Bridge
 :matt/marble/21d: 960 208
 :matt/marble/09d: 960 0
 :matt/marble/09d: 960 288
-:matt/marble/10: 944 272
-:matt/marble/12: 128 272
-:matt/marble/13: 944 64
-:matt/marble/11: 128 64
 :matt/marble/09d: 0 0
 :matt/marble/09d: 0 64
 :matt/marble/09d: 0 144
@@ -127,7 +108,9 @@ $ENGLISH Play Bridge
 :matt/marble/09d: 1024 144
 :matt/marble/09d: 1024 224
 :matt/marble/09d: 1024 288
-:matt/marble/12d: 960 272
-:matt/marble/11d: 960 64
-:matt/marble/10d: 112 272
-:matt/marble/13d: 112 64
+:matt/marble/05d: 960 96
+:matt/marble/05d: 960 256
+:matt/marble/05d: 96 256
+:matt/marble/05d: 96 64
+:matt/marble/16: 128 256
+:matt/marble/02: 944 272

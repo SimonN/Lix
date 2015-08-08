@@ -1,4 +1,4 @@
-$BUILT 2014-06-08 16:05:24
+$BUILT 2015-06-08 06:50:12
 $AUTHOR Clam
 $GERMAN 
 $ENGLISH Shopping Cart Race
@@ -36,7 +36,7 @@ $ENGLISH Shopping Cart Race
 
 :geoo/construction/Goal2.G: 8 16
 
-:geoo/construction/sawblade_small.F: 304 72
+:geoo/construction/sawblade_small.F: 312 72
 
 :geoo/construction/concrete/128: 8 272
 :geoo/construction/concrete/032v: 200 208

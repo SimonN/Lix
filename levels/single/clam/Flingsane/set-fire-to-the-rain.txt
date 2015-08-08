@@ -1,4 +1,4 @@
-$BUILT 2014-02-28 09:53:10
+$BUILT 2015-08-08 16:22:36
 $AUTHOR Clam
 $GERMAN 
 $ENGLISH Set Fire to the Rain
@@ -14,21 +14,11 @@ $ENGLISH Set Fire to the Rain
 #SECONDS 0
 #INITIAL 60
 #REQUIRED 31
-#SPAWN_INTERVAL 16
-#SPAWN_INTERVAL_FAST 16
+#SPAWN_INTERVAL 20
+#SPAWN_INTERVAL_FAST 20
 
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
 #EXPLODER2 30
 #PLATFORMER 4
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
 
 :matt/underworld/Hatch.H: 48 40
 :matt/underworld/Hatch.H: 48 128
@@ -43,6 +33,9 @@ $ENGLISH Set Fire to the Rain
 :matt/underworld/Lava.W: 544 352
 :matt/underworld/Lava.W: 304 352
 :matt/underworld/Lava.W: 592 352
+:proxima/flame.F: 392 120
+:proxima/flame.F: 424 120
+:proxima/flame.F: 456 120
 
 :matt/underworld/02: 64 320
 :matt/underworld/02: 576 336

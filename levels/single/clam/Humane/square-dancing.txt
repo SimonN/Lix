@@ -1,4 +1,4 @@
-$BUILT 2014-06-08 15:47:04
+$BUILT 2015-06-01 10:25:31
 $AUTHOR Clam
 $GERMAN 
 $ENGLISH Square Dancing
@@ -44,7 +44,7 @@ $ENGLISH Square Dancing
 :matt/carnival/24: 320 80
 :matt/carnival/27: 416 176
 :matt/carnival/26: 480 272
-:matt/carnival/26: 0 0
+:matt/carnival/26: 576 0
 :matt/carnival/25: 0 336
-:matt/carnival/24: 576 0
-:matt/carnival/27: 576 336
+:matt/carnival/24: 576 336
+:matt/carnival/27: 0 0
