@@ -31,6 +31,15 @@
 
 #include "ac.h"
 
+void become_basher(Lixxie& l)
+{
+    l.become_default(LixEn::BASHER);
+    l.set_frame(2);
+}
+
+
+
+
 static bool nothing_more_to_bash(Lixxie& l, const int px)
 {
     // px: use 0 if you want the normal check. Use 10 if you want to check

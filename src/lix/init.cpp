@@ -33,6 +33,7 @@ void Lixxie::initialize_this_gets_called_from_glob_gfx_cpp()
     ac_func     [LixEn::BUILDER]   .become = become_builder;
     ac_func     [LixEn::CUBER]     .become = become_cuber;
     ac_func     [LixEn::PLATFORMER].become = become_platformer;
+    ac_func     [LixEn::BASHER]    .become = become_basher;
     ac_func     [LixEn::DIGGER]    .become = become_digger;
     ac_func     [LixEn::JUMPER]    .become = become_jumper;
 
