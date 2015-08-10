@@ -88,9 +88,12 @@ void SingleBrowser::calc_self()
         box_delete->set_draw_required(); // Damit Buttons eingedrueckt werd.
         switch (box_delete->get_button_clicked()) {
         case 1:
-            ::delete_file(get_current_file().get_rootful().c_str());
-            load_dir(get_current_file());
-            highlight_nothing();
+            {
+                Filename to_delete = get_current_file();
+                highlight_neighboring_level_before_deletion();
+                ::delete_file(to_delete.get_rootful().c_str());
+            }
+            load_dir(get_current_file(), true);
             // falls through
         case 2:
             delete box_delete;

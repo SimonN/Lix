@@ -115,6 +115,7 @@ public:
 protected:
 
            virtual void calc_self();
+                   void highlight_neighboring_level_before_deletion();
 
 };
 } // Ende Namensraum Api

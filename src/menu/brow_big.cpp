@@ -171,5 +171,23 @@ void BrowserBig::highlight_nothing()
     on_file_highlight      (lev_list.get_current_file());
 }
 
+
+
+void BrowserBig::highlight_neighboring_level_before_deletion()
+{
+    lev_list.highlight_move(1);
+    file_recent = lev_list.get_current_file();
+
+    // Hack: the browser highlights upon clicks, then checks in a
+    // callback whether the button is now on. If it's not on, it becomes on,
+    // otherwise the level starts. We need this toggling state.
+    // So, since highlight_move highlights, we have to de-highlight the button
+    // again. Reason: The browser will reload the dir after deleting the file,
+    // to display the correct files without the deleted one. Then, it issues
+    // a call to highlight. The new file should not be highlighted before.
+    // Thus, de-highlight it here.
+    lev_list.highlight_file(Filename(""));
+}
+
 }
 // Ende des Namensraumes Api
