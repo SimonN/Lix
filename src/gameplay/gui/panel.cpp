@@ -353,7 +353,8 @@ static void fhs(
 
 void GameplayPanel::calc_self()
 {
-    spawnint_fixed.set_down(false);
+    spawnint_fixed.set_down(false); // this sets draw_required, therefore
+    rate_fixed.set_draw_required(); // this label must be required to be drawn
 
     if      (hint_big  .get_clicked()) set_hint_cur(hint_cur==0?1:hint_size-2);
     else if (hint_minus.get_clicked()) set_hint_cur(hint_cur - 1);
