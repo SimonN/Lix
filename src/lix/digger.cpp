@@ -37,6 +37,8 @@ void update_digger(Lixxie& l, const UpdateArgs& ua)
         if (steel_left > 0 && steel_right > 0) {
             l.become(LixEn::WALKER);
             l.play_sound(ua, Sound::STEEL);
+            l.get_ef()->add_dig_hammer(ua.st.update, l.get_tribe(), ua.id,
+                l.get_ex(), l.get_ey() - 10);
             return; // from update_digger() entirely
             // if steel cancelling happens on the very first swing, the upswing
             // (next if) doesn't happen

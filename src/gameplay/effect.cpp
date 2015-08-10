@@ -16,6 +16,9 @@
 const int EffectManager::max_updates_history = 15 * 10;
 const int EffectManager::pickaxe_y_frame     =       0;
 
+static const int dig_hammer_y_frame_1 = 4;
+static const int dig_hammer_y_frames  = 3;
+
 EffectManager::EffectManager(Map& m)
 :
     map     (m),
@@ -117,6 +120,24 @@ void EffectManager::add_pickaxe
     if (debris.find(effect) == debris.end()) {
         debris.insert(effect);
         obj_debris.push_back(Debris(map, x, y, pickaxe_y_frame, rotation));
+    }
+}
+
+
+
+void EffectManager::add_dig_hammer(
+    const unsigned u, const Tribe& t, const unsigned l,
+    const int      x, const int    y
+) {
+    Effect effect(u, &t, l);
+    if (debris.find(effect) == debris.end()) {
+        debris.insert(effect);
+        for (int tool_nr = 0; tool_nr < dig_hammer_y_frames; ++tool_nr)
+            obj_debris.push_back(Debris(map, x, y,
+                dig_hammer_y_frame_1 + tool_nr));
+                // It's always generated without rotation.
+                // The stripes on the box are the
+                // other way around for turned diggers, but we don't care.
     }
 }
 

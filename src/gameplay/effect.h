@@ -104,6 +104,7 @@ public:
 
     // add_explosion nimmt die Koordinaten der Explosion, add_sound: bool=laut
     // add_pickaxe   nimmt die Koordinaten der Hacke sowie ihre Rotation
+    // add_pickaxe   nimmt die Koordinaten des Dig Hammers
     // add_overtime  nimmt Updates, fertigen Spieler, Anzahl Sekunden Nachzeit
     // add_sound_gen spielt laut ab, braucht keine Infos zu Tribe oder Lix
     // add_sound     spielt laut ab, falls Tribe& == trlo, sonst leise.
@@ -113,6 +114,7 @@ public:
     void add_explosion    (Uint, const Tribe&, Uint, int, int);
     void add_implosion    (Uint, const Tribe&, Uint, int, int);
     void add_pickaxe      (Uint, const Tribe&, Uint, int, int, int);
+    void add_dig_hammer   (Uint, const Tribe&, Uint, int, int);
     void add_sound_general(Uint,                     const Sound::Id);
     void add_sound        (Uint, const Tribe&, Uint, const Sound::Id);
     void add_sound_quiet  (Uint, const Tribe&, Uint, const Sound::Id);

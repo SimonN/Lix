@@ -142,6 +142,26 @@ Debris::Debris(
 
 
 
+// for the digging equipment, do the same as for the pickaxe above,
+// but don't throw the equipment as far towards the top
+Debris::Debris(
+    Map& m, const int nx, const int ny, const int nyf
+) :
+    map    (m),
+    cutbit (&GraLib::get(gloB->file_bitmap_debris)),
+    color  (nyf),
+    ttl    (ttl_pickaxe), // even though it is the dig hammer
+    x      (nx - cutbit->get_xl()/2),
+    y      (ny - cutbit->get_yl()/2),
+    x_speed(Help::random_double(-x_speed_max/2, x_speed_max/2)),
+    y_speed(Help::random_double( y_speed_min/2, y_speed_min/4)),
+    rot    (0)
+{
+    common_constructor();
+}
+
+
+
 void Debris::common_constructor()
 {
     // On wrapping maps, reduce the time to live

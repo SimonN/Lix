@@ -97,6 +97,7 @@ struct Debris {
     Debris(Map&, const int, const int); // Stern oder Wolke
     Debris(Map&, const int, const int, const LixEn::Style); // Pixel
     Debris(Map&, const int, const int, const int, const int); // y-Frame,rot
+    Debris(Map&, const int, const int, const int); // dig hammer, int 3 useless
     ~Debris();
 
     inline int get_ttl() { return ttl; }

@@ -50,7 +50,7 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
             // this cannot occur when remembering in frame 0 to cancel later:
             // if (l.get_frame() == 0) axe_rotation = 3 - axe_rotation;
             l.get_ef()->add_pickaxe(ua.st.update, l.get_tribe(), ua.id,
-             l.get_ex() + 10,
+             l.get_ex() + 10 * l.get_dir(),
              l.get_frame() == 1 ? l.get_ey()-2 : l.get_ey()-16, axe_rotation);
             l.turn();
             l.become(LixEn::WALKER);
