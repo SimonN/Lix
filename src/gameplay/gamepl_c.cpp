@@ -250,10 +250,13 @@ void Gameplay::calc_self()
              || pan.speed_turbo.is_mouse_here()
              || pan.restart    .is_mouse_here()
              || pan.nuke_single.is_mouse_here()) abort_replay = false;
-            for (size_t i = 0; i < pan.skill.size(); ++i)
-                if (pan.skill[i].get_clicked())
-                    abort_replay = false;
         }
+        // Cancel replay when you're selecting a skill with mouse or hotkey,
+        // even if that has no effect on the replay contents. Pepole are used
+        // to cancelling replays with skill switches.
+        for (size_t i = 0; i < pan.skill.size(); ++i)
+            if (pan.skill[i].get_clicked())
+                abort_replay = true;
         // we ignore clicks on the nuke here, as we do with non-gamestate-
         // -altering buttons like pause or fast forward. We'll come back
         // to it right here:
