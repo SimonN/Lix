@@ -8,12 +8,10 @@
 #include "../../other/help.h" // timer ticks for the nuke button
 
 static const int xl_tec = 34;
-static const int x_tec = 14*36; // skill buttons wider than technical buttons
-
-static const int x_pau = x_tec + 3*xl_tec;
-static const int x_zzz = x_tec + 0*xl_tec;
-static const int x_fwd = x_tec + 1*xl_tec;
-static const int x_nuk = x_tec + 2*xl_tec;
+static const int x_tec0 = 14*36; // skill buttons wider than technical buttons
+static const int x_tec1 = x_tec0 + 1*xl_tec;
+static const int x_tec2 = x_tec0 + 2*xl_tec;
+static const int x_tec3 = x_tec0 + 3*xl_tec;
 
 #define BMP_PANEL GraLib::get(gloB->file_bitmap_game_panel)
 #define BMP_PAN_2 GraLib::get(gloB->file_bitmap_game_panel_2)
@@ -28,21 +26,21 @@ GameplayPanel::GameplayPanel()
                    LEMSCR_X,  gloB->panel_gameplay_yl),
     skill      (useR->skill_sort.size(), Api::SkillButton()),
 
-    spawnint_slow (x_zzz, 0),
-    spawnint_cur  (x_fwd, 0),
-    spawnint_fixed(BMP_PAN_F, x_zzz,  0, 2 * xl_tec, 20),
+    spawnint_slow (x_tec0, 0),
+    spawnint_cur  (x_tec1, 0),
+    spawnint_fixed(BMP_PAN_F, x_tec0,  0, 2 * xl_tec, 20),
 
-    pause      (BMP_PAUSE, x_pau, 20, xl_tec, 60),
-    zoom       (BMP_PANEL, x_zzz, 20, xl_tec, 30),
-    speed_slow (BMP_PANEL, x_zzz, 50, xl_tec, 30),
-    speed_fast (BMP_PANEL, x_fwd, 20, xl_tec, 30),
-    speed_turbo(BMP_PANEL, x_fwd, 50, xl_tec, 30),
-    state_save (BMP_PAN_2, x_nuk,  0, xl_tec, 20),
-    state_load (BMP_PAN_2, x_pau,  0, xl_tec, 20),
-    restart    (BMP_PANEL, x_nuk, 20, xl_tec, 30),
-    nuke_single(BMP_PANEL, x_nuk, 50, xl_tec, 30),
-    nuke_multi (BMP_NUKE , x_tec, 60, 4 * xl_tec, 20),
-    spec_tribe (x_pau, 60, 4 * xl_tec), // will be reset below
+    pause      (BMP_PAUSE, x_tec3, 20, xl_tec, 60),
+    zoom       (BMP_PANEL, x_tec0, 20, xl_tec, 30),
+    speed_slow (BMP_PANEL, x_tec0, 50, xl_tec, 30),
+    speed_fast (BMP_PANEL, x_tec1, 20, xl_tec, 30),
+    speed_turbo(BMP_PANEL, x_tec1, 50, xl_tec, 30),
+    state_save (BMP_PAN_2, x_tec2,  0, xl_tec, 20),
+    state_load (BMP_PAN_2, x_tec3,  0, xl_tec, 20),
+    restart    (BMP_PANEL, x_tec2, 20, xl_tec, 30),
+    nuke_single(BMP_PANEL, x_tec2, 50, xl_tec, 30),
+    nuke_multi (BMP_NUKE , x_tec0, 60, 4 * xl_tec, 20),
+    spec_tribe (x_tec0, 60, 4 * xl_tec), // will be reset below
     stats      (),
     rate_fixed (spawnint_fixed.get_x() + spawnint_fixed.get_xl() - 18, 0),
 
@@ -61,9 +59,9 @@ GameplayPanel::GameplayPanel()
     hint_size  (0),
     hint_cur   (0),
 
-    hint_big   (BMP_PANEL, x_zzz,            20, xl_tec,   30),
-    hint_plus  (BMP_HINTS, x_zzz + xl_tec/2, 20, xl_tec/2, 30),
-    hint_minus (BMP_HINTS, x_zzz,            20, xl_tec/2, 30)
+    hint_big   (BMP_PANEL, x_tec0,            20, xl_tec,   30),
+    hint_plus  (BMP_HINTS, x_tec0 + xl_tec/2, 20, xl_tec/2, 30),
+    hint_minus (BMP_HINTS, x_tec0,            20, xl_tec/2, 30)
 {
     for (SkBIt itr = skill.begin(); itr != skill.end(); ++itr) add_child(*itr);
     add_child(spawnint_slow);
@@ -164,7 +162,7 @@ void GameplayPanel::set_gapamode_and_hints(const GapaMode m, const int hs)
         spawnint_fixed.hide();
         rate_fixed    .hide();
         nuke_multi.hide(); // we use most of the singleplayer interface
-        spec_tribe.set_x(x_tec);
+        spec_tribe.set_x(x_tec0);
         spec_tribe.set_y(0);
         spec_tribe.set_xl(2*xl_tec);
     }
@@ -186,7 +184,7 @@ void GameplayPanel::set_gapamode_and_hints(const GapaMode m, const int hs)
         if (gapamode == GM_PLAY_MULTI) spec_tribe.hide();
         else {
             nuke_multi.hide();
-            spec_tribe.set_x(x_tec);
+            spec_tribe.set_x(x_tec0);
             spec_tribe.set_y(60);
             spec_tribe.set_xl(4*xl_tec);
         }
