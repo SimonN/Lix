@@ -41,6 +41,7 @@ public:
 
     static const int      updates_before_run_forever;
     static const unsigned updates_to_skip_singleplayer;
+    static const unsigned seconds_skipped_on_speed_slow_right;
 
     enum VerifyMode {
         INTERACTIVE_MODE, // play or watch a replay from the normal game
@@ -138,9 +139,13 @@ private:
 
     // Update-Subroutinen
     void check_skill_buttons ();
+    void go_back_updates     (const int);
     void update();           // Normalerweise 15x pro Sek., ruft auf:
     void update_cs_once      ();
     void update_cs_one_data  (Tribe&, Tribe::Master*, Replay::It);
+    void finalize_update_and_animate_gadgets();
+
+    // these are defined in src/lix/, even though they're Gameplay methods
     void update_lix          (Lixxie&, const UpdateArgs&);
     void update_lix_blocker  (Lixxie&);
     void update_lix_goals    (Lixxie&, const UpdateArgs&);

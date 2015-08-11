@@ -61,10 +61,14 @@ void Gameplay::update()
     }
     else update_cs_once();
 
+    finalize_update_and_animate_gadgets();
+}
+// Ende des cs.update inkl. Neuladerei und Nachberechnung
 
 
 
-
+void Gameplay::finalize_update_and_animate_gadgets()
+{
     // Diese Dinge muessen nicht mehrfach gemacht werden, selbst wenn neu
     // geladen wird, weil Netzwerkpakete eintreffen.
     for (IacIt i =  special[Object::DECO  ].begin();
@@ -80,8 +84,33 @@ void Gameplay::update()
     if (trlo)
         // To counter leftover misinformation after Player::return_skills
         pan.set_like_tribe(trlo);
+
+    timer_tick_last_update = Help::timer_ticks;
 }
-// Ende des cs.update inkl. Neuladerei und Nachberechnung
+
+
+
+// ############################################################################
+// ############################################################ go_back_updates
+// ############################################################################
+
+
+
+void Gameplay::go_back_updates(const int go_back_by)
+{
+    if (go_back_by <= 0)
+        return;
+
+    unsigned long target_upd = 0;
+    if (static_cast <unsigned long> (go_back_by) < cs.update)
+        target_upd = cs.update - go_back_by;
+
+    load_state(state_manager.get_auto(target_upd + 1));
+    while (cs.update < target_upd)
+        update_cs_once();
+
+    finalize_update_and_animate_gadgets();
+}
 
 
 
@@ -98,7 +127,6 @@ void Gameplay::update_cs_once()
     // Neues Update einleiten
     ++cs.update;
     const Ulng& upd = cs.update;
-    timer_tick_last_update = Help::timer_ticks;
 
     Replay::Vec data = replay.get_data_for_update(upd);
 

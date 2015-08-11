@@ -17,7 +17,6 @@ static std::string ctrl_keyword_to_key_string(const std::string& t)
     else if (t == gloB->user_key_rate_minus ) key = useR->key_rate_minus;
     else if (t == gloB->user_key_rate_plus  ) key = useR->key_rate_plus;
     else if (t == gloB->user_key_pause      ) key = useR->key_pause;
-    else if (t == gloB->user_key_speed_slow ) key = useR->key_speed_slow;
     else if (t == gloB->user_key_speed_fast ) key = useR->key_speed_fast;
     else if (t == gloB->user_key_speed_turbo) key = useR->key_speed_turbo;
     else if (t == gloB->user_key_restart    ) key = useR->key_restart;
@@ -28,6 +27,11 @@ static std::string ctrl_keyword_to_key_string(const std::string& t)
     else if (t == gloB->user_key_spec_tribe ) key = useR->key_spec_tribe;
     else if (t == gloB->user_key_chat       ) key = useR->key_chat;
     else if (t == gloB->user_key_ga_exit    ) key = useR->key_ga_exit;
+
+    else if (t == gloB->user_key_speed_back_one)   key = useR->key_speed_back_one;
+    else if (t == gloB->user_key_speed_back_many)  key = useR->key_speed_back_many;
+    else if (t == gloB->user_key_speed_ahead_one)  key = useR->key_speed_ahead_one;
+    else if (t == gloB->user_key_speed_ahead_many) key = useR->key_speed_ahead_many;
 
     else {
         LixEn::Ac ac = LixEn::string_to_ac(t);

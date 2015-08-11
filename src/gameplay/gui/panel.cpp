@@ -32,13 +32,13 @@ GameplayPanel::GameplayPanel()
 
     pause      (BMP_PAUSE, x_tec3, 20, xl_tec, 60),
     zoom       (BMP_PANEL, x_tec0, 20, xl_tec, 30),
-    speed_slow (BMP_PANEL, x_tec0, 50, xl_tec, 30),
-    speed_fast (BMP_PANEL, x_tec1, 20, xl_tec, 30),
-    speed_turbo(BMP_PANEL, x_tec1, 50, xl_tec, 30),
+    speed_back (BMP_PANEL, x_tec0, 50, xl_tec, 30),
+    speed_ahead(BMP_PANEL, x_tec1, 50, xl_tec, 30),
+    speed_fast (BMP_PANEL, x_tec2, 50, xl_tec, 30),
     state_save (BMP_PAN_2, x_tec2,  0, xl_tec, 20),
     state_load (BMP_PAN_2, x_tec3,  0, xl_tec, 20),
-    restart    (BMP_PANEL, x_tec2, 20, xl_tec, 30),
-    nuke_single(BMP_PANEL, x_tec2, 50, xl_tec, 30),
+    restart    (BMP_PANEL, x_tec1, 20, xl_tec, 30),
+    nuke_single(BMP_PANEL, x_tec2, 20, xl_tec, 30),
     nuke_multi (BMP_NUKE , x_tec0, 60, 4 * xl_tec, 20),
     spec_tribe (x_tec0, 60, 4 * xl_tec), // will be reset below
     stats      (),
@@ -69,9 +69,9 @@ GameplayPanel::GameplayPanel()
     add_child(spawnint_fixed);
     add_child(pause);
     add_child(zoom);
-    add_child(speed_slow);
+    add_child(speed_back);
+    add_child(speed_ahead);
     add_child(speed_fast);
-    add_child(speed_turbo);
     add_child(state_save);
     add_child(state_load);
     add_child(restart);
@@ -97,9 +97,9 @@ GameplayPanel::GameplayPanel()
     state_load.set_x_frame(3);
 
     zoom       .set_x_frame(2);
-    speed_slow .set_x_frame(3);
-    speed_fast .set_x_frame(4);
-    speed_turbo.set_x_frame(5);
+    speed_back .set_x_frame(10);
+    speed_ahead.set_x_frame(3);
+    speed_fast .set_x_frame(4); // 5 if turbo is on
     restart    .set_x_frame(8);
     nuke_single.set_x_frame(9);
     nuke_multi .set_x_frame(0);
@@ -109,23 +109,28 @@ GameplayPanel::GameplayPanel()
     hint_minus .set_x_frame(0);
 
     for (SkBIt itr = skill.begin(); itr != skill.end(); ++itr) itr->set_hot();
-    speed_slow.set_warm();
-    pause     .set_warm();
+
+    speed_fast .set_warm(); // don't fire continuously on LMB held
+    pause      .set_warm(); // activate like a TwoTasksButton on first click
 
     // We will need to be careful when checking for clicked buttons,
     // as there can be more than one skill with the same hotkey in play.
     // This is done in Gameplay's calculcate code for these buttons.
     pause      .set_hotkey(useR->key_pause);
     zoom       .set_hotkey(useR->key_zoom);
-    speed_slow .set_hotkey(useR->key_speed_slow);
+    speed_back .set_hotkey(useR->key_speed_back_one);
+    speed_ahead.set_hotkey(useR->key_speed_ahead_one);
     speed_fast .set_hotkey(useR->key_speed_fast);
-    speed_turbo.set_hotkey(useR->key_speed_turbo);
     state_save .set_hotkey(useR->key_state_save);
     state_load .set_hotkey(useR->key_state_load);
     restart    .set_hotkey(useR->key_restart);
     nuke_single.set_hotkey(useR->key_nuke);
     nuke_multi .set_hotkey(useR->key_nuke);
     spec_tribe .set_hotkey(useR->key_spec_tribe);
+
+    speed_back .set_hotkey_right(useR->key_speed_back_many);
+    speed_ahead.set_hotkey_right(useR->key_speed_ahead_many);
+    speed_fast .set_hotkey_right(useR->key_speed_turbo);
 
     spawnint_slow.set_hotkey(useR->key_rate_minus);
     spawnint_cur .set_hotkey(useR->key_rate_plus);
@@ -174,9 +179,8 @@ void GameplayPanel::set_gapamode_and_hints(const GapaMode m, const int hs)
         rate_fixed    .hide();
         pause      .hide();
         zoom       .hide();
-        speed_slow .hide();
+        speed_ahead.hide();
         speed_fast .hide();
-        speed_turbo.hide();
         state_save .hide();
         state_load .hide();
         restart    .hide();
@@ -260,6 +264,42 @@ void GameplayPanel::set_like_tribe(const Tribe* tr)
 
 
 
+void GameplayPanel::set_speed(Speed s)
+{
+    pause.set_off();
+    speed_fast.set_off();
+    speed_fast.set_x_frame(4);
+
+    switch (s) {
+    case SPEED_NORMAL:
+        break;
+    case SPEED_FAST:
+        speed_fast.set_on();
+        break;
+    case SPEED_TURBO:
+        speed_fast.set_on();
+        speed_fast.set_x_frame(5);
+        break;
+    case SPEED_PAUSE:
+        pause.set_on();
+        break;
+    }
+}
+
+
+
+GameplayPanel::Speed GameplayPanel::get_speed()
+{
+    if      (pause     .get_on())           return SPEED_PAUSE;
+    else if (speed_fast.get_x_frame() == 5) return SPEED_TURBO;
+    else if (speed_fast.get_on())           return SPEED_FAST;
+    else                                    return SPEED_NORMAL;
+}
+
+
+
+
+
 GameplayPanel::SkBIt GameplayPanel::button_by_skill(const LixEn::Ac ac)
 {
     for (SkBIt itr = skill.begin(); itr != skill.end(); ++itr)
@@ -338,12 +378,28 @@ void GameplayPanel::set_hint_cur(const int i)
 
 // helper function for calc_self()
 static void fhs(
-    std::string& target_s, int& target_i,
-    const Api::Element& e, const std::string& s, const int& i = 0
+    std::string& str,
+    const Api::Element& e, const std::string& s,
+    const int& first_hotkey = 0, const int& second_hotkey = 0
 ) {
     if (e.is_mouse_here()) {
-        target_s = s;
-        target_i = i;
+        str = s;
+
+        if (first_hotkey != 0) {
+            str += " ";
+            str += second_hotkey != 0 ? ::Language::editor_hotkeys
+                                      : ::Language::editor_hotkey;
+            str += " [";
+            str += Help::scancode_to_string(first_hotkey);
+            str += "]";
+            if (second_hotkey != 0) {
+                str = Language::gameplay_left_right_click + " " + str;
+                str += "/[";
+                str += Help::scancode_to_string(second_hotkey);
+                str += "]";
+            }
+        }
+        // end if first_hotkey != 0
     }
 }
 
@@ -388,34 +444,32 @@ void GameplayPanel::calc_self()
 
     if (useR->game_show_tooltips) {
         std::string str;
-        int         key = 0;
         using namespace Language;
-        fhs(str, key, spawnint_slow,gameplay_rate_minus, useR->key_rate_minus);
-        fhs(str, key, spawnint_cur,gameplay_rate_plus,   useR->key_rate_plus);
-        fhs(str, key, pause,       gameplay_pause,       useR->key_pause);
-        fhs(str, key, zoom,        gameplay_zoom,        useR->key_zoom);
-        fhs(str, key, speed_slow,  gameplay_speed_slow,  useR->key_speed_slow);
-        fhs(str, key, speed_fast,  gameplay_speed_fast,  useR->key_speed_fast);
-        fhs(str, key, speed_turbo, gameplay_speed_turbo, useR->key_speed_turbo);
-        fhs(str, key, state_save,  gameplay_state_save,  useR->key_state_save);
-        fhs(str, key, state_load,  gameplay_state_load,  useR->key_state_load);
-        fhs(str, key, restart,     gameplay_restart,     useR->key_restart);
-        fhs(str, key, nuke_single, gameplay_nuke,        useR->key_nuke);
-        fhs(str, key, nuke_multi,  gameplay_nuke,        useR->key_nuke);
-        fhs(str, key, hint_big,    hint_cur == 0 ? gameplay_hint_first
-                                 : hint_cur == 1 ? gameplay_hint_off
-                                 :                 gameplay_hint_prev);
-        fhs(str, key, hint_minus,  hint_cur == 1 ? gameplay_hint_off
-                                                 : gameplay_hint_prev);
-        fhs(str, key, hint_plus,                   gameplay_hint_next);
-        // some code copied from editor/editor_d.cpp
-        if (key) {
-            str += " ";
-            str += ::Language::editor_hotkey;
-            str += " [";
-            str += Help::scancode_to_string(key);
-            str += "]";
-        }
+        // fhs is defined 50 lines above
+        fhs(str, spawnint_slow, gameplay_rate_minus,  useR->key_rate_minus);
+        fhs(str, spawnint_cur,  gameplay_rate_plus,   useR->key_rate_plus);
+        fhs(str, pause,       gameplay_pause,       useR->key_pause);
+        fhs(str, zoom,        gameplay_zoom,        useR->key_zoom);
+        fhs(str, state_save,  gameplay_state_save,  useR->key_state_save);
+        fhs(str, state_load,  gameplay_state_load,  useR->key_state_load);
+        fhs(str, restart,     gameplay_restart,     useR->key_restart);
+        fhs(str, nuke_single, gameplay_nuke,        useR->key_nuke);
+        fhs(str, nuke_multi,  gameplay_nuke,        useR->key_nuke);
+
+        fhs(str, hint_big,    hint_cur == 0 ? gameplay_hint_first
+                            : hint_cur == 1 ? gameplay_hint_off
+                            :                 gameplay_hint_prev);
+        fhs(str, hint_minus,  hint_cur == 1 ? gameplay_hint_off
+                                            : gameplay_hint_prev);
+        fhs(str, hint_plus,                   gameplay_hint_next);
+
+        fhs(str, speed_back,  gameplay_speed_back, useR->key_speed_back_one,
+                                                   useR->key_speed_back_many);
+        fhs(str, speed_ahead, gameplay_speed_ahead,useR->key_speed_ahead_one,
+                                                   useR->key_speed_ahead_many);
+        fhs(str, speed_fast,  gameplay_speed_fast, useR->key_speed_fast,
+                                                   useR->key_speed_turbo);
+
         if (! str.empty())
             // do nothing, but don't consider printing a suggested tooltip
             ;

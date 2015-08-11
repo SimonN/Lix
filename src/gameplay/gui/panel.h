@@ -22,6 +22,13 @@ struct GameplayPanel : public Api::Element {
 
 public:
 
+    enum Speed {
+        SPEED_NORMAL,
+        SPEED_FAST,
+        SPEED_TURBO,
+        SPEED_PAUSE
+    };
+
     typedef Api::BitmapButton              BiB;
     typedef Api::SkillButton               SkB;
     typedef std::vector <Api::SkillButton> SkBVec;
@@ -32,17 +39,17 @@ public:
     Api::SpawnIntervalButton spawnint_slow;
     Api::SpawnIntervalButton spawnint_cur;
 
-    BiB spawnint_fixed,
-        pause,
-        zoom,
-        speed_slow,
-        speed_fast,
-        speed_turbo,
-        state_save,
-        state_load,
-        restart,
-        nuke_single,
-        nuke_multi;
+    Api::BitmapButton spawnint_fixed;
+    Api::BitmapButton pause;
+    Api::BitmapButton zoom;
+    Api::TwoTasksButton speed_back;
+    Api::TwoTasksButton speed_ahead;
+    Api::TwoTasksButton speed_fast;
+    Api::BitmapButton state_save;
+    Api::BitmapButton state_load;
+    Api::BitmapButton restart;
+    Api::BitmapButton nuke_single;
+    Api::BitmapButton nuke_multi;
 
     Api::TextButton spec_tribe;
 
@@ -61,6 +68,9 @@ public:
     void set_gapamode_and_hints(GapaMode, const int); // hint size
 
     inline GapaMode get_gapamode() { return gapamode;}
+
+    void  set_speed(Speed);
+    Speed get_speed();
 
     SkBIt button_by_skill(const LixEn::Ac);
 

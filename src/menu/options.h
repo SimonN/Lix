@@ -132,15 +132,23 @@ private:
 
     KeyButton  key_force_left;
     KeyButton  key_force_right;
+
     KeyButton  key_pause;
-    KeyButton  key_speed_slow;
-    KeyButton  key_speed_fast;
-    KeyButton  key_speed_turbo;
-    KeyButton  key_rate_minus;
-    KeyButton  key_rate_plus;
+
     KeyButton  key_restart;
     KeyButton  key_state_load;
     KeyButton  key_state_save;
+
+    KeyButton  key_rate_minus;
+    KeyButton  key_rate_plus;
+
+    KeyButton  key_speed_back_one;
+    KeyButton  key_speed_back_many;
+    KeyButton  key_speed_ahead_one;
+    KeyButton  key_speed_ahead_many;
+    KeyButton  key_speed_fast;
+    KeyButton  key_speed_turbo;
+
     KeyButton  key_nuke;
     KeyButton  key_ga_exit;
     KeyButton  key_zoom;
@@ -152,17 +160,26 @@ private:
     Label
         desc_key_force_left,
         desc_key_force_right,
+
         desc_key_pause,
-        desc_key_speed_slow,
-        desc_key_speed_fast,
-        desc_key_speed_turbo,
-        desc_key_rate_minus,
-        desc_key_rate_plus,
+
         desc_key_restart,
         desc_key_state_load,
         desc_key_state_save,
+
+        desc_key_rate_minus,
+        desc_key_rate_plus,
+
+        desc_key_speed_back_one,
+        desc_key_speed_back_many,
+        desc_key_speed_ahead_one,
+        desc_key_speed_ahead_many,
+        desc_key_speed_fast,
+        desc_key_speed_turbo,
+
         desc_key_nuke,
         desc_key_ga_exit,
+
         desc_key_zoom,
         desc_key_chat,
         desc_key_spec_tribe,

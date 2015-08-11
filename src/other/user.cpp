@@ -188,15 +188,18 @@ User::User()
     key_force_right            = KEY_F;
     key_scroll                 = KEY_MINUS_PAD;
     key_priority               = KEY_MINUS_PAD;
-    key_rate_minus             = KEY_1;
-    key_rate_plus              = KEY_2;
+    key_rate_minus             = KEY_F4;
+    key_rate_plus              = KEY_F5;
     key_pause                  = KEY_SPACE;
-    key_speed_slow             = KEY_3;
-    key_speed_fast             = KEY_4;
-    key_speed_turbo            = KEY_5;
+    key_speed_back_one         = KEY_1;
+    key_speed_back_many        = KEY_2;
+    key_speed_ahead_one        = KEY_3;
+    key_speed_ahead_many       = KEY_4;
+    key_speed_fast             = KEY_5;
+    key_speed_turbo            = KEY_6;
     key_restart                = KEY_F1;
     key_state_load             = KEY_F2;
-    key_state_save             = KEY_F5;
+    key_state_save             = KEY_F3;
     key_zoom                   = KEY_Y;
     key_nuke                   = KEY_F12;
     key_spec_tribe             = KEY_TAB;
@@ -429,7 +432,10 @@ void User::load()
         else if (i->text1 == gloB->user_key_rate_minus         ) key_rate_minus         = i->nr1;
         else if (i->text1 == gloB->user_key_rate_plus          ) key_rate_plus          = i->nr1;
         else if (i->text1 == gloB->user_key_pause              ) key_pause              = i->nr1;
-        else if (i->text1 == gloB->user_key_speed_slow         ) key_speed_slow         = i->nr1;
+        else if (i->text1 == gloB->user_key_speed_back_one     ) key_speed_back_one     = i->nr1;
+        else if (i->text1 == gloB->user_key_speed_back_many    ) key_speed_back_many    = i->nr1;
+        else if (i->text1 == gloB->user_key_speed_ahead_one    ) key_speed_ahead_one    = i->nr1;
+        else if (i->text1 == gloB->user_key_speed_ahead_many   ) key_speed_ahead_many   = i->nr1;
         else if (i->text1 == gloB->user_key_speed_fast         ) key_speed_fast         = i->nr1;
         else if (i->text1 == gloB->user_key_speed_turbo        ) key_speed_turbo        = i->nr1;
         else if (i->text1 == gloB->user_key_restart            ) key_restart            = i->nr1;
@@ -581,7 +587,10 @@ void User::save() const
      << IO::LineHash  (gloB->user_key_rate_minus,  key_rate_minus)
      << IO::LineHash  (gloB->user_key_rate_plus,   key_rate_plus)
      << IO::LineHash  (gloB->user_key_pause,       key_pause)
-     << IO::LineHash  (gloB->user_key_speed_slow,  key_speed_slow)
+     << IO::LineHash  (gloB->user_key_speed_back_one,   key_speed_back_one)
+     << IO::LineHash  (gloB->user_key_speed_back_many,  key_speed_back_many)
+     << IO::LineHash  (gloB->user_key_speed_ahead_one,  key_speed_ahead_one)
+     << IO::LineHash  (gloB->user_key_speed_ahead_many, key_speed_ahead_many)
      << IO::LineHash  (gloB->user_key_speed_fast,  key_speed_fast)
      << IO::LineHash  (gloB->user_key_speed_turbo, key_speed_turbo)
      << IO::LineHash  (gloB->user_key_restart,     key_restart)

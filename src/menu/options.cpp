@@ -92,16 +92,22 @@ OptionMenu::OptionMenu()
 
     key_force_left        (key_b1, 200, key_xl),
     key_force_right       (key_b1, 220, key_xl),
+
     key_pause             (key_b1, 260, key_xl),
-    key_speed_slow        (key_b1, 280, key_xl),
-    key_speed_fast        (key_b1, 300, key_xl),
-    key_speed_turbo       (key_b1, 320, key_xl),
+
+    key_restart           (key_b1, 300, key_xl),
+    key_state_load        (key_b1, 320, key_xl),
+    key_state_save        (key_b1, 340, key_xl),
 
     key_rate_minus        (key_b2, 200, key_xl),
     key_rate_plus         (key_b2, 220, key_xl),
-    key_restart           (key_b2, 260, key_xl),
-    key_state_load        (key_b2, 280, key_xl),
-    key_state_save        (key_b2, 300, key_xl),
+
+    key_speed_back_one    (key_b2, 260, key_xl),
+    key_speed_back_many   (key_b2, 280, key_xl),
+    key_speed_ahead_one   (key_b2, 300, key_xl),
+    key_speed_ahead_many  (key_b2, 320, key_xl),
+    key_speed_fast        (key_b2, 340, key_xl),
+    key_speed_turbo       (key_b2, 360, key_xl),
 
     key_nuke              (key_b3, 200, key_xl),
     key_ga_exit           (key_b3, 220, key_xl),
@@ -114,15 +120,18 @@ OptionMenu::OptionMenu()
     desc_key_force_left   (key_t1, 200, Language::option_key_force_left),
     desc_key_force_right  (key_t1, 220, Language::option_key_force_right),
     desc_key_pause        (key_t1, 260, Language::option_key_pause),
-    desc_key_speed_slow   (key_t1, 280, Language::option_key_speed_slow),
-    desc_key_speed_fast   (key_t1, 300, Language::option_key_speed_fast),
-    desc_key_speed_turbo  (key_t1, 320, Language::option_key_speed_turbo),
+    desc_key_restart      (key_t1, 300, Language::option_key_restart),
+    desc_key_state_load   (key_t1, 320, Language::option_key_state_load),
+    desc_key_state_save   (key_t1, 340, Language::option_key_state_save),
 
     desc_key_rate_minus   (key_t2, 200, Language::option_key_rate_minus),
     desc_key_rate_plus    (key_t2, 220, Language::option_key_rate_plus),
-    desc_key_restart      (key_t2, 260, Language::option_key_restart),
-    desc_key_state_load   (key_t2, 280, Language::option_key_state_load),
-    desc_key_state_save   (key_t2, 300, Language::option_key_state_save),
+ desc_key_speed_back_one  (key_t2, 260, Language::option_key_speed_back_one),
+ desc_key_speed_back_many (key_t2, 280, Language::option_key_speed_back_many),
+ desc_key_speed_ahead_one (key_t2, 300, Language::option_key_speed_ahead_one),
+ desc_key_speed_ahead_many(key_t2, 320, Language::option_key_speed_ahead_many),
+    desc_key_speed_fast   (key_t2, 340, Language::option_key_speed_fast),
+    desc_key_speed_turbo  (key_t2, 360, Language::option_key_speed_turbo),
 
     desc_key_nuke         (key_t3, 200, Language::option_key_nuke),
     desc_key_ga_exit      (key_t3, 220, Language::win_game_title),
@@ -326,7 +335,10 @@ desc_screen_border_colored(check_nx, 160, Language::option_screen_border_colored
     pointers[GROUP_HOTKEYS ].push_back(&key_rate_minus);
     pointers[GROUP_HOTKEYS ].push_back(&key_rate_plus);
     pointers[GROUP_HOTKEYS ].push_back(&key_pause);
-    pointers[GROUP_HOTKEYS ].push_back(&key_speed_slow);
+    pointers[GROUP_HOTKEYS ].push_back(&key_speed_back_one);
+    pointers[GROUP_HOTKEYS ].push_back(&key_speed_back_many);
+    pointers[GROUP_HOTKEYS ].push_back(&key_speed_ahead_one);
+    pointers[GROUP_HOTKEYS ].push_back(&key_speed_ahead_many);
     pointers[GROUP_HOTKEYS ].push_back(&key_speed_fast);
     pointers[GROUP_HOTKEYS ].push_back(&key_speed_turbo);
     pointers[GROUP_HOTKEYS ].push_back(&key_restart);
@@ -344,7 +356,10 @@ desc_screen_border_colored(check_nx, 160, Language::option_screen_border_colored
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_rate_minus);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_rate_plus);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_pause);
-    pointers[GROUP_HOTKEYS ].push_back(&desc_key_speed_slow);
+    pointers[GROUP_HOTKEYS ].push_back(&desc_key_speed_back_one);
+    pointers[GROUP_HOTKEYS ].push_back(&desc_key_speed_back_many);
+    pointers[GROUP_HOTKEYS ].push_back(&desc_key_speed_ahead_one);
+    pointers[GROUP_HOTKEYS ].push_back(&desc_key_speed_ahead_many);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_speed_fast);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_speed_turbo);
     pointers[GROUP_HOTKEYS ].push_back(&desc_key_restart);
@@ -574,7 +589,10 @@ void OptionMenu::reset_elements()
     key_rate_minus       .set_scancode(useR->key_rate_minus);
     key_rate_plus        .set_scancode(useR->key_rate_plus);
     key_pause            .set_scancode(useR->key_pause);
-    key_speed_slow       .set_scancode(useR->key_speed_slow);
+    key_speed_back_one   .set_scancode(useR->key_speed_back_one);
+    key_speed_back_many  .set_scancode(useR->key_speed_back_many);
+    key_speed_ahead_one  .set_scancode(useR->key_speed_ahead_one);
+    key_speed_ahead_many .set_scancode(useR->key_speed_ahead_many);
     key_speed_fast       .set_scancode(useR->key_speed_fast);
     key_speed_turbo      .set_scancode(useR->key_speed_turbo);
     key_restart          .set_scancode(useR->key_restart);
@@ -757,24 +775,27 @@ void OptionMenu::calc_self()
         useR->prioinv_middle          = prioinv_middle          .get_checked();
         useR->prioinv_right           = prioinv_right           .get_checked();
 
-        useR->key_force_left  = key_force_left .get_scancode();
-        useR->key_force_right = key_force_right.get_scancode();
-        useR->key_rate_minus  = key_rate_minus .get_scancode();
-        useR->key_rate_plus   = key_rate_plus  .get_scancode();
-        useR->key_pause       = key_pause      .get_scancode();
-        useR->key_speed_slow  = key_speed_slow .get_scancode();
-        useR->key_speed_fast  = key_speed_fast .get_scancode();
-        useR->key_speed_turbo = key_speed_turbo.get_scancode();
-        useR->key_restart     = key_restart    .get_scancode();
-        useR->key_state_load  = key_state_load .get_scancode();
-        useR->key_state_save  = key_state_save .get_scancode();
-        useR->key_zoom        = key_zoom       .get_scancode();
-        useR->key_chat        = key_chat       .get_scancode();
-        useR->key_spec_tribe  = key_spec_tribe .get_scancode();
-        useR->key_nuke        = key_nuke       .get_scancode();
-        useR->key_ga_exit     = key_ga_exit    .get_scancode();
-        useR->key_scroll      = key_scroll     .get_scancode();
-        useR->key_priority    = key_priority   .get_scancode();
+        useR->key_force_left       = key_force_left      .get_scancode();
+        useR->key_force_right      = key_force_right     .get_scancode();
+        useR->key_rate_minus       = key_rate_minus      .get_scancode();
+        useR->key_rate_plus        = key_rate_plus       .get_scancode();
+        useR->key_pause            = key_pause           .get_scancode();
+        useR->key_speed_back_one   = key_speed_back_one  .get_scancode();
+        useR->key_speed_back_many  = key_speed_back_many .get_scancode();
+        useR->key_speed_ahead_one  = key_speed_ahead_one .get_scancode();
+        useR->key_speed_ahead_many = key_speed_ahead_many.get_scancode();
+        useR->key_speed_fast       = key_speed_fast      .get_scancode();
+        useR->key_speed_turbo      = key_speed_turbo     .get_scancode();
+        useR->key_restart          = key_restart         .get_scancode();
+        useR->key_state_load       = key_state_load      .get_scancode();
+        useR->key_state_save       = key_state_save      .get_scancode();
+        useR->key_zoom             = key_zoom            .get_scancode();
+        useR->key_chat             = key_chat            .get_scancode();
+        useR->key_spec_tribe       = key_spec_tribe      .get_scancode();
+        useR->key_nuke             = key_nuke            .get_scancode();
+        useR->key_ga_exit          = key_ga_exit         .get_scancode();
+        useR->key_scroll           = key_scroll          .get_scancode();
+        useR->key_priority         = key_priority        .get_scancode();
 
         for (size_t i = 0; i < useR->skill_sort.size(); ++i) {
             LixEn::Ac ac = img_skill[i].get_skill();

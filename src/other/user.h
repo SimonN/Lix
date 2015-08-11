@@ -117,7 +117,10 @@ public:
     int  key_scroll;
     int  key_priority;
     int  key_pause;
-    int  key_speed_slow;
+    int  key_speed_back_one;
+    int  key_speed_back_many;
+    int  key_speed_ahead_one;
+    int  key_speed_ahead_many;
     int  key_speed_fast;
     int  key_speed_turbo;
     int  key_restart;

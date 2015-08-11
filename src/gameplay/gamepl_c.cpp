@@ -64,10 +64,7 @@ void Gameplay::calc_window()
             save_result();
             replay.erase_early_singleplayer_nukes();
             load_state(state_manager.get_zero());
-            pan.pause      .set_off();
-            pan.speed_slow .set_off();
-            pan.speed_fast .set_off();
-            pan.speed_turbo.set_off();
+            pan.set_speed(GameplayPanel::SPEED_NORMAL);
             break;
 
         default:
@@ -192,7 +189,8 @@ void Gameplay::calc_self()
         ec += t->get_still_playing();
     for (TrigIt i = cs.trap.begin(); i != cs.trap.end(); ++i)
         ec += i->get_x_frame();
-    if (pan.speed_turbo.get_on() || pan.speed_fast.get_on())
+    if (pan.get_speed() == GameplayPanel::SPEED_TURBO
+     || pan.get_speed() == GameplayPanel::SPEED_FAST)
          ec += effect.get_effects_without_debris();
     else ec += effect.get_effects();
     // Check also for !window_gameplay, as in a networked game,
@@ -245,9 +243,9 @@ void Gameplay::calc_self()
              || pan.state_load .is_mouse_here()
              || pan.pause      .is_mouse_here()
              || pan.zoom       .is_mouse_here()
-             || pan.speed_slow .is_mouse_here()
+             || pan.speed_back .is_mouse_here()
+             || pan.speed_ahead.is_mouse_here()
              || pan.speed_fast .is_mouse_here()
-             || pan.speed_turbo.is_mouse_here()
              || pan.restart    .is_mouse_here()
              || pan.nuke_single.is_mouse_here()) abort_replay = false;
         }
@@ -274,11 +272,17 @@ void Gameplay::calc_self()
         // abort fast-forward earlier than this
         if (useR->replay_cancel) {
             const int rcat = useR->replay_cancel_at;
-            if (pan.speed_fast .get_on() && csu == max - rcat)
-                pan.speed_fast .set_off();
-            if (pan.speed_turbo.get_on() && csu >= max - rcat
-                                         && csu <  max - rcat + fff)
-                pan.speed_turbo.set_off();
+            if (pan.get_speed() == GameplayPanel::SPEED_FAST
+                && csu == max - rcat
+            ) {
+                pan.set_speed(GameplayPanel::SPEED_NORMAL);
+            }
+            if (pan.get_speed() == GameplayPanel::SPEED_TURBO
+                && csu >= max - rcat
+                && csu <  max - rcat + fff
+            ) {
+                pan.set_speed(GameplayPanel::SPEED_NORMAL);
+            }
         }
     }
 
@@ -311,50 +315,65 @@ void Gameplay::calc_self()
                     replay = userrep;
                 }
                 save_result();
-                pan.speed_fast .set_off();
-                pan.speed_turbo.set_off();
+                if (pan.get_speed() != GameplayPanel::SPEED_PAUSE)
+                    pan.set_speed(GameplayPanel::SPEED_NORMAL);
                 load_state(sta);
             }
         }
 
         // Pause
         if (pan.pause.get_clicked()) {
-            pan.pause.set_on(!pan.pause.get_on());
-            pan.speed_slow.set_off();
-            pan.speed_fast.set_off();
-            pan.speed_turbo.set_off();
+            if (pan.get_speed() == GameplayPanel::SPEED_PAUSE)
+                 pan.set_speed(GameplayPanel::SPEED_NORMAL);
+            else pan.set_speed(GameplayPanel::SPEED_PAUSE);
         }
         // Zoom
-        if (pan.zoom.get_clicked()) {
+        else if (pan.zoom.get_clicked()) {
             pan.zoom.set_on(!pan.zoom.get_on());
             map.set_zoom(pan.zoom.get_on());
         }
-        // Geschwindigkeit
-        {
-            GameplayPanel::BiB* b
-             = pan.speed_slow .get_clicked() ? &pan.speed_slow
-             : pan.speed_fast .get_clicked() ? &pan.speed_fast
-             : pan.speed_turbo.get_clicked() ? &pan.speed_turbo : 0;
-            if (b) {
-                bool was_on = b->get_on();
-                pan.pause      .set_off();
-                pan.speed_slow .set_off();
-                pan.speed_fast .set_off();
-                pan.speed_turbo.set_off();
-                b->set_on(!was_on);
-            }
+        // Speed. On some executions, update
+        else if (pan.speed_back.get_execute_left()) {
+            go_back_updates(1);
+            pan.set_speed(GameplayPanel::SPEED_PAUSE);
+        }
+        else if (pan.speed_back.get_execute_right()) {
+            // go back 1 second
+            go_back_updates(Help::timer_ticks_per_second
+                          / timer_ticks_for_update_normal);
+            pan.set_speed(GameplayPanel::SPEED_PAUSE);
+        }
+        else if (pan.speed_ahead.get_execute_left()) {
+            pan.set_speed(GameplayPanel::SPEED_PAUSE);
+            // do a single logic update even though the game is paused
+            update();
+        }
+        else if (pan.speed_ahead.get_execute_right()) {
+            for (size_t i = 0; i < Help::timer_ticks_per_second
+                                 * seconds_skipped_on_speed_slow_right
+                                 / timer_ticks_for_update_normal; ++i)
+                update();
+        }
+        else if (pan.speed_fast.get_execute_left()) {
+            if (pan.speed_fast.get_on())
+                 pan.set_speed(GameplayPanel::SPEED_NORMAL);
+            else pan.set_speed(GameplayPanel::SPEED_FAST);
+        }
+        else if (pan.speed_fast.get_execute_right()) {
+            if (pan.speed_fast.get_on())
+                 pan.set_speed(GameplayPanel::SPEED_NORMAL);
+            else pan.set_speed(GameplayPanel::SPEED_TURBO);
         }
         // Neustart
-        if (pan.restart.get_clicked()) {
+        else if (pan.restart.get_clicked()) {
             save_result();
             replay.erase_early_singleplayer_nukes();
-            pan.speed_fast .set_off();
-            pan.speed_turbo.set_off();
+            pan.set_speed(GameplayPanel::SPEED_NORMAL);
             load_state(state_manager.get_zero());
         }
 
         // Switch the spectator's panel to a different tribe's skillset
-        if (pan.spec_tribe.get_clicked()) {
+        else if (pan.spec_tribe.get_clicked()) {
             if (! cs.tribes.empty()) {
                 for (Tribe::It itr = cs.tribes.begin();
                     itr != cs.tribes.end(); ++itr) {
@@ -421,32 +440,28 @@ void Gameplay::calc_self()
     // Dies prueft nicht die lokalen Ticks, sondern richtet sich nur nach
     // den vom Timer gezaehlten Ticks!
     if (!pan.pause.get_on()) {
+
         if (verify_mode == VERIFY_MODE) {
             // update as fast as possilbe
             update();
         }
-        else if (pan.speed_turbo.get_on()) {
+        else switch (pan.get_speed()) {
+        case GameplayPanel::SPEED_TURBO:
             if (Help::timer_ticks >= timer_tick_last_update
                                    + timer_ticks_for_update_fast)
-             for (unsigned i = 0; i < turbo_times_faster_than_fast; ++i) {
-                update();
-            }
-        }
-        else if (pan.speed_fast.get_on()) {
+                for (unsigned i = 0; i < turbo_times_faster_than_fast; ++i)
+                    update();
+            break;
+        case GameplayPanel::SPEED_FAST:
             if (Help::timer_ticks >= timer_tick_last_update
-                                   + timer_ticks_for_update_fast) {
+                                   + timer_ticks_for_update_fast)
                 update();
-            }
-        }
-        else if (pan.speed_slow.get_on()) {
+            break;
+        default:
             if (Help::timer_ticks >= timer_tick_last_update
-                                   + timer_ticks_for_update_slow) {
+                                   + timer_ticks_for_update_normal)
                 update();
-            }
-        }
-        else if (Help::timer_ticks >= timer_tick_last_update
-                                    + timer_ticks_for_update_normal) {
-            update();
+            break;
         }
     }
     // Im Netzwerk die Zeit anhand der Server-Informationen synchronisieren
