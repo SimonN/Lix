@@ -61,9 +61,9 @@ GameplayPanel::GameplayPanel()
     hint_size  (0),
     hint_cur   (0),
 
-    hint_big   (BMP_PANEL, x_zzz,            20, xl_tec, 20),
-    hint_plus  (BMP_HINTS, x_zzz + xl_tec/2, 20, xl_tec, 20),
-    hint_minus (BMP_HINTS, x_zzz,            20, xl_tec, 20)
+    hint_big   (BMP_PANEL, x_zzz,            20, xl_tec,   30),
+    hint_plus  (BMP_HINTS, x_zzz + xl_tec/2, 20, xl_tec/2, 30),
+    hint_minus (BMP_HINTS, x_zzz,            20, xl_tec/2, 30)
 {
     for (SkBIt itr = skill.begin(); itr != skill.end(); ++itr) add_child(*itr);
     add_child(spawnint_slow);
