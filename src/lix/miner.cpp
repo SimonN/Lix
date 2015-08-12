@@ -28,13 +28,13 @@
 
 static const int MAX_GAP_DEPTH = 3;
 
-static int move_miner_down(Lixxie& l)
+static int move_miner_down(Lixxie& l, int max_depth)
 {
     int downwards_movement_this_frame = 0;
 
     // check the up to MAX_GAP_DEPTH (or less if already fallen earlier) pizels
     while (!l.is_solid()
-        && downwards_movement_this_frame + l.get_special_y() < MAX_GAP_DEPTH
+        && downwards_movement_this_frame + l.get_special_y() < max_depth
     ) {
         l.move_down(1);
         ++downwards_movement_this_frame;
@@ -42,7 +42,7 @@ static int move_miner_down(Lixxie& l)
     if (!l.is_solid())
         // still no ground after moving down -> move back up and
         // cancel miner later in the code
-        l.move_up(MAX_GAP_DEPTH - l.get_special_y());
+        l.move_up(max_depth - l.get_special_y());
     else
         l.set_special_y(l.get_special_y() + downwards_movement_this_frame);
 
@@ -108,7 +108,7 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
 
         // reset the counter for allowed downward movement per frame.
         l.set_special_y(0);
-        downwards_movement_this_frame = move_miner_down(l);
+        downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
         done_mining = (l.get_special_y() > MAX_GAP_DEPTH) || !l.is_solid();
         break;
 
@@ -117,7 +117,9 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
     case 2:
     case 3:
     case 4:
-
+        // downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH + 1);
+        // done_mining = (l.get_special_y() > MAX_GAP_DEPTH + 1) || !l.is_solid();
+        // break;
     case 11:
     case 12:
     case 13:
@@ -132,7 +134,7 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
     case 22:
     case 23:
     case  0:
-        downwards_movement_this_frame = move_miner_down(l);
+        downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
         done_mining = (l.get_special_y() > MAX_GAP_DEPTH) || !l.is_solid();
         break;
 
@@ -150,8 +152,8 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
                 l.set_special_x(l.get_special_x() | (1 << j));
             }
         }
-        downwards_movement_this_frame = move_miner_down(l);
-        done_mining = (l.get_special_y() > MAX_GAP_DEPTH) || !l.is_solid();
+        downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH + 1);
+        done_mining = (l.get_special_y() > MAX_GAP_DEPTH + 1) || !l.is_solid();
         break;
 
     case 6:
@@ -173,14 +175,14 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
         //  && !l.is_solid(0, 3) --> allow_one_air_under_foot
         if (l.get_frame() == 6) {
             if (l.get_special_x() & (1 << 0))
-                downwards_movement_this_frame = move_miner_down(l);
+                downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
             done_mining = !l.is_solid()
                        && !l.is_solid(0, 3)
                        && !(l.get_special_x() & (1 << 0));
         }
         else {
             if (l.get_special_x() & (1 << 2))
-                downwards_movement_this_frame = move_miner_down(l);
+                downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
             done_mining = !l.is_solid()
                        && !l.is_solid(0, 3)
                        && !(l.get_special_x() & (1 << 2));
@@ -205,19 +207,19 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
         // don't allow_one_air_under_foot
         if (l.get_frame() == 7) {
             if (l.get_special_x() & (1 << 1))
-                downwards_movement_this_frame = move_miner_down(l);
+                downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
             done_mining = !l.is_solid() && !(l.get_special_x() & (1 << 1));
         }
         else {
             if (l.get_special_x() & (1 << 3))
-                downwards_movement_this_frame = move_miner_down(l);
+                downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
             done_mining = !l.is_solid() && !(l.get_special_x() & (1 << 3));
         }
         break;
 
     case 8:
         if (l.get_special_x() & (1 << 1))
-            downwards_movement_this_frame = move_miner_down(l);
+            downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
         // don't allow_one_air_under_foot
         done_mining = !l.is_solid() && !(l.get_special_x() & (1 << 1));
 
