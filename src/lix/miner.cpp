@@ -112,15 +112,16 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
         done_mining = (l.get_special_y() > MAX_GAP_DEPTH) || !l.is_solid();
         break;
 
-    // This lists all other frames that have no case. We don't want to use
-    // 'default:' to make explicit the two ranges of frames.
     case 2:
     case 3:
     case 4:
-        // downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH + 1);
-        // done_mining = (l.get_special_y() > MAX_GAP_DEPTH + 1) || !l.is_solid();
-        // break;
-    case 11:
+        // like in frame 5 we allow one extra pixel for lowering the miner.
+        downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH + 1);
+        done_mining = (l.get_special_y() > MAX_GAP_DEPTH + 1) || !l.is_solid();
+        break;
+
+    // This lists all other frames that have no case. We don't want to use
+    // 'default:' to make explicit the two ranges of frames.    case 11:
     case 12:
     case 13:
     case 14:
@@ -176,16 +177,18 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
         if (l.get_frame() == 6) {
             if (l.get_special_x() & (1 << 0))
                 downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
-            done_mining = !l.is_solid()
-                       && !l.is_solid(0, 3)
-                       && !(l.get_special_x() & (1 << 0));
+            done_mining = (!l.is_solid()
+                        && !l.is_solid(0, 3)    // not there for frames 7 and 10
+                        && !(l.get_special_x() & (1 << 0)) )
+                        || (l.get_special_y() > MAX_GAP_DEPTH);
         }
         else {
             if (l.get_special_x() & (1 << 2))
                 downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
-            done_mining = !l.is_solid()
-                       && !l.is_solid(0, 3)
-                       && !(l.get_special_x() & (1 << 2));
+            done_mining = (!l.is_solid()
+                        && !l.is_solid(0, 3)    // not there for frames 7 and 10
+                        && !(l.get_special_x() & (1 << 2)) )
+                        || (l.get_special_y() > MAX_GAP_DEPTH);
         }
 
         break;
@@ -208,12 +211,14 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
         if (l.get_frame() == 7) {
             if (l.get_special_x() & (1 << 1))
                 downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
-            done_mining = !l.is_solid() && !(l.get_special_x() & (1 << 1));
+            done_mining = (!l.is_solid() && !(l.get_special_x() & (1 << 1)))
+                        || (l.get_special_y() > MAX_GAP_DEPTH);
         }
         else {
             if (l.get_special_x() & (1 << 3))
                 downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
-            done_mining = !l.is_solid() && !(l.get_special_x() & (1 << 3));
+            done_mining = (!l.is_solid() && !(l.get_special_x() & (1 << 3)))
+                        || (l.get_special_y() > MAX_GAP_DEPTH);
         }
         break;
 
@@ -221,7 +226,8 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
         if (l.get_special_x() & (1 << 1))
             downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
         // don't allow_one_air_under_foot
-        done_mining = !l.is_solid() && !(l.get_special_x() & (1 << 1));
+        done_mining = (!l.is_solid() && !(l.get_special_x() & (1 << 1)))
+                    || (l.get_special_y() > MAX_GAP_DEPTH);
 
     }
 
