@@ -42,7 +42,7 @@ static int move_miner_down(Lixxie& l, int max_depth)
     if (!l.is_solid())
         // still no ground after moving down -> move back up and
         // cancel miner later in the code
-        l.move_up(max_depth - l.get_special_y());
+        l.move_up(max_depth - downwards_movement_this_frame);
     else
         l.set_special_y(l.get_special_y() + downwards_movement_this_frame);
 
@@ -56,8 +56,7 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
     int steel_hit = 0;
     bool done_mining = false;
     int downwards_movement_this_frame = 0; // miner->faller gets no free pixels
-    //bool allow_one_air_under_foot = false;// make the terrain check as coarse
-                                           // as before commit 4fc7b0b1ab9
+
     switch (l.get_frame()) {
     case 1:
         // this was in case 0 previously. But we want to remove all the
@@ -122,7 +121,8 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
         break;
 
     // This lists all other frames that have no case. We don't want to use
-    // 'default:' to make explicit the two ranges of frames.    case 11:
+    // 'default:' to make explicit the two ranges of frames.
+    case 11:
     case 12:
     case 13:
     case 14:
@@ -157,79 +157,55 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
         done_mining = (l.get_special_y() > MAX_GAP_DEPTH) || !l.is_solid();
         break;
 
-    case 6:
-    case 9:
-        l.move_ahead();
-        // if we already moved down after the miner stroke,
-        // then move horizontally now
-        if (l.get_special_y() == 0) {
-            l.move_down(1);
-            downwards_movement_this_frame = 1;
-            // the spritesheet currently look as if she moves according to a
-            // low-res mining slope, let's fix that like so for now
-            l.set_y(l.get_y() + 1);
-        }
-        else {
-            l.set_special_y(l.get_special_y() - 1);
-        }
-
-        //  && !l.is_solid(0, 3) --> allow_one_air_under_foot
-        if (l.get_frame() == 6) {
-            if (l.get_special_x() & (1 << 0))
-                downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
-            done_mining = (!l.is_solid()
-                        && !l.is_solid(0, 3)    // not there for frames 7 and 10
-                        && !(l.get_special_x() & (1 << 0)) )
-                        || (l.get_special_y() > MAX_GAP_DEPTH);
-        }
-        else {
-            if (l.get_special_x() & (1 << 2))
-                downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
-            done_mining = (!l.is_solid()
-                        && !l.is_solid(0, 3)    // not there for frames 7 and 10
-                        && !(l.get_special_x() & (1 << 2)) )
-                        || (l.get_special_y() > MAX_GAP_DEPTH);
-        }
-
-        break;
-
-    case 7:
+    case  6:
+    case  7:
+    case  8:
+    case  9:
     case 10:
-        l.move_ahead();
-        // if we already moved down after the miner stroke,
-        // then move horizontally now
-        if (l.get_special_y() == 0) {
-            l.move_down(1);
-            downwards_movement_this_frame = 1;
-        }
-        else {
-            l.set_special_y(l.get_special_y() - 1);
-        }
-        // here, the graphics match again
+        // horizontal movement
+        if (l.get_frame() != 8) {
+            l.move_ahead();
+            // if we already moved down after the miner stroke,
+            // then move horizontally now
+            if (l.get_special_y() == 0) {
+                l.move_down(1);
+                downwards_movement_this_frame = 1;
 
-        // don't allow_one_air_under_foot
-        if (l.get_frame() == 7) {
-            if (l.get_special_x() & (1 << 1))
-                downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
-            done_mining = (!l.is_solid() && !(l.get_special_x() & (1 << 1)))
-                        || (l.get_special_y() > MAX_GAP_DEPTH);
+                if (l.get_frame() == 6 || l.get_frame() == 9)
+                    // the spritesheet currently look as if she moves according
+                    // to a low-res mining slope, let's fix the code for now
+                    l.set_y(l.get_y() + 1);
+            }
+            else {
+                l.set_special_y(l.get_special_y() - 1);
+            }
         }
-        else {
-            if (l.get_special_x() & (1 << 3))
-                downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
-            done_mining = (!l.is_solid() && !(l.get_special_x() & (1 << 3)))
-                        || (l.get_special_y() > MAX_GAP_DEPTH);
+        // done moving ahead in frames 6, 7, 9, 10.
+
+        // do this in all 5 frames
+        {
+            int bit_to_check = l.get_frame() ==  6 ? (1 << 0)
+                             : l.get_frame() ==  7 ? (1 << 1)
+                             : l.get_frame() ==  8 ? (1 << 1)
+                             : l.get_frame() ==  9 ? (1 << 2)
+                             :                       (1 << 3); // frame == 10
+
+            if (l.get_special_x() & bit_to_check)
+                downwards_movement_this_frame = move_miner_down(l,
+                                                MAX_GAP_DEPTH);
+
+            done_mining = !  l.is_solid()
+                       && ! (l.get_special_x() & bit_to_check);
+
+            if (l.get_frame() == 6 || l.get_frame() == 9)
+                // in these frames, some leeway under the foot is allowed
+                done_mining = done_mining && ! l.is_solid(0, 3);
+
+            done_mining = done_mining || (l.get_special_y() > MAX_GAP_DEPTH);
         }
         break;
-
-    case 8:
-        if (l.get_special_x() & (1 << 1))
-            downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
-        // don't allow_one_air_under_foot
-        done_mining = (!l.is_solid() && !(l.get_special_x() & (1 << 1)))
-                    || (l.get_special_y() > MAX_GAP_DEPTH);
-
     }
+    // end switch (l.get_frame())
 
     // if we haven't thrown the axe earlier
     if (l.get_ac() == LixEn::MINER) {
