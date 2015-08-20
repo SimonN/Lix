@@ -42,7 +42,7 @@ static int move_miner_down(Lixxie& l, int max_depth)
     if (!l.is_solid())
         // still no ground after moving down -> move back up and
         // cancel miner later in the code
-        l.move_up(max_depth - downwards_movement_this_frame);
+        l.move_up(downwards_movement_this_frame);
     else
         l.set_special_y(l.get_special_y() + downwards_movement_this_frame);
 
