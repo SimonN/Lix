@@ -107,8 +107,8 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
 
         // reset the counter for allowed downward movement per frame.
         l.set_special_y(0);
-        downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
-        done_mining = (l.get_special_y() > MAX_GAP_DEPTH) || !l.is_solid();
+        downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH + 1);
+        done_mining = (l.get_special_y() > MAX_GAP_DEPTH + 1) || !l.is_solid();
         break;
 
     case 2:
