@@ -112,4 +112,6 @@ private:
         hint_plus,
         hint_minus;
 
+    LixEn::Ac skill_last_set_on; // to reactivate after loading a state
+
 };

@@ -207,13 +207,9 @@ void GameplayPanel::set_like_tribe(const Tribe* tr)
 {
     if (!tr) return;
 
-    LixEn::Ac skill_on_before = LixEn::NOTHING;
-
     // instead of clearing all panels, set them to the greyed-out skill,
     // even if 0 skills will be available throughout the level
     for (size_t i = 0; i < skill.size() && i < useR->skill_sort.size(); ++i) {
-        if (skill[i].get_on())
-            skill_on_before = skill[i].get_skill();
         skill[i].set_skill(useR->skill_sort[i]);
     }
 
@@ -257,7 +253,7 @@ void GameplayPanel::set_like_tribe(const Tribe* tr)
     nuke_multi .set_on  (tr->nuke);
     spec_tribe .set_text(tr->get_name());
 
-    set_skill_on(skill_on_before);
+    set_skill_on(skill_last_set_on);
 
     set_draw_required();
 }
@@ -318,8 +314,10 @@ void GameplayPanel::set_skill_on(const LixEn::Ac ac)
         skill[i].set_off();
 
     SkBIt b = button_by_skill(ac);
-    if (b != skill.end() && b->get_number() != 0)
+    if (b != skill.end() && b->get_number() != 0) {
         b->set_on();
+        skill_last_set_on = ac;
+    }
 }
 
 
