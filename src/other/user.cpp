@@ -119,9 +119,9 @@ User::User()
     prioinv_middle         (true),
     prioinv_right          (true),
 
-    screen_scaling         (2),
+    screen_scaling         (1), // 0 = stretch, 1 = aspect ratio, 2 = integer
     screen_border_colored  (true),
-    screen_windowed        (false),
+    screen_windowed        (true),
     arrows_replay          (true),
     arrows_network         (true),
     game_show_tooltips     (true),

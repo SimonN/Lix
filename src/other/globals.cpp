@@ -30,8 +30,8 @@ Globals::Globals()
     user_name            (""),
     user_name_ask        (false),
 
-    screen_resolution_x  ( 640),
-    screen_resolution_y  ( 480),
+    screen_resolution_x  (   0),
+    screen_resolution_y  (   0),
     screen_windowed_x    ( 640),
     screen_windowed_y    ( 480),
     screen_vsync         (false),
