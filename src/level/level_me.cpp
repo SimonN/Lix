@@ -6,22 +6,27 @@
 
 LevelMetaData::LevelMetaData()
 :
-    format(FORMAT_NOTHING)
+    format  (FORMAT_NOTHING),
+    built   ("0"),
+    initial (0),
+    required(0)
 {
 }
 
 
 
 LevelMetaData::LevelMetaData(const Filename& fn)
+:
+    format  (FORMAT_NOTHING),
+    built   ("0"),
+    initial (0),
+    required(0)
 {
     format = static_cast <FileFormat> (Level::get_file_format(fn));
 
     if      (format == FORMAT_LIX)     read_metadata_lix    (fn);
     else if (format == FORMAT_BINARY)  read_metadata_binary (fn);
     else if (format == FORMAT_LEMMINI) read_metadata_lemmini(fn);
-
-    if (format == FORMAT_BINARY || format == FORMAT_LEMMINI)
-        built = Date("0");
 }
 
 

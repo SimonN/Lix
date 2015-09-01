@@ -35,7 +35,7 @@ void Level::clear()
 {
     status = BAD_EMPTY;
 
-    built            = "";
+    built            = Date("0");
     players_intended = 1;
 
     author        = "";
