@@ -1,7 +1,8 @@
-$BUILT 2014-06-04 10:07:30
+$BUILT 2015-08-21 11:02:02
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Consecutive skill time trial
+$HINT_ENGLISH Use of some skills may seem a complete waste, but not when a timer is involved.  You'll see..
 
 #SIZE_X 1120
 #SIZE_Y 400
@@ -13,24 +14,21 @@ $ENGLISH Consecutive skill time trial
 #BACKGROUND_GREEN 0
 #BACKGROUND_BLUE 0
 
-#SECONDS 140
+#SECONDS 130
 #INITIAL 1
 #REQUIRED 1
 #SPAWN_INTERVAL 53
 #SPAWN_INTERVAL_FAST 4
 
-#JUMPER 1
+#WALKER 1
 #CLIMBER 1
 #FLOATER 1
-#WALKER 1
 #BUILDER 1
 #PLATFORMER 1
 #BASHER 1
 #MINER 1
 #DIGGER 1
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
+#JUMPER 1
 
 :matt/beach/decor/bonfire.D: 1006 345
 :matt/beach/decor/moon.D: 370 8

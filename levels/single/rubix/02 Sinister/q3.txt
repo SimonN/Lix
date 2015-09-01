@@ -1,7 +1,9 @@
-$BUILT 2014-02-27 16:04:44
+$BUILT 2015-08-23 11:16:07
 $AUTHOR Rubix
 $GERMAN 
-$ENGLISH The A Team - dun dun dun dun
+$ENGLISH Totally Serial
+
+$HINT_ENGLISH Batters can be useful to cancel an action
 
 #SIZE_X 640
 #SIZE_Y 400
@@ -15,22 +17,16 @@ $ENGLISH The A Team - dun dun dun dun
 
 #SECONDS 0
 #INITIAL 25
-#REQUIRED 24
+#REQUIRED 19
 #SPAWN_INTERVAL 14
 #SPAWN_INTERVAL_FAST 4
 
-#WALKER 2
-#JUMPER 1
-#BLOCKER 2
 #EXPLODER2 4
 #PLATFORMER 5
 #DIGGER 1
-#BATTER 2
-#CUBER 1
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
+#JUMPER 2
+#BATTER 1
+#CUBER 2
 
 :matt/bricks/Hatch.H: 14 48
 :matt/bricks/Hatch.H: 16 246

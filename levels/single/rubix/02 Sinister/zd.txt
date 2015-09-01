@@ -2,7 +2,7 @@ $BUILT 2014-02-27 19:01:48
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Infinite probability
-
+$HINT_ENGLISH This can look like a nightmare, but its very simple.  You only need 2 of these abilities, and a lot of clicking to speed them through the map.
 #SIZE_X 1280
 #SIZE_Y 640
 #TORUS_X 0

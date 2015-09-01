@@ -1,8 +1,10 @@
-$BUILT 2014-02-27 15:32:59
+$BUILT 2015-08-31 09:18:52
 $AUTHOR Rubix
 $GERMAN 
-$ENGLISH Undercutting the competition
-$HINT_ENGLISH What is this portal about?  Maybe I'll find out later...
+$ENGLISH Ye Olde Wishing Well
+
+$HINT_ENGLISH I wish we were home<br>Anyone have a coin for me to throw in the well?
+
 #SIZE_X 640
 #SIZE_Y 400
 #TORUS_X 0
@@ -15,27 +17,22 @@ $HINT_ENGLISH What is this portal about?  Maybe I'll find out later...
 
 #SECONDS 0
 #INITIAL 70
-#REQUIRED 70
+#REQUIRED 69
 #SPAWN_INTERVAL 33
 #SPAWN_INTERVAL_FAST 4
 
-#CLIMBER 1
+#WALKER 1
+#CLIMBER 2
 #FLOATER 1
-#BASHER 3
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
+#EXPLODER 1
+#BUILDER 2
+#BASHER 1
+#MINER 2
+#JUMPER 1
 
 :matt/carnival/Hatch.H: 480 -6 r
 
 :matt/carnival/Goal.G: 64 240
-:geoo/abstract/goal.G: 64 64
 
 :matt/water.W: 64 352
 :matt/water.W: 96 352
@@ -76,6 +73,7 @@ $HINT_ENGLISH What is this portal about?  Maybe I'll find out later...
 :matt/water.W: 0 352
 :matt/water.W: 0 368
 
+:matt/carnival/15: 312 250
 :matt/carnival/26: 480 227
 :matt/carnival/26: 544 227
 :matt/carnival/26: 528 26
@@ -87,13 +85,11 @@ $HINT_ENGLISH What is this portal about?  Maybe I'll find out later...
 :matt/carnival/04: 608 227
 :matt/carnival/27: 528 104
 :matt/carnival/27: 432 26
-:matt/carnival/04: 608 163
 :matt/carnival/04: 608 99
 :matt/carnival/04: 608 35
 :matt/carnival/26: 416 227
 :matt/carnival/26: 192 305
 :matt/carnival/26: 320 305
-:matt/carnival/04: 384 289
 :matt/carnival/27: 256 305
 :matt/carnival/27: 128 305
 :matt/carnival/27: 416 305
@@ -105,16 +101,9 @@ $HINT_ENGLISH What is this portal about?  Maybe I'll find out later...
 :matt/carnival/04: 479 291
 :matt/carnival/07: 256 8 r
 :matt/carnival/06: 64 304 r
-:matt/carnival/07: 142 210 r
+:matt/carnival/07: 142 210 rrr
 :matt/steel/32x64.S: 352 227
 :matt/carnival/07: 599 3 r
 :matt/carnival/04: 32 357
 :matt/carnival/04: 32 293
-:geoo/steel/dark_32x16o.S: 64 64
-:geoo/steel/dark_32x16o.S: 64 112
-:geoo/steel/dark_32x16o.S: 96 80 rrr
-:geoo/steel/dark_32x16o.S: 48 80 rrr
-:geoo/steel/dark_16x16o.S: 96 64
-:geoo/steel/dark_16x16o.S: 96 112
-:geoo/steel/dark_16x16o.S: 48 112
-:geoo/steel/dark_16x16o.S: 48 64
+:matt/steel/16x32.S: 152 274

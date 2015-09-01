@@ -2,7 +2,8 @@ $BUILT 2012-04-24 20:02:46
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Start thinking strategically
-
+$HINT_ENGLISH Think outside the box!
+$HINT_ENGLISH Is there really enough time to go through all those obstacles??
 #SIZE_X 1000
 #SIZE_Y 400
 #TORUS_X 0

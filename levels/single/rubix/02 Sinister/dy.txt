@@ -2,7 +2,7 @@ $BUILT 2014-02-28 22:44:27
 $AUTHOR rubix
 $GERMAN 
 $ENGLISH Stone crazy
-
+$HINT_ENGLISH Thats one hell of a leap!
 #SIZE_X 784
 #SIZE_Y 400
 #TORUS_X 0

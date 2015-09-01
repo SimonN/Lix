@@ -1,8 +1,10 @@
-$BUILT 2014-06-04 10:11:00
+$BUILT 2015-08-31 14:48:45
 $AUTHOR Rubix
 $GERMAN 
-$ENGLISH Overexposure
-$HINT_ENGLISH Welcome to Rubix's Adventure!
+$ENGLISH Home?
+
+$HINT_ENGLISH There are no cliffs, so how can this massive rockface appear on our beach?<br>Everyone appears friendly, you ask where this rockface came from.<br>The responses are confusing as they say it has always been there<br>You tell them your story, and people look around as if you are crazy<br>"Well we don't really believe what you are all telling us, however we<br>also see some truth to it, as how can a group of you all have the same story<br>so we are willing to help you find answers to your questions" Lets get moving..<br>
+
 #SIZE_X 640
 #SIZE_Y 400
 #TORUS_X 0
@@ -14,30 +16,28 @@ $HINT_ENGLISH Welcome to Rubix's Adventure!
 #BACKGROUND_BLUE 255
 
 #SECONDS 0
-#INITIAL 30
-#REQUIRED 5
-#SPAWN_INTERVAL 33
-#SPAWN_INTERVAL_FAST 4
+#INITIAL 80
+#REQUIRED 79
+#SPAWN_INTERVAL 36
+#SPAWN_INTERVAL_FAST 16
 
-#BASHER 5
-#DIGGER 5
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
+#EXPLODER 1
+#MINER 1
+#JUMPER 1
 
 :matt/beach/decor/sun.D: -23 -23
 
-:matt/beach/Hatch.H: 434 9 r
+:matt/beach/Hatch.H: 425 9 r
 
 :matt/beach/goal.G: 528 304
 
+:simon/water_thin.W: 278 306
+:simon/water_thin.W: 327 307
+:simon/water_thin.W: 376 307
+:simon/water_thin.W: 166 274
+
+:matt/earth/14: 272 32
+:matt/earth/14: 272 64
 :matt/beach/decor/grass11: 67 214
 :matt/beach/decor/grass08: 398 151
 :matt/beach/daytime/01: 247 306
@@ -45,7 +45,7 @@ $HINT_ENGLISH Welcome to Rubix's Adventure!
 :matt/beach/daytime/13: 164 265
 :matt/beach/daytime/06: 237 320
 :matt/beach/daytime/01: 130 361
-:matt/beach/decor/grass11: 160 277
+:matt/beach/decor/grass11: 157 277
 :matt/beach/daytime/04: 76 243
 :matt/beach/decor/beach ball: 96 235
 :matt/beach/daytime/04: -11 186
@@ -53,12 +53,12 @@ $HINT_ENGLISH Welcome to Rubix's Adventure!
 :matt/beach/decor/grass08: 34 241
 :matt/beach/daytime/04: 2 274
 :matt/beach/decor/umbrella_red: 395 257
-:matt/beach/daytime/06: 318 321
+:matt/beach/daytime/06: 321 327
 :matt/beach/daytime/03: 498 373
-:matt/beach/daytime/06: 292 104
+:matt/beach/daytime/06: 318 97
 :matt/beach/daytime/14: 445 108 r
-:matt/beach/decor/shovel: 365 23
-:matt/beach/daytime/06: 318 99
+:matt/beach/decor/shovel: 366 15
+:matt/beach/daytime/06: 322 97
 :matt/beach/daytime/01: 484 136
 :matt/beach/decor/grass08: 553 123
 :matt/beach/daytime/06: 443 78
@@ -88,3 +88,4 @@ $HINT_ENGLISH Welcome to Rubix's Adventure!
 :matt/beach/decor/grass11: 115 113
 :matt/beach/decor/grass06: 158 10
 :matt/beach/daytime/02: -41 148
+:matt/earth/11: 256 80

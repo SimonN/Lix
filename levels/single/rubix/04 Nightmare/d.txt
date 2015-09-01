@@ -1,4 +1,4 @@
-$BUILT 2014-02-27 19:14:21
+$BUILT 2015-08-27 21:50:39
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Twos Complement
@@ -19,18 +19,14 @@ $ENGLISH Twos Complement
 #SPAWN_INTERVAL 28
 #SPAWN_INTERVAL_FAST 4
 
+#WALKER 1
 #CLIMBER 2
 #FLOATER 1
-#WALKER 1
-#JUMPER 1
+#BUILDER 1
+#PLATFORMER 1
 #BASHER 2
 #DIGGER 2
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
+#JUMPER 1
 
 :matt/carnival/Hatch.H: 896 -16 r
 :matt/carnival/Hatch.H: 512 0 r
@@ -42,6 +38,13 @@ $ENGLISH Twos Complement
 
 :geoo/construction/sawblade.F: 686 296
 :geoo/construction/sawblade.F: 678 190
+:geoo/construction/Laser_hz_64.F: 96 316
+:geoo/construction/Laser_hz_64.F: 160 316
+:geoo/construction/Laser_hz_64.F: 224 316
+:geoo/construction/Laser_hz_64.F: 288 316
+:geoo/construction/Laser_hz_64.F: 352 316
+:geoo/construction/Laser_hz_64.F: 416 316
+:geoo/construction/Laser_hz_64.F: 448 316
 
 :geoo/steel/16x16o.S: 22 192
 :matt/carnival/13: 512 322
@@ -129,13 +132,9 @@ $ENGLISH Twos Complement
 :matt/carnival/04: 656 400 r
 :matt/carnival/05: 592 400 r
 :matt/carnival/04: 528 400 r
-:matt/carnival/05: 464 400 r
-:matt/carnival/04: 400 400 r
 :matt/carnival/05: 336 400 r
 :matt/carnival/04: 272 400 r
 :matt/carnival/05: 208 400 r
-:matt/carnival/04: 144 400 r
-:matt/carnival/05: 80 400 r
 :matt/carnival/04: 16 400 r
 :matt/carnival/05: -48 400 r
 :matt/carnival/10: 624 304 f

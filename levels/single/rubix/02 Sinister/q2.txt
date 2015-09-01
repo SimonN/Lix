@@ -1,8 +1,8 @@
-$BUILT 2012-08-25 19:01:27
+$BUILT 2015-08-22 11:32:04
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Obvious? Maybe not.
-
+$HINT_ENGLISH You know you have to save them all, and you know you must block.   So you must know what has to happen to save em all!
 #SIZE_X 800
 #SIZE_Y 560
 #TORUS_X 0
@@ -13,7 +13,7 @@ $ENGLISH Obvious? Maybe not.
 #BACKGROUND_GREEN 0
 #BACKGROUND_BLUE 0
 
-#SECONDS 109
+#SECONDS 0
 #INITIAL 75
 #REQUIRED 75
 #SPAWN_INTERVAL 25
@@ -23,14 +23,6 @@ $ENGLISH Obvious? Maybe not.
 #BUILDER 2
 #MINER 1
 #DIGGER 1
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
 
 :matt/underworld/Hatch.H: 26 24
 

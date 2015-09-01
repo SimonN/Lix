@@ -2,7 +2,8 @@ $BUILT 2014-02-27 22:50:34
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH The Armory
-
+$HINT_ENGLISH Better shave a corner off that high block dont ya think?
+$HINT_ENGLISH The end may not be obvious.   youll definitely want to jump against something to turn back!
 #SIZE_X 800
 #SIZE_Y 380
 #TORUS_X 0

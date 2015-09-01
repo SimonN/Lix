@@ -1,8 +1,10 @@
-$BUILT 2015-08-22 11:03:45
+$BUILT 2015-08-31 08:36:54
 $AUTHOR Rubix
 $GERMAN 
-$ENGLISH rorriMMirror
-$HINT_ENGLISH Don't get hung up on thinking both exits need to be used.
+$ENGLISH Candy Is Dandy
+
+$HINT_ENGLISH mmmm Candy....
+
 #SIZE_X 620
 #SIZE_Y 400
 #TORUS_X 0
@@ -15,16 +17,20 @@ $HINT_ENGLISH Don't get hung up on thinking both exits need to be used.
 
 #SECONDS 0
 #INITIAL 50
-#REQUIRED 48
-#SPAWN_INTERVAL 15
+#REQUIRED 49
+#SPAWN_INTERVAL 52
 #SPAWN_INTERVAL_FAST 2
 
 #WALKER 1
 #CLIMBER 1
 #FLOATER 1
-#EXPLODER2 1
+#EXPLODER 1
 #BLOCKER 2
-#PLATFORMER 4
+#BUILDER 2
+#PLATFORMER 2
+#MINER 1
+#DIGGER 1
+#JUMPER 1
 
 :matt/marble/Hatch.H: 224 16
 :matt/marble/Hatch.H: 336 16 r

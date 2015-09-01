@@ -2,7 +2,7 @@ $BUILT 2014-02-28 15:25:11
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Super Troopers
-
+$HINT_ENGLISH Dont forget that theres enough climbers and floaters for every Lix here :)
 #SIZE_X 960
 #SIZE_Y 1220
 #TORUS_X 0

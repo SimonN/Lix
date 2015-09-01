@@ -1,12 +1,12 @@
 Wilkommen zum Epic Adventure!
 Ein komplettes Lix-Puzzlespiel.
 
-Viel Spaß mit über 150 Puzzles
+Viel Spaß mit über 170 Puzzles
 in vier Schwierigkeitsgraden
 und einem Bonus-Abenteuer.
 
 Pleasant & Sinister
-(oft mit vielen Nebenloesungen)
+(oft mit vielen Nebenlösungen)
 
 Perplexing & Nightmare
 (meist mit nur einer Lösung)
@@ -18,4 +18,4 @@ Simon, Akseli, Ramond
 Für Lösungstipps schreib eine
 E-Mail auf Englisch an:
 rubix01(at)gmail.com
-Rubix (V3 March 2014)
+Rubix (V4 September 2015)

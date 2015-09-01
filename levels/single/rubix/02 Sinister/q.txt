@@ -2,7 +2,7 @@ $BUILT 2014-06-04 10:22:52
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH With a hop, skip and a jump
-
+$HINT_ENGLISH Time is short, no doubt you need more than 1 working on these bridges.
 #SIZE_X 1280
 #SIZE_Y 396
 #TORUS_X 0

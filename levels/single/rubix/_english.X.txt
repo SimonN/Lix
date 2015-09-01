@@ -1,9 +1,9 @@
 Welcome to Epic Adventure!
 A full featured Lix puzzle game.
 
-Enjoy these 150+ puzzles in
-Four difficulty ratings
-(+bonus adventure)
+Enjoy these 170+ puzzles in
+four difficulty ratings
+and two bonus adventures.
 
 Pleasant & Sinister puzzles
 (Often many alternate solutions)
@@ -18,4 +18,4 @@ Simon, Akseli, Ramond
 
 
 E-mail rubix01(at)gmail.com for hints!
-Rubix (V3 March 2014)
+Rubix (V4 September 2015)

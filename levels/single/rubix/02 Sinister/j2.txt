@@ -1,8 +1,8 @@
-$BUILT 2012-06-23 16:01:03
+$BUILT 2015-08-22 10:51:34
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Burning for you
-
+$HINT_ENGLISH 2 climbers and 1 bat, need I say more?
 #SIZE_X 640
 #SIZE_Y 400
 #TORUS_X 0
@@ -25,12 +25,6 @@ $ENGLISH Burning for you
 #BASHER 1
 #MINER 1
 #BATTER 1
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
 
 :matt/underworld/Hatch.H: 0 32
 
@@ -39,13 +33,13 @@ $ENGLISH Burning for you
 :matt/underworld/Lava.W: 240 384
 :matt/underworld/Lava.W: 272 384
 
-:matt/underworld/07: 484 298 frr
+:matt/underworld/07: 488 290 frr
 :matt/underworld/09a: 514 302
-:matt/underworld/09a: 510 302
+:matt/underworld/09a: 512 300
 :matt/underworld/09a: 368 204
 :matt/underworld/09b: 360 204
 :matt/underworld/09c: 132 238
-:matt/underworld/09c: 23 172
+:matt/underworld/09c: 22 170
 :matt/underworld/09a: 230 224 r
 :matt/underworld/09a: 604 300
 :matt/underworld/09a: 518 302

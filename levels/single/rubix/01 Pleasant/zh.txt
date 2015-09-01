@@ -2,7 +2,7 @@ $BUILT 2014-02-28 15:26:06
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Looping
-
+$HINT_ENGLISH The area under the hatch is actually the key to success of the level.
 #SIZE_X 640
 #SIZE_Y 400
 #TORUS_X 0

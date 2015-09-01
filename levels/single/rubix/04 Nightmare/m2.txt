@@ -1,4 +1,4 @@
-$BUILT 2014-02-27 19:16:10
+$BUILT 2015-08-24 20:44:55
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Earthcapade
@@ -9,9 +9,9 @@ $ENGLISH Earthcapade
 #TORUS_Y 0
 #START_X 0
 #START_Y 380
-#BACKGROUND_RED 0
-#BACKGROUND_GREEN 37
-#BACKGROUND_BLUE 0
+#BACKGROUND_RED 143
+#BACKGROUND_GREEN 161
+#BACKGROUND_BLUE 255
 
 #SECONDS 0
 #INITIAL 40
@@ -25,12 +25,6 @@ $ENGLISH Earthcapade
 #PLATFORMER 3
 #BASHER 1
 #MINER 1
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
 
 :matt/earth/Hatch.H: 154 2 r
 
@@ -156,7 +150,6 @@ $ENGLISH Earthcapade
 :matt/earth/10: 145 374 r
 :matt/earth/04: -94 39
 :matt/earth/04: -111 -27 r
-:matt/steel/32x64.S: 256 0
 :matt/earth/01: 639 34
 :matt/earth/05: 573 47 fr
 :matt/earth/01: 576 46
@@ -185,3 +178,4 @@ $ENGLISH Earthcapade
 :matt/earth/09: 446 264
 :matt/earth/07: 760 -15
 :matt/earth/06: 678 -12
+:geoo/steel/32x64o.S: 256 0

@@ -2,7 +2,7 @@ $BUILT 2012-05-21 13:35:26
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Fast money
-
+$HINT_ENGLISH You'll find success when you release the rest..
 #SIZE_X 640
 #SIZE_Y 1200
 #TORUS_X 0

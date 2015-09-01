@@ -1,8 +1,8 @@
-$BUILT 2014-06-04 10:21:44
+$BUILT 2015-08-22 09:32:27
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH I'm holding out for a hero...
-
+$HINT_ENGLISH It only takes one to save the rest ;)
 #SIZE_X 1120
 #SIZE_Y 400
 #TORUS_X 0
@@ -19,18 +19,13 @@ $ENGLISH I'm holding out for a hero...
 #SPAWN_INTERVAL 38
 #SPAWN_INTERVAL_FAST 4
 
-#JUMPER 6
 #WALKER 1
+#RUNNER 1
 #BUILDER 1
 #BASHER 2
 #MINER 1
 #DIGGER 1
-#RUNNER 1
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
+#JUMPER 6
 
 :matt/beach/decor/bonfire.D: 1093 348
 :matt/beach/decor/bonfire.D: 214 334
@@ -40,7 +35,7 @@ $ENGLISH I'm holding out for a hero...
 :matt/beach/Hatch.H: 16 144
 
 :matt/beach/goal.G: 1008 332
-:matt/beach/goal.G: 86 252
+:matt/beach/goal.G: 104 314
 
 :matt/water.W: 256 384
 :matt/water.W: 288 384

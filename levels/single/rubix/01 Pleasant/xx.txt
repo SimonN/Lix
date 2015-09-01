@@ -2,6 +2,8 @@ $BUILT 2014-02-27 14:41:03
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Scared of heights
+$HINT_ENGLISH Why so many walkers?
+$HINT_ENGLISH A Quote from the movie Labyrinth. "Turn back Sarah.  Turn back before its too late"
 
 #SIZE_X 740
 #SIZE_Y 400

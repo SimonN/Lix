@@ -2,7 +2,7 @@ $BUILT 2014-02-27 22:55:29
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Are we learning yet?
-
+$HINT_ENGLISH If you are reading this, then you havent even looked at the whole landscape.  Now get to work..
 #SIZE_X 1000
 #SIZE_Y 560
 #TORUS_X 0

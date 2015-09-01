@@ -1,8 +1,9 @@
-$BUILT 2014-02-27 15:11:58
+$BUILT 2015-08-21 10:22:11
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Might as well jump
-
+$HINT_ENGLISH The path you create here is not completely obvious, try different things before looking at the next hint for this one.
+$HINT_ENGLISH You will end up helping every Lix jump into the tunnel to walk up towards the exit.
 #SIZE_X 960
 #SIZE_Y 560
 #TORUS_X 0
@@ -21,16 +22,9 @@ $ENGLISH Might as well jump
 
 #CLIMBER 1
 #FLOATER 1
-#JUMPER 30
 #BASHER 1
 #MINER 1
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
+#JUMPER 25
 
 :matt/bricks/Hatch.H: 80 448
 

@@ -2,7 +2,7 @@ $BUILT 2014-02-28 15:26:14
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Chiller Thriller
-
+$HINT_ENGLISH Better that you finish this without any hints.  Things will start getting harder from here on.   Put everything you have learned to use, dont give up, you'll do it! Theres nothing difficult, its all just patience and testing.
 #SIZE_X 1120
 #SIZE_Y 400
 #TORUS_X 0

@@ -2,7 +2,7 @@ $BUILT 2012-04-30 07:49:52
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Handle with care
-
+$HINT_ENGLISH Look around and you shall find..
 #SIZE_X 640
 #SIZE_Y 560
 #TORUS_X 0

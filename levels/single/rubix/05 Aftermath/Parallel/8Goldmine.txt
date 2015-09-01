@@ -1,7 +1,9 @@
-$BUILT 2014-01-31 09:48:48
+$BUILT 2015-08-21 12:13:15
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Gold Exposure
+
+$HINT_ENGLISH There it is! That must be the way back to our reality!
 
 #SIZE_X 640
 #SIZE_Y 400
@@ -19,16 +21,10 @@ $ENGLISH Gold Exposure
 
 #CLIMBER 1
 #FLOATER 1
-#BUILDER 1
-#BLOCKER 1
 #EXPLODER2 2
+#BLOCKER 1
+#BUILDER 1
 #DIGGER 4
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
 
 :matt/goldmine/GoalTop.D: 480 176
 :matt/goldmine/minecart.D: 256 224
@@ -43,7 +39,7 @@ $ENGLISH Gold Exposure
 :matt/goldmine/Hatch.H: 592 0 r
 :matt/goldmine/Hatch.H: 592 0 r
 
-:matt/goldmine/Goal.G: 480 224
+:geoo/abstract/goal.G: 496 224
 
 :matt/underworld/Lava.W: 0 368
 :matt/underworld/Lava.W: 48 368

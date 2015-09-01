@@ -2,7 +2,7 @@ $BUILT 2014-02-27 18:38:16
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Depths of the ice cave
-
+$HINT_ENGLISH Starting out correct is half the battle.
 #SIZE_X 640
 #SIZE_Y 880
 #TORUS_X 0

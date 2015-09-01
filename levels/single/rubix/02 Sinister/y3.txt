@@ -2,7 +2,7 @@ $BUILT 2014-02-27 21:54:49
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH World 2-30
-
+$HINT_ENGLISH Yes, its like you are playing a mario brothers game.
 #SIZE_X 640
 #SIZE_Y 560
 #TORUS_X 0

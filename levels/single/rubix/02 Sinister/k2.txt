@@ -2,7 +2,7 @@ $BUILT 2014-02-27 19:09:53
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH The center of attention
-
+$HINT_ENGLISH Its staring you right in the face what needs to happen here.
 #SIZE_X 640
 #SIZE_Y 400
 #TORUS_X 0

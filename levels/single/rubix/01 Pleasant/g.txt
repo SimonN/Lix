@@ -2,7 +2,7 @@ $BUILT 2014-02-28 16:49:31
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH feLIX Baumgartner saves the day!
-
+$HINT_ENGLISH Whos is felix Baumgartner?... Better google it 
 #SIZE_X 640
 #SIZE_Y 2000
 #TORUS_X 0

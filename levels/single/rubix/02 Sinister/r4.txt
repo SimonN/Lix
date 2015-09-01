@@ -1,8 +1,8 @@
-$BUILT 2014-06-04 10:31:02
+$BUILT 2015-08-23 10:24:35
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Abstract painting at the beach
-
+$HINT_ENGLISH Theres only 1 place that can make any possible sense to mine... obviously!
 #SIZE_X 640
 #SIZE_Y 400
 #TORUS_X 0
@@ -13,24 +13,19 @@ $ENGLISH Abstract painting at the beach
 #BACKGROUND_GREEN 0
 #BACKGROUND_BLUE 0
 
-#SECONDS 95
+#SECONDS 96
 #INITIAL 50
 #REQUIRED 50
 #SPAWN_INTERVAL 4
 #SPAWN_INTERVAL_FAST 4
 
+#WALKER 1
+#RUNNER 1
 #CLIMBER 1
 #FLOATER 1
-#WALKER 1
-#JUMPER 2
 #BUILDER 1
 #MINER 1
-#RUNNER 1
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
+#JUMPER 2
 
 :matt/beach/decor/moon.D: 542 38
 

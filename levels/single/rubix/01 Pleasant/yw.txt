@@ -2,7 +2,7 @@ $BUILT 2014-02-27 14:42:33
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH The Interactive Rodent Simulation
-
+$HINT_ENGLISH You can start low, but staying high at the X is key to easy success
 #SIZE_X 640
 #SIZE_Y 400
 #TORUS_X 0

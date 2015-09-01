@@ -1,8 +1,10 @@
-$BUILT 2014-02-27 18:51:35
+$BUILT 2015-08-31 11:08:05
 $AUTHOR Rubix
 $GERMAN 
-$ENGLISH Movement denied
-$HINT_ENGLISH Holding back is the way forward here.
+$ENGLISH Need For Speed: Arctic Rush
+
+$HINT_ENGLISH OH NO! I hate the cold. <br>Lets stay close to eachother. Bodyheat is what we need.
+
 #SIZE_X 640
 #SIZE_Y 400
 #TORUS_X 0
@@ -15,27 +17,45 @@ $HINT_ENGLISH Holding back is the way forward here.
 
 #SECONDS 0
 #INITIAL 99
-#REQUIRED 99
+#REQUIRED 96
 #SPAWN_INTERVAL 4
 #SPAWN_INTERVAL_FAST 4
 
-#WALKER 20
-#JUMPER 4
+#WALKER 1
+#FLOATER 1
+#EXPLODER 3
 #BUILDER 1
+#PLATFORMER 1
 #BASHER 1
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
+#BATTER 1
 
-:matt/winter/Hatch.H: 224 -16
+:matt/winter/Hatch.H: 238 -16
 
 :matt/winter/Goal.G: -38 114
 
+:geoo/construction/Laser_hz_16.F: 320 70
+:geoo/construction/Laser_hz_16.F: 336 70
+:geoo/construction/Laser_vr_16.F: 342 60
+:geoo/construction/Laser_vr_16.F: 342 48
+:geoo/construction/Laser_hz_64.F: 284 42
+:geoo/construction/Laser_hz_64.F: 224 42
+:geoo/construction/Laser_hz_64.F: 396 90
+:geoo/construction/Laser_hz_64.F: 520 90
+:geoo/construction/Laser_hz_64.F: 460 90
+:geoo/construction/Laser_hz_64.F: 456 138
+:geoo/construction/Laser_hz_64.F: 396 138
+:geoo/construction/Laser_hz_64.F: 520 138
+:geoo/construction/Laser_hz_64.F: 460 186
+:geoo/construction/Laser_hz_64.F: 396 186
+:geoo/construction/Laser_hz_64.F: 520 186
+:geoo/construction/Laser_vr_16.F: 214 36
+:geoo/construction/Laser_vr_16.F: 214 20
+:geoo/construction/Laser_vr_16.F: 214 6
+:geoo/construction/Laser_hz_64.F: 336 90
+:geoo/construction/Laser_vr_16.F: 298 208
+:geoo/construction/Laser_vr_16.F: 298 224
+
+:matt/winter/06: 174 -10 r
 :matt/winter/06: -10 140
 :matt/winter/06: -10 90
 :matt/winter/06: 160 240
@@ -65,7 +85,6 @@ $HINT_ENGLISH Holding back is the way forward here.
 :matt/winter/06: 288 32 r
 :matt/winter/06: 368 224 r
 :matt/winter/06: 624 174 f
-:matt/winter/06: 320 224 r
 :matt/winter/06: 624 144
 :matt/winter/06: 432 224 r
 :matt/winter/06: 496 224 r
@@ -74,7 +93,8 @@ $HINT_ENGLISH Holding back is the way forward here.
 :matt/winter/06: 320 80 f
 :matt/winter/06: 320 80 fr
 :matt/winter/06: 235 309 r
-:matt/winter/04: 250 223
+:matt/winter/04: 250 226
+:matt/winter/06: 308 224 r
 :matt/winter/04: 196 265
 :matt/winter/04: 170 347
 :matt/winter/04: 229 305
@@ -126,3 +146,10 @@ $HINT_ENGLISH Holding back is the way forward here.
 :matt/winter/06: -10 48
 :matt/winter/09a: 96 276
 :matt/winter/06: 160 0
+:matt/winter/06: 96 -10 r
+:matt/winter/06: 32 -10 r
+:matt/winter/06: -30 -10 r
+:matt/winter/06: 176 -14 rd
+:matt/winter/06: 114 -14 rd
+:matt/winter/06: 52 -14 rd
+:matt/winter/06: -8 -14 rd

@@ -2,7 +2,7 @@ $BUILT 2014-02-27 18:35:25
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH All for one, one for all
-
+$HINT_ENGLISH Patience and practice.  Time to step up the difficulty!
 #SIZE_X 640
 #SIZE_Y 830
 #TORUS_X 0

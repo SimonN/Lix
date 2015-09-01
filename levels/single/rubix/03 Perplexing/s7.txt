@@ -2,7 +2,7 @@ $BUILT 2014-02-27 21:14:16
 $AUTHOR Rubix
 $GERMAN 
 $ENGLISH Please send down a rope?
-
+$HINT_ENGLISH Its all in how you start
 #SIZE_X 640
 #SIZE_Y 920
 #TORUS_X 0

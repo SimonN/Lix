@@ -1,8 +1,10 @@
-$BUILT 2014-06-04 10:11:00
+$BUILT 2015-08-22 19:29:08
 $AUTHOR Rubix
 $GERMAN 
-$ENGLISH Overexposure
-$HINT_ENGLISH Welcome to Rubix's Adventure!
+$ENGLISH The End
+
+$HINT_ENGLISH Success. The portal has transported us back to our own universe!<br>The friends you met are shocked to see the truthwas told.<br>They decide to stay.  The beach is more beautiful here without a rock blocking the view :)  <br><br>Congratulations.  *THE END*
+
 #SIZE_X 640
 #SIZE_Y 400
 #TORUS_X 0
@@ -14,23 +16,13 @@ $HINT_ENGLISH Welcome to Rubix's Adventure!
 #BACKGROUND_BLUE 255
 
 #SECONDS 0
-#INITIAL 30
+#INITIAL 56
 #REQUIRED 5
 #SPAWN_INTERVAL 33
 #SPAWN_INTERVAL_FAST 4
 
 #BASHER 5
 #DIGGER 5
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
-#NOTHING 0
 
 :matt/beach/decor/sun.D: -23 -23
 
