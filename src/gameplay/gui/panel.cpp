@@ -179,6 +179,7 @@ void GameplayPanel::set_gapamode_and_hints(const GapaMode m, const int hs)
         rate_fixed    .hide();
         pause      .hide();
         zoom       .hide();
+        speed_back .hide();
         speed_ahead.hide();
         speed_fast .hide();
         state_save .hide();
