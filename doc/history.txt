@@ -7,6 +7,63 @@
 
 2015-08-09
 
+    This version has identical physics to the previous release. These
+    versions can play a networked game together, and exchange replays.
+
+    Please pay attention to your existing hotkeys. The framestepping
+    buttons, as described in the first item below, add three new hotkeys.
+    Their default mappings are on the number row. Check out the ingame
+    hotkeys in the options menu. Please remap your keys as appropriate.
+
+    Framestepping buttons
+        The ingame panel features different buttons now. You can advance and
+        take back individual frames in singleplayer games and replays.
+
+        They can be used in two ways: A normal function, accessible with the
+        left mouse button and a hotkey, and an amplified function, accessible
+        with the right mouse button and a secondary hotkey. The amplified
+        function is always a stronger version of the normal function.
+
+        Spawn interval buttons have the same left/right-click interface.
+        A right click sets the spawn interval to the minimum/maximum.
+
+    Amanda's forest tileset
+        Amanda (NaOH) has designed a new forest tileset. Many thanks
+        for this artistic set! It resides in images/amanda/forest/.
+
+    Rubix's level pack
+        Rubix has included a 6th rank in his single player pack.
+
+    Bugfix: Spawn interval button flickering
+        The text on the spawn-interval-changing buttons won't flicker anymore.
+
+    Bugfix: Hint buttons were garbled
+        They're now looking properly again, and still replace the zoom button.
+        I should think of a solution for this missing button sometime, in
+        levels that feature hints.
+
+    Bugfix: Replay cancels on skill selection
+        When the game is replaying something, you can cancel the game by
+        pressing a skill hotkey, or by clicking a skill button with the mouse.
+
+    Highlight next file after deletion
+        In the large browsers, when you delete a file, the browser will now
+        highlight the next file. It won't reset the highlighting to nothing.
+
+    Digger looks better
+        The digging hammer is now striped black and orange. The hammer bursts
+        into pieces upon hitting steel and flies through the air, much like a
+        pickaxe.
+
+    Better-looking hatches
+        The hut hatch from Matt's Earth tileset looks much better when
+        floating in mid-air now. Hatch001 from my own directory has a
+        granite texture.
+
+
+
+2015-08-09
+
     Snappier terrain removal
         Basher, miner, and digger all remove terrin in a single frame during
         their animation. This prevents mid-stroke cancelling and basher
@@ -24,8 +81,7 @@
         Clam has updated many of his singleplayer levels.
 
     Many more changes
-        I will document these later. If you like details right now,
-        look at my github commit log:
+        Look at my github commit log:
 
         https://github.com/SimonN/Lix/commits/master
 
