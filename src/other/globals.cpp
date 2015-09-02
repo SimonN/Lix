@@ -15,7 +15,7 @@
 
 Globals* gloB(0);
 
-const unsigned long Globals::version       (CONCAT(2015, 09, 01, 00));
+const unsigned long Globals::version       (CONCAT(2015, 09, 02, 00));
 const unsigned long Globals::version_min   (CONCAT(2015, 08, 09, 00));
 const bool          Globals::version_stable(true);
 

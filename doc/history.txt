@@ -5,7 +5,43 @@
 
 
 
-2015-08-09
+2015-09-02
+
+    Bugfix: Flickering framestepping button
+        In multiplayer, one of the framestepping buttons was not properly
+        hidden, and could be activated with its hotkey. That paused the game,
+        which is not possible otherwise in multiplayer. Button is hidden now.
+
+    Fennec hatch by geoo
+        There's a new hatch, images/geoo/sandstone/fennec.H.
+
+    Framestepping: 10 seconds ahead
+        The secondary function of the button to framestep ahead is now
+        to skip 10 seconds instead of 1 second. Reasoning: You could wait
+        one second anyway, or use fast-forward. Even though you can queue
+        builders and don't have to chain them every 10 seconds, skipping
+        10 seconds is useful for many other precise long skips.
+
+    Default screen settings
+        Windowed mode is the default mode on a fresh installation.
+        Fullscreen mode takes by default the user's desktop resolution
+        instead of 640 x 480.
+
+    Bugfix: Dates and checkmarks
+        Level metadata is correctly initialized with a zero date now.
+        This prevents strange "?!" icons even though a level has been solved,
+        when the level doesn't specify the date when it was built/modified.
+
+    Hints are hidden on level restart
+
+    Bugfix: Button down
+        When a two-tasks-button like the framestepping buttons is activated
+        with its secondary hotkey, it appears pressed down, like when it's
+        activated with its primary hotkey.
+
+
+
+2015-09-01
 
     This version has identical physics to the previous release. These
     versions can play a networked game together, and exchange replays.
