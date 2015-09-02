@@ -36,7 +36,7 @@ void TwoTasksButton::check_whether_to_appear_down()
     if (is_mouse_here())
         if (hardware.get_mlh() || hardware.get_mrh())
             set_down();
-    if (hardware.key_hold(get_hotkey()))
+    if (hardware.key_hold(get_hotkey()) || hardware.key_hold(hotkey_right))
         set_down();
 }
 
