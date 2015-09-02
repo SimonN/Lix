@@ -809,8 +809,8 @@ void Language::set(const Language lang)
         // Faehigkeits-Fenster
         win_skill_title               = "Skill Settings";
         win_skill_clear               = "Clear all";
-        win_skill_classic_8_to        = "Adjust classic 8 to:";
-        win_skill_all_to              = "Adjust all:";
+        win_skill_classic_8_to        = "Classic 8 to:";
+        win_skill_all_to              = "Adjust all skills to:";
         win_skill_use_fling           = "Use knockback exploder";
 
         // Exporting a level into a file
@@ -1311,8 +1311,8 @@ eb[Editor::ADD_HAZARD]
         // Faehigkeits-Fenster
         win_skill_title               = "Fähigkeits-Einstellungen";
         win_skill_clear               = "Alle löschen";
-        win_skill_classic_8_to        = "Klassische 8 ändern:";
-        win_skill_all_to              = "Alle ändern:";
+        win_skill_classic_8_to        = "Klass. 8 auf:";
+        win_skill_all_to              = "Alle Fähigkeiten auf:";
         win_skill_use_fling           = "Rückstoß-Explodierer";
 
         // Exporting a level into a file

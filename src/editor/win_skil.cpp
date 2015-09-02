@@ -32,8 +32,8 @@ WindowSkill::WindowSkill(Level& l)
     sbwb (useR->skill_sort.size()),
 
     clear      (x_a,  this_yl - 40, xl_a),
-    classic8_to(x_b,  this_yl - 70, xl_b),
-    all_to     (x_a2, this_yl - 40, xl_a),
+    classic8_to(x_a2, this_yl - 40, xl_a),
+    all_to     (x_b,  this_yl - 70, xl_b),
     all_to_n   (x_b,  this_yl - 40, xl_b, 3, -1, LixEn::skill_nr_max, 0, true),
 
     use_fling     (20, this_yl - 70),
