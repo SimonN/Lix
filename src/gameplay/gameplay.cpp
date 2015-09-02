@@ -19,7 +19,7 @@ const int Gameplay::block_d =  8; // nach unten
 // continue for 10 minutes in verifier mode before the gameplay aborts
 const int      Gameplay::updates_before_run_forever   = 15*60*10;
 const unsigned Gameplay::updates_to_skip_singleplayer = 30;
-const unsigned Gameplay::seconds_skipped_on_speed_slow_right = 1;
+const unsigned Gameplay::seconds_skipped_on_speed_slow_right = 10;
 
 
 

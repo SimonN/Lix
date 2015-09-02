@@ -714,7 +714,7 @@ void Language::set(const Language lang)
         gameplay_zoom                 = "Zoom into the level.";
         gameplay_left_right_click     = "Left/right click:";
         gameplay_speed_back           = "Back by 1 frame/1 second.";
-        gameplay_speed_ahead          = "Ahead by 1 frame/1 second.";
+        gameplay_speed_ahead          = "Ahead by 1 frame/10 seconds.";
         gameplay_speed_fast           = "fast/turbo-fast forward.";
         gameplay_state_save           = "Quicksave the current game position.";
         gameplay_state_load           = "Load the previously quicksaved position.";
@@ -948,7 +948,7 @@ void Language::set(const Language lang)
         option_key_speed_back_one     = "-1 frame";
         option_key_speed_back_many    = "-1 second";
         option_key_speed_ahead_one    = "+1 frame";
-        option_key_speed_ahead_many   = "+1 second";
+        option_key_speed_ahead_many   = "+10 sec.";
         option_key_speed_fast         = "Fast forw.";
         option_key_speed_turbo        = "Turbo speed";
         option_key_restart            = "Restart";
@@ -1217,7 +1217,7 @@ eb[Editor::ADD_HAZARD]
         gameplay_zoom                 = "Level-Zoom an- oder ausschalten.";
         gameplay_left_right_click     = "Links-/Rechtsklick:";
         gameplay_speed_back           = "1 Bild/1 Sekunde zurück.";
-        gameplay_speed_ahead          = "1 Bild/1 Sekunde vor.";
+        gameplay_speed_ahead          = "1 Bild/10 Sekunden vor.";
         gameplay_speed_fast           = "schneller Vorlauf/Turbo.";
         gameplay_state_save           = "Aktuellen Spielstand schnellspeichern.";
         gameplay_state_load           = "Den schnellgespeicherten Spielstand laden.";
@@ -1455,7 +1455,7 @@ eb[Editor::ADD_HAZARD]
         option_key_speed_back_one     = "-1 Bild";
         option_key_speed_back_many    = "-1 Sekunde";
         option_key_speed_ahead_one    = "+1 Bild";
-        option_key_speed_ahead_many   = "+1 Sekunde";
+        option_key_speed_ahead_many   = "+10 Sek.";
         option_key_speed_fast         = "Schneller";
         option_key_speed_turbo        = "Turbo";
         option_key_restart            = "Neustart";
