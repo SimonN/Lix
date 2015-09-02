@@ -134,6 +134,7 @@ private:
     void calc_window(); // Fuers Unterfenster, ansonsten:
     void calc_self  (); // Wird sonst in jedem Tick ausgeführt
     void calc_active(); // "Aktiv" == kein Replay abzuspielen
+    void restart_level();
     void load_state (const GameState&);
     void write_outcome_to_console();
 

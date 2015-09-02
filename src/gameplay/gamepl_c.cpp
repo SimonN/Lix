@@ -61,10 +61,7 @@ void Gameplay::calc_window()
             break;
 
         case Api::WindowGameplay::RESTART:
-            save_result();
-            replay.erase_early_singleplayer_nukes();
-            load_state(state_manager.get_zero());
-            pan.set_speed(GameplayPanel::SPEED_NORMAL);
+            restart_level();
             break;
 
         default:
@@ -366,10 +363,7 @@ void Gameplay::calc_self()
         }
         // Neustart
         else if (pan.restart.get_clicked()) {
-            save_result();
-            replay.erase_early_singleplayer_nukes();
-            pan.set_speed(GameplayPanel::SPEED_NORMAL);
-            load_state(state_manager.get_zero());
+            restart_level();
         }
 
         // Switch the spectator's panel to a different tribe's skillset
@@ -491,6 +485,17 @@ void Gameplay::calc_self()
 // ############################################################################
 // ############################################################################
 // ############################################################################
+
+
+
+void Gameplay::restart_level()
+{
+    save_result();
+    replay.erase_early_singleplayer_nukes();
+    load_state(state_manager.get_zero());
+    pan.set_speed(GameplayPanel::SPEED_NORMAL);
+    pan.set_hint_cur(0); // remove shown hints (displays tutorial if present)
+}
 
 
 
