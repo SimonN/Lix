@@ -353,13 +353,22 @@ void Gameplay::calc_self()
         }
         else if (pan.speed_fast.get_execute_left()) {
             if (pan.speed_fast.get_on())
-                 pan.set_speed(GameplayPanel::SPEED_NORMAL);
-            else pan.set_speed(GameplayPanel::SPEED_FAST);
+                pan.set_speed(GameplayPanel::SPEED_NORMAL);
+            else
+                pan.set_speed(GameplayPanel::SPEED_FAST);
         }
         else if (pan.speed_fast.get_execute_right()) {
-            if (pan.speed_fast.get_on())
-                 pan.set_speed(GameplayPanel::SPEED_NORMAL);
-            else pan.set_speed(GameplayPanel::SPEED_TURBO);
+            // We frequently want to switch from fast to turbo.
+            // But from turbo, we never want to switch to fast. So, the
+            // cancelling behavior is asymmetric between fast and turbo.
+            if (pan.speed_fast.get_on()
+                && pan.get_speed() == GameplayPanel::SPEED_TURBO
+            ) {
+                pan.set_speed(GameplayPanel::SPEED_NORMAL);
+            }
+            else {
+                pan.set_speed(GameplayPanel::SPEED_TURBO);
+            }
         }
         // Neustart
         else if (pan.restart.get_clicked()) {
