@@ -30,6 +30,10 @@ static bool        signal_received = false;
 
 #ifdef __unix__
     static bool    kill_daemon(::pid_t);
+
+    // Macro to discard return values of a function returning int.
+    // static_cast <void> (func()) was not acceptable for this by g++ 4.8.4.
+    #define IGNORE_RETURN_VALUE(func) if (func) { }
 #endif
 
 
@@ -130,8 +134,8 @@ int daemonize(const std::string& argument_lockfilename)
     // Close all file descriptors and reopen them as /dev/null
 	for (int i = ::getdtablesize(); i >= 0; --i) ::close(i);
     int i = ::open("/dev/null", O_RDWR); // stdin
-    static_cast <void> (::dup(i)); // stdout, ignore return value
-    static_cast <void> (::dup(i)); // stderr, ignore return value
+    IGNORE_RETURN_VALUE(::dup(i)); // stdout
+    IGNORE_RETURN_VALUE(::dup(i)); // stderr
 
     return 0;
 
