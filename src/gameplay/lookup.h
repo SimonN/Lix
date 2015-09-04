@@ -14,6 +14,7 @@
 #pragma once
 
 #include <vector>
+#include <queue>
 
 #include "../other/help.h"
 
@@ -22,6 +23,33 @@ class Lookup {
 public:
 
     typedef short LoNr; // this is at least 2 bytes long
+
+    enum ReqType {
+        RM,
+        ADD,
+        REQ_MAX
+    };
+
+
+private:
+
+    enum GeomType {
+        PX,
+        RECT,
+        GEOM_MAX
+    };
+
+    struct DrawRequest {
+        GeomType gt;
+        ReqType rt;
+        int x, y, xl, yl;
+        LoNr lonr;
+
+        DrawRequest(GeomType, ReqType, int, int, int, int, LoNr);
+    };
+
+
+public:
 
     static const LoNr bit_terrain;
     static const LoNr bit_steel;
@@ -61,11 +89,14 @@ public:
     //                       x,   y,   xl,  yl,  bit &
     void rm                 (int, int,           LoNr);
     void add                (int, int,           LoNr);
+    void rm_rectangle       (int, int, int, int, LoNr);
     void add_rectangle      (int, int, int, int, LoNr);
-    void set_solid          (int, int);
-    void set_solid_rectangle(int, int, int, int);
-    void set_air            (int, int);
-    void set_air_rectangle  (int, int, int, int);
+
+    // instead of calling the above directly, it's also possible
+    // to buffer requests and process them in one batch
+    void queue_px_request(ReqType, int, int, LoNr);
+    void queue_rect_request(ReqType, int, int, int, int, LoNr);
+    void process_queue();
 
 private:
 
@@ -76,6 +107,8 @@ private:
     bool torus_y;
 
     std::vector <LoNr> lt; // lookup table, row, row, row, row, ...
+
+    std::queue <DrawRequest> draw_request_queue; 
 
     inline const LoNr& get_at(int x, int y) const   { return lt[y * xl + x]; }
     inline void        add_at(int x, int y, LoNr n) { lt[y * xl + x] |= n;   }
@@ -106,5 +139,6 @@ private:
         amend(x, y);
         return true;
     }
+
 
 };

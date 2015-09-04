@@ -320,7 +320,7 @@ void Gameplay::update_cs_once()
         }
     }
 
-
+    cs.lookup.process_queue();
 
 
 

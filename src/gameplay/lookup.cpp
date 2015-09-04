@@ -54,7 +54,9 @@ int  Lookup::get_rectangle_at(int x, int y, int xr, int yr, LoNr n) const
 {
     int count = 0;
     for  (int ix = x; ix < xr; ++ix)
-     for (int iy = y; iy < yr; ++iy) if (get_at(ix, iy) & n) ++count;
+        for (int iy = y; iy < yr; ++iy)
+            if (get_at(ix, iy) & n)
+                ++count;
     return count;
 }
 
@@ -64,7 +66,8 @@ int  Lookup::get_rectangle_at(int x, int y, int xr, int yr, LoNr n) const
 void Lookup::add_rectangle_at(int x, int y, int xr, int yr, LoNr n)
 {
     for  (int ix = x; ix < xr; ++ix)
-     for (int iy = y; iy < yr; ++iy) add_at(ix, iy, n);
+        for (int iy = y; iy < yr; ++iy)
+            add_at(ix, iy, n);
 }
 
 
@@ -133,6 +136,55 @@ bool Lookup::get_steel(int x, int y) const
 //    int  get_steel_rectangle(int, int, int, int) const;
 
 
+Lookup::DrawRequest::DrawRequest(GeomType gt, ReqType rt, 
+      int x, int y, int xl, int yl, LoNr lonr)
+:
+    gt(gt), rt(rt),
+    x(x), y(y), xl(xl), yl(yl),
+    lonr(lonr)
+{
+}
+
+
+
+void Lookup::queue_rect_request(ReqType rt,
+      int x, int y, int xl, int yl, LoNr lonr)
+{
+    draw_request_queue.push(DrawRequest(Lookup::RECT, rt, x, y, xl, yl, lonr));
+}
+
+
+
+void Lookup::queue_px_request(ReqType rt, int x, int y, LoNr lonr)
+{
+    draw_request_queue.push(DrawRequest(Lookup::PX, rt, x, y, 0, 0, lonr));
+}
+
+
+void Lookup::process_queue()
+{
+    while (!draw_request_queue.empty()) {
+        DrawRequest r = draw_request_queue.front();
+        if (r.gt == RECT) {
+            if (r.rt == RM) {
+                rm_rectangle(r.x, r.y, r.xl, r.yl, r.lonr);
+            }
+            else {
+                add_rectangle(r.x, r.y, r.xl, r.yl, r.lonr);
+            }
+        }
+        else {
+            if (r.rt == RM) {
+                rm(r.x, r.y, r.lonr);
+            }
+            else {
+                add(r.x, r.y, r.lonr);
+            }
+        }
+        draw_request_queue.pop();
+    }
+}
+
 
 void Lookup::rm(int x, int y, LoNr n)
 {
@@ -149,37 +201,21 @@ void Lookup::add(int x, int y, LoNr n)
 }
 
 
-
+// This is not safe against out of bounds errors
 void Lookup::add_rectangle(int x, int y, int xr, int yr, LoNr n)
 {
     for  (int ix = 0; ix < xr; ++ix)
-     for (int iy = 0; iy < yr; ++iy) add(x + ix, y + iy, n);
+        for (int iy = 0; iy < yr; ++iy)
+            add(x + ix, y + iy, n);
 }
 
-
-
-void Lookup::set_solid(int x, int y)
+// This is not safe against out of bounds errors
+void Lookup::rm_rectangle(int x, int y, int xr, int yr, LoNr n)
 {
-    if (! amend_if_inside(x, y)) return;
-    add_at(x, y, bit_terrain);
+    for  (int ix = 0; ix < xr; ++ix)
+        for (int iy = 0; iy < yr; ++iy)
+            rm(x + ix, y + iy, n);
 }
-
-
-
-void Lookup::set_solid_rectangle(int x, int y, int xr, int yr)
-{
-    add_rectangle(x, y, xr, yr, bit_terrain);
-}
-
-
-
-void Lookup::set_air(int x, int y)
-{
-    if (! amend_if_inside(x, y))  return;
-    if (get_at(x, y) & bit_steel) return;
-    rm_at(x, y, bit_terrain);
-}
-
 
 
 //    void Lookup::save_as_bitmap()

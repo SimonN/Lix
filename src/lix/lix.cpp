@@ -209,7 +209,7 @@ void Lixxie::add_land(const int px, const int py, const AlCol col) {
 
 void Lixxie::add_land_absolute(const int x, const int y, const AlCol col) {
     land->set_pixel(x, y, col);
-    lookup->add    (x, y, Lookup::bit_terrain);
+    lookup->queue_px_request(Lookup::ADD, x, y, Lookup::bit_terrain);
 }
 
 bool Lixxie::is_solid(int px, int py) {
@@ -277,7 +277,8 @@ bool Lixxie::remove_pixel(int px, int py)
 
     // Abbaubare Landschaft?
     if (! get_steel(px, py) && is_solid(px, py)) {
-        lookup->rm     (ex + px * dir, ey + py, Lookup::bit_terrain);
+        lookup->queue_px_request(Lookup::RM, 
+              ex + px * dir, ey + py, Lookup::bit_terrain);
         land->set_pixel(ex + px * dir, ey + py, color[COL_PINK]);
         return false;
     }
@@ -291,7 +292,7 @@ bool Lixxie::remove_pixel(int px, int py)
 void Lixxie::remove_pixel_absolute(int x, int y)
 {
     if (!get_steel_absolute(x, y) && lookup->get_solid(x, y)) {
-        lookup->rm(x, y, Lookup::bit_terrain);
+        lookup->queue_px_request(Lookup::RM, x, y, Lookup::bit_terrain);
         land->set_pixel(x, y, color[COL_PINK]);
     }
 }
