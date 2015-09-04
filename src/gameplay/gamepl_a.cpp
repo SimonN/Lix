@@ -254,10 +254,6 @@ if (priority > 1 && priority < 99999) {
                     skill_visible->set_number(skill_visible->get_number() - 1);
                     Sound::play_loud(snd);
                 }
-
-                // assign
-                pan.pause.set_off();
-
                 Replay::Data data = new_replay_data();
                 data.action       = only_dir_l ? Replay::ASSIGN_LEFT
                                   : only_dir_r ? Replay::ASSIGN_RIGHT
@@ -266,12 +262,19 @@ if (priority > 1 && priority < 99999) {
                 data.what         = lem_id;
                 replay.add(data);
                 Network::send_replay_data(data);
+
+                // Assign shouldn't disable pause. Nonetheless, we advance
+                // one frame, to provide feedback. See Gameplay.calc_self()
+                // and think about why we can safely do it here
+                if (pan.pause.get_on())
+                    update();
             }
             else {
                 Sound::play_loud(Sound::PANEL_EMPTY);
             }
         }
-
+        else if (hardware.get_ml() && pan.pause.get_on())
+            update();
     }
     // end of: mouse in the playing field, no aiming
 

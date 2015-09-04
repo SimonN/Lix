@@ -4,6 +4,14 @@
 \_____________________________________________________________________________/
 
 
+
+2016-06-02
+
+    During pause, physics advance by 1 frame when you click into the air
+    or assign a skill.
+
+
+
 2016-01-31
 
     Replay verifier can convert and overwrite.
