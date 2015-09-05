@@ -44,8 +44,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
     l.record_encounters();
 
     // Exploder-Dinge separat!
-    if (l.get_updates_since_bomb() > 0) {
-        l.inc_updates_since_bomb();
+    if (l.exploder_scheduled()) {
 
         // updates to trigger the explosion: 76, not 75.
 
@@ -54,39 +53,40 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
         // so 0->1->2 happens during the same update.
         // Instant exploders in singleplayer are realized by setting
         // updates_since_bomb to 75 and have this function increment it to 76.
-        const int upd_for_bomb = cs.tribes.size() > 1 ?
-            (Lixxie::updates_for_bomb + 1) : 2;
 
-        // Exploder a la L2 mit Knockback und sofortigem Tod
-        if (l.get_updates_since_bomb() >= upd_for_bomb
-            && l.get_exploder_knockback()
-        ) {
-            // Der Wert -6 (etwas ueber Fusshoehe) stammt aus L2-Screenshots
-            make_knockback_explosion(ua.st.update, l.get_tribe(),
-             ua.id, l.get_ex(), l.get_ey() - 6);
-            l.play_sound(ua, Sound::POP);
-            l.set_ac(LixEn::NOTHING);
-            --l.get_tribe().lix_out;
-            return;
-            // Death, don't do anything else now
-        }
-        // Normaler Exploder
-        else if (l.get_updates_since_bomb() >= upd_for_bomb)
-        {
-            l.set_updates_since_bomb(0);
-            // Ascender are already inside the wall. The climber should
-            // also explode inside the wall, and therefore we move it inside.
-            // Without an exploder anim, this isn't necessary for the visuals.
-            // We still do it to preserve compatibility with older replays.
-            if (l.get_ac() == LixEn::CLIMBER)  l.move_ahead(2);
-            // Always explode instantly -- this is done in the exploder's
-            // update function, which we enter immediately here after
-            // the top-level 'if'
-            l.become(LixEn::EXPLODER);
+        // exploders die instantly now.
+        if (l.about_to_explode(ua)) {
+            // Exploder2 a la L2 mit Knockback
+            if (l.get_exploder_knockback()) {
+                // The value -6 (slightly above foot) is from L2 screen shots
+                make_knockback_explosion(ua.st.update, l.get_tribe(),
+                      ua.id, l.get_ex(), l.get_ey() - 6);
+                l.play_sound(ua, Sound::POP);
+                l.set_ac(LixEn::NOTHING);
+                --l.get_tribe().lix_out;
+                // Death, don't do anything else now
+                return;
+            }
+        
+            // Normaler Imploder
+            else {
+                l.set_updates_since_bomb(0);
+                // Ascenders are already inside the wall. The climber should
+                // also explode inside the wall, and therefore we move it
+                // inside. Without an exploder anim, this isn't necessary for
+                // the visuals. We still do it to preserve compatibility with
+                // older replays.
+                if (l.get_ac() == LixEn::CLIMBER)  l.move_ahead(2);
+                // Always explode instantly -- this is done in the exploder's
+                // update function, which we enter immediately here after
+                // the top-level 'if'
+                l.become(LixEn::EXPLODER);
+            }
         }
         // Fuse still visible -- this can only be entered when
         // upd_for_bomb is higher than 2
         else {
+            l.inc_updates_since_bomb();
             if (l.get_leaving()) {
                 // Make it burn down faster if the lix is going to be dead
                 // anyway without exploding

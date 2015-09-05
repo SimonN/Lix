@@ -11,6 +11,7 @@
 #include "../graphic/sound.h"
 #include "../other/user.h"
 
+
 void Gameplay::update()
 {
     // Noch schnell die Replaydaten mit der eingestellten Rate fertig machen:
@@ -286,24 +287,84 @@ void Gameplay::update_cs_once()
         }
     }
 
-
-
     // Lixen updaten
     UpdateArgs ua(cs);
 
-    // Erster Durchlauf: Nur die Arbeitstiere bearbeiten und markieren!
+
+    // Only process batters and exploder2s
+    // when something is about to happen wiht them
     for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
         for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
-            if (i->get_ac() > LixEn::WALKER) {
+            if (i->about_to_bat() || i->about_to_explode(ua)) {
                 ua.id = i - t->lixvec.begin();
                 i->mark();
                 update_lix(*i, ua);
             }
-            // Sonst eine vorhandene Markierung ggf. entfernen
+            // ensure everyone else is unmarked
             else i->unmark();
         }
     }
-    // Zweiter Durchlauf: Unmarkierte bearbeiten
+
+
+
+    // Everyone affected should become a tumbler, to be processed later
+    if (Lixxie::get_any_new_flingers()) {
+        for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
+            for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
+                if (i->get_fling_new()) {
+                    finally_fling(*i);
+                }
+            }
+        }
+    }
+
+
+    // Process blockers
+    for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
+        for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
+            if (i->get_ac() == LixEn::BLOCKER) {
+                ua.id = i - t->lixvec.begin();
+                i->mark();
+                update_lix(*i, ua);
+            }
+        }
+    }
+
+
+    // Process terrain removers (exploder2 has already been processed)
+    for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
+        for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
+            if (i->get_ac() == LixEn::BASHER
+                      || i->get_ac() == LixEn::MINER
+                      || i->get_ac() == LixEn::DIGGER
+                      || i->get_ac() == LixEn::EXPLODER) {
+                ua.id = i - t->lixvec.begin();
+                i->mark();
+                update_lix(*i, ua);
+            }
+        }
+    }
+
+    cs.lookup.process_queue();
+
+
+    // Process terrain adders
+    for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
+        for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
+            if (i->get_ac() == LixEn::BUILDER
+                      || i->get_ac() == LixEn::PLATFORMER
+                      || i->get_ac() == LixEn::CUBER) {
+                ua.id = i - t->lixvec.begin();
+                i->mark();
+                update_lix(*i, ua);
+            }
+        }
+    }
+
+    cs.lookup.process_queue();
+
+
+    // Process everyone else now who's still unmarked
     for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t) {
         for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
             if (!i->get_mark()) {
@@ -312,15 +373,6 @@ void Gameplay::update_cs_once()
             }
         }
     }
-    // Third pass (if necessary): finally becoming flingers
-    if (Lixxie::get_any_new_flingers()) {
-        for (Tribe::It t = cs.tribes.begin(); t != cs.tribes.end(); ++t)
-         for (LixIt i = t->lixvec.begin(); i != t->lixvec.end(); ++i) {
-            if (i->get_fling_new()) finally_fling(*i);
-        }
-    }
-
-    cs.lookup.process_queue();
 
 
 

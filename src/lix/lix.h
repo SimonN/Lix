@@ -373,6 +373,10 @@ public:
     inline void         set_foot_encounters(Lookup::LoNr n) { enc_foot = n; }
            void         record_encounters();
 
+           bool about_to_bat();
+           bool about_to_explode(const UpdateArgs&);
+           bool exploder_scheduled();
+
            void assclk        (const LixEn::Ac);
            void become        (const LixEn::Ac);
            void become_default(const LixEn::Ac);

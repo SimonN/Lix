@@ -56,3 +56,15 @@ void update_exploder(Lixxie& l, const UpdateArgs& ua)
 
     l.become(LixEn::NOTHING); // kill it
 }
+
+
+bool Lixxie::exploder_scheduled() {
+    return (get_updates_since_bomb() > 0);
+}
+
+
+bool Lixxie::about_to_explode(const UpdateArgs& ua) {
+    const int upd_for_bomb = 
+          ua.st.tribes.size() > 1 ? Lixxie::updates_for_bomb : 1;
+    return (get_updates_since_bomb() >= upd_for_bomb);
+}

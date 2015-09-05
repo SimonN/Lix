@@ -52,11 +52,17 @@ bool fling_all_in_rectangle(
 
 void update_batter(Lixxie& l, const UpdateArgs& ua)
 {
+    // We need to call about_to_bat before the change of the frame.
+    // Otherwise its behaviour would be inconsistent with the call in 
+    // update_cs_once, where it determines when the schedule the batter
+    // for update.
+    bool do_bat = l.about_to_bat();
+
     if      (!l.is_solid())     l.become(LixEn::FALLER);
     else if (l.is_last_frame()) l.become(LixEn::WALKER);
     else                        l.next_frame();
 
-    if (l.get_ac() == LixEn::BATTER && l.get_frame() == 3) {
+    if (do_bat) {
         // the fun batting forward
         bool someone_was_hit = fling_all_in_rectangle(ua,
             l.get_ex() + 6 * l.get_dir(), l.get_ey() - 4, 4,
@@ -66,4 +72,10 @@ void update_batter(Lixxie& l, const UpdateArgs& ua)
         else                 l.play_sound_if_trlo(ua, Sound::BATTER_MISS);
     }
 
+}
+
+
+bool Lixxie::about_to_bat()
+{
+    return (get_ac() == LixEn::BATTER && get_frame() == 2);
 }
