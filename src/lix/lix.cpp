@@ -25,6 +25,10 @@ const int Lixxie::distance_safe_fall   = 126;
 const int Lixxie::distance_float       =  60;
 const int Lixxie::updates_for_bomb     =  75;
 
+const char Lixxie::BLOCKER_LEFT      =  0x01;
+const char Lixxie::BLOCKER_RIGHT     =  0x02;
+const char Lixxie::BLOCKER_TURNED    =  0x04;
+
 
 
 // Dies wird hier nur standardkonstruiert, load_all_bitmaps() fuellt es auf.
@@ -137,10 +141,15 @@ void Lixxie::set_ey(const int n) {
 
 void Lixxie::move_ahead(int plus_x)
 {
-    plus_x = Help::even(plus_x);
-    plus_x *= dir;
-    for ( ; plus_x > 0; plus_x -= 2) set_ex(ex + 2);
-    for ( ; plus_x < 0; plus_x += 2) set_ex(ex - 2);
+    // don't allow movement if caught between two blockers
+    if (get_blockerturned(BLOCKER_LEFT | BLOCKER_RIGHT)
+          != (BLOCKER_LEFT | BLOCKER_RIGHT))
+    {
+        plus_x = Help::even(plus_x);
+        plus_x *= dir;
+        for ( ; plus_x > 0; plus_x -= 2) set_ex(ex + 2);
+        for ( ; plus_x < 0; plus_x += 2) set_ex(ex - 2);
+    }
 }
 
 void Lixxie::move_down(int plus_y)

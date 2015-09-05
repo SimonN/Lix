@@ -264,6 +264,10 @@ public:
     static const int distance_float;
     static const int updates_for_bomb;
 
+    static const char BLOCKER_LEFT;   // in left forcefield
+    static const char BLOCKER_RIGHT;  // in right forcefield 
+    static const char BLOCKER_TURNED; // already got turned this update
+
     Lixxie(Tribe* = 0, int = 0, int = 0); // tribe == 0 ? NOTHING : FALLER
     ~Lixxie();
 
@@ -279,9 +283,9 @@ public:
     inline void mark()     { marked = true;  }
     inline void unmark()   { marked = false; }
 
-    inline bool get_blockerturned()     { return blockerturned;  }
-    inline void set_blockerturned()     { blockerturned = true;  }
-    inline void clear_blockerturned()   { blockerturned = false; }
+    inline char get_blockerturned  (char c = ~0) { return blockerturned & c; }
+    inline void set_blockerturned  (char c)      { blockerturned |= c; }
+    inline void clear_blockerturned(char c = ~0) { blockerturned &= ~c; }
 
     inline Tribe&     get_tribe() const { return *tribe; }
     inline LixEn::Style get_style() const { return style;   }
