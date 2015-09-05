@@ -228,6 +228,7 @@ private:
 
     Tribe* tribe;
     char   marked;
+    char   blockerturned; // has been affected by a blocker this update
 
     int  ex;
     int  ey;
@@ -277,6 +278,10 @@ public:
     inline bool get_mark() { return marked;  }
     inline void mark()     { marked = true;  }
     inline void unmark()   { marked = false; }
+
+    inline bool get_blockerturned()     { return blockerturned;  }
+    inline void set_blockerturned()     { blockerturned = true;  }
+    inline void clear_blockerturned()   { blockerturned = false; }
 
     inline Tribe&     get_tribe() const { return *tribe; }
     inline LixEn::Style get_style() const { return style;   }

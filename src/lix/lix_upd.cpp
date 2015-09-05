@@ -37,8 +37,13 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
 {
     if (l.get_ac() == LixEn::NOTHING) return;
 
-    l.set_no_encounters();
+    // allow a blocker to turn this lix. 
+    // as all blockers are updated in one batch (see Gameplay::update_cs_once),
+    // doing it here has the same effect as doing it for everyone at the
+    // beginning of each update
+    l.clear_blockerturned();
 
+    l.set_no_encounters();
     // record encounters at the current position. This fixes the bug where
     // you could block in front of exits after stunners got up.
     l.record_encounters();
@@ -246,7 +251,10 @@ void Gameplay::update_lix_blocker(Lixxie& l)
                 if ((i->get_dir() > 0 && dx > 0)
                  || (i->get_dir() < 0 && dx < 0))
                 {
-                    i->turn();
+                    if (!i->get_blockerturned()) {
+                        i->turn();
+                        i->set_blockerturned();
+                    }
                     // Platformer drehten sonst um, hoeren auf, drehen erneut
                     if (i->get_ac() == LixEn::PLATFORMER) {
                         i->become(LixEn::SHRUGGER2);
