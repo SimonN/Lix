@@ -78,7 +78,7 @@ void update_walker(Lixxie& l, const UpdateArgs& ua)
 
 
 
-static bool handle_wall_or_pit_here(Lixxie& l)
+static bool handle_wall_here(Lixxie& l)
 {
     bool turn_after_all = false;
 
@@ -93,10 +93,17 @@ static bool handle_wall_or_pit_here(Lixxie& l)
         else if (up_by >=  6) l.become(LixEn::ASCENDER);
         else                  l.move_up(up_by);
     }
-    // Ende von "Boden unter den Füßen"
+
+    return turn_after_all;
+}
+
+
+
+static bool handle_pit_here(Lixxie& l) {
+    bool fall_down = false;
 
     // Kein Boden? Dann hinunter gehen oder zu fallen beginnen
-    else {
+    if (!l.is_solid() && !l.is_solid(0, 1)) {
         int moved_down_by = 0;
         for (int i = 3; i < 11; ++i) {
             if (!l.is_solid()) {
@@ -106,16 +113,13 @@ static bool handle_wall_or_pit_here(Lixxie& l)
             else break;
         }
         if (l.is_solid()) {
-            // Bei zu starker Steigung umdrehen
-            if (l.solid_wall_height(0) == 11) {
-                turn_after_all = true;
-            }
             // Don't move that far back up as the check about 10 lines further
             // down that reads very similar in its block
-            else if (moved_down_by > 6) {
+            if (moved_down_by > 6) {
                 l.move_up(4);
                 l.become(LixEn::FALLER);
                 l.set_special_x(moved_down_by - 4);
+                fall_down = true;
             }
         }
         else {
@@ -123,15 +127,12 @@ static bool handle_wall_or_pit_here(Lixxie& l)
             l.move_up(6);
             l.become(LixEn::FALLER);
             l.set_special_x(2);
+            fall_down = true;
         }
     }
 
-    return turn_after_all;
+    return fall_down;
 }
-
-
-
-
 
 
 
@@ -151,6 +152,12 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
     const Lookup::LoNr old_enc_foot = l.get_foot_encounters();
     const Lookup::LoNr old_enc_body = l.get_body_encounters();
 
+    bool fall_down = handle_pit_here(l);
+
+    if (fall_down) {
+        return;
+    }
+
     // Das erste Frame dient zur kurzen Pause, die die Lix vor dem
     // Weiterlaufen machen soll, wenn die Walker-Faehigkeit vom Benutzer
     // explizit zugewiesen wird. Dieses Frame darf im normalen Walker-
@@ -158,7 +165,7 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
     // Also true for runners.
     if (l.get_frame() != 0) l.move_ahead();
 
-    bool turn_after_all = handle_wall_or_pit_here(l);
+    bool turn_after_all = handle_wall_here(l);
 
     // Wenn die Lix umdrehen soll, beginnt sie entweder zu klettern
     // oder dreht um, beides auf ihrer alten Stelle
@@ -187,8 +194,14 @@ void update_walker_or_runner(Lixxie& l, const UpdateArgs& ua)
             l.turn();
             // this new check will take care of the bugs around 2012-02,
             // the lix didn't ascend or fall when caught in 2-pixel gaps.
-            handle_wall_or_pit_here(l);
+            bool in_wall = handle_wall_here(l);
+            if (!in_wall) {
+                handle_pit_here(l);
+            }
         }
+    }
+    else {
+        handle_pit_here(l);
     }
     // Ende der Umdrehen-Kontrolle
 }
