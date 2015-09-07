@@ -54,9 +54,14 @@ void update_ascender(Lixxie& l, const UpdateArgs& ua)
 {
     ua.suppress_unused_variable_warning();
 
-    // normally, move up once, but not on the last frame
-    if (l.get_frame() != 5) l.move_up();
+    if (! l.is_solid(0, 1) && ! l.is_solid(0, 2)) {
+        l.become(LixEn::FALLER);
+    }
+    else {
+        // normally, move up once, but not on the last frame
+        if (l.get_frame() != 5) l.move_up();
 
-    if (l.is_last_frame()) l.become(LixEn::WALKER);
-    else l.next_frame();
+        if (l.is_last_frame()) l.become(LixEn::WALKER);
+        else l.next_frame();
+    }
 }
