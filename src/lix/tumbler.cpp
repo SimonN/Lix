@@ -5,6 +5,8 @@
 
 #include "ac.h"
 
+void tumbler_frame_selection(Lixxie&);
+
 void become_tumbler(Lixxie& l)
 {
     if (l.is_solid(0, 0)) {
@@ -45,6 +47,8 @@ void become_tumbler(Lixxie& l)
         l.set_special_x(old_spx);
         l.set_special_y(old_spy);
     }
+
+    tumbler_frame_selection(l);
 }
 
 

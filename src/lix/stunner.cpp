@@ -13,9 +13,9 @@ void update_stunner(Lixxie& l, const UpdateArgs& ua)
     // ist vom Walker-Heruntergehen kopiert, aber wir messen nicht allzu
     // weit nach unten. Stattdessen soll lieber ein Tumbler mit wenig
     // Y-Beschleunigung erzeugt werden.
-    // Waehrend einigen der ersten Frames liegt der Stunner nicht auf
+    // Waehrend des ersten Frames liegt der Stunner nicht auf
     // dem Boden, in dem Fall wird auch keine Fallpruefung durchgefuehrt.
-    if (l.get_frame() > 5) {
+    if (l.get_frame() > 0) {
         int moved_down_by = 0;
         for (int i = 3; i < 7; ++i) {
             if (!l.is_solid()) {
