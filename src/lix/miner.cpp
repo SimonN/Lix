@@ -135,6 +135,7 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
     case 21:
     case 22:
     case 23:
+    case -1: // case -1 == case 23, it's when miner has just been assigned
         downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
         done_mining = (l.get_special_y() > MAX_GAP_DEPTH) || !l.is_solid();
         break;
