@@ -115,6 +115,7 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
     case 2:
     case 3:
     case 4:
+    case 5:
         // like in frame 5 we allow one extra pixel for lowering the miner.
         downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH + 1);
         done_mining = (l.get_special_y() > MAX_GAP_DEPTH + 1) || !l.is_solid();
@@ -134,12 +135,11 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
     case 21:
     case 22:
     case 23:
-    case  0:
         downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
         done_mining = (l.get_special_y() > MAX_GAP_DEPTH) || !l.is_solid();
         break;
 
-    case 5:
+    case  0:
         // for the next 4 columns of pixels, check if the terrain under the
         // future position of the lix is solid.
         // We have to use l.get_special_y() - j because the lix might have
@@ -153,8 +153,8 @@ void update_miner(Lixxie& l, const UpdateArgs& ua)
                 l.set_special_x(l.get_special_x() | (1 << j));
             }
         }
-        downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH + 1);
-        done_mining = (l.get_special_y() > MAX_GAP_DEPTH + 1) || !l.is_solid();
+        downwards_movement_this_frame = move_miner_down(l, MAX_GAP_DEPTH);
+        done_mining = (l.get_special_y() > MAX_GAP_DEPTH) || !l.is_solid();
         break;
 
     case 6:
