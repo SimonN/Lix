@@ -46,6 +46,7 @@ Lixxie::Lixxie(
                         new_ey             - LixEn::ey_offset),
     tribe              (new_tribe),
     marked             (0),
+    blockerturned      (0),
     dir                (1),
     special_x          (0),
     special_y          (0),
@@ -286,7 +287,7 @@ bool Lixxie::remove_pixel(int px, int py)
 
     // Abbaubare Landschaft?
     if (! get_steel(px, py) && is_solid(px, py)) {
-        lookup->queue_px_request(Lookup::RM, 
+        lookup->queue_px_request(Lookup::RM,
               ex + px * dir, ey + py, Lookup::bit_terrain);
         land->set_pixel(ex + px * dir, ey + py, color[COL_PINK]);
         return false;
