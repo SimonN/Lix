@@ -34,6 +34,16 @@ int read_two_bytes_levelbi(std::ifstream& file)
     return 256 * c1 + c2;
 }
 
+int read_two_bytes_use_only_second_byte_levelbi(std::ifstream& file)
+{
+    // The description by rt is off in some cases. It instructs to read
+    // a two-byte number, when sometimes, we want to discard the big byte.
+    unsigned char c;
+    c = read_one_byte_levelbi(file); // discard this byte
+    c = read_one_byte_levelbi(file); // use this byte
+    return c;
+}
+
 std::string read_level_name_bytes(std::ifstream&);
 
 
@@ -82,7 +92,7 @@ void Level::load_from_binary(const Filename& filename)
             case 6: ac = LixEn::MINER;    break; // 0x0014 ...
             case 7: ac = LixEn::DIGGER;   break; // 0x0016 und 17
         }
-        skills[ac] = read_two_bytes_levelbi(file);
+        skills[ac] = read_two_bytes_use_only_second_byte_levelbi(file);
         // skill slots with 0 skills will be culled in the finalize function
 
         legacy_ac_vec.push_back(ac);
@@ -115,7 +125,7 @@ void Level::load_from_binary(const Filename& filename)
     // 		    0x0003 is pillar,0x0004 is crystal, 0x0005 is brick,
     // 		    0x0006 is rock, 0x0007 is snow and 0x0008 is bubble.
     // Bei mir zusaetzlich: 0x0009 is holiday
-    int graphics_set = read_two_bytes_levelbi(file);
+    int graphics_set = read_two_bytes_use_only_second_byte_levelbi(file);
 
     // ORIGHACK: Bei Levels aus den Verzeichnissen zu ONML oder Holiday
     // entsprechend um 5 erhoehen bzw. auf 9 setzen.
@@ -127,7 +137,7 @@ void Level::load_from_binary(const Filename& filename)
 
     // BYTES 0x001C to 0x001D
     // Extended Graphic Set: corresponds to VGASPEC?.DAT
-    int spec_graphics = read_two_bytes_levelbi(file);
+    int spec_graphics = read_two_bytes_use_only_second_byte_levelbi(file);
     if (spec_graphics != 0) {
         Pos ter;
         ter.x = 304;
