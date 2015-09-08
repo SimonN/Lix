@@ -54,14 +54,47 @@ void update_ascender(Lixxie& l, const UpdateArgs& ua)
 {
     ua.suppress_unused_variable_warning();
 
-    if (! l.is_solid(0, 1) && ! l.is_solid(0, 2)) {
+    // normally, move up once, but not on the last frame
+    if (l.get_frame() != 5) l.move_up();
+
+    bool change_to_walker = false;
+
+    if (l.is_last_frame()) change_to_walker = true;
+    else l.next_frame();
+
+    // compute distance to hoist point based on current frame
+    int distance_to_top = 0;
+    if (l.get_frame() < 5) {
+        distance_to_top = 2 * (5 - l.get_frame());
+    } 
+    
+    // check from hoist point downwards for terrain
+    int air_at_top = 0;
+    while (air_at_top <= distance_to_top
+          && ! l.is_solid(0, -distance_to_top + 1 + air_at_top) 
+          && ! l.is_solid(0, -distance_to_top + 2 + air_at_top))
+    {
+        air_at_top += 2;
+    }
+
+    if (air_at_top > distance_to_top) {
+        // no terrain at all between ascender and hoist point
+        change_to_walker = false;
         l.become(LixEn::FALLER);
     }
-    else {
-        // normally, move up once, but not on the last frame
-        if (l.get_frame() != 5) l.move_up();
+    else if (air_at_top > 0) {
+        // advance frame by air_at_top and thus set hoist point 
+        // down by air_at_top
+        l.set_frame(l.get_frame() + air_at_top/2);
 
-        if (l.is_last_frame()) l.become(LixEn::WALKER);
-        else l.next_frame();
+        if (! l.is_solid(0, 1)) {
+            // then (0, 2) is solid and we move the lix down 1 px
+            l.move_down(1);
+        }
     }
+
+    if (change_to_walker) {
+        l.become(LixEn::WALKER);
+    }
+
 }
