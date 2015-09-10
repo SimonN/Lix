@@ -66,7 +66,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
                 // Death, don't do anything else now
                 return;
             }
-        
+
             // Normaler Imploder
             else {
                 l.set_updates_since_bomb(0);
@@ -229,7 +229,7 @@ void Gameplay::update_lix(Lixxie& l, const UpdateArgs& ua)
         return;
     }
 
-    // allow a blocker to turn this lix for the next update. 
+    // allow a blocker to turn this lix for the next update.
     // as all blockers are updated in one batch (see Gameplay::update_cs_once),
     // doing it here has the same effect as doing it for everyone at the
     // beginning of each update
@@ -247,27 +247,23 @@ void Gameplay::update_lix_blocker(Lixxie& l)
             const int dx = map.distance_x(i->get_ex(), l.get_ex());
             const int dy = map.distance_y(i->get_ey(), l.get_ey());
             // check that the lix is within the blocker force field
-            if (dx > - block_s && dx < block_s
-             && dy > - block_d && dy < block_u) {
-                if ((i->get_dir() > 0 && dx > 0)
-                      || (i->get_dir() < 0 && dx < 0))
-                {
-                    // don't turn if already turned
+            if (   dx > - block_s && dx < block_s
+                && dy > - block_d && dy < block_u
+            ) {
+                if (   (i->get_dir() > 0 && dx > 0)
+                    || (i->get_dir() < 0 && dx < 0)
+                ) {
+                    // don't turn if already turned during this physics update
                     if (!i->get_blockerturned(Lixxie::BLOCKER_TURNED)) {
                         i->turn();
                         i->set_blockerturned(Lixxie::BLOCKER_TURNED);
                     }
-                    // Platformer drehten sonst um, hoeren auf, drehen erneut
-                    if (i->get_ac() == LixEn::PLATFORMER) {
-                        i->become(LixEn::SHRUGGER2);
-                        i->set_frame(9);
-                    }
                 }
                 // which direction does the forcefield push towards?
-                char dir_bit = dx < 0 ? 
+                char dir_bit = dx < 0 ?
                       Lixxie::BLOCKER_LEFT : Lixxie::BLOCKER_RIGHT;
                 // mark that the lix is in such a forcefield
-                // regardless of whether it actually turned the lix
+                // regardless of whether the field has actually turned the lix
                 i->set_blockerturned(dir_bit);
             }
         }
