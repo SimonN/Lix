@@ -158,6 +158,9 @@ void GameplayStats::PanelTribe::draw_local(
         cnt << ' ';
         str += LixEn::ac_to_string(tarinf->get_ac());
         Help::string_to_nice_case(str);
+        // remove the 2 from Shrugger2
+        if (! str.empty() && str[str.size() - 1] == '2')
+            str = str.substr(0, str.size() - 1);
         if (tarcnt > 1 && Language::get() != Language::GERMAN) str += 's';
         str = cnt.str() + str;
         if (tarinf->get_runner()
