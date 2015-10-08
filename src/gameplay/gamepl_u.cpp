@@ -333,7 +333,8 @@ void Gameplay::update_cs_once()
     for (TrigIt i = cs.trampoline.begin(); i != cs.trampoline.end(); ++i)
                                                                 i->animate();
 
-    state_manager.calc_save_auto(cs);
+    if (verify_mode == INTERACTIVE_MODE)
+        state_manager.calc_save_auto(cs);
 }
 // Ende update_once
 
