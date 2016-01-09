@@ -110,6 +110,7 @@ public:
     // add_sound     spielt laut ab, falls Tribe& == trlo, sonst leise.
     // add_sound_qui spielt immer leise ab und nutzt dieselbe Effektmenge.
     // add_sound_if_ spielt laut ab, wenn Tribe == trlo, sonst gar nicht.
+    void add_arrow_but_dont_draw_it_now(Uint, const Tribe&, Uint);
     void add_arrow        (Uint, const Tribe&, Uint, const Arrow&);
     void add_explosion    (Uint, const Tribe&, Uint, int, int);
     void add_implosion    (Uint, const Tribe&, Uint, int, int);

@@ -239,6 +239,9 @@ if (priority > 1 && priority < 99999) {
                                 ->get_skill()).sound_assign;
                 effect.add_sound(cs.update + 1, *trlo, lem_id, snd);
 
+                effect.add_arrow_but_dont_draw_it_now(cs.update + 1, *trlo,
+                    lem_id); // so framestepping doesn't draw it again
+
                 // Die sichtbare Zahl hinabsetzen geschieht nur fuer's Auge,
                 // in Wirklichkeit geschieht dies erst beim Update. Das Augen-
                 // spielzeug verabreichen wir allerdings nur, wenn nicht z.B.

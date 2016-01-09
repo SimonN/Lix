@@ -136,6 +136,7 @@ private:
     void calc_active(); // "Aktiv" == kein Replay abzuspielen
     void restart_level();
     void load_state (const GameState&);
+    void load_state_dont_delete_effects(const GameState&);
     void write_outcome_to_console();
 
     // Update-Subroutinen

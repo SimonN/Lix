@@ -508,15 +508,25 @@ void Gameplay::restart_level()
 
 
 
+void Gameplay::load_state_dont_delete_effects(const GameState& state)
+{
+    if (state) {
+        cs = state;
+        replaying = cs.update < replay.get_max_updates();
+        if (trlo) pan.set_like_tribe(trlo);
+        for (HatchIt i = hatches.begin(); i != hatches.end(); ++i)
+         i->animate(effect, cs.update);
+    }
+}
+
+
+
 void Gameplay::load_state(const GameState& state)
 {
     if (state) {
         cs = state;
-        // Replay nicht laden, sondern das derzeitige ab dort abspielen
         replaying = cs.update < replay.get_max_updates();
-        // Panel aktualisieren
         if (trlo) pan.set_like_tribe(trlo);
-        // Sauberputzen
         effect.delete_after(cs.update);
         for (HatchIt i = hatches.begin(); i != hatches.end(); ++i)
          i->animate(effect, cs.update);

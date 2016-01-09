@@ -105,10 +105,11 @@ void Gameplay::go_back_updates(const int go_back_by)
     if (static_cast <unsigned long> (go_back_by) < cs.update)
         target_upd = cs.update - go_back_by;
 
-    load_state(state_manager.get_auto(target_upd + 1));
+    load_state_dont_delete_effects(state_manager.get_auto(target_upd+1));
     while (cs.update < target_upd)
         update_cs_once();
 
+    effect.delete_after(cs.update);
     finalize_update_and_animate_gadgets();
 }
 

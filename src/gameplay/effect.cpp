@@ -13,8 +13,12 @@
 #include "../other/user.h"
 #include "../other/language.h"
 
-const int EffectManager::max_updates_history = 15 * 10;
-const int EffectManager::pickaxe_y_frame     =       0;
+// Hack: using a really large value to ensure we never delete old effects,
+// because that would kill framestepping. We had before:
+// const int EffectManager::max_updates_history = 15 * 10;
+const int EffectManager::max_updates_history = 0x7FFFFFFF;
+
+const int EffectManager::pickaxe_y_frame = 0;
 
 static const int dig_hammer_y_frame_1 = 4;
 static const int dig_hammer_y_frames  = 3;
@@ -46,6 +50,14 @@ void EffectManager::add_arrow
     if (arrow.find(effect) == arrow.end()) {
         arrow.insert(effect);
         obj_arrow.push_back(a);
+    }
+}
+void EffectManager::add_arrow_but_dont_draw_it_now
+(const unsigned u, const Tribe& t, const unsigned l)
+{
+    Effect effect(u, &t, l);
+    if (arrow.find(effect) == arrow.end()) {
+        arrow.insert(effect);
     }
 }
 

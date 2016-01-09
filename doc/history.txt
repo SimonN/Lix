@@ -5,6 +5,60 @@
 
 
 
+2016-01-09
+
+    This is a bugfix-only release. Physics should be the same as before:
+    All versions since 2015-08-09 should have identical physics.
+
+    Bugfix: Too many effects generated during framestepping
+
+        Assume you have assigned an exploder/imploder in 1-player, and the
+        game has progressed a few frames past the explosion. If you now
+        frame-step backwards, in a few frames right after the explosion,
+        explosion effects will be created each frame you step back."
+
+        Skip back several times, and sounds/arrows/explosions would appear
+        every time you go back a frame.
+
+    Replay verifier: 5x as fast
+
+        We don't save auto-savestates anymore during noninteractive replay
+        verification. They were inaccessible, useless, and slowed things down.
+
+    Fast-forward click handling
+
+        As NaOH has described on lemmingsforums:
+
+        If the turbo button is down, it should be as easy as possible to stop
+        turbo mode. In particular, looking at the turbo button down, it would
+        make sense that clicking on it should deactivate it.
+
+        On the other hand, it might make sense to want to speed up ffwd->turbo
+        with a single click, if one tentatively enables ffwd mode and then
+        becomes impatient.
+
+        So (and this is clearly confusing behaviour), maybe the best would be
+        this set of interactions:
+
+        normal speed, left  click   ->   ffwd
+        normal speed, right click   ->   turbo
+        ffwd  mode  , left  click   ->   normal speed
+        ffwd  mode  , right click   ->   turbo
+        turbo mode  , left  click   ->   normal speed
+        turbo mode  , right click   ->   normal speed
+
+    L1 levels: read 2 bytes, ignore big byte
+
+        Some values in the L1 format were treated as 2 byte values while
+        one of the two bytes should be ignored. Fixed.
+        This especially affects Lemmix levels exported with NeoLemmix.
+
+    Swapped places of the "classic 8" and "modern 12" buttons in the editor.
+
+    Some umlauts in some German tutorial texts.
+
+
+
 2015-09-02
 
     Bugfix: Flickering framestepping button
