@@ -1,5 +1,5 @@
 $BUILT 2015-04-25 20:32:38
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH The Lion, Lix and the Wardrobe
 

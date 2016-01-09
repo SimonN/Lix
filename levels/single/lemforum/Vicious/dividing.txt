@@ -1,5 +1,5 @@
 $BUILT 2014-07-15 21:16:58
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH Dividing Three By Two
 

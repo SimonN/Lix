@@ -1,4 +1,4 @@
-$BUILT 2014-07-01 23:25:25
+$BUILT 2015-06-22 11:37:07
 $AUTHOR geoo
 $GERMAN 
 $ENGLISH Trading and Cooperating
@@ -52,10 +52,10 @@ $ENGLISH Trading and Cooperating
 :geoo/construction/sawblade_medium.F: 144 64
 :geoo/construction/sawblade_medium.F: 846 64
 
-:geoo/construction/trampoline.T: 224 96
-:geoo/construction/trampoline.T: 160 160
-:geoo/construction/trampoline.T: 858 160
-:geoo/construction/trampoline.T: 794 96
+:geoo/construction/trampoline.T: 228 96
+:geoo/construction/trampoline.T: 164 160
+:geoo/construction/trampoline.T: 854 160
+:geoo/construction/trampoline.T: 790 96
 
 :matt/carnival/35: 570 80
 :matt/carnival/34: 634 80

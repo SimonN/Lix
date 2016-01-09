@@ -1,4 +1,4 @@
-$BUILT 2014-08-02 23:00:33
+$BUILT 2015-06-22 12:25:50
 $AUTHOR M. Zurlinden
 $GERMAN 
 $ENGLISH Lixes in Arms
@@ -12,8 +12,8 @@ $ENGLISH Lixes in Arms
 #BACKGROUND_BLUE 0
 
 #SECONDS 0
-#INITIAL 50
-#REQUIRED 45
+#INITIAL 80
+#REQUIRED 75
 #SPAWN_INTERVAL 30
 #SPAWN_INTERVAL_FAST 4
 
@@ -32,7 +32,7 @@ $ENGLISH Lixes in Arms
 
 :matt/bricks/Hatch.H: 304 224
 
-:matt/bricks/Goal.G: 544 264
+:matt/bricks/Goal.G: 544 256
 
 :matt/bricks/17: 112 200 frr
 :matt/bricks/18: 144 320 rrr
@@ -49,11 +49,11 @@ $ENGLISH Lixes in Arms
 :matt/bricks/18: 368 320 rrr
 :matt/bricks/03: 400 264
 :matt/bricks/03: 400 200
-:matt/bricks/18: 480 312 rrr
-:matt/bricks/18: 512 312 rrr
-:matt/bricks/18: 544 312 rrr
-:matt/bricks/18: 576 312 rrr
-:matt/bricks/19: 608 304 rrr
+:matt/bricks/18: 480 304 rrr
+:matt/bricks/18: 512 304 rrr
+:matt/bricks/18: 544 304 rrr
+:matt/bricks/18: 576 304 rrr
+:matt/bricks/19: 608 296 rrr
 :matt/bricks/18: 136 240
 :matt/bricks/18: 136 216
 :matt/bricks/20: 128 200
@@ -92,7 +92,7 @@ $ENGLISH Lixes in Arms
 :matt/bricks/02: 400 392
 :matt/bricks/17: 352 368 frr
 :matt/bricks/17: 488 344
-:matt/bricks/17: 504 328
+:matt/bricks/17: 512 320
 :matt/bricks/18: 552 16
 :matt/bricks/18: 552 48
 :matt/bricks/20: 544 0

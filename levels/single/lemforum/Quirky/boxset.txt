@@ -1,5 +1,5 @@
 $BUILT 2012-06-04 01:38:05
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH Box Set
 

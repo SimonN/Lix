@@ -1,4 +1,4 @@
-$BUILT 2014-05-29 00:27:45
+$BUILT 2015-06-22 12:14:11
 $AUTHOR mobius
 $GERMAN 
 $ENGLISH Narbacular Drop
@@ -131,7 +131,6 @@ $ENGLISH Narbacular Drop
 :matt/earth/28: 652 122
 :matt/earth/00: 491 81 frrd
 :matt/earth/00: 491 232 rrd
-:matt/earth/25: 560 240 n
 :geoo/steel/64x64o.S: 480 92 d
 :geoo/steel/64x64o.S: 481 79 d
 :matt/earth/00: 603 300 rrrd

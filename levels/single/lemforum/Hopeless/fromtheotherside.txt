@@ -1,5 +1,5 @@
 $BUILT 2012-05-29 16:19:45
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH From the Other Side
 

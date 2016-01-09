@@ -1,5 +1,5 @@
 $BUILT 2012-09-08 23:19:17
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH Survival of the Craftiest
 

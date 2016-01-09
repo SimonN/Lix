@@ -1,5 +1,5 @@
 $BUILT 2014-07-12 19:19:06
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH The Crimson Room
 

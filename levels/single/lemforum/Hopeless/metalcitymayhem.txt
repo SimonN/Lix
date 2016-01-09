@@ -1,5 +1,5 @@
 $BUILT 2012-06-16 12:50:53
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH Metal City Mayhem
 

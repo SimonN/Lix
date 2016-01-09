@@ -1,5 +1,5 @@
 $BUILT 2014-01-19 18:12:42
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH Prelude
 

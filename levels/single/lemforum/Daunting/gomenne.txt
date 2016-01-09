@@ -1,5 +1,5 @@
 $BUILT 2014-09-05 16:26:11
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH Gomen ne sunao ja nakute
 

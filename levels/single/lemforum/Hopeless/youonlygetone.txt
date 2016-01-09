@@ -1,5 +1,5 @@
 $BUILT 2014-08-03 00:53:05
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH You Only Get One Bash at It!
 

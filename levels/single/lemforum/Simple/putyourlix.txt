@@ -1,5 +1,5 @@
 $BUILT 2014-07-01 20:40:34
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH Put Your Lix on Ice
 

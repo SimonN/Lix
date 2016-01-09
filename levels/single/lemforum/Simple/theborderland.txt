@@ -1,5 +1,5 @@
 $BUILT 2014-07-02 23:44:16
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH The Borderland
 

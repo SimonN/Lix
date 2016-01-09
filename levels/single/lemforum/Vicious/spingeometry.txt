@@ -1,5 +1,5 @@
-$BUILT 2014-05-28 00:23:09
-$AUTHOR Michael/geoo
+$BUILT 2015-06-22 12:09:59
+$AUTHOR Michael S. Repton/geoo
 $GERMAN 
 $ENGLISH Spin Geometry
 
@@ -13,7 +13,7 @@ $ENGLISH Spin Geometry
 #BACKGROUND_GREEN 0
 #BACKGROUND_BLUE 0
 
-#SECONDS 60
+#SECONDS 0
 #INITIAL 10
 #REQUIRED 8
 #SPAWN_INTERVAL 32
@@ -335,4 +335,4 @@ $ENGLISH Spin Geometry
 :matt/marble/21: 912 384
 :matt/marble/21: 448 384 rrr
 :matt/marble/21: 400 384
-:matt/winter/09b: 672 184
+:matt/winter/09b: 672 182

@@ -1,5 +1,5 @@
 $BUILT                                             2012-04-05 00:46:04
-$AUTHOR                                                   I.S./Michael
+$AUTHOR                                                   I.S./Michael S. Repton
 $GERMAN                                                               
 $ENGLISH                                               Snowball Battle
 

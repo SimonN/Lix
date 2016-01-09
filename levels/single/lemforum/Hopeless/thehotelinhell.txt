@@ -1,5 +1,5 @@
 $BUILT 2014-09-15 17:35:59
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH The Hotel in Hell
 

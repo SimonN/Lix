@@ -1,5 +1,5 @@
 $BUILT 2014-07-05 17:27:01
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH Lix Potion Number Nine
 

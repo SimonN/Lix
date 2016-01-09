@@ -1,5 +1,5 @@
 $BUILT 2015-04-25 20:32:57
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH Yuki, Muon, Madobe Nite
 

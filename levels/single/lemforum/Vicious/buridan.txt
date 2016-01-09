@@ -1,5 +1,5 @@
 $BUILT 2014-06-02 00:24:04
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH Buridan's Lix
 

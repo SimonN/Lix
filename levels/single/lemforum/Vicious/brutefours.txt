@@ -1,5 +1,5 @@
 $BUILT 2013-03-21 02:01:59
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH Brute Fours
 

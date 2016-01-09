@@ -1,5 +1,5 @@
 $BUILT                                             2012-04-08 12:08:12
-$AUTHOR                                                        Michael
+$AUTHOR                                                        Michael S. Repton
 $GERMAN                                                               
 $ENGLISH                                     Charge of the Lix Brigade
 

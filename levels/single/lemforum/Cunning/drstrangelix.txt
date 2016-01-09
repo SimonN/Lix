@@ -1,5 +1,5 @@
 $BUILT 2012-05-29 16:24:03
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH Dr Strangelix
 

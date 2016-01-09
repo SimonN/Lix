@@ -1,5 +1,5 @@
 $BUILT 2014-07-01 20:38:49
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH Diamond Dash
 

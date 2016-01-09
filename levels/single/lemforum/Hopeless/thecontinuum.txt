@@ -1,5 +1,5 @@
 $BUILT 2012-06-04 17:18:03
-$AUTHOR Michael
+$AUTHOR Michael S. Repton
 $GERMAN 
 $ENGLISH The Continuum Hypothesis
 
