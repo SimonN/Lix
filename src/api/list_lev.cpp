@@ -97,7 +97,7 @@ void ListLevel::add_file_button(const int nr, const int which_from_file)
             if      (lev.built.different_from_zero()
                   && result->built     != lev.built)    t->set_check_frame(3);
             else if (result->lix_saved >= lev.required) t->set_check_frame(2);
-            else                                        t->set_check_frame(4);
+            else                                        t->set_check_frame(0);
         }
         else t->set_check_frame(0);
     }

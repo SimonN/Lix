@@ -516,10 +516,9 @@ void Gameplay::save_result()
     // und kurz vor Replay-Ende eingreifen - aber schummeln kann man ohnehin
     // schon durch Bearbeiten der User-Datei.
     // Wandernde soll man nicht aufhalten. :-)
-    // Since 2014-12, we're saving results even if they have less lix than
-    // required, to mark the level as having been looked at.
-    if (! multiplayer && malo->name == gloB->user_name)
-    {
+    if (! multiplayer && malo->name == gloB->user_name
+                      && trlo->lix_saved >= level.required
+    ) {
         useR->set_level_result_carefully(filename,get_result(),level.required);
         useR->save();
     }
