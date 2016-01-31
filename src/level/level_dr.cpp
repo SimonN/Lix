@@ -180,9 +180,10 @@ void Level::export_image(const Filename& filename) const
         spawnstr << spawnint_fast << "-" << spawnint_slow;
     else spawnstr << spawnint_slow;
 
-    Api::LabelTwo info_initial (10,  3, 140);
-    Api::LabelTwo info_spawnint(10, 20, 140);
-    Api::LabelTwo info_clock   (10, 37, 140);
+    const int labelsStartX = skill_button.get_xl() * useR->skill_sort.size();
+    Api::LabelTwo info_initial (10,  3, LEMSCR_X - labelsStartX - 20);
+    Api::LabelTwo info_spawnint(10, 20, LEMSCR_X - labelsStartX - 20);
+    Api::LabelTwo info_clock   (10, 37, LEMSCR_X - labelsStartX - 20);
     info_initial .set_desc(singleplayer ? Language::export_single_lix
                                         : Language::export_multi_lix);
     info_spawnint.set_desc(singleplayer ? Language::export_single_spawnint
@@ -195,7 +196,7 @@ void Level::export_image(const Filename& filename) const
     info_initial .draw();
     info_spawnint.draw();
     info_clock   .draw();
-    osd.draw(canvas, skill_button.get_xl() * useR->skill_sort.size(), size_y);
+    osd.draw(canvas, labelsStartX, size_y);
 
     // Draw torus information, copied from menu/preview.cpp
     Graphic icon_torus(GraLib::get(gloB->file_bitmap_preview_icon), canvas);

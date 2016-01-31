@@ -815,11 +815,11 @@ void Language::set(const Language lang)
 
         // Exporting a level into a file
         export_single_lix             = "Save:";
-        export_single_spawnint        = "Spawn int.:";
+        export_single_spawnint        = "SpawnI:";
         export_single_clock           = "Time:";
         export_multi_lix              = "Lix:";
-        export_multi_spawnint         = "Spawn int.:";
-        export_multi_clock            = "Overtime:";
+        export_multi_spawnint         = "SpawnI:";
+        export_multi_clock            = "Time:";
 
         // Netzwerk-Chatnachrichten
         net_chat_welcome_1            = "You can join the central server, "
@@ -1317,11 +1317,11 @@ eb[Editor::ADD_HAZARD]
 
         // Exporting a level into a file
         export_single_lix             = "Ziel:";
-        export_single_spawnint        = "Fall-Int.:";
+        export_single_spawnint        = "Fall-I.:";
         export_single_clock           = "Zeit:";
         export_multi_lix              = "Lix:";
-        export_multi_spawnint         = "Fall-Int.:";
-        export_multi_clock            = "Nachspielzeit:";
+        export_multi_spawnint         = "Fall-I.:";
+        export_multi_clock            = "Zeit:";
 
         // Netzwerk-Chatnachrichten
         net_chat_welcome_1            = "Verbinde zum Zentralserver, eröffne "
