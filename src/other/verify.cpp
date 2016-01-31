@@ -8,8 +8,9 @@
 
 #include <iostream>
 
-Verifier::Verifier(const Verifier::Vec& v)
+Verifier::Verifier(const Verifier::Vec& v, ConvertAndOverwrite cao)
 :
+    _cao(cao),
     nr_empty_dir(0),
     nr_not_found(0),
     nr_not_naming_level(0),
@@ -21,6 +22,13 @@ Verifier::Verifier(const Verifier::Vec& v)
     std::cout << "Lix version " << Help::version_to_string(gloB->version)
      << " replay verifier, see doc/readme.txt for details"
      << std::endl;
+    if (_cao == yes)
+        std::cout
+            << std::endl
+            << "You have passed --convert-and-overwrite." << std::endl
+            << "This will OVERWRITE ALL *.TXT FILES in the" << std::endl
+            << "--verify=... directories. Keep backups!" << std::endl
+            << std::endl;
 
     std::cout << "Loading bitmaps... " << std::flush;
     load_all_bitmaps(GraLib::LOAD_WITHOUT_RECOLOR_LIX_FOR_SPEED);
@@ -109,6 +117,10 @@ void Verifier::examine_string(const std::string& str)
 
 void Verifier::verify_filename(const Filename& f)
 {
+    if (_cao == yes)
+        convert_and_overwrite(f);
+        // ...and then continue with the normal verification
+
     const std::string f_str = f.get_rootless();
     Replay r(f);
 
@@ -170,5 +182,26 @@ void Verifier::verify_filename(const Filename& f)
         << "," << result.updates_used
         << std::endl;
 
+    delete gameplay;
+}
+
+// This starts with some duplicated code, to test for the conditions where
+// the normal replay verifier would abort.
+void Verifier::convert_and_overwrite(const Filename& f)
+{
+    const std::string f_str = f.get_rootless();
+    Replay r(f);
+    if (r.get_file_not_found())
+        return;
+    if (f == r.get_level_filename())
+        return;
+
+    Level l(r.get_level_filename());
+    if (l.get_status() == Level::BAD_FILE_NOT_FOUND)
+        return;
+
+    std::cout << "Converting: " << f.get_rootless() << std::endl;
+    Gameplay* gameplay = new Gameplay(Gameplay::VERIFY_MODE, &r);
+    gameplay->get_replay().save_to_file(f, 0);
     delete gameplay;
 }

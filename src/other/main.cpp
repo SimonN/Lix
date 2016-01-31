@@ -60,6 +60,7 @@ struct MainArgs {
     int  screen_yl;
     bool suppress_sound_driver;
     std::vector <std::string> replays_to_verify;
+    bool convert_and_overwrite; // for replays
 };
 static MainArgs parse_main_arguments(int, char*[]);
 static void     setenv_allegro_modules();
@@ -171,7 +172,9 @@ int main(int argc, char* argv[])
     else {
         // noninteractive mode that checks replays
         Help::interactive_mode = false;
-        Verifier(margs.replays_to_verify);
+        Verifier(margs.replays_to_verify, margs.convert_and_overwrite
+            ? Verifier::yes
+            : Verifier::no);
     }
 
     Log::deinitialize();
@@ -213,6 +216,9 @@ MainArgs parse_main_arguments(int argc, char *argv[])
         }
         else if (arg.substr(0, 6) == "--help") {
             main_args.print_help_and_exit = true;
+        }
+        else if (arg == "--convert-and-overwrite") {
+            main_args.convert_and_overwrite = true;
         }
         else if (arg.substr(0, 9) == "--verify=") {
             main_args.replays_to_verify.push_back(
@@ -270,7 +276,14 @@ void print_usage()
 << "-o                  suppress loading the sound driver\n"
 << "--gfxmode=MODE      on Windows, suggest a gfx driver, see doc/readme.txt\n"
 << "--verify=file.txt   verify a single replay file, see doc/readme.txt\n"
-<< "--verify=directory  verify all replay files recursively in directory"
+<< "--verify=directory  verify all replay files recursively in directory\n"
+<< "--convert-and-overwrite     ...all to-be-verified replays based on the\n"
+<< "                            skill order in the pointed-to level file.\n"
+<< "                            Good for replays recorded with Lix versions\n"
+<< "                            released before August 2015.\n"
+<< "                            WARNING: This OVERWRITES ALL *.TXT FILES in\n"
+<< "                            your directory, because it assumes they're\n"
+<< "                            replays! This is DANGEROUS! Keep backups!"
 << std::endl;
 }
 

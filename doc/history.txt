@@ -4,6 +4,17 @@
 \_____________________________________________________________________________/
 
 
+2016-01-31
+
+    Replay verifier can convert and overwrite.
+    Run lix --help for instructions
+
+    Level image export: Text won't overflow in the bottom right-hand corner
+
+    Removed circle on visited/failed levels.
+    The failing result isn't even saved to the user file.
+
+
 
 2016-01-09
 
