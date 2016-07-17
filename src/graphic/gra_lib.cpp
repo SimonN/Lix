@@ -256,10 +256,10 @@ void GraLib::recolor_into_vector(
 
 
 void GraLib::add_replace(const std::string& a, const std::string& b) {
-    replace_exact .insert(std::make_pair <std::string, std::string> (a, b));
+    replace_exact .insert(std::make_pair (a, b));
 }
 void GraLib::add_substr_replace(const std::string& a, const std::string& b) {
-    replace_substr.insert(std::make_pair <std::string, std::string> (a, b));
+    replace_substr.insert(std::make_pair (a, b));
 }
 
 
